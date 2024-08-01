@@ -50,7 +50,7 @@ export class MgModal {
   @Prop() dialogRole: DialogRoleType = dialogRoles[0];
   @Watch('dialogRole')
   validateDialogRole(newValue: MgModal['dialogRole']): void {
-    if (!dialogRoles.includes(newValue)) throw new Error(`<mg-modal> prop "dialogRole" must be one of: ${dialogRoles.join(', ')}.`);
+    if (!dialogRoles.includes(newValue)) throw new Error(`<mg-modal> prop "dialogRole" must be one of: ${dialogRoles.join(', ')}. Passed value: ${newValue}.`);
   }
 
   /**
@@ -60,7 +60,7 @@ export class MgModal {
   @Watch('modalTitle')
   validateModalTitle(newValue: MgModal['modalTitle']): void {
     if (!isValidString(newValue)) {
-      throw new Error('<mg-modal> prop "modalTitle" is required.');
+      throw new Error(`<mg-modal> prop "modalTitle" is required. Passed value: ${newValue}.`);
     }
   }
 

@@ -66,7 +66,7 @@ export class MgForm {
   @Watch('requiredMessage')
   validateRequiredMessage(newValue): void {
     if (newValue && !requiredMessageStatus.includes(newValue)) {
-      throw new Error(`<mg-form> prop "requiredMessage" must be one of: ${requiredMessageStatus.join(', ')}.`);
+      throw new Error(`<mg-form> prop "requiredMessage" must be one of: ${requiredMessageStatus.join(', ')}. Passed value: ${newValue}.`);
     }
   }
 
@@ -78,7 +78,7 @@ export class MgForm {
   @Watch('ariaRole')
   validateAriaRole(newValue: MgForm['ariaRole']) {
     if (newValue && !roles.includes(newValue)) {
-      throw new Error(`<mg-form> prop "ariaRole" must be one of: ${roles.join(', ')}.`);
+      throw new Error(`<mg-form> prop "ariaRole" must be one of: ${roles.join(', ')}. Passed value: ${newValue}.`);
     }
   }
 

@@ -30,7 +30,7 @@ export class MgLoader {
   @Prop() message?: string;
   @Watch('message')
   watchMessage(newValue: MgLoader['message']): void {
-    if (newValue && !isValidString(newValue)) throw new Error('<mg-loader> prop "message" must be a valid string.');
+    if (newValue && !isValidString(newValue)) throw new Error(`<mg-loader> prop "message" must be a valid string. Passed value: ${newValue}.`);
   }
 
   /**

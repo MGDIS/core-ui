@@ -5,6 +5,7 @@ import messages from '../../../../../locales/en/messages.json';
 import { localeDate } from '@mgdis/stencil-helpers';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
+import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 const getPage = args => {
   const page = newSpecPage({
@@ -66,7 +67,7 @@ describe('mg-input-date', () => {
     try {
       await getPage({ identifier });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
+      expect(err.message).toEqual(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${identifier}.`);
     }
   });
 
@@ -75,7 +76,7 @@ describe('mg-input-date', () => {
     try {
       await getPage({ identifier: 'identifier', label });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "label" is required.');
+      expect(err.message).toEqual(`<mg-input> prop "label" is required and must be a string. Passed value: ${label}.`);
     }
   });
 
@@ -84,7 +85,7 @@ describe('mg-input-date', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
+      expect(err.message).toEqual('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
     }
   });
 
@@ -93,7 +94,7 @@ describe('mg-input-date', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'label', tooltipPosition });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
+      expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${tooltipPosition}.`);
     }
   });
 
@@ -102,7 +103,7 @@ describe('mg-input-date', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'label', value });
     } catch (err) {
-      expect(err.message).toMatch("<mg-input-date> props 'value' must be a valid string");
+      expect(err.message).toEqual(`<mg-input-date> props 'value' must be a valid string. Passed value: ${value}.`);
     }
   });
 
@@ -431,7 +432,7 @@ describe('mg-input-date', () => {
         ...minMax,
       });
     } catch (err) {
-      expect(err.message).toBe("<mg-input-date> props 'min/max' doesn't match pattern: 'yyyy-mm-dd'.");
+      expect(err.message).toEqual(`<mg-input-date> props 'min/max' doesn't match pattern: 'yyyy-mm-dd'. Passed value: ${minMax.max ?? minMax.min}.`);
     }
   });
 
@@ -491,22 +492,22 @@ describe('mg-input-date', () => {
     {
       valid: '',
       errorMessage: 'Override error',
-      error: '<mg-input-date> method "setError()" param "valid" must be a boolean',
+      error: '<mg-input-date> method "setError()" param "valid" must be a boolean.',
     },
     {
       valid: undefined,
       errorMessage: 'Override error',
-      error: '<mg-input-date> method "setError()" param "valid" must be a boolean',
+      error: '<mg-input-date> method "setError()" param "valid" must be a boolean.',
     },
     {
       valid: true,
       errorMessage: ' ',
-      error: '<mg-input-date> method "setError()" param "errorMessage" must be a string',
+      error: '<mg-input-date> method "setError()" param "errorMessage" must be a string.',
     },
     {
       valid: true,
       errorMessage: true,
-      error: '<mg-input-date> method "setError()" param "errorMessage" must be a string',
+      error: '<mg-input-date> method "setError()" param "errorMessage" must be a string.',
     },
   ])("shloud throw error with setError component's public method invalid params", async params => {
     expect.assertions(1);
@@ -517,7 +518,7 @@ describe('mg-input-date', () => {
       await element.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);
       await page.waitForChanges();
     } catch (err) {
-      expect(err.message).toMatch(params.error);
+      expect(err.message).toEqual(params.error);
     }
   });
 

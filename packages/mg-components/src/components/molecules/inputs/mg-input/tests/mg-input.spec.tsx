@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
-import { classDisabled, classFieldset } from '../mg-input.conf';
+import { classDisabled, classFieldset, tooltipPositions } from '../mg-input.conf';
 
 const baseArgs = {
   label: 'label',
@@ -97,7 +97,7 @@ describe('mg-input', () => {
       try {
         await getPage({ identifier });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
+        expect(err.message).toEqual(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${identifier}.`);
       }
     });
 
@@ -106,7 +106,7 @@ describe('mg-input', () => {
       try {
         await getPage({ label });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "label" is required.');
+        expect(err.message).toEqual(`<mg-input> prop "label" is required and must be a string. Passed value: ${label}.`);
       }
     });
 
@@ -115,7 +115,7 @@ describe('mg-input', () => {
       try {
         await getPage({ tooltipPosition });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: input, label');
+        expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${tooltipPosition}.`);
       }
     });
 
@@ -124,7 +124,7 @@ describe('mg-input', () => {
       try {
         await getPage({ ...baseArgs, labelOnTop: true, labelHide: true });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
+        expect(err.message).toEqual('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
       }
     });
 
@@ -133,7 +133,7 @@ describe('mg-input', () => {
       try {
         await getPage({}, <input type="file"></input>);
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> "identifier" prop has no target for id: identifier. Add an id to the targeted input.');
+        expect(err.message).toEqual('<mg-input> "identifier" prop has no target for id: identifier. Add an id to the targeted input.');
       }
     });
   });

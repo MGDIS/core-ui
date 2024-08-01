@@ -26,7 +26,7 @@ export class MgBadge {
   @Watch('value')
   validateValue(newValue: MgBadge['value']): void {
     if (/^[^A-Z]+$/i.exec(`${newValue}`) === null) {
-      throw new Error('<mg-badge> prop "value" must be integer and/or special character.');
+      throw new Error(`<mg-badge> prop "value" is required and must be integer and/or special character. Passed value: ${newValue}.`);
     }
   }
 
@@ -38,7 +38,7 @@ export class MgBadge {
   @Watch('label')
   validateLabel(newValue: MgBadge['label']): void {
     if (!isValidString(newValue)) {
-      throw new Error('<mg-badge> prop "label" is required.');
+      throw new Error(`<mg-badge> prop "label" is required and must be a string. Passed value: ${newValue}.`);
     }
   }
 
@@ -49,7 +49,7 @@ export class MgBadge {
   @Watch('variant')
   validateVariant(newValue: MgBadge['variant'], oldValue?: MgBadge['variant']): void {
     if (!variants.includes(newValue)) {
-      throw new Error(`<mg-badge> prop "variant" must be one of: ${variants.join(', ')}.`);
+      throw new Error(`<mg-badge> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${newValue}.`);
     } else {
       if (oldValue !== undefined) {
         this.classCollection.delete(`mg-c-badge--${oldValue}`);

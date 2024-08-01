@@ -97,19 +97,28 @@ describe('mg-item-more', () => {
 
   describe('errors', () => {
     test.each([
-      { props: { itemmore: { size: {} } }, error: '<mg-item-more> prop "size" must match MgItemMore[\'size\'] type' },
-      { props: { itemmore: { icon: '' } }, error: '<mg-item-more> prop "icon" must match MgItemMore[\'icon\'] type' },
-      { props: { itemmore: { icon: { icon: undefined } } }, error: '<mg-item-more> prop "icon" must match MgItemMore[\'icon\'] type' },
-      { props: { itemmore: { slotlabel: {} } }, error: '<mg-item-more> prop "slotlabel" must match MgItemMore[\'slotlabel\'] type' },
-      { props: { itemmore: { slotlabel: { label: undefined } } }, error: '<mg-item-more> prop "slotlabel" must match MgItemMore[\'slotlabel\'] type' },
-      { props: { itemmore: { slotlabel: { display: '' } } }, error: '<mg-item-more> prop "slotlabel" must match MgItemMore[\'slotlabel\'] type' },
+      { props: { itemmore: { size: {} } }, error: `<mg-item-more> prop "size" must match MgItemMore[\'size\'] type. Passed value: ${JSON.stringify({})}.` },
+      { props: { itemmore: { icon: '' } }, error: `<mg-item-more> prop "icon" must match MgItemMore[\'icon\'] type. Passed value: \"\".` },
+      {
+        props: { itemmore: { icon: { icon: undefined } } },
+        error: `<mg-item-more> prop "icon" must match MgItemMore[\'icon\'] type. Passed value: ${JSON.stringify({ icon: undefined })}.`,
+      },
+      { props: { itemmore: { slotlabel: {} } }, error: `<mg-item-more> prop "slotlabel" must match MgItemMore[\'slotlabel\'] type. Passed value: ${JSON.stringify({})}.` },
+      {
+        props: { itemmore: { slotlabel: { label: undefined } } },
+        error: `<mg-item-more> prop "slotlabel" must match MgItemMore[\'slotlabel\'] type. Passed value: ${JSON.stringify({ label: undefined })}.`,
+      },
+      {
+        props: { itemmore: { slotlabel: { display: '' } } },
+        error: `<mg-item-more> prop "slotlabel" must match MgItemMore[\'slotlabel\'] type. Passed value: ${JSON.stringify({ display: '' })}.`,
+      },
     ])('should throw an error, case %s', async ({ props, error }) => {
       expect.assertions(1);
 
       try {
         await getPage({ label: 'batman', ...props });
       } catch (err) {
-        expect(err.message).toMatch(error);
+        expect(err.message).toEqual(error);
       }
     });
   });

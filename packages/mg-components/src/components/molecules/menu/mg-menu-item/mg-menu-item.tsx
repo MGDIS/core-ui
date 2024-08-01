@@ -58,7 +58,7 @@ export class MgMenuItem {
   @Watch('target')
   watchTarget(newValue: MgMenuItem['target']): void {
     if (newValue && !targets.includes(newValue)) {
-      throw new Error(`<mg-link> prop "target" must be one of: ${targets.join(', ')}.`);
+      throw new Error(`<mg-link> prop "target" must be one of: ${targets.join(', ')}. Passed value: ${newValue}.`);
     }
   }
 
@@ -81,7 +81,7 @@ export class MgMenuItem {
   @Prop({ mutable: true }) expanded? = false;
   @Watch('expanded')
   validateExpanded(newValue: MgMenuItem['expanded']): void {
-    if (typeof newValue !== 'boolean') throw new Error(`<${this.name}> prop "expanded" must be a boolean.`);
+    if (typeof newValue !== 'boolean') throw new Error(`<${this.name}> prop "expanded" must be a boolean. Passed value: ${newValue}.`);
 
     // if menu-item has sub-menu we have to apply some updates:
     if (this.hasChildren) {

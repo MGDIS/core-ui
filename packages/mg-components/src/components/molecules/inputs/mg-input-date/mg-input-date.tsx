@@ -46,8 +46,8 @@ export class MgInputDate {
 
     // check value validity
     if (newValue && !isValidString(newValue)) {
-      throw new Error("<mg-input-date> props 'value' must be a valid string.");
-    } else if (newValue === null || this.isValidPattern(newValue)) {
+      throw new Error(`<mg-input-date> props 'value' must be a valid string. Passed value: ${newValue}.`);
+    } else if ([null, undefined].includes(newValue) || this.isValidPattern(newValue)) {
       this.valueChange.emit(newValue);
     } else {
       console.error("<mg-input-date> props 'value' doesn't match pattern: 'yyyy-mm-dd'.");
@@ -110,7 +110,7 @@ export class MgInputDate {
   @Watch('max')
   validateMinMax(newValue: string): void {
     if (newValue && !this.isValidPattern(newValue)) {
-      throw new Error("<mg-input-date> props 'min/max' doesn't match pattern: 'yyyy-mm-dd'.");
+      throw new Error(`<mg-input-date> props 'min/max' doesn't match pattern: 'yyyy-mm-dd'. Passed value: ${newValue}.`);
     }
   }
 

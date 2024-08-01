@@ -37,7 +37,9 @@ describe('mg-details', () => {
     try {
       await getPage(args);
     } catch (err) {
-      expect(err.message).toMatch('<mg-details> prop "toggleClosed" and "toggleOpened" must be defined.');
+      expect(err.message).toEqual(
+        `<mg-details> prop "toggleClosed" and "toggleOpened" is required and must be a valid string. Passed value: "toggleClosed='${args.toggleClosed}'" and "toggleOpened='${args.toggleOpened}'".`,
+      );
     }
   });
 

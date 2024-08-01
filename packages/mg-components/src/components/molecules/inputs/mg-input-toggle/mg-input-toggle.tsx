@@ -60,7 +60,7 @@ export class MgInputToggle {
   @Watch('items')
   validateItems(newValue: MgInputToggle['items']): void {
     if (typeof newValue === 'object' && this.items.length !== 2) {
-      throw new Error('<mg-input-toggle> prop "items" require 2 items.');
+      throw new Error(`<mg-input-toggle> prop "items" require 2 items. Passed value: ${JSON.stringify(newValue)}.`);
     }
     // String array
     else if (allItemsAreString(newValue)) {
@@ -70,7 +70,7 @@ export class MgInputToggle {
     else if (Array.isArray(newValue) && newValue.every(isOption)) {
       this.options = newValue;
     } else {
-      throw new Error('<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue.');
+      throw new Error(`<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue. Passed value: ${JSON.stringify(newValue)}.`);
     }
   }
 

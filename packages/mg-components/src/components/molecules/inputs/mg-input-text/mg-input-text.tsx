@@ -138,7 +138,7 @@ export class MgInputText {
   @Watch('datalistoptions')
   validateDatalistoptions(newValue: MgInputText['datalistoptions']) {
     if (Boolean(newValue) && !isDatalistOptions(newValue)) {
-      throw new Error('<mg-input-text> prop "datalistoptions" values must be the same type, string or OptionType.');
+      throw new Error(`<mg-input-text> prop "datalistoptions" values must be the same type, string or OptionType. Passed value: ${JSON.stringify(newValue)}.`);
     }
   }
 
@@ -215,7 +215,9 @@ export class MgInputText {
   @Watch('patternErrorMessage')
   validatePattern(newValue: string): void {
     if (newValue !== undefined && !(isValidString(this.pattern) && isValidString(this.patternErrorMessage))) {
-      throw new Error('<mg-input-text> props "pattern" and "patternErrorMessage" must be non-empty string and paired.');
+      throw new Error(
+        `<mg-input-text> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='${this.pattern}'" and "patternErrorMessage='${this.patternErrorMessage}'".`,
+      );
     }
   }
 

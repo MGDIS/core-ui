@@ -5,6 +5,7 @@ import { SelectOption } from '../mg-input-select.conf';
 import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
+import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 const getPage = args => {
   const page = newSpecPage({
@@ -79,7 +80,7 @@ describe('mg-input-select', () => {
     try {
       await getPage({ identifier, items: ['blu', 'bli', 'blo', 'bla'] });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
+      expect(err.message).toEqual(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${identifier}.`);
     }
   });
 
@@ -88,7 +89,7 @@ describe('mg-input-select', () => {
     try {
       await getPage({ identifier: 'identifier', label, items: ['blu', 'bli', 'blo', 'bla'] });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "label" is required.');
+      expect(err.message).toEqual(`<mg-input> prop "label" is required and must be a string. Passed value: ${label}.`);
     }
   });
 
@@ -97,7 +98,7 @@ describe('mg-input-select', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true, items: ['batman', 'joker'] });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
+      expect(err.message).toEqual('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
     }
   });
 
@@ -106,7 +107,7 @@ describe('mg-input-select', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'label', items: ['batman', 'joker'], tooltipPosition });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
+      expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${tooltipPosition}.`);
     }
   });
 
@@ -117,7 +118,9 @@ describe('mg-input-select', () => {
       try {
         await getPage({ label: 'Label', items });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input-select> prop "items" is required, can be an empty Array or all items must be the same type: string or Option.');
+        expect(err.message).toEqual(
+          `<mg-input-select> prop "items" is required, can be an empty Array or all items must be the same type: string or Option. Passed value: ${JSON.stringify(items)}.`,
+        );
       }
     },
   );
@@ -301,22 +304,22 @@ describe('mg-input-select', () => {
     {
       valid: '',
       errorMessage: 'Override error',
-      error: '<mg-input-select> method "setError()" param "valid" must be a boolean',
+      error: '<mg-input-select> method "setError()" param "valid" must be a boolean.',
     },
     {
       valid: undefined,
       errorMessage: 'Override error',
-      error: '<mg-input-select> method "setError()" param "valid" must be a boolean',
+      error: '<mg-input-select> method "setError()" param "valid" must be a boolean.',
     },
     {
       valid: true,
       errorMessage: ' ',
-      error: '<mg-input-select> method "setError()" param "errorMessage" must be a string',
+      error: '<mg-input-select> method "setError()" param "errorMessage" must be a string.',
     },
     {
       valid: true,
       errorMessage: true,
-      error: '<mg-input-select> method "setError()" param "errorMessage" must be a string',
+      error: '<mg-input-select> method "setError()" param "errorMessage" must be a string.',
     },
   ])("shloud throw error with setError component's public method invalid params", async params => {
     expect.assertions(1);
@@ -327,7 +330,7 @@ describe('mg-input-select', () => {
       await element.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);
       await page.waitForChanges();
     } catch (err) {
-      expect(err.message).toMatch(params.error);
+      expect(err.message).toEqual(params.error);
     }
   });
 

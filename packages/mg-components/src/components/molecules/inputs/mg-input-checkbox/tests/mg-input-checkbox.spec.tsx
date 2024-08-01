@@ -14,6 +14,7 @@ import { MgInputCheckboxPaginated } from '../mg-input-checkbox-paginated/mg-inpu
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { MgInput } from '../../mg-input/mg-input';
+import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 mockWindowFrames();
 
@@ -100,7 +101,7 @@ describe('mg-input-checkbox', () => {
       try {
         await getPage({ identifier, type, value: getValues() });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
+        expect(err.message).toEqual(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${identifier}.`);
       }
     });
 
@@ -109,7 +110,7 @@ describe('mg-input-checkbox', () => {
       try {
         await getPage({ identifier: 'identifier', type, label, value: getValues() });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "label" is required.');
+        expect(err.message).toEqual(`<mg-input> prop "label" is required and must be a string. Passed value: ${label}.`);
       }
     });
 
@@ -118,7 +119,7 @@ describe('mg-input-checkbox', () => {
       try {
         await getPage({ identifier: 'identifier', type, label: 'label', value: getValues(), labelOnTop: true, labelHide: true });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
+        expect(err.message).toEqual('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
       }
     });
 
@@ -127,19 +128,16 @@ describe('mg-input-checkbox', () => {
       try {
         await getPage({ identifier: 'identifier', type, label: 'label', value: getValues(), tooltipPosition });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
+        expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${tooltipPosition}.`);
       }
     });
 
-    test.each([
-      { identifier: 'identifier', type, label: 'label', value: undefined },
-      { identifier: 'identifier', type, label: 'label', value: ['batman', 'joker', 'bane'] },
-    ])('Should not render with invalid value property: %s', async args => {
+    test.each([undefined, ['batman', 'joker', 'bane']])('Should not render with invalid value property: %s', async value => {
       expect.assertions(1);
       try {
-        await getPage(args);
+        await getPage({ identifier: 'identifier', type, label: 'label', value });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem.');
+        expect(err.message).toEqual(`<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem. Passed value: ${JSON.stringify(value)}.`);
       }
     });
 
@@ -262,22 +260,22 @@ describe('mg-input-checkbox', () => {
       {
         valid: '',
         errorMessage: 'Override error',
-        error: '<mg-input-checkbox> method "setError()" param "valid" must be a boolean',
+        error: '<mg-input-checkbox> method "setError()" param "valid" must be a boolean.',
       },
       {
         valid: undefined,
         errorMessage: 'Override error',
-        error: '<mg-input-checkbox> method "setError()" param "valid" must be a boolean',
+        error: '<mg-input-checkbox> method "setError()" param "valid" must be a boolean.',
       },
       {
         valid: true,
         errorMessage: ' ',
-        error: '<mg-input-checkbox> method "setError()" param "errorMessage" must be a string',
+        error: '<mg-input-checkbox> method "setError()" param "errorMessage" must be a string.',
       },
       {
         valid: true,
         errorMessage: true,
-        error: '<mg-input-checkbox> method "setError()" param "errorMessage" must be a string',
+        error: '<mg-input-checkbox> method "setError()" param "errorMessage" must be a string.',
       },
     ])("shloud throw error with setError component's public method invalid params", async params => {
       expect.assertions(1);
@@ -288,7 +286,7 @@ describe('mg-input-checkbox', () => {
         await element.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);
         await page.waitForChanges();
       } catch (err) {
-        expect(err.message).toMatch(params.error);
+        expect(err.message).toEqual(params.error);
       }
     });
 
@@ -568,7 +566,7 @@ describe('mg-input-checkbox', () => {
     try {
       await getPage({ identifier: 'identifier', type, label: 'label', value: getValues() });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-checkbox> prop "type" must be a CheckboxType.');
+      expect(err.message).toEqual(`<mg-input-checkbox> prop "type" must be a CheckboxType. Passed value: ${type}.`);
     }
   });
 

@@ -1,316 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`mg-panel Should render with args {
-  identifier: 'identifier',
-  panelTitle: 'panel title',
-  expandToggleDisplay: 'icon'
-}: 1`] = `
-<mg-panel>
-  <template shadowrootmode="open">
-    <section class="mg-c-panel" id="identifier">
-      <mg-card>
-        <header class="mg-c-panel__header" id="identifier-header">
-          <div class="mg-c-panel__header-title">
-            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <template shadowrootmode="open">
-                <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
-                  <div class="mg-c-button__content">
-                    <slot></slot>
-                  </div>
-                </div>
-              </template>
-              <span class="mg-c-panel__collapse-button-content">
-                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
-              </span>
-            </mg-button>
-          </div>
-          <div class="mg-c-panel__header-content">
-            <slot name="header-right"></slot>
-          </div>
-        </header>
-        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
-          <slot></slot>
-        </article>
-      </mg-card>
-    </section>
-  </template>
-</mg-panel>
-`;
-
-exports[`mg-panel Should render with args {
-  identifier: 'identifier',
-  panelTitle: 'panel title',
-  expandToggleDisplay: 'text'
-}: 1`] = `
-<mg-panel>
-  <template shadowrootmode="open">
-    <section class="mg-c-panel" id="identifier">
-      <mg-card>
-        <header class="mg-c-panel__header" id="identifier-header">
-          <div class="mg-c-panel__header-title">
-            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <template shadowrootmode="open">
-                <div class="mg-c-button mg-c-button--flat">
-                  <div class="mg-c-button__content">
-                    <slot></slot>
-                  </div>
-                </div>
-              </template>
-              <span class="mg-c-panel__collapse-button-content">
-                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
-                panel title
-              </span>
-            </mg-button>
-          </div>
-          <div class="mg-c-panel__header-content">
-            <slot name="header-right"></slot>
-          </div>
-        </header>
-        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
-          <slot></slot>
-        </article>
-      </mg-card>
-    </section>
-  </template>
-</mg-panel>
-`;
-
-exports[`mg-panel Should render with args {
-  identifier: 'identifier',
-  panelTitle: 'panel title',
-  titleEditable: true
-}: 1`] = `
-<mg-panel>
-  <template shadowrootmode="open">
-    <section class="mg-c-panel" id="identifier">
-      <mg-card>
-        <header class="mg-c-panel__header" id="identifier-header">
-          <div class="mg-c-panel__header-title">
-            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <template shadowrootmode="open">
-                <div class="mg-c-button mg-c-button--flat">
-                  <div class="mg-c-button__content">
-                    <slot></slot>
-                  </div>
-                </div>
-              </template>
-              <span class="mg-c-panel__collapse-button-content">
-                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
-                panel title
-              </span>
-            </mg-button>
-            <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <template shadowrootmode="open">
-                <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
-                  <div class="mg-c-button__content">
-                    <slot></slot>
-                  </div>
-                </div>
-              </template>
-              <mg-icon icon="pen"></mg-icon>
-            </mg-button>
-          </div>
-          <div class="mg-c-panel__header-content">
-            <slot name="header-right"></slot>
-          </div>
-        </header>
-        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
-          <slot></slot>
-        </article>
-      </mg-card>
-    </section>
-  </template>
-</mg-panel>
-`;
-
-exports[`mg-panel Should render with args {
-  identifier: 'identifier',
-  panelTitle: 'panel title',
-  titleEditable: true,
-  expandToggleDisplay: 'icon'
-}: 1`] = `
-<mg-panel>
-  <template shadowrootmode="open">
-    <section class="mg-c-panel" id="identifier">
-      <mg-card>
-        <header class="mg-c-panel__header" id="identifier-header">
-          <div class="mg-c-panel__header-title">
-            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <template shadowrootmode="open">
-                <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
-                  <div class="mg-c-button__content">
-                    <slot></slot>
-                  </div>
-                </div>
-              </template>
-              <span class="mg-c-panel__collapse-button-content">
-                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
-              </span>
-            </mg-button>
-          </div>
-          <div class="mg-c-panel__header-content">
-            <slot name="header-right"></slot>
-          </div>
-        </header>
-        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
-          <slot></slot>
-        </article>
-      </mg-card>
-    </section>
-  </template>
-</mg-panel>
-`;
-
-exports[`mg-panel Should render with args {
-  identifier: 'identifier',
-  panelTitle: 'panel title',
-  titleEditable: true,
-  expandToggleDisplay: 'text'
-}: 1`] = `
-<mg-panel>
-  <template shadowrootmode="open">
-    <section class="mg-c-panel" id="identifier">
-      <mg-card>
-        <header class="mg-c-panel__header" id="identifier-header">
-          <div class="mg-c-panel__header-title">
-            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <template shadowrootmode="open">
-                <div class="mg-c-button mg-c-button--flat">
-                  <div class="mg-c-button__content">
-                    <slot></slot>
-                  </div>
-                </div>
-              </template>
-              <span class="mg-c-panel__collapse-button-content">
-                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
-                panel title
-              </span>
-            </mg-button>
-            <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <template shadowrootmode="open">
-                <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
-                  <div class="mg-c-button__content">
-                    <slot></slot>
-                  </div>
-                </div>
-              </template>
-              <mg-icon icon="pen"></mg-icon>
-            </mg-button>
-          </div>
-          <div class="mg-c-panel__header-content">
-            <slot name="header-right"></slot>
-          </div>
-        </header>
-        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
-          <slot></slot>
-        </article>
-      </mg-card>
-    </section>
-  </template>
-</mg-panel>
-`;
-
-exports[`mg-panel Should render with args {
-  identifier: 'identifier',
-  panelTitle: 'panel title',
-  titleEditable: true,
-  lang: 'fr'
-}: 1`] = `
-<mg-panel lang="fr">
-  <template shadowrootmode="open">
-    <section class="mg-c-panel" id="identifier">
-      <mg-card>
-        <header class="mg-c-panel__header" id="identifier-header">
-          <div class="mg-c-panel__header-title">
-            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <template shadowrootmode="open">
-                <div class="mg-c-button mg-c-button--flat">
-                  <div class="mg-c-button__content">
-                    <slot></slot>
-                  </div>
-                </div>
-              </template>
-              <span class="mg-c-panel__collapse-button-content">
-                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
-                panel title
-              </span>
-            </mg-button>
-            <mg-button aria-label="Modifier le titre de la section." is-icon="" role="button" tabindex="0">
-              <template shadowrootmode="open">
-                <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
-                  <div class="mg-c-button__content">
-                    <slot></slot>
-                  </div>
-                </div>
-              </template>
-              <mg-icon icon="pen"></mg-icon>
-            </mg-button>
-          </div>
-          <div class="mg-c-panel__header-content">
-            <slot name="header-right"></slot>
-          </div>
-        </header>
-        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
-          <slot></slot>
-        </article>
-      </mg-card>
-    </section>
-  </template>
-</mg-panel>
-`;
-
-exports[`mg-panel Should render with args {
-  identifier: 'identifier',
-  panelTitle: 'panel title',
-  titleEditable: true,
-  lang: 'xx'
-}: 1`] = `
-<mg-panel lang="xx">
-  <template shadowrootmode="open">
-    <section class="mg-c-panel" id="identifier">
-      <mg-card>
-        <header class="mg-c-panel__header" id="identifier-header">
-          <div class="mg-c-panel__header-title">
-            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <template shadowrootmode="open">
-                <div class="mg-c-button mg-c-button--flat">
-                  <div class="mg-c-button__content">
-                    <slot></slot>
-                  </div>
-                </div>
-              </template>
-              <span class="mg-c-panel__collapse-button-content">
-                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
-                panel title
-              </span>
-            </mg-button>
-            <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <template shadowrootmode="open">
-                <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
-                  <div class="mg-c-button__content">
-                    <slot></slot>
-                  </div>
-                </div>
-              </template>
-              <mg-icon icon="pen"></mg-icon>
-            </mg-button>
-          </div>
-          <div class="mg-c-panel__header-content">
-            <slot name="header-right"></slot>
-          </div>
-        </header>
-        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
-          <slot></slot>
-        </article>
-      </mg-card>
-    </section>
-  </template>
-</mg-panel>
-`;
-
-exports[`mg-panel Should render with args {
-  identifier: 'identifier',
-  panelTitle: 'panel title',
   titleEditable: true,
   titlePattern: /joker/,
   titlePatternErrorMessage: "You can't enter a bad guy !"
@@ -358,11 +48,40 @@ exports[`mg-panel Should render with args {
 </mg-panel>
 `;
 
-exports[`mg-panel Should render with args {
-  identifier: 'identifier',
-  panelTitle: 'panel title',
-  titlePosition: 'left'
-}: 1`] = `
+exports[`mg-panel Should render with args { expandToggleDisplay: 'icon' }: 1`] = `
+<mg-panel>
+  <template shadowrootmode="open">
+    <section class="mg-c-panel" id="identifier">
+      <mg-card>
+        <header class="mg-c-panel__header" id="identifier-header">
+          <div class="mg-c-panel__header-title">
+            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <span class="mg-c-panel__collapse-button-content">
+                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
+              </span>
+            </mg-button>
+          </div>
+          <div class="mg-c-panel__header-content">
+            <slot name="header-right"></slot>
+          </div>
+        </header>
+        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
+          <slot></slot>
+        </article>
+      </mg-card>
+    </section>
+  </template>
+</mg-panel>
+`;
+
+exports[`mg-panel Should render with args { expandToggleDisplay: 'text' }: 1`] = `
 <mg-panel>
   <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
@@ -396,11 +115,284 @@ exports[`mg-panel Should render with args {
 </mg-panel>
 `;
 
-exports[`mg-panel Should render with args {
-  identifier: 'identifier',
-  panelTitle: 'panel title',
-  titlePosition: 'right'
-}: 1`] = `
+exports[`mg-panel Should render with args { expanded: true }: 1`] = `
+<mg-panel>
+  <template shadowrootmode="open">
+    <section class="mg-c-panel" id="identifier">
+      <mg-card>
+        <header class="mg-c-panel__header" id="identifier-header">
+          <div class="mg-c-panel__header-title">
+            <mg-button aria-controls="identifier-content" aria-expanded="true" aria-label="panel title" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <span class="mg-c-panel__collapse-button-content">
+                <mg-icon class="mg-c-panel__collapse-button-icon" icon="chevron-up"></mg-icon>
+                panel title
+              </span>
+            </mg-button>
+          </div>
+          <div class="mg-c-panel__header-content">
+            <slot name="header-right"></slot>
+          </div>
+        </header>
+        <article aria-labelledby="identifier-header" class="mg-c-panel__content" id="identifier-content">
+          <slot></slot>
+        </article>
+      </mg-card>
+    </section>
+  </template>
+</mg-panel>
+`;
+
+exports[`mg-panel Should render with args { titleEditable: true }: 1`] = `
+<mg-panel>
+  <template shadowrootmode="open">
+    <section class="mg-c-panel" id="identifier">
+      <mg-card>
+        <header class="mg-c-panel__header" id="identifier-header">
+          <div class="mg-c-panel__header-title">
+            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <span class="mg-c-panel__collapse-button-content">
+                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
+                panel title
+              </span>
+            </mg-button>
+            <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="pen"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-panel__header-content">
+            <slot name="header-right"></slot>
+          </div>
+        </header>
+        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
+          <slot></slot>
+        </article>
+      </mg-card>
+    </section>
+  </template>
+</mg-panel>
+`;
+
+exports[`mg-panel Should render with args { titleEditable: true, expandToggleDisplay: 'icon' }: 1`] = `
+<mg-panel>
+  <template shadowrootmode="open">
+    <section class="mg-c-panel" id="identifier">
+      <mg-card>
+        <header class="mg-c-panel__header" id="identifier-header">
+          <div class="mg-c-panel__header-title">
+            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <span class="mg-c-panel__collapse-button-content">
+                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
+              </span>
+            </mg-button>
+          </div>
+          <div class="mg-c-panel__header-content">
+            <slot name="header-right"></slot>
+          </div>
+        </header>
+        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
+          <slot></slot>
+        </article>
+      </mg-card>
+    </section>
+  </template>
+</mg-panel>
+`;
+
+exports[`mg-panel Should render with args { titleEditable: true, expandToggleDisplay: 'text' }: 1`] = `
+<mg-panel>
+  <template shadowrootmode="open">
+    <section class="mg-c-panel" id="identifier">
+      <mg-card>
+        <header class="mg-c-panel__header" id="identifier-header">
+          <div class="mg-c-panel__header-title">
+            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <span class="mg-c-panel__collapse-button-content">
+                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
+                panel title
+              </span>
+            </mg-button>
+            <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="pen"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-panel__header-content">
+            <slot name="header-right"></slot>
+          </div>
+        </header>
+        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
+          <slot></slot>
+        </article>
+      </mg-card>
+    </section>
+  </template>
+</mg-panel>
+`;
+
+exports[`mg-panel Should render with args { titleEditable: true, lang: 'fr' }: 1`] = `
+<mg-panel lang="fr">
+  <template shadowrootmode="open">
+    <section class="mg-c-panel" id="identifier">
+      <mg-card>
+        <header class="mg-c-panel__header" id="identifier-header">
+          <div class="mg-c-panel__header-title">
+            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <span class="mg-c-panel__collapse-button-content">
+                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
+                panel title
+              </span>
+            </mg-button>
+            <mg-button aria-label="Modifier le titre de la section." is-icon="" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="pen"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-panel__header-content">
+            <slot name="header-right"></slot>
+          </div>
+        </header>
+        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
+          <slot></slot>
+        </article>
+      </mg-card>
+    </section>
+  </template>
+</mg-panel>
+`;
+
+exports[`mg-panel Should render with args { titleEditable: true, lang: 'xx' }: 1`] = `
+<mg-panel lang="xx">
+  <template shadowrootmode="open">
+    <section class="mg-c-panel" id="identifier">
+      <mg-card>
+        <header class="mg-c-panel__header" id="identifier-header">
+          <div class="mg-c-panel__header-title">
+            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <span class="mg-c-panel__collapse-button-content">
+                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
+                panel title
+              </span>
+            </mg-button>
+            <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="pen"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-panel__header-content">
+            <slot name="header-right"></slot>
+          </div>
+        </header>
+        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
+          <slot></slot>
+        </article>
+      </mg-card>
+    </section>
+  </template>
+</mg-panel>
+`;
+
+exports[`mg-panel Should render with args { titlePosition: 'left' }: 1`] = `
+<mg-panel>
+  <template shadowrootmode="open">
+    <section class="mg-c-panel" id="identifier">
+      <mg-card>
+        <header class="mg-c-panel__header" id="identifier-header">
+          <div class="mg-c-panel__header-title">
+            <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <span class="mg-c-panel__collapse-button-content">
+                <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
+                panel title
+              </span>
+            </mg-button>
+          </div>
+          <div class="mg-c-panel__header-content">
+            <slot name="header-right"></slot>
+          </div>
+        </header>
+        <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
+          <slot></slot>
+        </article>
+      </mg-card>
+    </section>
+  </template>
+</mg-panel>
+`;
+
+exports[`mg-panel Should render with args { titlePosition: 'right' }: 1`] = `
 <mg-panel>
   <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
@@ -434,7 +426,7 @@ exports[`mg-panel Should render with args {
 </mg-panel>
 `;
 
-exports[`mg-panel Should render with args { identifier: 'identifier', panelTitle: 'panel title' }: 1`] = `
+exports[`mg-panel Should render with args {}: 1`] = `
 <mg-panel>
   <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
@@ -460,40 +452,6 @@ exports[`mg-panel Should render with args { identifier: 'identifier', panelTitle
           </div>
         </header>
         <article aria-labelledby="identifier-header" class="mg-c-panel__content" hidden="" id="identifier-content">
-          <slot></slot>
-        </article>
-      </mg-card>
-    </section>
-  </template>
-</mg-panel>
-`;
-
-exports[`mg-panel Should render with args { identifier: 'identifier', panelTitle: 'panel title', expanded: true }: 1`] = `
-<mg-panel>
-  <template shadowrootmode="open">
-    <section class="mg-c-panel" id="identifier">
-      <mg-card>
-        <header class="mg-c-panel__header" id="identifier-header">
-          <div class="mg-c-panel__header-title">
-            <mg-button aria-controls="identifier-content" aria-expanded="true" aria-label="panel title" role="button" tabindex="0">
-              <template shadowrootmode="open">
-                <div class="mg-c-button mg-c-button--flat">
-                  <div class="mg-c-button__content">
-                    <slot></slot>
-                  </div>
-                </div>
-              </template>
-              <span class="mg-c-panel__collapse-button-content">
-                <mg-icon class="mg-c-panel__collapse-button-icon" icon="chevron-up"></mg-icon>
-                panel title
-              </span>
-            </mg-button>
-          </div>
-          <div class="mg-c-panel__header-content">
-            <slot name="header-right"></slot>
-          </div>
-        </header>
-        <article aria-labelledby="identifier-header" class="mg-c-panel__content" id="identifier-content">
           <slot></slot>
         </article>
       </mg-card>

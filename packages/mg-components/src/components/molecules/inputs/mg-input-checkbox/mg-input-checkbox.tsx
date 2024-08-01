@@ -79,7 +79,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       }));
       this.valueChange.emit(newValue);
     } else {
-      throw new Error('<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem.');
+      throw new Error(`<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem. Passed value: ${JSON.stringify(newValue)}.`);
     }
   }
 
@@ -95,7 +95,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Watch('type')
   validateType(newValue: MgInputCheckbox['type']): void {
     if (newValue !== undefined && !checkboxTypes.includes(newValue)) {
-      throw new Error('<mg-input-checkbox> prop "type" must be a CheckboxType.');
+      throw new Error(`<mg-input-checkbox> prop "type" must be a CheckboxType. Passed value: ${newValue}.`);
     } else if (newValue === undefined) {
       this.mode = 'auto';
       this.type = checkboxTypes[0];

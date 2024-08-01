@@ -63,7 +63,7 @@ export class MgInputRadio {
   validateItems(newValue: string[] | RadioOption[]): void {
     // Validate if items have required min length
     if (typeof newValue === 'object' && newValue.length < 2) {
-      throw new Error('<mg-input-radio> prop "items" require at least 2 items.');
+      throw new Error(`<mg-input-radio> prop "items" require at least 2 items. Passed value: ${JSON.stringify(newValue)}.`);
     }
     // String array
     else if (allItemsAreString(newValue as string[])) {
@@ -73,7 +73,7 @@ export class MgInputRadio {
     else if (newValue && (newValue as RadioOption[]).every(item => isOption(item))) {
       this.options = newValue as RadioOption[];
     } else {
-      throw new Error('<mg-input-radio> prop "items" is required and all items must be the same type, string or RadioOption.');
+      throw new Error(`<mg-input-radio> prop "items" is required and all items must be the same type, string or RadioOption. Passed value: ${JSON.stringify(newValue)}.`);
     }
   }
 

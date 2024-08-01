@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgAlert } from '../mg-alert';
-import { variants } from '../mg-alert.conf';
+import { variants, variantStyles } from '../mg-alert.conf';
 
 const getDefaultContent = () => (
   <p>
@@ -111,7 +111,7 @@ describe('mg-alert', () => {
       try {
         await getPage({ variant }, getDefaultContent());
       } catch (err) {
-        expect(err.message).toMatch('<mg-alert> prop "variant" must be one of:');
+        expect(err.message).toEqual(`<mg-alert> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${variant}.`);
       }
     });
 
@@ -123,7 +123,7 @@ describe('mg-alert', () => {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         );
       } catch (err) {
-        expect(err.message).toMatch('<mg-alert> prop "variantStyle" must be one of:');
+        expect(err.message).toEqual(`<mg-alert> prop "variantStyle" must be one of: ${variantStyles.join(', ')}. Passed value: ${variantStyle}.`);
       }
     });
 
@@ -132,7 +132,7 @@ describe('mg-alert', () => {
       try {
         await getPage({ delay: 1 }, getDefaultContent());
       } catch (err) {
-        expect(err.message).toMatch('<mg-alert> prop "delay" must be greater than 2 seconds.');
+        expect(err.message).toEqual(`<mg-alert> prop "delay" must be greater than 2 seconds. Passed value: 1.`);
       }
     });
   });

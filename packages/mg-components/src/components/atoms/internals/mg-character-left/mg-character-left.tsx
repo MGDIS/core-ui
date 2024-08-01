@@ -43,7 +43,7 @@ export class MgCharacterLeft {
   @Watch('maxlength')
   validateMaxlength(newValue: number): void {
     if (typeof newValue !== 'number') {
-      throw new Error('<mg-character-left> prop "maxlength" is required.');
+      throw new Error(`<mg-character-left> prop "maxlength" is required and must be a number. Passed value: ${newValue}.`);
     }
   }
 

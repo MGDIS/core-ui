@@ -8,6 +8,7 @@ import messages from '../../../../../locales/en/messages.json';
 import { formats, types } from '../mg-input-numeric.conf';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
+import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 const getPage = (args, slot?) => {
   const page = newSpecPage({
@@ -88,7 +89,7 @@ describe('mg-input-numeric', () => {
       try {
         await getPage({ identifier });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
+        expect(err.message).toEqual(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${identifier}.`);
       }
     });
     test.each(['', ' ', undefined])('Should throw error with invalid label property: %s', async label => {
@@ -96,7 +97,7 @@ describe('mg-input-numeric', () => {
       try {
         await getPage({ identifier: 'identifier', label, type });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "label" is required.');
+        expect(err.message).toEqual(`<mg-input> prop "label" is required and must be a string. Passed value: ${label}.`);
       }
     });
 
@@ -105,7 +106,7 @@ describe('mg-input-numeric', () => {
       try {
         await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
+        expect(err.message).toEqual('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
       }
     });
 
@@ -114,7 +115,7 @@ describe('mg-input-numeric', () => {
       try {
         await getPage({ identifier: 'identifier', label: 'label', tooltipPosition });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
+        expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${tooltipPosition}.`);
       }
     });
 
@@ -123,7 +124,7 @@ describe('mg-input-numeric', () => {
       try {
         await getPage({ identifier: 'identifier', label: 'label', integerLength: 0 });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input-numeric> prop "integer-length" must be a positive number.');
+        expect(err.message).toEqual(`<mg-input-numeric> prop "integer-length" must be a positive number. Passed value: 0.`);
       }
     });
 
@@ -132,7 +133,7 @@ describe('mg-input-numeric', () => {
       try {
         await getPage({ identifier: 'identifier', label: 'label', decimalLength: 0 });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input-numeric> prop "decimal-length" must be a positive number, consider using prop "type" to "integer" instead.');
+        expect(err.message).toEqual(`<mg-input-numeric> prop "decimal-length" must be a positive number, consider using prop "type" to "integer" instead. Passed value: 0.`);
       }
     });
 
@@ -141,7 +142,7 @@ describe('mg-input-numeric', () => {
       try {
         await getPage({ identifier: 'identifier', label: 'label', format: 'blu' });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input-numeric> prop "format" must be one of: ');
+        expect(err.message).toEqual(`<mg-input-numeric> prop "format" must be one of: ${formats.join(', ')}. Passed value: blu.`);
       }
     });
 
@@ -351,22 +352,22 @@ describe('mg-input-numeric', () => {
     {
       valid: '',
       errorMessage: 'Override error',
-      error: '<mg-input-numeric> method "setError()" param "valid" must be a boolean',
+      error: '<mg-input-numeric> method "setError()" param "valid" must be a boolean.',
     },
     {
       valid: undefined,
       errorMessage: 'Override error',
-      error: '<mg-input-numeric> method "setError()" param "valid" must be a boolean',
+      error: '<mg-input-numeric> method "setError()" param "valid" must be a boolean.',
     },
     {
       valid: true,
       errorMessage: ' ',
-      error: '<mg-input-numeric> method "setError()" param "errorMessage" must be a string',
+      error: '<mg-input-numeric> method "setError()" param "errorMessage" must be a string.',
     },
     {
       valid: true,
       errorMessage: true,
-      error: '<mg-input-numeric> method "setError()" param "errorMessage" must be a string',
+      error: '<mg-input-numeric> method "setError()" param "errorMessage" must be a string.',
     },
   ])("shloud throw error with setError component's public method invalid params", async params => {
     expect.assertions(1);
@@ -377,7 +378,7 @@ describe('mg-input-numeric', () => {
       await element.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);
       await page.waitForChanges();
     } catch (err) {
-      expect(err.message).toMatch(params.error);
+      expect(err.message).toEqual(params.error);
     }
   });
 
@@ -386,7 +387,7 @@ describe('mg-input-numeric', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'Blu', type });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-numeric> prop "type" must be one of:');
+      expect(err.message).toEqual(`<mg-input-numeric> prop "type" must be one of: ${types.join(', ')}. Passed value: ${type}.`);
     }
   });
 

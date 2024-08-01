@@ -124,7 +124,9 @@ export class MgInputSelect {
         this.options = newValue;
       }
     } else {
-      throw new Error('<mg-input-select> prop "items" is required, can be an empty Array or all items must be the same type: string or Option.');
+      throw new Error(
+        `<mg-input-select> prop "items" is required, can be an empty Array or all items must be the same type: string or Option. Passed value: ${JSON.stringify(newValue)}.`,
+      );
     }
   }
 

@@ -154,7 +154,9 @@ export class MgInputTextarea {
   @Watch('patternErrorMessage')
   validatePattern(newValue: string): void {
     if (newValue !== undefined && !(isValidString(this.pattern) && isValidString(this.patternErrorMessage))) {
-      throw new Error('<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired.');
+      throw new Error(
+        `<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='${this.pattern}'" and "patternErrorMessage='${this.patternErrorMessage}'".`,
+      );
     }
   }
 

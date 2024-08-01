@@ -50,7 +50,7 @@ export class MgInput {
   @Watch('identifier')
   watchIdentifier(newValue: MgInput['identifier']): void {
     if (!isValidString(newValue)) {
-      throw new Error('<mg-input> prop "identifier" is required.');
+      throw new Error(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${newValue}.`);
     } else {
       this.helpTextId = `${this.identifier}-help-text`;
       this.helpTextErrorId = `${this.identifier}-error`;
@@ -99,7 +99,7 @@ export class MgInput {
   @Watch('tooltipPosition')
   watchTooltipPosition(newValue: MgInput['tooltipPosition']) {
     if (!tooltipPositions.includes(newValue)) {
-      throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}.`);
+      throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${newValue}.`);
     }
   }
 
@@ -190,7 +190,7 @@ export class MgInput {
   @Watch('label')
   watchLabel(): void {
     if (!isValidString(this.label)) {
-      throw new Error('<mg-input> prop "label" is required.');
+      throw new Error(`<mg-input> prop "label" is required and must be a string. Passed value: ${this.label}.`);
     } else {
       this.watchAriaDescribedbyIDs();
       this.renderLabel();

@@ -77,9 +77,11 @@ export class MgActionMore {
   @Watch('items')
   validateItems(newValue: MgActionMore['items']): void {
     if (!isMgActionMoreItems(newValue)) {
-      throw new Error(`<${this.name}> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType.`);
+      throw new Error(
+        `<${this.name}> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType. Passed value: ${JSON.stringify(newValue)}.`,
+      );
     } else if (isMgActionMoreItems(newValue) && newValue.length > 0 && (isMgActionMoreDivider(newValue[0]) || isMgActionMoreDivider(newValue[newValue.length - 1]))) {
-      throw new Error(`<${this.name}> prop "items" can’t have a divider at the beginning or the end of the array.`);
+      throw new Error(`<${this.name}> prop "items" can’t have a divider at the beginning or the end of the array. Passed value: ${JSON.stringify(newValue)}.`);
     }
   }
 
@@ -90,7 +92,7 @@ export class MgActionMore {
   @Watch('icon')
   validateIcon(newValue: MgActionMore['icon']): void {
     if (newValue && !isMgActionMoreIcon(newValue)) {
-      throw new Error(`<${this.name}> prop icon must match MgActionMoreIconType.`);
+      throw new Error(`<${this.name}> prop "icon" must match MgActionMoreIconType. Passed value: ${newValue}.`);
     } else if (newValue?.icon === undefined && Boolean(this.button.isIcon)) {
       this.icon = { icon: 'ellipsis' };
     }
@@ -103,7 +105,7 @@ export class MgActionMore {
   @Watch('button')
   validateButton(newValue: MgActionMore['button']): void {
     if (newValue && !isMgActionMoreButton(newValue)) {
-      throw new Error(`<${this.name}> prop button must match MgActionMoreButtonType.`);
+      throw new Error(`<${this.name}> prop "button" must match MgActionMoreButtonType. Passed value: ${JSON.stringify(newValue)}.`);
     }
   }
 

@@ -5,6 +5,7 @@ import { RadioOption } from '../mg-input-radio.conf';
 import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
+import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 const getPage = args => {
   const page = newSpecPage({
@@ -74,7 +75,7 @@ describe('mg-input-radio', () => {
     try {
       await getPage({ identifier, items: ['batman', 'robin', 'joker', 'bane'] });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
+      expect(err.message).toEqual(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${identifier}.`);
     }
   });
 
@@ -83,7 +84,7 @@ describe('mg-input-radio', () => {
     try {
       await getPage({ identifier: 'identifier', label, items: ['batman', 'robin', 'joker', 'bane'] });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "label" is required.');
+      expect(err.message).toEqual(`<mg-input> prop "label" is required and must be a string. Passed value: ${label}.`);
     }
   });
 
@@ -92,7 +93,7 @@ describe('mg-input-radio', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true, items: ['batman', 'joker'] });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
+      expect(err.message).toEqual('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
     }
   });
 
@@ -101,7 +102,7 @@ describe('mg-input-radio', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'label', items: ['batman', 'joker'], tooltipPosition });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
+      expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${tooltipPosition}.`);
     }
   });
 
@@ -110,7 +111,7 @@ describe('mg-input-radio', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true, items });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-radio> prop "items" require at least 2 items.');
+      expect(err.message).toEqual(`<mg-input-radio> prop "items" require at least 2 items. Passed value: ${JSON.stringify(items)}.`);
     }
   });
 
@@ -132,7 +133,7 @@ describe('mg-input-radio', () => {
     try {
       await getPage({ label: 'Label', items });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-radio> prop "items" is required and all items must be the same type, string or RadioOption.');
+      expect(err.message).toEqual(`<mg-input-radio> prop "items" is required and all items must be the same type, string or RadioOption. Passed value: ${JSON.stringify(items)}.`);
     }
   });
 
@@ -305,22 +306,22 @@ describe('mg-input-radio', () => {
     {
       valid: '',
       errorMessage: 'Override error',
-      error: '<mg-input-radio> method "setError()" param "valid" must be a boolean',
+      error: '<mg-input-radio> method "setError()" param "valid" must be a boolean.',
     },
     {
       valid: undefined,
       errorMessage: 'Override error',
-      error: '<mg-input-radio> method "setError()" param "valid" must be a boolean',
+      error: '<mg-input-radio> method "setError()" param "valid" must be a boolean.',
     },
     {
       valid: true,
       errorMessage: ' ',
-      error: '<mg-input-radio> method "setError()" param "errorMessage" must be a string',
+      error: '<mg-input-radio> method "setError()" param "errorMessage" must be a string.',
     },
     {
       valid: true,
       errorMessage: true,
-      error: '<mg-input-radio> method "setError()" param "errorMessage" must be a string',
+      error: '<mg-input-radio> method "setError()" param "errorMessage" must be a string.',
     },
   ])("shloud throw error with setError component's public method invalid params", async params => {
     expect.assertions(1);
@@ -331,7 +332,7 @@ describe('mg-input-radio', () => {
       await element.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);
       await page.waitForChanges();
     } catch (err) {
-      expect(err.message).toMatch(params.error);
+      expect(err.message).toEqual(params.error);
     }
   });
 

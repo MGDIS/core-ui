@@ -44,7 +44,7 @@ export class MgPanel {
   @Prop({ mutable: true }) panelTitle!: string;
   @Watch('panelTitle')
   validatePanelTitle(newValue: MgPanel['panelTitle']): void {
-    if (!isValidString(newValue)) throw new Error('<mg-panel> prop "panelTitle" is required.');
+    if (!isValidString(newValue)) throw new Error(`<mg-panel> prop "panelTitle" is required and must be a string. Passed value: ${newValue}.`);
     this.titleChange.emit(newValue);
   }
 
@@ -74,7 +74,7 @@ export class MgPanel {
   @Prop() titlePosition: TitlePositionType = titlePositions[0];
   @Watch('titlePosition')
   validateTitlePosition(newValue: MgPanel['titlePosition']) {
-    if (!titlePositions.includes(newValue)) throw new Error(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}.`);
+    if (!titlePositions.includes(newValue)) throw new Error(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}. Passed value: ${newValue}.`);
   }
 
   /**
@@ -92,7 +92,8 @@ export class MgPanel {
   @Prop() expandToggleDisplay: ExpandToggleDisplayType = expandToggleDisplays[0];
   @Watch('expandToggleDisplay')
   validateExpandToggleDisplay(newValue: MgPanel['expandToggleDisplay']) {
-    if (!expandToggleDisplays.includes(newValue)) throw new Error(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}.`);
+    if (!expandToggleDisplays.includes(newValue))
+      throw new Error(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}. Passed value: ${newValue}.`);
     if (newValue === 'icon' && this.titleEditable) this.titleEditable = false;
   }
 

@@ -60,7 +60,7 @@ export class MgTooltip {
   @Watch('message')
   watchMessage(newValue: MgTooltip['message']): void {
     if (!isValidString(newValue)) {
-      throw new Error('<mg-tooltip> prop "message" is required.');
+      throw new Error(`<mg-tooltip> prop "message" is required and must be a string. Passed value: ${newValue}.`);
     }
     this.mgTooltipContent.message = newValue;
   }

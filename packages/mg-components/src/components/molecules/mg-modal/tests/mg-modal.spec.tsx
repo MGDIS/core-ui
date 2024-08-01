@@ -46,7 +46,7 @@ describe('mg-modal', () => {
     try {
       await getPage({ modalTitle });
     } catch (err) {
-      expect(err.message).toMatch('<mg-modal> prop "modalTitle" is required.');
+      expect(err.message).toEqual(`<mg-modal> prop "modalTitle" is required. Passed value: ${modalTitle}.`);
     }
   });
 
@@ -55,7 +55,7 @@ describe('mg-modal', () => {
     try {
       await getPage({ modalTitle: 'Modal title', dialogRole });
     } catch (err) {
-      expect(err.message).toMatch(`<mg-modal> prop "dialogRole" must be one of: ${dialogRoles.join(', ')}.`);
+      expect(err.message).toEqual(`<mg-modal> prop "dialogRole" must be one of: ${dialogRoles.join(', ')}. Passed value: ${dialogRole}.`);
     }
   });
 

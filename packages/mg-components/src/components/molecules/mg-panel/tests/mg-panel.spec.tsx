@@ -23,17 +23,17 @@ describe('mg-panel', () => {
   afterEach(() => jest.runOnlyPendingTimers());
 
   test.each([
-    { identifier: 'identifier', panelTitle: 'panel title' },
-    { identifier: 'identifier', panelTitle: 'panel title', expanded: true },
-    { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true },
-    { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true, titlePattern: /joker/, titlePatternErrorMessage: "You can't enter a bad guy !" },
-    { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true, lang: 'fr' },
-    { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true, lang: 'xx' },
-    ...titlePositions.map(titlePosition => ({ identifier: 'identifier', panelTitle: 'panel title', titlePosition })),
-    ...expandToggleDisplays.map(expandToggleDisplay => ({ identifier: 'identifier', panelTitle: 'panel title', expandToggleDisplay })),
-    ...expandToggleDisplays.map(expandToggleDisplay => ({ identifier: 'identifier', panelTitle: 'panel title', titleEditable: true, expandToggleDisplay })),
+    {},
+    { expanded: true },
+    { titleEditable: true },
+    { titleEditable: true, titlePattern: /joker/, titlePatternErrorMessage: "You can't enter a bad guy !" },
+    { titleEditable: true, lang: 'fr' },
+    { titleEditable: true, lang: 'xx' },
+    ...titlePositions.map(titlePosition => ({ titlePosition })),
+    ...expandToggleDisplays.map(expandToggleDisplay => ({ expandToggleDisplay })),
+    ...expandToggleDisplays.map(expandToggleDisplay => ({ titleEditable: true, expandToggleDisplay })),
   ])('Should render with args %s:', async args => {
-    const { root } = await getPage(args);
+    const { root } = await getPage({ identifier: 'identifier', panelTitle: 'panel title', ...args });
     expect(root).toMatchSnapshot();
   });
 
@@ -52,31 +52,25 @@ describe('mg-panel', () => {
       try {
         await getPage({ panelTitle });
       } catch (err) {
-        expect(err.message).toMatch('<mg-panel> prop "panelTitle" is required.');
+        expect(err.message).toEqual(`<mg-panel> prop "panelTitle" is required and must be a string. Passed value: ${panelTitle}.`);
       }
     });
 
-    test.each(['', ' ', 'batman'].map(titlePosition => ({ panelTitle: 'panel title', titlePosition })))(
-      'Should throw an error when prop "titlePosition" is invalid',
-      async props => {
-        try {
-          await getPage(props);
-        } catch (err) {
-          expect(err.message).toMatch(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}.`);
-        }
-      },
-    );
+    test.each(['', ' ', 'batman'])('Should throw an error when prop "titlePosition" is invalid', async titlePosition => {
+      try {
+        await getPage({ panelTitle: 'panel title', titlePosition });
+      } catch (err) {
+        expect(err.message).toEqual(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}. Passed value: ${titlePosition}.`);
+      }
+    });
 
-    test.each(['', ' ', 'batman'].map(expandToggleDisplay => ({ panelTitle: 'panel title', expandToggleDisplay })))(
-      'Should throw an error when prop "expandToggleDisplay" is invalid',
-      async props => {
-        try {
-          await getPage(props);
-        } catch (err) {
-          expect(err.message).toMatch(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}.`);
-        }
-      },
-    );
+    test.each(['', ' ', 'batman'])('Should throw an error when prop "expandToggleDisplay" is invalid', async expandToggleDisplay => {
+      try {
+        await getPage({ panelTitle: 'panel title', expandToggleDisplay });
+      } catch (err) {
+        expect(err.message).toEqual(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}. Passed value: ${expandToggleDisplay}.`);
+      }
+    });
   });
 
   describe('navigation', () => {

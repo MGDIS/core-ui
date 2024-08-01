@@ -34,7 +34,7 @@ export class MgTag {
   @Watch('variant')
   validateVariant(newValue: MgTag['variant'], oldValue?: MgTag['variant']): void {
     if (!variants.includes(newValue)) {
-      throw new Error(`<mg-tag> prop "variant" must be one of: ${variants.join(', ')}.`);
+      throw new Error(`<mg-tag> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${newValue}.`);
     } else {
       if (oldValue !== undefined) {
         this.classCollection.delete(`mg-c-tag--${oldValue}`);
