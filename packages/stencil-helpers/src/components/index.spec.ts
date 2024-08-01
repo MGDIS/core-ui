@@ -1,5 +1,5 @@
 import { describe, expect, test, afterEach, vi } from 'vitest';
-import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick } from './';
+import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick, toString } from './';
 
 describe('components.utils', () => {
   describe('createID', () => {
@@ -142,6 +142,12 @@ describe('components.utils', () => {
 
     test.each(['batman', 'batman '])('Should return "true" for valid value', value => {
       expect(isValidString(value)).toEqual(true);
+    });
+  });
+
+  describe('toString', () => {
+    test.each([undefined, null, 1, 'string', '', [undefined], [{ value: null }], {}, ['string'], { hello: 'batman' }])('Should return stringified value, original %s', value => {
+      expect(toString(value)).toEqual(typeof value === 'object' ? JSON.stringify(value) : `${value}`);
     });
   });
 

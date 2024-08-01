@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, Watch, Event, EventEmitter, Host } from '@stencil/core';
-import { createID } from '@mgdis/stencil-helpers';
+import { createID, toString } from '@mgdis/stencil-helpers';
 import { NavigationAction } from './mg-pagination.conf';
 import { initLocales } from './../../../locales';
 
@@ -77,7 +77,7 @@ export class MgPagination {
   @Watch('totalPages')
   validateTotalPages(newValue: number): void {
     if (newValue < 1) {
-      throw new Error(`<mg-pagination> prop "totalPages" must be greater than 0. Passed value: ${newValue}.`);
+      throw new Error(`<mg-pagination> prop "totalPages" must be greater than 0. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -88,7 +88,7 @@ export class MgPagination {
   @Watch('currentPage')
   validateCurrentPage(newValue: number): void {
     if (newValue < 1) {
-      throw new Error(`<mg-pagination> prop "currentPage" must be greater than 0. Passed value: ${newValue}.`);
+      throw new Error(`<mg-pagination> prop "currentPage" must be greater than 0. Passed value: ${toString(newValue)}.`);
     } else if (newValue > this.totalPages) {
       throw new Error('<mg-pagination> prop "currentPage" can not be greater than total page.');
     }

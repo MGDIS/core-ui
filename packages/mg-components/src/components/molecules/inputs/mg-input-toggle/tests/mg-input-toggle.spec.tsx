@@ -5,6 +5,7 @@ import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
+import { toString } from '@mgdis/stencil-helpers';
 
 const getPage = (args, customSlots?) =>
   newSpecPage({
@@ -154,7 +155,7 @@ describe('mg-input-toggle', () => {
       try {
         await getPage({ identifier: 'identifier', label: 'label', items: ['batman', 'joker'], tooltipPosition });
       } catch (err) {
-        expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${tooltipPosition}.`);
+        expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${toString(tooltipPosition)}.`);
       }
     });
 
@@ -164,7 +165,7 @@ describe('mg-input-toggle', () => {
       try {
         await getPage({ label: 'Batman', items });
       } catch (err) {
-        expect(err.message).toEqual(`<mg-input-toggle> prop "items" require 2 items. Passed value: ${JSON.stringify(items)}.`);
+        expect(err.message).toEqual(`<mg-input-toggle> prop "items" require 2 items. Passed value: ${toString(items)}.`);
       }
     });
 
@@ -198,7 +199,7 @@ describe('mg-input-toggle', () => {
       try {
         await getPage({ label: 'Label', items });
       } catch (err) {
-        expect(err.message).toEqual(`<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue. Passed value: ${JSON.stringify(items)}.`);
+        expect(err.message).toEqual(`<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue. Passed value: ${toString(items)}.`);
       }
     });
   });

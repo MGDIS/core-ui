@@ -1,5 +1,5 @@
 import { Component, h, Element, Prop, Watch, State, Host } from '@stencil/core';
-import { createID } from '@mgdis/stencil-helpers';
+import { createID, toString } from '@mgdis/stencil-helpers';
 import { Status } from '../menu/mg-menu-item/mg-menu-item.conf';
 import { Direction } from '../menu/mg-menu/mg-menu.conf';
 import { initLocales } from '../../../locales';
@@ -78,10 +78,10 @@ export class MgActionMore {
   validateItems(newValue: MgActionMore['items']): void {
     if (!isMgActionMoreItems(newValue)) {
       throw new Error(
-        `<${this.name}> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType. Passed value: ${JSON.stringify(newValue)}.`,
+        `<${this.name}> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType. Passed value: ${toString(newValue)}.`,
       );
     } else if (isMgActionMoreItems(newValue) && newValue.length > 0 && (isMgActionMoreDivider(newValue[0]) || isMgActionMoreDivider(newValue[newValue.length - 1]))) {
-      throw new Error(`<${this.name}> prop "items" can’t have a divider at the beginning or the end of the array. Passed value: ${JSON.stringify(newValue)}.`);
+      throw new Error(`<${this.name}> prop "items" can’t have a divider at the beginning or the end of the array. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -92,7 +92,7 @@ export class MgActionMore {
   @Watch('icon')
   validateIcon(newValue: MgActionMore['icon']): void {
     if (newValue && !isMgActionMoreIcon(newValue)) {
-      throw new Error(`<${this.name}> prop "icon" must match MgActionMoreIconType. Passed value: ${newValue}.`);
+      throw new Error(`<${this.name}> prop "icon" must match MgActionMoreIconType. Passed value: ${toString(newValue)}.`);
     } else if (newValue?.icon === undefined && Boolean(this.button.isIcon)) {
       this.icon = { icon: 'ellipsis' };
     }
@@ -105,7 +105,7 @@ export class MgActionMore {
   @Watch('button')
   validateButton(newValue: MgActionMore['button']): void {
     if (newValue && !isMgActionMoreButton(newValue)) {
-      throw new Error(`<${this.name}> prop "button" must match MgActionMoreButtonType. Passed value: ${JSON.stringify(newValue)}.`);
+      throw new Error(`<${this.name}> prop "button" must match MgActionMoreButtonType. Passed value: ${toString(newValue)}.`);
     }
   }
 

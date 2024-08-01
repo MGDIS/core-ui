@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
-import { createID, focusableElements, getWindows, isValidString, nextTick } from '@mgdis/stencil-helpers';
+import { createID, focusableElements, getWindows, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { Instance as PopperInstance, createPopper, Placement, PositioningStrategy } from '@popperjs/core';
 import { type GuardType, Guard } from './mg-tooltip.conf';
 
@@ -60,7 +60,7 @@ export class MgTooltip {
   @Watch('message')
   watchMessage(newValue: MgTooltip['message']): void {
     if (!isValidString(newValue)) {
-      throw new Error(`<mg-tooltip> prop "message" is required and must be a string. Passed value: ${newValue}.`);
+      throw new Error(`<mg-tooltip> prop "message" is required and must be a string. Passed value: ${toString(newValue)}.`);
     }
     this.mgTooltipContent.message = newValue;
   }

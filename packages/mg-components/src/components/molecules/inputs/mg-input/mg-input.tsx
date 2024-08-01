@@ -1,5 +1,5 @@
 import { Component, h, Prop, Element, Watch, Host, State } from '@stencil/core';
-import { isValidString } from '@mgdis/stencil-helpers';
+import { isValidString, toString } from '@mgdis/stencil-helpers';
 import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, classDisabled, classVerticalList } from './mg-input.conf';
 
 /**
@@ -50,7 +50,7 @@ export class MgInput {
   @Watch('identifier')
   watchIdentifier(newValue: MgInput['identifier']): void {
     if (!isValidString(newValue)) {
-      throw new Error(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${newValue}.`);
+      throw new Error(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${toString(newValue)}.`);
     } else {
       this.helpTextId = `${this.identifier}-help-text`;
       this.helpTextErrorId = `${this.identifier}-error`;
@@ -99,7 +99,7 @@ export class MgInput {
   @Watch('tooltipPosition')
   watchTooltipPosition(newValue: MgInput['tooltipPosition']) {
     if (!tooltipPositions.includes(newValue)) {
-      throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${newValue}.`);
+      throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -190,7 +190,7 @@ export class MgInput {
   @Watch('label')
   watchLabel(): void {
     if (!isValidString(this.label)) {
-      throw new Error(`<mg-input> prop "label" is required and must be a string. Passed value: ${this.label}.`);
+      throw new Error(`<mg-input> prop "label" is required and must be a string. Passed value: ${toString(this.label)}.`);
     } else {
       this.watchAriaDescribedbyIDs();
       this.renderLabel();

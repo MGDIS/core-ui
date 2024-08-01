@@ -1,5 +1,5 @@
 import { Component, h, Prop, Element, Host, Watch, State } from '@stencil/core';
-import { isValidString, nextTick } from '@mgdis/stencil-helpers';
+import { isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import type { IconType, SizeType, SlotLabelType } from './mg-item-more.conf';
 import type { MessageType } from '../../../../locales/index.conf';
 import { OverflowBehavior } from '../../../../utils/behaviors.utils';
@@ -40,7 +40,7 @@ export class MgItemMore {
   @Watch('icon')
   validateIcon(newValue: MgItemMore['icon']): void {
     if (typeof newValue !== 'object' || (typeof newValue === 'object' && typeof newValue.icon !== 'string'))
-      throw new Error(`<${this.name}> prop "icon" must match MgItemMore['icon'] type. Passed value: ${JSON.stringify(newValue)}.`);
+      throw new Error(`<${this.name}> prop "icon" must match MgItemMore['icon'] type. Passed value: ${toString(newValue)}.`);
   }
 
   /**
@@ -50,7 +50,7 @@ export class MgItemMore {
   @Watch('slotlabel')
   validateSlotLabel(newValue: MgItemMore['slotlabel']): void {
     if (typeof newValue !== 'object' || (typeof newValue === 'object' && typeof newValue.display !== 'boolean'))
-      throw new Error(`<${this.name}> prop "slotlabel" must match MgItemMore['slotlabel'] type. Passed value: ${JSON.stringify(newValue)}.`);
+      throw new Error(`<${this.name}> prop "slotlabel" must match MgItemMore['slotlabel'] type. Passed value: ${toString(newValue)}.`);
     else if (typeof newValue.label !== 'string') this.slotlabel.label = this.messages.menuLabel;
   }
 
@@ -60,7 +60,7 @@ export class MgItemMore {
   @Prop() size?: SizeType;
   @Watch('size')
   validateSize(newValue: MgItemMore['size']): void {
-    if (newValue && !sizes.includes(newValue)) throw new Error(`<${this.name}> prop "size" must match MgItemMore['size'] type. Passed value: ${JSON.stringify(newValue)}.`);
+    if (newValue && !sizes.includes(newValue)) throw new Error(`<${this.name}> prop "size" must match MgItemMore['size'] type. Passed value: ${toString(newValue)}.`);
   }
 
   /**

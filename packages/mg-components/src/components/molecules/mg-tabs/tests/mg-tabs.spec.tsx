@@ -2,6 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgTabs } from '../mg-tabs';
 import { sizes, Status } from '../mg-tabs.conf';
+import { toString } from '@mgdis/stencil-helpers';
 
 const getPage = (args, slots?) =>
   newSpecPage({
@@ -91,7 +92,7 @@ describe('mg-tabs', () => {
       try {
         await getPage({ label: 'Sample label', items }, createSlots());
       } catch (err) {
-        expect(err.message).toEqual(`<mg-tabs> prop "items" is required and all items must be the same type: TabItem. Passed value: ${items}.`);
+        expect(err.message).toEqual(`<mg-tabs> prop "items" is required and all items must be the same type: TabItem. Passed value: ${toString(items)}.`);
       }
     });
 
@@ -110,7 +111,7 @@ describe('mg-tabs', () => {
         await getPage({ label: 'Sample label', items: ['Tab 1', 'Tab 2'], activeTab }, createSlots());
       } catch (err) {
         expect(err.message).toEqual(
-          `<mg-tabs> prop "activeTab" must be a number between 1 and 2 and new value must be "activable". Passed value: ${activeTab === 'string' ? NaN : activeTab}.`,
+          `<mg-tabs> prop "activeTab" must be a number between 1 and 2 and new value must be "activable". Passed value: ${activeTab === 'string' ? NaN : toString(activeTab)}.`,
         );
       }
     });

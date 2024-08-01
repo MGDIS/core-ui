@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, State, Watch } from '@stencil/core';
-import { ClassList } from '@mgdis/stencil-helpers';
+import { ClassList, toString } from '@mgdis/stencil-helpers';
 import { variants, variantStyles, VariantStyleType, VariantType } from './mg-message.conf';
 import { type MgIcon } from '../../atoms/mg-icon/mg-icon';
 
@@ -35,7 +35,7 @@ export class MgMessage {
   @Watch('variant')
   watchVariant(newValue: MgMessage['variant'], oldValue?: MgMessage['variant']): void {
     if (!variants.includes(newValue)) {
-      throw new Error(`<mg-message> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${newValue}.`);
+      throw new Error(`<mg-message> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
     } else {
       if (newValue !== undefined) this.classCollection.add(`${this.classBase}--${newValue}`);
       if (oldValue !== undefined) this.classCollection.delete(`${this.classBase}--${oldValue}`);
@@ -49,7 +49,7 @@ export class MgMessage {
   @Watch('variantStyle')
   watchVariantStyle(newValue: MgMessage['variantStyle'], oldValue?: MgMessage['variantStyle']): void {
     if (!variantStyles.includes(newValue)) {
-      throw new Error(`<mg-message> prop "variantStyle" must be one of: ${variantStyles.join(', ')}. Passed value: ${newValue}.`);
+      throw new Error(`<mg-message> prop "variantStyle" must be one of: ${variantStyles.join(', ')}. Passed value: ${toString(newValue)}.`);
     } else {
       if (newValue !== undefined) this.classCollection.add(`${this.classBase}--${newValue}`);
       if (oldValue !== undefined) this.classCollection.delete(`${this.classBase}--${oldValue}`);

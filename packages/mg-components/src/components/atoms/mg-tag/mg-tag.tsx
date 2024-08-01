@@ -1,6 +1,6 @@
 import { Component, h, Prop, State, Watch, Element } from '@stencil/core';
 import { TagVariantType, variants } from './mg-tag.conf';
-import { ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
 /**
  * @slot - Tag content
  */
@@ -34,7 +34,7 @@ export class MgTag {
   @Watch('variant')
   validateVariant(newValue: MgTag['variant'], oldValue?: MgTag['variant']): void {
     if (!variants.includes(newValue)) {
-      throw new Error(`<mg-tag> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${newValue}.`);
+      throw new Error(`<mg-tag> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
     } else {
       if (oldValue !== undefined) {
         this.classCollection.delete(`mg-c-tag--${oldValue}`);

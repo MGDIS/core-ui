@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
-import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern, toString } from '@mgdis/stencil-helpers';
 import { type InputDateError } from './mg-input-date.conf';
 import { type EventType, classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
@@ -46,7 +46,7 @@ export class MgInputDate {
 
     // check value validity
     if (newValue && !isValidString(newValue)) {
-      throw new Error(`<mg-input-date> props 'value' must be a valid string. Passed value: ${newValue}.`);
+      throw new Error(`<mg-input-date> props 'value' must be a valid string. Passed value: ${toString(newValue)}.`);
     } else if ([null, undefined].includes(newValue) || this.isValidPattern(newValue)) {
       this.valueChange.emit(newValue);
     } else {
@@ -110,7 +110,7 @@ export class MgInputDate {
   @Watch('max')
   validateMinMax(newValue: string): void {
     if (newValue && !this.isValidPattern(newValue)) {
-      throw new Error(`<mg-input-date> props 'min/max' doesn't match pattern: 'yyyy-mm-dd'. Passed value: ${newValue}.`);
+      throw new Error(`<mg-input-date> props 'min/max' doesn't match pattern: 'yyyy-mm-dd'. Passed value: ${toString(newValue)}.`);
     }
   }
 

@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, State, EventEmitter, Watch, Event } from '@stencil/core';
-import { createID, ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { createID, ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../locales';
 import { type ExpandToggleDisplayType, type TitlePositionType, expandToggleDisplays, titlePositions } from './mg-panel.conf';
 
@@ -44,7 +44,7 @@ export class MgPanel {
   @Prop({ mutable: true }) panelTitle!: string;
   @Watch('panelTitle')
   validatePanelTitle(newValue: MgPanel['panelTitle']): void {
-    if (!isValidString(newValue)) throw new Error(`<mg-panel> prop "panelTitle" is required and must be a string. Passed value: ${newValue}.`);
+    if (!isValidString(newValue)) throw new Error(`<mg-panel> prop "panelTitle" is required and must be a string. Passed value: ${toString(newValue)}.`);
     this.titleChange.emit(newValue);
   }
 
@@ -74,7 +74,7 @@ export class MgPanel {
   @Prop() titlePosition: TitlePositionType = titlePositions[0];
   @Watch('titlePosition')
   validateTitlePosition(newValue: MgPanel['titlePosition']) {
-    if (!titlePositions.includes(newValue)) throw new Error(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}. Passed value: ${newValue}.`);
+    if (!titlePositions.includes(newValue)) throw new Error(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}. Passed value: ${toString(newValue)}.`);
   }
 
   /**
@@ -93,7 +93,7 @@ export class MgPanel {
   @Watch('expandToggleDisplay')
   validateExpandToggleDisplay(newValue: MgPanel['expandToggleDisplay']) {
     if (!expandToggleDisplays.includes(newValue))
-      throw new Error(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}. Passed value: ${newValue}.`);
+      throw new Error(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}. Passed value: ${toString(newValue)}.`);
     if (newValue === 'icon' && this.titleEditable) this.titleEditable = false;
   }
 

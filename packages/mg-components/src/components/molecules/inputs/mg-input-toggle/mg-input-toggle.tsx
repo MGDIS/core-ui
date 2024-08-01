@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Event, h, Prop, EventEmitter, State, Watch, Element, Method } from '@stencil/core';
-import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
+import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/stencil-helpers';
 import { ToggleValue } from './mg-input-toggle.conf';
 import { classDisabled, classReadonly, type TooltipPosition } from '../mg-input/mg-input.conf';
 
@@ -60,7 +60,7 @@ export class MgInputToggle {
   @Watch('items')
   validateItems(newValue: MgInputToggle['items']): void {
     if (typeof newValue === 'object' && this.items.length !== 2) {
-      throw new Error(`<mg-input-toggle> prop "items" require 2 items. Passed value: ${JSON.stringify(newValue)}.`);
+      throw new Error(`<mg-input-toggle> prop "items" require 2 items. Passed value: ${toString(newValue)}.`);
     }
     // String array
     else if (allItemsAreString(newValue)) {
@@ -70,7 +70,7 @@ export class MgInputToggle {
     else if (Array.isArray(newValue) && newValue.every(isOption)) {
       this.options = newValue;
     } else {
-      throw new Error(`<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue. Passed value: ${JSON.stringify(newValue)}.`);
+      throw new Error(`<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue. Passed value: ${toString(newValue)}.`);
     }
   }
 

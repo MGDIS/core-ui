@@ -5,6 +5,7 @@ import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
+import { toString } from '@mgdis/stencil-helpers';
 
 const getPage = args => {
   const page = newSpecPage({
@@ -79,7 +80,7 @@ describe('mg-input-textarea', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'label', tooltipPosition });
     } catch (err) {
-      expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${tooltipPosition}.`);
+      expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${toString(tooltipPosition)}.`);
     }
   });
 

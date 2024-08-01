@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
-import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
+import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/stencil-helpers';
 import { RadioOption } from './mg-input-radio.conf';
 import { type EventType, classReadonly, type TooltipPosition, classDisabled, classFieldset } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
@@ -63,7 +63,7 @@ export class MgInputRadio {
   validateItems(newValue: string[] | RadioOption[]): void {
     // Validate if items have required min length
     if (typeof newValue === 'object' && newValue.length < 2) {
-      throw new Error(`<mg-input-radio> prop "items" require at least 2 items. Passed value: ${JSON.stringify(newValue)}.`);
+      throw new Error(`<mg-input-radio> prop "items" require at least 2 items. Passed value: ${toString(newValue)}.`);
     }
     // String array
     else if (allItemsAreString(newValue as string[])) {
@@ -73,7 +73,7 @@ export class MgInputRadio {
     else if (newValue && (newValue as RadioOption[]).every(item => isOption(item))) {
       this.options = newValue as RadioOption[];
     } else {
-      throw new Error(`<mg-input-radio> prop "items" is required and all items must be the same type, string or RadioOption. Passed value: ${JSON.stringify(newValue)}.`);
+      throw new Error(`<mg-input-radio> prop "items" is required and all items must be the same type, string or RadioOption. Passed value: ${toString(newValue)}.`);
     }
   }
 

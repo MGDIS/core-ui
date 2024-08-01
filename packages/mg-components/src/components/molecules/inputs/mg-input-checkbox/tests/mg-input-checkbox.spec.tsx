@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { mockWindowFrames } from '../../../../../utils/unit.test.utils';
-import { setupResizeObserverMock } from '@mgdis/stencil-helpers';
+import { setupResizeObserverMock, toString } from '@mgdis/stencil-helpers';
 import { MgInputCheckbox } from '../mg-input-checkbox';
 import messages from '../../../../../locales/en/messages.json';
 import { CheckboxValue, checkboxTypes } from '../mg-input-checkbox.conf';
@@ -128,7 +128,7 @@ describe('mg-input-checkbox', () => {
       try {
         await getPage({ identifier: 'identifier', type, label: 'label', value: getValues(), tooltipPosition });
       } catch (err) {
-        expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${tooltipPosition}.`);
+        expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${toString(tooltipPosition)}.`);
       }
     });
 
@@ -137,7 +137,7 @@ describe('mg-input-checkbox', () => {
       try {
         await getPage({ identifier: 'identifier', type, label: 'label', value });
       } catch (err) {
-        expect(err.message).toEqual(`<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem. Passed value: ${JSON.stringify(value)}.`);
+        expect(err.message).toEqual(`<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem. Passed value: ${toString(value)}.`);
       }
     });
 

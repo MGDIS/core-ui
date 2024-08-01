@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, Watch } from '@stencil/core';
 import { initLocales } from '../../../locales';
-import { isValidString } from '@mgdis/stencil-helpers';
+import { isValidString, toString } from '@mgdis/stencil-helpers';
 
 @Component({
   tag: 'mg-loader',
@@ -30,7 +30,7 @@ export class MgLoader {
   @Prop() message?: string;
   @Watch('message')
   watchMessage(newValue: MgLoader['message']): void {
-    if (newValue && !isValidString(newValue)) throw new Error(`<mg-loader> prop "message" must be a valid string. Passed value: ${newValue}.`);
+    if (newValue && !isValidString(newValue)) throw new Error(`<mg-loader> prop "message" must be a valid string. Passed value: ${toString(newValue)}.`);
   }
 
   /**

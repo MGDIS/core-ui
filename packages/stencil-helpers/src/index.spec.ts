@@ -18,6 +18,7 @@ import {
   getWindows,
   getParentWindows,
   isValidString,
+  toString,
   cleanString,
   nextTick,
   setupMutationObserverMock,
@@ -39,6 +40,7 @@ describe('stencil-helpers', () => {
       expect(getWindows).toBeDefined();
       expect(getParentWindows).toBeDefined();
       expect(isValidString).toBeDefined();
+      expect(toString).toBeDefined();
       expect(cleanString).toBeDefined();
       expect(nextTick).toBeDefined();
     });

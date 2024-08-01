@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, State, Watch, Host, EventEmitter, Event } from '@stencil/core';
 import { variants, VariantType, ButtonType } from './mg-button.conf';
-import { ClassList, isValidString, nextTick } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 
 /**
  * @slot - Button content
@@ -36,7 +36,7 @@ export class MgButton {
   @Watch('variant')
   validateVariant(newValue: VariantType, oldValue?: VariantType): void {
     if (!variants.includes(newValue)) {
-      throw new Error(`<mg-button> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${newValue}.`);
+      throw new Error(`<mg-button> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
     } else {
       if (oldValue !== undefined) {
         this.classCollection.delete(`mg-c-button--${oldValue}`);

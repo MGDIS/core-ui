@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
-import { allItemsAreString, ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { allItemsAreString, ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
 import { OptionType, TextType } from './mg-input-text.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
@@ -138,7 +138,7 @@ export class MgInputText {
   @Watch('datalistoptions')
   validateDatalistoptions(newValue: MgInputText['datalistoptions']) {
     if (Boolean(newValue) && !isDatalistOptions(newValue)) {
-      throw new Error(`<mg-input-text> prop "datalistoptions" values must be the same type, string or OptionType. Passed value: ${JSON.stringify(newValue)}.`);
+      throw new Error(`<mg-input-text> prop "datalistoptions" values must be the same type, string or OptionType. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -216,7 +216,7 @@ export class MgInputText {
   validatePattern(newValue: string): void {
     if (newValue !== undefined && !(isValidString(this.pattern) && isValidString(this.patternErrorMessage))) {
       throw new Error(
-        `<mg-input-text> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='${this.pattern}'" and "patternErrorMessage='${this.patternErrorMessage}'".`,
+        `<mg-input-text> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='${toString(this.pattern)}'" and "patternErrorMessage='${toString(this.patternErrorMessage)}'".`,
       );
     }
   }

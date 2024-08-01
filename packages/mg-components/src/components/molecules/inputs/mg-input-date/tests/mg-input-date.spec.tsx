@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInputDate } from '../mg-input-date';
 import messages from '../../../../../locales/en/messages.json';
-import { localeDate } from '@mgdis/stencil-helpers';
+import { localeDate, toString } from '@mgdis/stencil-helpers';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
@@ -94,7 +94,7 @@ describe('mg-input-date', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'label', tooltipPosition });
     } catch (err) {
-      expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${tooltipPosition}.`);
+      expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${toString(tooltipPosition)}.`);
     }
   });
 
@@ -103,7 +103,7 @@ describe('mg-input-date', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'label', value });
     } catch (err) {
-      expect(err.message).toEqual(`<mg-input-date> props 'value' must be a valid string. Passed value: ${value}.`);
+      expect(err.message).toEqual(`<mg-input-date> props 'value' must be a valid string. Passed value: ${toString(value)}.`);
     }
   });
 
