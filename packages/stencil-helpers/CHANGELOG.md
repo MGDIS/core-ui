@@ -1,5 +1,11 @@
 # @mgdis/stencil-helpers
 
+## 1.1.8
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+
 ## 1.1.7
 
 ### Patch Changes

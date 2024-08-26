@@ -1,10 +1,9 @@
 {
   "name": "@mgdis/notification-center",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "description": "Display notifications throught iframes",
   "author": "Simon Duhem <duhem-s@mgdis.fr>",
   "license": "BSD-3-Clause",
-  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "tsc --noEmit && vite build",
     "test:unit": "jest --coverage",
@@ -24,6 +23,7 @@
   ],
   "main": "./dist/notification-center.umd.js",
   "module": "./dist/notification-center.es.js",
+  "types": "./dist/notification-center.d.ts",
   "exports": {
     ".": {
       "types": "./dist/notification-center.d.ts",
@@ -44,10 +44,10 @@
     "jest-serializer-html": "7.1.0",
     "prettier": "3.3.3",
     "prettier-config": "workspace:*",
-    "ts-jest": "29.2.3",
+    "ts-jest": "29.2.5",
     "tsconfig": "workspace:*",
     "typescript": "5.5.4",
-    "vite": "5.3.5",
+    "vite": "5.4.2",
     "vite-plugin-dts": "3.9.1"
   },
   "dependencies": {
