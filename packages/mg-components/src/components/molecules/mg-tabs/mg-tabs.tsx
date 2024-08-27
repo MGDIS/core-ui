@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, h, Prop, State, Element, Watch } from '@stencil/core';
-import { createID, ClassList, allItemsAreString, isValidString, nextTick } from '@mgdis/stencil-helpers';
+import { createID, ClassList, allItemsAreString, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { TabItem, sizes, Status, SizeType } from './mg-tabs.conf';
 
 /**
@@ -53,7 +53,7 @@ export class MgTabs {
   @Watch('label')
   validateLabel(newValue: MgTabs['label']): void {
     if (!isValidString(newValue)) {
-      throw new Error('<mg-tabs> prop "label" is required.');
+      throw new Error(`<mg-tabs> prop "label" is required and must be a string. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -64,7 +64,7 @@ export class MgTabs {
   @Watch('size')
   validateSize(newValue: MgTabs['size']): void {
     if (!sizes.includes(newValue)) {
-      throw new Error(`<mg-tabs> prop "size" must be one of: ${sizes.join(', ')}.`);
+      throw new Error(`<mg-tabs> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${toString(newValue)}.`);
     }
     this.classCollection.add(`mg-c-tabs--size-${this.size}`);
   }
@@ -79,7 +79,7 @@ export class MgTabs {
     if (allItemsAreString(newValue)) this.tabs = newValue.map(item => ({ label: item, status: Status.VISIBLE }));
     // Object array
     else if (Array.isArray(newValue) && newValue.length > 0 && newValue.every(isTabItem)) this.tabs = newValue;
-    else throw new Error('<mg-tabs> prop "items" is required and all items must be the same type: TabItem.');
+    else throw new Error(`<mg-tabs> prop "items" is required and all items must be the same type: TabItem. Passed value: ${toString(newValue)}.`);
   }
 
   /**
@@ -106,7 +106,9 @@ export class MgTabs {
       // emit change active tab key event
       this.activeTabChange.emit(newValue);
     } else {
-      throw new Error(`<mg-tabs> prop "activeTab" must be a number between ${this.startIndex} and ${this.tabs.length} and new value must be "activable".`);
+      throw new Error(
+        `<mg-tabs> prop "activeTab" must be a number between ${this.startIndex} and ${this.tabs.length} and new value must be "activable". Passed value: ${toString(newValue)}.`,
+      );
     }
   }
 

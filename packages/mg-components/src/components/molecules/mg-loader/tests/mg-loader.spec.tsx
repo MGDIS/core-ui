@@ -19,7 +19,7 @@ describe('mg-loader', () => {
     try {
       await getPage({ message: ' ' });
     } catch (err) {
-      expect(err.message).toEqual('<mg-loader> prop "message" must be a valid string.');
+      expect(err.message).toEqual(`<mg-loader> prop "message" must be a valid string. Passed value:  .`);
     }
   });
 

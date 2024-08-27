@@ -55,7 +55,7 @@ describe('mg-badge', () => {
       try {
         await getPage({ value: 1, label });
       } catch (err) {
-        expect(err.message).toContain('<mg-badge> prop "label" is required.');
+        expect(err.message).toEqual(`<mg-badge> prop "label" is required and must be a string. Passed value: ${label}.`);
       }
     });
 
@@ -64,7 +64,7 @@ describe('mg-badge', () => {
       try {
         await getPage({ variant, value: 1, label: 'Batman' });
       } catch (err) {
-        expect(err.message).toContain('<mg-badge> prop "variant" must be one of: ');
+        expect(err.message).toEqual(`<mg-badge> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${variant}.`);
       }
     });
 
@@ -73,7 +73,7 @@ describe('mg-badge', () => {
       try {
         await getPage({ value, label: 'Batman' });
       } catch (err) {
-        expect(err.message).toContain('<mg-badge> prop "value" must be integer and/or special character.');
+        expect(err.message).toEqual(`<mg-badge> prop "value" is required and must be integer and/or special character. Passed value: ${value}.`);
       }
     });
   });

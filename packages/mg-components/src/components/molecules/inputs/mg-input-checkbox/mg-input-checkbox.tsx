@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
-import { ClassList, cleanString, isValidString } from '@mgdis/stencil-helpers';
+import { ClassList, cleanString, isValidString, toString } from '@mgdis/stencil-helpers';
 import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SectionKindType } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
 import { type EventType, classDisabled, type TooltipPosition, classReadonly, classFieldset, classVerticalList } from '../mg-input/mg-input.conf';
@@ -79,7 +79,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       }));
       this.valueChange.emit(newValue);
     } else {
-      throw new Error('<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem.');
+      throw new Error(`<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -95,7 +95,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Watch('type')
   validateType(newValue: MgInputCheckbox['type']): void {
     if (newValue !== undefined && !checkboxTypes.includes(newValue)) {
-      throw new Error('<mg-input-checkbox> prop "type" must be a CheckboxType.');
+      throw new Error(`<mg-input-checkbox> prop "type" must be a CheckboxType. Passed value: ${toString(newValue)}.`);
     } else if (newValue === undefined) {
       this.mode = 'auto';
       this.type = checkboxTypes[0];

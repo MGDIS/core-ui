@@ -22,7 +22,7 @@ describe('mg-character-left', () => {
     try {
       await getPage({});
     } catch (err) {
-      expect(err.message).toMatch('<mg-character-left> prop "maxlength" is required.');
+      expect(err.message).toEqual(`<mg-character-left> prop "maxlength" is required and must be a number. Passed value: undefined.`);
     }
   });
 

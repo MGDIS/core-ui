@@ -33,7 +33,7 @@ describe('mg-skip-links', () => {
     try {
       await getPage(args);
     } catch (err) {
-      expect(err.message).toMatch('<mg-skip-links> prop "links": Cannot be empty and each link must contains an href starting with a "#" and a non empty label attributes.');
+      expect(err.message).toEqual('<mg-skip-links> prop "links": Cannot be empty and each link must contains an href starting with a "#" and a non empty label attributes.');
     }
   });
 

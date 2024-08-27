@@ -120,17 +120,17 @@ describe('mg-menu', () => {
   describe('errors', () => {
     const baseProps = { label: 'batman menu' };
     test.each([
-      { props: { direction: 'horizontal' }, error: '<mg-menu> prop "label" is required.' },
-      { props: { ...baseProps, direction: 'test' }, error: '<mg-menu> prop "direction" must be one of: horizontal, vertical.' },
-      { props: { ...baseProps, direction: Direction.VERTICAL, itemmore: { icon: 'user' } }, error: '<mg-menu> prop "itemmore" must be paired with direction horizontal.' },
-      { props: { ...baseProps, size: 'batman' }, error: `<mg-menu> prop "size" must be one of: ${sizes.join(', ')}.` },
+      { props: { direction: 'horizontal' }, error: `<mg-menu> prop "label" is required. Passed value: undefined.` },
+      { props: { ...baseProps, direction: 'test' }, error: `<mg-menu> prop "direction" must be one of: horizontal, vertical. Passed value: test.` },
+      { props: { ...baseProps, direction: Direction.VERTICAL, itemmore: { icon: 'user' } }, error: `<mg-menu> prop "itemmore" must be paired with direction horizontal.` },
+      { props: { ...baseProps, size: 'batman' }, error: `<mg-menu> prop "size" must be one of: ${sizes.join(', ')}. Passed value: batman.` },
     ])('Should throw error when props are invalid, case %s', async ({ props, error }) => {
       expect.assertions(1);
 
       try {
         await getPage(props);
       } catch (err) {
-        expect(err.message).toMatch(error);
+        expect(err.message).toEqual(error);
       }
     });
   });

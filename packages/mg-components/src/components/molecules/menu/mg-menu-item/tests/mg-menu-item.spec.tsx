@@ -7,7 +7,7 @@ import { MgMenu } from '../../mg-menu/mg-menu';
 import { Status, targets } from '../mg-menu-item.conf';
 import { Direction } from '../../mg-menu/mg-menu.conf';
 import { MgPopover } from '../../../mg-popover/mg-popover';
-import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
+import { setupMutationObserverMock, setupResizeObserverMock, toString } from '@mgdis/stencil-helpers';
 import { forcePopoverId, mockWindowFrames } from '../../../../../utils/unit.test.utils';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 
@@ -195,7 +195,7 @@ describe('mg-menu-item', () => {
       try {
         await getPage(menuItem({ label: 'label', href: '#', target }));
       } catch (err) {
-        expect(err.message).toBe(`<mg-link> prop "target" must be one of: ${targets.join(', ')}.`);
+        expect(err.message).toBe(`<mg-link> prop "target" must be one of: ${targets.join(', ')}. Passed value: ${target}.`);
       }
     });
 
@@ -205,7 +205,7 @@ describe('mg-menu-item', () => {
       try {
         await getPage(menuItem({ label: 'label', expanded: { name: 'batman' } }));
       } catch (err) {
-        expect(err.message).toBe('<mg-menu-item> prop "expanded" must be a boolean.');
+        expect(err.message).toBe(`<mg-menu-item> prop "expanded" must be a boolean. Passed value: ${toString({ name: 'batman' })}.`);
       }
     });
   });

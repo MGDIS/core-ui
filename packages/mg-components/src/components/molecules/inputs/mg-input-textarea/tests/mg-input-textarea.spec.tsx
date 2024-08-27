@@ -4,6 +4,8 @@ import { MgInputTextarea } from '../mg-input-textarea';
 import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
+import { tooltipPositions } from '../../mg-input/mg-input.conf';
+import { toString } from '@mgdis/stencil-helpers';
 
 const getPage = args => {
   const page = newSpecPage({
@@ -51,7 +53,7 @@ describe('mg-input-textarea', () => {
     try {
       await getPage({ identifier });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
+      expect(err.message).toEqual(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${identifier}.`);
     }
   });
 
@@ -60,7 +62,7 @@ describe('mg-input-textarea', () => {
     try {
       await getPage({ identifier: 'identifier', label });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "label" is required.');
+      expect(err.message).toEqual(`<mg-input> prop "label" is required and must be a string. Passed value: ${label}.`);
     }
   });
 
@@ -69,7 +71,7 @@ describe('mg-input-textarea', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
+      expect(err.message).toEqual('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
     }
   });
 
@@ -78,7 +80,7 @@ describe('mg-input-textarea', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'label', tooltipPosition });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
+      expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${toString(tooltipPosition)}.`);
     }
   });
 
@@ -87,7 +89,9 @@ describe('mg-input-textarea', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'blu', pattern: '[a-z]*', patternErrorMessage });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired.');
+      expect(err.message).toEqual(
+        `<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='[a-z]*'" and "patternErrorMessage='${patternErrorMessage}'".`,
+      );
     }
   });
 
@@ -96,7 +100,9 @@ describe('mg-input-textarea', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'blu', pattern, patternErrorMessage: 'pattern error message' });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired.');
+      expect(err.message).toEqual(
+        `<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='${pattern}'" and "patternErrorMessage='pattern error message'".`,
+      );
     }
   });
 
@@ -233,22 +239,22 @@ describe('mg-input-textarea', () => {
     {
       valid: '',
       errorMessage: 'Override error',
-      error: '<mg-input-textarea> method "setError()" param "valid" must be a boolean',
+      error: '<mg-input-textarea> method "setError()" param "valid" must be a boolean.',
     },
     {
       valid: undefined,
       errorMessage: 'Override error',
-      error: '<mg-input-textarea> method "setError()" param "valid" must be a boolean',
+      error: '<mg-input-textarea> method "setError()" param "valid" must be a boolean.',
     },
     {
       valid: true,
       errorMessage: ' ',
-      error: '<mg-input-textarea> method "setError()" param "errorMessage" must be a string',
+      error: '<mg-input-textarea> method "setError()" param "errorMessage" must be a string.',
     },
     {
       valid: true,
       errorMessage: true,
-      error: '<mg-input-textarea> method "setError()" param "errorMessage" must be a string',
+      error: '<mg-input-textarea> method "setError()" param "errorMessage" must be a string.',
     },
   ])("shloud throw error with setError component's public method invalid params", async params => {
     expect.assertions(1);
@@ -259,7 +265,7 @@ describe('mg-input-textarea', () => {
       await element.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);
       await page.waitForChanges();
     } catch (err) {
-      expect(err.message).toMatch(params.error);
+      expect(err.message).toEqual(params.error);
     }
   });
 

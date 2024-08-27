@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgMessage } from '../mg-message';
-import { variants } from '../mg-message.conf';
+import { variants, variantStyles } from '../mg-message.conf';
 
 const getDefaultContent = () => (
   <p>
@@ -74,7 +74,7 @@ describe('mg-message', () => {
       try {
         await getPage({ variant }, getDefaultContent());
       } catch (err) {
-        expect(err.message).toMatch('<mg-message> prop "variant" must be one of:');
+        expect(err.message).toEqual(`<mg-message> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${variant}.`);
       }
     });
 
@@ -86,7 +86,7 @@ describe('mg-message', () => {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         );
       } catch (err) {
-        expect(err.message).toMatch('<mg-message> prop "variantStyle" must be one of:');
+        expect(err.message).toEqual(`<mg-message> prop "variantStyle" must be one of: ${variantStyles.join(', ')}. Passed value: ${variantStyle}.`);
       }
     });
   });

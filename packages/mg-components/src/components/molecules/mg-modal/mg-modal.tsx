@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { createID, ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { createID, ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../locales';
 import { DialogRoleType, dialogRoles } from './mg-modal.conf';
 
@@ -50,7 +50,7 @@ export class MgModal {
   @Prop() dialogRole: DialogRoleType = dialogRoles[0];
   @Watch('dialogRole')
   validateDialogRole(newValue: MgModal['dialogRole']): void {
-    if (!dialogRoles.includes(newValue)) throw new Error(`<mg-modal> prop "dialogRole" must be one of: ${dialogRoles.join(', ')}.`);
+    if (!dialogRoles.includes(newValue)) throw new Error(`<mg-modal> prop "dialogRole" must be one of: ${dialogRoles.join(', ')}. Passed value: ${toString(newValue)}.`);
   }
 
   /**
@@ -60,7 +60,7 @@ export class MgModal {
   @Watch('modalTitle')
   validateModalTitle(newValue: MgModal['modalTitle']): void {
     if (!isValidString(newValue)) {
-      throw new Error('<mg-modal> prop "modalTitle" is required.');
+      throw new Error(`<mg-modal> prop "modalTitle" is required. Passed value: ${toString(newValue)}.`);
     }
   }
 

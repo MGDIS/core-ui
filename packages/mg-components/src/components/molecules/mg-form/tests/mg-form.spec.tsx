@@ -187,7 +187,7 @@ describe('mg-form', () => {
     try {
       await getPage({ identifier: 'identifier', ariaRole }, getSlottedContent());
     } catch (err) {
-      expect(err.message).toEqual('<mg-form> prop "ariaRole" must be one of: form, search, none, presentation.');
+      expect(err.message).toEqual(`<mg-form> prop "ariaRole" must be one of: ${roles.join(', ')}. Passed value: ${ariaRole}.`);
     }
   });
 
@@ -196,7 +196,7 @@ describe('mg-form', () => {
     try {
       await getPage({ identifier: 'identifier', requiredMessage }, getSlottedContent());
     } catch (err) {
-      expect(err.message).toEqual('<mg-form> prop "requiredMessage" must be one of: default, hide.');
+      expect(err.message).toEqual(`<mg-form> prop "requiredMessage" must be one of: ${requiredMessageStatus.join(', ')}. Passed value: ${requiredMessage}.`);
     }
   });
 

@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, forceUpdate } from '@stencil/core';
-import { ClassList } from '@mgdis/stencil-helpers';
+import { ClassList, toString } from '@mgdis/stencil-helpers';
 import { variants, variantStyles, VariantStyleType, VariantType } from './mg-alert.conf';
 import { initLocales } from '../../../locales';
 
@@ -47,7 +47,7 @@ export class MgAlert {
   @Watch('delay')
   watchDelay(newValue: MgAlert['delay']): void {
     if (newValue !== undefined && newValue < 2) {
-      throw new Error(`<mg-alert> prop "delay" must be greater than 2 seconds.`);
+      throw new Error(`<mg-alert> prop "delay" must be greater than 2 seconds. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -58,7 +58,7 @@ export class MgAlert {
   @Watch('variant')
   watchVariant(newValue: MgAlert['variant']): void {
     if (newValue && !variants.includes(newValue)) {
-      throw new Error(`<mg-alert> prop "variant" must be one of: ${variants.join(', ')}.`);
+      throw new Error(`<mg-alert> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -69,7 +69,7 @@ export class MgAlert {
   @Watch('variantStyle')
   watchVariantStyle(newValue: MgAlert['variantStyle']): void {
     if (newValue && !variantStyles.includes(newValue)) {
-      throw new Error(`<mg-alert> prop "variantStyle" must be one of: ${variantStyles.join(', ')}.`);
+      throw new Error(`<mg-alert> prop "variantStyle" must be one of: ${variantStyles.join(', ')}. Passed value: ${toString(newValue)}.`);
     }
   }
 

@@ -1,5 +1,5 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
-import { ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
@@ -154,7 +154,9 @@ export class MgInputTextarea {
   @Watch('patternErrorMessage')
   validatePattern(newValue: string): void {
     if (newValue !== undefined && !(isValidString(this.pattern) && isValidString(this.patternErrorMessage))) {
-      throw new Error('<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired.');
+      throw new Error(
+        `<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='${toString(this.pattern)}'" and "patternErrorMessage='${toString(this.patternErrorMessage)}'".`,
+      );
     }
   }
 

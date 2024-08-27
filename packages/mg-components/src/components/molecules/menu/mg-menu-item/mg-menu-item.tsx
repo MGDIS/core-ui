@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { ClassList, createID, isValidString, nextTick } from '@mgdis/stencil-helpers';
+import { ClassList, createID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { Direction, type MenuSizeType, type DirectionType } from '../mg-menu/mg-menu.conf';
 import { type MgMenuStatusType, Status, targets, type TargetType } from './mg-menu-item.conf';
@@ -58,7 +58,7 @@ export class MgMenuItem {
   @Watch('target')
   watchTarget(newValue: MgMenuItem['target']): void {
     if (newValue && !targets.includes(newValue)) {
-      throw new Error(`<mg-link> prop "target" must be one of: ${targets.join(', ')}.`);
+      throw new Error(`<mg-link> prop "target" must be one of: ${targets.join(', ')}. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -81,7 +81,7 @@ export class MgMenuItem {
   @Prop({ mutable: true }) expanded? = false;
   @Watch('expanded')
   validateExpanded(newValue: MgMenuItem['expanded']): void {
-    if (typeof newValue !== 'boolean') throw new Error(`<${this.name}> prop "expanded" must be a boolean.`);
+    if (typeof newValue !== 'boolean') throw new Error(`<${this.name}> prop "expanded" must be a boolean. Passed value: ${toString(newValue)}.`);
 
     // if menu-item has sub-menu we have to apply some updates:
     if (this.hasChildren) {

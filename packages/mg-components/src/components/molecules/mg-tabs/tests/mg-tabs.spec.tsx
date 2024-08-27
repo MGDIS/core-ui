@@ -2,6 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgTabs } from '../mg-tabs';
 import { sizes, Status } from '../mg-tabs.conf';
+import { toString } from '@mgdis/stencil-helpers';
 
 const getPage = (args, slots?) =>
   newSpecPage({
@@ -74,7 +75,7 @@ describe('mg-tabs', () => {
       try {
         await getPage({ label, items: ['Batman', 'Joker'] }, createSlots());
       } catch (err) {
-        expect(err.message).toMatch('<mg-tabs> prop "label" is required.');
+        expect(err.message).toEqual(`<mg-tabs> prop "label" is required and must be a string. Passed value: ${label}.`);
       }
     });
 
@@ -91,7 +92,7 @@ describe('mg-tabs', () => {
       try {
         await getPage({ label: 'Sample label', items }, createSlots());
       } catch (err) {
-        expect(err.message).toMatch('<mg-tabs> prop "items" is required and all items must be the same type: TabItem.');
+        expect(err.message).toEqual(`<mg-tabs> prop "items" is required and all items must be the same type: TabItem. Passed value: ${toString(items)}.`);
       }
     });
 
@@ -100,16 +101,18 @@ describe('mg-tabs', () => {
       try {
         await getPage({ label: 'Sample label', items: ['Tab 1', 'Tab 2'] }, slots);
       } catch (err) {
-        expect(err.message).toMatch('<mg-tabs> Must have slots counts equal to tabs count.');
+        expect(err.message).toEqual('<mg-tabs> Must have slots counts equal to tabs count.');
       }
     });
 
-    test.each([0, 3, null, { test: 'fail' }, 'string'])('should trown an error with invalid range for "activeTab" props', async activeTab => {
+    test.each([0, 3, null, { test: 'fail' }, 'string'])('should trown an error with invalid range for "activeTab" props %s', async activeTab => {
       expect.assertions(1);
       try {
         await getPage({ label: 'Sample label', items: ['Tab 1', 'Tab 2'], activeTab }, createSlots());
       } catch (err) {
-        expect(err.message).toMatch(`<mg-tabs> prop "activeTab" must be a number between 1 and 2 and new value must be "activable".`);
+        expect(err.message).toEqual(
+          `<mg-tabs> prop "activeTab" must be a number between 1 and 2 and new value must be "activable". Passed value: ${activeTab === 'string' ? NaN : toString(activeTab)}.`,
+        );
       }
     });
 
@@ -118,7 +121,7 @@ describe('mg-tabs', () => {
       try {
         await getPage({ label: 'Sample label', items: ['Tab 1', 'Tab 2'], size: 'batman' }, createSlots());
       } catch (err) {
-        expect(err.message).toMatch(`<mg-tabs> prop "size" must be one of: ${sizes.join(', ')}.`);
+        expect(err.message).toEqual(`<mg-tabs> prop "size" must be one of: ${sizes.join(', ')}. Passed value: batman.`);
       }
     });
   });

@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { forcePopoverId } from '../../../../utils/unit.test.utils';
-import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
+import { setupMutationObserverMock, setupResizeObserverMock, toString } from '@mgdis/stencil-helpers';
 import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
 import { MgPopover } from '../../mg-popover/mg-popover';
@@ -180,32 +180,47 @@ describe('mg-action-more', () => {
 
   describe('errors', () => {
     test.each([
-      { args: {}, error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType.` },
-      { args: { items: ['batman'] }, error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType.` },
+      {
+        args: {},
+        error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType. Passed value: ${undefined}.`,
+      },
+      {
+        args: { items: ['batman'] },
+        error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType. Passed value: ${toString(['batman'])}.`,
+      },
       {
         args: { items: [{ label: 'batman' }] },
-        error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType.`,
+        error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType. Passed value: ${toString([{ label: 'batman' }])}.`,
       },
       {
         args: { items: [{ label: 'batman', mouseEventHandler: 'batman' }] },
-        error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType.`,
+        error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType. Passed value: ${toString([{ label: 'batman', mouseEventHandler: 'batman' }])}.`,
       },
       {
         args: { items: [{ isDivider: true }, { label: 'batman', mouseEventHandler: () => {} }] },
-        error: `<mg-action-more> prop "items" can’t have a divider at the beginning or the end of the array.`,
+        error: `<mg-action-more> prop "items" can’t have a divider at the beginning or the end of the array. Passed value: ${toString([{ isDivider: true }, { label: 'batman', mouseEventHandler: () => {} }])}.`,
       },
       {
         args: { items: [{ label: 'batman', mouseEventHandler: () => {} }, { isDivider: true }] },
-        error: `<mg-action-more> prop "items" can’t have a divider at the beginning or the end of the array.`,
+        error: `<mg-action-more> prop "items" can’t have a divider at the beginning or the end of the array. Passed value: ${toString([{ label: 'batman', mouseEventHandler: () => {} }, { isDivider: true }])}.`,
       },
       {
         args: { items: [{ mouseEventHandler: 'batman' }] },
-        error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType.`,
+        error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType. Passed value: ${toString([{ mouseEventHandler: 'batman' }])}.`,
       },
-      { args: { items: [{ label: 'batman', mouseEventHandler }], button: {} }, error: `<mg-action-more> prop button must match MgActionMoreButtonType.` },
-      { args: { items: [{ label: 'batman', mouseEventHandler }], button: { variant: 'primary' } }, error: `<mg-action-more> prop button must match MgActionMoreButtonType.` },
-      { args: { items: [{ label: 'batman', mouseEventHandler }], button: { isIcon: true } }, error: `<mg-action-more> prop button must match MgActionMoreButtonType.` },
-      { args: { items: [{ label: 'batman', mouseEventHandler }], icon: 'user' }, error: `<mg-action-more> prop icon must match MgActionMoreIconType.` },
+      {
+        args: { items: [{ label: 'batman', mouseEventHandler }], button: {} },
+        error: `<mg-action-more> prop "button" must match MgActionMoreButtonType. Passed value: ${toString({})}.`,
+      },
+      {
+        args: { items: [{ label: 'batman', mouseEventHandler }], button: { variant: 'primary' } },
+        error: `<mg-action-more> prop "button" must match MgActionMoreButtonType. Passed value: ${toString({ variant: 'primary' })}.`,
+      },
+      {
+        args: { items: [{ label: 'batman', mouseEventHandler }], button: { isIcon: true } },
+        error: `<mg-action-more> prop "button" must match MgActionMoreButtonType. Passed value: ${toString({ isIcon: true })}.`,
+      },
+      { args: { items: [{ label: 'batman', mouseEventHandler }], icon: 'user' }, error: `<mg-action-more> prop "icon" must match MgActionMoreIconType. Passed value: user.` },
       {
         args: { items: [{ label: 'batman', mouseEventHandler }], displayChevron: true },
         error: `<mg-action-more> prop "displayChevron" can't be used with a 'button" prop "isIcon" attribute.`,
@@ -219,7 +234,7 @@ describe('mg-action-more', () => {
       try {
         await getPage(args);
       } catch (err) {
-        expect(err.message).toMatch(error);
+        expect(err.message).toEqual(error);
       }
     });
   });

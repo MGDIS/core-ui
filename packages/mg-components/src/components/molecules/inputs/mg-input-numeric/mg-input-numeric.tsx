@@ -1,5 +1,5 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
-import { ClassList, isValidString, localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString, localeCurrency, localeNumber, toString } from '@mgdis/stencil-helpers';
 import { types, type InputNumericError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
 import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales/';
@@ -186,7 +186,7 @@ export class MgInputNumeric {
   @Watch('type')
   validateType(newValue: MgInputNumeric['type']): void {
     if (!types.includes(newValue)) {
-      throw new Error(`<mg-input-numeric> prop "type" must be one of: ${types.join(', ')}.`);
+      throw new Error(`<mg-input-numeric> prop "type" must be one of: ${types.join(', ')}. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -198,7 +198,7 @@ export class MgInputNumeric {
   @Watch('format')
   watchFormat(newValue: MgInputNumeric['format']): void {
     if (!formats.includes(newValue)) {
-      throw new Error(`<mg-input-numeric> prop "format" must be one of: ${formats.join(', ')}.`);
+      throw new Error(`<mg-input-numeric> prop "format" must be one of: ${formats.join(', ')}. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -215,7 +215,7 @@ export class MgInputNumeric {
   @Watch('integerLength')
   validateIntegerLength(newValue: MgInputNumeric['integerLength']): void {
     if (newValue < 1) {
-      throw new Error(`<mg-input-numeric> prop "integer-length" must be a positive number.`);
+      throw new Error(`<mg-input-numeric> prop "integer-length" must be a positive number. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -227,7 +227,7 @@ export class MgInputNumeric {
   @Watch('decimalLength')
   validateDecimalLength(newValue: MgInputNumeric['decimalLength']): void {
     if (newValue < 1) {
-      throw new Error(`<mg-input-numeric> prop "decimal-length" must be a positive number, consider using prop "type" to "integer" instead.`);
+      throw new Error(`<mg-input-numeric> prop "decimal-length" must be a positive number, consider using prop "type" to "integer" instead. Passed value: ${toString(newValue)}.`);
     }
   }
 

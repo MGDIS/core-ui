@@ -1,6 +1,6 @@
 import { Component, Prop, Watch, State, Element } from '@stencil/core';
 import { type IconType, sizes, type IconSizeType, variants, type IconVariantType, variantStyles, type IconVariantStyleType } from './mg-icon.conf';
-import { ClassList } from '@mgdis/stencil-helpers';
+import { ClassList, toString } from '@mgdis/stencil-helpers';
 import { icons } from '../../../assets/icons';
 
 @Component({
@@ -22,7 +22,7 @@ export class MgIcon {
   @Prop() icon!: IconType;
   @Watch('icon')
   validateIcon(newValue: MgIcon['icon'], oldValue?: MgIcon['icon']): void {
-    if (!Object.keys(icons).includes(newValue)) throw new Error(`<mg-icon> prop "icon" must be one of: ${Object.keys(icons).join(', ')}.`);
+    if (!Object.keys(icons).includes(newValue)) throw new Error(`<mg-icon> prop "icon" must be one of: ${Object.keys(icons).join(', ')}. Passed value: ${toString(newValue)}.`);
     else {
       if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--${oldValue}`);
       this.classCollection.add(`mg-c-icon--${newValue}`);
@@ -36,7 +36,7 @@ export class MgIcon {
   @Prop() size: IconSizeType = 'medium';
   @Watch('size')
   validateSize(newValue: MgIcon['size'], oldValue?: MgIcon['size']): void {
-    if (!sizes.includes(newValue)) throw new Error(`<mg-icon> prop "size" must be one of: ${sizes.join(', ')}.`);
+    if (!sizes.includes(newValue)) throw new Error(`<mg-icon> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${toString(newValue)}.`);
     else {
       if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--size-${oldValue}`);
       this.classCollection.add(`mg-c-icon--size-${newValue}`);
@@ -50,7 +50,7 @@ export class MgIcon {
   @Watch('variant')
   validateVariant(newValue: MgIcon['variant'], oldValue?: MgIcon['variant']): void {
     if (newValue !== undefined) {
-      if (!variants.includes(newValue)) throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}.`);
+      if (!variants.includes(newValue)) throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
       else {
         this.setDefaultVariantStyle();
         if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--variant-${oldValue}`);
@@ -70,7 +70,7 @@ export class MgIcon {
   @Watch('variantStyle')
   validateVariantStyle(newValue: MgIcon['variantStyle'], oldValue?: MgIcon['variantStyle']): void {
     if (newValue !== undefined) {
-      if (!variantStyles.includes(newValue)) throw new Error(`<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}.`);
+      if (!variantStyles.includes(newValue)) throw new Error(`<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}. Passed value: ${toString(newValue)}.`);
       else {
         if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--variant-style-${oldValue}`);
         this.classCollection.add(`mg-c-icon--variant-style-${newValue}`);

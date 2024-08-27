@@ -1,5 +1,6 @@
 import { Component, Element, h, Prop, Watch } from '@stencil/core';
 import { initLocales } from '../../../../locales';
+import { toString } from '@mgdis/stencil-helpers';
 
 /**
  * @internal
@@ -43,7 +44,7 @@ export class MgCharacterLeft {
   @Watch('maxlength')
   validateMaxlength(newValue: number): void {
     if (typeof newValue !== 'number') {
-      throw new Error('<mg-character-left> prop "maxlength" is required.');
+      throw new Error(`<mg-character-left> prop "maxlength" is required and must be a number. Passed value: ${toString(newValue)}.`);
     }
   }
 

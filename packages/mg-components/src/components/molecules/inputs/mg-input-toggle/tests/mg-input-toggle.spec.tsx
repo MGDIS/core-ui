@@ -4,6 +4,8 @@ import { MgInputToggle } from '../mg-input-toggle';
 import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
+import { tooltipPositions } from '../../mg-input/mg-input.conf';
+import { toString } from '@mgdis/stencil-helpers';
 
 const getPage = (args, customSlots?) =>
   newSpecPage({
@@ -122,7 +124,7 @@ describe('mg-input-toggle', () => {
           items: defaultItems,
         });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
+        expect(err.message).toEqual(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${identifier}.`);
       }
     });
 
@@ -135,7 +137,7 @@ describe('mg-input-toggle', () => {
           items: defaultItems,
         });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "label" is required.');
+        expect(err.message).toEqual(`<mg-input> prop "label" is required and must be a string. Passed value: ${label}.`);
       }
     });
 
@@ -144,7 +146,7 @@ describe('mg-input-toggle', () => {
       try {
         await getPage({ identifier: 'identifier', label: 'Batman', labelOnTop: true, labelHide: true, items: ['Batman', 'Joker'] });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
+        expect(err.message).toEqual('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
       }
     });
 
@@ -153,16 +155,17 @@ describe('mg-input-toggle', () => {
       try {
         await getPage({ identifier: 'identifier', label: 'label', items: ['batman', 'joker'], tooltipPosition });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
+        expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${toString(tooltipPosition)}.`);
       }
     });
 
     test('Should throw an error with less than 2 items, case %s', async () => {
       expect.assertions(1);
+      const items = [{ title: 'Batman' }];
       try {
-        await getPage({ label: 'Batman', items: [{ title: 'Batman' }] });
+        await getPage({ label: 'Batman', items });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input-toggle> prop "items" require 2 items.');
+        expect(err.message).toEqual(`<mg-input-toggle> prop "items" require 2 items. Passed value: ${toString(items)}.`);
       }
     });
 
@@ -173,7 +176,7 @@ describe('mg-input-toggle', () => {
         try {
           await getPage(defaultProps, slots);
         } catch (err) {
-          expect(err.message).toMatch('<mg-input-toggle> 2 slots are required.');
+          expect(err.message).toEqual('<mg-input-toggle> 2 slots are required.');
         }
       },
     );
@@ -196,7 +199,7 @@ describe('mg-input-toggle', () => {
       try {
         await getPage({ label: 'Label', items });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue.');
+        expect(err.message).toEqual(`<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue. Passed value: ${toString(items)}.`);
       }
     });
   });
@@ -284,22 +287,22 @@ describe('mg-input-toggle', () => {
       {
         valid: '',
         errorMessage: 'Override error',
-        error: '<mg-input-toggle> method "setError()" param "valid" must be a boolean',
+        error: '<mg-input-toggle> method "setError()" param "valid" must be a boolean.',
       },
       {
         valid: undefined,
         errorMessage: 'Override error',
-        error: '<mg-input-toggle> method "setError()" param "valid" must be a boolean',
+        error: '<mg-input-toggle> method "setError()" param "valid" must be a boolean.',
       },
       {
         valid: true,
         errorMessage: ' ',
-        error: '<mg-input-toggle> method "setError()" param "errorMessage" must be a string',
+        error: '<mg-input-toggle> method "setError()" param "errorMessage" must be a string.',
       },
       {
         valid: true,
         errorMessage: true,
-        error: '<mg-input-toggle> method "setError()" param "errorMessage" must be a string',
+        error: '<mg-input-toggle> method "setError()" param "errorMessage" must be a string.',
       },
     ])("shloud throw error with setError component's public method invalid params", async params => {
       expect.assertions(1);
@@ -311,7 +314,7 @@ describe('mg-input-toggle', () => {
 
         await page.waitForChanges();
       } catch (err) {
-        expect(err.message).toMatch(params.error);
+        expect(err.message).toEqual(params.error);
       }
     });
   });

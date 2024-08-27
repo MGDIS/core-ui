@@ -74,12 +74,15 @@ describe('mg-icon', () => {
   });
 
   describe('errors', () => {
-    const iconError = ['', 'blu', undefined].map(icon => ({ props: { icon }, error: `<mg-icon> prop "icon" must be one of: ${iconList.join(', ')}` }));
-    const sizeError = ['', 'blu'].map(size => ({ props: { icon: 'check-circle', size }, error: `<mg-icon> prop "size" must be one of: ${sizes.join(', ')}` }));
-    const variantError = { props: { icon: 'check-circle', variant: 'blu' }, error: `<mg-icon> prop "variant" must be one of: ${variants.join(', ')}` };
+    const iconError = ['', 'blu', undefined].map(icon => ({ props: { icon }, error: `<mg-icon> prop "icon" must be one of: ${iconList.join(', ')}. Passed value: ${icon}.` }));
+    const sizeError = ['', 'blu'].map(size => ({
+      props: { icon: 'check-circle', size },
+      error: `<mg-icon> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${size}.`,
+    }));
+    const variantError = { props: { icon: 'check-circle', variant: 'blu' }, error: `<mg-icon> prop "variant" must be one of: ${variants.join(', ')}. Passed value: blu.` };
     const variantStyleError = {
       props: { icon: 'check-circle', variantStyle: 'blu' },
-      error: `<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`,
+      error: `<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}. Passed value: blu.`,
     };
 
     test.each([...iconError, ...sizeError, variantError, variantStyleError])('Should throw error with invalid icon property: %s', async ({ props, error }) => {
@@ -87,7 +90,7 @@ describe('mg-icon', () => {
       try {
         await getPage(props);
       } catch (err) {
-        expect(err.message).toMatch(error);
+        expect(err.message).toEqual(error);
       }
     });
   });

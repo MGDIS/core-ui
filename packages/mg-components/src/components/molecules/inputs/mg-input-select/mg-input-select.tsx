@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
-import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
+import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/stencil-helpers';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
 import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
@@ -124,7 +124,9 @@ export class MgInputSelect {
         this.options = newValue;
       }
     } else {
-      throw new Error('<mg-input-select> prop "items" is required, can be an empty Array or all items must be the same type: string or Option.');
+      throw new Error(
+        `<mg-input-select> prop "items" is required, can be an empty Array or all items must be the same type: string or Option. Passed value: ${toString(newValue)}.`,
+      );
     }
   }
 
