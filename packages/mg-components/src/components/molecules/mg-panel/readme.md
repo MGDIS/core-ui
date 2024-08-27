@@ -41,6 +41,43 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 
 Please note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-panel. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-panel to your design.
 
+## 💥 Troubleshooting
+
+### How to resize the `<iframe>` element when the `<mg-panel>` component is toggled?
+
+You can use the external library `iframe-resizer`. When the library is instantiated in the `window`, it adds a new property `parentIFrame` which includes a `size()` method.
+
+Then you can use `window.parentIFrame.size()` to manually trigger a resize on the `iframe` when the `<mg-panel>` element's `expanded` property is toggled.
+
+```jsx
+class MyComponent {
+  [...] 
+  #expanded = true;
+
+  handleExpandedChange = () => {
+    if (window.parentIFrame) {
+      // This setTimeout is mandatory
+      // We have to ensure that component resizing is done before triggering iframe resizing
+      setTimeout(() => {
+        window.parentIFrame.size()
+      }, 0);
+    }
+  };
+
+  render() {
+    return (
+      <mg-panel
+        [...]
+        expanded={this.#expanded}
+        on-expanded-change={this.handleExpandedChange}
+      >
+        [...]
+      </mg-panel>
+    );
+  }
+}
+```
+
 <!-- Auto Generated Below -->
 
 

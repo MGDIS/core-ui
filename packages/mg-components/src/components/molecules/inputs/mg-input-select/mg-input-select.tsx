@@ -270,7 +270,7 @@ export class MgInputSelect {
   @State() valueExist: boolean;
 
   /**
-   * Does value match any item option
+   * Value to display in readonly mode
    */
   @State() readonlyValue: string;
 

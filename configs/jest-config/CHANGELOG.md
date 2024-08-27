@@ -1,5 +1,11 @@
 # jest-config
 
+## 1.0.6
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+
 ## 1.0.5
 
 ### Patch Changes

@@ -1,20 +1,10 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgInput as MgInputType } from '../mg-input';
-import { tooltipPositions } from '../mg-input.conf';
 
 export default {
   component: 'mg-input',
   title: 'Molecules/Inputs/mg-input',
-  argTypes: {
-    tooltipPosition: {
-      options: [undefined, ...tooltipPositions],
-      control: { type: 'select' },
-    },
-    readonlyValue: {
-      control: { type: 'text' },
-    },
-  },
 };
 
 const classSizeFull = `

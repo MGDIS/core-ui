@@ -1,6 +1,6 @@
 {
   "name": "@mgdis/stencil-helpers",
-  "version": "1.1.5",
+  "version": "1.1.8",
   "license": "ISC",
   "author": "Nicolas Jouanno <jouanno-n@mgdis.fr>",
   "maintainers": [
@@ -22,8 +22,8 @@
   },
   "scripts": {
     "build": "tsc --noEmit && vite build && typedoc",
-    "test": "vitest",
-    "coverage": "vitest run --coverage",
+    "test": "TZ=UTC vitest",
+    "coverage": "TZ=UTC vitest run --coverage",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
     "lint:es": "eslint '**/*.{ts,tsx}' --ignore-path ../../.gitignore",
@@ -32,10 +32,10 @@
     "lint:prettier:fix": "prettier --write '**/*.{js,ts,json}' --ignore-path ../../.gitignore"
   },
   "dependencies": {
-    "@stencil/core": "4.18.3"
+    "@stencil/core": "4.19.2"
   },
   "devDependencies": {
-    "@types/node": "20.14.8",
+    "@types/node": "20.14.15",
     "@vitest/coverage-istanbul": "1.6.0",
     "@vitest/coverage-v8": "1.6.0",
     "eslint-config-custom": "workspace:*",
@@ -43,8 +43,8 @@
     "tsconfig": "workspace:*",
     "typedoc": "0.25.13",
     "typedoc-plugin-markdown": "4.0.3",
-    "typescript": "5.4.5",
-    "vite": "5.3.1",
+    "typescript": "5.5.4",
+    "vite": "5.4.2",
     "vite-plugin-dts": "3.9.1",
     "vitest": "1.6.0",
     "vitest-config": "workspace:*"

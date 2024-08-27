@@ -6,7 +6,7 @@ exports[`mg-details with args {
   expanded: true
 } 1`] = `
 <mg-details>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <details class="mg-c-details" open="">
       <summary>
         <slot name="summary"></slot>
@@ -21,7 +21,7 @@ exports[`mg-details with args {
         <slot name="details"></slot>
       </div>
     </details>
-  </mock:shadow-root>
+  </template>
   <span slot="summary">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   </span>
@@ -37,7 +37,7 @@ exports[`mg-details with args {
   hideSummary: true
 } 1`] = `
 <mg-details>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <details class="mg-c-details">
       <summary>
         <slot name="summary"></slot>
@@ -52,7 +52,7 @@ exports[`mg-details with args {
         <slot name="details"></slot>
       </div>
     </details>
-  </mock:shadow-root>
+  </template>
   <span slot="summary">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   </span>
@@ -64,7 +64,7 @@ exports[`mg-details with args {
 
 exports[`mg-details with args { toggleClosed: 'Show details', toggleOpened: 'Hide details' } 1`] = `
 <mg-details>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <details class="mg-c-details">
       <summary>
         <slot name="summary"></slot>
@@ -79,7 +79,7 @@ exports[`mg-details with args { toggleClosed: 'Show details', toggleOpened: 'Hid
         <slot name="details"></slot>
       </div>
     </details>
-  </mock:shadow-root>
+  </template>
   <span slot="summary">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   </span>

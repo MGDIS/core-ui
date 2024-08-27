@@ -27,6 +27,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/no-deprecated-slot-attribute': 'warn',
     '@typescript-eslint/ban-ts-comment': 'warn',
+    'vuejs-accessibility/no-redundant-roles': 'off',
     'vuejs-accessibility/label-has-for': [
       'error',
       {

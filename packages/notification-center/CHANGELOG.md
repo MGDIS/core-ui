@@ -1,5 +1,24 @@
 # @mgdis/notification-center
 
+## 1.1.15
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+- 18a700a: [#499](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/499) notification-center: types could not be resolved
+
+## 1.1.14
+
+### Patch Changes
+
+- 6195e7a: Update PW
+
+## 1.1.13
+
+### Patch Changes
+
+- c567b43: update dependencies
+
 ## 1.1.12
 
 ### Patch Changes

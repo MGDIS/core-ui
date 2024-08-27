@@ -100,7 +100,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Define form id to attach button with. If this attribute is not set, the <button> is associated with its ancestor <form> element.
+          * Define form id to attach button with. If this attribute is not set, the `<button>` is associated with its ancestor `<form>` element.
          */
         "form"?: string;
         /**
@@ -626,6 +626,10 @@ export namespace Components {
           * Define if label is displayed on top
          */
         "labelOnTop"?: boolean;
+        /**
+          * Input max length
+         */
+        "maxlength": any;
         /**
           * Define input width
          */
@@ -1157,7 +1161,7 @@ export namespace Components {
          */
         "itemmore"?: ItemMoreType;
         /**
-          * Menu label. Include short menu description. Required for accessibility
+          * Menu label. Include short menu description. Required to define accessibility required attribute `aria-label`
          */
         "label": string;
         /**
@@ -2060,7 +2064,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Define form id to attach button with. If this attribute is not set, the <button> is associated with its ancestor <form> element.
+          * Define form id to attach button with. If this attribute is not set, the `<button>` is associated with its ancestor `<form>` element.
          */
         "form"?: string;
         /**
@@ -2593,6 +2597,10 @@ declare namespace LocalJSX {
          */
         "labelOnTop"?: boolean;
         /**
+          * Input max length
+         */
+        "maxlength"?: any;
+        /**
           * Define input width
          */
         "mgWidth"?: Width;
@@ -3115,7 +3123,7 @@ declare namespace LocalJSX {
          */
         "itemmore"?: ItemMoreType;
         /**
-          * Menu label. Include short menu description. Required for accessibility
+          * Menu label. Include short menu description. Required to define accessibility required attribute `aria-label`
          */
         "label": string;
         /**

@@ -1,5 +1,38 @@
 # @mgdis/mg-components
 
+## 5.28.2
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+- Updated dependencies [9c9620c]
+  - @mgdis/stencil-helpers@1.1.8
+
+## 5.28.1
+
+### Patch Changes
+
+- Updated dependencies [4ee49fe]
+  - @mgdis/stencil-helpers@1.1.7
+  - @mgdis/styles@1.3.6
+
+## 5.28.0
+
+### Minor Changes
+
+- 0d73023: [#495](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/495) mg-input-password: add maxlength prop
+
+### Patch Changes
+
+- c567b43: update dependencies
+- 95cbe02: [#494](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/494) mg-menu: responsive sub-menu click didn't work
+- 2218c8b: [#496](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/496) mg-input-password: Prevent mg-icon style to be overridden
+- Updated dependencies [c567b43]
+- Updated dependencies [2218c8b]
+  - @mgdis/stencil-helpers@1.1.6
+  - @mgdis/img@1.7.3
+  - @mgdis/styles@1.3.5
+
 ## 5.27.4
 
 ### Patch Changes

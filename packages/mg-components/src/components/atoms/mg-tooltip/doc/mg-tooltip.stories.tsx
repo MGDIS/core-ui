@@ -8,11 +8,6 @@ export default {
   parameters: {
     layout: 'centered',
   },
-  argTypes: {
-    placement: {
-      control: { type: 'select' },
-    },
-  },
 };
 
 /**

@@ -1,5 +1,24 @@
 # eslint-config-custom
 
+## 1.0.11
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+
+## 1.0.10
+
+### Patch Changes
+
+- 4ee49fe: Update dependencies
+- 4d48fd2: upgrade turbo dependency
+
+## 1.0.9
+
+### Patch Changes
+
+- c567b43: update dependencies
+
 ## 1.0.8
 
 ### Patch Changes

@@ -29,13 +29,13 @@ const getPage = async args => {
     components: [MgMenu, MgMenuItem, MgItemMore, MgPopover, MgPopoverContent],
     template: () => (
       <mg-menu {...args}>
-        <mg-menu-item href={args.isHref ? '#' : undefined} id={setId(args.hasId)}>
+        <mg-menu-item href={args.isHref ? '#' : undefined} id={setId(args.hasId)} identifier="identifier-1">
           <span slot="label">Batman</span>
         </mg-menu-item>
-        <mg-menu-item id={setId(args.hasId)}>
+        <mg-menu-item id={setId(args.hasId)} identifier="identifier-2">
           <span slot="label">Joker</span>
         </mg-menu-item>
-        <mg-menu-item id={setId(args.hasId)}>
+        <mg-menu-item id={setId(args.hasId)} identifier="identifier-3">
           <span slot="label">Bane</span>
         </mg-menu-item>
       </mg-menu>
@@ -55,6 +55,10 @@ const getPage = async args => {
   await page.waitForChanges();
 
   // flush data-overflow-more > mg-menu mg-menu-item[componentDidLoad setTimeout]
+  jest.runOnlyPendingTimers();
+
+  await page.waitForChanges();
+
   jest.runOnlyPendingTimers();
 
   udpateItemMorePopoverId(page);
@@ -111,7 +115,7 @@ describe('mg-item-more', () => {
   });
 
   describe('events', () => {
-    test('Should update proxy status when base item status-change event was trigger', async () => {
+    test('Should update proxy status when base item item-updated event was trigger', async () => {
       const page = await getPage({ label: 'batman' });
 
       expect(page.root).toMatchSnapshot();
@@ -119,7 +123,11 @@ describe('mg-item-more', () => {
       const mgMenuItemBase = page.doc.querySelector('mg-menu-item');
       const mgMenuItemProxy = page.doc.querySelector('mg-item-more').shadowRoot.querySelector('mg-menu mg-menu-item');
       expect(mgMenuItemProxy).toHaveProperty('status', Status.VISIBLE);
-      mgMenuItemBase.dispatchEvent(new CustomEvent('status-change', { bubbles: true, detail: Status.ACTIVE }));
+
+      mgMenuItemBase.status = Status.ACTIVE;
+      await page.waitForChanges();
+
+      mgMenuItemBase.dispatchEvent(new CustomEvent('item-updated', { bubbles: true }));
 
       await page.waitForChanges();
       expect(mgMenuItemProxy).toHaveProperty('status', Status.ACTIVE);
@@ -152,14 +160,13 @@ describe('mg-item-more', () => {
 
       const mgMenuItemBase = page.doc.querySelector('mg-menu-item');
       const mgMenuItemProxy = page.doc.querySelector('mg-item-more').shadowRoot.querySelector('mg-menu mg-menu-item');
-      const spy = jest.spyOn(mgMenuItemBase.shadowRoot.querySelector(isHref ? 'a' : 'button'), 'click');
+      const spy = jest.spyOn(mgMenuItemBase.shadowRoot.querySelector(isHref ? 'a' : 'button'), 'dispatchEvent');
 
-      mgMenuItemProxy.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      mgMenuItemProxy.shadowRoot.querySelector(isHref ? 'a' : 'button').dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
-      expect(spy).toBeCalledTimes(1);
+      expect(spy).toHaveBeenCalledWith(expect.objectContaining({ type: 'click' }));
 
-      udpateItemMorePopoverId(page);
       expect(page.root).toMatchSnapshot();
     });
   });
