@@ -12,7 +12,8 @@ import { initLocales } from '../../../../locales';
  * @param option - radio option
  * @returns radio option type is valid
  */
-const isOption = (option: RadioOption): boolean => typeof option === 'object' && typeof option.title === 'string' && option.value !== undefined;
+const isOption = (option: unknown): option is RadioOption =>
+  typeof option === 'object' && typeof (option as RadioOption).title === 'string' && (option as RadioOption).value !== undefined;
 
 @Component({
   tag: 'mg-input-radio',
@@ -51,7 +52,14 @@ export class MgInputRadio {
    */
   @Prop({ mutable: true }) value: any;
   @Watch('value')
-  handleValue(newValue: any): void {
+  watchValue(newValue: any): void {
+    if (allItemsAreString(this.items) && typeof newValue === 'string') {
+      this.readonlyValue = newValue;
+    } else if (this.items.every(isOption)) {
+      this.readonlyValue = this.items.find(item => item.value === newValue)?.title;
+    } else {
+      this.readonlyValue = null;
+    }
     this.valueChange.emit(newValue);
   }
 
@@ -192,6 +200,11 @@ export class MgInputRadio {
   @State() options: RadioOption[];
 
   /**
+   * Value to display in readonly mode
+   */
+  @State() readonlyValue: string;
+
+  /**
    * Emitted event when value change
    */
   @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputRadioElement['value']>;
@@ -311,6 +324,7 @@ export class MgInputRadio {
     this.watchInputVerticalList(this.inputVerticalList);
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
+    this.watchValue(this.value);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -333,7 +347,7 @@ export class MgInputRadio {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonlyValue={this.value?.toString()}
+        readonlyValue={this.readonlyValue}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
