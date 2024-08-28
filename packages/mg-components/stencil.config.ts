@@ -20,7 +20,7 @@ export const config: Config = {
       copy: [
         {
           src: '../node_modules/@mgdis/styles/dist/mg-temp/variables.css',
-          dest: 'variables.css', // export variable in a seperate file for component inside another framework
+          dest: './', // export variable in a seperate file for component inside another framework
         },
         {
           src: '../node_modules/@mgdis/styles/dist/mg-temp/fonts',
@@ -61,7 +61,7 @@ export const config: Config = {
         },
         {
           src: '../node_modules/@mgdis/styles/dist/mg-temp/variables.css',
-          dest: 'build/variables.css', // export variable for working space
+          dest: 'build', // export variable for working space
         },
         {
           src: '../node_modules/@mgdis/styles/dist/mg-temp/fonts',
