@@ -7,7 +7,6 @@ import { MgInputCheckboxListProps } from './mg-input-checkbox.conf';
  * @returns input template
  */
 export const MgInputCheckboxList: FunctionalComponent<MgInputCheckboxListProps> = (props: MgInputCheckboxListProps): VNode[] => (
-  // eslint-disable-next-line jsx-a11y/no-redundant-roles
   <ul
     class="mg-c-input__input-group-container"
     role="list"

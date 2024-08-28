@@ -1,5 +1,15 @@
 # @mgdis/linting-stencil
 
+## 1.2.0
+
+### Minor Changes
+
+- b8a9428: linting: disabled eslint "no-redundant-roles" rule
+
+### Patch Changes
+
+- 2fad542: update dependencies
+
 ## 1.1.7
 
 ### Patch Changes

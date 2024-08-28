@@ -1,5 +1,18 @@
 # @mgdis/mg-components
 
+## 5.29.0
+
+### Minor Changes
+
+- b8a9428: linting: disabled eslint "no-redundant-roles" rule
+
+### Patch Changes
+
+- 2fad542: update dependencies
+- e2100d2: [#501](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/501) mg-input-radio: readonly display value
+- Updated dependencies [2fad542]
+  - @mgdis/stencil-helpers@1.1.9
+
 ## 5.28.2
 
 ### Patch Changes

@@ -50,6 +50,16 @@ describe('mg-input-radio', () => {
         { title: 'bane', value: false },
       ],
     },
+    {
+      items: [
+        { title: 'batman', value: 1 },
+        { title: 'robin', value: 2 },
+        { title: 'joker', value: 3 },
+        { title: 'bane', value: 4 },
+      ],
+      readonly: true,
+      value: 2,
+    },
     { items: ['batman', 'robin', 'joker', 'bane'], labelOnTop: true },
     { items: ['batman', 'robin', 'joker', 'bane'], labelHide: true },
     { items: ['batman', 'robin', 'joker', 'bane'], inputVerticalList: true },

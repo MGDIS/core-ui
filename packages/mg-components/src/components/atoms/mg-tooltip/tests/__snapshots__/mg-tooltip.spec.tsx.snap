@@ -866,7 +866,12 @@ exports[`mg-tooltip Should update mg-button wrapper dynamically 2`] = `
           <slot></slot>
         </div>
       </div>
-    </template>
+    </template><template shadowrootmode="open" shadowrootmode="open">
+    <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+      <div class="mg-c-button__content">
+        <slot></slot>
+      </div>
+    </div></template>
     mg-button.disabled
   </mg-button>
 </mg-tooltip>

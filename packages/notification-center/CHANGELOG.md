@@ -1,5 +1,11 @@
 # @mgdis/notification-center
 
+## 1.1.16
+
+### Patch Changes
+
+- 2fad542: update dependencies
+
 ## 1.1.15
 
 ### Patch Changes

@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-redundant-roles */
 import { Component, Element, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
 import { SkipLink } from './mg-skip-links.conf';
 import { initLocales } from '../../../locales';

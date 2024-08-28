@@ -362,7 +362,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputCheckbox['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputCheckbox["valid"], errorMessage: string) => Promise<void>;
         /**
           * Overwrite default "show" button message
          */
@@ -479,7 +479,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputDate['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputDate["valid"], errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -579,7 +579,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputNumeric['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputNumeric["valid"], errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -663,7 +663,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputPassword['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputPassword["valid"], errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -739,7 +739,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputRadio['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputRadio["valid"], errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -827,7 +827,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputSelect['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputSelect["valid"], errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -927,7 +927,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputText['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputText["valid"], errorMessage: string) => Promise<void>;
         /**
           * Public method to play input focus
          */
@@ -1035,7 +1035,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputTextarea['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputTextarea["valid"], errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */

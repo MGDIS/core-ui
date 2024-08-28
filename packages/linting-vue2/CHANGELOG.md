@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- b8a9428: linting: disabled eslint "no-redundant-roles" rule
+
+### Patch Changes
+
+- Updated dependencies [b8a9428]
+  - @mgdis/eslint-plugin-vue@4.1.0
+
 ## 4.0.8
 
 ### Patch Changes
