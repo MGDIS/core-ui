@@ -1,8 +1,8 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
-import { ClassList, cleanString, isValidString } from '@mgdis/stencil-helpers';
-import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SelectValuesButtonKey } from './mg-input-checkbox.conf';
+import { ClassList, cleanString, isValidString, toString } from '@mgdis/stencil-helpers';
+import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SectionKindType } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
-import { Handler, classDisabled, type TooltipPosition, classReadonly, classFieldset, classVerticalList } from '../mg-input/mg-input.conf';
+import { type EventType, classDisabled, type TooltipPosition, classReadonly, classFieldset, classVerticalList } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 /**
@@ -33,7 +33,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private handlerInProgress: Handler;
+  private handlerInProgress: EventType;
 
   private mode: 'custom' | 'auto' = 'custom';
 
@@ -78,7 +78,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       }));
       this.valueChange.emit(newValue);
     } else {
-      throw new Error('<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem.');
+      throw new Error(`<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -94,7 +94,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Watch('type')
   validateType(newValue: MgInputCheckbox['type']): void {
     if (newValue !== undefined && !checkboxTypes.includes(newValue)) {
-      throw new Error('<mg-input-checkbox> prop "type" must be a CheckboxType.');
+      throw new Error(`<mg-input-checkbox> prop "type" must be a CheckboxType. Passed value: ${toString(newValue)}.`);
     } else if (newValue === undefined) {
       this.mode = 'auto';
       this.type = checkboxTypes[0];
@@ -182,7 +182,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       this.hasDisplayedError = prop !== 'required';
       this.setErrorMessage(this.hasDisplayedError);
     }
-    this.setButtonText();
+    this.setButtonTextKey();
   }
 
   @Watch('disabled')
@@ -217,6 +217,20 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Prop({ mutable: true }) invalid: boolean;
 
   /**
+   * Overwrite default "edit" button message
+   */
+  @Prop() editButtonMessage: string;
+  /**
+   * Overwrite default "show" button message
+   */
+  @Prop() showButtonMessage: string;
+
+  /**
+   * Overwrite default "select" button message
+   */
+  @Prop() selectButtonMessage: string;
+
+  /**
    * Component classes
    */
   @State() classCollection: ClassList = new ClassList([this.baseClassName, classFieldset]);
@@ -238,7 +252,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.displaySearchInput = this.type === 'multi' && newValue.length > this.searchStart;
     // refresh search values
     if (this.displaySearchInput) this.updateSearchResults();
-    this.setButtonText();
+    this.setButtonTextKey();
   }
 
   /**
@@ -269,7 +283,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Select values button text local key
    */
-  @State() selectValuesButtonKey: SelectValuesButtonKey = SelectValuesButtonKey.EDIT;
+  @State() selectValuesButtonKey: 'editButton' | 'showButton' | 'selectButton' = 'editButton';
 
   /**
    * Emitted event when value change
@@ -302,9 +316,9 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Method()
   async setError(valid: MgInputCheckbox['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-checkbox> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-checkbox> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-checkbox> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-checkbox> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.setValidity(valid);
       this.setErrorMessage(undefined, valid ? undefined : errorMessage);
@@ -321,7 +335,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -348,12 +362,13 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       }
 
       const enableInputs = Array.from(this.element.shadowRoot.querySelectorAll('input'))
-        .filter(input => !input.getAttribute('disabled'))
+        .filter(input => !input.hasAttribute('disabled'))
         .map(({ id }) => id);
       const originInputIndex = enableInputs.findIndex(id => id === event.target.id);
 
       // close popover when tab trigger focus outside its DOM
-      if ((originInputIndex + 1 >= enableInputs.length && !event.shiftKey) || (originInputIndex === 0 && event.shiftKey && !this.searchInput)) this.mgPopover.display = false;
+      if ((originInputIndex + 1 >= enableInputs.length && !event.shiftKey) || (originInputIndex === 0 && event.shiftKey && this.searchInput === undefined))
+        this.mgPopover.display = false;
     }
   };
 
@@ -361,12 +376,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Handle blur event
    */
   private handleBlur = (event: MouseEvent): void => {
-    if (this.handlerInProgress === Handler.MOUSEENTER) {
+    if (this.handlerInProgress === 'mouseenter') {
       event.preventDefault();
       return;
     }
     // set guard
-    this.handlerInProgress = Handler.BLUR;
+    this.handlerInProgress = 'blur';
 
     // Check validity
     this.checkValidity();
@@ -394,7 +409,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.hasOpenedPopover = event.detail;
 
     // 2. update selected valued button text
-    this.setButtonText();
+    this.setButtonTextKey();
 
     // 3. when popover display change to hide, update reset needeed props and run checkValidity
     if (!event.detail) {
@@ -412,12 +427,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Handle select all button
    * @param event - mass action event trigger a global select/unselect on values
    */
-  private handleMassAction = (event: CustomEvent): void => {
+  private handleMassAction = (event: CustomEvent<SectionKindType>): void => {
     const displayItems = this.getDisplayItems();
 
     // update only displayed items
     displayItems.forEach(item => {
-      item.value = event.detail !== 'selected';
+      item.value = event.detail !== SectionKind.SELECTED;
     });
     this.updateValues();
   };
@@ -426,7 +441,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Handle input label mouseenter event
    */
   private handleMouseEnter = () => {
-    this.handlerInProgress = Handler.MOUSEENTER;
+    this.handlerInProgress = 'mouseenter';
   };
 
   /**
@@ -494,14 +509,30 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Set button text locale key
    */
-  private setButtonText = (): void => {
+  private setButtonTextKey = (): void => {
     // prevent key update while popover is openned
     if (this.hasOpenedPopover) return;
-    let messageKey = SelectValuesButtonKey.EDIT;
-    if (this.disabled) messageKey = SelectValuesButtonKey.SHOW;
-    else if (this.getSelectedItems().length < 1) messageKey = SelectValuesButtonKey.SELECT;
+    let messageKey: MgInputCheckbox['selectValuesButtonKey'] = 'editButton';
+    if (this.disabled) messageKey = 'showButton';
+    else if (this.getSelectedItems().length < 1) messageKey = 'selectButton';
 
     this.selectValuesButtonKey = messageKey;
+  };
+
+  /**
+   * Get select values button message
+   * @returns message to display
+   */
+  private getSelectValuesButtonMessage = (): string => {
+    if (this.selectValuesButtonKey === 'editButton' && isValidString(this.editButtonMessage)) {
+      return this.editButtonMessage;
+    } else if (this.selectValuesButtonKey === 'showButton' && isValidString(this.showButtonMessage)) {
+      return this.showButtonMessage;
+    } else if (this.selectValuesButtonKey === 'selectButton' && isValidString(this.selectButtonMessage)) {
+      return this.selectButtonMessage;
+    } else {
+      return this.messages.input.checkbox[this.selectValuesButtonKey];
+    }
   };
 
   /**
@@ -599,26 +630,26 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     const sections = [
       {
         ...baseSection,
-        sectionKind: SectionKind.SELECTED,
         checkboxes: checkedValues,
         messages: this.messages.input.checkbox.sections.selected,
       },
       {
         ...baseSection,
-        sectionKind: SectionKind.NOT_SELECTED,
         checkboxes: notCheckedValues,
         messages: this.messages.input.checkbox.sections.notSelected,
       },
     ];
 
-    return sections.map(section => <mg-input-checkbox-paginated {...section} onMass-action={this.handleMassAction} key={section.sectionKind}></mg-input-checkbox-paginated>);
+    return sections
+      .filter(section => section.checkboxes.length)
+      .map(section => <mg-input-checkbox-paginated {...section} onMass-action={this.handleMassAction} key={section.messages}></mg-input-checkbox-paginated>);
   }
 
   /**
    * render checkbox multi element
    * @returns html element
    */
-  private renderCheckboxMulti(): HTMLElement[] {
+  private renderCheckboxMulti(): HTMLElement {
     const selectedValuesNb = this.getSelectedItems().length;
     const checkboxes = this.getDisplayItems();
 
@@ -630,12 +661,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
           display={this.hasOpenedPopover}
           onDisplay-change={this.handleMgPopoverDisplayChange}
           ref={(el: HTMLMgPopoverElement) => {
-            if (el) this.mgPopover = el;
+            if (el !== null) this.mgPopover = el;
           }}
         >
           <mg-button variant="secondary" aria-describedby={`${this.identifier}-title`}>
             <mg-icon icon="list"></mg-icon>
-            {this.messages.input.checkbox[this.selectValuesButtonKey]}
+            {this.getSelectValuesButtonMessage()}
           </mg-button>
           <div slot="content" class="mg-c-input__content">
             {this.displaySearchInput ? (
@@ -650,7 +681,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
                   mgWidth="full"
                   value={this.searchValue}
                   labelHide={true}
-                  displayCharacterLeft={false}
+                  characterLeftHide={true}
                   name="q"
                   onValue-change={this.handleSearchChange}
                   aria-controls="search-results items-list"
@@ -687,17 +718,62 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
             </ul>
           )
         ) : (
-          <strong>{this.messages.input.checkbox[selectedValuesNb > 1 ? 'selectedValues' : 'selectedValue'].replace('{nb}', selectedValuesNb)}</strong>
+          <b>{this.messages.input.checkbox[selectedValuesNb > 1 ? 'selectedValues' : 'selectedValue'].replace('{nb}', selectedValuesNb)}</b>
         )}
       </div>
     );
   }
 
   /**
+   * Renders the readonly value of the input.
+   * @returns The rendered readonly value.
+   */
+  private renderReadonly = (readonlyValue: string[]): HTMLElement => {
+    return this.inputVerticalList ? (
+      <ul class="mg-c-input__readonly-value">
+        {readonlyValue.map(value => (
+          <li key={value}>
+            <b>{value}</b>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <b class="mg-c-input__readonly-value">{readonlyValue.join(', ')}</b>
+    );
+  };
+
+  /**
+   * Renders the MgInputCheckboxList component.
+   * @returns The rendered MgInputCheckboxList component.
+   */
+  private renderMgInputCheckboxList = () => (
+    <MgInputCheckboxList
+      checkboxes={this.checkboxItems}
+      displaySearchInput={this.displaySearchInput}
+      messages={this.messages.input.checkbox}
+      id="checkboxes-list"
+      disabled={this.disabled}
+      name={this.name}
+      invalid={this.invalid}
+    ></MgInputCheckboxList>
+  );
+
+  /**
    * Render
    * @returns HTML Element
    */
   render(): HTMLElement {
+    let inputContent: HTMLElement;
+    const readonlyValue = this.value.filter(({ value }) => value).map(({ title }) => title);
+
+    if (this.readonly) {
+      inputContent = this.renderReadonly(readonlyValue);
+    } else if (this.type === 'checkbox') {
+      inputContent = this.renderMgInputCheckboxList();
+    } else {
+      inputContent = this.renderCheckboxMulti();
+    }
+
     return (
       <mg-input
         label={this.label}
@@ -707,25 +783,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={!this.readonly ? this.required : undefined} // required is only used display asterisk
-        readonlyValue={this.value.filter(({ value }) => value).map(({ title }) => title)}
-        tooltip={!this.readonly ? this.tooltip : undefined}
-        tooltipPosition={this.tooltipPosition}
+        tooltip={this.tooltip}
+        tooltipPosition={this.readonly && readonlyValue.length === 0 ? 'label' : this.tooltipPosition}
         helpText={!this.readonly ? this.helpText : undefined}
         errorMessage={!this.readonly ? this.errorMessage : undefined}
       >
-        {this.type === 'checkbox' || this.readonly ? (
-          <MgInputCheckboxList
-            checkboxes={this.checkboxItems}
-            displaySearchInput={this.displaySearchInput}
-            messages={this.messages.input.checkbox}
-            id="checkboxes-list"
-            disabled={this.disabled}
-            name={this.name}
-            invalid={this.invalid}
-          ></MgInputCheckboxList>
-        ) : (
-          this.renderCheckboxMulti()
-        )}
+        {inputContent}
       </mg-input>
     );
   }

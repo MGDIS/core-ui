@@ -10,7 +10,7 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "start": "sass scss:dist -w",
-    "build": "sass scss:dist -s compressed && cp -r scss/mg-temp/fonts dist/mg-temp",
+    "build": "sass scss:dist -s compressed && cp -r scss/fonts dist/fonts",
     "build:dev": "sass scss:dist",
     "lint": "stylelint 'scss/**/*.{css,scss}'",
     "lint:fix": "stylelint 'scss/**/*.{css,scss}' --fix",
@@ -19,7 +19,8 @@
     "test:e2e:docker": "pnpm dlx @playwright/test test"
   },
   "files": [
-    "dist"
+    "dist",
+    "scss"
   ],
   "devDependencies": {
     "@mgdis/playwright-helpers": "workspace:*",

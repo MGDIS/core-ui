@@ -1,6 +1,9 @@
 .mg-c-skip-links {
   position: absolute;
-  background: hsl(var(--color-light));
+  display: flex;
+  min-height: var(--mg-b-size-56);
+  align-items: center;
+  background: var(--mg-b-color-light);
   opacity: 0;
   transform: translateY(-100%);
 
@@ -14,19 +17,19 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 0.64rem 1.8rem;
+    padding: 0 var(--mg-b-size-16);
     margin: 0;
-    gap: 0.6rem;
+    gap: var(--mg-b-spacing-actions);
     list-style: none;
   }
 
   &__link {
     display: inline-block;
-    padding: 1.2rem;
-    color: hsl(var(--color-dark));
+    padding: var(--mg-b-size-8) var(--mg-b-size-16);
+    color: var(--mg-b-color-dark);
 
     &:hover {
-      background: hsl(var(--color-dark) / 10%);
+      background: hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 10%);
     }
   }
 }

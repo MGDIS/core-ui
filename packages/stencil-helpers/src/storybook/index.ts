@@ -57,7 +57,7 @@ const renderElement = (parentNode: HTMLElement, tagName: VNode['$tag$'], attribu
  * const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs(args, { variant: variants[0] })}></mg-badge>;
  * ```
  */
-export const filterArgs = <T>(args: T, defaultValues?: T): T => {
+export const filterArgs = <T>(args: T, defaultValues?: Partial<T>): T => {
   const filteredArgs = {} as { [key: string]: unknown };
   if (typeof args !== 'object') {
     throw new Error("filterArgs - args isn't an object.");

@@ -1,54 +1,52 @@
-@import 'mg-input';
+@import 'mg-input-readonly';
 @import '../utils/a11y';
 
 /**
 * Toggle
 */
 
-// variables
-$color-light-blue: hsl(var(--color-info-h) calc(var(--color-info-s) - 64%) calc(var(--color-info-l) + 55%));
-$color-light-dark: hsl(var(--color-dark-h) calc(var(--color-dark-s) - 30%) calc(var(--color-dark-l) + 75%));
-$button-toggle-padding: 0.2rem;
-$toggle-item-container-padding-vertical: 0.5rem;
+$color-app-light: color-mix(in srgb, var(--mg-b-color-app), white 80%);
 
 .mg-c-input {
   &__toggle-item-container {
-    $border-radius-value: calc(((var(--font-size) * var(--line-height)) + (2 * $toggle-item-container-padding-vertical)) / var(--mg-input-toggle-border-radius-ratio));
+    $border-radius-value: calc(((var(--mg-b-font-size) * var(--mg-b-line-height)) + (2 * var(--mg-b-size-4))) / var(--mg-c-input-toggle-border-radius-ratio));
 
     overflow: hidden;
     box-sizing: border-box;
-    padding: $toggle-item-container-padding-vertical 0.9rem;
+    padding: var(--mg-b-size-4) var(--mg-b-size-8);
     border: 0;
     border-radius: $border-radius-value;
     background-color: unset;
-    color: hsl(var(--color-dark));
+    color: var(--mg-b-color-dark);
     font-weight: unset;
     text-overflow: ellipsis;
     white-space: nowrap;
 
     &:first-of-type {
-      background-color: $color-light-blue;
-      color: hsl(var(--color-info));
+      background-color: $color-app-light;
+      color: var(--mg-b-color-app);
       font-weight: 600;
     }
   }
 
   &__button-toggle {
-    $mg-input-button-toggle-border-radius: $button-toggle-padding + $toggle-item-container-padding-vertical;
+    /* stylelint-disable scss/operator-no-newline-after */
     $border-radius-value: calc(
-      ((var(--font-size) * var(--line-height)) + (2 * ($mg-input-button-toggle-border-radius + var(--mg-inputs-border-width)))) / var(--mg-input-toggle-border-radius-ratio)
+      ((var(--mg-b-font-size) * var(--mg-b-line-height)) + (2 * ((var(--mg-b-size-4) + var(--mg-b-size-4)) + var(--mg-c-input-border-width)))) /
+        var(--mg-c-input-toggle-border-radius-ratio)
     );
+    /* stylelint-enable scss/operator-no-newline-after */
 
     display: flex;
     min-width: 0;
-    padding: $button-toggle-padding;
-    border-width: var(--mg-inputs-border-width);
+    padding: var(--mg-b-size-4);
+    border-width: var(--mg-c-input-border-width);
     border-style: solid;
-    border-color: var(--mg-inputs-color);
+    border-color: var(--mg-c-input-color-border);
     border-radius: $border-radius-value;
-    background-color: hsl(var(--color-light));
+    background-color: var(--mg-b-color-light);
     cursor: pointer;
-    font-family: var(--font-family);
+    font-family: var(--mg-b-font-family);
     font-size: inherit;
     line-height: inherit;
 
@@ -67,13 +65,13 @@ $toggle-item-container-padding-vertical: 0.5rem;
     .mg-c-input__toggle-item-container {
       &:first-of-type {
         background-color: unset;
-        color: hsl(var(--color-dark));
+        color: var(--mg-b-color-dark);
         font-weight: unset;
       }
 
       &:last-of-type {
-        background-color: $color-light-blue;
-        color: hsl(var(--color-info));
+        background-color: $color-app-light;
+        color: var(--mg-b-color-info);
         font-weight: 600;
       }
     }
@@ -83,7 +81,7 @@ $toggle-item-container-padding-vertical: 0.5rem;
   &.mg-c-input--toggle-icon {
     /* stylelint-disable-next-line no-descending-specificity */
     .mg-c-input__toggle-item-container {
-      $size: calc(((var(--font-size) * var(--line-height)) + (2 * $toggle-item-container-padding-vertical)));
+      $size: calc(((var(--mg-b-font-size) * var(--mg-b-line-height)) + (2 * var(--mg-b-size-4))));
 
       display: flex;
       width: $size;
@@ -117,14 +115,14 @@ $toggle-item-container-padding-vertical: 0.5rem;
   &.mg-c-input--toggle-on-off {
     /* stylelint-disable-next-line no-descending-specificity */
     .mg-c-input__toggle-item-container:first-of-type {
-      background-color: $color-light-dark;
-      color: hsl(var(--color-dark));
+      background-color: var(--mg-b-color-neutral-30);
+      color: var(--mg-b-color-dark);
       font-weight: 600;
     }
 
     &.mg-c-input--toggle-is-active .mg-c-input__toggle-item-container:first-of-type {
       background-color: unset;
-      color: hsl(var(--color-dark));
+      color: var(--mg-b-color-dark);
       font-weight: unset;
     }
   }

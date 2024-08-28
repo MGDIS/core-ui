@@ -1,7 +1,7 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
-import { createID, focusableElements, getWindows, isValidString, nextTick } from '@mgdis/stencil-helpers';
+import { createID, focusableElements, getWindows, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { Instance as PopperInstance, createPopper, Placement, PositioningStrategy } from '@popperjs/core';
-import { Guard } from './mg-tooltip.conf';
+import { type GuardType, Guard } from './mg-tooltip.conf';
 
 /**
  * HTMLMgButtonElement type guard
@@ -31,7 +31,7 @@ export class MgTooltip {
   private hasCustomTabIndex: boolean;
 
   // tooltip actions guards
-  private guard: Guard;
+  private guard: GuardType;
 
   /**************
    * Decorators *
@@ -60,7 +60,7 @@ export class MgTooltip {
   @Watch('message')
   watchMessage(newValue: MgTooltip['message']): void {
     if (!isValidString(newValue)) {
-      throw new Error('<mg-tooltip> prop "message" is required.');
+      throw new Error(`<mg-tooltip> prop "message" is required and must be a string. Passed value: ${toString(newValue)}.`);
     }
     this.mgTooltipContent.message = newValue;
   }
@@ -91,7 +91,7 @@ export class MgTooltip {
   watchDisabled(newValue: MgTooltip['disabled']): void {
     if (this.hasCustomTabIndex) {
       if (newValue) this.tooltipedElement.removeAttribute('tabindex');
-      else if (this.tooltipedElement.getAttribute('tabindex') === null) this.tooltipedElement.setAttribute('tabindex', '0');
+      else if (!this.tooltipedElement.hasAttribute('tabindex')) this.tooltipedElement.setAttribute('tabindex', '0');
     }
   }
 
@@ -134,7 +134,7 @@ export class MgTooltip {
   };
 
   /**
-   * Check if clicked outside of component and hidde tooltip
+   * Check if clicked outside of component and hide tooltip
    * @param event - mouse event
    */
   private handleClickOutside = (event: MouseEvent & { target: HTMLElement }): void => {
@@ -142,7 +142,7 @@ export class MgTooltip {
   };
 
   /**
-   * Check if 'Escape' key is pressed of component and hidde tooltip
+   * Check if 'Escape' key is pressed of component and hide tooltip
    * @param event - keyboard event
    */
   private handlePressEscape = (event: KeyboardEvent): void => {
@@ -167,7 +167,7 @@ export class MgTooltip {
    * @param eventName - event name
    * @param conditionalGuard - guard condition
    */
-  private tooltipMouseListenerAction = (elementGuard: Guard, eventName: 'mouseenter' | 'mouseleave', conditionalGuard: Guard): void => {
+  private tooltipMouseListenerAction = (elementGuard: GuardType, eventName: 'mouseenter' | 'mouseleave', conditionalGuard: GuardType): void => {
     // active FOCUS guard cancel process
     if ([Guard.FOCUS, Guard.DISABLE_ON_CLICK].includes(this.guard)) {
       return;
@@ -199,25 +199,33 @@ export class MgTooltip {
    * @param mgButton - slotted mg-button
    */
   private setMgButtonWrapper = (mgButton: HTMLMgButtonElement): void => {
-    if (mgButton.disabled) {
+    const buttonWrapperClass = 'mg-c-tooltip__mg-button-wrapper';
+    const hasButtonWrapper = mgButton.parentElement.classList.contains(buttonWrapperClass);
+    // For disabled mg-button, we need to wrap it in a new element
+    // We bind handlers to this new element to keep listener features as workaround to disabled mg-button `pointer-events: none`
+    // AND to prevent multiple nested wrappers from rendering when a new render is called with a disabled mg-button
+    if (mgButton.disabled && !hasButtonWrapper) {
+      // wrap mg-button in a div
       const div = document.createElement('div');
-      div.classList.add('mg-c-tooltip__mg-button-wrapper');
+      div.classList.add(buttonWrapperClass);
       mgButton.parentNode.insertBefore(div, mgButton);
       div.appendChild(mgButton);
-      this.tooltipedElement = div;
-    } else if (mgButton.parentElement.classList.contains('mg-c-tooltip__mg-button-wrapper')) {
+
+      // update tooltipElement
+      this.setTooltipedElement(div);
+    } else if (!mgButton.disabled && hasButtonWrapper) {
       this.element.firstElementChild.replaceWith(mgButton);
-      this.tooltipedElement = mgButton;
+
+      // update tooltipElement
+      this.setTooltipedElement(mgButton);
     }
   };
 
   /**
    * Set popper instance
+   * @param strategy - popper strategy to apply on instance
    */
-  private setPopper = (): void => {
-    // use element data attribute: `data-popper-strategy`, in order to get popper strategy configuration
-    const strategy = (this.element.dataset.popperStrategy || 'fixed') as PositioningStrategy;
-
+  private setPopper = (strategy: PositioningStrategy): void => {
     // Create popperjs tooltip
     this.popper = createPopper(this.tooltipedElement, this.mgTooltipContent, {
       placement: this.placement,
@@ -309,13 +317,11 @@ export class MgTooltip {
    */
   private setAriaDescribedby = (element: HTMLElement): void => {
     // Set aria-describedby
-    const ariaDescribedby = element.getAttribute('aria-describedby');
-
-    if (ariaDescribedby === null) {
+    if (!element.hasAttribute('aria-describedby')) {
       this.tooltipedElement.setAttribute('aria-describedby', this.identifier);
     } else {
       // We ensure to have uniq ids
-      element.setAttribute('aria-describedby', `${[...new Set([...ariaDescribedby.split(' '), this.identifier])].join(' ')}`);
+      element.setAttribute('aria-describedby', `${[...new Set([...element.getAttribute('aria-describedby').split(' '), this.identifier])].join(' ')}`);
     }
   };
 
@@ -323,7 +329,7 @@ export class MgTooltip {
    * Render tooltip content element and init listeners
    */
   private renderTooltipContent(): void {
-    if (this.mgTooltipContent) {
+    if (this.mgTooltipContent !== undefined) {
       this.mgTooltipContent.setAttribute('id', this.identifier);
     } else {
       this.mgTooltipContent = document.createElement('mg-tooltip-content');
@@ -390,7 +396,7 @@ export class MgTooltip {
     }
 
     // Add tabindex to slotted element if we can't find any interactive element
-    if (!this.disabled && !interactiveElement) {
+    if (!this.disabled && [undefined, null].includes(interactiveElement)) {
       this.hasCustomTabIndex = true;
       slotElement.tabIndex = 0;
       // Add role on non-interactive element to work with "aria-describedby" for screen readers
@@ -401,7 +407,7 @@ export class MgTooltip {
     this.setAriaDescribedby(slotElement);
 
     // set Tooltip
-    this.setPopper();
+    this.setPopper(this.element.closest('mg-popover') ? 'absolute' : 'fixed');
 
     // add document keyboard handler
     document.addEventListener('keydown', this.handlePressEscape);
@@ -415,6 +421,17 @@ export class MgTooltip {
    */
   componentDidUpdate(): void {
     this.popper.update();
+  }
+
+  /**
+   * remove listeners
+   */
+  disconnectedCallback(): void {
+    document.removeEventListener('keydown', this.handlePressEscape);
+    this.windows.forEach((localWindow: Window) => {
+      localWindow.removeEventListener('click', this.handleClickOutside, false);
+      localWindow.removeEventListener('keydown', this.handlePressEscape, false);
+    });
   }
 
   /**

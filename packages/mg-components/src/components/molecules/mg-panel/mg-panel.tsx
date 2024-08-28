@@ -1,9 +1,9 @@
 import { Component, Element, h, Prop, State, EventEmitter, Watch, Event } from '@stencil/core';
-import { createID, ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { createID, ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../locales';
 import { type ExpandToggleDisplayType, type TitlePositionType, expandToggleDisplays, titlePositions } from './mg-panel.conf';
 
-/*
+/**
  * @slot - Panel content
  * @slot header-right - Header right panel content
  */
@@ -44,7 +44,7 @@ export class MgPanel {
   @Prop({ mutable: true }) panelTitle!: string;
   @Watch('panelTitle')
   validatePanelTitle(newValue: MgPanel['panelTitle']): void {
-    if (!isValidString(newValue)) throw new Error('<mg-panel> prop "panelTitle" is required.');
+    if (!isValidString(newValue)) throw new Error(`<mg-panel> prop "panelTitle" is required and must be a string. Passed value: ${toString(newValue)}.`);
     this.titleChange.emit(newValue);
   }
 
@@ -74,7 +74,7 @@ export class MgPanel {
   @Prop() titlePosition: TitlePositionType = titlePositions[0];
   @Watch('titlePosition')
   validateTitlePosition(newValue: MgPanel['titlePosition']) {
-    if (!titlePositions.includes(newValue)) throw new Error(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}.`);
+    if (!titlePositions.includes(newValue)) throw new Error(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}. Passed value: ${toString(newValue)}.`);
   }
 
   /**
@@ -92,7 +92,8 @@ export class MgPanel {
   @Prop() expandToggleDisplay: ExpandToggleDisplayType = expandToggleDisplays[0];
   @Watch('expandToggleDisplay')
   validateExpandToggleDisplay(newValue: MgPanel['expandToggleDisplay']) {
-    if (!expandToggleDisplays.includes(newValue)) throw new Error(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}.`);
+    if (!expandToggleDisplays.includes(newValue))
+      throw new Error(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}. Passed value: ${toString(newValue)}.`);
     if (newValue === 'icon' && this.titleEditable) this.titleEditable = false;
   }
 
@@ -159,7 +160,7 @@ export class MgPanel {
    * Update title handler
    * @param event - input value change event
    */
-  private handleUpdateTitle = (event: CustomEvent<string>): void => {
+  private handleUpdateTitle = (event: CustomEvent<HTMLMgInputTextElement['value']>): void => {
     this.updatedPanelTitle = event.detail;
   };
 
@@ -218,7 +219,6 @@ export class MgPanel {
     <mg-button
       onClick={this.handleCollapseButton}
       variant="flat"
-      identifier={`${this.identifier}-collapse-button`}
       aria-expanded={this.expanded.toString()}
       aria-controls={`${this.identifier}-content`}
       disabled={this.expandToggleDisabled}
@@ -237,7 +237,7 @@ export class MgPanel {
    * @returns edit Button
    */
   private renderEditButton = (): HTMLMgButtonElement => (
-    <mg-button key="edit-button" is-icon variant="flat" label={this.messages.panel.editLabel} onClick={this.handleEditButton} identifier={`${this.identifier}-edit-button`}>
+    <mg-button key="edit-button" is-icon variant="flat" label={this.messages.panel.editLabel} onClick={this.handleEditButton}>
       <mg-icon icon="pen"></mg-icon>
     </mg-button>
   );
@@ -253,30 +253,16 @@ export class MgPanel {
       label-hide
       value={this.panelTitle}
       onValue-change={this.handleUpdateTitle}
-      displayCharacterLeft={false}
+      characterLeftHide={true}
       pattern={this.titlePattern}
       pattern-error-message={this.titlePatternErrorMessage}
       identifier={`${this.identifier}-edition-input`}
       ref={(el: HTMLMgInputTextElement) => (this.editInputElement = el)}
     >
-      <mg-button
-        slot="append-input"
-        label={this.messages.general.cancel}
-        is-icon
-        variant="secondary"
-        onClick={this.handleCancelEditButton}
-        identifier={`${this.identifier}-edition-button-cancel`}
-      >
+      <mg-button slot="append-input" label={this.messages.general.cancel} is-icon variant="secondary" onClick={this.handleCancelEditButton}>
         <mg-icon icon="cross"></mg-icon>
       </mg-button>
-      <mg-button
-        slot="append-input"
-        label={this.messages.general.confirm}
-        is-icon
-        variant="secondary"
-        onClick={this.handleValidateEditButton}
-        identifier={`${this.identifier}-edition-button-validate`}
-      >
+      <mg-button slot="append-input" label={this.messages.general.confirm} is-icon variant="secondary" onClick={this.handleValidateEditButton}>
         <mg-icon icon="check"></mg-icon>
       </mg-button>
     </mg-input-text>

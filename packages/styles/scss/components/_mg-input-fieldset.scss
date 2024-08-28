@@ -1,3 +1,5 @@
+@import 'mg-input-readonly';
+
 /**
  * Manage style when input needs to be a fieldset, like checkbox and radio.
  */
@@ -11,10 +13,10 @@
 
   input[type='radio'],
   input[type='checkbox'] {
-    width: var(--mg-input-check-size);
-    height: var(--mg-input-check-size);
+    width: var(--mg-c-input-check-size);
+    height: var(--mg-c-input-check-size);
     flex-shrink: 0; /* Ensure checkbox won't resize in flex element */
-    margin: calc((var(--font-size) * var(--line-height) - var(--mg-input-check-size)) / 2) 0.6rem 0 0;
+    margin: calc((var(--mg-b-font-size) * var(--mg-b-line-height) - var(--mg-c-input-check-size)) / 2) var(--mg-b-size-8) 0 0;
   }
 
   .mg-c-input__input-group {
@@ -26,9 +28,13 @@
       flex-wrap: wrap;
       padding: 0;
       margin: 0;
-      margin-top: calc((var(--default-size) - var(--font-size) * var(--line-height)) / 2);
-      gap: 1rem 2.3rem;
+      margin-top: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
+      gap: var(--mg-b-size-12) var(--mg-b-size-24);
       list-style: none;
+    }
+
+    &.mg-c-input__input-group--disabled label {
+      opacity: var(--mg-b-opacity-element-disabled);
     }
   }
 
@@ -43,18 +49,6 @@
   }
 
   &.mg-c-input--label-on-top .mg-c-input__input-group-container {
-    margin-top: 0.7rem;
-  }
-}
-
-:host(.mg-c-input.mg-c-input--fieldset:not(.mg-c-input--checkbox-multi)) .mg-c-input__input-container mg-tooltip {
-  margin-left: 3rem;
-}
-
-:host(.mg-c-input.mg-c-input--checkbox),
-:host(.mg-c-input.mg-c-input--radio) {
-  .mg-c-input__input {
-    min-height: unset;
-    align-items: flex-start;
+    margin-top: var(--mg-b-size-8);
   }
 }

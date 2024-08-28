@@ -1,6 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
-import { type TooltipPosition, type Width, Handler, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -21,7 +21,7 @@ export class MgInputPassword {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private handlerInProgress: Handler;
+  private handlerInProgress: EventType;
 
   /**************
    * Decorators *
@@ -129,7 +129,7 @@ export class MgInputPassword {
     });
 
     // apply new width
-    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
+    if (newValue !== undefined) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
   }
 
   /**
@@ -203,9 +203,9 @@ export class MgInputPassword {
   @Method()
   async setError(valid: MgInputPassword['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-password> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-password> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-password> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-password> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);
@@ -222,7 +222,7 @@ export class MgInputPassword {
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -240,7 +240,7 @@ export class MgInputPassword {
    * Handle blur event
    */
   private handleBlur = (): void => {
-    this.handlerInProgress = Handler.BLUR;
+    this.handlerInProgress = 'blur';
     this.displayError().finally(() => {
       // reset guard
       this.handlerInProgress = undefined;
@@ -315,43 +315,46 @@ export class MgInputPassword {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonlyValue={this.value !== undefined ? '•'.repeat(this.value.length) : undefined}
         tooltip={this.tooltip}
-        tooltipPosition={this.tooltipPosition}
+        tooltipPosition={this.readonly && this.value === undefined ? 'label' : this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >
-        <span class="mg-c-input__input-group">
-          <input
-            type={this.displayPassword ? 'text' : 'password'}
-            class="mg-c-input__box mg-c-input__box--width"
-            value={this.value}
-            id={this.identifier}
-            name={this.name}
-            placeholder={this.placeholder}
-            title={this.placeholder}
-            disabled={this.disabled}
-            required={this.required}
-            maxlength={this.maxlength}
-            aria-invalid={(this.invalid === true).toString()}
-            onInput={this.handleInput}
-            onBlur={this.handleBlur}
-            ref={(el: HTMLInputElement) => {
-              if (el !== null) this.input = el;
-            }}
-          />
-          <mg-button
-            label={this.messages.input.password[this.displayPassword ? 'hide' : 'display']}
-            disabled={this.disabled}
-            variant="flat"
-            class="mg-c-input__append-button"
-            is-icon
-            onClick={this.toggleDisplayPassword}
-            aria-controls={this.identifier}
-          >
-            <mg-icon class="mg-c-input__input-icon" icon={this.displayPassword ? 'eye-slash' : 'eye'}></mg-icon>
-          </mg-button>
-        </span>
+        {this.readonly ? (
+          this.value !== undefined && <b class="mg-c-input__readonly-value">{'•'.repeat(this.value.length)}</b>
+        ) : (
+          <span class="mg-c-input__input-group">
+            <input
+              type={this.displayPassword ? 'text' : 'password'}
+              class="mg-c-input__box mg-c-input__box--width"
+              value={this.value}
+              id={this.identifier}
+              name={this.name}
+              placeholder={this.placeholder}
+              title={this.placeholder}
+              disabled={this.disabled}
+              required={this.required}
+              maxlength={this.maxlength}
+              aria-invalid={(this.invalid === true).toString()}
+              onInput={this.handleInput}
+              onBlur={this.handleBlur}
+              ref={(el: HTMLInputElement) => {
+                if (el !== null) this.input = el;
+              }}
+            />
+            <mg-button
+              label={this.messages.input.password[this.displayPassword ? 'hide' : 'display']}
+              disabled={this.disabled}
+              variant="flat"
+              class="mg-c-input__append-button"
+              is-icon
+              onClick={this.toggleDisplayPassword}
+              aria-controls={this.identifier}
+            >
+              <mg-icon class="mg-c-input__input-icon" icon={this.displayPassword ? 'eye-slash' : 'eye'}></mg-icon>
+            </mg-button>
+          </span>
+        )}
       </mg-input>
     );
   }

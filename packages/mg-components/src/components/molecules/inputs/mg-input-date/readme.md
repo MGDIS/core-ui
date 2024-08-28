@@ -1,10 +1,4 @@
-## Behavior
 
-The behavior is the native behavior of the browser.
-
-### Theming
-
-Calendar and trigger: The style is the browser's native style.
 
 <!-- Auto Generated Below -->
 

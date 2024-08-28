@@ -1,44 +1,24 @@
-/* Variables */
-$mg-button-border-width: 0.1rem;
-$mg-button-padding-horizontal: 1.1rem;
-$button-column-gap: 0.6rem;
+@use 'sass:list';
+@use '../variables' as variables;
 
-/* Mixins */
-@mixin style-gradient($name, $background-color, $font-color, $has-variable: false) {
-  @if $has-variable {
-    $background-color: --mg-button-#{$name}-color;
-    $font-color: --mg-button-#{$name}-font-color;
-  } @else {
-    $background-color: --color-#{$background-color};
-    $font-color: --color-#{$font-color};
-  }
-  .mg-c-button.mg-c-button--#{$name} {
-    border-color: hsl(
-      var(
-        #{--mg-button-#{$name}-border-color},
-        (var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-button-border-variation) * 10%))
-      )
-    );
-
-    // Background
-    background: linear-gradient(
-      to bottom,
-      hsl(var(#{$background-color}-h), var(#{$background-color}-s), var(#{$background-color}-l)),
-      hsl(var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-button-gradient) * 10%))
-    );
-    color: hsl(var(#{$font-color}));
-  }
-
-  // Only apply if not disabled
-  :host(:hover) .mg-c-button--#{$name}:not(.mg-c-button--disabled) {
-    background: hsl(var(#{$background-color}-h), var(#{$background-color}-s), var(#{$background-color}-l));
-  }
-}
+/*!
+ * @prop --mg-c-button-border-radius: Defines the border radius of the button. The default value is `--mg-b-size-radius`.
+ * @prop --mg-c-button-border-top-width: Defines the top border width of the button. Unset by default, fallback on `--mg-b-size-border`.
+ * @prop --mg-c-button-border-right-width: Defines the right border width of the button. Unset by default, fallback on `--mg-b-size-border`.
+ * @prop --mg-c-button-border-bottom-width: Defines the bottom border width of the button. Unset by default, fallback on `--mg-b-size-border`.
+ * @prop --mg-c-button-border-left-width: Defines the left border width of the button. Unset by default, fallback on `--mg-b-size-border`.
+ * @prop --mg-c-button-border-radius-top-left: Defines the top left border radius of the button. Unset by default, fallback on `--mg-c-button-border-radius`.
+ * @prop --mg-c-button-border-radius-top-right: Defines the top right border radius of the button. Unset by default, fallback on `--mg-c-button-border-radius`.
+ * @prop --mg-c-button-border-radius-bottom-right: Defines the bottom right border radius of the button. Unset by default, fallback on `--mg-c-button-border-radius`.
+ * @prop --mg-c-button-border-radius-bottom-left: Defines the bottom left border radius of the button. Unset by default, fallback on `--mg-c-button-border-radius`.
+ * @prop --mg-c-button-font-weight: Defines the font weight of the button. Unset by default, fallback on `normal`.
+ * @prop --mg-c-button-icon-border-radius: Defines the border radius of the button in icon mode. The default value is `--mg-b-size-min-height`.
+ */
 
 @mixin font-style() {
   font-family: inherit;
-  font-size: var(--font-size);
-  font-weight: var(--mg-button-font-weight, normal);
+  font-size: var(--mg-b-font-size);
+  font-weight: var(--mg-c-button-font-weight, normal);
   text-align: left;
   text-decoration: none;
 }
@@ -51,7 +31,7 @@ $button-column-gap: 0.6rem;
 
 // Only apply if not disabled
 :host(:hover) .mg-c-button--flat:not(.mg-c-button--disabled) {
-  background: hsl(var(--color-dark) / 10%);
+  background: color-mix(in srgb, var(--mg-b-color-dark), transparent 90%);
 }
 
 :host([full-width]) {
@@ -64,31 +44,42 @@ $button-column-gap: 0.6rem;
   pointer-events: none;
 }
 
-// Gradient style
-@include style-gradient('primary', null, null, true);
-@include style-gradient('secondary', null, null, true);
-@include style-gradient('danger', 'danger', 'neutral');
-@include style-gradient('danger-alt', 'neutral', 'danger');
-@include style-gradient('info', 'info', 'neutral');
-@include style-gradient('success', 'success', 'dark');
+@each $name, $palette, $index in list.join(list.join(variables.$brands, variables.$semantics), 'danger-alt') {
+  .mg-c-button.mg-c-button--#{$name} {
+    /*!
+     * @prop --mg-c-button-color-background-#{$name}: Defines the background color for the #{$name} variant button.
+     * @prop --mg-c-button-color-border-#{$name}: Defines the border color for the #{$name} variant button.
+     * @prop --mg-c-button-color-gradient-#{$name}: Defines the gradient color for the #{$name} variant button.
+     * @prop --mg-c-button-color-text-#{$name}: Defines the font color for the #{$name} variant button.
+     */
+    border-color: var(--mg-c-button-color-border-#{$name});
+    background: linear-gradient(to bottom, var(--mg-c-button-color-background-#{$name}), var(--mg-c-button-color-gradient-#{$name}));
+    color: var(--mg-c-button-color-text-#{$name});
+  }
+
+  // Only apply if not disabled
+  :host(:hover) .mg-c-button.mg-c-button--#{$name}:not(.mg-c-button--disabled) {
+    background: var(--mg-c-button-color-background-#{$name});
+  }
+}
 
 /* Styles */
 .mg-c-button {
-  $padding-value: calc((var(--default-size) - (2 * $mg-button-border-width) - (var(--font-size) * var(--line-height))) / 2) $mg-button-padding-horizontal;
+  $padding-value: calc((var(--mg-b-size-min-height) - (2 * var(--mg-b-size-border)) - (var(--mg-b-font-size) * var(--mg-b-line-height))) / 2) var(--mg-b-size-12);
 
   position: relative;
   display: inline-flex;
-  min-height: var(--default-size);
+  min-height: var(--mg-b-size-min-height);
   box-sizing: border-box;
   align-items: center;
   padding: $padding-value;
-  border-width: var(--mg-button-border-top-width, $mg-button-border-width) var(--mg-button-border-right-width, $mg-button-border-width)
-    var(--mg-button-border-bottom-width, $mg-button-border-width) var(--mg-button-border-left-width, $mg-button-border-width);
+  border-width: var(--mg-c-button-border-top-width, var(--mg-b-size-border)) var(--mg-c-button-border-right-width, var(--mg-b-size-border))
+    var(--mg-c-button-border-bottom-width, var(--mg-b-size-border)) var(--mg-c-button-border-left-width, var(--mg-b-size-border));
   border-style: solid;
-  border-radius: var(--mg-button-border-radius-top-left, var(--mg-button-border-radius)) var(--mg-button-border-radius-top-right, var(--mg-button-border-radius))
-    var(--mg-button-border-radius-bottom-right, var(--mg-button-border-radius)) var(--mg-button-border-radius-bottom-left, var(--mg-button-border-radius));
+  border-radius: var(--mg-c-button-border-radius-top-left, var(--mg-c-button-border-radius)) var(--mg-c-button-border-radius-top-right, var(--mg-c-button-border-radius))
+    var(--mg-c-button-border-radius-bottom-right, var(--mg-c-button-border-radius)) var(--mg-c-button-border-radius-bottom-left, var(--mg-c-button-border-radius));
   background-image: none;
-  column-gap: $button-column-gap;
+  column-gap: var(--mg-b-size-8);
   cursor: pointer;
   touch-action: manipulation;
 
@@ -98,19 +89,20 @@ $button-column-gap: 0.6rem;
   // Disabled style
   &.mg-c-button--disabled {
     cursor: default;
-    opacity: var(--mg-button-disabled-opacity);
+    opacity: var(--mg-b-opacity-element-disabled);
   }
 
   // Icon only button
   &.mg-c-button--icon {
-    width: var(--default-size);
-    height: var(--default-size);
+    width: var(--mg-b-size-min-height);
+    height: var(--mg-b-size-min-height);
     justify-content: center;
     padding: 0;
-    border-radius: var(--mg-button-border-radius-top-left, var(--mg-button-icon-border-radius)) var(--mg-button-border-radius-top-right, var(--mg-button-icon-border-radius))
-      var(--mg-button-border-radius-bottom-right, var(--mg-button-icon-border-radius)) var(--mg-button-border-radius-bottom-left, var(--mg-button-icon-border-radius));
-    font-size: var(--font-size);
-    line-height: var(--font-size);
+    border-radius: var(--mg-c-button-border-radius-top-left, var(--mg-c-button-icon-border-radius))
+      var(--mg-c-button-border-radius-top-right, var(--mg-c-button-icon-border-radius)) var(--mg-c-button-border-radius-bottom-right, var(--mg-c-button-icon-border-radius))
+      var(--mg-c-button-border-radius-bottom-left, var(--mg-c-button-icon-border-radius));
+    font-size: var(--mg-b-font-size);
+    line-height: var(--mg-b-font-size);
   }
 
   // Flat variant
@@ -125,7 +117,7 @@ $button-column-gap: 0.6rem;
 
     display: flex;
     align-items: center;
-    column-gap: $button-column-gap;
+    column-gap: var(--mg-b-size-8);
   }
 
   // Link variant
@@ -162,7 +154,7 @@ $button-column-gap: 0.6rem;
 
   // loading style
   &.mg-c-button--loading {
-    > mg-icon:first-of-type {
+    & > mg-icon:first-of-type {
       position: absolute;
       top: 50%;
       left: 50%;

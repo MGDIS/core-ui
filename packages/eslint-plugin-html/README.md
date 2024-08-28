@@ -1,4 +1,4 @@
-# Eslint plugin HTML
+# @mgdis/eslint-plugin-html
 
 MGDIS HTML Eslint plugin
 
@@ -13,7 +13,7 @@ npm i -D eslint @html-eslint/parser
 Next, install `@mgdis/eslint-plugin-html`:
 
 ```sh
-npm install -D @mgdis/eslint-plugin-html
+npm i -D @mgdis/eslint-plugin-html
 ```
 
 ## Usage

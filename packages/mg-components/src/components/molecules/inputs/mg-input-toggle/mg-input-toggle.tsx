@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Event, h, Prop, EventEmitter, State, Watch, Element, Method } from '@stencil/core';
-import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
+import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/stencil-helpers';
 import { ToggleValue } from './mg-input-toggle.conf';
 import { classDisabled, classReadonly, type TooltipPosition } from '../mg-input/mg-input.conf';
 
@@ -60,7 +60,7 @@ export class MgInputToggle {
   @Watch('items')
   validateItems(newValue: MgInputToggle['items']): void {
     if (typeof newValue === 'object' && this.items.length !== 2) {
-      throw new Error('<mg-input-toggle> prop "items" require 2 items.');
+      throw new Error(`<mg-input-toggle> prop "items" require 2 items. Passed value: ${toString(newValue)}.`);
     }
     // String array
     else if (allItemsAreString(newValue)) {
@@ -70,7 +70,7 @@ export class MgInputToggle {
     else if (Array.isArray(newValue) && newValue.every(isOption)) {
       this.options = newValue;
     } else {
-      throw new Error('<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue.');
+      throw new Error(`<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -210,9 +210,9 @@ export class MgInputToggle {
   @Method()
   async setError(valid: boolean, errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-toggle> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-toggle> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-toggle> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-toggle> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.valid = valid;
       this.inputValid.emit(valid);
@@ -316,6 +316,7 @@ export class MgInputToggle {
    * @returns HTML Element
    */
   render(): HTMLElement {
+    const checkedItem = this.getCheckedItem(this.checked);
     return (
       <mg-input
         label={this.label}
@@ -326,28 +327,31 @@ export class MgInputToggle {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={undefined}
-        readonlyValue={this.getCheckedItem(this.checked)?.title}
-        tooltip={!this.readonly && this.tooltip}
+        tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         errorMessage={this.errorMessage}
       >
-        <button
-          type="button"
-          role="switch"
-          aria-checked={this.checked.toString()}
-          aria-readonly={this.disabled || this.readonly}
-          id={this.identifier}
-          class="mg-c-input__button-toggle"
-          disabled={this.disabled || this.readonly}
-          onClick={this.toggleChecked}
-        >
-          <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-            <slot name="item-1"></slot>
-          </span>
-          <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-            <slot name="item-2"></slot>
-          </span>
-        </button>
+        {this.readonly ? (
+          checkedItem && <b class="mg-c-input__readonly-value">{checkedItem.title}</b>
+        ) : (
+          <button
+            type="button"
+            role="switch"
+            aria-checked={this.checked.toString()}
+            aria-readonly={this.disabled || this.readonly}
+            id={this.identifier}
+            class="mg-c-input__button-toggle"
+            disabled={this.disabled || this.readonly}
+            onClick={this.toggleChecked}
+          >
+            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+              <slot name="item-1"></slot>
+            </span>
+            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+              <slot name="item-2"></slot>
+            </span>
+          </button>
+        )}
       </mg-input>
     );
   }

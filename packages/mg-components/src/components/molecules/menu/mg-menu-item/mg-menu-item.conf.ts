@@ -1,27 +1,19 @@
-import { MgMenu } from '../mg-menu/mg-menu';
+import { Status as StatusType } from '../../../../types';
 
 /**
- * Available menu-item positions
+ * Available menu item status type
  */
-export enum ElementPosition {
-  FIRST = 'first',
-  LAST = 'last',
-}
+export type MgMenuStatusType = StatusType & ('visible' | 'hidden' | 'disabled' | 'active');
 
 /**
- * Available menu item status
+ * Available menu item status values
  */
-export enum Status {
-  VISIBLE = 'visible',
-  HIDDEN = 'hidden',
-  DISABLED = 'disabled',
-  ACTIVE = 'active',
-}
-
-/**
- * Direction type
- */
-export type DirectionType = MgMenu['direction'];
+export const Status: Record<string, StatusType> = {
+  VISIBLE: 'visible',
+  HIDDEN: 'hidden',
+  DISABLED: 'disabled',
+  ACTIVE: 'active',
+};
 
 /**
  * List of all possibles target

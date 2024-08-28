@@ -30,16 +30,23 @@
     "build:apps": "turbo build --filter='./apps/*' --force",
     "build:configs": "turbo build --filter='./configs/*' --force",
     "build:packages": "turbo build --filter='./packages/*' --force",
+    "doc": "turbo doc",
     "change": "changeset",
     "change:empty": "changeset --empty",
     "release": "./scripts/release.sh",
     "release:status": "changeset status",
     "release:preview": "./scripts/release-preview.sh",
     "apps:notification-center": "pnpm --filter notification-center dev",
+    "apps:mg-components": "pnpm dlx http-server packages --cors",
     "clean": "pnpm /^clean:.*/",
     "clean:lock-file": "rm -f pnpm-lock.yaml",
     "clean:node_modules": "pnpm -r exec rm -rf node_modules && rm -rf node_modules",
-    "clean:dist": "pnpm -r exec rm -rf dist && rm -rf dist"
+    "clean:dist": "pnpm -r exec rm -rf dist && rm -rf dist",
+    "clean:turbo": "pnpm -r exec rm -rf .turbo && rm -rf .turbo",
+    "clean:build": "pnpm -r exec rm -rf tsconfig.tsbuildinfo && rm -rf tsconfig.tsbuildinfo",
+    "clean:test": "pnpm -r exec rm -rf test-results && rm -rf test-results",
+    "clean:playwright": "pnpm -r exec rm -rf playwright-report && rm -rf playwright-report",
+    "clean:coverage": "pnpm -r exec rm -rf coverage && rm -rf coverage"
   },
   "manypkg": {
     "ignoredRules": [
@@ -48,7 +55,8 @@
   },
   "lint-staged": {
     "*.{js,ts,mjs,mts,cjs,tsx}": "eslint --fix --ignore-path .gitignore",
-    "*.{json,yaml,yml,md,mdx}": "prettier --write"
+    "*.{json,yaml,yml,md,mdx}": "prettier --write",
+    "*.scss": "stylelint --fix"
   },
   "dependencies": {
     "@changesets/cli": "2.27.7",
@@ -58,6 +66,7 @@
     "husky": "9.1.5",
     "lint-staged": "15.2.9",
     "prettier-config": "workspace:*",
+    "stylelint": "16.8.2",
     "turbo": "2.0.14"
   }
 }

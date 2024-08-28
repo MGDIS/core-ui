@@ -1,7 +1,7 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
-import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern } from '@mgdis/stencil-helpers';
-import { InputError } from './mg-input-date.conf';
-import { Handler, classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
+import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern, toString } from '@mgdis/stencil-helpers';
+import { type InputDateError } from './mg-input-date.conf';
+import { type EventType, classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -24,7 +24,7 @@ export class MgInputDate {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private handlerInProgress: Handler;
+  private handlerInProgress: EventType;
 
   /**************
    * Decorators *
@@ -46,11 +46,11 @@ export class MgInputDate {
 
     // check value validity
     if (newValue && !isValidString(newValue)) {
-      throw new Error("<mg-input-date> props 'value' must be a valid string");
-    } else if (!newValue || (newValue && this.isValidPattern(newValue))) {
+      throw new Error(`<mg-input-date> props 'value' must be a valid string. Passed value: ${toString(newValue)}.`);
+    } else if ([null, undefined].includes(newValue) || this.isValidPattern(newValue)) {
       this.valueChange.emit(newValue);
     } else {
-      console.error("<mg-input-date> props 'value' doesn't match pattern: yyyy-mm-dd");
+      console.error("<mg-input-date> props 'value' doesn't match pattern: 'yyyy-mm-dd'.");
     }
   }
 
@@ -110,7 +110,7 @@ export class MgInputDate {
   @Watch('max')
   validateMinMax(newValue: string): void {
     if (newValue && !this.isValidPattern(newValue)) {
-      throw new Error("<mg-input-date> props 'min/max' doesn't match pattern: yyyy-mm-dd");
+      throw new Error(`<mg-input-date> props 'min/max' doesn't match pattern: 'yyyy-mm-dd'. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -211,9 +211,9 @@ export class MgInputDate {
   @Method()
   async setError(valid: MgInputDate['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-date> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-date> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-date> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-date> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);
@@ -250,7 +250,7 @@ export class MgInputDate {
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -268,7 +268,7 @@ export class MgInputDate {
    * Handle blur event
    */
   private handleBlur = (): void => {
-    this.handlerInProgress = Handler.BLUR;
+    this.handlerInProgress = 'blur';
     this.displayError().finally(() => {
       // reset guard
       this.handlerInProgress = undefined;
@@ -296,35 +296,35 @@ export class MgInputDate {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(this.readonly || this.disabled || (this.input.checkValidity() && (!this.value || this.isValidPattern(this.value))));
+    this.setValidity(this.readonly || this.disabled || (this.input.checkValidity() && (['', undefined].includes(this.value) || this.isValidPattern(this.value))));
   };
 
   /**
    * get input error code
    * @returns error code
    */
-  private getInputError = (): null | InputError => {
-    let inputError = null;
+  private getInputError = (): null | InputDateError => {
+    let inputError: InputDateError = null;
 
     // required
     if (this.input.validity.valueMissing) {
-      inputError = InputError.REQUIRED;
+      inputError = 'required';
     }
     // pattern
     else if (this.value && !this.isValidPattern(this.value)) {
-      inputError = InputError.PATTERN;
+      inputError = 'badInput';
     }
     // min & max
     else if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max !== '9999-12-31') {
-      inputError = InputError.MINMAX;
+      inputError = 'minMax';
     }
     // min
     else if (this.input.validity.rangeUnderflow) {
-      inputError = InputError.MIN;
+      inputError = 'min';
     }
     // max
     else if (this.input.validity.rangeOverflow) {
-      inputError = InputError.MAX;
+      inputError = 'max';
     }
 
     return inputError;
@@ -343,11 +343,11 @@ export class MgInputDate {
         this.errorMessage = errorMessage;
       }
       // required
-      else if (inputError === InputError.REQUIRED) {
+      else if (inputError === 'required') {
         this.errorMessage = this.messages.errors[inputError];
       }
       // min, max & minMax
-      else if ([InputError.MIN, InputError.MAX, InputError.MINMAX].includes(inputError)) {
+      else if (['min', 'max', 'minMax'].includes(inputError)) {
         this.errorMessage = this.messages.errors.date[inputError]
           .replace('{min}', localeDate(this.min, this.systemLocale))
           .replace('{max}', localeDate(this.max, this.systemLocale));
@@ -419,30 +419,33 @@ export class MgInputDate {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonlyValue={localeDate(this.value, this.locale)}
         tooltip={this.tooltip}
-        tooltipPosition={this.tooltipPosition}
+        tooltipPosition={this.readonly && ['', undefined].includes(this.value) ? 'label' : this.tooltipPosition}
         helpText={this.formatHelpText(this.helpText)}
         errorMessage={this.errorMessage}
       >
-        <input
-          type="date"
-          class="mg-c-input__box"
-          min={this.min}
-          max={this.max}
-          value={this.value}
-          id={this.identifier}
-          name={this.name}
-          disabled={this.disabled}
-          required={this.required}
-          aria-invalid={(this.invalid === true).toString()}
-          onInput={this.handleInput}
-          onBlur={this.handleBlur}
-          onKeyDown={this.handleKeyDown}
-          ref={(el: HTMLInputElement) => {
-            if (el !== null) this.input = el;
-          }}
-        />
+        {this.readonly ? (
+          this.value && <b class="mg-c-input__readonly-value">{localeDate(this.value, this.locale)}</b>
+        ) : (
+          <input
+            type="date"
+            class="mg-c-input__box"
+            min={this.min}
+            max={this.max}
+            value={this.value}
+            id={this.identifier}
+            name={this.name}
+            disabled={this.disabled}
+            required={this.required}
+            aria-invalid={(this.invalid === true).toString()}
+            onInput={this.handleInput}
+            onBlur={this.handleBlur}
+            onKeyDown={this.handleKeyDown}
+            ref={(el: HTMLInputElement) => {
+              if (el !== null) this.input = el;
+            }}
+          />
+        )}
       </mg-input>
     );
   }

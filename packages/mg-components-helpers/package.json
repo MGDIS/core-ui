@@ -3,7 +3,8 @@
   "version": "4.1.8",
   "description": "CORE mg-components-helpers",
   "scripts": {
-    "build": "rollup -c ./rollup.config.mjs && typedoc",
+    "build": "rollup -c ./rollup.config.mjs",
+    "doc": "typedoc",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "lint": "pnpm lint:es && pnpm lint:prettier",
@@ -24,6 +25,7 @@
     "rollup-plugin-dts": "6.1.1",
     "tsconfig": "workspace:*",
     "typedoc": "0.25.13",
+    "typedoc-config": "workspace:*",
     "typedoc-plugin-markdown": "4.0.3",
     "vitest": "1.6.0",
     "vitest-config": "workspace:*",

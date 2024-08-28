@@ -53,7 +53,7 @@ const config: StorybookConfig = {
     acc.push(
       {
         from,
-        to: '/doc/img',
+        to: '/docs/img',
       },
       {
         from,

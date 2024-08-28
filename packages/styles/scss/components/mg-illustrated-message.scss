@@ -1,29 +1,33 @@
+/*!
+ * @prop --mg-c-illustrated-message-spacing-vertical: Defines the vertical padding of the illustrated message. Default value: `--mg-b-size-40`.
+ */
+
 .mg-c-illustrated-message {
   display: flex;
-  max-width: 47.5rem;
+  max-width: calc(60 * var(--mg-b-size-8)); // 480px;
   box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
-  padding: var(--mg-illustrated-message-padding-vertical) 1.5rem;
+  padding: var(--mg-c-illustrated-message-spacing-vertical) var(--mg-b-size-16);
   margin: auto;
-  gap: 3em 7rem;
+  gap: var(--mg-b-size-32) var(--mg-b-size-64);
   text-align: center;
 
   &__illustration {
-    max-height: 18.4rem;
+    max-height: calc(23 * var(--mg-b-size-8)); // 184px;
 
     ::slotted([slot='illustration']) {
       width: auto;
       max-width: 100%;
       height: auto;
-      max-height: 18.4rem;
+      max-height: calc(23 * var(--mg-b-size-8)); // 184px;
     }
 
     &.mg-c-illustrated-message__illustration--small {
-      max-height: 6rem;
+      max-height: var(--mg-b-size-64);
 
       ::slotted([slot='illustration']) {
-        max-height: 6rem;
+        max-height: var(--mg-b-size-64);
       }
     }
   }
@@ -35,18 +39,18 @@
 
     .mg-c-illustrated-message__slots,
     .mg-c-illustrated-message__illustration {
-      max-width: 47.5rem;
+      max-width: calc(60 * var(--mg-b-size-8)); // 480px;
     }
   }
 
   &__title ::slotted([slot='title']) {
     margin: 0;
-    font-family: var(--font-family) !important; /* stylelint-disable-line declaration-no-important */
-    font-size: 2rem !important; /* stylelint-disable-line declaration-no-important */
+    font-family: var(--mg-b-font-family) !important; /* stylelint-disable-line declaration-no-important */
+    font-size: var(--mg-b-font-size-h2) !important; /* stylelint-disable-line declaration-no-important */
     font-weight: 400 !important; /* stylelint-disable-line declaration-no-important */
   }
 
   &__details ::slotted([slot='details']) {
-    margin: 2rem 0 0;
+    margin: var(--mg-b-size-16) 0 0;
   }
 }

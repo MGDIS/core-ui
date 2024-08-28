@@ -1,3 +1,5 @@
+import type { Variant } from '../../../types';
+
 /**
  * List of all possibles variants
  */
@@ -6,7 +8,7 @@ export const variants = ['primary', 'secondary', 'danger', 'danger-alt', 'info',
 /**
  * VariantType type from button variants
  */
-export type VariantType = (typeof variants)[number];
+export type VariantType = Variant & (typeof variants)[number];
 
 /**
  * List of all possibles button types

@@ -1,0 +1,280 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mg-alert Render Should render a danger alert with args { lang: 'fr' } 1`] = `
+<mg-alert lang="fr">
+  <template shadowrootmode="open">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="danger">
+      <slot></slot>
+      <span class="mg-c-alert__close-button">
+        <mg-button is-icon="" label="Fermer le message" variant="flat">
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+      </span>
+    </mg-message>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-alert>
+`;
+
+exports[`mg-alert Render Should render a danger alert with args { lang: 'xx' } 1`] = `
+<mg-alert lang="xx">
+  <template shadowrootmode="open">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="danger">
+      <slot></slot>
+      <span class="mg-c-alert__close-button">
+        <mg-button is-icon="" label="Close message" variant="flat">
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+      </span>
+    </mg-message>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-alert>
+`;
+
+exports[`mg-alert Render Should render a danger alert with args {} 1`] = `
+<mg-alert>
+  <template shadowrootmode="open">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="danger">
+      <slot></slot>
+      <span class="mg-c-alert__close-button">
+        <mg-button is-icon="" label="Close message" variant="flat">
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+      </span>
+    </mg-message>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-alert>
+`;
+
+exports[`mg-alert Render Should render a info alert with args { lang: 'fr' } 1`] = `
+<mg-alert lang="fr">
+  <template shadowrootmode="open">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="status" variant="info">
+      <slot></slot>
+      <span class="mg-c-alert__close-button">
+        <mg-button is-icon="" label="Fermer le message" variant="flat">
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+      </span>
+    </mg-message>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-alert>
+`;
+
+exports[`mg-alert Render Should render a info alert with args { lang: 'xx' } 1`] = `
+<mg-alert lang="xx">
+  <template shadowrootmode="open">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="status" variant="info">
+      <slot></slot>
+      <span class="mg-c-alert__close-button">
+        <mg-button is-icon="" label="Close message" variant="flat">
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+      </span>
+    </mg-message>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-alert>
+`;
+
+exports[`mg-alert Render Should render a info alert with args {} 1`] = `
+<mg-alert>
+  <template shadowrootmode="open">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="status" variant="info">
+      <slot></slot>
+      <span class="mg-c-alert__close-button">
+        <mg-button is-icon="" label="Close message" variant="flat">
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+      </span>
+    </mg-message>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-alert>
+`;
+
+exports[`mg-alert Render Should render a success alert with args { lang: 'fr' } 1`] = `
+<mg-alert lang="fr">
+  <template shadowrootmode="open">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="success">
+      <slot></slot>
+      <span class="mg-c-alert__close-button">
+        <mg-button is-icon="" label="Fermer le message" variant="flat">
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+      </span>
+    </mg-message>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-alert>
+`;
+
+exports[`mg-alert Render Should render a success alert with args { lang: 'xx' } 1`] = `
+<mg-alert lang="xx">
+  <template shadowrootmode="open">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="success">
+      <slot></slot>
+      <span class="mg-c-alert__close-button">
+        <mg-button is-icon="" label="Close message" variant="flat">
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+      </span>
+    </mg-message>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-alert>
+`;
+
+exports[`mg-alert Render Should render a success alert with args {} 1`] = `
+<mg-alert>
+  <template shadowrootmode="open">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="success">
+      <slot></slot>
+      <span class="mg-c-alert__close-button">
+        <mg-button is-icon="" label="Close message" variant="flat">
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+      </span>
+    </mg-message>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-alert>
+`;
+
+exports[`mg-alert Render Should render a warning alert with args { lang: 'fr' } 1`] = `
+<mg-alert lang="fr">
+  <template shadowrootmode="open">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="warning">
+      <slot></slot>
+      <span class="mg-c-alert__close-button">
+        <mg-button is-icon="" label="Fermer le message" variant="flat">
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+      </span>
+    </mg-message>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-alert>
+`;
+
+exports[`mg-alert Render Should render a warning alert with args { lang: 'xx' } 1`] = `
+<mg-alert lang="xx">
+  <template shadowrootmode="open">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="warning">
+      <slot></slot>
+      <span class="mg-c-alert__close-button">
+        <mg-button is-icon="" label="Close message" variant="flat">
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+      </span>
+    </mg-message>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-alert>
+`;
+
+exports[`mg-alert Render Should render a warning alert with args {} 1`] = `
+<mg-alert>
+  <template shadowrootmode="open">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="warning">
+      <slot></slot>
+      <span class="mg-c-alert__close-button">
+        <mg-button is-icon="" label="Close message" variant="flat">
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+      </span>
+    </mg-message>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-alert>
+`;
+
+exports[`mg-alert Render Should render with action slot 1`] = `
+<mg-alert>
+  <template shadowrootmode="open">
+    <mg-message class="mg-c-alert" role="alert">
+      <slot></slot>
+      <span slot="actions">
+        <slot name="actions"></slot>
+      </span>
+    </mg-message>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+  <div slot="actions">
+    <mg-button>
+      Primary
+    </mg-button>
+    <mg-button variant="secondary">
+      Secondary
+    </mg-button>
+  </div>
+</mg-alert>
+`;

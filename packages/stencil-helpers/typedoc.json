@@ -1,8 +1,5 @@
 {
-  "$schema": "https://typedoc.org/schema.json",
-  "out": "doc",
-  "entryPoints": ["./src/index.ts"],
-  "plugin": ["typedoc-plugin-markdown"],
-  "readme": "none",
-  "githubPages": false
+  "extends": ["typedoc-config/base.json"],
+  "out": "docs",
+  "entryPoints": ["./src/index.ts"]
 }

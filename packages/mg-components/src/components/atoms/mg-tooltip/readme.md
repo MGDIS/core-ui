@@ -1,75 +1,28 @@
 ## Usage
 
-Tooltips are messages that provide additional information about an element.
-They are presented as a message that appears when an element is hovered over or when the keyboard is focused.
-Tooltips are called "custom" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute.
-Our "custom tooltip" component is called "tooltip" here.
+Tooltips are messages that provide additional information about an element. They are presented as a message that appears when an element is hovered or focused. Tooltips are called "custom" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute. Our "custom tooltip" component is called "tooltip" here.
 
 ## Behavior
 
-The tooltip must be displayed when the element that allows its display:
+The tooltip must be displayed when the element that triggers its display:
 
 - Is hovered over by the mouse.
-- Takes the keyboard focus.
+- Takes keyboard focus.
 
-The tooltip must be hidden when the element that allows its display:
+The tooltip must be hidden when the element that triggers its display:
 
 - Is no longer hovered over by the mouse.
-- Loses the keyboard focus.
+- Loses keyboard focus.
 - Pressing the Escape key must hide the tooltip.
 
 The tooltip must remain displayed when its content is hovered over by the mouse.
 
-The tooltip can be placed above, to the right, below or to the left of the element it describes.
+The tooltip can be placed above, to the right, below, or to the left of the element it describes.
 
 By default, the message is displayed at the bottom of the element.
 
-If the element is located at the edge of the screen, the tooltip is shifted to be always visible.
+If the element is located at the edge of the screen, the tooltip is shifted to always remain visible.
 
-## Specs
-
-### Shapes
-
-![](./doc/img/mg-tooltip-shape.png)
-
-### Fonts
-
-![](./doc/img/mg-tooltip-font.png)
-
-### Spacing
-
-![](./doc/img/mg-tooltip-spaces.png)
-
-### Alignments
-
-![](./doc/img/mg-tooltip-alignments-text.png)
-
-### Positioning
-
-Triangle is always centered on the call component
-
-![](./doc/img/mg-tooltip-positioning.png)
-![](./doc/img/mg-tooltip-positioning2.png)
-
-### Colors
-
-![](./doc/img/mg-tooltip-colors.png)
-
-### Sizes
-
-![](./doc/img/mg-tooltip-sizing.png)
-
-Component's max-width is 400px.
-
-![](./doc/img/mg-tooltip-max-width.png)
-
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-tooltip-border-radius`: Define tooltip border radius, default: `0.5rem`
-- `--mg-tooltip-background-color`: Define tooltip background color, default: `--color-dark`
-- `--mg-tooltip-font-color`: Define tooltip font color, default: `--color-font-light`
 
 <!-- Auto Generated Below -->
 
@@ -93,12 +46,21 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `"content"` | Tooltip content                       |
 
 
+## CSS Custom Properties
+
+| Name                              | Description                                                                      |
+| --------------------------------- | -------------------------------------------------------------------------------- |
+| `--mg-c-tooltip-border-radius`    | Defines the border radius of the tooltip. Default value: `--mg-b-size-radius`.   |
+| `--mg-c-tooltip-color-background` | Defines the background color of the tooltip. Default value: `--mg-b-color-dark`. |
+| `--mg-c-tooltip-color-text`       | Defines the font color of the tooltip. Default value: `--mg-b-color-light`.      |
+
+
 ## Dependencies
 
 ### Used by
 
  - [mg-input](../../molecules/inputs/mg-input)
- - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated)
+ - mg-input-checkbox-paginated
 
 ### Depends on
 

@@ -50,7 +50,7 @@ If needed, this library has been identified for converting regular expressions: 
 
 ### Positioning of "i" icon
 
-![](./doc/img/mg-input-tooltip-position.png)
+![](./docs/img/mg-input-tooltip-position.png)
 
 By default, the "i" icon is positioned next to the input field.
 
@@ -66,7 +66,7 @@ By default, the value is left aligned, you can change the CSS variable `--mg-inp
 
 ### Responsive
 
-![](./doc/img/mg-input-responsive.png)
+![](./docs/img/mg-input-responsive.png)
 
 When the viewport width is less than 768px, the label is stacked above the input field.
 
@@ -85,35 +85,6 @@ Error is triggered and displayed when we leave the input field.
 
 When we enter in an input field with an error its state is checked everytime the user update its content, when the error is fixed the message disapears.
 
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-inputs-text-align`: Define input text alignement, numeric input default is `right`, others inputs default is `left`
-- `--mg-inputs-border-width`: Define input border witdh, default: `0.1rem`
-- `--mg-inputs-border-radius`: Define input border radius, default: `0.3rem`
-- `--mg-inputs-color`: Define input border an placeholder color, default: `#b5c2c9`
-- `--mg-inputs-spacer`: Define input space between label, input, tooltip, etc., default: `1rem`
-- `--mg-inputs-error-bg-color`: Define input error message backround color, default: `var(--color-danger-h), calc(var(--color-danger-s) + 5%), calc(var(--color-danger-l) + 49%)`
-- `--mg-inputs-color-shadow-focus-hsl`: Define input shadow when focused, default: `188, 100%, 50%`
-- `--mg-inputs-title-width`: Define input label width, default: `23rem`
-- `--mg-inputs-margin-bottom`: Define input bottom margin, default: `1.5rem`
-- `--mg-inputs-title-horizontal-space`: Define space between label and input when inside a `mg-form`, default: `3rem`
-
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-inputs-text-align`: Define input text alignement, numeric input default is `right`, others inputs default is `left`
-- `--mg-inputs-border-width`: Define input border witdh, default: `0.1rem`
-- `--mg-inputs-border-radius`: Define input border radius, default: `0.3rem`
-- `--mg-inputs-color`: Define input border an placeholder color, default: `#b5c2c9`
-- `--mg-inputs-spacer`: Define input space between label, input, tooltip, etc., default: `1rem`
-- `--mg-inputs-error-bg-color`: Define input error message backround color, default: `var(--color-danger-h), calc(var(--color-danger-s) + 5%), calc(var(--color-danger-l) + 49%)`
-- `--mg-inputs-color-shadow-focus-hsl`: Define input shadow when focused, default: `188, 100%, 50%`
-- `--mg-inputs-title-width`: Define input label width, default: `23rem`
-- `--mg-inputs-margin-bottom`: Define input bottom margin, default: `1.5rem`
-- `--mg-inputs-title-horizontal-space`: Define space between label and input when inside a `mg-form`, default: `3rem`
-
 <!-- Auto Generated Below -->
 
 
@@ -128,7 +99,6 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `label` _(required)_      | `label`            | Define input label                                                          | `string`             | `undefined` |
 | `labelHide`               | `label-hide`       | Define if label is visible                                                  | `boolean`            | `false`     |
 | `labelOnTop`              | `label-on-top`     | Define if label is displayed on top                                         | `boolean`            | `undefined` |
-| `readonlyValue`           | `readonly-value`   | Defines value to display in readonly mode                                   | `string \| string[]` | `undefined` |
 | `required`                | `required`         | Define if input is required                                                 | `boolean`            | `false`     |
 | `tooltip`                 | `tooltip`          | Add a tooltip message next to the input                                     | `string`             | `undefined` |
 | `tooltipPosition`         | `tooltip-position` | Define tooltip position                                                     | `"input" \| "label"` | `'input'`   |
@@ -142,6 +112,20 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `"error"`     | error content     |
 | `"help-text"` | Help text content |
 | `"label"`     | Label content     |
+
+
+## CSS Custom Properties
+
+| Name                                      | Description                                                                                                                          |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `--mg-c-input-border-radius`              | Defines the border radius of the input. Default value is `--mg-b-size-radius`.                                                       |
+| `--mg-c-input-border-width`               | Defines the width of the input border. Default value is `--mg-b-size-border`.                                                        |
+| `--mg-c-input-check-size`                 | Defines the size of the input check. Default value is `--mg-b-size-16`.                                                              |
+| `--mg-c-input-color-border`               | Defines the color of the input border. Default value is `rgb(181, 194, 201)`.                                                        |
+| `--mg-c-input-color-box-shadow-focus`     | Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`.                                       |
+| `--mg-c-input-error-color-background`     | Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`. |
+| `--mg-c-input-placeholder-color-text`     | Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`.                                                    |
+| `--mg-c-input-toggle-border-radius-ratio` | Defines the border radius ratio of the input toggle. Default value is `2`.                                                           |
 
 
 ## Dependencies
@@ -162,7 +146,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 
 - [mg-tooltip](../../../atoms/mg-tooltip)
 - [mg-icon](../../../atoms/mg-icon)
-- [mg-input-title](../../../atoms/mg-input-title)
+- mg-input-title
 
 ### Graph
 ```mermaid

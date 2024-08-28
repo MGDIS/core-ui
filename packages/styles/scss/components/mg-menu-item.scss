@@ -3,22 +3,27 @@
 @import 'mixins/navigation-button';
 @import 'mixins/mg-icon-animation';
 
-$navigation-vertical-spacing: 1rem;
+/*!
+ * @prop --mg-c-menu-item-color: Defines menu item global color, used for bottom line and active tabs. Default value: `--mg-b-color-app`.
+ * @prop --mg-c-menu-item-color-text: Defines the color of the menu item. Unset by default, fallback on `--mg-b-color-dark`.
+ * @prop --mg-c-menu-item-navigation-button-max-width: Defines the max-width property for the navigation button. Unset by default.
+ */
+
 $navigation-button-sizes: (
-  'regular': (
-    'vertical': $navigation-vertical-spacing,
-    'horizontal': 2rem,
-    'height': 3.8rem,
-  ),
   'medium': (
-    'vertical': $navigation-vertical-spacing,
-    'horizontal': 3rem,
-    'height': 5.1rem,
+    'vertical': var(--mg-b-size-12),
+    'horizontal': var(--mg-b-size-16),
+    'height': var(--mg-b-size-40),
   ),
   'large': (
-    'vertical': $navigation-vertical-spacing,
-    'horizontal': 4rem,
-    'height': 7.1rem,
+    'vertical': var(--mg-b-size-12),
+    'horizontal': var(--mg-b-size-32),
+    'height': var(--mg-b-size-48),
+  ),
+  'xlarge': (
+    'vertical': var(--mg-b-size-12),
+    'horizontal': var(--mg-b-size-40),
+    'height': var(--mg-b-size-72),
   ),
 );
 
@@ -28,23 +33,23 @@ $navigation-button-sizes: (
     @for $i from 1 through 6 {
       :host([data-style-direction='vertical'][data-level='#{$i}']) {
         .mg-c-menu-item__navigation-button.mg-c-menu-item__navigation-button--size-#{$name} {
-          padding-left: calc(#{$i} * #{map.get($size, 'horizontal')} - 0.3rem);
+          padding-left: calc(#{$i} * #{map.get($size, 'horizontal')});
         }
       }
       :host([data-level='#{$i}']) {
         .mg-c-menu-item__collapse-container {
-          z-index: calc(#{$i} * 10);
+          z-index: #{calc($i * 10)};
         }
       }
     }
   }
 }
 
-@include navigation-button('mg-c-menu-item', 'mg-menu-item', $navigation-button-sizes);
+@include navigation-button('mg-c-menu-item', $navigation-button-sizes);
 @include level($navigation-button-sizes);
 
 .mg-c-menu-item {
-  max-width: var(--mg-menu-item-navigation-button-max-width);
+  max-width: var(--mg-c-menu-item-navigation-button-max-width);
 
   &__collapse-container {
     z-index: 10;
@@ -63,13 +68,13 @@ $navigation-button-sizes: (
 
       &-notification,
       ::slotted([slot='information']) {
-        margin-left: 1rem;
-        font-size: var(--font-size);
+        margin-left: var(--mg-b-size-8);
+        font-size: var(--mg-b-font-size);
       }
     }
 
     &-new-tab {
-      margin-left: 0.6rem;
+      margin-left: var(--mg-b-size-4);
     }
 
     &-chevron {
@@ -85,9 +90,9 @@ $navigation-button-sizes: (
   position: relative;
   display: flex;
 
-  --mg-popover-padding-vertical: 0;
-  --mg-popover-padding-horizontal: 0;
-  --mg-popover-max-width: unset;
+  --mg-c-popover-padding-vertical: 0;
+  --mg-c-popover-padding-horizontal: 0;
+  --mg-c-popover-max-width: unset;
 }
 
 // vertical item style
@@ -114,7 +119,7 @@ $navigation-button-sizes: (
 
 // more menu-item element
 :host([data-overflow-more]) {
-  --mg-menu-item-navigation-button-column-gap: 0;
+  --mg-c-menu-item-navigation-button-column-gap: 0;
 
   .mg-c-menu-item__navigation-button {
     &-chevron {
@@ -127,7 +132,7 @@ $navigation-button-sizes: (
   }
 
   ::slotted(mg-menu) {
-    --mg-menu-item-navigation-button-column-gap: #{$navigation-button-column-gap};
+    --mg-c-menu-item-navigation-button-column-gap: var(--mg-b-size-8);
   }
 }
 
@@ -135,10 +140,10 @@ $navigation-button-sizes: (
 :host([data-style-direction='horizontal']),
 :host([data-overflow-more]) {
   .mg-c-menu-item__collapse-container.mg-c-menu-item__collapse-container--first-level {
-    background-color: hsl(var(--color-light));
+    background-color: var(--mg-b-color-light);
 
     ::slotted(mg-menu) {
-      padding: 1rem 0;
+      padding: var(--mg-b-size-8) 0;
     }
   }
 }

@@ -1,7 +1,7 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
-import { ClassList, isValidString, localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
-import { types, InputError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
-import { type TooltipPosition, type Width, Handler, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
+import { ClassList, isValidString, localeCurrency, localeNumber, toString } from '@mgdis/stencil-helpers';
+import { types, type InputNumericError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
+import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales/';
 
 /**
@@ -21,6 +21,7 @@ export class MgInputNumeric {
   private storedValue: string;
   private numericValue: number;
   private readonlyValue: string;
+  private slotContent: string;
 
   // HTML selector
   private input: HTMLInputElement;
@@ -31,7 +32,7 @@ export class MgInputNumeric {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private handlerInProgress: Handler;
+  private handlerInProgress: EventType;
 
   /**************
    * Decorators *
@@ -160,7 +161,7 @@ export class MgInputNumeric {
     });
 
     // apply new width
-    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
+    if (newValue !== undefined) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
   }
 
   /**
@@ -185,29 +186,26 @@ export class MgInputNumeric {
   @Watch('type')
   validateType(newValue: MgInputNumeric['type']): void {
     if (!types.includes(newValue)) {
-      throw new Error(`<mg-input-numeric> prop "type" must be one of: ${types.join(', ')}`);
-    } else if (newValue === 'currency') {
-      this.format = 'currency';
+      throw new Error(`<mg-input-numeric> prop "type" must be one of: ${types.join(', ')}. Passed value: ${toString(newValue)}.`);
     }
   }
 
   /**
    * Set local formatting.
    * Numbers are formatted based on the locale.
-   * When type is set to `currency`, formatting has no effect.
    */
-  @Prop({ mutable: true }) format: Format = 'number'; // eslint-disable-line @stencil-community/strict-mutable
+  @Prop() format: Format = 'number';
   @Watch('format')
   watchFormat(newValue: MgInputNumeric['format']): void {
     if (!formats.includes(newValue)) {
-      throw new Error(`<mg-input-numeric> prop "format" must be one of: ${formats.join(', ')}`);
+      throw new Error(`<mg-input-numeric> prop "format" must be one of: ${formats.join(', ')}. Passed value: ${toString(newValue)}.`);
     }
   }
 
   /**
    * Define currency
    */
-  @Prop() currency = 'USD';
+  @Prop() currency = 'EUR';
 
   /**
    * Override integer length
@@ -217,7 +215,7 @@ export class MgInputNumeric {
   @Watch('integerLength')
   validateIntegerLength(newValue: MgInputNumeric['integerLength']): void {
     if (newValue < 1) {
-      throw new Error(`<mg-input-numeric> prop "integer-length" must be a positive number.`);
+      throw new Error(`<mg-input-numeric> prop "integer-length" must be a positive number. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -229,7 +227,7 @@ export class MgInputNumeric {
   @Watch('decimalLength')
   validateDecimalLength(newValue: MgInputNumeric['decimalLength']): void {
     if (newValue < 1) {
-      throw new Error(`<mg-input-numeric> prop "decimal-length" must be a positive number, consider using prop "type" to "integer" instead.`);
+      throw new Error(`<mg-input-numeric> prop "decimal-length" must be a positive number, consider using prop "type" to "integer" instead. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -289,9 +287,9 @@ export class MgInputNumeric {
   @Method()
   async setError(valid: MgInputNumeric['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-numeric> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-numeric> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-numeric> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-numeric> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);
@@ -308,7 +306,7 @@ export class MgInputNumeric {
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -381,7 +379,7 @@ export class MgInputNumeric {
   private handleBlur = (): void => {
     if (this.value === '-') this.value = '';
     // Display Error
-    this.handlerInProgress = Handler.BLUR;
+    this.handlerInProgress = 'blur';
     this.displayError().finally(() => {
       // reset guard
       this.handlerInProgress = undefined;
@@ -407,7 +405,7 @@ export class MgInputNumeric {
       const inputError = this.getInputError();
       if (errorMessage !== undefined) {
         this.errorMessage = errorMessage;
-      } else if (inputError === InputError.REQUIRED) {
+      } else if (inputError === 'required') {
         this.errorMessage = this.messages.errors[inputError];
       } else {
         this.errorMessage = this.messages.errors.numeric[inputError].replace('{min}', `${this.formatValue(this.min)}`).replace('{max}', `${this.formatValue(this.max)}`);
@@ -419,24 +417,24 @@ export class MgInputNumeric {
    * Get input error code
    * @returns error code
    */
-  private getInputError = (): null | InputError => {
-    let inputError = null;
+  private getInputError = (): null | InputNumericError => {
+    let inputError: InputNumericError = null;
     const hasNotEmptyValues = (toControl: number[]) => !toControl.some(value => [null, undefined].includes(value));
 
     // required
     if (!this.input.checkValidity() && this.input.validity.valueMissing) {
-      inputError = InputError.REQUIRED;
+      inputError = 'required';
     }
     // Min & Max
     else if (hasNotEmptyValues([this.min, this.numericValue]) && this.numericValue < this.min && this.max === undefined) {
       // Only a min value is set
-      inputError = InputError.MIN;
+      inputError = 'min';
     } else if (hasNotEmptyValues([this.max, this.numericValue]) && this.numericValue > this.max && this.min === undefined) {
       // Only a max value is set
-      inputError = InputError.MAX;
+      inputError = 'max';
     } else if (hasNotEmptyValues([this.min, this.max, this.numericValue]) && (this.numericValue < this.min || this.numericValue > this.max)) {
       // both min and max values are set
-      inputError = InputError.MINMAX;
+      inputError = 'minMax';
     }
     return inputError;
   };
@@ -463,7 +461,12 @@ export class MgInputNumeric {
   private validateAppendSlot = (): void => {
     const slotAppendInput: HTMLSlotElement = this.element.querySelector('[slot="append-input"]');
     if (slotAppendInput !== null) {
-      this.classCollection.add(slotAppendInput.nodeName === 'MG-BUTTON' ? 'mg-c-input--is-input-group-append' : 'mg-c-input--is-append-input-slot-content');
+      if (slotAppendInput.nodeName === 'MG-BUTTON') {
+        this.classCollection.add('mg-c-input--is-input-group-append');
+      } else {
+        this.classCollection.add('mg-c-input--is-append-input-slot-content');
+        this.slotContent = slotAppendInput.textContent;
+      }
     }
   };
 
@@ -500,6 +503,21 @@ export class MgInputNumeric {
   }
 
   /**
+   * Renders the readonly content of the input component.
+   * @returns The readonly content element.
+   */
+  private renderReadonly = (): HTMLElement => {
+    return this.slotContent !== undefined ? (
+      <span class="mg-c-input__readonly-value">
+        <b>{this.readonlyValue}</b>
+        {this.slotContent}
+      </span>
+    ) : (
+      <b class="mg-c-input__readonly-value">{this.readonlyValue}</b>
+    );
+  };
+
+  /**
    * Render
    * @returns HTML Element
    */
@@ -513,31 +531,35 @@ export class MgInputNumeric {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonlyValue={this.readonlyValue}
         tooltip={this.tooltip}
-        tooltipPosition={this.tooltipPosition}
+        tooltipPosition={this.readonly && this.value === undefined ? 'label' : this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >
-        <input
-          type="text"
-          class="mg-c-input__box mg-c-input__box--width"
-          value={this.displayValue()}
-          id={this.identifier}
-          name={this.name}
-          placeholder={this.placeholder}
-          title={this.placeholder}
-          disabled={this.disabled}
-          required={this.required}
-          aria-invalid={(this.invalid === true).toString()}
-          onInput={this.handleInput}
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
-          ref={(el: HTMLInputElement) => {
-            if (el !== null) this.input = el;
-          }}
-        />
-        <slot name="append-input"></slot>
+        {this.readonly
+          ? this.readonlyValue && this.renderReadonly()
+          : [
+              <input
+                key="input"
+                type="text"
+                class="mg-c-input__box mg-c-input__box--width"
+                value={this.displayValue()}
+                id={this.identifier}
+                name={this.name}
+                placeholder={this.placeholder}
+                title={this.placeholder}
+                disabled={this.disabled}
+                required={this.required}
+                aria-invalid={(this.invalid === true).toString()}
+                onInput={this.handleInput}
+                onFocus={this.handleFocus}
+                onBlur={this.handleBlur}
+                ref={(el: HTMLInputElement) => {
+                  if (el !== null) this.input = el;
+                }}
+              />,
+              <slot key="slot" name="append-input"></slot>,
+            ]}
       </mg-input>
     );
   }

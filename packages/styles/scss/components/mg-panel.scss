@@ -1,53 +1,50 @@
 @import 'mixins/reset-mg-card-slotted-variables';
 
-$spacer-default: 1rem;
-$spacer-small: 0.3rem;
+/*!
+ * @prop --mg-c-panel-border-radius: Defines the border radius of the panel. Default value: `--mg-b-size-radius`.
+ * @prop --mg-c-panel-color-background: Defines the background of the panel. Default value: `color-mix(in srgb, var(--mg-b-color-info), white 97%)`.
+ * @prop --mg-c-panel-box-shadow: Defines the box shadow of the panel. Default value: `--mg-b-box-shadow`.
+ * @prop --mg-c-panel-content-spacing: Defines the padding of the panel content. Default value: `--mg-b-size-16`.
+ */
 
 :host {
-  --mg-card-border: none;
-  --mg-card-padding: 0;
-  --mg-card-border-radius: var(--mg-panel-border-radius);
-  --mg-card-background: hsl(var(--mg-panel-background));
-  --mg-card-box-shadow: var(--mg-panel-box-shadow);
+  --mg-c-card-border: none;
+  --mg-c-card-spacing: 0;
+  --mg-c-card-border-radius: var(--mg-c-panel-border-radius);
+  --mg-c-card-color-background: var(--mg-c-panel-color-background);
+  --mg-c-card-box-shadow: var(--mg-c-panel-box-shadow);
 }
 
 .mg-c-panel {
   &__header {
-    $padding-value: 0 $spacer-default 0 $spacer-small;
-
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-    padding: $padding-value;
-
-    &.mg-c-panel__header--reverse {
-      padding-right: $spacer-small;
-      padding-left: $spacer-default;
-    }
+    padding: 0 var(--mg-b-size-4);
   }
 
   &__header-title,
   &__header-content {
     display: flex;
-    margin: $spacer-small 0;
+    margin: var(--mg-b-size-4) 0;
   }
 
   &__header-content {
-    min-height: var(--default-size);
+    min-height: var(--mg-b-size-min-height);
     flex: 1 auto;
     align-items: center;
-    padding-left: $spacer-small;
+    padding-left: var(--mg-b-size-4);
   }
 
   &__header-title {
     mg-input-text {
       flex-grow: 1;
-      margin-left: $spacer-small;
+      margin-left: var(--mg-b-size-4);
     }
 
     mg-button + mg-button:not([slot='append-input']) {
-      margin-left: $spacer-small;
+      margin-left: var(--mg-b-size-4);
     }
 
     &.mg-c-panel__header-title--full {
@@ -57,8 +54,8 @@ $spacer-small: 0.3rem;
 
   &__collapse-button {
     &-content {
-      --font-size: 1.4rem;
-      --mg-button-font-weight: 600;
+      --mg-b-font-size: var(--mg-b-font-size-h5);
+      --mg-c-button-font-weight: 600;
     }
 
     &-icon.mg-c-panel__collapse-button-icon--reverse {
@@ -67,14 +64,14 @@ $spacer-small: 0.3rem;
   }
 
   &__content {
-    padding: var(--mg-panel-content-padding);
+    padding: var(--mg-c-panel-content-spacing);
   }
 
   ::slotted([slot='header-right']) {
     display: flex;
     flex-wrap: wrap;
     margin-left: auto;
-    gap: $spacer-default;
+    gap: var(--mg-b-spacing-actions);
   }
 
   @include reset-slot-card-variables;

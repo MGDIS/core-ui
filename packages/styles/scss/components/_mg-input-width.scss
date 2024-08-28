@@ -3,29 +3,25 @@
  * Kept it nested for coming widths
  */
 
-$width-2: 5rem;
-$width-4: 7rem;
-$width-16: 21rem;
-
 @mixin input-box-max-width {
   &.mg-c-input--width-2 {
     .mg-c-input__box,
     .mg-c-input__with-character-left {
-      max-width: $width-2;
+      max-width: var(--mg-b-size-48);
     }
   }
 
   &.mg-c-input--width-4 {
     .mg-c-input__box,
     .mg-c-input__with-character-left {
-      max-width: $width-4;
+      max-width: var(--mg-b-size-72);
     }
   }
 
   &.mg-c-input--width-16 {
     .mg-c-input__box,
     .mg-c-input__with-character-left {
-      max-width: $width-16;
+      max-width: calc(26 * var(--mg-b-size-8));
     }
   }
 
@@ -39,13 +35,6 @@ $width-16: 21rem;
   &__input-container {
     width: 100%;
     flex: 1 auto;
-  }
-
-  // default width
-  &__box.mg-c-input__box--width {
-    width: 100%;
-    min-width: $width-2;
-    max-width: calc(17.7rem + var(--mg-inputs-spacer) * 2); // keep native width + mg-input spacer
   }
 
   /**

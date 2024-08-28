@@ -1,4 +1,4 @@
-export enum NavigationAction {
-  NEXT = 'next',
-  PREVIOUS = 'previous',
-}
+export const NavigationAction = {
+  NEXT: 'next',
+  PREVIOUS: 'previous',
+};

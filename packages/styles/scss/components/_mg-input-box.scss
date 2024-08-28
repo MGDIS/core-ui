@@ -1,3 +1,5 @@
+@use '../functions' as functions;
+
 /**
  * Style for input "box":
  * - input[type="text"]
@@ -9,32 +11,37 @@
 
 .mg-c-input {
   &__box {
-    height: var(--default-size);
+    height: var(--mg-b-size-min-height);
     box-sizing: border-box;
-    padding: calc((var(--default-size) - var(--font-size) * var(--line-height)) / 2) var(--mg-inputs-spacer);
-    border-width: var(--mg-inputs-border-width);
+    padding: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2) var(--mg-b-size-8);
+    border-width: var(--mg-c-input-border-width);
     border-style: solid;
-    border-color: var(--mg-inputs-color);
-    border-radius: var(--mg-inputs-border-radius);
-    background-color: hsl(var(--color-light));
-    color: hsl(var(--color-dark));
+    border-color: var(--mg-c-input-color-border);
+    border-radius: var(--mg-c-input-border-radius);
+    background-color: var(--mg-b-color-light);
+    color: var(--mg-b-color-dark);
     font-family: inherit;
-    font-size: var(--font-size);
-    text-align: var(--mg-inputs-text-align, left);
+    font-size: var(--mg-b-font-size);
+    text-align: var(--mg-c-input-text-align, left);
 
     // placeholder
     &::placeholder {
-      color: var(--mg-inputs-color);
+      color: var(--mg-c-input-placeholder-color-text);
       font-style: italic;
     }
 
     &:focus {
-      box-shadow: 0 0 0.6rem hsl(var(--mg-inputs-color-shadow-focus-hsl) / 50%);
+      box-shadow: 0 0 var(--mg-b-size-4) var(--mg-c-input-color-box-shadow-focus);
     }
 
     // disabled
     &:disabled {
-      opacity: 0.3;
+      opacity: var(--mg-b-opacity-element-disabled);
+    }
+
+    // Error
+    .mg-c-input.mg-c-input--has-error & {
+      border-color: var(--mg-b-color-danger);
     }
   }
 
@@ -43,14 +50,14 @@
   */
   &.mg-c-input--is-input-group-append {
     // Input group button
-    --mg-button-border-radius-top-left: 0;
-    --mg-button-border-radius-bottom-left: 0;
+    --mg-c-button-border-radius-top-left: 0;
+    --mg-c-button-border-radius-bottom-left: 0;
 
     /**
     * Append input slot
     */
     .mg-c-input__box {
-      margin-right: -0.1rem;
+      margin-right: calc(-1 * var(--mg-b-size-border));
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
 
@@ -64,22 +71,22 @@
 
   &.mg-c-input--has-buttons-group-append {
     ::slotted([slot='append-input']) {
-      --mg-button-border-radius-top-right: 0;
-      --mg-button-border-radius-bottom-right: 0;
+      --mg-c-button-border-radius-top-right: 0;
+      --mg-c-button-border-radius-bottom-right: 0;
     }
 
     ::slotted([slot='append-input']:not(:last-of-type)) {
-      --mg-button-border-right-width: 0;
+      --mg-c-button-border-right-width: 0;
     }
 
     ::slotted([slot='append-input']:last-of-type) {
-      --mg-button-border-radius-top-right: var(--mg-inputs-border-radius);
-      --mg-button-border-radius-bottom-right: var(--mg-inputs-border-radius);
+      --mg-c-button-border-radius-top-right: var(--mg-c-input-border-radius);
+      --mg-c-button-border-radius-bottom-right: var(--mg-c-input-border-radius);
     }
   }
 
   &.mg-c-input--is-append-input-slot-content:not(.mg-c-input--readonly) ::slotted([slot='append-input']) {
     align-self: start;
-    padding-top: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2);
+    padding-top: calc((var(--mg-b-size-min-height) - functions.get-icon-size('medium')) / 2);
   }
 }

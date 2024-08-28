@@ -1,27 +1,35 @@
+@use '../functions' as functions;
 @import 'mixins/reset-mg-card-slotted-variables';
+
+/*!
+ * @prop --mg-c-modal-border-radius: Defines the border radius of the modal. Default value: `--mg-b-size-radius`.
+ * @prop --mg-c-modal-title-font-size: Defines the font size of the modal title. Default value: `--mg-b-font-size-h3`.
+ */
 
 :host {
   // Set mg-card variables
-  --mg-card-border-radius: var(--mg-modal-border-radius);
-  --mg-card-padding: 1.5rem 2.5rem;
-  --mg-card-border: none;
+  --mg-c-card-border-radius: var(--mg-c-modal-border-radius);
+  --mg-c-card-spacing: var(--mg-b-size-16) var(--mg-b-size-24);
+  --mg-c-card-border: none;
 }
 
 .mg-c-modal {
-  position: fixed;
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 0;
+  border: none;
+  background: none;
 
-  // Appearance
-  background-color: hsl(var(--color-light) / 85%);
-  inset: 0;
+  &[open] {
+    display: flex;
+    padding: var(--mg-b-size-24) var(--mg-b-size-8);
+  }
+
+  &::backdrop {
+    background-color: var(--mg-b-color-light);
+    opacity: 0.85;
+  }
 
   mg-card {
     display: flex;
-    width: 60rem;
+    width: calc(75 * var(--mg-b-size-8)); // 600px
     max-width: 100%;
     max-height: 100%;
   }
@@ -33,39 +41,28 @@
     max-height: 100%;
     flex-direction: column;
     align-self: center;
-    row-gap: 3rem;
-  }
-
-  &__header {
-    margin-bottom: 0.5rem;
+    row-gap: var(--mg-b-size-24);
   }
 
   &__title {
     margin: 0;
-    font-family: var(--font-family-heading);
-    font-size: var(--mg-modal-title-font-size);
+    font-family: var(--mg-b-font-family-heading);
+    font-size: var(--mg-c-modal-title-font-size);
     font-weight: 600;
   }
 
   &__close-button {
-    height: var(--mg-modal-title-font-size);
-    margin-top: calc((var(--default-size) - (var(--mg-modal-title-font-size) * var(--line-height))) / 2 * -1); // -6px;
-    margin-right: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2 * -1); // -10px;
+    height: var(--mg-c-modal-title-font-size);
+    margin-top: calc((var(--mg-b-size-min-height) - (var(--mg-c-modal-title-font-size) * var(--mg-b-line-height))) / 2 * -1); // -6px;
+    margin-right: calc((var(--mg-b-size-min-height) - functions.get-icon-size('medium')) / 2 * -1); // -10px;
+    margin-left: var(--mg-b-size-16);
     float: right;
   }
 
   &__content {
-    padding: 1rem;
-    margin: -1rem;
+    padding: var(--mg-b-size-16);
+    margin: calc(var(--mg-b-size-16) * -1);
     overflow-y: auto;
-
-    &::slotted(*) {
-      font-size: var(--mg-modal-content-font-size);
-    }
-  }
-
-  &.mg-c-modal--hide {
-    display: none;
   }
 
   @include reset-slot-card-variables;

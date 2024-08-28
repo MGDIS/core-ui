@@ -1,0 +1,1395 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mg-modal Should render a modal with slots { actions: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  closeButton: true
+} 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+          <footer class="mg-c-modal__footer">
+            <slot name="actions"></slot>
+          </footer>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <div class="mg-l-group-elements mg-l-group-elements--align-right" slot="actions">
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--primary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Primary
+    </mg-button>
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--secondary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Secondary
+    </mg-button>
+  </div>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { actions: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  closeButton: true
+} 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+          <footer class="mg-c-modal__footer">
+            <slot name="actions"></slot>
+          </footer>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <div class="mg-l-group-elements mg-l-group-elements--align-right" slot="actions">
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--primary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Primary
+    </mg-button>
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--secondary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Secondary
+    </mg-button>
+  </div>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { actions: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  closeButton: true,
+  lang: 'fr'
+} 1`] = `
+<mg-modal lang="fr">
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Fermer la modale" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+          <footer class="mg-c-modal__footer">
+            <slot name="actions"></slot>
+          </footer>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <div class="mg-l-group-elements mg-l-group-elements--align-right" slot="actions">
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--primary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Primary
+    </mg-button>
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--secondary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Secondary
+    </mg-button>
+  </div>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { actions: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  closeButton: true,
+  lang: 'xx'
+} 1`] = `
+<mg-modal lang="xx">
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+          <footer class="mg-c-modal__footer">
+            <slot name="actions"></slot>
+          </footer>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <div class="mg-l-group-elements mg-l-group-elements--align-right" slot="actions">
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--primary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Primary
+    </mg-button>
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--secondary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Secondary
+    </mg-button>
+  </div>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { actions: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  dialogRole: 'alertdialog'
+} 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="alertdialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+          <footer class="mg-c-modal__footer">
+            <slot name="actions"></slot>
+          </footer>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <div class="mg-l-group-elements mg-l-group-elements--align-right" slot="actions">
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--primary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Primary
+    </mg-button>
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--secondary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Secondary
+    </mg-button>
+  </div>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { actions: true } with args { modalTitle: 'Modal Title', identifier: 'identifier', open: true } 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+          <footer class="mg-c-modal__footer">
+            <slot name="actions"></slot>
+          </footer>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <div class="mg-l-group-elements mg-l-group-elements--align-right" slot="actions">
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--primary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Primary
+    </mg-button>
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--secondary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Secondary
+    </mg-button>
+  </div>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { content: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  closeButton: true
+} 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content with
+    <a href="./">
+      a link
+    </a>
+    !
+  </p>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { content: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  closeButton: true
+} 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content with
+    <a href="./">
+      a link
+    </a>
+    !
+  </p>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { content: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  closeButton: true,
+  lang: 'fr'
+} 1`] = `
+<mg-modal lang="fr">
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Fermer la modale" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content with
+    <a href="./">
+      a link
+    </a>
+    !
+  </p>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { content: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  closeButton: true,
+  lang: 'xx'
+} 1`] = `
+<mg-modal lang="xx">
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content with
+    <a href="./">
+      a link
+    </a>
+    !
+  </p>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { content: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  dialogRole: 'alertdialog'
+} 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="alertdialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content with
+    <a href="./">
+      a link
+    </a>
+    !
+  </p>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { content: true } with args { modalTitle: 'Modal Title', identifier: 'identifier', open: true } 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content with
+    <a href="./">
+      a link
+    </a>
+    !
+  </p>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { content: true, actions: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  closeButton: true
+} 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+          <footer class="mg-c-modal__footer">
+            <slot name="actions"></slot>
+          </footer>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content with
+    <a href="./">
+      a link
+    </a>
+    !
+  </p>
+  <div class="mg-l-group-elements mg-l-group-elements--align-right" slot="actions">
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--primary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Primary
+    </mg-button>
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--secondary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Secondary
+    </mg-button>
+  </div>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { content: true, actions: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  closeButton: true
+} 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+          <footer class="mg-c-modal__footer">
+            <slot name="actions"></slot>
+          </footer>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content with
+    <a href="./">
+      a link
+    </a>
+    !
+  </p>
+  <div class="mg-l-group-elements mg-l-group-elements--align-right" slot="actions">
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--primary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Primary
+    </mg-button>
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--secondary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Secondary
+    </mg-button>
+  </div>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { content: true, actions: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  closeButton: true,
+  lang: 'fr'
+} 1`] = `
+<mg-modal lang="fr">
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Fermer la modale" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+          <footer class="mg-c-modal__footer">
+            <slot name="actions"></slot>
+          </footer>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content with
+    <a href="./">
+      a link
+    </a>
+    !
+  </p>
+  <div class="mg-l-group-elements mg-l-group-elements--align-right" slot="actions">
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--primary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Primary
+    </mg-button>
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--secondary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Secondary
+    </mg-button>
+  </div>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { content: true, actions: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  closeButton: true,
+  lang: 'xx'
+} 1`] = `
+<mg-modal lang="xx">
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+          <footer class="mg-c-modal__footer">
+            <slot name="actions"></slot>
+          </footer>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content with
+    <a href="./">
+      a link
+    </a>
+    !
+  </p>
+  <div class="mg-l-group-elements mg-l-group-elements--align-right" slot="actions">
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--primary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Primary
+    </mg-button>
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--secondary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Secondary
+    </mg-button>
+  </div>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { content: true, actions: true } with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  dialogRole: 'alertdialog'
+} 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="alertdialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+          <footer class="mg-c-modal__footer">
+            <slot name="actions"></slot>
+          </footer>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content with
+    <a href="./">
+      a link
+    </a>
+    !
+  </p>
+  <div class="mg-l-group-elements mg-l-group-elements--align-right" slot="actions">
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--primary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Primary
+    </mg-button>
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--secondary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Secondary
+    </mg-button>
+  </div>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots { content: true, actions: true } with args { modalTitle: 'Modal Title', identifier: 'identifier', open: true } 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+          <footer class="mg-c-modal__footer">
+            <slot name="actions"></slot>
+          </footer>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content with
+    <a href="./">
+      a link
+    </a>
+    !
+  </p>
+  <div class="mg-l-group-elements mg-l-group-elements--align-right" slot="actions">
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--primary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Primary
+    </mg-button>
+    <mg-button role="button" tabindex="0">
+      <template shadowrootmode="open">
+        <div class="mg-c-button mg-c-button--secondary">
+          <div class="mg-c-button__content">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      Secondary
+    </mg-button>
+  </div>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots undefined with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  closeButton: true
+} 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots undefined with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  closeButton: true
+} 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots undefined with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  closeButton: true,
+  lang: 'fr'
+} 1`] = `
+<mg-modal lang="fr">
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Fermer la modale" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots undefined with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  closeButton: true,
+  lang: 'xx'
+} 1`] = `
+<mg-modal lang="xx">
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots undefined with args {
+  modalTitle: 'Modal Title',
+  identifier: 'identifier',
+  open: true,
+  dialogRole: 'alertdialog'
+} 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="alertdialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+</mg-modal>
+`;
+
+exports[`mg-modal Should render a modal with slots undefined with args { modalTitle: 'Modal Title', identifier: 'identifier', open: true } 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+</mg-modal>
+`;
+
+exports[`mg-modal navigation Should hide modal with button 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+</mg-modal>
+`;
+
+exports[`mg-modal navigation Should hide modal with button 2`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+</mg-modal>
+`;
+
+exports[`mg-modal navigation should hide modal with escape keyboard 1`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+</mg-modal>
+`;
+
+exports[`mg-modal navigation should hide modal with escape keyboard 2`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <span class="mg-c-modal__close-button">
+              <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
+                <template shadowrootmode="open">
+                  <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                    <div class="mg-c-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </template>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            </span>
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+</mg-modal>
+`;
+
+exports[`mg-modal navigation should hide modal with escape keyboard 3`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+</mg-modal>
+`;
+
+exports[`mg-modal navigation should hide modal with escape keyboard 4`] = `
+<mg-modal>
+  <template shadowrootmode="open">
+    <dialog aria-labelledby="identifier-title" class="mg-c-modal" id="identifier" role="dialog">
+      <mg-card>
+        <div class="mg-c-modal__dialog">
+          <header class="mg-c-modal__header">
+            <h1 class="mg-c-modal__title" id="identifier-title">
+              Modal Title
+            </h1>
+          </header>
+          <article class="mg-c-modal__content">
+            <slot></slot>
+          </article>
+        </div>
+      </mg-card>
+    </dialog>
+  </template>
+</mg-modal>
+`;
