@@ -111,66 +111,6 @@ exports[`mg-input-radio Should render with args {
 
 exports[`mg-input-radio Should render with args {
   items: [Array],
-  readonly: true,
-  value: 2
-}: 1`] = `
-<mg-input-radio>
-  <template shadowrootmode="open">
-    <mg-input class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <strong>
-            robin
-          </strong>
-          <slot></slot>
-        </div>
-      </template>
-      <ul class="mg-c-input__input-group-container" role="list">
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" id="identifier_0" name="identifier" type="radio" value="0">
-          <label htmlfor="identifier_0">
-            batman
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" checked="" id="identifier_1" name="identifier" type="radio" value="1">
-          <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" id="identifier_2" name="identifier" type="radio" value="2">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" id="identifier_3" name="identifier" type="radio" value="3">
-          <label htmlfor="identifier_3">
-            bane
-          </label>
-        </li>
-      </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-radio>
-`;
-
-exports[`mg-input-radio Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  items: [Array],
   required: true,
   disabled: true,
   helpText: 'My help text',
@@ -957,6 +897,36 @@ exports[`mg-input-radio Should render with args { items: [Array], readonly: true
           </div>
         </div>
       </template>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-radio>
+`;
+
+exports[`mg-input-radio Should render with args { items: [Array], readonly: true, value: 2 }: 1`] = `
+<mg-input-radio>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <b class="mg-c-input__readonly-value">
+        robin
+      </b>
       <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
