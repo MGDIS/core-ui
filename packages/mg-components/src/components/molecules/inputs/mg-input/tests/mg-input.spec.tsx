@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
-import { classDisabled, classFieldset, tooltipPositions } from '../mg-input.conf';
+import { classDisabled, classFieldset, classReadonly, tooltipPositions } from '../mg-input.conf';
 
 const baseArgs = {
   label: 'label',
@@ -49,12 +49,45 @@ describe('mg-input', () => {
       expect(root).toMatchSnapshot();
     });
 
-    test('Should update "label" slot', async () => {
-      const page = await getPage({ label: 'batma,' });
-      expect(page).toMatchSnapshot();
+    test('Should update "mg-input-title" slot, "label" slot', async () => {
+      const page = await getPage({ label: 'batman' });
+      expect(page.root).toMatchSnapshot();
       const element = page.doc.querySelector('mg-input');
 
       element.label = 'joker';
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should update "mg-input-title" slot, "required" prop', async () => {
+      const page = await getPage({ label: 'batman', required: true });
+      expect(page.root).toMatchSnapshot();
+      const element = page.doc.querySelector('mg-input');
+
+      element.required = false;
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should update "mg-input-title" slot, "readonly" prop', async () => {
+      const page = await getPage({ label: 'batman' });
+      expect(page.root).toMatchSnapshot();
+      const element = page.doc.querySelector('mg-input');
+
+      element.classList.add(classReadonly);
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should update "mg-input-title" slot, "fieldset" prop', async () => {
+      const page = await getPage({ label: 'batman' });
+      expect(page.root).toMatchSnapshot();
+      const element = page.doc.querySelector('mg-input');
+
+      element.classList.add(classFieldset);
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();

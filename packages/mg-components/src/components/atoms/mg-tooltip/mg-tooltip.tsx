@@ -407,7 +407,7 @@ export class MgTooltip {
     this.setAriaDescribedby(slotElement);
 
     // set Tooltip
-    this.setPopper(this.element.closest('mg-popover') ? 'absolute' : 'fixed');
+    this.setPopper(this.element.closest('mg-popover') !== null ? 'absolute' : 'fixed');
 
     // add document keyboard handler
     document.addEventListener('keydown', this.handlePressEscape);
