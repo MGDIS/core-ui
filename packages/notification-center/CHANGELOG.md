@@ -1,5 +1,11 @@
 # @mgdis/notification-center
 
+## 1.2.0
+
+### Minor Changes
+
+- d4de1af: Notifications are now rendered with `<mg-alert>` component when using mg-comp@v6
+
 ## 1.1.16
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.9
+
+### Patch Changes
+
+- 2a72803: Use typedoc-config package
+
 ## 4.1.8
 
 ### Patch Changes

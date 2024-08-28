@@ -1,5 +1,11 @@
 # @mgdis/linting-stencil
 
+## 1.3.0
+
+### Minor Changes
+
+- 74ed81b: Remove `@stencil-community/ban-exported-const-enums` linting rule override
+
 ## 1.2.0
 
 ### Minor Changes

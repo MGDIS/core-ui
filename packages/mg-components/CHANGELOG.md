@@ -1,5 +1,55 @@
 # @mgdis/mg-components
 
+## 6.0.0
+
+### Major Changes
+
+- a8270ce: Separate styles
+- 4edae4d: mg-button - remove identifier prop
+- 3cd9204: Prefix all custom properties
+- c2f33b8: remove question-circle icon
+- 9e1d5c6: `<mg-action-more>` items icon variant can be defined.
+- a84fb50: [mg-modal](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-modal--docs) rename hide property to hidden
+- fb3aec6: Renammed display-character-left prop to character-left-hide.
+- 0ff869e: move [**`<mg-card>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-card--docs) variants to [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs)
+- 631a96f: [mg-messsage](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs) rename hide property to hidden
+- 69bce84: move [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs) alerts features to a new component: [**`<mg-alert>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-alert--docs)
+- 17b6aca: mg-input-numeric's currency type has been removed in favor of the format prop.
+- 2678968: [mg-message](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs) rename `variant-style` `fill` value to `background`
+
+### Minor Changes
+
+- 525e9ed: Component validation error messages contain the passed value.
+- 7899249: `<mg-tooltip>` automate popper.js strategy setting
+- 3ccbb15: `<mg-input-text>` `datalistoptions` prop can handle `OptionType[]`
+- 7e36d34: `<mg-action-more>` add divider between items
+- f1e98e7: mg-input-checkbox: add `localeMessages` prop
+- 2fbeeee: `<mg-tooltip>` `<mg-tabs>` remove document|window listener on disconnectedCallback
+- 2c6ee2f: `<mg-badge/>` Only alphabetical characters are excluded
+- 88b5d3b: `<mg-input-**>` add tooltip in readonly state
+
+### Patch Changes
+
+- 74ed81b: Remove `@stencil-community/ban-exported-const-enums` linting rule override
+- ab2224b: Add CSS code completion
+- Updated dependencies [a8270ce]
+- Updated dependencies [3cd9204]
+- Updated dependencies [c2f33b8]
+- Updated dependencies [525e9ed]
+- Updated dependencies [2a72803]
+- Updated dependencies [a84fb50]
+- Updated dependencies [fb3aec6]
+- Updated dependencies [b2a0a03]
+- Updated dependencies [0ff869e]
+- Updated dependencies [ab2224b]
+- Updated dependencies [f1e98e7]
+- Updated dependencies [631a96f]
+- Updated dependencies [69bce84]
+- Updated dependencies [88b5d3b]
+  - @mgdis/styles@2.0.0
+  - @mgdis/img@2.0.0
+  - @mgdis/stencil-helpers@2.0.0
+
 ## 5.29.0
 
 ### Minor Changes

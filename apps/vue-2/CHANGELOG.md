@@ -1,5 +1,42 @@
 # vue-2
 
+## 0.1.0
+
+### Minor Changes
+
+- a8270ce: Update styles dependencies
+
+### Patch Changes
+
+- 3cd9204: Prefix all custom properties
+- Updated dependencies [a8270ce]
+- Updated dependencies [4edae4d]
+- Updated dependencies [3cd9204]
+- Updated dependencies [c2f33b8]
+- Updated dependencies [9e1d5c6]
+- Updated dependencies [74ed81b]
+- Updated dependencies [525e9ed]
+- Updated dependencies [a84fb50]
+- Updated dependencies [fb3aec6]
+- Updated dependencies [b2a0a03]
+- Updated dependencies [0ff869e]
+- Updated dependencies [7899249]
+- Updated dependencies [3ccbb15]
+- Updated dependencies [7e36d34]
+- Updated dependencies [ab2224b]
+- Updated dependencies [f1e98e7]
+- Updated dependencies [d4de1af]
+- Updated dependencies [631a96f]
+- Updated dependencies [2fbeeee]
+- Updated dependencies [69bce84]
+- Updated dependencies [2c6ee2f]
+- Updated dependencies [88b5d3b]
+- Updated dependencies [17b6aca]
+- Updated dependencies [2678968]
+  - @mgdis/mg-components@6.0.0
+  - @mgdis/styles@2.0.0
+  - @mgdis/notification-center@1.2.0
+
 ## 0.0.28
 
 ### Patch Changes

@@ -1,5 +1,25 @@
 # @mgdis/stencil-helpers
 
+## 2.0.0
+
+### Major Changes
+
+- ab2224b: Remove useless `version` arguments in code completion methods
+
+### Patch Changes
+
+- ab2224b: Add CSS code completion
+
+### Minor Changes
+
+- 525e9ed: Component validation error messages contain the passed value.
+- f1e98e7: mg-input-checkbox: add `localeMessages` prop
+
+### Patch Changes
+
+- 2a72803: Init package
+- 0ff869e: move [**`<mg-card>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-card--docs) variants to [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs)
+
 ## 1.1.9
 
 ### Patch Changes

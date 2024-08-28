@@ -1,5 +1,17 @@
 # Changelog
 
+## Release (2024-08-28-15-13_Expensive-Eggplant-Eel)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2024-08-28-11-31_Sore-Scarlet-Snail)
 
 ### Packages released
