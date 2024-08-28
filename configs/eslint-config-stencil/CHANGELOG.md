@@ -1,5 +1,11 @@
 # eslint-config-stencil
 
+## 1.2.0
+
+### Minor Changes
+
+- b8a9428: linting: disabled eslint "no-redundant-roles" rule
+
 ## 1.1.13
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.8
+
+### Patch Changes
+
+- 2fad542: update dependencies
+
 ## 4.1.7
 
 ### Patch Changes
