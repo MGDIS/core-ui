@@ -1,0 +1,9 @@
+import{h as r}from"./index-BDiA27Xx.js";import{V as i}from"./index.es-1o2oPW_B.js";import{i as a}from"./index-K2AdWO80.js";const m=["small","regular","medium","large","extra-large"],u={component:"mg-icon",title:"Atoms/mg-icon"},l=e=>{const c=e.color;return delete e.color,r("div",{style:{color:c}},r("mg-icon",{...i(e,{size:m[1]})}))},o={render:l,args:{color:"",icon:a[0],size:void 0,spin:!1}};var n,s,t;o.parameters={...o.parameters,docs:{...(n=o.parameters)==null?void 0:n.docs,source:{originalSource:`{
+  render: Template,
+  args: {
+    color: '',
+    icon: iconList[0],
+    size: undefined,
+    spin: false
+  }
+}`,...(t=(s=o.parameters)==null?void 0:s.docs)==null?void 0:t.source}}};const f=["MgIcon"];export{o as MgIcon,f as __namedExportsOrder,u as default};
