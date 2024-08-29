@@ -183,21 +183,6 @@ export class MgInput {
   }
 
   /**
-   * Trigger label update
-   */
-  // eslint-disable-next-line @stencil-community/no-unused-watch
-  @Watch('class')
-  @Watch('label')
-  watchLabel(): void {
-    if (!isValidString(this.label)) {
-      throw new Error(`<mg-input> prop "label" is required and must be a string. Passed value: ${toString(this.label)}.`);
-    } else {
-      this.watchAriaDescribedbyIDs();
-      this.renderLabel();
-    }
-  }
-
-  /**
    * Element is fieldset
    */
   @State() isFieldset: boolean = false;
@@ -216,6 +201,24 @@ export class MgInput {
    * Element is disabled
    */
   @State() isVerticalList: boolean = false;
+
+  /**
+   * Trigger label update
+   */
+  // eslint-disable-next-line @stencil-community/no-unused-watch
+  @Watch('class')
+  @Watch('label')
+  @Watch('required')
+  @Watch('isReadonly')
+  @Watch('isFieldset')
+  watchLabel(): void {
+    if (!isValidString(this.label)) {
+      throw new Error(`<mg-input> prop "label" is required and must be a string. Passed value: ${toString(this.label)}.`);
+    } else {
+      this.watchAriaDescribedbyIDs();
+      this.renderLabel();
+    }
+  }
 
   /************
    * Methods *
