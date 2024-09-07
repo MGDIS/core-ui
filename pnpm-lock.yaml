@@ -67,11 +67,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/linting-angularjs
       sass:
-        specifier: 1.77.8
-        version: 1.77.8
+        specifier: 1.78.0
+        version: 1.78.0
       vite:
         specifier: 5.4.3
-        version: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+        version: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
 
   apps/notification-center:
     dependencies:
@@ -96,7 +96,7 @@ importers:
         version: 5.5.4
       vite:
         specifier: 5.4.3
-        version: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+        version: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
 
   apps/stencil:
     dependencies:
@@ -148,11 +148,11 @@ importers:
         version: link:../../packages/styles
     devDependencies:
       sass:
-        specifier: 1.77.8
-        version: 1.77.8
+        specifier: 1.78.0
+        version: 1.78.0
       vite:
         specifier: 5.4.3
-        version: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+        version: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
 
   apps/vue-2:
     dependencies:
@@ -176,11 +176,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/linting-vue2
       sass:
-        specifier: 1.77.8
-        version: 1.77.8
+        specifier: 1.78.0
+        version: 1.78.0
       vite:
         specifier: 5.4.3
-        version: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+        version: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
       vite-plugin-vue2:
         specifier: 2.0.3
         version: 2.0.3(vite@5.4.3)(vue-template-compiler@2.7.16)(vue@2.7.16)
@@ -243,17 +243,17 @@ importers:
         specifier: 24.1.3
         version: 24.1.3
       sass:
-        specifier: 1.77.8
-        version: 1.77.8
+        specifier: 1.78.0
+        version: 1.78.0
       typescript:
         specifier: 5.5.4
         version: 5.5.4
       vite:
         specifier: 5.4.3
-        version: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+        version: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.77.8)
+        version: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.78.0)
       vue-tsc:
         specifier: 2.1.6
         version: 2.1.6(typescript@5.5.4)
@@ -369,7 +369,7 @@ importers:
     dependencies:
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.77.8)
+        version: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.78.0)
     devDependencies:
       eslint-config-custom:
         specifier: workspace:*
@@ -738,8 +738,8 @@ importers:
         specifier: 22.15.0
         version: 22.15.0(typescript@5.5.4)
       sass:
-        specifier: 1.77.8
-        version: 1.77.8
+        specifier: 1.78.0
+        version: 1.78.0
       storybook:
         specifier: 8.2.9
         version: 8.2.9
@@ -754,7 +754,7 @@ importers:
         version: 5.5.4
       vite:
         specifier: 5.4.3
-        version: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+        version: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
 
   packages/mg-components-helpers:
     dependencies:
@@ -800,7 +800,7 @@ importers:
         version: 4.2.7(typedoc@0.26.6)
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.77.8)
+        version: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.78.0)
       vitest-config:
         specifier: workspace:*
         version: link:../../configs/vitest-config
@@ -867,7 +867,7 @@ importers:
         version: 5.5.4
       vite:
         specifier: 5.4.3
-        version: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+        version: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
       vite-plugin-dts:
         specifier: 3.9.1
         version: 3.9.1(@types/node@20.16.5)(typescript@5.5.4)(vite@5.4.3)
@@ -901,7 +901,7 @@ importers:
         version: 5.5.4
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.77.8)
+        version: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.78.0)
       vitest-config:
         specifier: workspace:*
         version: link:../../configs/vitest-config
@@ -941,13 +941,13 @@ importers:
         version: 4.2.7(typedoc@0.26.6)
       vite:
         specifier: 5.4.3
-        version: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+        version: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
       vite-plugin-dts:
         specifier: 3.9.1
         version: 3.9.1(@types/node@20.16.5)(typescript@5.5.4)(vite@5.4.3)
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.77.8)
+        version: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.78.0)
       vitest-config:
         specifier: workspace:*
         version: link:../../configs/vitest-config
@@ -968,8 +968,8 @@ importers:
         specifier: 3.3.3
         version: 3.3.3
       sass:
-        specifier: 1.77.8
-        version: 1.77.8
+        specifier: 1.78.0
+        version: 1.78.0
       stylelint:
         specifier: 16.9.0
         version: 16.9.0
@@ -4572,7 +4572,7 @@ packages:
       storybook: 8.2.9
       ts-dedent: 2.2.0
       typescript: 5.5.4
-      vite: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+      vite: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5557,7 +5557,7 @@ packages:
       '@babel/core': 7.24.9
       '@babel/plugin-transform-typescript': 7.25.0(@babel/core@7.24.9)
       '@vue/babel-plugin-jsx': 1.2.2(@babel/core@7.24.9)
-      vite: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+      vite: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
       vue: 3.4.38(typescript@5.5.4)
     transitivePeerDependencies:
       - supports-color
@@ -5570,7 +5570,7 @@ packages:
       vite: ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+      vite: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
       vue: 3.4.38(typescript@5.5.4)
     dev: true
 
@@ -5588,7 +5588,7 @@ packages:
       magicast: 0.3.4
       picocolors: 1.0.1
       test-exclude: 6.0.0
-      vitest: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.77.8)
+      vitest: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.78.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5611,7 +5611,7 @@ packages:
       std-env: 3.7.0
       strip-literal: 2.1.0
       test-exclude: 6.0.0
-      vitest: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.77.8)
+      vitest: 1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.78.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -14839,8 +14839,8 @@ packages:
       postcss: 8.4.39
     dev: false
 
-  /sass@1.77.8:
-    resolution: {integrity: sha512-4UHg6prsrycW20fqLGPShtEvo/WyHRVRHwOP4DzkUrObWoWI05QBSfzU71TVB7PFaL104TwNaHpjlWXAZbQiNQ==}
+  /sass@1.78.0:
+    resolution: {integrity: sha512-AaIqGSrjo5lA2Yg7RvFZrlXDBCp3nV4XP73GrLGvdRWWwk+8H3l0SDvq/5bA4eF+0RFPLuWUk3E+P1U/YqnpsQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -16695,7 +16695,7 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  /vite-node@1.6.0(@types/node@20.16.5)(sass@1.77.8):
+  /vite-node@1.6.0(@types/node@20.16.5)(sass@1.78.0):
     resolution: {integrity: sha512-de6HJgzC+TFzOu0NTC4RAIsyf/DY/ibWDYQUcuEA84EMHhcefTUGkjFHKKEJhQN4A+6I0u++kr3l36ZF2d7XRw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -16704,7 +16704,7 @@ packages:
       debug: 4.3.6(supports-color@8.1.1)
       pathe: 1.1.2
       picocolors: 1.0.1
-      vite: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+      vite: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -16733,7 +16733,7 @@ packages:
       kolorist: 1.8.0
       magic-string: 0.30.10
       typescript: 5.5.4
-      vite: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+      vite: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
       vue-tsc: 1.8.27(typescript@5.5.4)
     transitivePeerDependencies:
       - '@types/node'
@@ -16775,7 +16775,7 @@ packages:
       rollup: 2.79.1
       slash: 3.0.0
       source-map: 0.7.4
-      vite: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
+      vite: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
       vue-template-babel-compiler: 1.2.0(vue-template-compiler@2.7.16)
       vue-template-compiler: 2.7.16
     transitivePeerDependencies:
@@ -16836,7 +16836,7 @@ packages:
       - whiskers
     dev: true
 
-  /vite@5.4.3(@types/node@20.16.5)(sass@1.77.8):
+  /vite@5.4.3(@types/node@20.16.5)(sass@1.78.0):
     resolution: {integrity: sha512-IH+nl64eq9lJjFqU+/yrRnrHPVTlgy42/+IzbOdaFDVlyLgI/wDlf+FCobXLX1cT0X5+7LMyH1mIy2xJdLfo8Q==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -16871,11 +16871,11 @@ packages:
       esbuild: 0.21.5
       postcss: 8.4.44
       rollup: 4.21.2
-      sass: 1.77.8
+      sass: 1.78.0
     optionalDependencies:
       fsevents: 2.3.3
 
-  /vitest@1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.77.8):
+  /vitest@1.6.0(@types/node@20.16.5)(jsdom@24.1.3)(sass@1.78.0):
     resolution: {integrity: sha512-H5r/dN06swuFnzNFhq/dnz37bPXnq8xB2xB5JOVk8K09rUtoeNN+LHWkoQ0A/i3hvbUKKcCei9KpbxqHMLhLLA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -16919,8 +16919,8 @@ packages:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.4.3(@types/node@20.16.5)(sass@1.77.8)
-      vite-node: 1.6.0(@types/node@20.16.5)(sass@1.77.8)
+      vite: 5.4.3(@types/node@20.16.5)(sass@1.78.0)
+      vite-node: 1.6.0(@types/node@20.16.5)(sass@1.78.0)
       why-is-node-running: 2.3.0
     transitivePeerDependencies:
       - less
