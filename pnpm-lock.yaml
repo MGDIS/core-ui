@@ -283,8 +283,8 @@ importers:
   configs/eslint-config-stencil:
     dependencies:
       '@stencil-community/eslint-plugin':
-        specifier: 0.7.2
-        version: 0.7.2(@typescript-eslint/eslint-plugin@7.18.0)(@typescript-eslint/parser@7.18.0)(eslint-plugin-react@7.35.2)(eslint@8.57.0)(typescript@5.5.4)
+        specifier: 0.8.0
+        version: 0.8.0(@typescript-eslint/eslint-plugin@7.18.0)(@typescript-eslint/parser@7.18.0)(eslint-plugin-react@7.35.2)(eslint@8.57.0)(typescript@5.5.4)
       '@typescript-eslint/eslint-plugin':
         specifier: 7.18.0
         version: 7.18.0(@typescript-eslint/parser@7.18.0)(eslint@8.57.0)(typescript@5.5.4)
@@ -4306,8 +4306,8 @@ packages:
     resolution: {integrity: sha512-T7VNNlYVM1SgQ+VsMYhnDkcGmWhQdL0bDyGm5TlQ3GBXnJscEClUUOKduWTmm2zCnvNLC1hc3JpuXjs/nFOc5w==}
     dev: false
 
-  /@stencil-community/eslint-plugin@0.7.2(@typescript-eslint/eslint-plugin@7.18.0)(@typescript-eslint/parser@7.18.0)(eslint-plugin-react@7.35.2)(eslint@8.57.0)(typescript@5.5.4):
-    resolution: {integrity: sha512-rj8rD63ZadJHcMrfyrm+SdmEKouBXn54NEBOeXd+7p9BnFCt2ehYZjA7OhGAOBhrxf7ZpUgXtDEXS9iEs//bRw==}
+  /@stencil-community/eslint-plugin@0.8.0(@typescript-eslint/eslint-plugin@7.18.0)(@typescript-eslint/parser@7.18.0)(eslint-plugin-react@7.35.2)(eslint@8.57.0)(typescript@5.5.4):
+    resolution: {integrity: sha512-IYkP5/HXmY2RyLQdC3lWmpg/WKoMfm76ijsBy9uVtWteVmhun54TvNEJtkfLIdKj+oj7fjq7flwAz3/9aGoxag==}
     engines: {node: '>=16.20.2'}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^5.0.0 || ^6.0.0
@@ -6877,14 +6877,14 @@ packages:
     resolution: {integrity: sha512-x1FCFnFifvYDDzTaLII71vG5uvDwgtmDTEVWAxrgeiR8VjMONcCXJx7E+USjDtHlwFmt9MysbqgF9b9Vjr6w+w==}
     engines: {node: '>=4'}
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
     dev: true
 
   /ast-types@0.16.1:
     resolution: {integrity: sha512-6t10qk83GOG8p0vKmaCr8eiilZwO171AvbROMtvvNiwrTly62t+7XkA8RdIIVbpMhCASAsxgAzdRSwh6nw/5Dg==}
     engines: {node: '>=4'}
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
     dev: true
 
   /astral-regex@2.0.0:
