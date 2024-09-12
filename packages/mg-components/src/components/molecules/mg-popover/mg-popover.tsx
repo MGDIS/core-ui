@@ -149,7 +149,9 @@ export class MgPopover {
     // Windows > document > [data-mg-popover-guard] + [data-mg-popover-guard] > shadowRoot =  Windows > document > [data-mg-popover-guard] > shadowRoot
     const guardChildren = Array.from(document.querySelector(`[data-mg-popover-guard="${this.identifier}"]`)?.shadowRoot?.children || new Set());
     [...guardChildren, ...this.windows].forEach((element: Window | HTMLElement) => {
-      element[action]('click', this.clickOutside, false);
+      if (element !== null) {
+        element[action]('click', this.clickOutside, false);
+      }
     });
   };
 

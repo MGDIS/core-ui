@@ -54,7 +54,7 @@ export class MgInputRadio {
   watchValue(newValue: any): void {
     if (allItemsAreString(this.items) && typeof newValue === 'string') {
       this.readonlyValue = newValue;
-    } else if (this.items.every(isOption)) {
+    } else if (Array.isArray(this.items) && this.items.every(isOption)) {
       this.readonlyValue = this.items.find(item => item.value === newValue)?.title;
     } else {
       this.readonlyValue = null;

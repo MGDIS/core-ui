@@ -83,6 +83,15 @@ describe('mg-tooltip', () => {
     }
   });
 
+  test.each(['{batman', 'batman}'])('Should throw error, case invalid identifier prop', async identifier => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier, message: 'My tooltip message' }, <span>span</span>);
+    } catch (err) {
+      expect(err.message).toEqual(`<mg-tooltip> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+    }
+  });
+
   describe.each([
     { eventIn: 'mouseenter', eventOut: 'mouseleave' },
     { eventIn: 'focus', eventOut: 'blur' },
@@ -404,10 +413,24 @@ describe('mg-tooltip', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test('Should manage diconnectedCallback hook', async () => {
+  test('Should manage disconnectedCallback hook', async () => {
     const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <mg-button disabled>mg-button.disabled</mg-button>);
 
     expect(page.body).toMatchSnapshot();
+
+    page.doc.querySelector('mg-tooltip').remove();
+
+    await page.waitForChanges();
+
+    expect(page.body).toMatchSnapshot();
+  });
+
+  test('Should manage disconnectedCallback hook without window context', async () => {
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <mg-button disabled>mg-button.disabled</mg-button>);
+
+    expect(page.body).toMatchSnapshot();
+
+    delete page.rootInstance.windows;
 
     page.doc.querySelector('mg-tooltip').remove();
 
