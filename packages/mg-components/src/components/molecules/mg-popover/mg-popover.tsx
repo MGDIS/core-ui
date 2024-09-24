@@ -1,5 +1,5 @@
 import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event } from '@stencil/core';
-import { createID, getWindows } from '@mgdis/stencil-helpers';
+import { createID, getWindows, isValideID, toString } from '@mgdis/stencil-helpers';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 
 /**
@@ -36,7 +36,10 @@ export class MgPopover {
    */
   @Prop() identifier: string = createID('mg-popover');
   @Watch('identifier')
-  validateIdentifier(): void {
+  validateIdentifier(newValue: MgPopover['identifier']): void {
+    if (!isValideID(newValue)) {
+      throw new Error(`<mg-popover> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+    }
     // use renderPopoverContent to update popover-content id
     this.renderPopoverContent();
   }
@@ -210,7 +213,7 @@ export class MgPopover {
     // render mg-popover-content slot
     this.renderPopoverContent();
     this.validateCloseButton(this.closeButton);
-    this.validateIdentifier();
+    this.validateIdentifier(this.identifier);
     this.validateArrowHide(this.arrowHide);
   }
 

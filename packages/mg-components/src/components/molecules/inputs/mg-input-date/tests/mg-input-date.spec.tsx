@@ -71,6 +71,16 @@ describe('mg-input-date', () => {
     }
   });
 
+  test('Should throw an error with invalid "identifier" property: %s', async () => {
+    const identifier = '{{batman}}';
+    expect.assertions(1);
+    try {
+      await getPage({ identifier });
+    } catch (err) {
+      expect(err.message).toEqual(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+    }
+  });
+
   test.each(['', ' ', undefined])('Should throw an error with invalid label property: %s', async label => {
     expect.assertions(1);
     try {

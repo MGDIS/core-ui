@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, h, Prop, State, Element, Watch } from '@stencil/core';
-import { createID, ClassList, allItemsAreString, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
+import { createID, ClassList, allItemsAreString, isValidString, nextTick, toString, isValideID } from '@mgdis/stencil-helpers';
 import { TabItem, sizes, Status, SizeType } from './mg-tabs.conf';
 
 /**
@@ -44,7 +44,12 @@ export class MgTabs {
    * If not set, it will be created.
    */
   @Prop() identifier: string = createID('mg-tabs');
-
+  @Watch('identifier')
+  watchIdentifier(newValue: MgTabs['identifier']): void {
+    if (!isValideID(newValue)) {
+      throw new Error(`<mg-tabs> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+    }
+  }
   /**
    * Tabs label. Include short tabs description.
    * Required for accessibility
@@ -252,6 +257,7 @@ export class MgTabs {
    */
   componentWillLoad(): void {
     // Check tabs format
+    this.watchIdentifier(this.identifier);
     this.validateLabel(this.label);
     this.validateItems(this.items);
     this.validateActiveTab(this.activeTab);

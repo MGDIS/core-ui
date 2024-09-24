@@ -92,6 +92,16 @@ describe('mg-tooltip', () => {
     }
   });
 
+  test('Should throw an error with invalid "identifier" property: %s', async () => {
+    const identifier = '{{batman}}';
+    expect.assertions(1);
+    try {
+      await getPage({ identifier, message: 'My tooltip message' }, <span>span</span>);
+    } catch (err) {
+      expect(err.message).toEqual(`<mg-tooltip> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+    }
+  });
+
   describe.each([
     { eventIn: 'mouseenter', eventOut: 'mouseleave' },
     { eventIn: 'focus', eventOut: 'blur' },

@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
-import { createID, focusableElements, getWindows, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
+import { createID, focusableElements, getWindows, isValideID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { Instance as PopperInstance, createPopper, Placement, PositioningStrategy } from '@popperjs/core';
 import { type GuardType, Guard } from './mg-tooltip.conf';
 
@@ -49,7 +49,7 @@ export class MgTooltip {
   @Prop() identifier: string = createID('mg-tooltip');
   @Watch('identifier')
   watchIdentifier(newValue: MgTooltip['identifier']): void {
-    if (['{', '}'].some(car => newValue.includes(car))) {
+    if (!isValideID(newValue)) {
       throw new Error(`<mg-tooltip> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }
     // use renderTooltipContent to update tooltip-content id

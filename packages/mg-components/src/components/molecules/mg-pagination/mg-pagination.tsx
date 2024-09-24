@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, Watch, Event, EventEmitter, Host } from '@stencil/core';
-import { createID, toString } from '@mgdis/stencil-helpers';
+import { createID, isValideID, toString } from '@mgdis/stencil-helpers';
 import { NavigationAction } from './mg-pagination.conf';
 import { initLocales } from './../../../locales';
 
@@ -53,6 +53,12 @@ export class MgPagination {
    * If not set, it will be created.
    */
   @Prop() identifier: string = createID('mg-pagination');
+  @Watch('identifier')
+  watchIdentifier(newValue: MgPagination['identifier']): void {
+    if (!isValideID(newValue)) {
+      throw new Error(`<mg-pagination> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+    }
+  }
 
   /**
    * Panignation label. Is a short description.
@@ -142,6 +148,7 @@ export class MgPagination {
     // Get locales
     this.messages = initLocales(this.element).messages;
     // Validate
+    this.watchIdentifier(this.identifier);
     this.validateTotalPages(this.totalPages);
     this.validateCurrentPage(this.currentPage);
     // Set default label

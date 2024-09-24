@@ -90,6 +90,16 @@ describe('mg-input-radio', () => {
     }
   });
 
+  test('Should throw an error with invalid "identifier" property: %s', async () => {
+    const identifier = '{{batman}}';
+    expect.assertions(1);
+    try {
+      await getPage({ identifier, items: ['batman', 'robin', 'joker', 'bane'] });
+    } catch (err) {
+      expect(err.message).toEqual(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+    }
+  });
+
   test.each(['', ' ', undefined])('Should throw error with invalid label property: %s', async label => {
     expect.assertions(1);
     try {

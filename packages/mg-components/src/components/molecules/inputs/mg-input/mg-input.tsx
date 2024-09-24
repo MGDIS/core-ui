@@ -1,5 +1,5 @@
 import { Component, h, Prop, Element, Watch, Host, State } from '@stencil/core';
-import { isValidString, toString } from '@mgdis/stencil-helpers';
+import { isValideID, isValidString, toString } from '@mgdis/stencil-helpers';
 import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, classDisabled, classVerticalList } from './mg-input.conf';
 
 /**
@@ -51,6 +51,8 @@ export class MgInput {
   watchIdentifier(newValue: MgInput['identifier']): void {
     if (!isValidString(newValue)) {
       throw new Error(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${toString(newValue)}.`);
+    } else if (!isValideID(newValue)) {
+      throw new Error(`<mg-input> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     } else {
       this.helpTextId = `${this.identifier}-help-text`;
       this.helpTextErrorId = `${this.identifier}-error`;

@@ -88,6 +88,16 @@ describe('mg-input-text', () => {
     }
   });
 
+  test('Should throw an error with invalid "identifier" property: %s', async () => {
+    const identifier = '{{batman}}';
+    expect.assertions(1);
+    try {
+      await getPage({ identifier });
+    } catch (err) {
+      expect(err.message).toEqual(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+    }
+  });
+
   test.each([
     { batman: undefined },
     [undefined, 'batman'],

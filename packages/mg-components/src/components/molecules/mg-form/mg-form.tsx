@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Method, Prop, State, Watch } from '@stencil/core';
-import { createID, ClassList, toString } from '@mgdis/stencil-helpers';
+import { createID, ClassList, toString, isValideID } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../locales';
 import { HTMLMgInputsElement } from '../inputs/mg-input/mg-input.conf';
 import { AriaRoleType, requiredMessageStatus, RequiredMessageStatusType, roles } from './mg-form.conf';
@@ -42,6 +42,12 @@ export class MgForm {
    * If not set, it will be created.
    */
   @Prop() identifier: string = createID('mg-form');
+  @Watch('identifier')
+  watchIdentifier(newValue: MgForm['identifier']): void {
+    if (!isValideID(newValue)) {
+      throw new Error(`<mg-form> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+    }
+  }
 
   /**
    * Input name
@@ -254,6 +260,7 @@ export class MgForm {
     // Get locales
     this.messages = initLocales(this.element).messages;
 
+    this.watchIdentifier(this.identifier);
     this.validateAriaRole(this.ariaRole);
     this.validateRequiredMessage(this.requiredMessage);
     this.handlelabelOnTop(this.labelOnTop);
