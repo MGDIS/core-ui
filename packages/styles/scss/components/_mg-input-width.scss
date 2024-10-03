@@ -4,30 +4,33 @@
  */
 
 @mixin input-box-max-width {
-  &.mg-c-input--width-2 {
-    .mg-c-input__box,
-    .mg-c-input__with-character-left {
-      max-width: var(--mg-b-size-48);
+  &.mg-c-input--width-full {
+    .mg-c-input__box {
+      width: 100%;
+    }
+  }
+
+  &.mg-c-input--width-2,
+  &.mg-c-input--width-4,
+  &.mg-c-input--width-16 {
+    --mg-c-input-size: var(--mg-b-size-48);
+
+    .mg-c-input__box {
+      width: var(--mg-c-input-size);
+    }
+
+    .mg-c-input__with-character-left,
+    .mg-c-input__with-character-left .mg-c-input__box {
+      width: calc(var(--mg-c-input-size) + (var(--mg-c-character-left-message-length) * 1ch));
     }
   }
 
   &.mg-c-input--width-4 {
-    .mg-c-input__box,
-    .mg-c-input__with-character-left {
-      max-width: var(--mg-b-size-72);
-    }
+    --mg-c-input-size: var(--mg-b-size-72);
   }
 
   &.mg-c-input--width-16 {
-    .mg-c-input__box,
-    .mg-c-input__with-character-left {
-      max-width: calc(26 * var(--mg-b-size-8));
-    }
-  }
-
-  &.mg-c-input--width-full .mg-c-input__box {
-    width: 100%;
-    max-width: 100%;
+    --mg-c-input-size: calc(26 * var(--mg-b-size-8));
   }
 }
 
