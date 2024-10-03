@@ -56,14 +56,14 @@
   "lint-staged": {
     "*.{js,ts,mjs,mts,cjs,tsx}": "eslint --fix --ignore-path .gitignore",
     "*.{json,yaml,yml,md,mdx}": "prettier --write",
-    "*.scss": "stylelint --fix"
+    "packages/styles/**/*.scss": "stylelint --fix"
   },
   "dependencies": {
     "@changesets/cli": "2.27.8",
     "@manypkg/cli": "0.21.4",
     "codename": "0.0.6",
     "eslint-config-custom": "workspace:*",
-    "husky": "9.1.5",
+    "husky": "9.1.6",
     "lint-staged": "15.2.10",
     "prettier-config": "workspace:*",
     "stylelint": "16.9.0",

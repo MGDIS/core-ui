@@ -11,77 +11,64 @@ You can install the library using jsDelivr CDN by adding those script in the HTM
 <script type="module" src="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@6/dist/mg-components/mg-components.esm.js"></script>
 ```
 
-### Vue.js
+### Package manager
 
-Add MG Components to your project.
+#### Requirements
+
+##### Global
+
+- **NPM, PNPM or YARN**
+- **NodeJS v14.x or higher.**
+- **Webpack@4 or higher or viteJS or rollup bundler**
+
+##### Angular.js project
+
+- **Your project must use the last AngularJS version (1.8.3).**
+
+#### Add MG Components to your project
 
 ```bash
 npm i @mgdis/mg-components
 ```
 
-You need now to import the stylesheet who came with in the `App.vue` file:
+#### Import mg-components in your sources
+
+As mg-components bundle uses component lazy-loading, all you need to do is import it globally into your project like this:
+
+```js
+// src/main.js
+import { defineCustomElements } from '@mgdis/mg-components/loader';
+defineCustomElements();
+```
+
+You need now to import the stylesheet who came with in the main file:
+
+```js
+// src/main.js
+
+// Include variables, layout, helpers style.
+import '@mgdis/mg-components/dist/mg-components/mg-components.css';
+```
+
+Or with vue.js :
 
 ```html
+<!-- src/App.vue -->
+
 <style>
   @use '~@mgdis/mg-components/dist/mg-components/mg-components.css';
 </style>
 ```
 
-Import the needed components in your views/components like this:
-
-```js
-import '@mgdis/mg-components/dist/components/mg-input-text';
-import '@mgdis/mg-components/dist/components/mg-input-date';
-import '@mgdis/mg-components/dist/components/mg-input-textarea';
-import '@mgdis/mg-components/dist/components/mg-button';
-import '@mgdis/mg-components/dist/components/mg-message';
-```
-
 [Read more about our CSS variables](./?path=/docs/css-variables--docs).
 
-#### Tests
-
-Add the following line in the client `jest.conf.js`:
-
-```js
-transformIgnorePatterns: ['/node_modules/@mgdis/(?!mg-components)'],
-```
-
-During test custom elements are not registered, to prevent Jest to log errors you'll need to add the ignoredElements Vue.js config in the jest setup file:
-
-```js
-//jest.setup.js
-import Vue from 'vue';
-Vue.config.ignoredElements = [/mg-\w*/];
-```
-
-### Angular.js
-
-**Your project must use the last AngularJS version (1.8.3).**
-
-Add MG Components to your project.
-
-```bash
-npm i @mgdis/mg-components
-```
-
-You need now to import the stylesheet who came with in the `app.js` file:
-
-```js
-import '@mgdis/mg-components/dist/mg-components/mg-components.css';
-```
-
-Components can now be imported into your developments.
-
-```js
-import '@mgdis/mg-components/dist/components/mg-input-text';
-import '@mgdis/mg-components/dist/components/mg-input-date';
-import '@mgdis/mg-components/dist/components/mg-input-textarea';
-import '@mgdis/mg-components/dist/components/mg-button';
-import '@mgdis/mg-components/dist/components/mg-message';
-```
+If you are already using a CSS framwork you may face some conflicts.
 
 ## Use the Lib
+
+### Events
+
+If you are using component events, the value is accessed through `$event.detail` and not `$event.target.value`.
 
 ### Vue.js
 
@@ -98,7 +85,7 @@ To bind a non string value in a web component we have to use the Vue.js [`.prop`
 ></mg-input-text>
 ```
 
-#### v-model with Vue2
+#### `v-model` with Vue2
 
 **Below instructions are for Vue2 projects only. With Vue3 you can use v-model as usual.**
 
@@ -116,6 +103,16 @@ Given that this syntax is somewhat verbose, it is recommended to use the `v-mg-m
 
 **This directive solves some issues with the components ([#139](https://gitlab.mgdis.fr/core/core-ui/mg-components/-/issues/139)), thus it is recommended to use it.**
 
+#### Tests
+
+During test custom elements are not registered, to prevent Jest to log errors you'll need to add the ignoredElements Vue.js config in the jest setup file:
+
+```js
+//jest.setup.js
+import Vue from 'vue';
+Vue.config.ignoredElements = [/mg-\w*/];
+```
+
 ### AngularJS
 
 #### Bind
@@ -132,7 +129,7 @@ In some cases, binding **a string or a number** won't work ([#191](https://gitla
 <mg-message variant="{{variant}}" delay="{{delay}}">My message</mg-message>
 ```
 
-#### ng-model
+#### `ng-model`
 
 `ng-model` can not be used in web components so we must set the value and the use the custom event `value-change` with the [`ng-on-`](https://docs.angularjs.org/api/ng/directive/ngOn) directive:
 
@@ -140,7 +137,23 @@ In some cases, binding **a string or a number** won't work ([#191](https://gitla
 <mg-input-text ng-prop-value="user.firstname" label="Firstname" ng-on-value-change="user.firstname = $event.detail"></mg-input-text>
 ```
 
-## Code Completion
+#### `ng-on-`
+
+With the [`ng-on-`](https://docs.angularjs.org/api/ng/directive/ngOn) directive you need to parse the native event instead the jQuery wrapped event like so:
+
+```html
+<mg-popover ng-on-display-change="$ctrl.myMethod($event.originalEvent.detail)"></mg-popover>
+```
+
+### Jest
+
+Add the following line in the client `jest.conf.js`:
+
+```js
+transformIgnorePatterns: ['/node_modules/@mgdis/(?!mg-components)'],
+```
+
+## IDEs code completion
 
 ### VS Code
 
@@ -164,15 +177,3 @@ If `settings.json` already exists, simply add the above line to the root of the 
 ### JetBrains IDEs
 
 If you are using a JetBrains IDE, such as WebStorm, the editor will automatically detect the `web-types.json` file from the package, and you should immediately see component information in your editor.
-
-## Events
-
-If you are using component events, the value is accessed through `$event.detail` and not `$event.target.value`.
-
-### AngularJS
-
-With the [`ng-on-`](https://docs.angularjs.org/api/ng/directive/ngOn) directive you need to parse the native event instead the jQuery wrapped event like so:
-
-```html
-<mg-popover ng-on-display-change="$ctrl.myMethod($event.originalEvent.detail)"></mg-popover>
-```

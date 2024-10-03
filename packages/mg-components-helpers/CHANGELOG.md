@@ -137,11 +137,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **mgComponentsHelpers:** add mgTextContent directive , closes [#123](http://gitlab@gitlab.mgdis.fr:core/core-back/core/issues/123)
+- **mgComponentsHelpers:** add mgTextContent directive , closes [#123](http://gitlab@gitlab.mgdis.fr/core/core-back/core/issues/123)
 
 ### Features
 
-- **mgtranslate:** delete directive , closes [#123](http://gitlab@gitlab.mgdis.fr:core/core-back/core/issues/123)
+- **mgtranslate:** delete directive , closes [#123](http://gitlab@gitlab.mgdis.fr/core/core-back/core/issues/123)
 
 ## 3.9.3
 
@@ -172,8 +172,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 - **mgComponentHelpers:** prevent conflicts between angular and vue with a simple "main" exports
-- **mgComponentsHelpers:** update exports to manage import un gulp projects , closes [#114](http://gitlab@gitlab.mgdis.fr:core/core-back/core/issues/114)
-- **mgComponentsHelpers:** update exports to split vue and angular , closes [#114](http://gitlab@gitlab.mgdis.fr:core/core-back/core/issues/114)
+- **mgComponentsHelpers:** update exports to manage import un gulp projects , closes [#114](http://gitlab@gitlab.mgdis.fr/core/core-back/core/issues/114)
+- **mgComponentsHelpers:** update exports to split vue and angular , closes [#114](http://gitlab@gitlab.mgdis.fr/core/core-back/core/issues/114)
 
 ## 3.6.0
 
