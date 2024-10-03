@@ -1,18 +1,5 @@
 import { JsonDocs, JsonDocsComponent, JsonDocsProp } from '@stencil/core/internal';
-
-/**
- * Retrieve Component Storybook URL from file path
- * @param storybookBaseUrl - Storybook Base URL
- * @param filePath - Component file path
- * @returns Component Storybook URL
- */
-const getStorybookUrl = (storybookBaseUrl: string, filePath: string | undefined): string | undefined => {
-  if (!filePath) {
-    return;
-  }
-  const split = filePath.split('/');
-  return `${storybookBaseUrl}${split.slice(2, split.length - 1).join('-')}--docs`;
-};
+import { getStorybookUrl } from '../storybook';
 
 /**
  * Retrieve Component source URL from file path
@@ -98,7 +85,6 @@ const getAttributeDescription = (prop: JsonDocsProp): string => {
  * const webTypesJson = webTypesGenerator('@mgdis/mg-components', '1.0.0', jsonDocs, 'https://storybook.example.com');
  * ```
  */
-
 export const webTypesGenerator = (name: string, version: string, jsonDocs: JsonDocs, storybookBaseUrl: string) => ({
   '$schema': 'https://json.schemastore.org/web-types',
   name,
@@ -140,6 +126,12 @@ export const webTypesGenerator = (name: string, version: string, jsonDocs: JsonD
               description: event.docs,
             })),
           },
+          'css': {
+            properties: component.styles.map(style => ({
+              name: style.name,
+              description: style.docs,
+            })),
+          },
         };
       }),
     },
@@ -153,9 +145,6 @@ export const webTypesGenerator = (name: string, version: string, jsonDocs: JsonD
  * @returns Storybook Reference
  */
 const getReferences = (storybookBaseUrl: string, sourceBaseUrl: string, filePath: string | undefined) => {
-  if (!filePath) {
-    return;
-  }
   return [
     { name: 'Storybook', url: getStorybookUrl(storybookBaseUrl, filePath) },
     { name: 'Sources', url: getSourcesUrl(sourceBaseUrl, filePath) },
@@ -177,17 +166,16 @@ const getValues = (prop: JsonDocsProp): unknown[] | undefined => {
 
 /**
  * Generate custom HTML datasets for VS Code
- * @param version - Library version
  * @param jsonDocs - Stencil JSON doc
  * @param storybookBaseUrl - Storybook Base Url
  * @returns custom HTML datasets
  * @example
  * ```ts
- * const customDataJson = vsCodeGenerator('1.0.0', jsonDocs, 'https://storybook.example.com', 'https://sources.example.com');
+ * const customDataJson = vsCodeGenerator(jsonDocs, 'https://storybook.example.com', 'https://sources.example.com');
  * ```
  */
-export const vsCodeGenerator = (version: string, jsonDocs: JsonDocs, storybookBaseUrl: string, sourceBaseUrl: string) => ({
-  version,
+export const vsCodeGenerator = (jsonDocs: JsonDocs, storybookBaseUrl: string, sourceBaseUrl: string) => ({
+  version: 1.1,
   tags: jsonDocs.components.map(component => {
     const references = getReferences(storybookBaseUrl, sourceBaseUrl, component.filePath);
     return {
@@ -204,4 +192,23 @@ export const vsCodeGenerator = (version: string, jsonDocs: JsonDocs, storybookBa
   }),
   globalAttributes: [],
   valueSets: [],
+});
+
+/**
+ * Generate custom CSS datasets for VS Code
+ * @param jsonDocs - Stencil JSON doc
+ * @returns custom CSS datasets
+ * @example
+ * ```ts
+ * const customDataJson = vsCodeCssGenerator(jsonDocs);
+ * ```
+ */
+export const vsCodeCssGenerator = (jsonDocs: JsonDocs) => ({
+  version: 1.1,
+  properties: jsonDocs.components.flatMap(component =>
+    component.styles.map(style => ({
+      name: style.name,
+      description: style.docs,
+    })),
+  ),
 });

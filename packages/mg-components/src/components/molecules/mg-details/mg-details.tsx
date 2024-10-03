@@ -1,7 +1,7 @@
 import { Component, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
 import { isValidString } from '@mgdis/stencil-helpers';
 
-/*
+/**
  * @slot summary - Summary content
  * @slot details - Details content
  */
@@ -35,7 +35,9 @@ export class MgDetails {
   @Watch('toggleOpened')
   validateTitles(newValue: string): void {
     if (!isValidString(newValue)) {
-      throw new Error('<mg-details> prop "toggleClosed" and "toggleOpened" must be defined.');
+      throw new Error(
+        `<mg-details> prop "toggleClosed" and "toggleOpened" is required and must be a valid string. Passed value: "toggleClosed='${this.toggleClosed}'" and "toggleOpened='${this.toggleOpened}'".`,
+      );
     }
   }
 

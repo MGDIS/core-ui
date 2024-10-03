@@ -1,5 +1,51 @@
 # @mgdis/linting-stencil
 
+## 1.3.0
+
+### Minor Changes
+
+- 74ed81b: Remove `@stencil-community/ban-exported-const-enums` linting rule override
+
+## 1.2.0
+
+### Minor Changes
+
+- b8a9428: linting: disabled eslint "no-redundant-roles" rule
+
+### Patch Changes
+
+- 2fad542: update dependencies
+
+## 1.1.7
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+
+## 1.1.6
+
+### Patch Changes
+
+- c567b43: update dependencies
+
+## 1.1.5
+
+### Patch Changes
+
+- 253c7a6: Update dependencies
+
+## 1.1.4
+
+### Patch Changes
+
+- d674c81: Update dependencies
+
+## 1.1.3
+
+### Patch Changes
+
+- 140a4ab: Update dependencies
+
 ## 1.1.2
 
 ### Patch Changes

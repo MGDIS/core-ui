@@ -5,10 +5,10 @@
  */
 const isMgItemMore = (element: HTMLElement): element is HTMLMgItemMoreElement => element.nodeName === 'MG-ITEM-MORE';
 
-export enum OverflowBehaviorElements {
-  BASE_INDEX = 'data-overflow-base-index',
-  PROXY_INDEX = 'data-overflow-proxy-index',
-}
+export const OverflowBehaviorElements = {
+  BASE_INDEX: 'data-overflow-base-index',
+  PROXY_INDEX: 'data-overflow-proxy-index',
+};
 
 export class OverflowBehavior {
   // variables
@@ -92,9 +92,9 @@ export class OverflowBehavior {
     [...this._baseChildren, this._moreElement].forEach((child: HTMLMgMenuItemElement | HTMLMgItemMoreElement) => {
       acc.accWidth += child.offsetWidth;
       const hasPreviuosItem = acc.previousItem !== null;
-      const isPreviousItemHidden = hasPreviuosItem && acc.previousItem.getAttribute('hidden') !== null;
-      // if previous item is hidden AND is NOT more element we hidde current
-      // OR if item has an overflow we hidde current
+      const isPreviousItemHidden = hasPreviuosItem && acc.previousItem.hasAttribute('hidden');
+      // if previous item is hidden AND is NOT more element we hide current
+      // OR if item has an overflow we hide current
       // OR if current item is more element AND have NOT previous hidden items, current more element item is an hidden item
       // ELSE current is a display item
       this.toggleItem(
@@ -142,7 +142,7 @@ export class OverflowBehavior {
   };
 
   /**
-   * Toggle element's hidde attribute
+   * Toggle element's hide attribute
    * @param element - element to toggle
    * @param isHidden - element is hidden
    */

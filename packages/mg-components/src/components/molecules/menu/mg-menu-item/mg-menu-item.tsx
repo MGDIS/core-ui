@@ -1,10 +1,8 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { ClassList, createID, isValidString, nextTick } from '@mgdis/stencil-helpers';
+import { ClassList, createID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
-import { Direction } from '../mg-menu/mg-menu.conf';
-import { Status, targets } from './mg-menu-item.conf';
-import type { MenuSizeType } from '../mg-menu/mg-menu.conf';
-import type { DirectionType, TargetType } from './mg-menu-item.conf';
+import { Direction, type MenuSizeType, type DirectionType } from '../mg-menu/mg-menu.conf';
+import { type MgMenuStatusType, Status, targets, type TargetType } from './mg-menu-item.conf';
 import type { MgPopover } from '../../mg-popover/mg-popover';
 import type { MessageType } from '../../../../locales/index.conf';
 
@@ -45,7 +43,7 @@ export class MgMenuItem {
   /**
    * Identifier is used to control mg-popover
    */
-  @Prop() identifier = createID('mg-menu-item');
+  @Prop({ reflect: true }) identifier = createID('mg-menu-item');
 
   /**
    * Define menu-item href
@@ -60,14 +58,14 @@ export class MgMenuItem {
   @Watch('target')
   watchTarget(newValue: MgMenuItem['target']): void {
     if (newValue && !targets.includes(newValue)) {
-      throw new Error(`<mg-link> prop "target" must be one of: ${targets.join(', ')}`);
+      throw new Error(`<mg-link> prop "target" must be one of: ${targets.join(', ')}. Passed value: ${toString(newValue)}.`);
     }
   }
 
   /**
    * Define menu-item status.
    */
-  @Prop({ reflect: true, mutable: true }) status?: Status = Status.VISIBLE;
+  @Prop({ reflect: true, mutable: true }) status?: MgMenuStatusType = Status.VISIBLE;
   @Watch('status')
   validateStatus(newValue: MgMenuItem['status'], oldValue?: MgMenuItem['status']): void {
     if (oldValue !== undefined) {
@@ -83,7 +81,7 @@ export class MgMenuItem {
   @Prop({ mutable: true }) expanded? = false;
   @Watch('expanded')
   validateExpanded(newValue: MgMenuItem['expanded']): void {
-    if (typeof newValue !== 'boolean') throw new Error(`<${this.name}> prop "expanded" must be a boolean.`);
+    if (typeof newValue !== 'boolean') throw new Error(`<${this.name}> prop "expanded" must be a boolean. Passed value: ${toString(newValue)}.`);
 
     // if menu-item has sub-menu we have to apply some updates:
     if (this.hasChildren) {
@@ -130,7 +128,7 @@ export class MgMenuItem {
   /**
    * Define menu-item size.
    */
-  @State() size: MenuSizeType = 'regular';
+  @State() size: MenuSizeType = 'medium';
   @Watch('size')
   validateSize(newValue: MgMenuItem['size'], oldValue?: MgMenuItem['size']): void {
     this.navigationButtonClassList.delete(`${this.navigationButton}--size-${oldValue}`);
@@ -219,8 +217,7 @@ export class MgMenuItem {
   private updateDisplayNotificationBadge = (): void => {
     const childMenu = this.element.querySelector('mg-menu');
     this.displayNotificationBadge =
-      childMenu !== null &&
-      Array.from(childMenu.children).some((subItem: HTMLMgMenuItemElement) => subItem.querySelector('mg-badge') !== null && subItem.getAttribute('hidden') === null);
+      childMenu !== null && Array.from(childMenu.children).some((subItem: HTMLMgMenuItemElement) => subItem.querySelector('mg-badge') !== null && !subItem.hasAttribute('hidden'));
   };
 
   /**
@@ -229,7 +226,7 @@ export class MgMenuItem {
    */
   private hasActiveChild = (): boolean =>
     Array.from(this.element.querySelector('mg-menu')?.children || []).some(
-      (element: HTMLMgMenuItemElement) => element.nodeName === 'MG-MENU-ITEM' && this.hasStatus(element, Status.ACTIVE) && element.getAttribute('hidden') === null,
+      (element: HTMLMgMenuItemElement) => element.nodeName === 'MG-MENU-ITEM' && this.hasStatus(element, Status.ACTIVE) && !element.hasAttribute('hidden'),
     );
 
   /**
@@ -243,7 +240,7 @@ export class MgMenuItem {
     ['label', 'metadata'].forEach(slot => {
       Array.from(this.element.querySelectorAll(`[slot="${slot}"]`)).forEach(element => {
         if (!isValidString(element.textContent)) throw new Error(`<${this.name}> slot "${slot}" must have text content.`);
-        if ((guard && element.getAttribute('title') === null) || !guard) element.setAttribute('title', element.textContent);
+        if ((guard && !element.hasAttribute('title')) || !guard) element.setAttribute('title', element.textContent);
       });
     });
   };
@@ -285,7 +282,7 @@ export class MgMenuItem {
   private updatePopoverGuard(): void {
     if (this.displayPopover())
       Array.from(this.element.children)
-        .filter((child: HTMLElement) => child.getAttribute('slot') === null && child.nodeName !== 'MG-MENU' && Boolean(child.dataset))
+        .filter((child: HTMLElement) => !child.hasAttribute('slot') && child.nodeName !== 'MG-MENU' && Boolean(child.dataset))
         .forEach((slot: HTMLElement) => (slot.dataset.mgPopoverGuard = this.getPopoverIdentifier()));
   }
 
@@ -372,14 +369,14 @@ export class MgMenuItem {
       this.updateDisplayNotificationBadge();
       this.updatePopoverGuard();
 
-      // manage child dom changes with mutationObserver and listzners
+      // manage child dom changes with mutationObserver and listners
       this.initListeners();
 
       // emit loaded event when component is fully loaded
       this.itemLoaded.emit();
 
       new MutationObserver(mutationsList => {
-        if (mutationsList.some(mutation => mutation.attributeName === 'hidden')) this.updateStatus([Status.ACTIVE]);
+        if (mutationsList.some(mutation => mutation.attributeName === 'hidden')) this.updateStatus(this.hasChildren ? undefined : [Status.ACTIVE]);
         if (mutationsList.some(mutation => mutation.type === 'characterData')) this.validateSlot();
         this.updateDisplayNotificationBadge();
         this.itemUpdated.emit();
@@ -400,7 +397,7 @@ export class MgMenuItem {
         tabindex={[Status.DISABLED, Status.HIDDEN].includes(this.status) ? -1 : undefined}
         disabled={this.status === Status.DISABLED}
         hidden={this.status === Status.HIDDEN}
-        target={this.href && this.target ? this.target : undefined}
+        target={this.href !== undefined && this.target !== undefined ? this.target : undefined}
         aria-expanded={this.hasChildren && this.expanded.toString()}
         aria-current={this.status === Status.ACTIVE && 'page'}
         onClick={this.handleElementCLick}
@@ -422,7 +419,7 @@ export class MgMenuItem {
               </span>,
             ]}
           </div>
-          {this.size !== 'regular' && <slot name="metadata"></slot>}
+          {this.size !== 'medium' && <slot name="metadata"></slot>}
         </div>
         {this.hasChildren && this.href === undefined && (
           <span
@@ -446,6 +443,7 @@ export class MgMenuItem {
 
   /**
    * Emit event when component is updated
+   * @returns promise process wich emit the 'item-updated' event
    */
   componentShouldUpdate(): Promise<void> {
     return nextTick(() => {
@@ -466,7 +464,14 @@ export class MgMenuItem {
     return (
       <Host role={this.isItemMore ? 'presentation' : 'listitem'}>
         {this.displayPopover() ? (
-          <mg-popover display={this.expanded} placement="bottom-start" arrowHide={true} onDisplay-change={this.handlePopoverDisplay} identifier={this.getPopoverIdentifier()}>
+          <mg-popover
+            display={this.expanded}
+            placement="bottom-start"
+            arrowHide={true}
+            onDisplay-change={this.handlePopoverDisplay}
+            identifier={this.getPopoverIdentifier()}
+            data-fallback-placement="bottom-end" // use for the last element of the menu if it is placed on the right side
+          >
             {this.renderInteractiveElement()}
             <div class={getContainerClasses()} slot="content">
               {this.renderSlot()}

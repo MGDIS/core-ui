@@ -1,6 +1,6 @@
 import { h } from '@stencil/core/internal';
 import { newSpecPage } from '@stencil/core/testing';
-import { MgItemMore } from '../components/molecules/mg-item-more/mg-item-more';
+import { MgItemMore } from '../components/molecules/internals/mg-item-more/mg-item-more';
 import { MgMenuItem } from '../components/molecules/menu/mg-menu-item/mg-menu-item';
 import { MgMenu } from '../components/molecules/menu/mg-menu/mg-menu';
 import { OverflowBehavior } from './behaviors.utils';
@@ -36,13 +36,13 @@ describe('behavior.utils', () => {
         const args = { label: 'batman' };
         const page = await getPage(
           <mg-menu {...args}>
-            <mg-menu-item>
+            <mg-menu-item identifier="identifier-1">
               <span slot="label">Batman</span>
             </mg-menu-item>
-            <mg-menu-item>
+            <mg-menu-item identifier="identifier-2">
               <span slot="label">Joker</span>
             </mg-menu-item>
-            <mg-menu-item>
+            <mg-menu-item identifier="identifier-3">
               <span slot="label">Bane</span>
             </mg-menu-item>
           </mg-menu>,
@@ -53,6 +53,10 @@ describe('behavior.utils', () => {
         await page.waitForChanges();
 
         // more-item render
+        jest.runAllTimers();
+        await page.waitForChanges();
+
+        // more-item menu-items render
         jest.runAllTimers();
         await page.waitForChanges();
 

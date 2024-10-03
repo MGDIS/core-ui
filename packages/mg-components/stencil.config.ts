@@ -1,13 +1,14 @@
-import { webTypesGenerator, vsCodeGenerator } from '@mgdis/stencil-helpers';
+import { webTypesGenerator, vsCodeGenerator, vsCodeCssGenerator } from '@mgdis/stencil-helpers';
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { Config } from '@stencil/core';
+import { coverageReporters, coverageThreshold } from 'jest-config/base';
 import packageJson from './package.json';
 const { name, version, 'web-types': webTypes, contributes } = packageJson;
 
 export const config: Config = {
   namespace: 'mg-components',
-  globalStyle: './node_modules/@mgdis/styles/dist/mg-temp/global.css',
+  globalStyle: './node_modules/@mgdis/styles/dist/mg-components.css',
   devServer: {
     openBrowser: false,
   },
@@ -17,18 +18,6 @@ export const config: Config = {
       type: 'dist',
       esmLoaderPath: '../loader',
       copy: [
-        {
-          src: '../node_modules/@mgdis/styles/dist/mg-temp/variables.css',
-          dest: 'variables.css', // export variable in a seperate file for component inside another framework
-        },
-        {
-          src: '../node_modules/@mgdis/styles/dist/mg-temp/fonts',
-          dest: 'fonts', // export fonts
-        },
-        {
-          src: '../node_modules/@mgdis/styles/dist/mg-temp/*.css',
-          dest: 'styles', // export styles
-        },
         {
           src: 'locales/en',
           dest: 'locales/en',
@@ -45,7 +34,7 @@ export const config: Config = {
     },
     {
       type: 'docs-json',
-      file: '.storybook/docs/components.json',
+      file: '.storybook/components.json',
     },
     {
       type: 'docs-readme',
@@ -58,14 +47,6 @@ export const config: Config = {
         {
           src: 'iframe.html',
         },
-        {
-          src: '../node_modules/@mgdis/styles/dist/mg-temp/variables.css',
-          dest: 'build/variables.css', // export variable for working space
-        },
-        {
-          src: '../node_modules/@mgdis/styles/dist/mg-temp/fonts',
-          dest: 'build/fonts', // export fonts for working space
-        },
       ],
     },
     {
@@ -77,13 +58,16 @@ export const config: Config = {
         const sourceBaseUrl = 'https://gitlab.mgdis.fr/core/core-ui/core-ui/-/tree/master/packages/mg-components/';
         // Web Types
         const webTypesContent = webTypesGenerator(name, version, jsonDocs, storybookBaseUrl);
-        // VS Code
-        const vsCodeContent = vsCodeGenerator(version, jsonDocs, storybookBaseUrl, sourceBaseUrl);
+        // VS Code HTML
+        const vsCodeContent = vsCodeGenerator(jsonDocs, storybookBaseUrl, sourceBaseUrl);
+        // VS Code CSS
+        const vsCodeCssContent = vsCodeCssGenerator(jsonDocs);
         // Write files
         await mkdir(dirname(webTypes), { recursive: true });
         await mkdir(dirname(contributes.html.customData), { recursive: true });
         await writeFile(webTypes, JSON.stringify(webTypesContent, null, 2), 'utf8');
         await writeFile(contributes.html.customData, JSON.stringify(vsCodeContent, null, 2), 'utf8');
+        await writeFile(contributes.css.customData, JSON.stringify(vsCodeCssContent, null, 2), 'utf8');
       },
     },
   ],
@@ -92,6 +76,7 @@ export const config: Config = {
   },
   testing: {
     setupFilesAfterEnv: ['./jest.setup.ts'],
-    coverageReporters: ['cobertura', 'lcov', 'html', 'text'],
+    coverageReporters,
+    coverageThreshold,
   },
 };

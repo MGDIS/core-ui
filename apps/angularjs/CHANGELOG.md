@@ -1,5 +1,149 @@
 # angularjs
 
+## 0.1.0
+
+### Minor Changes
+
+- a8270ce: Update styles dependencies
+
+### Patch Changes
+
+- 3cd9204: Prefix all custom properties
+- Updated dependencies [a8270ce]
+- Updated dependencies [4edae4d]
+- Updated dependencies [3cd9204]
+- Updated dependencies [c2f33b8]
+- Updated dependencies [9e1d5c6]
+- Updated dependencies [74ed81b]
+- Updated dependencies [525e9ed]
+- Updated dependencies [2a72803]
+- Updated dependencies [a84fb50]
+- Updated dependencies [fb3aec6]
+- Updated dependencies [b2a0a03]
+- Updated dependencies [0ff869e]
+- Updated dependencies [7899249]
+- Updated dependencies [3ccbb15]
+- Updated dependencies [7e36d34]
+- Updated dependencies [ab2224b]
+- Updated dependencies [f1e98e7]
+- Updated dependencies [d4de1af]
+- Updated dependencies [631a96f]
+- Updated dependencies [2fbeeee]
+- Updated dependencies [69bce84]
+- Updated dependencies [2c6ee2f]
+- Updated dependencies [88b5d3b]
+- Updated dependencies [17b6aca]
+- Updated dependencies [2678968]
+  - @mgdis/mg-components@6.0.0
+  - @mgdis/styles@2.0.0
+  - @mgdis/mg-components-helpers@4.1.9
+  - @mgdis/notification-center@1.2.0
+
+## 0.0.28
+
+### Patch Changes
+
+- Updated dependencies [2fad542]
+- Updated dependencies [b8a9428]
+- Updated dependencies [e2100d2]
+  - @mgdis/mg-components-helpers@4.1.8
+  - @mgdis/notification-center@1.1.16
+  - @mgdis/mg-components@5.29.0
+
+## 0.0.27
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+- Updated dependencies [9c9620c]
+- Updated dependencies [18a700a]
+  - @mgdis/mg-components-helpers@4.1.7
+  - @mgdis/notification-center@1.1.15
+  - @mgdis/mg-components@5.28.2
+
+## 0.0.26
+
+### Patch Changes
+
+- Updated dependencies [6195e7a]
+  - @mgdis/notification-center@1.1.14
+  - @mgdis/mg-components@5.28.1
+
+## 0.0.25
+
+### Patch Changes
+
+- Updated dependencies [4ee49fe]
+  - @mgdis/mg-components-helpers@4.1.6
+  - @mgdis/notification-center@1.1.13
+  - @mgdis/mg-components@5.28.1
+
+## 0.0.24
+
+### Patch Changes
+
+- Updated dependencies [c567b43]
+- Updated dependencies [0d73023]
+- Updated dependencies [95cbe02]
+- Updated dependencies [2218c8b]
+- Updated dependencies [1583a06]
+  - @mgdis/mg-components-helpers@4.1.5
+  - @mgdis/notification-center@1.1.13
+  - @mgdis/mg-components@5.28.0
+
+## 0.0.23
+
+### Patch Changes
+
+- 43f1421: update dependancies
+- Updated dependencies [43f1421]
+- Updated dependencies [28782b6]
+- Updated dependencies [8343e1e]
+- Updated dependencies [1e8734b]
+- Updated dependencies [c8ff48e]
+  - @mgdis/mg-components-helpers@4.1.4
+  - @mgdis/notification-center@1.1.12
+  - @mgdis/mg-components@5.27.4
+
+## 0.0.22
+
+### Patch Changes
+
+- Updated dependencies [5b5de24]
+- Updated dependencies [3bb7043]
+- Updated dependencies [38ba699]
+- Updated dependencies [253c7a6]
+  - @mgdis/mg-components@5.27.3
+  - @mgdis/mg-components-helpers@4.1.3
+  - @mgdis/notification-center@1.1.11
+
+## 0.0.21
+
+### Patch Changes
+
+- d674c81: Update dependencies
+- Updated dependencies [d674c81]
+  - @mgdis/mg-components-helpers@4.1.2
+  - @mgdis/notification-center@1.1.10
+  - @mgdis/mg-components@5.27.2
+
+## 0.0.20
+
+### Patch Changes
+
+- 17399c8: [#477](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/477) mg-menu - item-more menu content doesn't stay in sync with main menu content
+- Updated dependencies [17399c8]
+- Updated dependencies [3f8fbfa]
+- Updated dependencies [f228d36]
+- Updated dependencies [0c93b4e]
+- Updated dependencies [28b0455]
+- Updated dependencies [140a4ab]
+- Updated dependencies [f1f76dc]
+- Updated dependencies [3d998cc]
+  - @mgdis/mg-components@5.27.1
+  - @mgdis/mg-components-helpers@4.1.1
+  - @mgdis/notification-center@1.1.9
+
 ## 0.0.19
 
 ### Patch Changes

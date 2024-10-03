@@ -1,12 +1,18 @@
-import { MgItemMore } from '../../mg-item-more/mg-item-more';
+import type { Size } from '../../../../types';
+import type { MgItemMore } from '../../internals/mg-item-more/mg-item-more';
 
 /**
  * Menu direction type
  */
-export enum Direction {
-  VERTICAL = 'vertical',
-  HORIZONTAL = 'horizontal',
-}
+export type DirectionType = 'vertical' | 'horizontal';
+
+/**
+ * Menu direction values
+ */
+export const Direction: Record<string, DirectionType> = {
+  VERTICAL: 'vertical',
+  HORIZONTAL: 'horizontal',
+};
 
 /**
  * ItemMore prop type
@@ -16,9 +22,9 @@ export type ItemMoreType = Pick<MgItemMore, 'icon' | 'slotlabel' | 'size'>;
 /**
  * List of all possibles sizes
  */
-export const sizes = ['regular', 'medium', 'large'] as const;
+export const sizes = ['medium', 'large', 'xlarge'] as const;
 
 /**
  * item Size from sizes
  */
-export type MenuSizeType = (typeof sizes)[number];
+export type MenuSizeType = Size & (typeof sizes)[number];

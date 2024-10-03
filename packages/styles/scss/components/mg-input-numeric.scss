@@ -1,7 +1,9 @@
-@import 'mg-input';
 @import 'mg-input-box';
+@import 'mg-input-readonly';
+@import 'mg-input-width';
 @import '../utils/a11y';
 
 .mg-c-input .mg-c-input__box {
-  text-align: var(--mg-inputs-text-align, right);
+  width: auto;
+  text-align: var(--mg-c-input-text-align, right);
 }

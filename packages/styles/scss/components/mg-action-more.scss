@@ -2,11 +2,17 @@
 @import 'mixins/mg-icon-animation';
 
 :host {
-  --mg-popover-padding-vertical: 1rem;
-  --mg-popover-padding-horizontal: 0;
-  --mg-popover-max-width: unset;
+  --mg-c-popover-padding-vertical: var(--mg-b-size-8);
+  --mg-c-popover-padding-horizontal: 0;
+  --mg-c-popover-max-width: unset;
 }
 
-.mg-c-action-more__chevron {
-  @include rotate('.mg-c-action-more__chevron', 200ms);
+.mg-c-action-more {
+  &__divider {
+    --mg-c-divider-spacing-vertical: var(--mg-b-size-4);
+  }
+
+  &__chevron {
+    @include rotate('.mg-c-action-more__chevron', 200ms);
+  }
 }

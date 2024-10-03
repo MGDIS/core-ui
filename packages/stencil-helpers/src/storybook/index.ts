@@ -1,6 +1,7 @@
 import { renderVdom } from '@stencil/core/internal/client';
 import type { VNode } from '@stencil/core';
 import { ArgsType } from './index.conf';
+import { JsonDocs, JsonDocsComponent, JsonDocsProp } from '@stencil/core/internal';
 
 /**
  * Render attribute on the given element
@@ -56,7 +57,7 @@ const renderElement = (parentNode: HTMLElement, tagName: VNode['$tag$'], attribu
  * const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs(args, { variant: variants[0] })}></mg-badge>;
  * ```
  */
-export const filterArgs = <T>(args: T, defaultValues?: T): T => {
+export const filterArgs = <T>(args: T, defaultValues?: Partial<T>): T => {
   const filteredArgs = {} as { [key: string]: unknown };
   if (typeof args !== 'object') {
     throw new Error("filterArgs - args isn't an object.");
@@ -89,7 +90,7 @@ export const filterArgs = <T>(args: T, defaultValues?: T): T => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const stencilWrapper = (storyFn: (ctx: any) => void, context: ArgsType): Element | undefined => {
   const host = document.getElementById('storybook-root');
-  if (!host) return;
+  if (host === null) return;
 
   // update local switcher based on context variable
   document.querySelector('[lang]')?.setAttribute('lang', (context.globals as { locale: string })?.locale || 'en');
@@ -136,3 +137,222 @@ export const getStoryHTML = ({ $tag$, $attrs$, $children$, $text$ }: VNode): str
 
   return host.innerHTML;
 };
+
+/**
+ * Retrieve Component Storybook URL from file path
+ * @param storybookBaseUrl - Storybook Base URL
+ * @param filePath - Component file path
+ * @returns Component Storybook URL
+ */
+export const getStorybookUrl = (storybookBaseUrl: string, filePath: string | undefined): string | undefined => {
+  if (!filePath) {
+    return;
+  }
+  const split = filePath.split('/');
+  return `${storybookBaseUrl}${split.slice(2, split.length - 1).join('-')}--docs`;
+};
+
+export class StorybookPreview {
+  /**
+   * JsonDocs
+   */
+  jsonDoc: JsonDocs;
+
+  constructor(jsonDoc: JsonDocs) {
+    this.jsonDoc = jsonDoc;
+  }
+
+  /**
+   * Get component data from the jsonDoc
+   * @param tagName - tag name we want to get the data from
+   * @returns component data
+   */
+  #getComponentData = (tagName: string): JsonDocsComponent | undefined => {
+    return this.jsonDoc.components.find(component => component.tag === tagName);
+  };
+
+  /**
+   * Get the control for the given prop
+   * Based on https://storybook.js.org/docs/api/arg-types#controltype
+   * @param prop - prop to get control for
+   * @returns control type and options if applicable
+   */
+  #getPropControl = (prop: JsonDocsProp) => {
+    // Get types
+    const types: (string | undefined)[] = prop.type
+      .replace(/"([^"]+)"/g, '$1') // Remove quotes
+      .replace(/\s/g, '') // Remove all whitespace for simplicity
+      .replace(/\(.*?\)/g, match => match.replace(/\|/g, ' OR ')) // Replace '|' inside parentheses
+      .split('|')
+      .map(type => type.trim().replace(/ OR /g, '|')); // Revert ' OR ' back to '|'
+
+    // Return control and options
+    if (prop.type === 'string') {
+      return { control: { type: 'text' } };
+    } else if (prop.type === 'number') {
+      return { control: { type: 'number' } };
+    } else if (prop.type === 'boolean') {
+      return { control: { type: 'boolean' } };
+    } else if (prop.type.startsWith('{') && prop.type.endsWith('}')) {
+      return { control: { type: 'object' } };
+    } else if (types.length > 1) {
+      // Manage case when multiple types are possible
+      if (types.includes('string')) {
+        return { control: { type: 'text' } };
+      } else if (types.every(type => type?.includes('[]'))) {
+        return { control: { type: 'object' } };
+      } else {
+        // Add the posibility to set undefined
+        types.unshift(undefined);
+        return { control: { type: 'select' }, options: types };
+      }
+    } else return { control: { type: 'object' } };
+  };
+
+  /**
+   * Extract component arg types from the component data
+   * @param tagName - tag name we want to extract the arg types from
+   * @returns component arg types
+   */
+  extractArgTypes = (tagName: string) => {
+    const componentData = this.#getComponentData(tagName);
+
+    // Extract props arg types
+    const componentPropsArgTypes = componentData?.props.reduce((acc, prop) => {
+      // Get Controls
+      const { control, options } = this.#getPropControl(prop);
+      // Set Component ArgTypes
+      return {
+        ...acc,
+        [prop.name]: {
+          name: prop.attr || prop.name,
+          description: prop.docs,
+          type: { required: prop.required },
+          table: {
+            category: 'props',
+            type: { summary: prop.type },
+            defaultValue: { summary: prop.default },
+          },
+          control,
+          options,
+        },
+      };
+    }, {});
+
+    // Extract events arg types
+    const componentEventsArgTypes = componentData?.events.reduce(
+      (acc, event) => ({
+        ...acc,
+        [event.event]: {
+          name: event.event,
+          description: event.docs,
+          table: {
+            category: 'events',
+            type: { summary: event.detail },
+          },
+        },
+      }),
+      {},
+    );
+
+    // Extracts Methods arg types
+    const componentMethodsArgTypes = componentData?.methods.reduce(
+      (acc, method) => ({
+        ...acc,
+        [method.name]: {
+          name: method.name,
+          description: method.docs,
+          table: {
+            category: 'methods',
+            type: { summary: method.signature },
+          },
+        },
+      }),
+      {},
+    );
+
+    // Extracts Slots arg types
+    const componentSlotsArgTypes = componentData?.slots.reduce(
+      (acc, slot) => ({
+        ...acc,
+        [slot.name]: {
+          name: slot.name !== '' ? slot.name : 'default', // default slot are unnamed
+          description: slot.docs,
+          table: {
+            category: 'slots',
+            type: { summary: undefined },
+          },
+        },
+      }),
+      {},
+    );
+
+    // Extracts CSS Properties arg types
+    const componentCSSPropArgTypes = componentData?.styles.reduce(
+      (acc, style) => ({
+        ...acc,
+        [style.name]: {
+          name: style.name,
+          description: style.docs,
+          table: {
+            category: 'custom properties',
+            type: { summary: undefined },
+          },
+        },
+      }),
+      {},
+    );
+
+    // Extract component dependencies
+    const componentDependencies = componentData?.dependencies.reduce((acc, dependency) => {
+      const dependencyData = this.#getComponentData(dependency);
+      return {
+        ...acc,
+        [dependency]: {
+          name: dependency,
+          description: `<a href="./?path=/docs/${getStorybookUrl('', dependencyData?.filePath)}">View Component Documentation</a>`,
+          table: {
+            category: 'depends on',
+            type: { summary: undefined },
+          },
+        },
+      };
+    }, {});
+
+    // Extract dependents components
+    const componentDependents = componentData?.dependents.reduce((acc, dependent) => {
+      const dependentData = this.#getComponentData(dependent);
+      return {
+        ...acc,
+        [dependent]: {
+          name: dependent,
+          description: `<a href="./?path=/docs/${getStorybookUrl('', dependentData?.filePath)}">View Component Documentation</a>`,
+          table: {
+            category: 'used by',
+            type: { summary: undefined },
+          },
+        },
+      };
+    }, {});
+
+    return {
+      ...componentPropsArgTypes,
+      ...componentEventsArgTypes,
+      ...componentMethodsArgTypes,
+      ...componentSlotsArgTypes,
+      ...componentCSSPropArgTypes,
+      ...componentDependencies,
+      ...componentDependents,
+    };
+  };
+
+  /**
+   * Extract component description from the component data
+   * @param tagName - tag name we want to extract the description from
+   * @returns component description
+   */
+  extractComponentDescription = (tagName: string) => {
+    const componentData = this.#getComponentData(tagName);
+    return componentData?.readme || componentData?.docs;
+  };
+}

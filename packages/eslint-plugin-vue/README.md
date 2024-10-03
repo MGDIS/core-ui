@@ -1,4 +1,4 @@
-# Eslint plugin Vue
+# @mgdis/eslint-plugin-vue
 
 MGDIS Eslint vue plugin.
 
@@ -7,7 +7,7 @@ MGDIS Eslint vue plugin.
 Install `@mgdis/eslint-plugin-vue` in your vue project:
 
 ```sh
-npm install -D @mgdis/eslint-plugin-vue
+npm i -D @mgdis/eslint-plugin-vue
 ```
 
 ## Usage

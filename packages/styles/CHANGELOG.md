@@ -1,5 +1,59 @@
 # @mgdis/styles
 
+## 2.0.0
+
+### Major Changes
+
+- a8270ce: Separate styles
+- 3cd9204: Prefix all custom properties
+
+### Minor Changes
+
+- a84fb50: [mg-modal](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-modal--docs) rename hide property to hidden
+- 631a96f: [mg-messsage](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs) rename hide property to hidden
+- 69bce84: move [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs) alerts features to a new component: [**`<mg-alert>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-alert--docs)
+- 88b5d3b: `<mg-input-**>` add tooltip in readonly state
+
+### Patch Changes
+
+- 0ff869e: move [**`<mg-card>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-card--docs) variants to [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs)
+
+## 1.3.6
+
+### Patch Changes
+
+- 4ee49fe: Update dependencies
+
+## 1.3.5
+
+### Patch Changes
+
+- 2218c8b: [#496](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/496) mg-input-password: Prevent mg-icon style to be overridden
+
+## 1.3.4
+
+### Patch Changes
+
+- 43f1421: update dependancies
+
+## 1.3.3
+
+### Patch Changes
+
+- 5b5de24: [#486](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/486) mg-menu: error with itemmore config
+
+## 1.3.2
+
+### Patch Changes
+
+- d674c81: Update dependencies
+
+## 1.3.1
+
+### Patch Changes
+
+- 140a4ab: Update dependencies
+
 ## 1.3.0
 
 ### Minor Changes

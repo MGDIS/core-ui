@@ -1,5 +1,116 @@
 # stencil
 
+## 0.1.0
+
+### Minor Changes
+
+- a8270ce: Update styles dependencies
+
+### Patch Changes
+
+- 3cd9204: Prefix all custom properties
+- Updated dependencies [a8270ce]
+- Updated dependencies [4edae4d]
+- Updated dependencies [3cd9204]
+- Updated dependencies [c2f33b8]
+- Updated dependencies [9e1d5c6]
+- Updated dependencies [74ed81b]
+- Updated dependencies [525e9ed]
+- Updated dependencies [a84fb50]
+- Updated dependencies [fb3aec6]
+- Updated dependencies [0ff869e]
+- Updated dependencies [7899249]
+- Updated dependencies [3ccbb15]
+- Updated dependencies [7e36d34]
+- Updated dependencies [ab2224b]
+- Updated dependencies [f1e98e7]
+- Updated dependencies [631a96f]
+- Updated dependencies [2fbeeee]
+- Updated dependencies [69bce84]
+- Updated dependencies [2c6ee2f]
+- Updated dependencies [88b5d3b]
+- Updated dependencies [17b6aca]
+- Updated dependencies [2678968]
+  - @mgdis/mg-components@6.0.0
+
+## 0.0.22
+
+### Patch Changes
+
+- 2fad542: update dependencies
+- Updated dependencies [2fad542]
+- Updated dependencies [b8a9428]
+- Updated dependencies [e2100d2]
+  - @mgdis/mg-components@5.29.0
+
+## 0.0.21
+
+### Patch Changes
+
+- Updated dependencies [9c9620c]
+  - @mgdis/mg-components@5.28.2
+
+## 0.0.20
+
+### Patch Changes
+
+- @mgdis/mg-components@5.28.1
+
+## 0.0.19
+
+### Patch Changes
+
+- c567b43: update dependencies
+- Updated dependencies [c567b43]
+- Updated dependencies [0d73023]
+- Updated dependencies [95cbe02]
+- Updated dependencies [2218c8b]
+  - @mgdis/mg-components@5.28.0
+
+## 0.0.18
+
+### Patch Changes
+
+- 43f1421: update dependancies
+- Updated dependencies [43f1421]
+- Updated dependencies [8343e1e]
+- Updated dependencies [1e8734b]
+- Updated dependencies [c8ff48e]
+  - @mgdis/mg-components@5.27.4
+
+## 0.0.17
+
+### Patch Changes
+
+- 253c7a6: Update dependencies
+- Updated dependencies [5b5de24]
+- Updated dependencies [3bb7043]
+- Updated dependencies [253c7a6]
+  - @mgdis/mg-components@5.27.3
+
+## 0.0.16
+
+### Patch Changes
+
+- d674c81: Update dependencies
+- Updated dependencies [d674c81]
+  - @mgdis/mg-components@5.27.2
+
+## 0.0.15
+
+### Patch Changes
+
+- 140a4ab: Update dependencies
+- Updated dependencies [17399c8]
+- Updated dependencies [3f8fbfa]
+- Updated dependencies [f228d36]
+- Updated dependencies [0c93b4e]
+- Updated dependencies [28b0455]
+- Updated dependencies [140a4ab]
+- Updated dependencies [f1f76dc]
+- Updated dependencies [3d998cc]
+  - @mgdis/mg-components@5.27.1
+
 ## 0.0.14
 
 ### Patch Changes

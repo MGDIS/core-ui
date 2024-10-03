@@ -1,7 +1,8 @@
 import { Component, Element, h, Prop } from '@stencil/core';
 import { isTagName } from '@mgdis/stencil-helpers';
+import type { IllustratedMessageSizeType } from './mg-illustrated-message.conf';
 
-/*
+/**
  * @slot illustration - Illustration content
  * @slot title - Title content
  * @slot details - Details content
@@ -24,7 +25,7 @@ export class MgIllustratedMessage {
   /**
    * Define illustration size
    */
-  @Prop() size: 'regular' | 'small' = 'regular';
+  @Prop() size: IllustratedMessageSizeType = 'medium';
 
   /**
    * Define component orientation
@@ -43,7 +44,7 @@ export class MgIllustratedMessage {
     const slottedIllustrations = this.element.querySelectorAll('[slot="illustration"]');
 
     if (!isTagName(this.element.querySelector('[slot="title"]'), headingTags)) {
-      throw new Error(`<mg-illustrated-message> Slotted title must be a heading: ${headingTags.join(', ')}`);
+      throw new Error(`<mg-illustrated-message> Slotted title must be a heading: ${headingTags.join(', ')}.`);
     } else if (slottedIllustrations.length !== 1) {
       throw new Error('<mg-illustrated-message> Slotted illustration must be present and unique.');
     }

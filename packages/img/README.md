@@ -1,4 +1,4 @@
-# img
+# @mgdis/img
 
 This package is designed to manage images used in MGDIS products.
 

@@ -1,45 +1,36 @@
-## Sizing
 
-![](./doc/img/mg-divider-sizing.png)
-
-Two sizes are possible:
-
-- Regular: 120px
-- Full: 100%
-
-Rules:
-
-- Regular is the default mode.
-- In full mode it takes 100% of its parent.
-- The thickness is 1px.
-
-## Spacing
-
-![](./doc/img/mg-divider-spacing.png)
-
-Default margin applied on top and bottom of the divider is set to 40px.
-
-## Color
-
-![](./doc/img/mg-divider-color.png)
-
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-divider-background-color`: define the divider background color, default: `hsla(var(--color-danger), 15%)`
-- `--mg-divider-thickness`: define the divider thickness, default: `0.1rem`
-- `--mg-divider-vertical-spacing`: define the divider vertical spacing, default: `4rem`
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property | Attribute | Description           | Type                  | Default     |
-| -------- | --------- | --------------------- | --------------------- | ----------- |
-| `size`   | `size`    | Define component size | `"full" \| "regular"` | `'regular'` |
+| Property    | Attribute    | Description           | Type      | Default |
+| ----------- | ------------ | --------------------- | --------- | ------- |
+| `fullWidth` | `full-width` | Define component size | `boolean` | `false` |
 
+
+## CSS Custom Properties
+
+| Name                              | Description                                                                                                                      |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `--mg-c-divider-color-background` | Defines the background color of the divider. The default value is `color-mix(in srgb, var(--mg-b-color-dark), transparent 85%)`. |
+| `--mg-c-divider-spacing-vertical` | Defines the vertical spacing of the divider. The default value is `--mg-b-size-40`.                                              |
+| `--mg-c-divider-thickness`        | Defines the thickness of the divider. The default value is `--mg-b-size-border`.                                                 |
+
+
+## Dependencies
+
+### Used by
+
+ - [mg-action-more](../../molecules/mg-action-more)
+
+### Graph
+```mermaid
+graph TD;
+  mg-action-more --> mg-divider
+  style mg-divider fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

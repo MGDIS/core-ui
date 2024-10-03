@@ -1,25 +1,9 @@
-## Anatomy
-
-![](./doc/img/mg-pagination-nav-anatomy.png)
-
-## Specs
-
-![](./doc/img/mg-pagination-nav-specs.png)
-
-It's possible to hide the labels "prev" and "next" to show only the "chevron" icons
-
-![](./doc/img/mg-pagination-nav-label-hide.png)
-
-It's possible to hide the page count to show only the "chevron" icons
-
-![](./doc/img/mg-pagination-nav-select-hide.png)
-
-## When to use it ?
+## Usage
 
 A pagination component should be displayed only when it is useful, for example:
 
-When the number of pages is greater than 1.
-When there are elements to be displayed.
+- When the number of pages is greater than 1.
+- When there are elements to be displayed.
 
 <!-- Auto Generated Below -->
 
@@ -47,7 +31,7 @@ When there are elements to be displayed.
 
 ### Used by
 
- - [mg-input-checkbox-paginated](../inputs/mg-input-checkbox/mg-input-checkbox-paginated)
+ - mg-input-checkbox-paginated
 
 ### Depends on
 

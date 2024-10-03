@@ -1,10 +1,15 @@
-@import 'mg-input';
 @import 'mg-input-box';
+@import 'mg-input-width';
+@import 'mg-input-readonly';
 @import 'mg-input-character-left';
 @import '../utils/a11y';
 
 /* Component Custom Style */
 .mg-c-input {
+  &__input {
+    align-items: start;
+  }
+
   &__box {
     display: block;
     height: auto;
@@ -24,14 +29,19 @@
   }
 }
 
+.mg-c-input__readonly-value {
+  white-space: pre-line;
+}
+
 /**
-  * Character left
-  */
+ * Character left
+ */
 
 .mg-c-input__with-character-left {
+  flex-grow: 1;
+
   mg-character-left {
     display: block;
-    margin-top: 0.2rem;
     text-align: end;
     visibility: hidden;
 
@@ -42,6 +52,7 @@
 }
 
 /* Firefox selector */
+/* stylelint-disable-next-line at-rule-no-vendor-prefix */
 @-moz-document url-prefix() {
   .mg-c-input__box {
     overflow-x: hidden; // remove Firefox bottom "phantom scrollbar" in textarea

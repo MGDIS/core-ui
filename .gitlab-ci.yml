@@ -184,7 +184,7 @@ sonar:
     - .install:dependencies
   script:
     - gitlabci-quality-gate A+++
-    - sonar-scanner -D sonar.login=$SONAR_KEY
+    - sonar-scanner -D sonar.token=$SONAR_KEY
     - gitlabci-sonar-compare report
   needs:
     - test:unit
@@ -271,6 +271,7 @@ doc:artifact:
     - .rules:tags
     - .install:dependencies
   script:
+    - pnpm doc
     - sh scripts/import-docs.sh
     - curl -u$ARTIFACTORY_USER_LOGIN:$ARTIFACTORY_USER_PASS -T ./core-ui-artifact.tgz "$ARTIFACTORY_URL/core-documentation/core-ui-artifact.tgz"
     - curl -X POST --fail -F token=$CORE_PIPELINE_TOKEN -F ref=$CI_DEFAULT_BRANCH https://gitlab.mgdis.fr/api/v4/projects/2516/trigger/pipeline

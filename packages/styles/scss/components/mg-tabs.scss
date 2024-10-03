@@ -1,23 +1,28 @@
 @import 'mixins/navigation-button';
 
+/*!
+ * @prop --mg-c-tabs-color: Defines tabs global color, used for bottom line and active tabs. Default value: `--mg-b-color-app`.
+ * @prop --mg-c-tabs-color-text: Defines tabs text color. Unset by default, fallback on `--mg-b-color-dark`.
+ */
+
 $navigation-button-sizes: (
-  'regular': (
-    'vertical': 1rem,
-    'horizontal': 2rem,
+  'medium': (
+    'vertical': var(--mg-b-size-12),
+    'horizontal': var(--mg-b-size-16),
   ),
   'large': (
-    'vertical': 1.5rem,
-    'horizontal': 3rem,
+    'vertical': var(--mg-b-size-16),
+    'horizontal': var(--mg-b-size-32),
   ),
 );
 
-@include navigation-button('mg-c-tabs', 'mg-tabs', $navigation-button-sizes);
+@include navigation-button('mg-c-tabs', $navigation-button-sizes);
 
 .mg-c-tabs {
   &__header {
     display: flex;
     flex-flow: row wrap;
-    border-bottom: var(--mg-tabs-border-bottom);
+    border-bottom: var(--mg-b-size-border) solid color-mix(in srgb, var(--mg-c-tabs-color), transparent 90%);
   }
 
   &__content-container:focus-visible {

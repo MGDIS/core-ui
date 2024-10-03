@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, State, Watch, Host, EventEmitter, Event } from '@stencil/core';
 import { variants, VariantType, ButtonType } from './mg-button.conf';
-import { ClassList, isValidString, nextTick } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 
 /**
  * @slot - Button content
@@ -36,7 +36,7 @@ export class MgButton {
   @Watch('variant')
   validateVariant(newValue: VariantType, oldValue?: VariantType): void {
     if (!variants.includes(newValue)) {
-      throw new Error(`<mg-button> prop "variant" must be one of: ${variants.join(', ')}`);
+      throw new Error(`<mg-button> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
     } else {
       if (oldValue !== undefined) {
         this.classCollection.delete(`mg-c-button--${oldValue}`);
@@ -44,11 +44,6 @@ export class MgButton {
       this.classCollection.add(`mg-c-button--${newValue}`);
     }
   }
-
-  /**
-   * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
-   */
-  @Prop() identifier?: string;
 
   /**
    * aria-label
@@ -78,7 +73,7 @@ export class MgButton {
 
   /**
    * Define form id to attach button with.
-   * If this attribute is not set, the <button> is associated with its ancestor <form> element.
+   * If this attribute is not set, the `<button>` is associated with its ancestor `<form>` element.
    */
   @Prop() form?: string;
 
@@ -205,7 +200,7 @@ export class MgButton {
     nextTick(() => {
       const closestForm = this.element.closest('form') || this.element.closest('mg-form')?.shadowRoot.querySelector('form');
       // submit buttons should trigger form submition;
-      if (!!closestForm && ['submit', undefined].includes(this.type)) {
+      if (closestForm && ['submit', undefined].includes(this.type)) {
         this.element.addEventListener('click', () => {
           closestForm.dispatchEvent(new SubmitEvent('submit', { bubbles: true, cancelable: true }));
         });
@@ -231,7 +226,7 @@ export class MgButton {
         onKeyup={this.handleKeyup}
         onKeydown={this.handleKeydown}
       >
-        <div class={this.classCollection.join()} id={this.identifier}>
+        <div class={this.classCollection.join()}>
           {this.loading && <mg-icon icon="loader" spin></mg-icon>}
           <div class="mg-c-button__content">
             <slot></slot>

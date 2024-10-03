@@ -1,5 +1,5 @@
 import { Component, h, Prop, Element, Watch, Host, State } from '@stencil/core';
-import { isValidString } from '@mgdis/stencil-helpers';
+import { isValidString, toString } from '@mgdis/stencil-helpers';
 import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, classDisabled, classVerticalList } from './mg-input.conf';
 
 /**
@@ -50,7 +50,7 @@ export class MgInput {
   @Watch('identifier')
   watchIdentifier(newValue: MgInput['identifier']): void {
     if (!isValidString(newValue)) {
-      throw new Error('<mg-input> prop "identifier" is required.');
+      throw new Error(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${toString(newValue)}.`);
     } else {
       this.helpTextId = `${this.identifier}-help-text`;
       this.helpTextErrorId = `${this.identifier}-error`;
@@ -99,7 +99,7 @@ export class MgInput {
   @Watch('tooltipPosition')
   watchTooltipPosition(newValue: MgInput['tooltipPosition']) {
     if (!tooltipPositions.includes(newValue)) {
-      throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}`);
+      throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -109,17 +109,12 @@ export class MgInput {
   @Prop() required: boolean = false;
 
   /**
-   * Defines value to display in readonly mode
-   */
-  @Prop() readonlyValue: string | string[];
-
-  /**
    * Define error message to display
    */
   @Prop() errorMessage?: string;
   @Watch('errorMessage')
   watchErrorMessage(newValue: MgInput['errorMessage']): void {
-    if (newValue) {
+    if (newValue !== undefined) {
       this.element.classList.add(this.classHasError);
       this.renderErrorMessage();
     } else {
@@ -135,7 +130,7 @@ export class MgInput {
   @Prop() helpText?: string;
   @Watch('helpText')
   watchHelpText(newValue: MgInput['helpText']): void {
-    if (newValue) {
+    if (newValue && !this.isReadonly) {
       this.renderHelpText();
     } else {
       this.helptextMessageSlotElement?.remove();
@@ -152,16 +147,17 @@ export class MgInput {
   @Watch('helpText')
   @Watch('ariaDescribedbyIDs')
   watchAriaDescribedbyIDs(): void {
+    if (this.isReadonly) return;
     // a11y IDs
     const ariaDescribedbyIDs = new Set(this.ariaDescribedbyIDs);
     // Help text
-    if (this.helpText) {
+    if (this.helpText !== undefined) {
       this.renderHelpText();
       if (!ariaDescribedbyIDs.has(this.helpTextId)) ariaDescribedbyIDs.add(this.helpTextId);
     }
 
     // Error Message
-    if (this.errorMessage) {
+    if (this.errorMessage !== undefined) {
       this.renderErrorMessage();
       if (!ariaDescribedbyIDs.has(this.helpTextErrorId)) ariaDescribedbyIDs.add(this.helpTextErrorId);
     }
@@ -187,21 +183,6 @@ export class MgInput {
   }
 
   /**
-   * Trigger label update
-   */
-  // eslint-disable-next-line @stencil-community/no-unused-watch
-  @Watch('class')
-  @Watch('label')
-  watchLabel(): void {
-    if (!isValidString(this.label)) {
-      throw new Error('<mg-input> prop "label" is required.');
-    } else {
-      this.watchAriaDescribedbyIDs();
-      this.renderLabel();
-    }
-  }
-
-  /**
    * Element is fieldset
    */
   @State() isFieldset: boolean = false;
@@ -220,6 +201,24 @@ export class MgInput {
    * Element is disabled
    */
   @State() isVerticalList: boolean = false;
+
+  /**
+   * Trigger label update
+   */
+  // eslint-disable-next-line @stencil-community/no-unused-watch
+  @Watch('class')
+  @Watch('label')
+  @Watch('required')
+  @Watch('isReadonly')
+  @Watch('isFieldset')
+  watchLabel(): void {
+    if (!isValidString(this.label)) {
+      throw new Error(`<mg-input> prop "label" is required and must be a string. Passed value: ${toString(this.label)}.`);
+    } else {
+      this.watchAriaDescribedbyIDs();
+      this.renderLabel();
+    }
+  }
 
   /************
    * Methods *
@@ -260,7 +259,7 @@ export class MgInput {
    */
   private renderErrorMessage(): void {
     this.errorMessageSlotElement = this.element.querySelector(`[slot=${this.slotError}]`);
-    if (!this.errorMessageSlotElement) {
+    if (this.errorMessageSlotElement === null) {
       this.errorMessageSlotElement = document.createElement('div');
       this.errorMessageSlotElement.setAttribute('slot', this.slotError);
       this.element.appendChild(this.errorMessageSlotElement);
@@ -274,7 +273,7 @@ export class MgInput {
    */
   private renderHelpText(): void {
     this.helptextMessageSlotElement = this.element.querySelector(`[slot=${this.slotHelpText}]`);
-    if (!this.helptextMessageSlotElement) {
+    if (this.helptextMessageSlotElement === null) {
       this.helptextMessageSlotElement = document.createElement('div');
       this.helptextMessageSlotElement.setAttribute('slot', this.slotHelpText);
       this.element.appendChild(this.helptextMessageSlotElement);
@@ -282,22 +281,6 @@ export class MgInput {
     this.helptextMessageSlotElement.setAttribute('id', this.helpTextId);
     this.helptextMessageSlotElement.innerHTML = this.helpText;
   }
-
-  /**
-   * Get readonly values
-   * @returns formated readonly value
-   */
-  private getReadonlyValues = (): string | string[] => {
-    if (Array.isArray(this.readonlyValue) && !this.isVerticalList) {
-      return this.readonlyValue.join(', ');
-    } else if (Array.isArray(this.readonlyValue) && this.readonlyValue.length > 1) {
-      return this.readonlyValue;
-    } else if (Array.isArray(this.readonlyValue) && this.readonlyValue.length === 1) {
-      return this.readonlyValue[0];
-    } else {
-      return this.readonlyValue?.length > 0 ? this.readonlyValue : '';
-    }
-  };
 
   /*************
    * Lifecycle *
@@ -309,12 +292,12 @@ export class MgInput {
   componentWillLoad(): void {
     this.watchIdentifier(this.identifier);
     this.watchLabel();
+    this.watchClass();
     this.watchLabelOnTop(this.labelOnTop);
     this.watchLabelConfig();
     this.watchTooltipPosition(this.tooltipPosition);
     this.watchHelpText(this.helpText);
     this.watchErrorMessage(this.errorMessage);
-    this.watchClass();
   }
 
   /**
@@ -322,7 +305,7 @@ export class MgInput {
    */
   componentDidLoad(): void {
     this.watchAriaDescribedbyIDs();
-    if (!this.isReadonly && !this.isFieldset && !this.element.querySelector(`#${this.identifier}`)) {
+    if (!this.isReadonly && !this.isFieldset && this.element.querySelector(`#${this.identifier}`) === null) {
       throw new Error(`<mg-input> "identifier" prop has no target for id: ${this.identifier}. Add an id to the targeted input.`);
     }
   }
@@ -342,46 +325,28 @@ export class MgInput {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    const readonlyValue = this.getReadonlyValues();
     const isGroup = this.isFieldset && !this.isReadonly;
     return (
       <Host class={this.element.classList.toString()} role={isGroup ? 'group' : undefined} aria-labelledby={isGroup ? `${this.identifier}-title` : undefined}>
         <div class={{ 'mg-c-input__title': true, 'mg-u-visually-hidden': this.labelHide }}>
           <slot name={this.slotLabel}></slot>
-          {this.tooltip && !this.isReadonly && (this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}
+          {this.tooltip && (this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}
         </div>
         <div class="mg-c-input__input-container">
-          {this.isReadonly
-            ? [
-                Array.isArray(readonlyValue) ? (
-                  <ul key="readonly-value-list">
-                    {readonlyValue.map(value => (
-                      <li key={value}>
-                        <strong>{value}</strong>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <strong key="readonly-value">{readonlyValue}</strong>
-                ),
-                <slot key="default-slot"></slot>,
-              ]
-            : [
-                <div class="mg-c-input__input" key="tooltip">
-                  <slot></slot>
-                  {this.tooltip && !this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
-                </div>,
-                this.helpText && (
-                  <div class="mg-c-input__help-text" key="help-text">
-                    <slot name={this.slotHelpText}></slot>
-                  </div>
-                ),
-                !this.isDisabled && this.errorMessage && (
-                  <div class="mg-c-input__error" aria-live="assertive" key="error-message">
-                    <slot name={this.slotError}></slot>
-                  </div>
-                ),
-              ]}
+          <div class="mg-c-input__input">
+            <slot></slot>
+            {this.tooltip && !this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
+          </div>
+          {this.helptextMessageSlotElement && (
+            <div class="mg-c-input__help-text">
+              <slot name={this.slotHelpText}></slot>
+            </div>
+          )}
+          {!this.isDisabled && this.errorMessage && (
+            <div class="mg-c-input__error" aria-live="assertive">
+              <slot name={this.slotError}></slot>
+            </div>
+          )}
         </div>
       </Host>
     );

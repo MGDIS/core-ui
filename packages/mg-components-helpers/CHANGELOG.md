@@ -1,5 +1,61 @@
 # Changelog
 
+## 4.1.9
+
+### Patch Changes
+
+- 2a72803: Use typedoc-config package
+
+## 4.1.8
+
+### Patch Changes
+
+- 2fad542: update dependencies
+
+## 4.1.7
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+
+## 4.1.6
+
+### Patch Changes
+
+- 4ee49fe: Update dependencies
+
+## 4.1.5
+
+### Patch Changes
+
+- c567b43: update dependencies
+- 1583a06: [#497](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/497) fix mg-components-helpers export typos
+
+## 4.1.4
+
+### Patch Changes
+
+- 43f1421: update dependancies
+
+## 4.1.3
+
+### Patch Changes
+
+- 38ba699: Use vitest-config package
+- 253c7a6: Update dependencies
+
+## 4.1.2
+
+### Patch Changes
+
+- d674c81: Update dependencies
+
+## 4.1.1
+
+### Patch Changes
+
+- 140a4ab: Update dependencies
+
 ## 4.1.0
 
 ### Minor Changes
@@ -81,11 +137,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **mgComponentsHelpers:** add mgTextContent directive , closes [#123](http://gitlab@gitlab.mgdis.fr:core/core-back/core/issues/123)
+- **mgComponentsHelpers:** add mgTextContent directive , closes [#123](http://gitlab@gitlab.mgdis.fr/core/core-back/core/issues/123)
 
 ### Features
 
-- **mgtranslate:** delete directive , closes [#123](http://gitlab@gitlab.mgdis.fr:core/core-back/core/issues/123)
+- **mgtranslate:** delete directive , closes [#123](http://gitlab@gitlab.mgdis.fr/core/core-back/core/issues/123)
 
 ## 3.9.3
 
@@ -116,8 +172,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 - **mgComponentHelpers:** prevent conflicts between angular and vue with a simple "main" exports
-- **mgComponentsHelpers:** update exports to manage import un gulp projects , closes [#114](http://gitlab@gitlab.mgdis.fr:core/core-back/core/issues/114)
-- **mgComponentsHelpers:** update exports to split vue and angular , closes [#114](http://gitlab@gitlab.mgdis.fr:core/core-back/core/issues/114)
+- **mgComponentsHelpers:** update exports to manage import un gulp projects , closes [#114](http://gitlab@gitlab.mgdis.fr/core/core-back/core/issues/114)
+- **mgComponentsHelpers:** update exports to split vue and angular , closes [#114](http://gitlab@gitlab.mgdis.fr/core/core-back/core/issues/114)
 
 ## 3.6.0
 

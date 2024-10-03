@@ -1,45 +1,41 @@
-## Behavior
 
-The left zone of the header displays the item label, this zone is clickable and allows the user to unfold/fold the panel.
-If no content is available, the panel cannot be unfolded.
-When the panel is unfolded, the icon is vertically inverted.
 
-The right area of the header can accommodate any component.
+## 💥 Troubleshooting
 
-## Anatomy
+### How to resize the `<iframe>` element when the `<mg-panel>` component is toggled?
 
-![](./doc/img/mg-panel-anatomy.png)
+You can use the external library `iframe-resizer`. When the library is instantiated in the `window`, it adds a new property `parentIFrame` which includes a `size()` method.
 
-## Specs
+Then you can use `window.parentIFrame.size()` to manually trigger a resize on the `iframe` when the `<mg-panel>` element's `expanded` property is toggled.
 
-### Sizing
+```jsx
+class MyComponent {
+  [...] 
+  #expanded = true;
 
-![](./doc/img/mg-panel-sizing.png)
+  handleExpandedChange = () => {
+    if (window.parentIFrame) {
+      // This setTimeout is mandatory
+      // We have to ensure that component resizing is done before triggering iframe resizing
+      setTimeout(() => {
+        window.parentIFrame.size()
+      }, 0);
+    }
+  };
 
-### Spacing
-
-![](./doc/img/mg-panel-spacing.png)
-
-Slot content padding can be customized using the --mg-panel-content-padding CSS variable, default is 15px.
-
-### Alignments
-
-![](./doc/img/mg-panel-align.png)
-
-### Styles
-
-![](./doc/img/mg-panel-style.png)
-
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-panel-border-radius`: Define panel border radius, default: `0.5rem`
-- `--mg-panel-background`: Define panel background, default: `var(--color-info-h) var(--color-info-s) calc(var(--color-info-l) + 68%)`
-- `--mg-panel-box-shadow`: Define panel box shadow, default: `var(--box-shadow)`
-- `--mg-panel-content-padding`: Define panel content padding, default: `1.5rem`
-
-Please note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-panel. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-panel to your design.
+  render() {
+    return (
+      <mg-panel
+        [...]
+        expanded={this.#expanded}
+        on-expanded-change={this.handleExpandedChange}
+      >
+        [...]
+      </mg-panel>
+    );
+  }
+}
+```
 
 <!-- Auto Generated Below -->
 
@@ -65,6 +61,24 @@ Please note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-m
 | ----------------- | ---------------------------------- | ---------------------- |
 | `expanded-change` | Emmited event when expanded change | `CustomEvent<boolean>` |
 | `title-change`    | Emmited event when title change    | `CustomEvent<string>`  |
+
+
+## Slots
+
+| Slot             | Description                |
+| ---------------- | -------------------------- |
+|                  | Panel content              |
+| `"header-right"` | Header right panel content |
+
+
+## CSS Custom Properties
+
+| Name                            | Description                                                                                                  |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `--mg-c-panel-border-radius`    | Defines the border radius of the panel. Default value: `--mg-b-size-radius`.                                 |
+| `--mg-c-panel-box-shadow`       | Defines the box shadow of the panel. Default value: `--mg-b-box-shadow`.                                     |
+| `--mg-c-panel-color-background` | Defines the background of the panel. Default value: `color-mix(in srgb, var(--mg-b-color-info), white 97%)`. |
+| `--mg-c-panel-content-spacing`  | Defines the padding of the panel content. Default value: `--mg-b-size-16`.                                   |
 
 
 ## Dependencies

@@ -5,48 +5,50 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
+import { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
+import { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
-import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
-import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
+import { ButtonType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+import { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
-import { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
+import { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
-import { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
-import { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
-import { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
-import { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
+import { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
+import { DirectionType, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
+import { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+import { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 import { Placement } from "@popperjs/core";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 import { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
-export { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
+export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
+export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
-export { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
-export { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
+export { ButtonType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+export { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
-export { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
+export { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
-export { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
-export { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
-export { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
-export { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
+export { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
+export { DirectionType, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
+export { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+export { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 export { Placement } from "@popperjs/core";
@@ -70,7 +72,21 @@ export namespace Components {
         /**
           * Define the menu-items elements
          */
-        "items": MgActionMoreItemType[];
+        "items": (MgActionMoreItemType | MgActionMoreDividerType)[];
+    }
+    interface MgAlert {
+        /**
+          * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds
+         */
+        "delay"?: number;
+        /**
+          * Define variant
+         */
+        "variant"?: VariantType;
+        /**
+          * Define variant style
+         */
+        "variantStyle"?: VariantStyleType;
     }
     interface MgBadge {
         /**
@@ -100,17 +116,13 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Define form id to attach button with. If this attribute is not set, the <button> is associated with its ancestor <form> element.
+          * Define form id to attach button with. If this attribute is not set, the `<button>` is associated with its ancestor `<form>` element.
          */
         "form"?: string;
         /**
           * Set button to full-width
          */
         "fullWidth": boolean;
-        /**
-          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
-         */
-        "identifier"?: string;
         /**
           * Define if button is round. Used for icon button.
          */
@@ -126,17 +138,9 @@ export namespace Components {
         /**
           * Define button variant
          */
-        "variant": VariantType;
+        "variant": VariantType1;
     }
     interface MgCard {
-        /**
-          * Define variant prop
-         */
-        "variant": undefined | VariantType1;
-        /**
-          * Define variantStyle prop
-         */
-        "variantStyle": undefined | VariantStyleType;
     }
     interface MgCharacterLeft {
         /**
@@ -174,7 +178,7 @@ export namespace Components {
         /**
           * Define component size
          */
-        "size": 'regular' | 'full';
+        "fullWidth": boolean;
     }
     interface MgForm {
         /**
@@ -248,7 +252,7 @@ export namespace Components {
         /**
           * Define illustration size
          */
-        "size": 'regular' | 'small';
+        "size": IllustratedMessageSizeType;
     }
     interface MgInput {
         /**
@@ -280,10 +284,6 @@ export namespace Components {
          */
         "labelOnTop"?: boolean;
         /**
-          * Defines value to display in readonly mode
-         */
-        "readonlyValue": string | string[];
-        /**
           * Define if input is required
          */
         "required": boolean;
@@ -309,6 +309,10 @@ export namespace Components {
           * Display selected values list in "multi" type This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.
          */
         "displaySelectedValues"?: boolean;
+        /**
+          * Overwrite default "edit" button message
+         */
+        "editButtonMessage": string;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -350,11 +354,19 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Overwrite default "select" button message
+         */
+        "selectButtonMessage": string;
+        /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputCheckbox['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputCheckbox["valid"], errorMessage: string) => Promise<void>;
+        /**
+          * Overwrite default "show" button message
+         */
+        "showButtonMessage": string;
         /**
           * Add a tooltip message next to the input
          */
@@ -408,10 +420,6 @@ export namespace Components {
           * Define if mg-input-checkbox-list is readonly
          */
         "readonly"?: boolean;
-        /**
-          * Define section kind
-         */
-        "sectionKind"?: SectionKind;
     }
     interface MgInputDate {
         /**
@@ -471,7 +479,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputDate['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputDate["valid"], errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -507,7 +515,7 @@ export namespace Components {
          */
         "displayError": () => Promise<void>;
         /**
-          * Set local formatting. Numbers are formatted based on the locale. When type is set to `currency`, formatting has no effect.
+          * Set local formatting. Numbers are formatted based on the locale.
          */
         "format": Format;
         /**
@@ -571,7 +579,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputNumeric['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputNumeric["valid"], errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -627,6 +635,10 @@ export namespace Components {
          */
         "labelOnTop"?: boolean;
         /**
+          * Input max length
+         */
+        "maxlength": any;
+        /**
           * Define input width
          */
         "mgWidth": Width;
@@ -651,7 +663,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputPassword['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputPassword["valid"], errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -727,7 +739,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputRadio['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputRadio["valid"], errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -815,7 +827,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputSelect['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputSelect["valid"], errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -835,17 +847,17 @@ export namespace Components {
     }
     interface MgInputText {
         /**
+          * Define if component should display character left
+         */
+        "characterLeftHide": boolean;
+        /**
           * Define datalist options
          */
-        "datalistoptions": string[];
+        "datalistoptions": string[] | OptionType[];
         /**
           * Define if input is disabled
          */
         "disabled": boolean;
-        /**
-          * Define if component should display character left
-         */
-        "displayCharacterLeft": boolean;
         /**
           * Display input error if it exists.
          */
@@ -915,7 +927,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputText['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputText["valid"], errorMessage: string) => Promise<void>;
         /**
           * Public method to play input focus
          */
@@ -939,17 +951,17 @@ export namespace Components {
         /**
           * Component value
          */
-        "value": string;
+        "value": any;
     }
     interface MgInputTextarea {
+        /**
+          * Define if component should display character left
+         */
+        "characterLeftHide": boolean;
         /**
           * Define if input is disabled
          */
         "disabled": boolean;
-        /**
-          * Define if component should display character left
-         */
-        "displayCharacterLeft": boolean;
         /**
           * Display input error if it exists.
          */
@@ -1023,7 +1035,7 @@ export namespace Components {
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
-        "setError": (valid: MgInputTextarea['valid'], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputTextarea["valid"], errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -1151,13 +1163,13 @@ export namespace Components {
         /**
           * Component display direction.
          */
-        "direction": Direction;
+        "direction": DirectionType;
         /**
           * Customize "mg-item-more" element Used with direction: 'vertical' to manage overflow
          */
         "itemmore"?: ItemMoreType;
         /**
-          * Menu label. Include short menu description. Required for accessibility
+          * Menu label. Include short menu description. Required to define accessibility required attribute `aria-label`
          */
         "label": string;
         /**
@@ -1181,7 +1193,7 @@ export namespace Components {
         /**
           * Define menu-item status.
          */
-        "status"?: Status;
+        "status"?: MgMenuStatusType;
         /**
           * Define target type
          */
@@ -1189,29 +1201,13 @@ export namespace Components {
     }
     interface MgMessage {
         /**
-          * Define if message has a cross button RG 01: https://jira.mgdis.fr/browse/PDA9-140
-         */
-        "closeButton": boolean;
-        /**
-          * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06)
-         */
-        "delay"?: number;
-        /**
-          * Define if message is hidden
-         */
-        "hide": boolean;
-        /**
-          * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
-         */
-        "identifier": string;
-        /**
-          * Define if aria role is unset For a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`. By toggle this props to `true`, you can unset the role to benefit from the template without any semantic role. Be careful to set the mode according to the context needs.
-         */
-        "noAriaRole"?: boolean;
-        /**
-          * Message variant
+          * Define variant
          */
         "variant": VariantType2;
+        /**
+          * Define variant style
+         */
+        "variantStyle": VariantStyleType1;
     }
     interface MgModal {
         /**
@@ -1223,10 +1219,6 @@ export namespace Components {
          */
         "dialogRole": DialogRoleType;
         /**
-          * Define if modal is hidden
-         */
-        "hide": boolean;
-        /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
         "identifier": string;
@@ -1234,6 +1226,10 @@ export namespace Components {
           * Displayed modal title
          */
         "modalTitle": string;
+        /**
+          * Define if modal is open
+         */
+        "open": boolean;
     }
     interface MgPagination {
         /**
@@ -1402,6 +1398,10 @@ export namespace Components {
         "message": string;
     }
 }
+export interface MgAlertCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMgAlertElement;
+}
 export interface MgButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgButtonElement;
@@ -1458,10 +1458,6 @@ export interface MgMenuItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgMenuItemElement;
 }
-export interface MgMessageCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLMgMessageElement;
-}
 export interface MgModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgModalElement;
@@ -1496,6 +1492,24 @@ declare global {
     var HTMLMgActionMoreElement: {
         prototype: HTMLMgActionMoreElement;
         new (): HTMLMgActionMoreElement;
+    };
+    interface HTMLMgAlertElementEventMap {
+        "component-show": void;
+        "component-hide": void;
+    }
+    interface HTMLMgAlertElement extends Components.MgAlert, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgAlertElementEventMap>(type: K, listener: (this: HTMLMgAlertElement, ev: MgAlertCustomEvent<HTMLMgAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgAlertElementEventMap>(type: K, listener: (this: HTMLMgAlertElement, ev: MgAlertCustomEvent<HTMLMgAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLMgAlertElement: {
+        prototype: HTMLMgAlertElement;
+        new (): HTMLMgAlertElement;
     };
     interface HTMLMgBadgeElement extends Components.MgBadge, HTMLStencilElement {
     }
@@ -1610,7 +1624,7 @@ declare global {
         new (): HTMLMgInputCheckboxElement;
     };
     interface HTMLMgInputCheckboxPaginatedElementEventMap {
-        "mass-action": HTMLMgInputCheckboxPaginatedElement['sectionKind'];
+        "mass-action": SectionKindType;
     }
     /**
      * Internal component use to manage sections instances
@@ -1816,19 +1830,7 @@ declare global {
         prototype: HTMLMgMenuItemElement;
         new (): HTMLMgMenuItemElement;
     };
-    interface HTMLMgMessageElementEventMap {
-        "component-show": void;
-        "component-hide": void;
-    }
     interface HTMLMgMessageElement extends Components.MgMessage, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLMgMessageElementEventMap>(type: K, listener: (this: HTMLMgMessageElement, ev: MgMessageCustomEvent<HTMLMgMessageElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLMgMessageElementEventMap>(type: K, listener: (this: HTMLMgMessageElement, ev: MgMessageCustomEvent<HTMLMgMessageElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgMessageElement: {
         prototype: HTMLMgMessageElement;
@@ -1975,6 +1977,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "mg-action-more": HTMLMgActionMoreElement;
+        "mg-alert": HTMLMgAlertElement;
         "mg-badge": HTMLMgBadgeElement;
         "mg-button": HTMLMgButtonElement;
         "mg-card": HTMLMgCardElement;
@@ -2030,7 +2033,29 @@ declare namespace LocalJSX {
         /**
           * Define the menu-items elements
          */
-        "items": MgActionMoreItemType[];
+        "items": (MgActionMoreItemType | MgActionMoreDividerType)[];
+    }
+    interface MgAlert {
+        /**
+          * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds
+         */
+        "delay"?: number;
+        /**
+          * Emited event when alert is hidden
+         */
+        "onComponent-hide"?: (event: MgAlertCustomEvent<void>) => void;
+        /**
+          * Emited event when alert is diplayed
+         */
+        "onComponent-show"?: (event: MgAlertCustomEvent<void>) => void;
+        /**
+          * Define variant
+         */
+        "variant"?: VariantType;
+        /**
+          * Define variant style
+         */
+        "variantStyle"?: VariantStyleType;
     }
     interface MgBadge {
         /**
@@ -2060,17 +2085,13 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Define form id to attach button with. If this attribute is not set, the <button> is associated with its ancestor <form> element.
+          * Define form id to attach button with. If this attribute is not set, the `<button>` is associated with its ancestor `<form>` element.
          */
         "form"?: string;
         /**
           * Set button to full-width
          */
         "fullWidth"?: boolean;
-        /**
-          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
-         */
-        "identifier"?: string;
         /**
           * Define if button is round. Used for icon button.
          */
@@ -2090,17 +2111,9 @@ declare namespace LocalJSX {
         /**
           * Define button variant
          */
-        "variant"?: VariantType;
+        "variant"?: VariantType1;
     }
     interface MgCard {
-        /**
-          * Define variant prop
-         */
-        "variant"?: undefined | VariantType1;
-        /**
-          * Define variantStyle prop
-         */
-        "variantStyle"?: undefined | VariantStyleType;
     }
     interface MgCharacterLeft {
         /**
@@ -2142,7 +2155,7 @@ declare namespace LocalJSX {
         /**
           * Define component size
          */
-        "size"?: 'regular' | 'full';
+        "fullWidth"?: boolean;
     }
     interface MgForm {
         /**
@@ -2220,7 +2233,7 @@ declare namespace LocalJSX {
         /**
           * Define illustration size
          */
-        "size"?: 'regular' | 'small';
+        "size"?: IllustratedMessageSizeType;
     }
     interface MgInput {
         /**
@@ -2252,10 +2265,6 @@ declare namespace LocalJSX {
          */
         "labelOnTop"?: boolean;
         /**
-          * Defines value to display in readonly mode
-         */
-        "readonlyValue"?: string | string[];
-        /**
           * Define if input is required
          */
         "required"?: boolean;
@@ -2277,6 +2286,10 @@ declare namespace LocalJSX {
           * Display selected values list in "multi" type This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.
          */
         "displaySelectedValues"?: boolean;
+        /**
+          * Overwrite default "edit" button message
+         */
+        "editButtonMessage"?: string;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -2325,6 +2338,14 @@ declare namespace LocalJSX {
           * Define if mg-input-checkbox is required
          */
         "required"?: boolean;
+        /**
+          * Overwrite default "select" button message
+         */
+        "selectButtonMessage"?: string;
+        /**
+          * Overwrite default "show" button message
+         */
+        "showButtonMessage"?: string;
         /**
           * Add a tooltip message next to the input
          */
@@ -2377,15 +2398,11 @@ declare namespace LocalJSX {
         /**
           * Emit 'mass-action' event used to informe that select-all/unselect-all button listner is triggered
          */
-        "onMass-action"?: (event: MgInputCheckboxPaginatedCustomEvent<HTMLMgInputCheckboxPaginatedElement['sectionKind']>) => void;
+        "onMass-action"?: (event: MgInputCheckboxPaginatedCustomEvent<SectionKindType>) => void;
         /**
           * Define if mg-input-checkbox-list is readonly
          */
         "readonly"?: boolean;
-        /**
-          * Define section kind
-         */
-        "sectionKind"?: SectionKind;
     }
     interface MgInputDate {
         /**
@@ -2475,7 +2492,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Set local formatting. Numbers are formatted based on the locale. When type is set to `currency`, formatting has no effect.
+          * Set local formatting. Numbers are formatted based on the locale.
          */
         "format"?: Format;
         /**
@@ -2592,6 +2609,10 @@ declare namespace LocalJSX {
           * Define if label is displayed on top
          */
         "labelOnTop"?: boolean;
+        /**
+          * Input max length
+         */
+        "maxlength"?: any;
         /**
           * Define input width
          */
@@ -2799,17 +2820,17 @@ declare namespace LocalJSX {
     }
     interface MgInputText {
         /**
+          * Define if component should display character left
+         */
+        "characterLeftHide"?: boolean;
+        /**
           * Define datalist options
          */
-        "datalistoptions"?: string[];
+        "datalistoptions"?: string[] | OptionType[];
         /**
           * Define if input is disabled
          */
         "disabled"?: boolean;
-        /**
-          * Define if component should display character left
-         */
-        "displayCharacterLeft"?: boolean;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -2897,17 +2918,17 @@ declare namespace LocalJSX {
         /**
           * Component value
          */
-        "value"?: string;
+        "value"?: any;
     }
     interface MgInputTextarea {
+        /**
+          * Define if component should display character left
+         */
+        "characterLeftHide"?: boolean;
         /**
           * Define if input is disabled
          */
         "disabled"?: boolean;
-        /**
-          * Define if component should display character left
-         */
-        "displayCharacterLeft"?: boolean;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -3109,13 +3130,13 @@ declare namespace LocalJSX {
         /**
           * Component display direction.
          */
-        "direction"?: Direction;
+        "direction"?: DirectionType;
         /**
           * Customize "mg-item-more" element Used with direction: 'vertical' to manage overflow
          */
         "itemmore"?: ItemMoreType;
         /**
-          * Menu label. Include short menu description. Required for accessibility
+          * Menu label. Include short menu description. Required to define accessibility required attribute `aria-label`
          */
         "label": string;
         /**
@@ -3151,7 +3172,7 @@ declare namespace LocalJSX {
         /**
           * Define menu-item status.
          */
-        "status"?: Status;
+        "status"?: MgMenuStatusType;
         /**
           * Define target type
          */
@@ -3159,37 +3180,13 @@ declare namespace LocalJSX {
     }
     interface MgMessage {
         /**
-          * Define if message has a cross button RG 01: https://jira.mgdis.fr/browse/PDA9-140
-         */
-        "closeButton"?: boolean;
-        /**
-          * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06)
-         */
-        "delay"?: number;
-        /**
-          * Define if message is hidden
-         */
-        "hide"?: boolean;
-        /**
-          * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
-         */
-        "identifier"?: string;
-        /**
-          * Define if aria role is unset For a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`. By toggle this props to `true`, you can unset the role to benefit from the template without any semantic role. Be careful to set the mode according to the context needs.
-         */
-        "noAriaRole"?: boolean;
-        /**
-          * Emited event when message is hidden
-         */
-        "onComponent-hide"?: (event: MgMessageCustomEvent<void>) => void;
-        /**
-          * Emited event when message is diplayed
-         */
-        "onComponent-show"?: (event: MgMessageCustomEvent<void>) => void;
-        /**
-          * Message variant
+          * Define variant
          */
         "variant"?: VariantType2;
+        /**
+          * Define variant style
+         */
+        "variantStyle"?: VariantStyleType1;
     }
     interface MgModal {
         /**
@@ -3200,10 +3197,6 @@ declare namespace LocalJSX {
           * Modal dialog role.
          */
         "dialogRole"?: DialogRoleType;
-        /**
-          * Define if modal is hidden
-         */
-        "hide"?: boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
@@ -3220,6 +3213,10 @@ declare namespace LocalJSX {
           * Emmited event when modal is diplayed
          */
         "onComponent-show"?: (event: MgModalCustomEvent<void>) => void;
+        /**
+          * Define if modal is open
+         */
+        "open"?: boolean;
     }
     interface MgPagination {
         /**
@@ -3417,6 +3414,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "mg-action-more": MgActionMore;
+        "mg-alert": MgAlert;
         "mg-badge": MgBadge;
         "mg-button": MgButton;
         "mg-card": MgCard;
@@ -3460,6 +3458,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "mg-action-more": LocalJSX.MgActionMore & JSXBase.HTMLAttributes<HTMLMgActionMoreElement>;
+            "mg-alert": LocalJSX.MgAlert & JSXBase.HTMLAttributes<HTMLMgAlertElement>;
             "mg-badge": LocalJSX.MgBadge & JSXBase.HTMLAttributes<HTMLMgBadgeElement>;
             "mg-button": LocalJSX.MgButton & JSXBase.HTMLAttributes<HTMLMgButtonElement>;
             "mg-card": LocalJSX.MgCard & JSXBase.HTMLAttributes<HTMLMgCardElement>;

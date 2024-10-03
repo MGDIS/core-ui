@@ -1,5 +1,55 @@
 # @mgdis/notification-center
 
+## 1.2.0
+
+### Minor Changes
+
+- d4de1af: Notifications are now rendered with `<mg-alert>` component when using mg-comp@v6
+
+## 1.1.16
+
+### Patch Changes
+
+- 2fad542: update dependencies
+
+## 1.1.15
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+- 18a700a: [#499](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/499) notification-center: types could not be resolved
+
+## 1.1.14
+
+### Patch Changes
+
+- 6195e7a: Update PW
+
+## 1.1.13
+
+### Patch Changes
+
+- c567b43: update dependencies
+
+## 1.1.12
+
+### Patch Changes
+
+- 43f1421: update dependancies
+- 28782b6: [#487](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/487) notification-center: update z-index to improve bootstrap compatibility
+
+## 1.1.11
+
+### Patch Changes
+
+- 253c7a6: Update dependencies
+
+## 1.1.10
+
+### Patch Changes
+
+- d674c81: Update dependencies
+
 ## 1.1.9
 
 ### Patch Changes

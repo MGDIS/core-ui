@@ -1,0 +1,109 @@
+@use 'sass:list';
+@use '../variables' as variables;
+@use '../functions' as functions;
+
+/**
+  * Components custom properties
+  * Must start with `--mg-c-`
+*/
+:root {
+  /**
+   * Atoms
+   */
+
+  /* mg-badge */
+  --mg-c-badge-size: var(--mg-b-size-16);
+  --mg-c-badge-font-size: var(--mg-b-font-size-small);
+
+  /* mg-button */
+  --mg-c-button-border-radius: var(--mg-b-size-radius);
+  --mg-c-button-icon-border-radius: var(--mg-b-size-min-height);
+
+  @each $name, $palette, $index in list.join(variables.$semantics, variables.$brands) {
+    --mg-c-button-color-background-#{$name}: var(--mg-b-color-#{$name});
+    --mg-c-button-color-border-#{$name}: var(--mg-b-color-#{$palette}-#{$index + 10});
+    --mg-c-button-color-gradient-#{$name}: var(--mg-b-color-#{$palette}-#{$index + 10});
+    --mg-c-button-color-text-#{$name}: var(--mg-b-color-text-on-#{$name});
+  }
+
+  // Danger Alt
+  --mg-c-button-color-background-danger-alt: var(--mg-b-color-neutral-10);
+  --mg-c-button-color-border-danger-alt: var(--mg-b-color-neutral-20);
+  --mg-c-button-color-gradient-danger-alt: var(--mg-b-color-neutral-20);
+  --mg-c-button-color-text-danger-alt: var(--mg-b-color-danger);
+
+  /* mg-card */
+  --mg-c-card-spacing-default: var(--mg-b-size-16);
+  --mg-c-card-border-radius-default: var(--mg-b-size-radius);
+  --mg-c-card-color-background-default: var(--mg-b-color-light);
+  --mg-c-card-border-default: var(--mg-b-size-border) solid color-mix(in srgb, var(--mg-b-color-dark), transparent 95%);
+  --mg-c-card-box-shadow-default: var(--mg-b-box-shadow);
+
+  /* mg-divider */
+  --mg-c-divider-color-background: color-mix(in srgb, var(--mg-b-color-dark), transparent 85%);
+  --mg-c-divider-thickness: var(--mg-b-size-border);
+  --mg-c-divider-spacing-vertical: var(--mg-b-size-40);
+
+  /* mg-icon */
+  --mg-c-icon-border-radius: 50%;
+
+  /* mg-tag */
+  --mg-c-tag-height: var(--mg-b-size-24);
+  --mg-c-tag-border-radius: var(--mg-b-size-radius);
+  --mg-c-tag-font-size: var(--mg-b-font-size-small);
+
+  /* mg-tooltip */
+  --mg-c-tooltip-border-radius: var(--mg-b-size-radius);
+  --mg-c-tooltip-color-background: var(--mg-b-color-dark);
+  --mg-c-tooltip-color-text: var(--mg-b-color-light);
+
+  /**
+   * Molecules
+   */
+
+  /* mg-details */
+  --mg-c-details-spacing: var(--mg-b-size-8);
+
+  /* mg-illustrated-message */
+  --mg-c-illustrated-message-spacing-vertical: var(--mg-b-size-40);
+
+  /* mg-input-... */
+  --mg-c-input-border-width: var(--mg-b-size-border);
+  --mg-c-input-border-radius: var(--mg-b-size-radius);
+  --mg-c-input-color-border: rgb(181 194 201);
+  --mg-c-input-placeholder-color-text: rgb(181 194 201);
+  --mg-c-input-color-icon: rgb(181 194 201);
+  --mg-c-input-color-box-shadow-focus: rgb(0 221 255 / 50%);
+  --mg-c-input-error-color-background: color-mix(in srgb, var(--mg-b-color-danger), white 95%);
+
+  /* mg-input-toggle */
+  --mg-c-input-toggle-border-radius-ratio: 2;
+
+  /* mg-input-checkbox */
+  --mg-c-input-check-size: var(--mg-b-size-16);
+
+  /* mg-menu-item */
+  --mg-c-menu-item-color: var(--mg-b-color-app);
+
+  /* mg-message */
+  --mg-c-message-border-radius: var(--mg-b-size-radius);
+
+  /* mg-modal */
+  --mg-c-modal-border-radius: var(--mg-b-size-radius);
+  --mg-c-modal-title-font-size: var(--mg-b-font-size-h3);
+
+  /* mg-panel */
+  --mg-c-panel-border-radius: var(--mg-b-size-radius);
+  --mg-c-panel-color-background: color-mix(in srgb, var(--mg-b-color-info), white 97%);
+  --mg-c-panel-box-shadow: var(--mg-b-box-shadow);
+  --mg-c-panel-content-spacing: var(--mg-b-size-16);
+
+  /* mg-popover */
+  --mg-c-popover-color-background: var(--mg-b-color-light);
+  --mg-c-popover-color-text: var(--mg-b-color-dark);
+  --mg-c-popover-title-font-size: var(--mg-b-font-size-h5);
+  --mg-c-popover-max-width: var(--mg-b-size-floating-element-max-width);
+
+  /* mg-tabs */
+  --mg-c-tabs-color: var(--mg-b-color-app);
+}

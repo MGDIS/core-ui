@@ -1,67 +1,7 @@
 ## Usage
 
-True/False value notion.
+True/False value notion.  
 Only 2 possible values.
-
-### Theming
-
-The style of the active checkbox is the browser's style.
-
-## Specs
-
-![](./doc/img/mg-input-checkbox-specs.png)
-
-## Type "multi"
-
-### Anatomy
-
-![](./doc/img/mg-input-checkbox-multi-anatomy.png)
-
-1. Button
-  - variant: secondary
-  - icon: list
-2. Button
-  - variant: link
-3. Popover
-4. Checkbox
-5. Details
-6. Search
-7. Pagination
-
-### Type "multi" with sections
-
-![](./doc/img/mg-input-checkbox-multi-section.png)
-
-#### Spacings
-
-![](./doc/img/mg-input-checkbox-multi-section-button-spacing.png)
-
-"Select all" and "Unselect all" buttons are aligned on left. 
-
-![](./doc/img/mg-input-checkbox-multi-section-internal-spacing.png)
-
-![](./doc/img/mg-input-checkbox-multi-section-spacing.png)
-
-
-### Displayed values
-
-![](./doc/img/mg-input-checkbox-display-values.png)
-
-#### Without values
-
-If the space is too narrow the text button will do a line break.
-
-#### With values
-
-If the space is too narrow the button and values will do a line break.
-
-The component is ajusting with the space available. If the width is not enought big the values will do a breakline.
-
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-input-check-size`: Define checkbox size, default: `1.3rem`
 
 ## Warning
 
@@ -76,6 +16,7 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 | ------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------------- |
 | `disabled`                | `disabled`                | Define if input is disabled                                                                                                                                                                                                                                                      | `boolean`               | `false`           |
 | `displaySelectedValues`   | `display-selected-values` | Display selected values list in "multi" type This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.                                                                                                                                     | `boolean`               | `undefined`       |
+| `editButtonMessage`       | `edit-button-message`     | Overwrite default "edit" button message                                                                                                                                                                                                                                          | `string`                | `undefined`       |
 | `helpText`                | `help-text`               | Add a help text under the input, usually expected data format and example                                                                                                                                                                                                        | `string`                | `undefined`       |
 | `identifier` _(required)_ | `identifier`              | Identifier is used for the element ID (id is a reserved prop in Stencil.js)                                                                                                                                                                                                      | `string`                | `undefined`       |
 | `inputVerticalList`       | `input-vertical-list`     | Define if inputs are display verticaly                                                                                                                                                                                                                                           | `boolean`               | `false`           |
@@ -86,6 +27,8 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 | `name`                    | `name`                    | Define input name If not set the value equals the identifier                                                                                                                                                                                                                     | `string`                | `this.identifier` |
 | `readonly`                | `readonly`                | Define if mg-input-checkbox is readonly                                                                                                                                                                                                                                          | `boolean`               | `false`           |
 | `required`                | `required`                | Define if mg-input-checkbox is required                                                                                                                                                                                                                                          | `boolean`               | `false`           |
+| `selectButtonMessage`     | `select-button-message`   | Overwrite default "select" button message                                                                                                                                                                                                                                        | `string`                | `undefined`       |
+| `showButtonMessage`       | `show-button-message`     | Overwrite default "show" button message                                                                                                                                                                                                                                          | `string`                | `undefined`       |
 | `tooltip`                 | `tooltip`                 | Add a tooltip message next to the input                                                                                                                                                                                                                                          | `string`                | `undefined`       |
 | `tooltipPosition`         | `tooltip-position`        | Define tooltip position                                                                                                                                                                                                                                                          | `"input" \| "label"`    | `'input'`         |
 | `type`                    | `type`                    | Define checkbox type When it's undefined the type is dynamic: - With 0-5 items type is 'checkbox' - With 5-10 items type is 'multi' When it set the type is locked to the defined value. When type is dynamic OR with 'multi' type AND Over 10 items "search" feature is enabled | `"checkbox" \| "multi"` | `undefined`       |
@@ -113,7 +56,7 @@ Type: `Promise<void>`
 
 
 
-### `setError(valid: MgInputCheckbox['valid'], errorMessage: string) => Promise<void>`
+### `setError(valid: MgInputCheckbox["valid"], errorMessage: string) => Promise<void>`
 
 Set an error and display a custom error message.
 This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
@@ -138,7 +81,7 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [mg-input-checkbox-paginated](mg-input-checkbox-paginated)
+- mg-input-checkbox-paginated
 - [mg-popover](../../mg-popover)
 - [mg-button](../../../atoms/mg-button)
 - [mg-icon](../../../atoms/mg-icon)

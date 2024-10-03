@@ -1,5 +1,135 @@
 # Changelog
 
+## Release (2024-08-28-15-13_Expensive-Eggplant-Eel)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
+## Release (2024-08-28-11-31_Sore-Scarlet-Snail)
+
+### Packages released
+
+- [eslint-config-vue3 changelog](packages/eslint-config-vue3/CHANGELOG.md)
+- [eslint-plugin-vue changelog](packages/eslint-plugin-vue/CHANGELOG.md)
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [linting-vue2 changelog](packages/linting-vue2/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+
+## Release (2024-07-30-11-20_Comfortable-Cotton-Candy-Caribou)
+
+### Packages released
+
+- [eslint-config-vue3 changelog](packages/eslint-config-vue3/CHANGELOG.md)
+- [eslint-plugin-html changelog](packages/eslint-plugin-html/CHANGELOG.md)
+- [eslint-plugin-vue changelog](packages/eslint-plugin-vue/CHANGELOG.md)
+- [linting-angularjs changelog](packages/linting-angularjs/CHANGELOG.md)
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [linting-vue2 changelog](packages/linting-vue2/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+
+## Release (2024-07-12-11-09_Thirsty-Tickle-Me-Pink-Turtle)
+
+### Packages released
+
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+
+## Release (2024-07-12-09-59_Small-Sky-Blue-Sea-Lion)
+
+### Packages released
+
+- [linting-angularjs changelog](packages/linting-angularjs/CHANGELOG.md)
+- [linting-vue2 changelog](packages/linting-vue2/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
+## Release (2024-07-04-08-41_Chubby-Cotton-Candy-Cormorant)
+
+### Packages released
+
+- [eslint-config-vue3 changelog](packages/eslint-config-vue3/CHANGELOG.md)
+- [eslint-plugin-vue changelog](packages/eslint-plugin-vue/CHANGELOG.md)
+- [img changelog](packages/img/CHANGELOG.md)
+- [linting-angularjs changelog](packages/linting-angularjs/CHANGELOG.md)
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [linting-vue2 changelog](packages/linting-vue2/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
+## Release (2024-06-19-10-59_Easy-Eggplant-Echidna)
+
+### Packages released
+
+- [eslint-config-vue3 changelog](packages/eslint-config-vue3/CHANGELOG.md)
+- [eslint-plugin-vue changelog](packages/eslint-plugin-vue/CHANGELOG.md)
+- [img changelog](packages/img/CHANGELOG.md)
+- [linting-angularjs changelog](packages/linting-angularjs/CHANGELOG.md)
+- [linting-vue2 changelog](packages/linting-vue2/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
+## Release (2024-05-13-14-47_Stormy-Shocking-Pink-Starling)
+
+### Packages released
+
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
+## Release (2024-04-16-16-59_Nasty-Neon-Carrot-Narwhal)
+
+### Packages released
+
+- [eslint-config-vue3 changelog](packages/eslint-config-vue3/CHANGELOG.md)
+- [eslint-plugin-vue changelog](packages/eslint-plugin-vue/CHANGELOG.md)
+- [linting-angularjs changelog](packages/linting-angularjs/CHANGELOG.md)
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [linting-vue2 changelog](packages/linting-vue2/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
+## Release (2024-04-15-14-45_Sticky-Shamrock-Salamander)
+
+### Packages released
+
+- [eslint-config-vue3 changelog](packages/eslint-config-vue3/CHANGELOG.md)
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2024-03-26-15-16_Disturbed-Desert-Sand-Dugong)
 
 ### Packages released

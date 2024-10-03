@@ -1,4 +1,4 @@
-# Eslint config Vue3
+# @mgdis/eslint-config-vue3
 
 This plugin ensures our vue3 MGDIS rules.
 
@@ -7,7 +7,7 @@ Made for our vue3 projects.
 ## Installation
 
 ```sh
-npm install -D @mgdis/eslint-config-vue3 @mgdis/prettier-config
+npm i -D @mgdis/eslint-config-vue3 @mgdis/prettier-config
 ```
 
 Create a local .eslintrc.js file
