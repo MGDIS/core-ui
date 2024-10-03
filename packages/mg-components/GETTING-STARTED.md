@@ -1,8 +1,8 @@
 # Getting started
 
-## 1. Install
+## Install
 
-### 1.1. CDN
+### CDN
 
 You can install the library using jsDelivr CDN by adding those script in the HTML header.
 
@@ -11,9 +11,9 @@ You can install the library using jsDelivr CDN by adding those script in the HTM
 <script type="module" src="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@6/dist/mg-components/mg-components.esm.js"></script>
 ```
 
-### 1.2. Package manager
+### Package manager
 
-#### 1.2.1. Requirements
+#### Requirements
 
 ##### Global
 
@@ -25,13 +25,13 @@ You can install the library using jsDelivr CDN by adding those script in the HTM
 
 - **Your project must use the last AngularJS version (1.8.3).**
 
-#### 1.2.2. Add MG Components to your project
+#### Add MG Components to your project
 
 ```bash
 npm i @mgdis/mg-components
 ```
 
-#### 1.2.3. Import mg-components in your sources
+#### Import mg-components in your sources
 
 As mg-components bundle uses component lazy-loading, all you need to do is import it globally into your project like this:
 
@@ -64,15 +64,15 @@ Or with vue.js :
 
 If you are already using a CSS framwork you may face some conflicts.
 
-## 2. Use the Lib
+## Use the Lib
 
-### 2.1. Events
+### Events
 
 If you are using component events, the value is accessed through `$event.detail` and not `$event.target.value`.
 
-### 2.2. Vue.js
+### Vue.js
 
-#### 2.2.1. Bind
+#### Bind
 
 To bind a non string value in a web component we have to use the Vue.js [`.prop`](https://v2.vuejs.org/v2/api/#v-bind) modifier:
 
@@ -85,7 +85,7 @@ To bind a non string value in a web component we have to use the Vue.js [`.prop`
 ></mg-input-text>
 ```
 
-#### 2.2.2. `v-model` with Vue2
+#### `v-model` with Vue2
 
 **Below instructions are for Vue2 projects only. With Vue3 you can use v-model as usual.**
 
@@ -103,7 +103,7 @@ Given that this syntax is somewhat verbose, it is recommended to use the `v-mg-m
 
 **This directive solves some issues with the components ([#139](https://gitlab.mgdis.fr/core/core-ui/mg-components/-/issues/139)), thus it is recommended to use it.**
 
-#### 2.2.3. Tests
+#### Tests
 
 During test custom elements are not registered, to prevent Jest to log errors you'll need to add the ignoredElements Vue.js config in the jest setup file:
 
@@ -113,9 +113,9 @@ import Vue from 'vue';
 Vue.config.ignoredElements = [/mg-\w*/];
 ```
 
-### 2.3. AngularJS
+### AngularJS
 
-#### 2.3.1. Bind
+#### Bind
 
 To bind a value in a web component we have to use the Angular.js [`ng-prop-`](https://docs.angularjs.org/api/ng/directive/ngProp) directive:
 
@@ -129,7 +129,7 @@ In some cases, binding **a string or a number** won't work ([#191](https://gitla
 <mg-message variant="{{variant}}" delay="{{delay}}">My message</mg-message>
 ```
 
-#### 2.3.2. `ng-model`
+#### `ng-model`
 
 `ng-model` can not be used in web components so we must set the value and the use the custom event `value-change` with the [`ng-on-`](https://docs.angularjs.org/api/ng/directive/ngOn) directive:
 
@@ -137,7 +137,7 @@ In some cases, binding **a string or a number** won't work ([#191](https://gitla
 <mg-input-text ng-prop-value="user.firstname" label="Firstname" ng-on-value-change="user.firstname = $event.detail"></mg-input-text>
 ```
 
-#### 2.3.3. `ng-on-`
+#### `ng-on-`
 
 With the [`ng-on-`](https://docs.angularjs.org/api/ng/directive/ngOn) directive you need to parse the native event instead the jQuery wrapped event like so:
 
@@ -145,7 +145,7 @@ With the [`ng-on-`](https://docs.angularjs.org/api/ng/directive/ngOn) directive 
 <mg-popover ng-on-display-change="$ctrl.myMethod($event.originalEvent.detail)"></mg-popover>
 ```
 
-### 2.4. Jest
+### Jest
 
 Add the following line in the client `jest.conf.js`:
 
@@ -153,9 +153,9 @@ Add the following line in the client `jest.conf.js`:
 transformIgnorePatterns: ['/node_modules/@mgdis/(?!mg-components)'],
 ```
 
-## 3. IDEs code completion
+## IDEs code completion
 
-### 3.1. VS Code
+### VS Code
 
 mg-components provides a custom data file that can be used to describe its custom elements to Visual Studio Code. This enables code completion for mg-components components. To enable it, you need to specify the location of the data file in VS Code.
 
@@ -174,6 +174,6 @@ In your project using mg-components:
 
 If `settings.json` already exists, simply add the above line to the root of the object. Note that you may need to restart VS Code for the changes to take effect.
 
-### 3.2. JetBrains IDEs
+### JetBrains IDEs
 
 If you are using a JetBrains IDE, such as WebStorm, the editor will automatically detect the `web-types.json` file from the package, and you should immediately see component information in your editor.
