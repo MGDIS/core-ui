@@ -3,7 +3,16 @@
  * Kept it nested for coming widths
  */
 
-@mixin input-box-max-width {
+.mg-c-input {
+  &__input-container {
+    width: 100%;
+    flex: 1 auto;
+  }
+
+  /**
+  * Variations
+  */
+
   &.mg-c-input--width-full {
     .mg-c-input__box {
       width: 100%;
@@ -31,27 +40,6 @@
 
   &.mg-c-input--width-16 {
     --mg-c-input-size: calc(26 * var(--mg-b-size-8));
-  }
-}
-
-.mg-c-input {
-  &__input-container {
-    width: 100%;
-    flex: 1 auto;
-  }
-
-  /**
-  * Variations
-  */
-
-  @include input-box-max-width;
-
-  &.mg-c-input--label-on-top {
-    @include input-box-max-width;
-
-    .mg-c-input__box {
-      width: auto;
-    }
   }
 
   &.mg-c-input--width-full:not(.mg-c-input--label-on-top) {
