@@ -52,7 +52,7 @@ export class MgInput {
     if (!isValidString(newValue)) {
       throw new Error(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${toString(newValue)}.`);
     } else if (!isValideID(newValue)) {
-      throw new Error(`<mg-input> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+      console.error(`<mg-input> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     } else {
       this.helpTextId = `${this.identifier}-help-text`;
       this.helpTextErrorId = `${this.identifier}-error`;

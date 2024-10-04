@@ -47,7 +47,7 @@ export class MgTabs {
   @Watch('identifier')
   watchIdentifier(newValue: MgTabs['identifier']): void {
     if (!isValideID(newValue)) {
-      throw new Error(`<mg-tabs> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+      console.error(`<mg-tabs> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }
   }
   /**

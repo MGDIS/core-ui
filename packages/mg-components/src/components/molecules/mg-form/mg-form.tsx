@@ -45,7 +45,7 @@ export class MgForm {
   @Watch('identifier')
   watchIdentifier(newValue: MgForm['identifier']): void {
     if (!isValideID(newValue)) {
-      throw new Error(`<mg-form> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+      console.error(`<mg-form> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }
   }
 

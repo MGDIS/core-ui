@@ -135,22 +135,19 @@ describe('mg-popover', () => {
     }
   });
 
-  test('Should throw an error with invalid "identifier" property: %s', async () => {
+  test('Should log an error with invalid "identifier" property: %s', async () => {
     const identifier = '{{batman}}';
-    expect.assertions(1);
-    try {
-      await getPage({ identifier }, [
-        <h2 slot="title">Blu bli blo bla</h2>,
-        <p slot="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>,
-        <mg-button>mg-button</mg-button>,
-      ]);
-    } catch (err) {
-      expect(err.message).toEqual(`<mg-popover> prop "identifier" value is invalid. Passed value: ${identifier}.`);
-    }
+    const spy = jest.spyOn(console, 'error');
+    await getPage({ identifier }, [
+      <h2 slot="title">Blu bli blo bla</h2>,
+      <p slot="content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>,
+      <mg-button>mg-button</mg-button>,
+    ]);
+    expect(spy).toHaveBeenCalledWith(`<mg-popover> prop "identifier" value is invalid. Passed value: ${identifier}.`);
   });
 
   test('Should throw error if slot title element is not a heading', async () => {

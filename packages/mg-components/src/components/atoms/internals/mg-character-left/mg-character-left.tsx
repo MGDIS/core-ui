@@ -34,7 +34,7 @@ export class MgCharacterLeft {
   @Watch('identifier')
   watchIdentifier(newValue: MgCharacterLeft['identifier']): void {
     if (newValue !== undefined && !isValideID(newValue)) {
-      throw new Error(`<mg-character-left> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+      console.error(`<mg-character-left> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }
   }
 

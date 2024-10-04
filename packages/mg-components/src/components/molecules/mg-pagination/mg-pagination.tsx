@@ -56,7 +56,7 @@ export class MgPagination {
   @Watch('identifier')
   watchIdentifier(newValue: MgPagination['identifier']): void {
     if (!isValideID(newValue)) {
-      throw new Error(`<mg-pagination> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+      console.error(`<mg-pagination> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }
   }
 

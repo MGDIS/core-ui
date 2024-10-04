@@ -46,7 +46,7 @@ export class MgModal {
   @Watch('identifier')
   watchIdentifier(newValue: MgModal['identifier']): void {
     if (!isValideID(newValue)) {
-      throw new Error(`<mg-modal> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+      console.error(`<mg-modal> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }
   }
 

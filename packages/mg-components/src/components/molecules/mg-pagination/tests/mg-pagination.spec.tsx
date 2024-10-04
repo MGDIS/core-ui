@@ -65,13 +65,13 @@ describe('mg-pagination', () => {
   });
 
   describe('errors', () => {
-    test('Should throw an error with invalid "identifier" property: %s', async () => {
+    test('Should log an error with invalid "identifier" property: %s', async () => {
       const identifier = '{{batman}}';
-      expect.assertions(1);
+      const spy = jest.spyOn(console, 'error');
       try {
         await getPage({ identifier });
       } catch (err) {
-        expect(err.message).toEqual(`<mg-pagination> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+        expect(spy).toHaveBeenCalledWith(`<mg-pagination> prop "identifier" value is invalid. Passed value: ${identifier}.`);
       }
     });
     test('Should throw an error, case totalPages props invalid', async () => {

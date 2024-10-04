@@ -19,7 +19,7 @@ export class MgInputTitle {
     if (!isValidString(newValue)) {
       throw new Error('<mg-input-title> prop "identifier" is required.');
     } else if (!isValideID(newValue)) {
-      throw new Error(`<mg-input-title> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+      console.error(`<mg-input-title> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }
   }
 

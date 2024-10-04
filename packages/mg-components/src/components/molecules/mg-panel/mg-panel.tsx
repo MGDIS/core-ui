@@ -40,7 +40,7 @@ export class MgPanel {
   @Watch('identifier')
   watchIdentifier(newValue: MgPanel['identifier']): void {
     if (!isValideID(newValue)) {
-      throw new Error(`<mg-panel> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+      console.error(`<mg-panel> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }
   }
 

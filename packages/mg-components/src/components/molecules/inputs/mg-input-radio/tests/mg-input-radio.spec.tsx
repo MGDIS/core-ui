@@ -90,13 +90,13 @@ describe('mg-input-radio', () => {
     }
   });
 
-  test('Should throw an error with invalid "identifier" property: %s', async () => {
+  test('Should log an error with invalid "identifier" property: %s', async () => {
     const identifier = '{{batman}}';
-    expect.assertions(1);
+    const spy = jest.spyOn(console, 'error');
     try {
-      await getPage({ identifier, items: ['batman', 'robin', 'joker', 'bane'] });
+      await getPage({ identifier, label: 'test', items: ['batman', 'robin', 'joker', 'bane'] });
     } catch (err) {
-      expect(err.message).toEqual(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+      expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
     }
   });
 
