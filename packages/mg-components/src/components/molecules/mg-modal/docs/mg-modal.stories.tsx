@@ -22,13 +22,13 @@ const Template = (args: MgModalType & { slotContent: string; slotActions: string
       aria-haspopup="dialog"
       onClick={() => {
         const mgModal: HTMLMgModalElement = document.querySelector(`mg-modal`);
-        mgModal.hidden = !mgModal.hidden;
+        mgModal.open = !mgModal.open;
       }}
     >
       Open modal
     </mg-button>
     <mg-modal {...filterArgs(args)}>
-      {args.slotContent && <div slot="content" innerHTML={args.slotContent}></div>}
+      {args.slotContent && <div innerHTML={args.slotContent}></div>}
       {args.slotActions && <div slot="actions" innerHTML={args.slotActions}></div>}
     </mg-modal>
   </div>
@@ -42,7 +42,7 @@ export const MgModal = {
     modalTitle: 'Modal title',
     identifier: 'identifier',
     closeButton: false,
-    hidden: true,
+    open: false,
     dialogRole: dialogRoles[0],
   },
 };
