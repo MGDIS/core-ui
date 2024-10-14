@@ -59,7 +59,7 @@ test.describe('mg-input-text', () => {
         test(`with mgWidth ${mgWidth}`, async ({ page }) => {
           const html = createHTML({
             ...baseArgs,
-            value: 'bruce',
+            value: 'M'.repeat(mgWidth),
             mgWidth,
             labelOnTop,
           });
@@ -80,6 +80,20 @@ test.describe('mg-input-text', () => {
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
+    });
+  });
+
+  [16, 4, 2].forEach(mgWidth => {
+    test(`with mgWidth ${mgWidth} with tooltip`, async ({ page }) => {
+      const html = createHTML({
+        ...baseArgs,
+        value: 'M'.repeat(mgWidth),
+        mgWidth,
+        tooltip: 'Tooltip message',
+      });
+      await page.setContent(html);
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
