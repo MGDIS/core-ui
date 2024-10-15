@@ -70,7 +70,7 @@ describe('mg-tabs', () => {
   });
 
   describe('errors', () => {
-    test('Should log an error with invalid "identifier" property: %s', async () => {
+    test('Should log an error with invalid "identifier" property', async () => {
       const identifier = '{{batman}}';
       const spy = jest.spyOn(console, 'error');
       await getPage({ identifier, label: 'test', items: ['joker', 'batman'] }, createSlots());

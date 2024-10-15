@@ -134,7 +134,7 @@ describe('mg-input', () => {
       }
     });
 
-    test('Should log an error with invalid "identifier" property: %s', async () => {
+    test('Should log an error with invalid "identifier" property', async () => {
       const identifier = '{{batman}}';
       const spy = jest.spyOn(console, 'error');
 
