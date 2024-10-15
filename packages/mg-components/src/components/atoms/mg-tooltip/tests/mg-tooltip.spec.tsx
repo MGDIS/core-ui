@@ -90,6 +90,7 @@ describe('mg-tooltip', () => {
     try {
       await getPage({ identifier, message: 'My tooltip message' }, <span>span</span>);
     } catch (err) {
+      expect(err).toBeDefined();
       expect(spy).toHaveBeenCalledWith(`<mg-tooltip> prop "identifier" value is invalid. Passed value: ${identifier}.`);
     }
   });

@@ -96,6 +96,7 @@ describe('mg-input-radio', () => {
     try {
       await getPage({ identifier, label: 'test', items: ['batman', 'robin', 'joker', 'bane'] });
     } catch (err) {
+      expect(err).toBeDefined();
       expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
     }
   });

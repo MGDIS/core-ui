@@ -141,6 +141,7 @@ describe('mg-input', () => {
       try {
         await getPage({ identifier });
       } catch (err) {
+        expect(err).toBeDefined();
         expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
       }
     });

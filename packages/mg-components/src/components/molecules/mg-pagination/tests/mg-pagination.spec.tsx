@@ -71,6 +71,7 @@ describe('mg-pagination', () => {
       try {
         await getPage({ identifier });
       } catch (err) {
+        expect(err).toBeDefined();
         expect(spy).toHaveBeenCalledWith(`<mg-pagination> prop "identifier" value is invalid. Passed value: ${identifier}.`);
       }
     });

@@ -112,6 +112,7 @@ describe('mg-input-checkbox', () => {
       try {
         await getPage({ identifier, type, value: getValues(), label: 'test' });
       } catch (err) {
+        expect(err).toBeDefined();
         expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
       }
     });

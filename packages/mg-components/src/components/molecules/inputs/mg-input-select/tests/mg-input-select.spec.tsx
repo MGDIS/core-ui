@@ -91,6 +91,7 @@ describe('mg-input-select', () => {
     try {
       await getPage({ identifier, label: 'test', items: ['blu', 'bli', 'blo', 'bla'] });
     } catch (err) {
+      expect(err).toBeDefined();
       expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
     }
   });

@@ -63,6 +63,7 @@ describe('mg-input-textarea', () => {
     try {
       await getPage({ identifier, test: 'test' });
     } catch (err) {
+      expect(err).toBeDefined();
       expect(spy).toHaveBeenLastCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
     }
   });
