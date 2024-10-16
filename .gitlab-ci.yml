@@ -1,4 +1,4 @@
-image: $DOCKER_REGISTRE_URL/$DOCKER_REGISTRE_NAMESPACE_INT/node:20-build
+image: $DOCKER_REGISTRE_URL/$DOCKER_REGISTRE_NAMESPACE_INT/node:22-build
 
 default:
   interruptible: true # allows to cancel the job automatically
