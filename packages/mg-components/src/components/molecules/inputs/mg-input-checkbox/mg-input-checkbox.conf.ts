@@ -18,6 +18,8 @@ export interface CheckboxItem extends CheckboxValue {
   _handleInput: (event: InputEvent & { target: HTMLInputElement }) => void;
   _handleBlur: () => void;
   _handleKeydown: (event: KeyboardEvent & { target: HTMLElement }) => void;
+  _handleMouseEnter: () => void;
+  _handleMouseLeave: () => void;
 }
 
 /**
@@ -31,20 +33,17 @@ export const checkboxTypes = ['checkbox', 'multi'] as const;
 export type CheckboxType = (typeof checkboxTypes)[number];
 
 /**
- * mg-input-checkbox-paginated section kind
+ * mg-input-checkbox-paginated section kind type
  */
-export enum SectionKind {
-  SELECTED = 'selected',
-  NOT_SELECTED = 'not-selected',
-}
+export type SectionKindType = 'selected' | 'not-selected';
 
 /**
- * mg-input-checkbox-paginated section title kind
+ * mg-input-checkbox-paginated section kind value
  */
-export enum SectionTitleKind {
-  BUTTON = 'button',
-  TEXT = 'text',
-}
+export const SectionKind: Record<string, SectionKindType> = {
+  SELECTED: 'selected',
+  NOT_SELECTED: 'not-selected',
+};
 
 /**
  * Base mg-input-checkbox interface
@@ -63,13 +62,4 @@ export interface MgInputCheckboxListProps extends IMgInputCheckboxBase {
   messages: Record<string, unknown>;
   checkboxes: CheckboxItem[];
   id: string;
-}
-
-/**
- * Define select values button key
- */
-export enum SelectValuesButtonKey {
-  EDIT = 'editButton',
-  SHOW = 'showButton',
-  SELECT = 'selectButton',
 }

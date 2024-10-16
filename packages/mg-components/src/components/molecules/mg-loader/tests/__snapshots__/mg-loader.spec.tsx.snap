@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mg-loader Should render component with locale: fr 1`] = `
+<mg-loader lang="fr">
+  <template shadowrootmode="open">
+    <div aria-live="polite" class="mg-c-loader">
+      <mg-icon icon="loader" spin=""></mg-icon>
+      <span>
+        Chargement en cours…
+      </span>
+    </div>
+  </template>
+</mg-loader>
+`;
+
+exports[`mg-loader Should render component with locale: xx 1`] = `
+<mg-loader lang="xx">
+  <template shadowrootmode="open">
+    <div aria-live="polite" class="mg-c-loader">
+      <mg-icon icon="loader" spin=""></mg-icon>
+      <span>
+        Loading in progress…
+      </span>
+    </div>
+  </template>
+</mg-loader>
+`;
+
+exports[`mg-loader with args { message: 'new loader message' } 1`] = `
+<mg-loader>
+  <template shadowrootmode="open">
+    <div aria-live="polite" class="mg-c-loader">
+      <mg-icon icon="loader" spin=""></mg-icon>
+      <span>
+        new loader message
+      </span>
+    </div>
+  </template>
+</mg-loader>
+`;
+
+exports[`mg-loader with args { messageHide: true } 1`] = `
+<mg-loader>
+  <template shadowrootmode="open">
+    <div aria-live="polite" class="mg-c-loader">
+      <mg-icon icon="loader" spin=""></mg-icon>
+      <span class="mg-u-visually-hidden">
+        Loading in progress…
+      </span>
+    </div>
+  </template>
+</mg-loader>
+`;
+
+exports[`mg-loader with args {} 1`] = `
+<mg-loader>
+  <template shadowrootmode="open">
+    <div aria-live="polite" class="mg-c-loader">
+      <mg-icon icon="loader" spin=""></mg-icon>
+      <span>
+        Loading in progress…
+      </span>
+    </div>
+  </template>
+</mg-loader>
+`;

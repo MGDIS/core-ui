@@ -1,5 +1,29 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- b8a9428: linting: disabled eslint "no-redundant-roles" rule
+
+## 4.0.6
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+
+## 4.0.5
+
+### Patch Changes
+
+- c567b43: update dependencies
+
+## 4.0.4
+
+### Patch Changes
+
+- 43f1421: update dependancies
+
 ## 4.0.3
 
 ### Patch Changes

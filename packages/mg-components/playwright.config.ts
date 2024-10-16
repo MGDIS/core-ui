@@ -17,11 +17,11 @@ export default defineConfig({
   ],
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'pnpm prebuild && pnpm stencil build --serve --watch -p 3333',
-    url: 'http://localhost:3333',
+    command: 'cd ../.. && pnpm apps:mg-components',
+    url: 'http://localhost:8080',
     reuseExistingServer: !(process.env.CI as boolean),
   },
   use: {
-    baseURL: 'http://localhost:3333',
+    baseURL: 'http://localhost:8080',
   },
 });

@@ -1,4 +1,4 @@
-# MG Components helpers
+# @mgdis/mg-components-helpers
 
 The goal of mg-components-helpers is to deliver a package which solve the commons compatibilities issues with mg-components web-components.
 
@@ -60,8 +60,6 @@ Mostly used when your project doesn't have a bundler but uses scripts to compile
 <script src="/node_modules/@mgdis/mg-components-helpers/dist/vue/index.umd.js"></script>
 ```
 
-##
-
 ## Documentation
 
-Read the full [documentation](./doc/README.md)
+Read the full [documentation](./docs/README.md)

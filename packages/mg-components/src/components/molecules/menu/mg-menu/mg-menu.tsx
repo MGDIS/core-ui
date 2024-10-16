@@ -1,6 +1,7 @@
 import { Component, h, Prop, State, Element, Watch, Host } from '@stencil/core';
 import { Direction, sizes } from './mg-menu.conf';
-import type { MenuSizeType, ItemMoreType } from './mg-menu.conf';
+import type { MenuSizeType, ItemMoreType, DirectionType } from './mg-menu.conf';
+import { toString } from '@mgdis/stencil-helpers';
 
 /**
  * @slot - Menu content
@@ -18,6 +19,7 @@ export class MgMenu {
   private readonly name = 'mg-menu';
   private menuItems: HTMLMgMenuItemElement[] = [];
   private focusedMenuItem = 0;
+  private itemMoreElement: HTMLMgItemMoreElement;
 
   /**************
    * Decorators *
@@ -30,24 +32,24 @@ export class MgMenu {
 
   /**
    * Menu label. Include short menu description.
-   * Required for accessibility
+   * Required to define accessibility required attribute `aria-label`
    */
   @Prop() label!: string;
   @Watch('label')
   validateLabel(newValue: MgMenu['label']): void {
-    if (newValue === undefined) {
-      throw new Error(`<${this.name}> prop "label" is required.`);
+    if (newValue === undefined && !this.element.hasAttribute('aria-label')) {
+      throw new Error(`<${this.name}> prop "label" is required. Passed value: ${toString(newValue)}.`);
     }
   }
 
   /**
    * Component display direction.
    */
-  @Prop({ reflect: true }) direction: Direction = Direction.HORIZONTAL;
+  @Prop({ reflect: true }) direction: DirectionType = Direction.HORIZONTAL;
   @Watch('direction')
   validateDirection(newValue: MgMenu['direction']): void {
     if (![Direction.VERTICAL, Direction.HORIZONTAL].includes(newValue)) {
-      throw new Error(`<${this.name}> prop "direction" must be one of: ${Direction.HORIZONTAL}, ${Direction.VERTICAL}.`);
+      throw new Error(`<${this.name}> prop "direction" must be one of: ${Direction.HORIZONTAL}, ${Direction.VERTICAL}. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -60,17 +62,19 @@ export class MgMenu {
   validateItemMore(newValue: MgMenu['itemmore']): void {
     if (newValue !== undefined && this.direction !== Direction.HORIZONTAL) {
       throw new Error(`<${this.name}> prop "itemmore" must be paired with direction ${Direction.HORIZONTAL}.`);
+    } else if (newValue !== undefined) {
+      this.renderMgItemMore();
     }
   }
 
   /**
    * Define mg-menu size
    */
-  @Prop() size: MenuSizeType = 'regular';
+  @Prop() size: MenuSizeType = 'medium';
   @Watch('size')
   validateSize(newValue: MgMenu['size']): void {
     if (!sizes.includes(newValue)) {
-      throw new Error(`<${this.name}> prop "size" must be one of: ${sizes.join(', ')}.`);
+      throw new Error(`<${this.name}> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -95,16 +99,10 @@ export class MgMenu {
   };
 
   /**
-   * get mg-item-more element
-   * @returns mg-item-more element
-   */
-  private getItemMore = (): HTMLMgItemMoreElement => this.element.querySelector('mg-item-more');
-
-  /**
    * get mg-item-more child mg-menu-item element
    * @returns mg-menu-item element
    */
-  private getItemMoreMenuItem = (): HTMLMgMenuItemElement => this.getItemMore()?.shadowRoot?.querySelector('mg-menu-item');
+  private getItemMoreMenuItem = (): HTMLMgMenuItemElement => this.itemMoreElement?.shadowRoot?.querySelector('mg-menu-item');
 
   /**
    * Set item listend
@@ -116,7 +114,8 @@ export class MgMenu {
       item.shadowRoot.querySelector('button,a').addEventListener(trigger, () => {
         this.focusedMenuItem = index;
         // reset expanded on previous active menu item
-        (this.getItemMoreMenuItem() ? [...this.menuItems, this.getItemMoreMenuItem()] : this.menuItems).forEach((item, index) => {
+        const itemMoreMenuItem = this.getItemMoreMenuItem();
+        (![null, undefined].includes(itemMoreMenuItem) ? [...this.menuItems, itemMoreMenuItem] : this.menuItems).forEach((item, index) => {
           this.closeMenuItem(item, index !== this.focusedMenuItem);
         });
       });
@@ -144,21 +143,28 @@ export class MgMenu {
    * render mg-item-more
    */
   private renderMgItemMore = (): void => {
-    if (this.direction !== Direction.HORIZONTAL || this.isChildMenu) {
+    if (this.direction !== Direction.HORIZONTAL || this.isChildMenu || this.element.children.length <= 1) {
       return;
     }
 
-    // /!\ externalise item tag name to get a string type and bypass type checking when value is used in next createElement
-    // by doing this we prevent stencil to generate a circular dependencies graph at build time with mg-item-more component.
-    let mgItemMore = this.getItemMore();
-    if (!mgItemMore) {
-      mgItemMore = document.createElement('mg-item-more');
-      mgItemMore.addEventListener('item-loaded', this.handleItemLoaded);
-      Object.assign(mgItemMore, this.itemmore || {});
-      this.element.appendChild(mgItemMore);
-    } else {
-      Object.defineProperties(mgItemMore, this.itemmore || {});
+    // Insert mg-item-more outside the mg-menu shadowdom
+    if (this.itemMoreElement === undefined) {
+      this.itemMoreElement = document.createElement('mg-item-more');
+      this.itemMoreElement.addEventListener('item-loaded', this.handleItemLoaded);
+      this.element.appendChild(this.itemMoreElement);
     }
+
+    // update mg-item-more props
+    for (const attribute in this.itemmore) {
+      const newValue = this.itemmore[attribute];
+      // to improve rendering we use HTML attributes as much as possible
+      if (['string', 'number'].includes(typeof newValue)) {
+        this.itemMoreElement.setAttribute(attribute, newValue);
+      } else {
+        this.itemMoreElement[attribute] = newValue;
+      }
+    }
+    if (this.itemmore?.size === undefined) this.itemMoreElement.size = this.size;
   };
 
   /*************

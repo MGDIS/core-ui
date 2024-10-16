@@ -1,0 +1,11 @@
+.mg-c-alert {
+  &__close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &.mg-c-alert--close-button {
+    --mg-c-card-spacing: 0 var(--mg-b-size-min-height) 0 0;
+  }
+}

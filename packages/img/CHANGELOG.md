@@ -1,5 +1,23 @@
 # @mgdis/img
 
+## 2.0.0
+
+### Major Changes
+
+- c2f33b8: remove question-circle icon
+
+## 1.7.3
+
+### Patch Changes
+
+- c567b43: update dependencies
+
+## 1.7.2
+
+### Patch Changes
+
+- 43f1421: update dependancies
+
 ## 1.7.1
 
 ### Patch Changes

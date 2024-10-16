@@ -1,5 +1,5 @@
 import { describe, expect, test, afterEach, vi } from 'vitest';
-import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick } from './';
+import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick, toString } from './';
 
 describe('components.utils', () => {
   describe('createID', () => {
@@ -145,6 +145,12 @@ describe('components.utils', () => {
     });
   });
 
+  describe('toString', () => {
+    test.each([undefined, null, 1, 'string', '', [undefined], [{ value: null }], {}, ['string'], { hello: 'batman' }])('Should return stringified value, original %s', value => {
+      expect(toString(value)).toEqual(typeof value === 'object' ? JSON.stringify(value) : `${value}`);
+    });
+  });
+
   describe('cleanString', () => {
     test.each([
       { string: 'batman', expected: 'batman' },
@@ -159,7 +165,7 @@ describe('components.utils', () => {
     });
 
     test('Should return orignal value when param is NOT a string', () => {
-      expect(cleanString(undefined)).toEqual(undefined);
+      expect(cleanString(undefined as unknown as string)).toEqual(undefined);
     });
   });
 

@@ -2,72 +2,6 @@
 
 A popover is more enhanced than a tooltip but less blocking than a modal.
 
-## Behavior
-
-The window is displayed when clicking on its trigger.
-
-The window is displayed next to its trigger, usually below it. A triangle (in css) makes the link between the trigger and the window.
-
-The window closes:
-
-- when clicking on its trigger
-- clicking outside the window
-- when the ESC key is pressed
-- when clicking on the close button at the top right corner
-
-The size of the window is determined by the content (set a maximum size to avoid problems).
-
-The title and the close button are optional.
-
-## Specs
-
-### Fonts
-
-![](./doc/img/mg-popover-fonts.png)
-
-### Spacing
-
-![](./doc/img/mg-popover-spacing.png)
-
-### Sizing
-
-![](./doc/img/mg-popover-sizing.png)
-
-Default max-width: 400px
-The value of the max-width can be modified according to the case via the CSS variable.
-
-### Alignments
-
-![](./doc/img/mg-popover-align.png)
-
-### Positioning
-
-#### Item
-
-![](./doc/img/mg-popover-position.png)
-
-#### Screen
-
-![](./doc/img/mg-popover-position-screen.png)
-
-### Style
-
-![](./doc/img/mg-popover-style.png)
-
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-popover-background-color`: Define popover background color, default: `var(--color-light)`
-- `--mg-popover-font-color`: Define popover font color, default: `var(--color-font-dark)`
-- `--mg-popover-title-font-size`: Define popover title font size, default: `1.4rem`
-- `--mg-popover-padding-vertical`: Define popover vertical padding, default: `1.5rem`
-- `--mg-popover-padding-horizontal`: Define popover horizontal padding, default: `--mg-popover-padding-vertical`
-- `--mg-popover-max-width`: Define the popover max-width. Default: `40rem`;
-- `--mg-popover-min-width`: Define the popover min-width. Default: `unset`;
-
-Please note that the mg-popover component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-popover. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-popover to your design.
-
 <!-- Auto Generated Below -->
 
 
@@ -96,6 +30,19 @@ Please note that the mg-popover component uses the [mg-card](./?path=/docs/atoms
 | ----------- | ------------------------------------- |
 |             | Element that will display the popover |
 | `"content"` | popover content                       |
+
+
+## CSS Custom Properties
+
+| Name                                | Description                                                                                          |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `--mg-c-popover-color-background`   | Defines the background color of the popover. Default value: `--mg-b-color-light`.                    |
+| `--mg-c-popover-color-text`         | Defines the font color of the popover. Default value: `--mg-b-color-font-dark`.                      |
+| `--mg-c-popover-max-width`          | Defines the max-width of the popover. Default value: `--mg-b-size-floating-element-max-width`.       |
+| `--mg-c-popover-min-width`          | Defines the min-width of the popover. Default value: `unset`.                                        |
+| `--mg-c-popover-padding-horizontal` | Defines the horizontal padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`. |
+| `--mg-c-popover-padding-vertical`   | Defines the vertical padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`.   |
+| `--mg-c-popover-title-font-size`    | Defines the font size of the popover title. Default value: `--mg-b-font-size-h5`.                    |
 
 
 ## Dependencies

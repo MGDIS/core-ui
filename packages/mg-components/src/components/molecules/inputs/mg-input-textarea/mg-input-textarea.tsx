@@ -1,6 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
-import { ClassList, isValidString } from '@mgdis/stencil-helpers';
-import { type TooltipPosition, type Width, Handler, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
+import { ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
+import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -15,7 +15,7 @@ export class MgInputTextarea {
 
   // Classes
   private readonly classFocus = 'mg-u-is-focused';
-  private readonly classHasDisplayCharacterLeft = 'mg-c-input--has-display-character-left';
+  private readonly classDisplayCharacterLeft = 'mg-c-input--display-character-left';
 
   // IDs
   private characterLeftId;
@@ -28,7 +28,7 @@ export class MgInputTextarea {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private handlerInProgress: Handler;
+  private handlerInProgress: EventType;
 
   /**************
    * Decorators *
@@ -137,7 +137,7 @@ export class MgInputTextarea {
     });
 
     // apply new width
-    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
+    if (newValue !== undefined) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
   }
 
   /**
@@ -154,7 +154,9 @@ export class MgInputTextarea {
   @Watch('patternErrorMessage')
   validatePattern(newValue: string): void {
     if (newValue !== undefined && !(isValidString(this.pattern) && isValidString(this.patternErrorMessage))) {
-      throw new Error('<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired.');
+      throw new Error(
+        `<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='${toString(this.pattern)}'" and "patternErrorMessage='${toString(this.patternErrorMessage)}'".`,
+      );
     }
   }
 
@@ -176,13 +178,13 @@ export class MgInputTextarea {
   /**
    * Define if component should display character left
    */
-  @Prop() displayCharacterLeft = true;
-  @Watch('displayCharacterLeft')
-  validateDisplayCharacterLeft(newValue: boolean): void {
+  @Prop() characterLeftHide = false;
+  @Watch('characterLeftHide')
+  validatecharacterLeftHide(newValue: boolean): void {
     if (newValue) {
-      this.classCollection.add(this.classHasDisplayCharacterLeft);
+      this.classCollection.delete(this.classDisplayCharacterLeft);
     } else {
-      this.classCollection.delete(this.classHasDisplayCharacterLeft);
+      this.classCollection.add(this.classDisplayCharacterLeft);
     }
   }
 
@@ -247,9 +249,9 @@ export class MgInputTextarea {
   @Method()
   async setError(valid: MgInputTextarea['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-textarea> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-textarea> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-textarea> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-textarea> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);
@@ -266,7 +268,7 @@ export class MgInputTextarea {
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
   /**
    * Handle input event
@@ -295,7 +297,7 @@ export class MgInputTextarea {
     this.classCollection.delete(this.classFocus);
     this.classCollection = new ClassList(this.classCollection.classes);
     // Display Error
-    this.handlerInProgress = Handler.BLUR;
+    this.handlerInProgress = 'blur';
     this.displayError().finally(() => {
       // reset guard
       this.handlerInProgress = undefined;
@@ -350,7 +352,7 @@ export class MgInputTextarea {
     this.messages = initLocales(this.element).messages;
     this.characterLeftId = `${this.identifier}-character-left`;
     // Validate
-    this.validateDisplayCharacterLeft(this.displayCharacterLeft);
+    this.validatecharacterLeftHide(this.characterLeftHide);
     this.validatePattern(this.pattern);
     this.validatePattern(this.patternErrorMessage);
     this.watchMgWidth(this.mgWidth);
@@ -379,42 +381,45 @@ export class MgInputTextarea {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonlyValue={this.value}
         tooltip={this.tooltip}
-        tooltipPosition={this.tooltipPosition}
+        tooltipPosition={this.readonly && this.value === undefined ? 'label' : this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >
-        <div class="mg-c-input__with-character-left">
-          <textarea
-            class={{
-              'mg-c-input__box': true,
-              'mg-c-input__box--width': true,
-              'mg-c-input__box--resizable': this.resizable === 'both',
-              'mg-c-input__box--resizable-horizontal': this.resizable === 'horizontal',
-              'mg-c-input__box--resizable-vertical': this.resizable === 'vertical',
-            }}
-            value={this.value}
-            id={this.identifier}
-            name={this.name}
-            placeholder={this.placeholder}
-            title={this.placeholder}
-            rows={this.rows}
-            maxlength={this.maxlength}
-            disabled={this.disabled}
-            required={this.required}
-            aria-invalid={(this.invalid === true).toString()}
-            onInput={this.handleInput}
-            onFocus={this.handleFocus}
-            onBlur={this.handleBlur}
-            ref={(el: HTMLTextAreaElement) => {
-              if (el !== null) this.input = el;
-            }}
-          ></textarea>
-          {this.displayCharacterLeft && this.maxlength > 0 && (
-            <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
-          )}
-        </div>
+        {this.readonly ? (
+          this.value && <b class="mg-c-input__readonly-value">{this.value}</b>
+        ) : (
+          <div class="mg-c-input__with-character-left">
+            <textarea
+              class={{
+                'mg-c-input__box': true,
+                'mg-c-input__box--width': true,
+                'mg-c-input__box--resizable': this.resizable === 'both',
+                'mg-c-input__box--resizable-horizontal': this.resizable === 'horizontal',
+                'mg-c-input__box--resizable-vertical': this.resizable === 'vertical',
+              }}
+              value={this.value}
+              id={this.identifier}
+              name={this.name}
+              placeholder={this.placeholder}
+              title={this.placeholder}
+              rows={this.rows}
+              maxlength={this.maxlength}
+              disabled={this.disabled}
+              required={this.required}
+              aria-invalid={(this.invalid === true).toString()}
+              onInput={this.handleInput}
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur}
+              ref={(el: HTMLTextAreaElement) => {
+                if (el !== null) this.input = el;
+              }}
+            ></textarea>
+            {!this.characterLeftHide && this.maxlength > 0 && (
+              <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
+            )}
+          </div>
+        )}
       </mg-input>
     );
   }

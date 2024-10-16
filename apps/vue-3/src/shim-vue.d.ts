@@ -7,6 +7,3 @@ declare module 'vue' {
     slot?: string;
   }
 }
-
-// declare module 'vue' {
-// }

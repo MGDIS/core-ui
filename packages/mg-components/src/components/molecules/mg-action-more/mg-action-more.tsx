@@ -1,10 +1,10 @@
 import { Component, h, Element, Prop, Watch, State, Host } from '@stencil/core';
-import { createID } from '@mgdis/stencil-helpers';
+import { createID, toString } from '@mgdis/stencil-helpers';
 import { Status } from '../menu/mg-menu-item/mg-menu-item.conf';
 import { Direction } from '../menu/mg-menu/mg-menu.conf';
 import { initLocales } from '../../../locales';
 import type { MessageType } from '../../../locales/index.conf';
-import type { MgActionMoreItemType, MgActionMoreButtonType, MgActionMoreIconType } from './mg-action-more.conf';
+import type { MgActionMoreItemType, MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreDividerType } from './mg-action-more.conf';
 
 /**
  * MgActionMore['items'] type guard
@@ -13,8 +13,18 @@ import type { MgActionMoreItemType, MgActionMoreButtonType, MgActionMoreIconType
  */
 const isMgActionMoreItems = (prop: unknown): prop is MgActionMoreItemType[] => {
   const items = prop as MgActionMoreItemType[];
-  return typeof items === 'object' && items.every(item => typeof item === 'object' && typeof item.label === 'string' && typeof item.mouseEventHandler === 'function');
+  return (
+    typeof items === 'object' &&
+    items.every(item => (typeof item === 'object' && typeof item.label === 'string' && typeof item.mouseEventHandler === 'function') || isMgActionMoreDivider(item))
+  );
 };
+
+/**
+ * MgActionMoreDividerType type guard
+ * @param item - component item
+ * @returns return true if type is valid
+ */
+const isMgActionMoreDivider = (item: unknown): item is MgActionMoreDividerType => typeof item === 'object' && (item as MgActionMoreDividerType).isDivider;
 
 /**
  * MgActionMore['button'] type guard
@@ -63,11 +73,15 @@ export class MgActionMore {
   /**
    * Define the menu-items elements
    */
-  @Prop() items!: MgActionMoreItemType[];
+  @Prop() items!: (MgActionMoreItemType | MgActionMoreDividerType)[];
   @Watch('items')
   validateItems(newValue: MgActionMore['items']): void {
     if (!isMgActionMoreItems(newValue)) {
-      throw new Error(`<${this.name}> prop "items" is required and all values must be the same type, MgActionMoreItemType.`);
+      throw new Error(
+        `<${this.name}> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType. Passed value: ${toString(newValue)}.`,
+      );
+    } else if (isMgActionMoreItems(newValue) && newValue.length > 0 && (isMgActionMoreDivider(newValue[0]) || isMgActionMoreDivider(newValue[newValue.length - 1]))) {
+      throw new Error(`<${this.name}> prop "items" can’t have a divider at the beginning or the end of the array. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -78,8 +92,8 @@ export class MgActionMore {
   @Watch('icon')
   validateIcon(newValue: MgActionMore['icon']): void {
     if (newValue && !isMgActionMoreIcon(newValue)) {
-      throw new Error(`<${this.name}> prop icon must match MgActionMoreIconType.`);
-    } else if (!newValue?.icon && Boolean(this.button.isIcon)) {
+      throw new Error(`<${this.name}> prop "icon" must match MgActionMoreIconType. Passed value: ${toString(newValue)}.`);
+    } else if (newValue?.icon === undefined && Boolean(this.button.isIcon)) {
       this.icon = { icon: 'ellipsis' };
     }
   }
@@ -91,7 +105,7 @@ export class MgActionMore {
   @Watch('button')
   validateButton(newValue: MgActionMore['button']): void {
     if (newValue && !isMgActionMoreButton(newValue)) {
-      throw new Error(`<${this.name}> prop button must match MgActionMoreButtonType.`);
+      throw new Error(`<${this.name}> prop "button" must match MgActionMoreButtonType. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -184,7 +198,7 @@ export class MgActionMore {
 
     return (
       <Host data-mg-popover-guard={this.mgPopoverIdentifier}>
-        <span class="mg-action-more">
+        <span class={this.classBase}>
           <mg-popover identifier={this.mgPopoverIdentifier} display={this.expanded} onDisplay-change={this.handleDisplayChange}>
             <mg-button variant={this.button.variant} isIcon={this.button.isIcon} disabled={this.button.disabled} type="button" label={buttonLabel} onClick={this.handleButton}>
               {this.icon && <mg-icon {...this.icon}></mg-icon>}
@@ -192,20 +206,24 @@ export class MgActionMore {
             </mg-button>
             <div slot="content">
               <mg-menu direction={Direction.VERTICAL} label={this.messages.label}>
-                {this.items.map(item => (
-                  // eslint-disable-next-line react/jsx-no-bind
-                  <mg-menu-item
-                    key={item.label}
-                    status={item.status || Status.VISIBLE}
-                    target={item.target}
-                    href={item.href}
-                    onClick={e => this.handleItemClick(e, item.mouseEventHandler)}
-                  >
-                    {item.icon && <mg-icon icon={item.icon} slot="image"></mg-icon>}
-                    <span slot="label">{item.label}</span>
-                    {item.badge?.label && <mg-badge label={item.badge.label} value={item.badge.value} slot="information" variant="text-color"></mg-badge>}
-                  </mg-menu-item>
-                ))}
+                {this.items.map(item =>
+                  isMgActionMoreDivider(item) ? (
+                    <mg-divider class="mg-c-action-more__divider" key="divider"></mg-divider>
+                  ) : (
+                    <mg-menu-item
+                      key={item.label}
+                      status={item.status || Status.VISIBLE}
+                      target={item.target}
+                      href={item.href}
+                      // eslint-disable-next-line react/jsx-no-bind
+                      onClick={e => this.handleItemClick(e, item.mouseEventHandler)}
+                    >
+                      {item.icon?.icon && <mg-icon icon={item.icon.icon} variant={item.icon.variant} variantStyle={item.icon.variantStyle} slot="image"></mg-icon>}
+                      <span slot="label">{item.label}</span>
+                      {item.badge?.label && <mg-badge label={item.badge.label} value={item.badge.value} slot="information" variant="text-color"></mg-badge>}
+                    </mg-menu-item>
+                  ),
+                )}
               </mg-menu>
             </div>
           </mg-popover>

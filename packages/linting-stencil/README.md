@@ -1,6 +1,6 @@
-# MGDIS Linting Stencil
+# @mgdis/linting-stencil
 
-This project centralizes all the linting rules/libraries at mgdis.
+This project centralizes all the linting rules/libraries at MGDIS.
 
 You can add linting very easily to your project.
 
@@ -9,7 +9,7 @@ You can add linting very easily to your project.
 Install the module
 
 ```sh
-npm install -D @mgdis/linting-stencil
+npm i -D @mgdis/linting-stencil
 ```
 
 Then create local files to use shared config (eslint and prettier)

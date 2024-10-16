@@ -1,5 +1,29 @@
 # @mgdis/playwright-helpers
 
+## 1.0.9
+
+### Patch Changes
+
+- 6195e7a: Update PW
+
+## 1.0.8
+
+### Patch Changes
+
+- c567b43: update dependencies
+
+## 1.0.7
+
+### Patch Changes
+
+- 43f1421: update dependancies
+
+## 1.0.6
+
+### Patch Changes
+
+- 38ba699: Use vitest-config package
+
 ## 1.0.5
 
 ### Patch Changes

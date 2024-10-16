@@ -1,80 +1,70 @@
 @use 'sass:map';
 
-$border-bottom-size: 0.3rem;
-$font-size-large: calc(var(--font-size) + 0.2rem);
-$navigation-button-column-gap: 1rem;
-
-@mixin navigation-button($component-class-prefix, $custom-property-prefix, $button-sizes) {
+@mixin navigation-button($prefix, $button-sizes) {
   @each $name, $size in $button-sizes {
-    .#{$component-class-prefix}.#{$component-class-prefix}--size-#{$name} .#{$component-class-prefix}__navigation-button,
-    .#{$component-class-prefix}__navigation-button.#{$component-class-prefix}__navigation-button--size-#{$name} {
+    .#{$prefix}.#{$prefix}--size-#{$name} .#{$prefix}__navigation-button,
+    .#{$prefix}__navigation-button.#{$prefix}__navigation-button--size-#{$name} {
       height: #{map.get($size, 'height')};
       padding: #{map.get($size, 'vertical')} #{map.get($size, 'horizontal')};
 
       &,
       ::slotted([slot='label']),
       ::slotted([slot='metadata']) {
-        @if $name == 'regular' {
-          font-size: var(--font-size);
+        @if $name == 'medium' {
+          font-size: var(--mg-b-font-size);
         } @else {
-          font-size: $font-size-large;
+          font-size: var(--mg-b-font-size-h4);
         }
       }
-      &.#{$component-class-prefix}__navigation-button--horizontal {
-        padding-bottom: calc(#{map.get($size, 'vertical')} - #{$border-bottom-size});
+      &.#{$prefix}__navigation-button--horizontal {
+        padding-bottom: #{map.get($size, 'vertical')};
       }
-      &.#{$component-class-prefix}__navigation-button--vertical {
-        padding-left: calc(#{map.get($size, 'horizontal')} - #{$border-bottom-size});
+      &.#{$prefix}__navigation-button--vertical {
+        padding-left: #{map.get($size, 'horizontal')};
       }
     }
   }
 
-  .#{$component-class-prefix}__navigation-button {
+  .#{$prefix}__navigation-button {
     display: flex;
     box-sizing: border-box;
     align-items: center;
     border: none;
     background-color: unset;
-    color: hsl(var(--#{$custom-property-prefix}-color-hsl, var(--color-dark)));
-    column-gap: var(--#{$custom-property-prefix}-navigation-button-column-gap, $navigation-button-column-gap);
+    color: var(--#{$prefix}-color-text, var(--mg-b-color-dark));
+    column-gap: var(--#{$prefix}-navigation-button-column-gap, var(--mg-b-size-8));
     cursor: pointer;
-    font-family: var(--font-family);
+    font-family: var(--mg-b-font-family);
     font-weight: 400;
-    line-height: var(--line-height);
+    line-height: var(--mg-b-line-height);
     text-decoration: none;
     white-space: nowrap;
 
     &:disabled,
     &--disabled {
       cursor: default;
-      opacity: var(--mg-disabled-opacity);
+      opacity: var(--mg-b-opacity-element-disabled);
     }
 
     &:focus-visible {
       z-index: 10;
     }
-    &:hover:not(.#{$component-class-prefix}__navigation-button--disabled),
-    &:focus-visible:not(.#{$component-class-prefix}__navigation-button--disabled) {
-      background-color: hsl(var(--#{$custom-property-prefix}-focused-background-color-hsl) / 10%);
+    &:hover:not(.#{$prefix}__navigation-button--disabled),
+    &:focus-visible:not(.#{$prefix}__navigation-button--disabled) {
+      background-color: color-mix(in srgb, var(--#{$prefix}-color), transparent 90%);
     }
-    &.#{$component-class-prefix}__navigation-button--active {
-      color: hsl(var(--#{$custom-property-prefix}-color-active-hsl));
+    &.#{$prefix}__navigation-button--active {
+      color: var(--#{$prefix}-color);
       font-weight: 600;
-      &.#{$component-class-prefix}__navigation-button--horizontal {
-        border-bottom-color: hsl(var(--#{$custom-property-prefix}-border-color-active-hsl));
+      &.#{$prefix}__navigation-button--horizontal {
+        box-shadow: inset 0 calc(-1 * var(--mg-b-size-4)) var(--#{$prefix}-color);
       }
-      &.#{$component-class-prefix}__navigation-button--vertical {
-        border-left-color: hsl(var(--#{$custom-property-prefix}-border-color-active-hsl));
+      &.#{$prefix}__navigation-button--vertical {
+        box-shadow: inset var(--mg-b-size-4) 0 var(--#{$prefix}-color);
       }
     }
-    &.#{$component-class-prefix}__navigation-button--hidden {
+    &.#{$prefix}__navigation-button--hidden {
       display: none;
-    }
-    &.#{$component-class-prefix}__navigation-button--horizontal {
-      border-bottom: $border-bottom-size solid transparent;
-    }
-    &.#{$component-class-prefix}__navigation-button--vertical {
-      border-left: $border-bottom-size solid transparent;
     }
   }
 }

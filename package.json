@@ -1,11 +1,11 @@
 {
   "name": "core-ui",
   "license": "BSD-3-Clause",
-  "packageManager": "pnpm@8.15.7",
+  "packageManager": "pnpm@8.15.9",
   "engineStrict": true,
   "engines": {
-    "pnpm": ">=8",
-    "node": ">=20"
+    "pnpm": "8.x",
+    "node": "20.x"
   },
   "repository": {
     "type": "git",
@@ -30,16 +30,23 @@
     "build:apps": "turbo build --filter='./apps/*' --force",
     "build:configs": "turbo build --filter='./configs/*' --force",
     "build:packages": "turbo build --filter='./packages/*' --force",
+    "doc": "turbo doc",
     "change": "changeset",
     "change:empty": "changeset --empty",
     "release": "./scripts/release.sh",
     "release:status": "changeset status",
     "release:preview": "./scripts/release-preview.sh",
     "apps:notification-center": "pnpm --filter notification-center dev",
+    "apps:mg-components": "pnpm dlx http-server packages --cors",
     "clean": "pnpm /^clean:.*/",
     "clean:lock-file": "rm -f pnpm-lock.yaml",
     "clean:node_modules": "pnpm -r exec rm -rf node_modules && rm -rf node_modules",
-    "clean:dist": "pnpm -r exec rm -rf dist && rm -rf dist"
+    "clean:dist": "pnpm -r exec rm -rf dist && rm -rf dist",
+    "clean:turbo": "pnpm -r exec rm -rf .turbo && rm -rf .turbo",
+    "clean:build": "pnpm -r exec rm -rf tsconfig.tsbuildinfo && rm -rf tsconfig.tsbuildinfo",
+    "clean:test": "pnpm -r exec rm -rf test-results && rm -rf test-results",
+    "clean:playwright": "pnpm -r exec rm -rf playwright-report && rm -rf playwright-report",
+    "clean:coverage": "pnpm -r exec rm -rf coverage && rm -rf coverage"
   },
   "manypkg": {
     "ignoredRules": [
@@ -48,16 +55,18 @@
   },
   "lint-staged": {
     "*.{js,ts,mjs,mts,cjs,tsx}": "eslint --fix --ignore-path .gitignore",
-    "*.{json,yaml,yml,md,mdx}": "prettier --write"
+    "*.{json,yaml,yml,md,mdx}": "prettier --write",
+    "packages/styles/**/*.scss": "stylelint --fix"
   },
   "dependencies": {
-    "@changesets/cli": "2.27.1",
+    "@changesets/cli": "2.27.9",
     "@manypkg/cli": "0.21.4",
     "codename": "0.0.6",
     "eslint-config-custom": "workspace:*",
-    "husky": "9.0.11",
-    "lint-staged": "15.2.2",
+    "husky": "9.1.6",
+    "lint-staged": "15.2.10",
     "prettier-config": "workspace:*",
-    "turbo": "1.13.3"
+    "stylelint": "16.10.0",
+    "turbo": "2.1.3"
   }
 }

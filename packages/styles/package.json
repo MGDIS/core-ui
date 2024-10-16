@@ -1,6 +1,6 @@
 {
   "name": "@mgdis/styles",
-  "version": "1.3.2",
+  "version": "2.0.0",
   "description": "MGDIS styles",
   "keywords": [
     "SCSS",
@@ -10,7 +10,7 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "start": "sass scss:dist -w",
-    "build": "sass scss:dist -s compressed && cp -r scss/mg-temp/fonts dist/mg-temp",
+    "build": "sass scss:dist -s compressed && cp -r scss/fonts dist/fonts",
     "build:dev": "sass scss:dist",
     "lint": "stylelint 'scss/**/*.{css,scss}'",
     "lint:fix": "stylelint 'scss/**/*.{css,scss}' --fix",
@@ -19,17 +19,18 @@
     "test:e2e:docker": "pnpm dlx @playwright/test test"
   },
   "files": [
-    "dist"
+    "dist",
+    "scss"
   ],
   "devDependencies": {
     "@mgdis/playwright-helpers": "workspace:*",
-    "@playwright/test": "1.43.1",
-    "prettier": "3.2.5",
-    "sass": "1.75.0",
-    "stylelint": "16.4.0",
+    "@playwright/test": "1.48.0",
+    "prettier": "3.3.3",
+    "sass": "1.79.5",
+    "stylelint": "16.10.0",
     "stylelint-config-idiomatic-order": "10.0.0",
     "stylelint-config-standard-scss": "13.1.0",
-    "stylelint-prettier": "5.0.0"
+    "stylelint-prettier": "5.0.2"
   },
   "dependencies": {
     "modern-normalize": "2.0.0"

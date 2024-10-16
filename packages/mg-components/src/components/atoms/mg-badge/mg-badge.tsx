@@ -1,6 +1,7 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
 import { variants, BadgeVariantType } from './mg-badge.conf';
-import { ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
+
 @Component({
   tag: 'mg-badge',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-badge.css',
@@ -24,8 +25,8 @@ export class MgBadge {
   @Prop() value!: string | number;
   @Watch('value')
   validateValue(newValue: MgBadge['value']): void {
-    if (/^(\d+\+*|[?*!a-z])$/i.exec(`${newValue}`) === null) {
-      throw new Error('<mg-badge> prop "value" must be integer or ponctuation character.');
+    if (/^[^A-Z]+$/i.exec(`${newValue}`) === null) {
+      throw new Error(`<mg-badge> prop "value" is required and must be integer and/or special character. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -37,7 +38,7 @@ export class MgBadge {
   @Watch('label')
   validateLabel(newValue: MgBadge['label']): void {
     if (!isValidString(newValue)) {
-      throw new Error('<mg-badge> prop "label" is required.');
+      throw new Error(`<mg-badge> prop "label" is required and must be a string. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -48,7 +49,7 @@ export class MgBadge {
   @Watch('variant')
   validateVariant(newValue: MgBadge['variant'], oldValue?: MgBadge['variant']): void {
     if (!variants.includes(newValue)) {
-      throw new Error(`<mg-badge> prop "variant" must be one of: ${variants.join(', ')}.`);
+      throw new Error(`<mg-badge> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
     } else {
       if (oldValue !== undefined) {
         this.classCollection.delete(`mg-c-badge--${oldValue}`);

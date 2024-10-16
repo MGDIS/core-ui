@@ -1,6 +1,18 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ide > vsCodeGenerator > Should generate VScode custom data 1`] = `
+exports[`ide > vsCodeCssGenerator > Should generate VScode CSS custom data 1`] = `
+{
+  "properties": [
+    {
+      "description": "Custom property documentation",
+      "name": "--custom-property",
+    },
+  ],
+  "version": 1.1,
+}
+`;
+
+exports[`ide > vsCodeGenerator > Should generate VScode HTML custom data 1`] = `
 {
   "globalAttributes": [],
   "tags": [
@@ -47,9 +59,135 @@ Type: \`string\`",
             },
           ],
         },
+        {
+          "description": "docs
+
+Type: \`(string | number)[]\`",
+          "name": "multionetype",
+          "references": [
+            {
+              "name": "Storybook",
+              "url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+            },
+            {
+              "name": "Sources",
+              "url": "http://sources.test/src/components/atoms/my-comp/my-comp.tsx",
+            },
+          ],
+          "values": undefined,
+        },
+        {
+          "description": "docs
+
+Type: \`number\`",
+          "name": "number",
+          "references": [
+            {
+              "name": "Storybook",
+              "url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+            },
+            {
+              "name": "Sources",
+              "url": "http://sources.test/src/components/atoms/my-comp/my-comp.tsx",
+            },
+          ],
+          "values": undefined,
+        },
+        {
+          "description": "docs
+
+Type: \`boolean\`",
+          "name": "boolean",
+          "references": [
+            {
+              "name": "Storybook",
+              "url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+            },
+            {
+              "name": "Sources",
+              "url": "http://sources.test/src/components/atoms/my-comp/my-comp.tsx",
+            },
+          ],
+          "values": undefined,
+        },
+        {
+          "description": "docs
+
+Type: \`{ type: string, value: "blu" | "bli" }\`",
+          "name": "objecttype",
+          "references": [
+            {
+              "name": "Storybook",
+              "url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+            },
+            {
+              "name": "Sources",
+              "url": "http://sources.test/src/components/atoms/my-comp/my-comp.tsx",
+            },
+          ],
+          "values": undefined,
+        },
+        {
+          "description": "docs
+
+Type: \`"blu" | "bli"\`",
+          "name": "multitype",
+          "references": [
+            {
+              "name": "Storybook",
+              "url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+            },
+            {
+              "name": "Sources",
+              "url": "http://sources.test/src/components/atoms/my-comp/my-comp.tsx",
+            },
+          ],
+          "values": undefined,
+        },
+        {
+          "description": "docs
+
+Type: \`number | string\`",
+          "name": "multitypewithstring",
+          "references": [
+            {
+              "name": "Storybook",
+              "url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+            },
+            {
+              "name": "Sources",
+              "url": "http://sources.test/src/components/atoms/my-comp/my-comp.tsx",
+            },
+          ],
+          "values": undefined,
+        },
+        {
+          "description": "docs
+
+Type: \`number[] | string[]\`",
+          "name": "arraytypes",
+          "references": [
+            {
+              "name": "Storybook",
+              "url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+            },
+            {
+              "name": "Sources",
+              "url": "http://sources.test/src/components/atoms/my-comp/my-comp.tsx",
+            },
+          ],
+          "values": undefined,
+        },
       ],
       "description": "Attributes:
 - \`prop\`: docs
+- \`multionetype\`: docs
+- \`number\`: docs
+- \`boolean\`: docs
+- \`objecttype\`: docs
+- \`multitype\`: docs
+- \`multitypewithstring\`: docs
+- \`arraytypes\`: docs
 
 Properties:
 - \`attr\`: docs
@@ -65,6 +203,7 @@ Listeners:
 
 Slots:
 - \`\`: 
+- \`title\`: 
 
 ",
       "name": "my-comp",
@@ -84,7 +223,7 @@ Slots:
       "description": "overview
 
 ",
-      "name": "my-comp",
+      "name": "my-second-comp",
       "references": [
         {
           "name": "Storybook",
@@ -98,7 +237,7 @@ Slots:
     },
   ],
   "valueSets": [],
-  "version": "1.0.0",
+  "version": 1.1,
 }
 `;
 
@@ -122,9 +261,108 @@ Type: \`string\`",
                 "type": "string",
               },
             },
+            {
+              "description": "docs
+
+Type: \`(string | number)[]\`",
+              "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+              "name": "multionetype",
+              "value": {
+                "default": undefined,
+                "required": true,
+                "type": "(string | number)[]",
+              },
+            },
+            {
+              "description": "docs
+
+Type: \`number\`",
+              "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+              "name": "number",
+              "value": {
+                "default": undefined,
+                "required": true,
+                "type": "number",
+              },
+            },
+            {
+              "description": "docs
+
+Type: \`boolean\`",
+              "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+              "name": "boolean",
+              "value": {
+                "default": undefined,
+                "required": true,
+                "type": "boolean",
+              },
+            },
+            {
+              "description": "docs
+
+Type: \`{ type: string, value: "blu" | "bli" }\`",
+              "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+              "name": "objecttype",
+              "value": {
+                "default": undefined,
+                "required": true,
+                "type": "{ type: string, value: "blu" | "bli" }",
+              },
+            },
+            {
+              "description": "docs
+
+Type: \`"blu" | "bli"\`",
+              "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+              "name": "multitype",
+              "value": {
+                "default": undefined,
+                "required": true,
+                "type": ""blu" | "bli"",
+              },
+            },
+            {
+              "description": "docs
+
+Type: \`number | string\`",
+              "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+              "name": "multitypewithstring",
+              "value": {
+                "default": undefined,
+                "required": true,
+                "type": "number | string",
+              },
+            },
+            {
+              "description": "docs
+
+Type: \`number[] | string[]\`",
+              "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+              "name": "arraytypes",
+              "value": {
+                "default": undefined,
+                "required": true,
+                "type": "number[] | string[]",
+              },
+            },
           ],
+          "css": {
+            "properties": [
+              {
+                "description": "Custom property documentation",
+                "name": "--custom-property",
+              },
+            ],
+          },
           "description": "Attributes:
 - \`prop\`: docs
+- \`multionetype\`: docs
+- \`number\`: docs
+- \`boolean\`: docs
+- \`objecttype\`: docs
+- \`multitype\`: docs
+- \`multitypewithstring\`: docs
+- \`arraytypes\`: docs
 
 Properties:
 - \`attr\`: docs
@@ -140,6 +378,7 @@ Listeners:
 
 Slots:
 - \`\`: 
+- \`title\`: 
 
 ",
           "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
@@ -175,12 +414,99 @@ Type: \`string\`",
                   "type": "string",
                 },
               },
+              {
+                "description": "docs
+
+Type: \`(string | number)[]\`",
+                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+                "name": "multionetype",
+                "value": {
+                  "default": undefined,
+                  "required": true,
+                  "type": "(string | number)[]",
+                },
+              },
+              {
+                "description": "docs
+
+Type: \`number\`",
+                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+                "name": "number",
+                "value": {
+                  "default": undefined,
+                  "required": true,
+                  "type": "number",
+                },
+              },
+              {
+                "description": "docs
+
+Type: \`boolean\`",
+                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+                "name": "boolean",
+                "value": {
+                  "default": undefined,
+                  "required": true,
+                  "type": "boolean",
+                },
+              },
+              {
+                "description": "docs
+
+Type: \`{ type: string, value: "blu" | "bli" }\`",
+                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+                "name": "objecttype",
+                "value": {
+                  "default": undefined,
+                  "required": true,
+                  "type": "{ type: string, value: "blu" | "bli" }",
+                },
+              },
+              {
+                "description": "docs
+
+Type: \`"blu" | "bli"\`",
+                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+                "name": "multitype",
+                "value": {
+                  "default": undefined,
+                  "required": true,
+                  "type": ""blu" | "bli"",
+                },
+              },
+              {
+                "description": "docs
+
+Type: \`number | string\`",
+                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+                "name": "multitypewithstring",
+                "value": {
+                  "default": undefined,
+                  "required": true,
+                  "type": "number | string",
+                },
+              },
+              {
+                "description": "docs
+
+Type: \`number[] | string[]\`",
+                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+                "name": "arraytypes",
+                "value": {
+                  "default": undefined,
+                  "required": true,
+                  "type": "number[] | string[]",
+                },
+              },
             ],
           },
           "name": "my-comp",
         },
         {
           "attributes": [],
+          "css": {
+            "properties": [],
+          },
           "description": "overview
 
 ",
@@ -189,7 +515,7 @@ Type: \`string\`",
             "events": [],
             "properties": [],
           },
-          "name": "my-comp",
+          "name": "my-second-comp",
         },
       ],
     },

@@ -1,0 +1,17 @@
+// Helper to manage space between elements
+.mg-l-group-elements {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--mg-b-size-8);
+
+  // remove default margin
+  & > * {
+    margin: 0 !important; /* stylelint-disable-line declaration-no-important */
+  }
+
+  // Align button on right side
+  &.mg-l-group-elements--align-right {
+    justify-content: flex-end;
+  }
+}

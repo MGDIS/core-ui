@@ -1,30 +1,9 @@
 ## Usage
 
-Clicking anywhere on the entire component area toggles the selected value.
-
-The first value is always selected by default.
-
-When the "on/off" property is used, the first value is always the disabled value and the style is adjusted.
-
-The values must be transcribed by texts or icons.
-
-### Types
-
-![](./doc/img/mg-input-toggle-use.png)
-
-### Specs
-
-![](./doc/img/mg-input-toggle-specs.png)
-
-### Readonly
-
-![](./doc/img/mg-input-toggle-readonly.png)
-
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-input-toggle-border-radius-ratio`: Define input border radius ration, default: `2`
+- Clicking anywhere on the entire component area toggles the selected value.
+- The first value is always selected by default.
+- When the "on/off" property is used, the first value is always the disabled value, and the style is adjusted.
+- The values must be transcribed by text or icons.
 
 <!-- Auto Generated Below -->
 

@@ -2,6 +2,7 @@ node_modules
 dist
 coverage
 playwright-report
+test-results
 temp
 tsconfig.tsbuildinfo
 .vscode/numbered-bookmarks.json
@@ -15,3 +16,7 @@ loader
 build
 *.tgz
 .idea
+
+# ignore auto-generated docs
+packages/mg-components-helpers/docs
+packages/stencil-helpers/docs

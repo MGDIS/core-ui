@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
-import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
+import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/stencil-helpers';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
-import { type TooltipPosition, type Width, Handler, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 /**
@@ -70,7 +70,7 @@ export class MgInputSelect {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private handlerInProgress: Handler;
+  private handlerInProgress: EventType;
 
   /**************
    * Decorators *
@@ -88,7 +88,7 @@ export class MgInputSelect {
   @Watch('value')
   validateValue(newValue: MgInputSelect['value']): void {
     if (allItemsAreString(this.items) && typeof newValue === 'string') {
-      this.readonlyValue = this.input?.value ? this.input.value : newValue;
+      this.readonlyValue = this.input?.value !== undefined ? this.input.value : newValue;
     } else if (allItemsAreOptions(this.items)) {
       this.readonlyValue = this.items.find(item => item.value === newValue)?.title;
     } else {
@@ -124,7 +124,9 @@ export class MgInputSelect {
         this.options = newValue;
       }
     } else {
-      throw new Error('<mg-input-select> prop "items" is required, can be an empty Array or all items must be the same type: string or Option.');
+      throw new Error(
+        `<mg-input-select> prop "items" is required, can be an empty Array or all items must be the same type: string or Option. Passed value: ${toString(newValue)}.`,
+      );
     }
   }
 
@@ -221,7 +223,7 @@ export class MgInputSelect {
     });
 
     // apply new width
-    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
+    if (newValue !== undefined) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
   }
 
   /**
@@ -270,7 +272,7 @@ export class MgInputSelect {
   @State() valueExist: boolean;
 
   /**
-   * Does value match any item option
+   * Value to display in readonly mode
    */
   @State() readonlyValue: string;
 
@@ -305,9 +307,9 @@ export class MgInputSelect {
   @Method()
   async setError(valid: MgInputSelect['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-select> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-select> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-select> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-select> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);
@@ -324,7 +326,7 @@ export class MgInputSelect {
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
   /**
    * Handle input event
@@ -339,7 +341,7 @@ export class MgInputSelect {
    * @param item - item to compare with
    * @returns truthy if input.value is an item
    */
-  private isInputValue = (item: SelectOption): boolean => item.title === this.input.value;
+  private isInputValue = (item: SelectOption): boolean => item.title === this.input?.value;
 
   /**
    * value props setter
@@ -371,7 +373,7 @@ export class MgInputSelect {
    * Handle blur event
    */
   private handleBlur = (): void => {
-    this.handlerInProgress = Handler.BLUR;
+    this.handlerInProgress = 'blur';
     this.displayError().finally(() => {
       // reset guard
       this.handlerInProgress = undefined;
@@ -461,41 +463,44 @@ export class MgInputSelect {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonlyValue={this.readonlyValue}
         tooltip={this.tooltip}
-        tooltipPosition={this.tooltipPosition}
+        tooltipPosition={this.readonly && this.readonlyValue === null ? 'label' : this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >
-        <select
-          class="mg-c-input__box"
-          id={this.identifier}
-          name={this.name}
-          title={this.placeholder}
-          disabled={this.disabled}
-          required={this.required}
-          aria-invalid={(this.invalid === true).toString()}
-          onInput={this.handleInput}
-          onBlur={this.handleBlur}
-          ref={(el: HTMLSelectElement) => {
-            if (el !== null) this.input = el;
-          }}
-        >
-          {(!this.placeholderHide || !this.valueExist) && ( // In case passed value does not match any option we display the placeholder
-            <option value="" disabled={this.placeholderDisabled && this.valueExist}>
-              {this.placeholder}
-            </option>
-          )}
-          {this.options.map(option =>
-            isOptGroup(option) ? (
-              <optgroup label={option.group} key={option.group}>
-                {option.options.map(this.renderOption)}
-              </optgroup>
-            ) : (
-              isOption(option) && this.renderOption(option)
-            ),
-          )}
-        </select>
+        {this.readonly ? (
+          this.readonlyValue && <b class="mg-c-input__readonly-value">{this.readonlyValue}</b>
+        ) : (
+          <select
+            class="mg-c-input__box"
+            id={this.identifier}
+            name={this.name}
+            title={this.placeholder}
+            disabled={this.disabled}
+            required={this.required}
+            aria-invalid={(this.invalid === true).toString()}
+            onInput={this.handleInput}
+            onBlur={this.handleBlur}
+            ref={(el: HTMLSelectElement) => {
+              if (el !== null) this.input = el;
+            }}
+          >
+            {(!this.placeholderHide || !this.valueExist) && ( // In case passed value does not match any option we display the placeholder
+              <option value="" disabled={this.placeholderDisabled && this.valueExist}>
+                {this.placeholder}
+              </option>
+            )}
+            {this.options.map(option =>
+              isOptGroup(option) ? (
+                <optgroup label={option.group} key={option.group}>
+                  {option.options.map(this.renderOption)}
+                </optgroup>
+              ) : (
+                isOption(option) && this.renderOption(option)
+              ),
+            )}
+          </select>
+        )}
       </mg-input>
     );
   }

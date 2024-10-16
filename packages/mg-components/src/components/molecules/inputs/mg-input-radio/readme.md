@@ -1,23 +1,9 @@
 ## Usage
 
-- Always used in a group with minimum 2 options
-- Only one selected option is possible from all the options in the group
-- The label option is clickable and selects the option
-- The group can be initialized without any default value
-
-### Theming
-
-The style of the active radio button is that of the browser.
-
-## Specs
-
-![](./doc/img/mg-input-radio-specs.png)
-
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-input-check-size`: Define radio input size, default: `1.3rem`
+- Always used in a group with a minimum of 2 options.
+- Only one selected option is possible from all the options in the group.
+- The label option is clickable and selects the option.
+- The group can be initialized without any default value.
 
 <!-- Auto Generated Below -->
 
@@ -64,7 +50,7 @@ Type: `Promise<void>`
 
 
 
-### `setError(valid: MgInputRadio['valid'], errorMessage: string) => Promise<void>`
+### `setError(valid: MgInputRadio["valid"], errorMessage: string) => Promise<void>`
 
 Set an error and display a custom error message.
 This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.

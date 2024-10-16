@@ -1,5 +1,128 @@
 # @mgdis/mg-components
 
+## 6.0.0
+
+### Major Changes
+
+- a8270ce: Separate styles
+- 4edae4d: mg-button - remove identifier prop
+- 3cd9204: Prefix all custom properties
+- c2f33b8: remove question-circle icon
+- 9e1d5c6: `<mg-action-more>` items icon variant can be defined.
+- a84fb50: [mg-modal](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-modal--docs) rename hide property to hidden
+- fb3aec6: Renammed display-character-left prop to character-left-hide.
+- 0ff869e: move [**`<mg-card>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-card--docs) variants to [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs)
+- 631a96f: [mg-messsage](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs) rename hide property to hidden
+- 69bce84: move [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs) alerts features to a new component: [**`<mg-alert>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-alert--docs)
+- 17b6aca: mg-input-numeric's currency type has been removed in favor of the format prop.
+- 2678968: [mg-message](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs) rename `variant-style` `fill` value to `background`
+
+### Minor Changes
+
+- 525e9ed: Component validation error messages contain the passed value.
+- 7899249: `<mg-tooltip>` automate popper.js strategy setting
+- 3ccbb15: `<mg-input-text>` `datalistoptions` prop can handle `OptionType[]`
+- 7e36d34: `<mg-action-more>` add divider between items
+- f1e98e7: mg-input-checkbox: add `localeMessages` prop
+- 2fbeeee: `<mg-tooltip>` `<mg-tabs>` remove document|window listener on disconnectedCallback
+- 2c6ee2f: `<mg-badge/>` Only alphabetical characters are excluded
+- 88b5d3b: `<mg-input-**>` add tooltip in readonly state
+
+### Patch Changes
+
+- 74ed81b: Remove `@stencil-community/ban-exported-const-enums` linting rule override
+- ab2224b: Add CSS code completion
+- Updated dependencies [a8270ce]
+- Updated dependencies [3cd9204]
+- Updated dependencies [c2f33b8]
+- Updated dependencies [525e9ed]
+- Updated dependencies [2a72803]
+- Updated dependencies [a84fb50]
+- Updated dependencies [fb3aec6]
+- Updated dependencies [b2a0a03]
+- Updated dependencies [0ff869e]
+- Updated dependencies [ab2224b]
+- Updated dependencies [f1e98e7]
+- Updated dependencies [631a96f]
+- Updated dependencies [69bce84]
+- Updated dependencies [88b5d3b]
+  - @mgdis/styles@2.0.0
+  - @mgdis/img@2.0.0
+  - @mgdis/stencil-helpers@2.0.0
+
+## 5.29.0
+
+### Minor Changes
+
+- b8a9428: linting: disabled eslint "no-redundant-roles" rule
+
+### Patch Changes
+
+- 2fad542: update dependencies
+- e2100d2: [#501](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/501) mg-input-radio: readonly display value
+- Updated dependencies [2fad542]
+  - @mgdis/stencil-helpers@1.1.9
+
+## 5.28.2
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+- Updated dependencies [9c9620c]
+  - @mgdis/stencil-helpers@1.1.8
+
+## 5.28.1
+
+### Patch Changes
+
+- Updated dependencies [4ee49fe]
+  - @mgdis/stencil-helpers@1.1.7
+  - @mgdis/styles@1.3.6
+
+## 5.28.0
+
+### Minor Changes
+
+- 0d73023: [#495](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/495) mg-input-password: add maxlength prop
+
+### Patch Changes
+
+- c567b43: update dependencies
+- 95cbe02: [#494](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/494) mg-menu: responsive sub-menu click didn't work
+- 2218c8b: [#496](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/496) mg-input-password: Prevent mg-icon style to be overridden
+- Updated dependencies [c567b43]
+- Updated dependencies [2218c8b]
+  - @mgdis/stencil-helpers@1.1.6
+  - @mgdis/img@1.7.3
+  - @mgdis/styles@1.3.5
+
+## 5.27.4
+
+### Patch Changes
+
+- 43f1421: update dependancies
+- 8343e1e: [#484](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/484) mg-tooltip: `<mg-button disable-on-click />` with tooltip forced position
+- 1e8734b: [#492](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/492) mg-input-date: Invalid help text when using UTC-x timezone
+- c8ff48e: [#490](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/490) mg-input-checkbox: the error message must not be shown when clicking on the checkbox label
+- Updated dependencies [43f1421]
+- Updated dependencies [1e8734b]
+  - @mgdis/stencil-helpers@1.1.5
+  - @mgdis/styles@1.3.4
+  - @mgdis/img@1.7.2
+
+## 5.27.3
+
+### Patch Changes
+
+- 5b5de24: [#486](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/486) mg-menu: error with itemmore config
+- 3bb7043: [#485](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/485) mg-menu: sub-item repositionning mistake
+- 253c7a6: Update dependencies
+- Updated dependencies [5b5de24]
+- Updated dependencies [38ba699]
+- Updated dependencies [253c7a6]
+  - @mgdis/styles@1.3.3
+  - @mgdis/stencil-helpers@1.1.4
+
 ## 5.27.2
 
 ### Patch Changes

@@ -1,9 +1,10 @@
 {
   "name": "@mgdis/mg-components-helpers",
-  "version": "4.1.2",
+  "version": "4.1.9",
   "description": "CORE mg-components-helpers",
   "scripts": {
-    "build": "rollup -c ./rollup.config.mjs && typedoc",
+    "build": "rollup -c ./rollup.config.mjs",
+    "doc": "typedoc",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "lint": "pnpm lint:es && pnpm lint:prettier",
@@ -14,18 +15,19 @@
     "lint:prettier:fix": "prettier --write '**/*.{js,ts,json}' --ignore-path ../../.gitignore"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "25.0.7",
-    "@rollup/plugin-node-resolve": "15.2.3",
+    "@rollup/plugin-commonjs": "26.0.3",
+    "@rollup/plugin-node-resolve": "15.3.0",
     "@rollup/plugin-typescript": "11.1.6",
-    "@types/lodash": "^4.17.0",
-    "@vitest/coverage-istanbul": "1.5.2",
+    "@types/lodash": "4.17.10",
+    "@vitest/coverage-istanbul": "1.6.0",
     "@vue/test-utils": "npm:@vue/test-utils@1.3.6",
-    "rollup": "4.17.1",
-    "rollup-plugin-dts": "^6.1.0",
+    "rollup": "4.24.0",
+    "rollup-plugin-dts": "6.1.1",
     "tsconfig": "workspace:*",
-    "typedoc": "0.25.13",
-    "typedoc-plugin-markdown": "3.17.1",
-    "vitest": "1.5.2",
+    "typedoc": "0.26.9",
+    "typedoc-config": "workspace:*",
+    "typedoc-plugin-markdown": "4.2.9",
+    "vitest": "1.6.0",
     "vitest-config": "workspace:*",
     "vue": "npm:vue@2.7.16",
     "vue-jest": "3.0.7",
@@ -37,13 +39,13 @@
   "exports": {
     "./angular": {
       "import": "./dist/angular/index.js",
-      "require": "./dist/agular/index.cjs",
+      "require": "./dist/angular/index.cjs",
       "types": "./dist/angular/types.d.ts"
     },
     "./vue": {
       "import": "./dist/vue/index.js",
-      "require": "./distvue/index.cjs",
-      "types": "./dist/angular/types.d.ts"
+      "require": "./dist/vue/index.cjs",
+      "types": "./dist/vue/types.d.ts"
     }
   }
 }

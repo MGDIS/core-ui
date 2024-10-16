@@ -1,5 +1,63 @@
 # @mgdis/stencil-helpers
 
+## 2.0.0
+
+### Major Changes
+
+- ab2224b: Remove useless `version` arguments in code completion methods
+
+### Patch Changes
+
+- ab2224b: Add CSS code completion
+
+### Minor Changes
+
+- 525e9ed: Component validation error messages contain the passed value.
+- f1e98e7: mg-input-checkbox: add `localeMessages` prop
+
+### Patch Changes
+
+- 2a72803: Init package
+- 0ff869e: move [**`<mg-card>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-card--docs) variants to [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs)
+
+## 1.1.9
+
+### Patch Changes
+
+- 2fad542: update dependencies
+
+## 1.1.8
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+
+## 1.1.7
+
+### Patch Changes
+
+- 4ee49fe: Update dependencies
+
+## 1.1.6
+
+### Patch Changes
+
+- c567b43: update dependencies
+
+## 1.1.5
+
+### Patch Changes
+
+- 43f1421: update dependancies
+- 1e8734b: [#492](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/492) mg-input-date: Invalid help text when using UTC-x timezone
+
+## 1.1.4
+
+### Patch Changes
+
+- 38ba699: Use vitest-config package
+- 253c7a6: Update dependencies
+
 ## 1.1.3
 
 ### Patch Changes

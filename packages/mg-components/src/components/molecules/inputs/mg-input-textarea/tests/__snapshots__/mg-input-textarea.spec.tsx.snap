@@ -1,0 +1,1211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mg-input-textarea Should render with args {
+  readonly: true,
+  tooltip: 'Tooltip message',
+  tooltipPosition: 'input'
+}: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args {
+  readonly: true,
+  tooltip: 'Tooltip message',
+  tooltipPosition: 'input',
+  value: 'blu'
+}: 1`] = `
+<mg-input-textarea value="blu">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+              <mg-icon icon="info-circle"></mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </template>
+      <b class="mg-c-input__readonly-value">
+        blu
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args {
+  required: true,
+  disabled: true,
+  value: 'blu',
+  helpText: 'My help text'
+}: 1`] = `
+<mg-input-textarea value="blu">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" maxlength="4000" name="identifier" required="" rows="3" value="blu"></textarea>
+        <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args {
+  required: true,
+  readonly: true,
+  value: 'blu',
+  helpText: 'My help text'
+}: 1`] = `
+<mg-input-textarea value="blu">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <b class="mg-c-input__readonly-value">
+        blu
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="true" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args {
+  tooltip: 'My Tooltip Message',
+  tooltipPosition: 'input',
+  labelOnTop: true
+}: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--label-on-top mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args { characterLeftHide: true }: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args { labelHide: true }: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title mg-u-visually-hidden">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args { labelOnTop: true }: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--label-on-top mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args { readonly: true }: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args { readonly: true, labelOnTop: true, tooltip: 'Tooltip message' }: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--label-on-top mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args { readonly: true, value: 'blu' }: 1`] = `
+<mg-input-textarea value="blu">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <b class="mg-c-input__readonly-value">
+        blu
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args { required: true, value: 'blu', helpText: 'My help text' }: 1`] = `
+<mg-input-textarea value="blu">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3" value="blu"></textarea>
+        <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args { resizable: 'both' }: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--resizable mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args { resizable: 'horizontal' }: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--resizable-horizontal mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args { resizable: 'vertical' }: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--resizable-vertical mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args { tooltip: 'My Tooltip Message' }: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+              <mg-icon icon="info-circle"></mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args { tooltip: 'My Tooltip Message', labelOnTop: true }: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--label-on-top mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args { tooltip: 'My Tooltip Message', tooltipPosition: 'label' }: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args {}: 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should trigger events 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full mg-u-is-focused">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should update mg-width 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-2">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should update mg-width 2`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-4">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should update mg-width 3`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-16">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should update mg-width 4`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-16">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea display error message with locale: fr 1`] = `
+<mg-input-textarea lang="fr">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-error" slot="error">
+        Ce champ est obligatoire.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea display error message with locale: xx 1`] = `
+<mg-input-textarea lang="xx">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea display error with displayError component's public method 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea display error with displayError component's public method 2`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea should display override error with setError component's public method 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea should display override error with setError component's public method 2`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea should display override error with setError component's public method 3`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea should display override error with setError component's public method 4`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;

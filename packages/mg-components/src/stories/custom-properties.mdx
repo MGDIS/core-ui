@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Style/Custom Properties" />
+
+# Custom Properties
+
+To customize our components we are using [Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+
+Custom properties are included in our stylesheets.
+
+## How to Customize
+
+Custom properties customization must be done after the stylesheets import.
+
+### Global
+
+For a global customization, you will prefer to use the `:root` selector:
+
+```css
+:root {
+  /* font */
+  --font-size: 1.4rem;
+  --line-height: 1.5;
+  --font-family: 'Ubuntu';
+  --font-family-heading: 'Montserrat';
+  /* mg-button */
+  --mg-button-border-radius: var(--mg-b-size-radius);
+  /* mg-tooltip */
+  --mg-c-tooltip-border-radius: var(--mg-b-size-radius);
+  --mg-c-tooltip-color-background: var(--mg-b-color-dark);
+  ...
+}
+```
+
+### Localized
+
+When your web component needs to be customized only in a localized area, you will prefer to use a CSS selector:
+
+```html
+<!-- Style -->
+<style>
+  .message-without-radius {
+    --mg-c-message-border-radius: 0;
+  }
+</style>
+
+<!-- On component -->
+<mg-message class="message-without-radius">This message should not have radius</mg-message>
+
+<!-- or on a defined area -->
+<div class="message-without-radius">
+  <mg-message>This message should not have radius</mg-message>
+  <mg-message>This message also</mg-message>
+</div>
+```
+
+## More custom properties
+
+Other custom properties are available.
+
+Components like [`mg-form`](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/blob/master/packages/styles/scss/components/mg-form.scss) will define variables to set how `mg-input-*` will be displayed.
+
+Other components like [`mg-button`](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/blob/master/packages/styles/scss/components/mg-button.scss) or [`mg-input-*`](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/blob/master/packages/styles/scss/components/_mg-input-box.scss) can be customized using custom properties but are using the fallback value (ex: `text-align: var(--mg-c-input-text-align, left);`).

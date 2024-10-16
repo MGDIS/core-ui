@@ -94,7 +94,9 @@ export class MgPopover {
    * @param event - mouse event
    */
   private clickOutside = (event: MouseEvent & { target: HTMLElement }): void => {
-    if (!this.disabled && event.target.closest('mg-popover') !== this.element && !event.target.closest(`[data-mg-popover-guard="${this.identifier}"]`)) this.display = false;
+    if (!this.disabled && event.target.closest('mg-popover') !== this.element && event.target.closest(`[data-mg-popover-guard="${this.identifier}"]`) === null) {
+      this.display = false;
+    }
   };
 
   /**
@@ -222,6 +224,10 @@ export class MgPopover {
     // Add aria attributes
     interactiveElement.setAttribute('aria-controls', this.identifier);
     interactiveElement.setAttribute('aria-expanded', `${this.display}`);
+    const fallbackPlacements = [];
+    if (this.element.dataset.fallbackPlacement !== undefined) {
+      fallbackPlacements.push(this.element.dataset.fallbackPlacement);
+    }
 
     // Create popperjs popover
     this.popper = createPopper(interactiveElement, this.mgPopover, {
@@ -237,7 +243,7 @@ export class MgPopover {
         {
           name: 'flip',
           options: {
-            fallbackPlacements: ['auto'],
+            fallbackPlacements: [...fallbackPlacements, 'auto'],
           },
         },
       ],

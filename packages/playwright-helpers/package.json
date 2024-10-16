@@ -1,6 +1,6 @@
 {
   "name": "@mgdis/playwright-helpers",
-  "version": "1.0.5",
+  "version": "1.0.9",
   "license": "ISC",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,17 +19,17 @@
     "lint:prettier:fix": "prettier --write '**/*.{js,ts,json}' --ignore-path ../../.gitignore"
   },
   "dependencies": {
-    "@playwright/test": "1.43.1"
+    "@playwright/test": "1.48.0"
   },
   "devDependencies": {
-    "@types/node": "20.12.7",
-    "@vitest/coverage-istanbul": "1.5.2",
-    "@vitest/coverage-v8": "1.5.2",
+    "@types/node": "20.16.11",
+    "@vitest/coverage-istanbul": "1.6.0",
+    "@vitest/coverage-v8": "1.6.0",
     "eslint-config-custom": "workspace:*",
     "prettier-config": "workspace:*",
     "tsconfig": "workspace:*",
-    "typescript": "5.4.5",
-    "vitest": "1.5.2",
+    "typescript": "5.6.3",
+    "vitest": "1.6.0",
     "vitest-config": "workspace:*"
   }
 }

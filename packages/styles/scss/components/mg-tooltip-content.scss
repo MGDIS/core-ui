@@ -1,12 +1,15 @@
 :host {
   z-index: 1000;
   display: none;
-  max-width: 40rem;
+  max-width: var(--mg-b-size-floating-element-max-width);
   box-sizing: border-box;
-  padding: 0.5rem 0.8rem;
-  border-radius: var(--mg-tooltip-border-radius);
-  background-color: hsl(var(--mg-tooltip-background-color));
-  color: hsl(var(--mg-tooltip-font-color));
+  padding: var(--mg-b-size-4) var(--mg-b-size-8);
+  border-radius: var(--mg-c-tooltip-border-radius);
+  background-color: var(--mg-c-tooltip-color-background);
+  color: var(--mg-c-tooltip-color-text);
+  font-family: var(--mg-b-font-family);
+  font-size: var(--mg-b-font-size);
+  font-weight: 400;
   text-align: start;
 }
 
@@ -27,24 +30,24 @@
   &::before {
     position: absolute;
     z-index: 9999;
-    width: 0.8rem;
-    height: 0.8rem;
-    background-color: hsl(var(--mg-tooltip-background-color));
+    width: var(--mg-b-size-8);
+    height: var(--mg-b-size-8);
+    background-color: var(--mg-c-tooltip-color-background);
   }
 
   :host([data-popper-placement^='top']) > & {
-    bottom: -0.4rem;
+    bottom: calc(-1 * var(--mg-b-size-4));
   }
 
   :host([data-popper-placement^='bottom']) > & {
-    top: -0.4rem;
+    top: calc(-1 * var(--mg-b-size-4));
   }
 
   :host([data-popper-placement^='left']) > & {
-    right: -0.4rem;
+    right: calc(-1 * var(--mg-b-size-4));
   }
 
   :host([data-popper-placement^='right']) > & {
-    left: -0.4rem;
+    left: calc(-1 * var(--mg-b-size-4));
   }
 }

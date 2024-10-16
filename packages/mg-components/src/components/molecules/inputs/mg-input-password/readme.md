@@ -1,6 +1,4 @@
-## Design
 
-The standard display of "bullets" instead of characters is the standard one (depending on the rendering of the used browser).
 
 <!-- Auto Generated Below -->
 
@@ -16,6 +14,7 @@ The standard display of "bullets" instead of characters is the standard one (dep
 | `label` _(required)_      | `label`            | Input label                                                                                                                                    | `string`                 | `undefined`       |
 | `labelHide`               | `label-hide`       | Define if label is visible                                                                                                                     | `boolean`                | `false`           |
 | `labelOnTop`              | `label-on-top`     | Define if label is displayed on top                                                                                                            | `boolean`                | `undefined`       |
+| `maxlength`               | `maxlength`        | Input max length                                                                                                                               | `any`                    | `undefined`       |
 | `mgWidth`                 | `mg-width`         | Define input width                                                                                                                             | `"full" \| 16 \| 2 \| 4` | `'full'`          |
 | `name`                    | `name`             | Input name If not set the value equals the identifier                                                                                          | `string`                 | `this.identifier` |
 | `placeholder`             | `placeholder`      | Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text. | `string`                 | `undefined`       |
@@ -47,7 +46,7 @@ Type: `Promise<void>`
 
 
 
-### `setError(valid: MgInputPassword['valid'], errorMessage: string) => Promise<void>`
+### `setError(valid: MgInputPassword["valid"], errorMessage: string) => Promise<void>`
 
 Set an error and display a custom error message.
 This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
