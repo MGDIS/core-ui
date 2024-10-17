@@ -89,9 +89,16 @@ test.describe('mg-input-text', () => {
         ...baseArgs,
         value: 'M'.repeat(mgWidth),
         mgWidth,
+        maxlength: mgWidth,
         tooltip: 'Tooltip message',
       });
       await page.setContent(html);
+
+      // Wait for the component to be hydrated
+      await page.locator('mg-input-text.hydrated').waitFor();
+
+      // Focus the input field
+      await page.focus('mg-input-text input');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
