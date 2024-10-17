@@ -57,7 +57,9 @@ test.describe('mg-input-textarea', () => {
         test(`with mgWidth ${mgWidth}`, async ({ page }) => {
           const html = createHTML({
             ...baseArgs,
+            value: 'M'.repeat(mgWidth),
             mgWidth,
+            maxlength: mgWidth * 3, // 3 rows by default
             labelOnTop,
           });
           await page.setContent(html);
