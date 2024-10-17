@@ -21,7 +21,7 @@
 @function luminance($color) {
   // Thanks voxpelli for a very concise implementation of luminance measure in sass
   // Adapted from: https://gist.github.com/voxpelli/6304812
-  $rgba: color.red($color), color.green($color), color.blue($color);
+  $rgba: color.channel($color, 'red', $space: rgb), color.channel($color, 'green', $space: rgb), color.channel($color, 'blue', $space: rgb);
   $rgba2: ();
 
   @for $i from 1 through 3 {

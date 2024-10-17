@@ -38,11 +38,12 @@ test.describe('mg-input-date', () => {
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab'); // Display tootip when labelOnTop
       if (!labelOnTop) {
         await page.keyboard.down('Tab');
         await page.keyboard.down('Tab');
         await page.keyboard.down('Tab');
+        await page.keyboard.down('Tab'); // Display tootip when !labelOnTop
       }
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -80,10 +81,11 @@ test.describe('mg-input-date', () => {
       await page.setContent(createHTML({ ...baseProps, lang, required: true }));
       await page.locator('mg-input-date.hydrated').waitFor();
 
-      await page.keyboard.down('Tab');
-      await page.keyboard.down('Tab');
-      await page.keyboard.down('Tab');
-      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab'); // Enter input: day
+      await page.keyboard.down('Tab'); // month
+      await page.keyboard.down('Tab'); // year
+      await page.keyboard.down('Tab'); // calendar
+      await page.keyboard.down('Tab'); // tooltip
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -94,14 +96,15 @@ test.describe('mg-input-date', () => {
       await page.setContent(createHTML({ ...baseProps, helpText }));
       await page.locator('mg-input-date.hydrated').waitFor();
 
-      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab'); // Enter input: day
 
       await page.keyboard.down('0');
       await page.keyboard.down('2');
       await page.keyboard.down('0');
       await page.keyboard.down('6');
 
-      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab'); // calendar
+      await page.keyboard.down('Tab'); // exit tooltip
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -127,14 +130,15 @@ test.describe('mg-input-date', () => {
         await page.setContent(createHTML({ ...baseProps, helpText }));
         await page.locator('mg-input-date.hydrated').waitFor();
 
-        await page.keyboard.down('Tab');
+        await page.keyboard.down('Tab'); // Enter input: day
 
         await page.keyboard.down('0');
         await page.keyboard.down('2');
         await page.keyboard.down('0');
         await page.keyboard.down('6');
 
-        await page.keyboard.down('Tab');
+        await page.keyboard.down('Tab'); // calendar
+        await page.keyboard.down('Tab'); // exit tooltip
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });

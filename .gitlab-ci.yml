@@ -131,7 +131,7 @@ test:unit:
 
 test:e2e:
   stage: tests
-  image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
+  image: registre.mgcloud.fr/mgdis/playwright-baseimage:v1.48.0-jammy
   parallel: 7
   rules:
     - if: !reference [.rules:if, except-tags]
@@ -156,7 +156,7 @@ test:e2e:
 
 test:e2e:notification-center:
   stage: tests
-  image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
+  image: registre.mgcloud.fr/mgdis/playwright-baseimage:v1.48.0-jammy
   rules:
     - if: !reference [.rules:if, except-tags]
       changes: !reference [.rules:changes, notification-center, changes]
