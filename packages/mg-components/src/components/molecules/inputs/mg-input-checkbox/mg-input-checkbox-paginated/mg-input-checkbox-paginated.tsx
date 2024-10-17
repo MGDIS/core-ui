@@ -162,7 +162,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
         <div class="mg-c-input__section-header">
           {this.sectionKind === SectionKind.SELECTED ? (
             <mg-button variant="flat" onClick={this.handleToggleClick} aria-controls={itemsContainerId} aria-expanded={this.expanded.toString()}>
-              <mg-icon icon={this.expanded ? 'chevron-up' : 'chevron-down'} size="small"></mg-icon>
+              <mg-icon icon={this.expanded ? 'chevron-up' : 'chevron-down'}></mg-icon>
               <span class="mg-c-input__section-header-title">{getText(this.checkboxes)}</span>
             </mg-button>
           ) : (
