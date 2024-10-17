@@ -36,7 +36,7 @@
       }
 
       &:not(:has(textarea)) .mg-c-input__box {
-        width: calc(var(--mg-c-input-size) + (var(--mg-c-character-left-message-length) * 1ch));
+        width: calc(var(--mg-c-input-size) + (var(--mg-c-character-left-message-length) * 0.6ch));
       }
     }
   }
