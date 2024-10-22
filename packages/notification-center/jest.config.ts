@@ -1,4 +1,4 @@
-import base from 'jest-config/base';
+import base from '@core-ui/jest-config/base';
 import { name } from './package.json';
 import type { Config } from 'jest';
 
