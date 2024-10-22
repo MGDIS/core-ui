@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ['custom']
+  extends: ['@core-ui/eslint-config-custom']
 };

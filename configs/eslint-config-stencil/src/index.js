@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const eslintrc = require('eslint-config-custom');
+const eslintrc = require('@core-ui/eslint-config-custom');
 
 // use destructuring from 'eslint-config-custom' to benefit from a standalone package after build (ex: with linting-stencil)
 module.exports = {

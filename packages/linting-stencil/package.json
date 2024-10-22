@@ -26,14 +26,14 @@
     "lint:prettier:fix": "prettier --write '**/*.{js,ts,json,md}' --ignore-path ../../.gitignore"
   },
   "devDependencies": {
+    "@core-ui/eslint-config-custom": "workspace:*",
+    "@core-ui/eslint-config-stencil": "workspace:*",
+    "@core-ui/prettier-config": "workspace:*",
+    "@core-ui/tsconfig": "workspace:*",
     "@rollup/plugin-commonjs": "28.0.1",
     "@rollup/plugin-node-resolve": "15.3.0",
     "@rollup/plugin-typescript": "12.1.1",
-    "eslint-config-custom": "workspace:*",
-    "eslint-config-stencil": "workspace:*",
-    "prettier-config": "workspace:*",
     "rollup": "4.24.0",
-    "tsconfig": "workspace:*",
     "typescript": "5.6.3"
   }
 }
