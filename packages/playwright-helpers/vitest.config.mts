@@ -1,4 +1,4 @@
-import vitestConfig from 'vitest-config';
+import vitestConfig from '@core-ui/vitest-config';
 import { defineConfig, mergeConfig } from 'vitest/config';
 
 export default mergeConfig(

@@ -314,38 +314,6 @@ exports[`mg-input-text Should render with args { datalistoptions: [Array] }: 2`]
 </mg-input-text>
 `;
 
-exports[`mg-input-text Should render with args { displayCharacterLeft: false }: 1`] = `
-<mg-input-text>
-  <template shadowrootmode="open">
-    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </template>
-      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
-        <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" name="identifier" type="text">
-        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
-      </div>
-      <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-text>
-`;
-
 exports[`mg-input-text Should render with args { labelHide: true }: 1`] = `
 <mg-input-text>
   <template shadowrootmode="open">

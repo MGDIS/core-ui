@@ -3,31 +3,15 @@
  * Kept it nested for coming widths
  */
 
-@mixin input-box-max-width {
-  &.mg-c-input--width-2 {
-    .mg-c-input__box,
-    .mg-c-input__with-character-left {
-      max-width: var(--mg-b-size-48);
-    }
+@mixin input-width($size) {
+  .mg-c-input__box {
+    width: $size;
   }
 
-  &.mg-c-input--width-4 {
-    .mg-c-input__box,
-    .mg-c-input__with-character-left {
-      max-width: var(--mg-b-size-72);
+  .mg-c-input__with-character-left {
+    &:not(:has(textarea)) .mg-c-input__box {
+      width: calc(#{$size} + (var(--mg-c-character-left-message-length) * 0.6ch));
     }
-  }
-
-  &.mg-c-input--width-16 {
-    .mg-c-input__box,
-    .mg-c-input__with-character-left {
-      max-width: calc(26 * var(--mg-b-size-8));
-    }
-  }
-
-  &.mg-c-input--width-full .mg-c-input__box {
-    width: 100%;
-    max-width: 100%;
   }
 }
 
@@ -41,14 +25,34 @@
   * Variations
   */
 
-  @include input-box-max-width;
-
-  &.mg-c-input--label-on-top {
-    @include input-box-max-width;
-
+  &.mg-c-input--width-full {
     .mg-c-input__box {
-      width: auto;
+      width: 100%;
     }
+  }
+
+  &.mg-c-input--width-2,
+  &.mg-c-input--width-4,
+  &.mg-c-input--width-16 {
+    .mg-c-input__with-character-left {
+      width: max-content;
+
+      &:has(textarea) {
+        flex-grow: inherit;
+      }
+    }
+  }
+
+  &.mg-c-input--width-2 {
+    @include input-width(var(--mg-b-size-48));
+  }
+
+  &.mg-c-input--width-4 {
+    @include input-width(var(--mg-b-size-72));
+  }
+
+  &.mg-c-input--width-16 {
+    @include input-width(calc(26 * var(--mg-b-size-8)));
   }
 
   &.mg-c-input--width-full:not(.mg-c-input--label-on-top) {

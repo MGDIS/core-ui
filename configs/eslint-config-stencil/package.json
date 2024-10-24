@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-stencil",
+  "name": "@core-ui/eslint-config-stencil",
   "version": "1.2.0",
   "description": "",
   "main": "./src/index.js",
@@ -16,17 +16,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@core-ui/eslint-config-custom": "workspace:*",
     "@stencil-community/eslint-plugin": "0.8.0",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
     "eslint": "8.57.1",
-    "eslint-config-custom": "workspace:*",
-    "eslint-plugin-jsx-a11y": "6.10.0"
+    "eslint-plugin-jsx-a11y": "6.10.1"
   },
   "devDependencies": {
-    "eslint-plugin-react": "7.37.1",
-    "prettier-config": "workspace:*",
-    "tsconfig": "workspace:*",
+    "@core-ui/prettier-config": "workspace:*",
+    "@core-ui/tsconfig": "workspace:*",
+    "eslint-plugin-react": "7.37.2",
     "typescript": "5.6.3"
   }
 }
