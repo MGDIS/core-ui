@@ -159,6 +159,13 @@ describe('mg-menu-item', () => {
   });
 
   describe('errors', () => {
+    test('Should log an error with invalid "identifier" property', async () => {
+      const identifier = '{{batman}}';
+      const spy = jest.spyOn(console, 'error');
+      await getPage(templateDefault({ identifier, label: 'hello' }));
+      expect(spy).toHaveBeenCalledWith(`<mg-menu-item> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+    });
+
     test('Should throw an error when missing slot label', async () => {
       expect.assertions(1);
 

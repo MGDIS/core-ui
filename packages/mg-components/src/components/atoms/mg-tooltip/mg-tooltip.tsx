@@ -50,7 +50,7 @@ export class MgTooltip {
   @Watch('identifier')
   watchIdentifier(newValue: MgTooltip['identifier']): void {
     if (!isValideID(newValue)) {
-      console.error(`<mg-tooltip> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+      throw new Error(`<mg-tooltip> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }
     // use renderTooltipContent to update tooltip-content id
     this.renderTooltipContent();

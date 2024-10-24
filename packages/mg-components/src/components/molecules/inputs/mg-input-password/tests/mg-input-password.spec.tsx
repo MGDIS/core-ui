@@ -56,10 +56,12 @@ describe('mg-input-password', () => {
   test('Should log an error with invalid "identifier" property', async () => {
     const identifier = '{{batman}}';
     const spy = jest.spyOn(console, 'error');
+    expect.assertions(2);
+
     try {
       await getPage({ identifier, label: 'test' });
     } catch (err) {
-      expect(err).toBeDefined();
+      expect(err.message).toEqual('Syntax error, unrecognized expression: #{{batman}}');
       expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
     }
   });

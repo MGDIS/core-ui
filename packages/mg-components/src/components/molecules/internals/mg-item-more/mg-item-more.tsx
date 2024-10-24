@@ -74,7 +74,10 @@ export class MgItemMore {
    */
   private setProxyElement = (proxified: HTMLMgMenuItemElement): void => {
     const proxy: HTMLMgMenuItemElement = this.moreElementMenuItem.querySelector(`[identifier="${proxified.identifier}"]`);
-    if (proxy === null) return;
+    // eslint-disable-next-line @stencil-community/strict-boolean-conditions
+    if (!proxy) {
+      return;
+    }
 
     // remove proxy id to prevent duplicate key. default html id is: '';
     if (isValidString(proxy.id)) proxy.id = '';
@@ -129,10 +132,9 @@ export class MgItemMore {
 
       // we need to get all `mg-menu-item` linked to the cloned one to set mirror process
       nextTick(() => {
+        this.setProxyElement(child);
         if (child.querySelector('mg-menu') !== null) {
           child.querySelectorAll('mg-menu-item').forEach(this.setProxyElement);
-        } else {
-          this.setProxyElement(child);
         }
       });
     });

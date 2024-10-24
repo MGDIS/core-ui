@@ -84,14 +84,11 @@ describe('mg-tooltip', () => {
   });
 
   test.each(['{batman', 'batman}', '{{batman}}'])('Should log an error with invalid "identifier" property: %s', async identifier => {
-    const spy = jest.spyOn(console, 'error');
-
-    expect.assertions(2);
+    expect.assertions(1);
     try {
       await getPage({ identifier, message: 'My tooltip message' }, <span>span</span>);
     } catch (err) {
-      expect(err).toBeDefined();
-      expect(spy).toHaveBeenCalledWith(`<mg-tooltip> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+      expect(err.message).toEqual(`<mg-tooltip> prop "identifier" value is invalid. Passed value: ${identifier}.`);
     }
   });
 

@@ -134,7 +134,7 @@ describe('mg-input-toggle', () => {
       try {
         await getPage({ identifier, label: 'label', items: defaultItems });
       } catch (err) {
-        expect(err).toBeDefined();
+        expect(err.message).toEqual('Syntax error, unrecognized expression: #{{batman}}');
         expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
       }
     });

@@ -38,7 +38,7 @@ export class MgPopover {
   @Watch('identifier')
   validateIdentifier(newValue: MgPopover['identifier']): void {
     if (!isValideID(newValue)) {
-      console.error(`<mg-popover> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+      throw new Error(`<mg-popover> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }
     // use renderPopoverContent to update popover-content id
     this.renderPopoverContent();

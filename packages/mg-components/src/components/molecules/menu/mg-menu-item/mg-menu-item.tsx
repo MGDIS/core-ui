@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { ClassList, createID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
+import { ClassList, createID, isValideID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { Direction, type MenuSizeType, type DirectionType } from '../mg-menu/mg-menu.conf';
 import { type MgMenuStatusType, Status, targets, type TargetType } from './mg-menu-item.conf';
@@ -44,6 +44,12 @@ export class MgMenuItem {
    * Identifier is used to control mg-popover
    */
   @Prop({ reflect: true }) identifier = createID('mg-menu-item');
+  @Watch('identifier')
+  watchIdentifier(newValue: MgMenuItem['identifier']): void {
+    if (!isValideID(newValue)) {
+      console.error(`<mg-menu-item> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+    }
+  }
 
   /**
    * Define menu-item href
@@ -336,6 +342,7 @@ export class MgMenuItem {
     this.validateStatus(this.status);
     this.validateExpanded(this.expanded);
     this.watchTarget(this.target);
+    this.watchIdentifier(this.identifier);
 
     // Validate states
     this.validateSize(this.size);
