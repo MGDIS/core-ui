@@ -2,7 +2,7 @@ import { webTypesGenerator, vsCodeGenerator, vsCodeCssGenerator } from '@mgdis/s
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { Config } from '@stencil/core';
-import { coverageReporters, coverageThreshold } from 'jest-config/base';
+import { coverageReporters, coverageThreshold } from '@core-ui/jest-config/base';
 import packageJson from './package.json';
 const { name, version, 'web-types': webTypes, contributes } = packageJson;
 
