@@ -182,4 +182,20 @@ test.describe('mg-input-textarea', () => {
     // Readonly state
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
+  [true, false].forEach(characterLeftHide => {
+    test(`render input with characterLeftHide=${characterLeftHide}`, async ({ page }) => {
+      const html = createHTML({
+        ...baseArgs,
+        characterLeftHide,
+      });
+      await page.setContent(html);
+
+      await page.locator('mg-input-textarea.hydrated').waitFor();
+
+      await page.keyboard.press('Tab');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
 });

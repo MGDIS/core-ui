@@ -215,6 +215,32 @@ test.describe('mg-input-text', () => {
     });
   });
 
+  [true, false].forEach(characterLeftHide => {
+    [true, false].forEach(searchMode => {
+      test(`render search input characterLeftHide=${characterLeftHide}, case ${searchMode ? 'with' : 'without'} searchMode`, async ({ page }) => {
+        const searchProps = {
+          type: 'search',
+          icon: 'magnifying-glass',
+        };
+        const componentsProps = searchMode ? { ...baseArgs, ...searchProps } : { baseArgs };
+
+        const html = createHTML({
+          ...componentsProps,
+          characterLeftHide,
+          value: 'Bruce',
+        });
+
+        await page.setContent(html);
+
+        await page.locator('mg-input-text.hydrated').waitFor();
+
+        await page.keyboard.press('Tab');
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
+  });
+
   test('Should display datalist', async ({ page }) => {
     const componentsProps = { ...baseArgs, datalistoptions: ['batman', 'robin'] };
     const html = createHTML(componentsProps);
