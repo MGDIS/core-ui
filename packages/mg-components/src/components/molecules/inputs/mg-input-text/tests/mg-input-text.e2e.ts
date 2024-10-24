@@ -59,7 +59,7 @@ test.describe('mg-input-text', () => {
         test(`with mgWidth ${mgWidth}`, async ({ page }) => {
           const html = createHTML({
             ...baseArgs,
-            value: 'bruce',
+            value: 'M'.repeat(mgWidth),
             mgWidth,
             labelOnTop,
           });
@@ -80,6 +80,27 @@ test.describe('mg-input-text', () => {
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
+    });
+  });
+
+  [16, 4, 2].forEach(mgWidth => {
+    test(`with mgWidth ${mgWidth} with tooltip`, async ({ page }) => {
+      const html = createHTML({
+        ...baseArgs,
+        value: 'M'.repeat(mgWidth),
+        mgWidth,
+        maxlength: mgWidth,
+        tooltip: 'Tooltip message',
+      });
+      await page.setContent(html);
+
+      // Wait for the component to be hydrated
+      await page.locator('mg-input-text.hydrated').waitFor();
+
+      // Focus the input field
+      await page.focus('mg-input-text input');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
@@ -190,6 +211,32 @@ test.describe('mg-input-text', () => {
 
           await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
         });
+      });
+    });
+  });
+
+  [true, false].forEach(characterLeftHide => {
+    [true, false].forEach(searchMode => {
+      test(`render search input characterLeftHide=${characterLeftHide}, case ${searchMode ? 'with' : 'without'} searchMode`, async ({ page }) => {
+        const searchProps = {
+          type: 'search',
+          icon: 'magnifying-glass',
+        };
+        const componentsProps = searchMode ? { ...baseArgs, ...searchProps } : { baseArgs };
+
+        const html = createHTML({
+          ...componentsProps,
+          characterLeftHide,
+          value: 'Bruce',
+        });
+
+        await page.setContent(html);
+
+        await page.locator('mg-input-text.hydrated').waitFor();
+
+        await page.keyboard.press('Tab');
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
     });
   });

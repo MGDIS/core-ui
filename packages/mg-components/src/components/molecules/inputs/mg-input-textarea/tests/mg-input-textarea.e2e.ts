@@ -57,7 +57,9 @@ test.describe('mg-input-textarea', () => {
         test(`with mgWidth ${mgWidth}`, async ({ page }) => {
           const html = createHTML({
             ...baseArgs,
+            value: 'M'.repeat(mgWidth),
             mgWidth,
+            maxlength: mgWidth * 3, // 3 rows by default
             labelOnTop,
           });
           await page.setContent(html);
@@ -179,5 +181,21 @@ test.describe('mg-input-textarea', () => {
     });
     // Readonly state
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
+
+  [true, false].forEach(characterLeftHide => {
+    test(`render input with characterLeftHide=${characterLeftHide}`, async ({ page }) => {
+      const html = createHTML({
+        ...baseArgs,
+        characterLeftHide,
+      });
+      await page.setContent(html);
+
+      await page.locator('mg-input-textarea.hydrated').waitFor();
+
+      await page.keyboard.press('Tab');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
   });
 });
