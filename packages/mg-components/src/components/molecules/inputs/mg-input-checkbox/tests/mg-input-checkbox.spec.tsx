@@ -105,17 +105,6 @@ describe('mg-input-checkbox', () => {
       }
     });
 
-    test('Should log an error with invalid "identifier" property', async () => {
-      const identifier = '{{batman}}';
-      const spy = jest.spyOn(console, 'error');
-
-      try {
-        await getPage({ identifier, type, value: getValues(), label: 'test' });
-      } catch {
-        expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
-      }
-    });
-
     test.each(['', ' ', undefined])('Should not render with invalid label property: %s', async label => {
       expect.assertions(1);
       try {
@@ -450,6 +439,18 @@ describe('mg-input-checkbox', () => {
       });
       expect(root).toMatchSnapshot();
     });
+  });
+
+  test('Should log an error with invalid "identifier" property', async () => {
+    const identifier = '{{batman}}';
+    const spy = jest.spyOn(console, 'error');
+    expect.assertions(1);
+
+    try {
+      await getPage({ identifier, type: 'multi', label: 'label', value: getValues() });
+    } catch {
+      expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+    }
   });
 
   describe('navigation', () => {
