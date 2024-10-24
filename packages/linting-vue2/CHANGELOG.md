@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.1.1
+
+### Patch Changes
+
+- 6bcee28: Updated dependencies
+- 06e3aed: Rename config dependencies
+- Updated dependencies [6bcee28]
+- Updated dependencies [06e3aed]
+  - @mgdis/eslint-plugin-vue@4.1.1
+
 ## 4.1.0
 
 ### Minor Changes

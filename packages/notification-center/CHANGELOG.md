@@ -1,5 +1,12 @@
 # @mgdis/notification-center
 
+## 1.2.1
+
+### Patch Changes
+
+- 6bcee28: Updated dependencies
+- 06e3aed: Rename config dependencies
+
 ## 1.2.0
 
 ### Minor Changes

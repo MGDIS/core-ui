@@ -1,5 +1,15 @@
 # eslint-config-stencil
 
+## 1.2.1
+
+### Patch Changes
+
+- 6bcee28: Updated dependencies
+- 06e3aed: Rename config dependencies
+- Updated dependencies [6bcee28]
+- Updated dependencies [06e3aed]
+  - @core-ui/eslint-config-custom@1.0.12
+
 ## 1.2.0
 
 ### Minor Changes

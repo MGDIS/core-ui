@@ -1,5 +1,12 @@
 # tsconfig
 
+## 1.0.4
+
+### Patch Changes
+
+- 6bcee28: Updated dependencies
+- 06e3aed: Rename config dependencies
+
 ## 1.0.3
 
 ### Patch Changes
