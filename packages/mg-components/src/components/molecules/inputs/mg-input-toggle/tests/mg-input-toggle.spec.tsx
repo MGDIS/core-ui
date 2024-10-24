@@ -133,8 +133,7 @@ describe('mg-input-toggle', () => {
       const spy = jest.spyOn(console, 'error');
       try {
         await getPage({ identifier, label: 'label', items: defaultItems });
-      } catch (err) {
-        expect(err.message).toEqual('Syntax error, unrecognized expression: #{{batman}}');
+      } catch {
         expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
       }
     });

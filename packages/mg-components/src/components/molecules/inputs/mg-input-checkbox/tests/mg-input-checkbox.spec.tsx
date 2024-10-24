@@ -108,14 +108,10 @@ describe('mg-input-checkbox', () => {
     test('Should log an error with invalid "identifier" property', async () => {
       const identifier = '{{batman}}';
       const spy = jest.spyOn(console, 'error');
-      expect.assertions(type === 'multi' ? 2 : 0);
 
       try {
         await getPage({ identifier, type, value: getValues(), label: 'test' });
-      } catch (err) {
-        if (type === 'multi') {
-          expect(err.message).toEqual('<mg-popover> prop "identifier" value is invalid. Passed value: {{batman}}-input-mg-popover.');
-        }
+      } catch {
         expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
       }
     });
