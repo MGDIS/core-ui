@@ -1,4 +1,4 @@
-import{af as n,ag as o,aj as a}from"./index-6uvwFOmc.js";import{u as s}from"./index-C6hXwyUA.js";import"./iframe-ttfTBa3o.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./index-D-8MO0q_.js";import"./index-Cef7vbu6.js";import"./index-DrFu-skq.js";const r=`# Breaking Changes
+import{af as n,ag as o,aj as a}from"./index-CJUFfhfC.js";import{u as s}from"./index-Auour5Kq.js";import"./iframe-Dlt2Ky9-.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./index-D-8MO0q_.js";import"./index-Cef7vbu6.js";import"./index-DrFu-skq.js";const r=`# Breaking Changes
 
 This document provides an overview of the breaking changes introduced in major version releases of mg-components.
 

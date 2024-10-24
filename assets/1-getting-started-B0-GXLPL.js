@@ -1,4 +1,4 @@
-import{af as e,ag as s,aj as i}from"./index-6uvwFOmc.js";import{u as a}from"./index-C6hXwyUA.js";import"./iframe-ttfTBa3o.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./index-D-8MO0q_.js";import"./index-Cef7vbu6.js";import"./index-DrFu-skq.js";const r=`# Getting started
+import{af as e,ag as s,aj as i}from"./index-CJUFfhfC.js";import{u as a}from"./index-Auour5Kq.js";import"./iframe-Dlt2Ky9-.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./index-D-8MO0q_.js";import"./index-Cef7vbu6.js";import"./index-DrFu-skq.js";const r=`# Getting started
 
 ## Install
 
