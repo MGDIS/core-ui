@@ -26,6 +26,13 @@ describe('mg-character-left', () => {
     }
   });
 
+  test('Should log an error with invalid "identifier" property', async () => {
+    const identifier = '{{batman}}';
+    const spy = jest.spyOn(console, 'error');
+    await getPage({ identifier, maxLength: 10 });
+    expect(spy).toHaveBeenCalledWith(`<mg-character-left> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+  });
+
   test('Should update character left counter', async () => {
     const maxlength = 400;
     const characters = 'blu blu';

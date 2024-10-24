@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { createID, ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
+import { createID, ClassList, isValidString, toString, isValideID } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../locales';
 import { DialogRoleType, dialogRoles } from './mg-modal.conf';
 
@@ -43,6 +43,12 @@ export class MgModal {
    * If not set, it will be created.
    */
   @Prop() identifier: string = createID('mg-modal');
+  @Watch('identifier')
+  watchIdentifier(newValue: MgModal['identifier']): void {
+    if (!isValideID(newValue)) {
+      throw new Error(`<mg-modal> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+    }
+  }
 
   /**
    * Modal dialog role.
@@ -132,6 +138,7 @@ export class MgModal {
     // Validate
     this.hasActions = this.element.querySelector('[slot="actions"]') !== null;
     this.titleId = `${this.identifier}-title`;
+    this.watchIdentifier(this.identifier);
     this.validateModalTitle(this.modalTitle);
     this.validateDialogRole(this.dialogRole);
   }

@@ -441,6 +441,18 @@ describe('mg-input-checkbox', () => {
     });
   });
 
+  test('Should log an error with invalid "identifier" property', async () => {
+    const identifier = '{{batman}}';
+    const spy = jest.spyOn(console, 'error');
+    expect.assertions(1);
+
+    try {
+      await getPage({ identifier, type: 'multi', label: 'label', value: getValues() });
+    } catch {
+      expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+    }
+  });
+
   describe('navigation', () => {
     test('Should NOT manage keyboard "tab" navigation on "checkbox" type', async () => {
       const page = await getPage({ label: 'label', identifier: 'identifier', value: getValues(), type: 'checkbox', tooltip: 'Tooltip message' });

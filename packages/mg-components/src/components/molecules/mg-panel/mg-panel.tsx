@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, State, EventEmitter, Watch, Event } from '@stencil/core';
-import { createID, ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
+import { createID, ClassList, isValidString, toString, isValideID } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../locales';
 import { type ExpandToggleDisplayType, type TitlePositionType, expandToggleDisplays, titlePositions } from './mg-panel.conf';
 
@@ -37,6 +37,12 @@ export class MgPanel {
    * If not set, it will be created.
    */
   @Prop() identifier: string = createID('mg-panel');
+  @Watch('identifier')
+  watchIdentifier(newValue: MgPanel['identifier']): void {
+    if (!isValideID(newValue)) {
+      console.error(`<mg-panel> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+    }
+  }
 
   /**
    * Panel title
@@ -192,6 +198,7 @@ export class MgPanel {
     // Get locales
     this.messages = initLocales(this.element).messages;
     // Validate
+    this.watchIdentifier(this.identifier);
     this.validateTitlePattern(this.titlePattern);
     this.validateTitlePattern(this.titlePatternErrorMessage);
     this.validatePanelTitle(this.panelTitle);

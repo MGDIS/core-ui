@@ -41,6 +41,17 @@ describe('mg-modal', () => {
     });
   });
 
+  test('Should log an error with invalid "identifier" property', async () => {
+    const identifier = '{{batman}}';
+    expect.assertions(1);
+
+    try {
+      await getPage({ identifier, modalTitle: 'title' });
+    } catch (err) {
+      expect(err.message).toEqual(`<mg-modal> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+    }
+  });
+
   test.each(['', ' ', undefined])('Should not render with invalid modalTitle property: %s', async modalTitle => {
     expect.assertions(1);
     try {

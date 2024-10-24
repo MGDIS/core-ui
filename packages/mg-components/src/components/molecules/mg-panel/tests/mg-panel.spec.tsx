@@ -38,6 +38,13 @@ describe('mg-panel', () => {
   });
 
   describe('errors', () => {
+    test('Should log an error with invalid "identifier" property', async () => {
+      const identifier = '{{batman}}';
+      const spy = jest.spyOn(console, 'error');
+      await getPage({ identifier, panelTitle: 'title' });
+      expect(spy).toHaveBeenCalledWith(`<mg-panel> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+    });
+
     test('Should throw error when props association are unauthorized %s:', async () => {
       expect.assertions(1);
       try {

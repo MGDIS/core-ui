@@ -25,4 +25,12 @@ describe('mg-input-title', () => {
       expect(err.message).toContain('<mg-input-title> prop "identifier" is required.');
     }
   });
+
+  test('Should log an error with invalid "identifier" property', async () => {
+    const identifier = '{{batman}}';
+    const spy = jest.spyOn(console, 'error');
+
+    await getPage({ identifier });
+    expect(spy).toHaveBeenCalledWith(`<mg-input-title> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+  });
 });
