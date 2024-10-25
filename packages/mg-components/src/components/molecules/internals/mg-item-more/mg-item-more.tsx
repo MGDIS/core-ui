@@ -74,8 +74,7 @@ export class MgItemMore {
    */
   private setProxyElement = (proxified: HTMLMgMenuItemElement): void => {
     const proxy: HTMLMgMenuItemElement = this.moreElementMenuItem.querySelector(`[identifier="${proxified.identifier}"]`);
-    // eslint-disable-next-line @stencil-community/strict-boolean-conditions
-    if (!proxy) {
+    if (proxy === null) {
       return;
     }
 

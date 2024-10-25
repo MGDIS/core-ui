@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/stencil-helpers';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
@@ -84,7 +82,7 @@ export class MgInputSelect {
   /**
    * Component value
    */
-  @Prop({ mutable: true }) value: any;
+  @Prop({ mutable: true }) value: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   @Watch('value')
   validateValue(newValue: MgInputSelect['value']): void {
     if (allItemsAreString(this.items) && typeof newValue === 'string') {
