@@ -37,18 +37,18 @@ export class MgButton {
   validateVariant(newValue: VariantType, oldValue?: VariantType): void {
     // validate new value
     if (!variants.includes(newValue)) {
-      if (toString(newValue) === '') {
+      if ((newValue as string) === '') {
         // Reactive framework like VUE render with `""` when prop is update to undefined
         this.variant = variants[0];
         return;
       }
       throw new Error(`<mg-button> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
+    } else {
+      if (oldValue !== undefined) {
+        this.classCollection.delete(`mg-c-button--${oldValue}`);
+      }
+      this.classCollection.add(`mg-c-button--${newValue}`);
     }
-
-    if (oldValue !== undefined) {
-      this.classCollection.delete(`mg-c-button--${oldValue}`);
-    }
-    this.classCollection.add(`mg-c-button--${newValue}`);
   }
 
   /**
