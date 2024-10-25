@@ -39,13 +39,15 @@ export class MgButton {
     if (typeof newValue === 'string' && newValue.length === 0) {
       // Reactive framework like VUE render with `""` when prop is update to undefined
       this.variant = variants[0];
+      return;
     } else if (!variants.includes(newValue)) {
       throw new Error(`<mg-button> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
+    } else {
+      if (oldValue !== undefined) {
+        this.classCollection.delete(`mg-c-button--${oldValue}`);
+      }
+      this.classCollection.add(`mg-c-button--${newValue}`);
     }
-
-    // manage class updates
-    if (variants.includes(oldValue)) this.classCollection.delete(`mg-c-button--${oldValue}`);
-    if (variants.includes(newValue)) this.classCollection.add(`mg-c-button--${newValue}`);
   }
 
   /**
