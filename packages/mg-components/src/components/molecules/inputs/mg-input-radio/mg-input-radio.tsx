@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/stencil-helpers';
 import { RadioOption } from './mg-input-radio.conf';
@@ -49,8 +47,9 @@ export class MgInputRadio {
   /**
    * Component value
    */
-  @Prop({ mutable: true }) value: any;
+  @Prop({ mutable: true }) value: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   @Watch('value')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   watchValue(newValue: any): void {
     if (allItemsAreString(this.items) && typeof newValue === 'string') {
       this.readonlyValue = newValue;

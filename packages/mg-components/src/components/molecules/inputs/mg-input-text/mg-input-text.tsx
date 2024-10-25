@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { allItemsAreString, ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
 import { OptionType, TextType } from './mg-input-text.conf';
@@ -71,7 +69,7 @@ export class MgInputText {
   /**
    * Component value
    */
-  @Prop({ mutable: true, reflect: true }) value: any;
+  @Prop({ mutable: true, reflect: true }) value: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   @Watch('value')
   handleValue(newValue: string): void {
     if (this.datalistoptions?.every(isOption)) {

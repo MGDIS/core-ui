@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import { dialogRoles } from '../mg-modal.conf';
@@ -20,6 +19,7 @@ const Template = (args: MgModalType & { slotContent: string; slotActions: string
     <mg-button
       aria-controls={args.identifier}
       aria-haspopup="dialog"
+      /* eslint-disable-next-line react/jsx-no-bind */
       onClick={() => {
         const mgModal: HTMLMgModalElement = document.querySelector(`mg-modal`);
         mgModal.open = !mgModal.open;

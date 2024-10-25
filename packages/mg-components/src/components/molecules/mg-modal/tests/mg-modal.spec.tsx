@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-empty-function */
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
