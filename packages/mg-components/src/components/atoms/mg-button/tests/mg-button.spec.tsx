@@ -31,7 +31,7 @@ describe('mg-button', () => {
     setupSubmitEventMock();
   });
 
-  describe.each(variants)('Should render an %s button', variant => {
+  describe.each(['', ...variants])('Should render an %s button', variant => {
     test.each([false, true])('isIcon %s', async isIcon => {
       const { root } = await getPage({ variant, isIcon, label: 'label' });
       expect(root).toMatchSnapshot();
@@ -66,7 +66,7 @@ describe('mg-button', () => {
     expect(classDanger).not.toBeNull();
   });
 
-  test.each(['', 'blu'])('Should throw error', async variant => {
+  test.each([' ', 'blu'])('Should throw error', async variant => {
     expect.assertions(1);
     try {
       await getPage({ variant });
