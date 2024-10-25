@@ -5489,7 +5489,7 @@ exports[`mg-input-checkbox navigation Should NOT manage keyboard "tab" navigatio
 </mg-input-checkbox>
 `;
 
-exports[`mg-input-checkbox navigation Should NOT render error when uncheck from label click 1`] = `
+exports[`mg-input-checkbox navigation Should render error when uncheck from label click 1`] = `
 <mg-input-checkbox>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
@@ -5550,129 +5550,7 @@ exports[`mg-input-checkbox navigation Should NOT render error when uncheck from 
 </mg-input-checkbox>
 `;
 
-exports[`mg-input-checkbox navigation Should NOT render error when uncheck from label click 2`] = `
-<mg-input-checkbox>
-  <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-            <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
-              <mg-icon icon="info-circle"></mg-icon>
-            </mg-tooltip>
-          </div>
-        </div>
-      </template>
-      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
-          <label htmlfor="identifier_0">
-            batman
-          </label>
-        </li>
-        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-          <input aria-describedby="" aria-invalid="true" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
-          <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="true" id="identifier_2" name="identifier" type="checkbox" value="false">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="true" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
-          <label htmlfor="identifier_3">
-            bane
-          </label>
-        </li>
-      </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
-        </legend>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-checkbox>
-`;
-
-exports[`mg-input-checkbox navigation Should NOT render error when uncheck from label click 3`] = `
-<mg-input-checkbox>
-  <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-            <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
-              <mg-icon icon="info-circle"></mg-icon>
-            </mg-tooltip>
-          </div>
-        </div>
-      </template>
-      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
-          <label htmlfor="identifier_0">
-            batman
-          </label>
-        </li>
-        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-          <input aria-describedby="" aria-invalid="true" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
-          <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="true" id="identifier_2" name="identifier" type="checkbox" value="false">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="true" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
-          <label htmlfor="identifier_3">
-            bane
-          </label>
-        </li>
-      </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
-        </legend>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-checkbox>
-`;
-
-exports[`mg-input-checkbox navigation Should NOT render error when uncheck from label click 4`] = `
+exports[`mg-input-checkbox navigation Should render error when uncheck from label click 2`] = `
 <mg-input-checkbox>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
@@ -5718,6 +5596,207 @@ exports[`mg-input-checkbox navigation Should NOT render error when uncheck from 
           </label>
         </li>
       </ul>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox navigation Should render error when uncheck from label click 3`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+              <mg-icon icon="info-circle"></mg-icon>
+            </mg-tooltip>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-error" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-describedby="identifier-error" aria-invalid="true" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-error" aria-invalid="true" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-error" aria-invalid="true" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox Should display error message on value change 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_3" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox Should display error message on value change 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" id="identifier_3" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
@@ -8209,6 +8288,212 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
             label
           </span>
         </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi Should display error message on value change 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Edit
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content">
+              <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+                <li class="mg-c-input__input-group">
+                  <input aria-describedby="identifier-help-text" aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                  <label htmlfor="identifier_0">
+                    batman
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                  <input aria-describedby="identifier-help-text" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_1">
+                    robin
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_2">
+                    joker
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_3" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_3">
+                    bane
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          1 selected value
+        </b>
+      </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi Should display error message on value change 2`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Select values
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content">
+              <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+                <li class="mg-c-input__input-group">
+                  <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_0">
+                    batman
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                  <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_1">
+                    robin
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" id="identifier_2" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_2">
+                    joker
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" id="identifier_3" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_3">
+                    bane
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          0 selected value
+        </b>
+      </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </legend>
       </mg-input-title>
     </mg-input>
   </template>
@@ -12500,6 +12785,140 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
             label
           </span>
         </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should display error message on value change 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_3" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should display error message on value change 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" id="identifier_3" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </legend>
       </mg-input-title>
     </mg-input>
   </template>
