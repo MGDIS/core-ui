@@ -104,8 +104,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/mg-components
       '@stencil/core':
-        specifier: 4.22.1
-        version: 4.22.1
+        specifier: 4.22.2
+        version: 4.22.2
     devDependencies:
       '@core-ui/eslint-config-stencil':
         specifier: workspace:*
@@ -115,7 +115,7 @@ importers:
         version: link:../../packages/linting-stencil
       '@stencil/sass':
         specifier: 3.0.12
-        version: 3.0.12(@stencil/core@4.22.1)
+        version: 3.0.12(@stencil/core@4.22.2)
       '@types/jest':
         specifier: 29.5.14
         version: 29.5.14
@@ -656,8 +656,8 @@ importers:
         specifier: 2.11.8
         version: 2.11.8
       '@stencil/core':
-        specifier: 4.22.1
-        version: 4.22.1
+        specifier: 4.22.2
+        version: 4.22.2
     devDependencies:
       '@core-ui/eslint-config-stencil':
         specifier: workspace:*
@@ -909,8 +909,8 @@ importers:
   packages/stencil-helpers:
     dependencies:
       '@stencil/core':
-        specifier: 4.22.1
-        version: 4.22.1
+        specifier: 4.22.2
+        version: 4.22.2
     devDependencies:
       '@core-ui/eslint-config-custom':
         specifier: workspace:*
@@ -2675,8 +2675,8 @@ packages:
       eslint-plugin-react: ^7.0.0
       typescript: ^4.9.4 || ^5.0.0
 
-  '@stencil/core@4.22.1':
-    resolution: {integrity: sha512-/vaKFIK/BWpGVDTj3u6TE7Nc2SCqG1PmXPtg3mEpiJw1aJZFar/jrZzbvyBOVQ7TGpDdO1ne3esXAQndj73UTQ==}
+  '@stencil/core@4.22.2':
+    resolution: {integrity: sha512-eq2pYrrnzcLyBRANk0X/VVOfCtD0nCxWnEZ0AVdscuqfDkOjxa6SSZOfEhR9FAvrmESHp8y5jRCVPnf4n5CC4A==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
@@ -11698,11 +11698,11 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@stencil/core@4.22.1': {}
+  '@stencil/core@4.22.2': {}
 
-  '@stencil/sass@3.0.12(@stencil/core@4.22.1)':
+  '@stencil/sass@3.0.12(@stencil/core@4.22.2)':
     dependencies:
-      '@stencil/core': 4.22.1
+      '@stencil/core': 4.22.2
 
   '@storybook/addon-a11y@8.3.6(storybook@8.3.6)':
     dependencies:
