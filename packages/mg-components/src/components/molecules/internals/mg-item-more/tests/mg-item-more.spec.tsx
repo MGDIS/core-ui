@@ -31,6 +31,16 @@ const getPage = async args => {
       <mg-menu {...args}>
         <mg-menu-item href={args.isHref ? '#' : undefined} id={setId(args.hasId)} identifier="identifier-1">
           <span slot="label">Batman</span>
+          {args.submenu && (
+            <mg-menu label="submenu" direction="vertical">
+              <mg-menu-item href="href" identifier="identifier-1-1">
+                <span slot="label">Batman child</span>
+              </mg-menu-item>
+              <mg-menu-item identifier="identifier-1-2">
+                <span slot="label">Batman child</span>
+              </mg-menu-item>
+            </mg-menu>
+          )}
         </mg-menu-item>
         <mg-menu-item id={setId(args.hasId)} identifier="identifier-2">
           <span slot="label">Joker</span>
@@ -85,7 +95,7 @@ describe('mg-item-more', () => {
   afterEach(() => jest.runOnlyPendingTimers());
 
   describe('render', () => {
-    test.each([undefined, { icon: { icon: 'user' } }, { slotlabel: { display: true, label: 'more batman menu' } }, { size: 'large' }, { hasId: true }])(
+    test.each([undefined, { icon: { icon: 'user' } }, { slotlabel: { display: true, label: 'more batman menu' } }, { size: 'large' }, { hasId: true }, { submenu: true }])(
       'should manage resize with observer, case %s',
       async args => {
         const page = await getPage({ label: 'batman', ...args });
@@ -93,6 +103,35 @@ describe('mg-item-more', () => {
         expect(page.root).toMatchSnapshot();
       },
     );
+    test('should manage broken proxy link with parent', async () => {
+      const page = await getPage({ label: 'batman' });
+      const itemSelector = 'mg-menu-item[identifier="identifier-2"]';
+      const proxifiedMenuItem = page.doc.querySelector(itemSelector);
+      const proxyMenuItem = page.doc.querySelector('mg-item-more').shadowRoot.querySelector(itemSelector);
+
+      proxyMenuItem.identifier = 'new-identifier';
+      proxifiedMenuItem.dispatchEvent(new CustomEvent('item-updated'));
+
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('should manage proxy DOM', async () => {
+      const page = await getPage({ label: 'batman' });
+      const itemSelector = 'mg-menu-item[identifier="identifier-2"]';
+      const proxifiedMenuItem = page.doc.querySelector(itemSelector);
+      const proxyMenuItem = page.doc.querySelector('mg-item-more').shadowRoot.querySelector(itemSelector);
+
+      proxyMenuItem.shadowRoot.querySelector('a,button').remove();
+      proxifiedMenuItem.dispatchEvent(new CustomEvent('item-updated'));
+
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+
+      expect(page.root).toMatchSnapshot();
+    });
   });
 
   describe('errors', () => {

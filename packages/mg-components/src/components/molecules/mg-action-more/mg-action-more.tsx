@@ -191,7 +191,7 @@ export class MgActionMore {
             [`${this.classBase}__chevron--rotate`]: this.expanded === true,
           }}
         >
-          <mg-icon icon="chevron-down" size="small"></mg-icon>
+          <mg-icon icon="chevron-down"></mg-icon>
         </span>,
       );
     }

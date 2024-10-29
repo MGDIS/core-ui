@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.0.9
+
+### Patch Changes
+
+- 6bcee28: Updated dependencies
+- 06e3aed: Rename config dependencies
+- Updated dependencies [6bcee28]
+- Updated dependencies [06e3aed]
+  - @mgdis/eslint-plugin-html@4.0.2
+
 ## 4.0.8
 
 ### Patch Changes

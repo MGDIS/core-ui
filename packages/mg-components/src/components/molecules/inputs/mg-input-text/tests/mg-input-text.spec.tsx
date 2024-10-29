@@ -50,7 +50,6 @@ describe('mg-input-text', () => {
     { tooltip: 'My Tooltip Message', labelOnTop: true },
     { tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
     { tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
-    { displayCharacterLeft: false },
     { characterLeftHide: true },
   ])('Should render with args %s:', async args => {
     const { root } = await getPage({ label: 'label', identifier: 'identifier', ...args });
@@ -85,6 +84,18 @@ describe('mg-input-text', () => {
       await getPage({ identifier });
     } catch (err) {
       expect(err.message).toEqual(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${identifier}.`);
+    }
+  });
+
+  test('Should log an error with invalid "identifier" property', async () => {
+    const identifier = '{{batman}}';
+    const spy = jest.spyOn(console, 'error');
+    expect.assertions(1);
+
+    try {
+      await getPage({ identifier, label: 'test' });
+    } catch {
+      expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
     }
   });
 

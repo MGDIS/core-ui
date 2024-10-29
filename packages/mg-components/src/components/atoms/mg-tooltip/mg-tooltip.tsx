@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
-import { createID, focusableElements, getWindows, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
+import { createID, focusableElements, getWindows, isValideID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { Instance as PopperInstance, createPopper, Placement, PositioningStrategy } from '@popperjs/core';
 import { type GuardType, Guard } from './mg-tooltip.conf';
 
@@ -48,7 +48,10 @@ export class MgTooltip {
    */
   @Prop() identifier: string = createID('mg-tooltip');
   @Watch('identifier')
-  watchIdentifier(): void {
+  watchIdentifier(newValue: MgTooltip['identifier']): void {
+    if (!isValideID(newValue)) {
+      throw new Error(`<mg-tooltip> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+    }
     // use renderTooltipContent to update tooltip-content id
     this.renderTooltipContent();
   }
@@ -62,7 +65,7 @@ export class MgTooltip {
     if (!isValidString(newValue)) {
       throw new Error(`<mg-tooltip> prop "message" is required and must be a string. Passed value: ${toString(newValue)}.`);
     }
-    this.mgTooltipContent.message = newValue;
+    if (this.mgTooltipContent !== undefined) this.mgTooltipContent.message = newValue;
   }
 
   /**
@@ -371,7 +374,7 @@ export class MgTooltip {
     //validate properties
     this.watchDisabled(this.disabled);
     this.watchMessage(this.message);
-    this.watchIdentifier();
+    this.watchIdentifier(this.identifier);
   }
 
   /**
@@ -428,7 +431,7 @@ export class MgTooltip {
    */
   disconnectedCallback(): void {
     document.removeEventListener('keydown', this.handlePressEscape);
-    this.windows.forEach((localWindow: Window) => {
+    this.windows?.forEach((localWindow: Window) => {
       localWindow.removeEventListener('click', this.handleClickOutside, false);
       localWindow.removeEventListener('keydown', this.handlePressEscape, false);
     });

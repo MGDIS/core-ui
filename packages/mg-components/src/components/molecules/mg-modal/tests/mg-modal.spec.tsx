@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-empty-function */
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
@@ -39,6 +37,17 @@ describe('mg-modal', () => {
       const { root } = await getPage(args, slots);
       expect(root).toMatchSnapshot();
     });
+  });
+
+  test('Should log an error with invalid "identifier" property', async () => {
+    const identifier = '{{batman}}';
+    expect.assertions(1);
+
+    try {
+      await getPage({ identifier, modalTitle: 'title' });
+    } catch (err) {
+      expect(err.message).toEqual(`<mg-modal> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+    }
   });
 
   test.each(['', ' ', undefined])('Should not render with invalid modalTitle property: %s', async modalTitle => {

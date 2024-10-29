@@ -175,6 +175,13 @@ describe('mg-form', () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  test('Should log an error with invalid "identifier" property', async () => {
+    const identifier = '{{batman}}';
+    const spy = jest.spyOn(console, 'error');
+    await getPage({ identifier });
+    expect(spy).toHaveBeenLastCalledWith(`<mg-form> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+  });
+
   test.each([undefined, null, ...roles])('Should set form element role from "ariaRole" prop', async ariaRole => {
     const page = await getPage({ identifier: 'identifier', ariaRole }, getSlottedContent());
     await page.waitForChanges();

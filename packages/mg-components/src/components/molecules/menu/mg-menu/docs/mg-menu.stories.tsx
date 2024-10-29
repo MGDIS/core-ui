@@ -1,9 +1,9 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
-import { Direction, MenuSizeType } from '../mg-menu.conf';
-import { Status } from '../../mg-menu-item/mg-menu-item.conf';
-import { MgMenuItem } from '../../mg-menu-item/mg-menu-item';
+import type { MgMenuItem as MgMenuItemType } from '../../mg-menu-item/mg-menu-item';
 import type { MgMenu as MgMenuType } from '../mg-menu';
+import { Direction } from '../mg-menu.conf';
+import { Status } from '../../mg-menu-item/mg-menu-item.conf';
 
 export default {
   component: 'mg-menu',
@@ -14,77 +14,43 @@ export default {
  * mg-menu-item *
  ***************/
 
-type ItemArgType = {
+type MenuItemArg = Pick<MgMenuItemType, 'status' | 'href'> & {
   label: string;
-  direction: Direction;
-  status?: Status;
   metadata?: string;
   icon?: boolean;
   badge?: boolean;
   content?: boolean;
   submenu?: number;
-  href?: MgMenuItem['href'];
 };
 
-type ItemFormatedArgs = Pick<ItemArgType, 'status'> & { slot: Pick<ItemArgType, 'label' | 'metadata' | 'icon' | 'badge' | 'content' | 'submenu'> };
-
-type MenuFormatedArgs = Partial<Pick<MgMenuType, 'label' | 'direction'>> & {
-  itemmore: unknown;
-  slot: {
-    items: ItemFormatedArgs[];
-  };
+type MenuArg = Pick<MgMenuType, 'direction' | 'label'> & {
+  items: MenuItemArg[];
 };
-
-interface IGetMenuItemArgs {
-  ({}: ItemArgType): ItemFormatedArgs;
-}
-
-/**
- * Format item args from given params
- * @param itemArgs - item arguments
- * @returns items formated args object
- */
-const getItemArgs: IGetMenuItemArgs = ({ label, status, metadata, icon, badge, content, submenu, href }) => ({
-  status,
-  href,
-  slot: {
-    label,
-    metadata,
-    icon,
-    badge,
-    content,
-    submenu,
-  },
-});
 
 /**
  * Render mg-menu-item
  * @param args - mg-menu-item args
  * @returns rendered mg-menu-item
  */
-const menuItem = (args: ItemFormatedArgs): HTMLMgMenuItemElement => (
+const menuItem = (args: MenuItemArg): HTMLMgMenuItemElement => (
   <mg-menu-item {...filterArgs(args)}>
-    {args.slot?.label && <span slot="label">{args.slot?.label}</span>}
-    {args.slot?.metadata && <span slot="metadata">{args.slot?.metadata}</span>}
-    {args.slot?.icon && <mg-icon slot="image" icon="user"></mg-icon>}
-    {args.slot?.badge && (
+    {args.label && <span slot="label">{args.label}</span>}
+    {args.metadata && <span slot="metadata">{args.metadata}</span>}
+    {args.icon && <mg-icon slot="image" icon="user"></mg-icon>}
+    {args.badge && (
       <mg-badge slot="information" label="information" value="1" variant="text-color">
-        {args.slot?.icon}
+        {args.icon}
       </mg-badge>
     )}
-    {args.slot?.content && (
+    {args.content && (
       <div>
         <h3>Demo title</h3>
         <p>some content</p>
       </div>
     )}
-    {args.slot?.submenu > 0 && menu(getMenuArgs(Direction.VERTICAL, args.slot?.submenu - 1, 'medium'))}
+    {args.submenu > 0 && menu(getMenuArgs(Direction.VERTICAL, args.submenu - 1, 'medium'))}
   </mg-menu-item>
 );
-
-interface IGetMenuArgs {
-  (direction: Direction, level?: number, size?: MenuSizeType): MenuFormatedArgs;
-}
 
 /***********
  * mg-menu *
@@ -97,46 +63,39 @@ interface IGetMenuArgs {
  * @param size - menu size. Default: 'medium'
  * @returns menu formated args object
  */
-const getMenuArgs: IGetMenuArgs = (direction, level = 0, size = 'xlarge') => ({
+const getMenuArgs = (direction: MgMenuType['direction'], level = 0, size: MgMenuType['size'] = 'xlarge') => ({
   label: 'Batman menu',
   direction,
   size,
   itemmore: { size },
-  slot: {
-    items: [
-      getItemArgs({
-        label: 'label 1',
-        direction,
-        href: '#',
-      }),
-      getItemArgs({
-        label: 'label 2',
-        direction,
-        status: Status.DISABLED,
-      }),
-      getItemArgs({
-        label: 'label 3 with long text',
-        direction,
-        badge: true,
-        icon: true,
-      }),
-      getItemArgs({
-        label: 'label 4',
-        direction,
-        badge: true,
-        icon: true,
-        status: Status.ACTIVE,
-        submenu: level,
-      }),
-      getItemArgs({
-        label: 'label 5',
-        direction,
-        icon: true,
-        metadata: 'my metadata',
-        content: true,
-      }),
-    ],
-  },
+  items: [
+    {
+      href: '#',
+      label: 'label 1',
+    },
+    {
+      status: Status.DISABLED,
+      label: 'label 2',
+    },
+    {
+      badge: true,
+      label: 'label 3 with long text',
+      icon: true,
+    },
+    {
+      status: Status.ACTIVE,
+      label: 'label 4',
+      badge: true,
+      icon: true,
+      submenu: level,
+    },
+    {
+      label: 'label 5',
+      icon: true,
+      metadata: 'my metadata',
+      content: true,
+    },
+  ],
 });
 
 /**
@@ -144,16 +103,14 @@ const getMenuArgs: IGetMenuArgs = (direction, level = 0, size = 'xlarge') => ({
  * @param args - mg-menu args
  * @returns rendered mg-menu
  */
-const menu = (args: MenuFormatedArgs): HTMLMgMenuElement => (
-  <mg-menu {...filterArgs(args, { direction: Direction.HORIZONTAL })}>{args.slot.items.map(item => menuItem(item))}</mg-menu>
-);
+const menu = (args: MenuArg): HTMLMgMenuElement => <mg-menu {...filterArgs(args, { direction: Direction.HORIZONTAL })}>{args.items.map(menuItem)}</mg-menu>;
 
 /**
  * Template
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgMenuType & { slot: { items: ItemFormatedArgs[] } }): HTMLElement => <div>{menu(args)}</div>;
+const Template = (args: MenuArg): HTMLElement => <div>{menu(args)}</div>;
 
 export const MgMenuHorizontal = {
   render: Template,
@@ -165,7 +122,7 @@ export const MgMenuVertical = {
   args: getMenuArgs(Direction.VERTICAL, 2),
 };
 
-const TemplateSmallContainer = (args: MenuFormatedArgs): HTMLElement => {
+const TemplateSmallContainer = (args: MenuArg): HTMLElement => {
   return <div style={{ width: '25rem', height: '20rem' }}>{menu(args)}</div>;
 };
 

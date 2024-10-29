@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, Watch } from '@stencil/core';
 import { initLocales } from '../../../../locales';
-import { toString } from '@mgdis/stencil-helpers';
+import { isValideID, toString } from '@mgdis/stencil-helpers';
 
 /**
  * @internal
@@ -31,6 +31,12 @@ export class MgCharacterLeft {
    * Needed by the input for accessibility `aria-decribedby`.
    */
   @Prop() identifier?: string;
+  @Watch('identifier')
+  watchIdentifier(newValue: MgCharacterLeft['identifier']): void {
+    if (newValue !== undefined && !isValideID(newValue)) {
+      console.error(`<mg-character-left> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+    }
+  }
 
   /**
    * Sets the characters to count
@@ -56,6 +62,7 @@ export class MgCharacterLeft {
    * Check if props are well configured on init
    */
   componentWillLoad(): void {
+    this.watchIdentifier(this.identifier);
     this.validateMaxlength(this.maxlength);
     this.messages = initLocales(this.element).messages;
   }

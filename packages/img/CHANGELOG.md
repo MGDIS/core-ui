@@ -1,5 +1,16 @@
 # @mgdis/img
 
+## 2.1.0
+
+### Minor Changes
+
+- fbbeb52: Add and update icons
+
+### Patch Changes
+
+- 6bcee28: Updated dependencies
+- 06e3aed: Rename config dependencies
+
 ## 2.0.0
 
 ### Major Changes

@@ -32,10 +32,16 @@ export class MgButton {
   /**
    * Define button variant
    */
-  @Prop() variant: VariantType = variants[0]; // Primary
+  @Prop({ mutable: true }) variant: VariantType = variants[0]; // Primary
   @Watch('variant')
   validateVariant(newValue: VariantType, oldValue?: VariantType): void {
+    // validate new value
     if (!variants.includes(newValue)) {
+      if ((newValue as string) === '') {
+        // Reactive framework like VUE render with `""` when prop is update to undefined
+        this.variant = variants[0];
+        return;
+      }
       throw new Error(`<mg-button> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
     } else {
       if (oldValue !== undefined) {

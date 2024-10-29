@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.1.10
+
+### Patch Changes
+
+- 6bcee28: Updated dependencies
+- 06e3aed: Rename config dependencies
+
 ## 4.1.9
 
 ### Patch Changes

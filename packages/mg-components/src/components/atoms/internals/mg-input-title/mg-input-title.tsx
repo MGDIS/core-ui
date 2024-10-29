@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
-import { isValidString } from '@mgdis/stencil-helpers';
+import { isValideID, isValidString, toString } from '@mgdis/stencil-helpers';
 
 /**
  * @internal
@@ -18,6 +18,8 @@ export class MgInputTitle {
   validateIdentifier(newValue: MgInputTitle['identifier']): void {
     if (!isValidString(newValue)) {
       throw new Error('<mg-input-title> prop "identifier" is required.');
+    } else if (!isValideID(newValue)) {
+      console.error(`<mg-input-title> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }
   }
 

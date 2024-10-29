@@ -18,8 +18,6 @@ export interface CheckboxItem extends CheckboxValue {
   _handleInput: (event: InputEvent & { target: HTMLInputElement }) => void;
   _handleBlur: () => void;
   _handleKeydown: (event: KeyboardEvent & { target: HTMLElement }) => void;
-  _handleMouseEnter: () => void;
-  _handleMouseLeave: () => void;
 }
 
 /**

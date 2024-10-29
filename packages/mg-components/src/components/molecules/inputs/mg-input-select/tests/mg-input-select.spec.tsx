@@ -85,6 +85,18 @@ describe('mg-input-select', () => {
     }
   });
 
+  test('Should log an error with invalid "identifier" property', async () => {
+    const identifier = '{{batman}}';
+    const spy = jest.spyOn(console, 'error');
+    expect.assertions(1);
+
+    try {
+      await getPage({ identifier, label: 'test', items: ['blu', 'bli', 'blo', 'bla'] });
+    } catch {
+      expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+    }
+  });
+
   test.each(['', ' ', undefined])('Should throw error with invalid label property: %s', async label => {
     expect.assertions(1);
     try {

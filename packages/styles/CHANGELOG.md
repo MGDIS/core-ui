@@ -1,5 +1,15 @@
 # @mgdis/styles
 
+## 2.0.1
+
+### Patch Changes
+
+- 539d514: Update color functions use in Sass to avoid using deprecated ones
+- b4c8f16: [#511](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/511) mg-details: margin on toggle without summary
+- a2875ae: [#513](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/513) Hide reveal button of Microsoft Edge browser for password field to avoid duplicate
+- 5920894: [#509](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/509) mg-input: The width increases on focus when characters left are displayed
+- 6bcee28: Updated dependencies
+
 ## 2.0.0
 
 ### Major Changes

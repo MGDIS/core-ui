@@ -1,4 +1,4 @@
-const defaultConfig = require('prettier-config');
+const defaultConfig = require('@core-ui/prettier-config');
 
 module.exports = {
   ...defaultConfig,

@@ -1,5 +1,12 @@
 # @mgdis/playwright-helpers
 
+## 1.0.10
+
+### Patch Changes
+
+- 6bcee28: Updated dependencies
+- 06e3aed: Rename config dependencies
+
 ## 1.0.9
 
 ### Patch Changes

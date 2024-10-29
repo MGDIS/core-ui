@@ -1,5 +1,5 @@
 import { describe, expect, test, afterEach, vi } from 'vitest';
-import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick, toString } from './';
+import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick, toString, isValideID } from './';
 
 describe('components.utils', () => {
   describe('createID', () => {
@@ -15,6 +15,18 @@ describe('components.utils', () => {
       const id1 = createID();
       const id2 = createID();
       expect(id1).not.toEqual(id2);
+    });
+  });
+
+  describe('isValideID', () => {
+    test.each([undefined, '', { id: 'hello' }, '!batman', '{batman}', '123', '1-batman'])('Should NOT validate ID : %s', id => {
+      const valide = isValideID(id);
+      expect(valide).toEqual(false);
+    });
+
+    test.each(['hello', 'hello-batman', 'hello-batman-in-gotham', 'hello-1'])('Should validate ID : %s', id => {
+      const valide = isValideID(id);
+      expect(valide).toEqual(true);
     });
   });
 

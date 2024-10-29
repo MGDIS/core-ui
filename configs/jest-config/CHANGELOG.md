@@ -1,5 +1,12 @@
 # jest-config
 
+## 1.0.7
+
+### Patch Changes
+
+- 6bcee28: Updated dependencies
+- 06e3aed: Rename config dependencies
+
 ## 1.0.6
 
 ### Patch Changes

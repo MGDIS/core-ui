@@ -74,7 +74,9 @@ export class MgItemMore {
    */
   private setProxyElement = (proxified: HTMLMgMenuItemElement): void => {
     const proxy: HTMLMgMenuItemElement = this.moreElementMenuItem.querySelector(`[identifier="${proxified.identifier}"]`);
-    if (proxy === null) return;
+    if (proxy === null) {
+      return;
+    }
 
     // remove proxy id to prevent duplicate key. default html id is: '';
     if (isValidString(proxy.id)) proxy.id = '';
@@ -96,8 +98,8 @@ export class MgItemMore {
       // When `href` is updated we need to wait the full component re-render before update its handler
       setTimeout(() => {
         const interactiveElement = proxy.shadowRoot.querySelector('a, button');
-        interactiveElement.removeEventListener('click', proxyClickHandler);
-        interactiveElement.addEventListener('click', proxyClickHandler);
+        interactiveElement?.removeEventListener('click', proxyClickHandler);
+        interactiveElement?.addEventListener('click', proxyClickHandler);
       });
     };
 
@@ -129,10 +131,9 @@ export class MgItemMore {
 
       // we need to get all `mg-menu-item` linked to the cloned one to set mirror process
       nextTick(() => {
+        this.setProxyElement(child);
         if (child.querySelector('mg-menu') !== null) {
           child.querySelectorAll('mg-menu-item').forEach(this.setProxyElement);
-        } else {
-          this.setProxyElement(child);
         }
       });
     });

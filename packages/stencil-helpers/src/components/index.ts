@@ -18,6 +18,13 @@ export const createID = (prefix = '', length = 10): string => {
 };
 
 /**
+ * Validate html `id` format
+ * @param newValue - id value to validate
+ * @returns true if `id` is valid
+ */
+export const isValideID = (newValue: unknown): boolean => isValidString(newValue) && /^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/.exec(newValue) !== null;
+
+/**
  * Class to manage component classlist
  */
 export class ClassList {

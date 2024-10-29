@@ -1,7 +1,7 @@
 {
-  "name": "vitest-config",
+  "name": "@core-ui/vitest-config",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "ISC",
   "main": "./src/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "vitest": "1.6.0"
   },
   "devDependencies": {
-    "eslint-config-custom": "workspace:*",
-    "prettier-config": "workspace:*"
+    "@core-ui/eslint-config-custom": "workspace:*",
+    "@core-ui/prettier-config": "workspace:*"
   }
 }

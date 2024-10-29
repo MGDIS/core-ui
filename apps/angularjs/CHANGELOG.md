@@ -1,5 +1,24 @@
 # angularjs
 
+## 0.1.1
+
+### Patch Changes
+
+- 6bcee28: Updated dependencies
+- Updated dependencies [539d514]
+- Updated dependencies [3fc5d93]
+- Updated dependencies [b4c8f16]
+- Updated dependencies [a2875ae]
+- Updated dependencies [5920894]
+- Updated dependencies [b9f04db]
+- Updated dependencies [6bcee28]
+- Updated dependencies [fbbeb52]
+- Updated dependencies [06e3aed]
+  - @mgdis/styles@2.0.1
+  - @mgdis/mg-components@6.1.0
+  - @mgdis/mg-components-helpers@4.1.10
+  - @mgdis/notification-center@1.2.1
+
 ## 0.1.0
 
 ### Minor Changes

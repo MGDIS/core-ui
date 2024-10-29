@@ -1,7 +1,7 @@
 {
   "name": "notification-center",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "module",
   "scripts": {
     "dev": "vite --port 3210",
@@ -15,10 +15,10 @@
     "lint:prettier:fix": "prettier --write '**/*.{js,ts,tsx,html,json}' --ignore-path ../../.gitignore"
   },
   "devDependencies": {
-    "eslint-config-custom": "workspace:*",
-    "prettier-config": "workspace:*",
+    "@core-ui/eslint-config-custom": "workspace:*",
+    "@core-ui/prettier-config": "workspace:*",
     "typescript": "5.6.3",
-    "vite": "5.4.9"
+    "vite": "5.4.10"
   },
   "dependencies": {
     "@mgdis/mg-components": "workspace:*",

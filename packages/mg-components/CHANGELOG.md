@@ -1,5 +1,29 @@
 # @mgdis/mg-components
 
+## 6.1.0
+
+### Minor Changes
+
+- fbbeb52: Add and update icons
+
+### Patch Changes
+
+- 3fc5d93: [#505](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/505) prevent DOM selectors to throw error
+- b9f04db: [#504](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/504) mg-input-text the required indicator is not updated on dynamic "required" change
+- 6bcee28: Updated dependencies
+- 06e3aed: Rename config dependencies
+- Updated dependencies [539d514]
+- Updated dependencies [772b442]
+- Updated dependencies [b4c8f16]
+- Updated dependencies [a2875ae]
+- Updated dependencies [5920894]
+- Updated dependencies [6bcee28]
+- Updated dependencies [fbbeb52]
+- Updated dependencies [06e3aed]
+  - @mgdis/styles@2.0.1
+  - @mgdis/stencil-helpers@2.1.0
+  - @mgdis/img@2.1.0
+
 ## 6.0.0
 
 ### Major Changes

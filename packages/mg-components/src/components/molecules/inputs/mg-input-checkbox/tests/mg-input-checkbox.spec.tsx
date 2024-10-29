@@ -225,6 +225,43 @@ describe('mg-input-checkbox', () => {
         }
       });
     });
+
+    test('Should display error message on value change', async () => {
+      const value = getValues().map((props, index) => ({ ...props, value: index === 0 }));
+      const args = { label: 'label', identifier: 'identifier', type, value, helpText: 'My help text', required: true };
+      const page = await getPage(args);
+
+      expect(page.root).toMatchSnapshot();
+
+      const element = page.doc.querySelector('mg-input-checkbox');
+      const allInputs = element.shadowRoot.querySelectorAll('input');
+      const input = allInputs[0];
+      const spyInputValidEvent = jest.spyOn(page.rootInstance.inputValid, 'emit');
+      const spyValueChangeEvent = jest.spyOn(page.rootInstance.valueChange, 'emit');
+
+      const checkValidity = jest.fn(() => false);
+
+      //mock validity
+      allInputs.forEach(input => {
+        input.checkValidity = checkValidity;
+        Object.defineProperty(input, 'validity', {
+          get: jest.fn(() => ({
+            valueMissing: true,
+          })),
+        });
+      });
+
+      input.checked = false;
+      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.rootInstance.valid).toEqual(false);
+      expect(page.rootInstance.invalid).toEqual(true);
+      expect(spyInputValidEvent).toHaveBeenLastCalledWith(false);
+      expect(spyValueChangeEvent).toHaveBeenLastCalledWith(getValues().map(props => ({ ...props, value: false })));
+      expect(page.root).toMatchSnapshot(); //Snapshot with readonly/disabled TRUE
+    });
+
     test.each([
       {
         valid: true,
@@ -441,6 +478,18 @@ describe('mg-input-checkbox', () => {
     });
   });
 
+  test('Should log an error with invalid "identifier" property', async () => {
+    const identifier = '{{batman}}';
+    const spy = jest.spyOn(console, 'error');
+    expect.assertions(1);
+
+    try {
+      await getPage({ identifier, type: 'multi', label: 'label', value: getValues() });
+    } catch {
+      expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+    }
+  });
+
   describe('navigation', () => {
     test('Should NOT manage keyboard "tab" navigation on "checkbox" type', async () => {
       const page = await getPage({ label: 'label', identifier: 'identifier', value: getValues(), type: 'checkbox', tooltip: 'Tooltip message' });
@@ -460,7 +509,7 @@ describe('mg-input-checkbox', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test('Should NOT render error when uncheck from label click', async () => {
+    test('Should render error when uncheck from label click', async () => {
       const page = await getPage({ label: 'label', identifier: 'identifier', value: getValues(), type: 'checkbox', tooltip: 'Tooltip message', required: true });
       const element = page.doc.querySelector('mg-input-checkbox');
       const allInputs = Array.from(element.shadowRoot.querySelectorAll('input'));
@@ -485,21 +534,13 @@ describe('mg-input-checkbox', () => {
         input.dispatchEvent(new MouseEvent('blur', { bubbles: true }));
       });
 
-      label.dispatchEvent(new CustomEvent('mouseenter', { bubbles: true }));
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot(); //Snapshot on mouseenter
+      expect(page.root).toMatchSnapshot(); //Snapshot initial
 
       label.dispatchEvent(new CustomEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
       expect(input.value).toEqual('false');
       expect(page.root).toMatchSnapshot(); //Snapshot on click
-
-      label.dispatchEvent(new CustomEvent('mouseleave', { bubbles: true }));
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot(); //Snapshot on mouseleave
 
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();

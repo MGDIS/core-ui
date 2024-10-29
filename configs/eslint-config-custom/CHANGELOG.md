@@ -1,5 +1,12 @@
 # eslint-config-custom
 
+## 1.0.12
+
+### Patch Changes
+
+- 6bcee28: Updated dependencies
+- 06e3aed: Rename config dependencies
+
 ## 1.0.11
 
 ### Patch Changes

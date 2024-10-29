@@ -128,6 +128,17 @@ describe('mg-input-toggle', () => {
       }
     });
 
+    test('Should log an error with invalid "identifier" property', async () => {
+      const identifier = '{{batman}}';
+      const spy = jest.spyOn(console, 'error');
+      expect.assertions(1);
+      try {
+        await getPage({ identifier, label: 'label', items: defaultItems });
+      } catch {
+        expect(spy).toHaveBeenCalledWith(`<mg-input> prop "identifier" value is invalid. Passed value: ${identifier}.`);
+      }
+    });
+
     test.each(['', ' ', undefined])('Should throw error with invalid label property: %s', async label => {
       expect.assertions(1);
       try {

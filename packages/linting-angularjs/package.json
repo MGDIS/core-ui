@@ -1,6 +1,6 @@
 {
   "name": "@mgdis/linting-angularjs",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "description": "AngularJS Linting MGDIS rules",
   "main": "index.js",
   "bin": {
@@ -11,7 +11,7 @@
     "Nicolas Jouanno <jouanno-n@mgdis.fr>"
   ],
   "dependencies": {
-    "@babel/eslint-parser": "7.25.8",
+    "@babel/eslint-parser": "7.25.9",
     "@html-eslint/eslint-plugin": "0.27.0",
     "@html-eslint/parser": "0.27.0",
     "@mgdis/eslint-plugin-html": "workspace:*",
@@ -22,7 +22,7 @@
     "prettier": "3.3.3"
   },
   "devDependencies": {
-    "jest-config": "workspace:*",
-    "tsconfig": "workspace:*"
+    "@core-ui/jest-config": "workspace:*",
+    "@core-ui/tsconfig": "workspace:*"
   }
 }

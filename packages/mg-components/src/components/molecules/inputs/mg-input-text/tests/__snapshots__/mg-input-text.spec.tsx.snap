@@ -314,38 +314,6 @@ exports[`mg-input-text Should render with args { datalistoptions: [Array] }: 2`]
 </mg-input-text>
 `;
 
-exports[`mg-input-text Should render with args { displayCharacterLeft: false }: 1`] = `
-<mg-input-text>
-  <template shadowrootmode="open">
-    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </template>
-      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
-        <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" name="identifier" type="text">
-        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
-      </div>
-      <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-text>
-`;
-
 exports[`mg-input-text Should render with args { labelHide: true }: 1`] = `
 <mg-input-text>
   <template shadowrootmode="open">
@@ -1292,7 +1260,8 @@ exports[`mg-input-text readonly false Should render with slot. 3`] = `
     <mg-icon>
       <template shadowrootmode="open">
         <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14 3.05 12.95 2 8 6.95 3.05 2 2 3.05 6.95 8 2 12.95 3.05 14 8 9.05 12.95 14 14 12.95 9.05 8z" fill="currentColor"></path>
+          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
         </svg>
       </template>
     </mg-icon>
@@ -1308,7 +1277,7 @@ exports[`mg-input-text readonly false Should render with slot. 3`] = `
     <mg-icon>
       <template shadowrootmode="open">
         <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="m15.27 4.23-1.11-1.18c-.11-.1-.27-.1-.38 0L6 10.36l-3.76-4a.187.187 0 0 0-.26 0L.71 7.6c-.07.07-.07.19 0 .26l5.12 5.41c.07.07.18.07.25 0l1.3-1.23 7.87-7.45c.1-.1.11-.26.01-.37h.01z" fill="currentColor"></path>
+          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
         </svg>
       </template>
     </mg-icon>
@@ -1437,7 +1406,8 @@ exports[`mg-input-text readonly true Should render with slot. 3`] = `
     <mg-icon>
       <template shadowrootmode="open">
         <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14 3.05 12.95 2 8 6.95 3.05 2 2 3.05 6.95 8 2 12.95 3.05 14 8 9.05 12.95 14 14 12.95 9.05 8z" fill="currentColor"></path>
+          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
         </svg>
       </template>
     </mg-icon>
@@ -1453,7 +1423,7 @@ exports[`mg-input-text readonly true Should render with slot. 3`] = `
     <mg-icon>
       <template shadowrootmode="open">
         <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="m15.27 4.23-1.11-1.18c-.11-.1-.27-.1-.38 0L6 10.36l-3.76-4a.187.187 0 0 0-.26 0L.71 7.6c-.07.07-.07.19 0 .26l5.12 5.41c.07.07.18.07.25 0l1.3-1.23 7.87-7.45c.1-.1.11-.26.01-.37h.01z" fill="currentColor"></path>
+          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
         </svg>
       </template>
     </mg-icon>

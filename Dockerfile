@@ -1,5 +1,5 @@
 # use builded image from https://gitlab.mgdis.fr/core/core-ui/playwright-baseimage repo
-FROM registre.mgcloud.fr/mgdis/playwright-baseimage:v1.48.0-jammy
+FROM registre.mgcloud.fr/mgdis/playwright-baseimage:v1.48.1-jammy
 
 # Get Args
 ARG args

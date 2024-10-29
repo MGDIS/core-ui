@@ -1,5 +1,16 @@
 # @mgdis/stencil-helpers
 
+## 2.1.0
+
+### Minor Changes
+
+- 772b442: add `isValideID` function to validate html `id` format
+
+### Patch Changes
+
+- 6bcee28: Updated dependencies
+- 06e3aed: Rename config dependencies
+
 ## 2.0.0
 
 ### Major Changes
