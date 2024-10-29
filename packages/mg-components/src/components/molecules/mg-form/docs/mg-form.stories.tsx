@@ -87,6 +87,16 @@ const Template = (args: MgFormType): HTMLElement => {
         >
           Display errors
         </mg-button>
+        <mg-button
+          variant="secondary"
+          type="button"
+          // eslint-disable-next-line react/jsx-no-bind
+          onClick={() => {
+            form.reset();
+          }}
+        >
+          Reset form
+        </mg-button>
       </div>
     </mg-form>
   );

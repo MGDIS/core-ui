@@ -1,6 +1,6 @@
 ## Usage
 
-True/False value notion.  
+True/False value notion.
 Only 2 possible values.
 
 ## Warning
@@ -49,6 +49,16 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 ### `displayError() => Promise<void>`
 
 Display input error if it exists.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `reset() => Promise<void>`
+
+Reset value, validity and error state
 
 #### Returns
 

@@ -13,10 +13,22 @@ export const tooltipPositions = ['input', 'label'] as const;
 export type TooltipPosition = (typeof tooltipPositions)[number];
 
 /**
+ * Base interface for common methods
+ */
+interface InputBaseMethods {
+  required: boolean;
+  invalid: boolean;
+  labelOnTop: boolean;
+  readonly: boolean;
+  displayError: () => Promise<void>;
+  reset: () => Promise<void>;
+}
+
+/**
  * Possible Input types
  */
 export type HTMLMgInputsElement =
-  | (HTMLMgInputElement & { required: true; invalid: false; displayError: () => void; labelOnTop: boolean; readonly: boolean })
+  | (HTMLMgInputElement & InputBaseMethods)
   | HTMLMgInputCheckboxElement
   | HTMLMgInputDateElement
   | HTMLMgInputNumericElement
@@ -25,7 +37,7 @@ export type HTMLMgInputsElement =
   | HTMLMgInputSelectElement
   | HTMLMgInputTextElement
   | HTMLMgInputTextareaElement
-  | (HTMLMgInputToggleElement & { required: true; invalid: false; displayError: () => void });
+  | (HTMLMgInputToggleElement & InputBaseMethods);
 
 /**
  * Available WindowEvent types
