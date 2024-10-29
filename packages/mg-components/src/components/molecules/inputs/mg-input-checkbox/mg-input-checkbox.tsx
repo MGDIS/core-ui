@@ -2,7 +2,7 @@ import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method 
 import { ClassList, cleanString, isValidString, toString } from '@mgdis/stencil-helpers';
 import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SectionKindType } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
-import { type EventType, classDisabled, type TooltipPosition, classReadonly, classFieldset, classVerticalList } from '../mg-input/mg-input.conf';
+import { classDisabled, type TooltipPosition, classReadonly, classFieldset, classVerticalList } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 /**
@@ -33,7 +33,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private handlerInProgress: EventType;
 
   private mode: 'custom' | 'auto' = 'custom';
 
@@ -73,8 +72,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         _handleInput: this.handleInput.bind(this),
         _handleBlur: this.handleBlur.bind(this),
         _handleKeydown: this.handleKeydown.bind(this),
-        _handleMouseEnter: this.handleMouseEnter.bind(this),
-        _handleMouseLeave: this.handleMouseLeave.bind(this),
       }));
       this.valueChange.emit(newValue);
     } else {
@@ -335,7 +332,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.valid !== oldValidValue) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -346,6 +343,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.updateCheckboxItems('value', Boolean(event.target.checked), item => item._id === event.target.id);
     this.updateValues();
     this.checkValidity();
+    this.setErrorMessage();
   };
 
   /**
@@ -375,20 +373,10 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Handle blur event
    */
-  private handleBlur = (event: MouseEvent): void => {
-    if (this.handlerInProgress === 'mouseenter') {
-      event.preventDefault();
-      return;
-    }
-    // set guard
-    this.handlerInProgress = 'blur';
-
+  private handleBlur = (): void => {
     // Check validity
     this.checkValidity();
     this.setErrorMessage();
-
-    // reset guard
-    this.handlerInProgress = undefined;
   };
 
   /**
@@ -438,20 +426,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   };
 
   /**
-   * Handle input label mouseenter event
-   */
-  private handleMouseEnter = () => {
-    this.handlerInProgress = 'mouseenter';
-  };
-
-  /**
-   * Handle input label leave event
-   */
-  private handleMouseLeave = () => {
-    this.handlerInProgress = undefined;
-  };
-
-  /**
    * Update values
    */
   private updateValues = (): void => {
@@ -459,8 +433,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       delete o._handleBlur;
       delete o._handleInput;
       delete o._handleKeydown;
-      delete o._handleMouseEnter;
-      delete o._handleMouseLeave;
       delete o._id;
       return o;
     });
