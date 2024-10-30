@@ -161,8 +161,8 @@ const getChildWindows = (localWindow: Window, windows: Window[] = []): Window[] 
 export const isValidString = (value: unknown): value is string => typeof value === 'string' && value.trim() !== '';
 
 /**
- * Value to stringify
- * @param value
+ * Stringify value
+ * @param value - value to stringify
  * @returns stringified value
  */
 export const toString = (value: unknown): string => {
