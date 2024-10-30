@@ -30,7 +30,7 @@ export type HTMLMgInputsElement =
 /**
  * Available WindowEvent types
  */
-export type EventType = keyof WindowEventMap & ('blur' | 'focus' | 'mouseenter');
+export type EventType = keyof WindowEventMap & 'blur';
 
 export const classFieldset = 'mg-c-input--fieldset';
 export const classDisabled = 'mg-c-input--disabled';
