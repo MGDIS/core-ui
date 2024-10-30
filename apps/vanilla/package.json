@@ -6,7 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "pnpm lint:es && pnpm lint:prettier",
+    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
+    "lint:es": "eslint '**/*.{js,html}' --ignore-path ../../.gitignore",
+    "lint:es:fix": "eslint '**/*.{js,html}' --fix --ignore-path ../../.gitignore",
+    "lint:prettier": "prettier --check '**/*.scss' --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write '**/*.scss' --ignore-path ../../.gitignore"
   },
   "dependencies": {
     "@mgdis/mg-components": "workspace:*",
@@ -14,6 +20,7 @@
     "@mgdis/styles": "workspace:*"
   },
   "devDependencies": {
+    "@mgdis/linting-angularjs": "workspace:*",
     "sass": "1.80.4",
     "vite": "5.4.10"
   }

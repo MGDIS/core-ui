@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { eslintrc } = require('@mgdis/linting-stencil');
+
 module.exports = {
+  ...eslintrc,
   root: true,
-  extends: ['@core-ui/eslint-config-stencil'],
   parserOptions: {
     project: './tsconfig.eslint.json',
     tsconfigRootDir: __dirname,

@@ -46,7 +46,7 @@ const variants = ['success', 'info', 'warning', 'danger'];
 selectVariant.items = variants;
 selectVariant.value = variants[0];
 
-form.addEventListener('form-valid', e => {
+form.addEventListener('form-valid', (e) => {
   formSubmitBtn.disabled = !e.detail;
 });
 

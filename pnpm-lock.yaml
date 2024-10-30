@@ -79,12 +79,9 @@ importers:
         specifier: workspace:*
         version: link:../../packages/styles
     devDependencies:
-      '@core-ui/eslint-config-custom':
+      '@mgdis/linting-angularjs':
         specifier: workspace:*
-        version: link:../../configs/eslint-config-custom
-      '@core-ui/prettier-config':
-        specifier: workspace:*
-        version: link:../../configs/prettier-config
+        version: link:../../packages/linting-angularjs
       typescript:
         specifier: 5.6.3
         version: 5.6.3
@@ -101,9 +98,6 @@ importers:
         specifier: 4.22.2
         version: 4.22.2
     devDependencies:
-      '@core-ui/eslint-config-stencil':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config-stencil
       '@mgdis/linting-stencil':
         specifier: workspace:*
         version: link:../../packages/linting-stencil
@@ -141,6 +135,9 @@ importers:
         specifier: workspace:*
         version: link:../../packages/styles
     devDependencies:
+      '@mgdis/linting-angularjs':
+        specifier: workspace:*
+        version: link:../../packages/linting-angularjs
       sass:
         specifier: 1.80.4
         version: 1.80.4
@@ -200,6 +197,9 @@ importers:
       '@mgdis/eslint-plugin-vue':
         specifier: workspace:*
         version: link:../../packages/eslint-plugin-vue
+      '@mgdis/prettier-config':
+        specifier: 2.0.2
+        version: 2.0.2(prettier@3.3.3)
       '@tsconfig/node20':
         specifier: 20.1.4
         version: 20.1.4
@@ -2315,6 +2315,11 @@ packages:
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'
+
+  '@mgdis/prettier-config@2.0.2':
+    resolution: {integrity: sha1-0NGfb0YQW5H8w/J2u9VfLBiq2NI=, tarball: https://artifactory.mgdis.fr/artifactory/api/npm/npm-local/@mgdis/prettier-config/-/@mgdis/prettier-config-2.0.2.tgz}
+    peerDependencies:
+      prettier: ^3.x
 
   '@microsoft/api-extractor-model@7.28.13':
     resolution: {integrity: sha512-39v/JyldX4MS9uzHcdfmjjfS6cYGAoXV+io8B5a338pkHiSt+gy2eXQ0Q7cGFJ7quSa1VqqlMdlPrB6sLR/cAw==}
@@ -11359,6 +11364,10 @@ snapshots:
       '@types/mdx': 2.0.13
       '@types/react': 18.3.12
       react: 18.3.1
+
+  '@mgdis/prettier-config@2.0.2(prettier@3.3.3)':
+    dependencies:
+      prettier: 3.3.3
 
   '@microsoft/api-extractor-model@7.28.13(@types/node@20.17.3)':
     dependencies:

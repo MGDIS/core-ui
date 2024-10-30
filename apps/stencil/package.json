@@ -26,17 +26,16 @@
     "generate": "stencil generate",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint 'src/**/*.{ts,tsx}'",
-    "lint:es:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
-    "lint:prettier": "prettier --check '**/*.{ts,tsx,html,json}'",
-    "lint:prettier:fix": "prettier --write '**/*.{ts,tsx,html,json}'"
+    "lint:es": "eslint '**/*.{ts,tsx}' --ignore-path ../../.gitignore",
+    "lint:es:fix": "eslint --fix '**/*.{ts,tsx}' --ignore-path ../../.gitignore",
+    "lint:prettier": "prettier --check '**/*.{ts,tsx,html,json,css,scss}' --ignore-path ../../packages/mg-components/.prettierignore",
+    "lint:prettier:fix": "prettier --write '**/*.{ts,tsx,html,json,css,scss}' --ignore-path ../../packages/mg-components/.prettierignore"
   },
   "dependencies": {
     "@mgdis/mg-components": "workspace:*",
     "@stencil/core": "4.22.2"
   },
   "devDependencies": {
-    "@core-ui/eslint-config-stencil": "workspace:*",
     "@mgdis/linting-stencil": "workspace:*",
     "@stencil/sass": "3.0.12",
     "@types/jest": "29.5.14",
