@@ -36,8 +36,15 @@ module.exports = {
       parser: '@html-eslint/parser',
       extends: ['plugin:@html-eslint/recommended', 'plugin:@mgdis/html/recommended'],
       rules: {
-        'prettier/prettier': 'off', // Do not report prettier errors on html files
+        // Best Practices
         '@html-eslint/require-doctype': 'off', // Component templates do not require a doctype.
+        '@html-eslint/require-closing-tags': 'off', // This rule is in conflict with Prettier.
+        // Style - Disabling rules in favor of Prettier
+        '@html-eslint/attrs-newline': 'off',
+        '@html-eslint/element-newline': 'off',
+        '@html-eslint/indent': 'off',
+        '@html-eslint/no-extra-spacing-attrs': 'off',
+        '@html-eslint/quotes': 'off',
       },
     },
   ],

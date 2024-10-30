@@ -11,8 +11,8 @@
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
     "lint:es": "eslint 'src/**/*.{html,js}' --ignore-path ../../.gitignore",
     "lint:es:fix": "eslint 'src/**/*.{html,js}' --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{scss,html,md,json}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{scss,html,md,json}' --ignore-path ../../.gitignore"
+    "lint:prettier": "prettier --check '**/*.{scss,md,json}' --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write '**/*.{scss,md,json}' --ignore-path ../../.gitignore"
   },
   "dependencies": {
     "@mgdis/mg-components": "workspace:*",
@@ -22,8 +22,6 @@
     "angular": "1.8.3"
   },
   "devDependencies": {
-    "@html-eslint/eslint-plugin": "0.27.0",
-    "@html-eslint/parser": "0.27.0",
     "@mgdis/eslint-plugin-html": "workspace:*",
     "@mgdis/linting-angularjs": "workspace:*",
     "sass": "1.80.4",
