@@ -359,11 +359,11 @@ importers:
   configs/typedoc-config:
     dependencies:
       typedoc:
-        specifier: 0.26.10
-        version: 0.26.10(typescript@5.6.3)
+        specifier: 0.26.11
+        version: 0.26.11(typescript@5.6.3)
       typedoc-plugin-markdown:
         specifier: 4.2.9
-        version: 4.2.9(typedoc@0.26.10(typescript@5.6.3))
+        version: 4.2.9(typedoc@0.26.11(typescript@5.6.3))
 
   configs/vitest-config:
     dependencies:
@@ -796,11 +796,11 @@ importers:
         specifier: 6.1.1
         version: 6.1.1(rollup@4.24.3)(typescript@5.6.3)
       typedoc:
-        specifier: 0.26.10
-        version: 0.26.10(typescript@5.6.3)
+        specifier: 0.26.11
+        version: 0.26.11(typescript@5.6.3)
       typedoc-plugin-markdown:
         specifier: 4.2.9
-        version: 4.2.9(typedoc@0.26.10(typescript@5.6.3))
+        version: 4.2.9(typedoc@0.26.11(typescript@5.6.3))
       vitest:
         specifier: 1.6.0
         version: 1.6.0(@types/node@20.17.5)(jsdom@25.0.1)(sass@1.80.5)(terser@5.36.0)
@@ -937,11 +937,11 @@ importers:
         specifier: 1.6.0
         version: 1.6.0(vitest@1.6.0(@types/node@20.17.5)(jsdom@25.0.1)(sass@1.80.5)(terser@5.36.0))
       typedoc:
-        specifier: 0.26.10
-        version: 0.26.10(typescript@5.6.3)
+        specifier: 0.26.11
+        version: 0.26.11(typescript@5.6.3)
       typedoc-plugin-markdown:
         specifier: 4.2.9
-        version: 4.2.9(typedoc@0.26.10(typescript@5.6.3))
+        version: 4.2.9(typedoc@0.26.11(typescript@5.6.3))
       vite:
         specifier: 5.4.10
         version: 5.4.10(@types/node@20.17.5)(sass@1.80.5)(terser@5.36.0)
@@ -9187,8 +9187,8 @@ packages:
     peerDependencies:
       typedoc: 0.26.x
 
-  typedoc@0.26.10:
-    resolution: {integrity: sha512-xLmVKJ8S21t+JeuQLNueebEuTVphx6IrP06CdV7+0WVflUSW3SPmR+h1fnWVdAR/FQePEgsSWCUHXqKKjzuUAw==}
+  typedoc@0.26.11:
+    resolution: {integrity: sha512-sFEgRRtrcDl2FxVP58Ze++ZK2UQAEvtvvH8rRlig1Ja3o7dDaMHmaBfvJmdGnNEFaLTpQsN8dpvZaTqJSu/Ugw==}
     engines: {node: '>= 18'}
     hasBin: true
     peerDependencies:
@@ -19291,11 +19291,11 @@ snapshots:
 
   typed-query-selector@2.12.0: {}
 
-  typedoc-plugin-markdown@4.2.9(typedoc@0.26.10(typescript@5.6.3)):
+  typedoc-plugin-markdown@4.2.9(typedoc@0.26.11(typescript@5.6.3)):
     dependencies:
-      typedoc: 0.26.10(typescript@5.6.3)
+      typedoc: 0.26.11(typescript@5.6.3)
 
-  typedoc@0.26.10(typescript@5.6.3):
+  typedoc@0.26.11(typescript@5.6.3):
     dependencies:
       lunr: 2.3.9
       markdown-it: 14.1.0
