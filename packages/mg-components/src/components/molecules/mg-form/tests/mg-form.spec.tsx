@@ -75,12 +75,16 @@ const getSlottedContent = () => [
 ];
 
 const setCheckValitidy = (input: HTMLMgInputsElement): void => {
-  const shadowInputs = input.shadowRoot.querySelectorAll('input, textarea, select') as NodeListOf<HTMLInputElement>;
+  const shadowInputs: NodeListOf<HTMLInputElement> = input.shadowRoot.querySelectorAll('input, textarea, select');
   shadowInputs.forEach(input => {
-    input.checkValidity = jest.fn(() => false);
+    // select and textarea mock use prototype of MockElement instead of MockHTMLElement
+    // so attributes aren't available on the object, but we can get attribute in stringified DOM.
+    const validity = input.required || input.outerHTML.includes('required=""');
+    input.checkValidity = jest.fn(() => !validity);
+
     Object.defineProperty(input, 'validity', {
       get: jest.fn(() => ({
-        valueMissing: true,
+        valueMissing: validity,
       })),
     });
   });
@@ -249,6 +253,34 @@ describe('mg-form', () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.setMgInputs).toHaveBeenCalled();
+  });
+
+  test('Should update mg-form valid when content is updated', async () => {
+    const args = { identifier: 'identifier' };
+    const slots = [
+      <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+      <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+    ];
+
+    const page = await getPage(args, slots);
+
+    const mgForm = page.doc.querySelector('mg-form');
+    Array.from(mgForm.querySelectorAll('*')).forEach(setCheckValitidy);
+    await mgForm.displayError();
+
+    await page.waitForChanges();
+    expect(mgForm.valid).toEqual(false);
+
+    const mgInputText: HTMLMgInputTextElement = page.doc.querySelector('mg-input-text');
+    jest.spyOn(page.rootInstance, 'checkValidity');
+
+    // remove input-text wich trigger the valid=false
+    mgInputText.remove();
+    fireMo([]);
+    await page.waitForChanges();
+
+    expect(mgForm.valid).toEqual(true);
+    expect(page.rootInstance.checkValidity).toHaveBeenCalledTimes(1);
   });
 
   test.each(['readonly', 'disabled'])('Should update input list when attribute % change', async attribute => {
