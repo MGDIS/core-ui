@@ -54,12 +54,6 @@ importers:
         specifier: 1.8.3
         version: 1.8.3
     devDependencies:
-      '@html-eslint/eslint-plugin':
-        specifier: 0.27.0
-        version: 0.27.0
-      '@html-eslint/parser':
-        specifier: 0.27.0
-        version: 0.27.0
       '@mgdis/eslint-plugin-html':
         specifier: workspace:*
         version: link:../../packages/eslint-plugin-html
@@ -548,6 +542,9 @@ importers:
       eslint:
         specifier: 8.57.1
         version: 8.57.1
+      eslint-config-prettier:
+        specifier: 9.1.0
+        version: 9.1.0(eslint@8.57.1)
       eslint-plugin-angular:
         specifier: 4.1.0
         version: 4.1.0
