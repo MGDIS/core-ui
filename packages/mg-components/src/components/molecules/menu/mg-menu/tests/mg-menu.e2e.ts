@@ -86,11 +86,14 @@ test.describe('mg-menu', () => {
         await page.locator('mg-popover-content[data-show]').waitFor();
         expect(await item.locator('button').first().getAttribute('aria-expanded')).toEqual(expanded);
       }
+
+      const body = page.locator('body');
       // menu-item close
-      await page.$eval('body', elm => {
+      await body.evaluate(elm => {
         elm.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       });
-      await expect(page.locator('body')).toHaveScreenshot();
+
+      await expect(body).toHaveScreenshot();
     });
     test(`should success keyboard navigation, case direction ${Direction.HORIZONTAL}`, async ({ page }) => {
       await setPageContent(page, { direction: Direction.HORIZONTAL }, getViewportSize(Direction.HORIZONTAL));
@@ -141,9 +144,10 @@ test.describe('mg-menu', () => {
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       }
 
-      await page.$eval('body', elm => {
+      await page.locator('body').evaluate(elm => {
         elm.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       });
+
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 

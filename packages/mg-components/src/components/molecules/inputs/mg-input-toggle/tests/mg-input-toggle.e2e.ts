@@ -145,8 +145,8 @@ test.describe('mg-input-toggle', () => {
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    await page.$eval('mg-input-toggle', async el => {
-      await el.setError(false, 'This is an error Batman');
+    await page.locator('mg-input-toggle').evaluate((elm: HTMLMgInputToggleElement) => {
+      elm.setError(false, 'This is an error Batman');
     });
 
     page.locator('.mg-c-input__input--has-error');
