@@ -32,10 +32,9 @@
 }
 
 /**
-   Remove animations if `prefers-reduced-motion` is enabled
-  */
+  Remove animations if `prefers-reduced-motion` is enabled
+*/
 @media (prefers-reduced-motion) {
-  // TODO: check if needs to add before and after
   * {
     /* stylelint-disable declaration-no-important */
     animation: none !important;

@@ -84,21 +84,13 @@ test.describe('mg-item-more', () => {
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-        await page.$eval(
-          `[${OverflowBehaviorElements.BASE_INDEX}="0"]`,
-          (elm, status) => {
-            elm.setAttribute('status', status as string);
-          },
-          Status.VISIBLE,
-        );
+        await page.locator(`[${OverflowBehaviorElements.BASE_INDEX}="0"]`).evaluate((elm, status) => {
+          elm.setAttribute('status', status as string);
+        }, Status.VISIBLE);
 
-        await page.$eval(
-          `[${OverflowBehaviorElements.BASE_INDEX}="2"]`,
-          (elm, status) => {
-            elm.setAttribute('status', status as string);
-          },
-          Status.ACTIVE,
-        );
+        await page.locator(`[${OverflowBehaviorElements.BASE_INDEX}="2"]`).evaluate((elm, status) => {
+          elm.setAttribute('status', status as string);
+        }, Status.ACTIVE);
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
