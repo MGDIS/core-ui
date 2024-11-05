@@ -1,5 +1,5 @@
-@import '../utils/a11y';
-@import 'mixins/mg-icon-animation';
+@use '../utils/a11y';
+@use 'mixins/mg-icon-animation';
 
 :host {
   --mg-c-popover-padding-vertical: var(--mg-b-size-8);
@@ -13,6 +13,6 @@
   }
 
   &__chevron {
-    @include rotate('.mg-c-action-more__chevron', 200ms);
+    @include mg-icon-animation.rotate('.mg-c-action-more__chevron', 200ms);
   }
 }

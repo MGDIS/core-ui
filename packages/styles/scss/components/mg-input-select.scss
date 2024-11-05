@@ -1,8 +1,8 @@
 @use '../variables' as variables;
-@import 'mg-input-box';
-@import 'mg-input-readonly';
-@import 'mg-input-width';
-@import '../utils/a11y';
+@use 'mg-input-box';
+@use 'mg-input-readonly';
+@use 'mg-input-width';
+@use '../utils/a11y';
 
 .mg-c-input__box {
   padding-top: 0;

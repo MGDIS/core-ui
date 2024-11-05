@@ -1,4 +1,4 @@
-@import 'mixins/reset-mg-card-slotted-variables';
+@use 'mixins/reset-mg-card-slotted-variables';
 
 /*!
  * @prop --mg-c-card-overflow: Defines the overflow property for the card. Unset by default, fallback on `--mg-c-card-overflow-default`.
@@ -30,5 +30,5 @@
   background: var(--mg-c-card-color-background, var(--mg-c-card-color-background-default));
   box-shadow: var(--mg-c-card-box-shadow, var(--mg-c-card-box-shadow-default));
 
-  @include reset-slot-card-variables;
+  @include reset-mg-card-slotted-variables.reset-slot-card-variables;
 }

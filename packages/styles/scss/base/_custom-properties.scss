@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use '../variables' as variables;
 @use '../functions' as functions;
 
@@ -63,7 +64,7 @@
   /* Brand colors */
 
   // App
-  --mg-b-color-#{nth(variables.$app, 1)}: var(--mg-b-color-#{nth(variables.$app, 2)}-#{nth(variables.$app, 3)});
+  --mg-b-color-#{list.nth(variables.$app, 1)}: var(--mg-b-color-#{list.nth(variables.$app, 2)}-#{list.nth(variables.$app, 3)});
 
   // Brand
   @each $brand, $palette, $index in variables.$brands {
