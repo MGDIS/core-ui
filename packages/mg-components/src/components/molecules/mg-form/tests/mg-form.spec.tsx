@@ -546,4 +546,54 @@ describe('mg-form', () => {
       expect(mgFormSpy).not.toHaveBeenCalled();
     }
   });
+
+  test('Should reset all inputs when reset is called', async () => {
+    const args = { identifier: 'identifier' };
+    const slot = getSlottedContent();
+    const page = await getPage(args, slot);
+    const mgForm = page.doc.querySelector('mg-form');
+
+    // Mock reset method for all inputs
+    const mgInputs = Array.from(mgForm.querySelectorAll('*')).filter((node: Node) => node.nodeName.startsWith('MG-INPUT')) as HTMLMgInputsElement[];
+
+    mgInputs.forEach(input => {
+      Object.defineProperty(input, 'reset', {
+        value: jest.fn(),
+        configurable: true,
+      });
+    });
+
+    // Call reset method
+    await mgForm.reset();
+
+    // Verify that reset was called for each input
+    mgInputs.forEach(input => {
+      expect(input.reset).toHaveBeenCalled();
+    });
+  });
+
+  test('Should not reset inputs when form is readonly', async () => {
+    const args = { identifier: 'identifier', readonly: true };
+    const slot = getSlottedContent();
+    const page = await getPage(args, slot);
+    const mgForm = page.doc.querySelector('mg-form');
+
+    // Mock reset method for all inputs
+    const mgInputs = Array.from(mgForm.querySelectorAll('*')).filter((node: Node) => node.nodeName.startsWith('MG-INPUT')) as HTMLMgInputsElement[];
+
+    mgInputs.forEach(input => {
+      Object.defineProperty(input, 'reset', {
+        value: jest.fn(),
+        configurable: true,
+      });
+    });
+
+    // Call reset method
+    await mgForm.reset();
+
+    // Verify that reset was not called for each input
+    mgInputs.forEach(input => {
+      expect(input.reset).not.toHaveBeenCalled();
+    });
+  });
 });

@@ -448,4 +448,40 @@ test.describe('mg-input-checkbox', () => {
       });
     });
   });
+
+  test.describe('Reset input', () => {
+    test('Should reset value and error when calling reset method', async ({ page }) => {
+      const componentArgs = {
+        ...baseArgs,
+        value: [
+          { title: 'Chase', value: false },
+          { title: 'Marshall', value: false },
+        ],
+      };
+      const html = createHTML(componentArgs);
+      await page.setContent(html);
+      await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
+
+      await page.locator('mg-input-checkbox.hydrated').waitFor();
+
+      // Check a box
+      await page.locator('mg-input-checkbox input').first().press('Space');
+
+      // Set an error message intentionally
+      await page.evaluate(() => {
+        document.querySelector('mg-input-checkbox').setError(false, "Message d'erreur de test");
+      });
+
+      // Verify the state with error
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Call the reset method
+      await page.evaluate(() => {
+        document.querySelector('mg-input-checkbox').reset();
+      });
+
+      // Verify that the input has been reset and the error has been removed
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
 });

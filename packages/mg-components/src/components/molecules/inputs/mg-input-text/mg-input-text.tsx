@@ -316,7 +316,6 @@ export class MgInputText {
     if (!this.readonly) {
       this.value = '';
       this.checkValidity();
-      this.invalid = false;
       this.errorMessage = undefined;
       this.hasDisplayedError = false;
     }
