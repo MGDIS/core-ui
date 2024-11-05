@@ -79,12 +79,12 @@ const setCheckValitidy = (input: HTMLMgInputsElement): void => {
   shadowInputs.forEach(input => {
     // select and textarea mock use prototype of MockElement instead of MockHTMLElement
     // so attributes aren't available on the object, but we can get attribute in stringified DOM.
-    const validity = input.required || input.outerHTML.includes('required=""');
-    input.checkValidity = jest.fn(() => !validity);
+    const required = input.required || input.outerHTML.includes('required=""');
+    input.checkValidity = jest.fn(() => !required);
 
     Object.defineProperty(input, 'validity', {
       get: jest.fn(() => ({
-        valueMissing: validity,
+        valueMissing: required,
       })),
     });
   });
