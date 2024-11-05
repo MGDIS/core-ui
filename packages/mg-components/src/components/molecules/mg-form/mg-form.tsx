@@ -296,6 +296,7 @@ export class MgForm {
     // Update mgInputs when mgForm content change
     new MutationObserver(() => {
       this.setMgInputs();
+      this.checkValidity();
     }).observe(this.element, { childList: true });
   }
 
