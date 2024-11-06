@@ -1,4 +1,4 @@
-@import '../utils/a11y';
+@use '../utils/a11y';
 
 /*!
  * @prop --mg-c-details-spacing: Defines the spacing between the summary and the details. Default value: `--mg-b-size-8`.
@@ -37,6 +37,6 @@
 /* hide toggle button when < 700px */
 @media (width < 43.75rem) {
   .mg-c-details__toggle > span {
-    @include visually-hidden;
+    @include a11y.visually-hidden;
   }
 }
