@@ -27,6 +27,7 @@ import { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } fr
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 import { Placement } from "@popperjs/core";
+import { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 import { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
@@ -52,6 +53,7 @@ export { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } fr
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 export { Placement } from "@popperjs/core";
+export { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 export { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 export { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 export { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
@@ -1327,6 +1329,32 @@ export namespace Components {
          */
         "closeButton": boolean;
     }
+    interface MgProgress {
+        /**
+          * Define progress role - `progressbar` to indicate a progress, such as loading or percent completion of a task - `meter` to indicate a graphical display of a numeric value that varies within a defined range
+         */
+        "ariaRole"?: AriaRoleType1;
+        /**
+          * Define label
+         */
+        "label": string;
+        /**
+          * Define the maximum value in the range..
+         */
+        "max"?: number;
+        /**
+          * Define the minimum value in the range..
+         */
+        "min"?: number;
+        /**
+          * Define current value By default, it will be displayed as a percentage value. If you don’t specify the min and max props, the value should be a number within the range of 0 to 100.
+         */
+        "value"?: number;
+        /**
+          * Define the value text override for assistive technologies. Assistive technologies read the value as a percentage by default. Use this prop to make the value more understandable and relevant. ex: "€20 of €50"
+         */
+        "valueText"?: string;
+    }
     interface MgSkipLinks {
         /**
           * Skip links
@@ -1923,6 +1951,12 @@ declare global {
         prototype: HTMLMgPopoverContentElement;
         new (): HTMLMgPopoverContentElement;
     };
+    interface HTMLMgProgressElement extends Components.MgProgress, HTMLStencilElement {
+    }
+    var HTMLMgProgressElement: {
+        prototype: HTMLMgProgressElement;
+        new (): HTMLMgProgressElement;
+    };
     interface HTMLMgSkipLinksElementEventMap {
         "go-to-anchor": string;
     }
@@ -2009,6 +2043,7 @@ declare global {
         "mg-panel": HTMLMgPanelElement;
         "mg-popover": HTMLMgPopoverElement;
         "mg-popover-content": HTMLMgPopoverContentElement;
+        "mg-progress": HTMLMgProgressElement;
         "mg-skip-links": HTMLMgSkipLinksElement;
         "mg-tabs": HTMLMgTabsElement;
         "mg-tag": HTMLMgTagElement;
@@ -3334,6 +3369,32 @@ declare namespace LocalJSX {
          */
         "onHide-content"?: (event: MgPopoverContentCustomEvent<void>) => void;
     }
+    interface MgProgress {
+        /**
+          * Define progress role - `progressbar` to indicate a progress, such as loading or percent completion of a task - `meter` to indicate a graphical display of a numeric value that varies within a defined range
+         */
+        "ariaRole"?: AriaRoleType1;
+        /**
+          * Define label
+         */
+        "label": string;
+        /**
+          * Define the maximum value in the range..
+         */
+        "max"?: number;
+        /**
+          * Define the minimum value in the range..
+         */
+        "min"?: number;
+        /**
+          * Define current value By default, it will be displayed as a percentage value. If you don’t specify the min and max props, the value should be a number within the range of 0 to 100.
+         */
+        "value"?: number;
+        /**
+          * Define the value text override for assistive technologies. Assistive technologies read the value as a percentage by default. Use this prop to make the value more understandable and relevant. ex: "€20 of €50"
+         */
+        "valueText"?: string;
+    }
     interface MgSkipLinks {
         /**
           * Skip links
@@ -3446,6 +3507,7 @@ declare namespace LocalJSX {
         "mg-panel": MgPanel;
         "mg-popover": MgPopover;
         "mg-popover-content": MgPopoverContent;
+        "mg-progress": MgProgress;
         "mg-skip-links": MgSkipLinks;
         "mg-tabs": MgTabs;
         "mg-tag": MgTag;
@@ -3493,6 +3555,7 @@ declare module "@stencil/core" {
             "mg-panel": LocalJSX.MgPanel & JSXBase.HTMLAttributes<HTMLMgPanelElement>;
             "mg-popover": LocalJSX.MgPopover & JSXBase.HTMLAttributes<HTMLMgPopoverElement>;
             "mg-popover-content": LocalJSX.MgPopoverContent & JSXBase.HTMLAttributes<HTMLMgPopoverContentElement>;
+            "mg-progress": LocalJSX.MgProgress & JSXBase.HTMLAttributes<HTMLMgProgressElement>;
             "mg-skip-links": LocalJSX.MgSkipLinks & JSXBase.HTMLAttributes<HTMLMgSkipLinksElement>;
             "mg-tabs": LocalJSX.MgTabs & JSXBase.HTMLAttributes<HTMLMgTabsElement>;
             "mg-tag": LocalJSX.MgTag & JSXBase.HTMLAttributes<HTMLMgTagElement>;
