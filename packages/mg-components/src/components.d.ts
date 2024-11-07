@@ -1339,21 +1339,17 @@ export namespace Components {
          */
         "label": string;
         /**
-          * Define the maximum value in the range..
+          * Define the maximum value in the range
          */
         "max"?: number;
         /**
-          * Define the minimum value in the range..
+          * Define the minimum value in the range
          */
         "min"?: number;
         /**
           * Define current value By default, it will be displayed as a percentage value. If you don’t specify the min and max props, the value should be a number within the range of 0 to 100.
          */
         "value"?: number;
-        /**
-          * Define the value text override for assistive technologies. Assistive technologies read the value as a percentage by default. Use this prop to make the value more understandable and relevant. ex: "€20 of €50"
-         */
-        "valueText"?: string;
     }
     interface MgSkipLinks {
         /**
@@ -3379,21 +3375,17 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * Define the maximum value in the range..
+          * Define the maximum value in the range
          */
         "max"?: number;
         /**
-          * Define the minimum value in the range..
+          * Define the minimum value in the range
          */
         "min"?: number;
         /**
           * Define current value By default, it will be displayed as a percentage value. If you don’t specify the min and max props, the value should be a number within the range of 0 to 100.
          */
         "value"?: number;
-        /**
-          * Define the value text override for assistive technologies. Assistive technologies read the value as a percentage by default. Use this prop to make the value more understandable and relevant. ex: "€20 of €50"
-         */
-        "valueText"?: string;
     }
     interface MgSkipLinks {
         /**

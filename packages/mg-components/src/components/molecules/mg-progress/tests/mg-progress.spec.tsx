@@ -4,7 +4,7 @@ import { MgProgress } from '../mg-progress';
 import { roles } from '../mg-progress.conf';
 import { toString } from '@mgdis/stencil-helpers';
 
-const getPage = (args: Pick<MgProgress, 'label'> & Partial<Pick<MgProgress, 'value' | 'min' | 'max' | 'valueText' | 'ariaRole'> & { lang: string }>) =>
+const getPage = (args: Pick<MgProgress, 'label'> & Partial<Pick<MgProgress, 'value' | 'min' | 'max' | 'ariaRole'> & { lang: string }>) =>
   newSpecPage({
     components: [MgProgress],
     template: () => <mg-progress {...args}></mg-progress>,
@@ -18,7 +18,6 @@ describe('mg-progress', () => {
     { label: 'progress', value: 10, max: 15 },
     { label: 'progress', value: 10, min: 5 },
     { label: 'progress', value: 10, min: 5, max: 15 },
-    { label: 'progress', value: 30, max: 50, valueText: '30€ of 50€' },
     { label: 'progress', ariaRole: 'meter' as MgProgress['ariaRole'] },
     { label: 'new progress label' },
   ])('with args %s', async args => {
@@ -68,15 +67,6 @@ describe('mg-progress', () => {
       await getPage({ label: 'progress', max: max as MgProgress['max'] });
     } catch (err) {
       expect(err.message).toEqual(`<mg-progress> prop “max” must be a number greater than: 0. Passed value: ${typeof max === 'string' ? 'NaN' : toString(max)}.`);
-    }
-  });
-
-  test('Should throw error if valueText is not valid', async () => {
-    expect.assertions(1);
-    try {
-      await getPage({ label: 'label', valueText: ' ' });
-    } catch (err) {
-      expect(err.message).toEqual(`<mg-progress> prop "valueText" must be a valid string. Passed value:  .`);
     }
   });
 });

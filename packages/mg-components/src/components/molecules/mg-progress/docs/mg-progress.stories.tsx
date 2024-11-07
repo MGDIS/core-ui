@@ -21,3 +21,14 @@ export const MgProgress = {
     value: 10,
   },
 };
+
+export const MgProgressMeter = {
+  render: Template,
+  args: {
+    label: 'label',
+    ariaRole: 'meter',
+    value: 20,
+    min: 10,
+    max: 30,
+  },
+};

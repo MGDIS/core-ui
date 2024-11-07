@@ -68,19 +68,6 @@ export class MgProgress {
       throw new Error(`<mg-progress> prop “max” must be a number greater than: ${this.min}. Passed value: ${toString(newValue)}.`);
   }
 
-  /**
-   * Define the value text override for assistive technologies.
-   * Assistive technologies read the value as a percentage by default. Use this prop to make the value more understandable and relevant.
-   * ex: "€20 of €50"
-   */
-  @Prop() valueText?: string;
-  @Watch('valueText')
-  watchValueText(newValue: MgProgress['valueText']): void {
-    if (newValue && !isValidString(newValue)) {
-      throw new Error(`<mg-progress> prop "valueText" must be a valid string. Passed value: ${toString(newValue)}.`);
-    }
-  }
-
   /*************
    * Lifecycle *
    *************/
@@ -95,7 +82,6 @@ export class MgProgress {
     this.watchMin(this.min);
     this.watchMax(this.max);
     this.watchValue(this.value);
-    this.watchValueText(this.valueText);
   }
 
   /**
@@ -104,15 +90,7 @@ export class MgProgress {
    */
   render(): HTMLElement {
     return (
-      <Host
-        role={this.ariaRole}
-        aria-label={this.label}
-        aria-valuenow={this.value}
-        aria-valuetext={this.valueText}
-        aria-valuemin={this.min}
-        aria-valuemax={this.max}
-        aria-busy={this.ariaRole === 'progressbar' ? (this.value !== this.max).toString() : undefined}
-      >
+      <Host role={this.ariaRole} aria-label={this.label} aria-valuenow={this.value} aria-valuemin={this.min} aria-valuemax={this.max}>
         <div class="mg-c-progress">
           <div
             class={{ 'mg-c-progress__bar': true, 'mg-c-progress__bar--active': this.value > this.min }}
