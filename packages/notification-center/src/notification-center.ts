@@ -164,6 +164,9 @@ class NotificationCenter {
 
     // Init notification
     const notificationElement: HTMLElement = document.createElement(this.#notifactionTagName);
+    if (this.#notifactionTagName === 'mg-message') {
+      notificationElement.setAttribute('close-button', '');
+    }
     notificationElement.classList.add('notification-center__notification');
     // Variant
     if (variant) notificationElement.setAttribute('variant', variant);
