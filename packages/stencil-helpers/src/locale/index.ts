@@ -45,10 +45,19 @@ const getLocaleMessages = (element: HTMLElement, messages: ObjectType, defaultLo
   const locale = closestLang.length > 0 && typeof closestLang[0] === 'string' ? closestLang[0] : navigator.language || defaultLocale;
   // Only keep first subtag
   const localeSubtag = locale.split('-').shift() as string;
+
+  // If messages is empty, return a default object
+  if (Object.keys(messages).length === 0) {
+    return {
+      locale,
+      messages: { lang: defaultLocale },
+    };
+  }
+
   // Return
   return {
     locale,
-    messages: (messages[localeSubtag] || messages[defaultLocale]) as ObjectType,
+    messages: (messages[localeSubtag] || messages[defaultLocale] || { lang: defaultLocale }) as ObjectType,
   };
 };
 
