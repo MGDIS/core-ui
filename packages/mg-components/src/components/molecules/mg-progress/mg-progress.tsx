@@ -92,12 +92,14 @@ export class MgProgress {
     return (
       <Host role={this.ariaRole} aria-label={this.label} aria-valuenow={this.value} aria-valuemin={this.min} aria-valuemax={this.max}>
         <div class="mg-c-progress">
-          <div
-            class={{ 'mg-c-progress__bar': true, 'mg-c-progress__bar--active': this.value > this.min }}
-            style={{
-              '--mg-c-progress-value': `${Math.round(((this.value - this.min) / (this.max - this.min)) * 100)}%`,
-            }}
-          ></div>
+          <div class={{ 'mg-c-progress__bar': true, 'mg-c-progress__bar--active': this.value > this.min }}>
+            <div
+              class="mg-c-progress__fill"
+              style={{
+                width: `${Math.round(((this.value - this.min) / (this.max - this.min)) * 100)}%`,
+              }}
+            ></div>
+          </div>
         </div>
       </Host>
     );

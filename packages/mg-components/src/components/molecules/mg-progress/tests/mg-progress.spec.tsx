@@ -18,8 +18,7 @@ describe('mg-progress', () => {
     { label: 'progress', value: 10, max: 15 },
     { label: 'progress', value: 10, min: 5 },
     { label: 'progress', value: 10, min: 5, max: 15 },
-    { label: 'progress', ariaRole: 'meter' as MgProgress['ariaRole'] },
-    { label: 'new progress label' },
+    { label: 'meter', ariaRole: 'meter' as MgProgress['ariaRole'] },
   ])('with args %s', async args => {
     const { root } = await getPage(args);
     expect(root).toMatchSnapshot();

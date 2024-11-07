@@ -26,12 +26,11 @@ With the role `progressbar`, if the progress bar is describing the loading progr
 
 ## CSS Custom Properties
 
-| Name                               | Description                                                                                   |
-| ---------------------------------- | --------------------------------------------------------------------------------------------- |
-| `--mg-c-progress-border-radius`    | Defines the border radius of the progress bar. Default value is `--mg-b-size-32`.             |
-| `--mg-c-progress-color`            | Defines the color of the progress bar. Default value is `--mg-b-color-app`.                   |
-| `--mg-c-progress-color-background` | Defines the color of the progress bar background. Default value is `--mg-b-color-neutral-30`. |
-| `--mg-c-progress-value`            | Defines the progress bar width. Default value is `0%`.                                        |
+| Name                                    | Description                                                                                 |
+| --------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `--mg-c-progress-bar-color-background`  | Defines the color of the progress bar. Default value is `--mg-b-color-neutral-30`.          |
+| `--mg-c-progress-border-radius`         | Defines the border radius of the progress bar. Default value is `--mg-b-size-32`.           |
+| `--mg-c-progress-fill-color-background` | Defines the color of the progress bar fill background. Default value is `--mg-b-color-app`. |
 
 
 ----------------------------------------------
