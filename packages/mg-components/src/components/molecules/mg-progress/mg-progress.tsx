@@ -49,7 +49,7 @@ export class MgProgress {
   }
 
   /**
-   * Define the minimum value in the range..
+   * Define the minimum value in the range
    */
   @Prop() min?: number = 0;
   @Watch('min')
@@ -59,7 +59,7 @@ export class MgProgress {
   }
 
   /**
-   * Define the maximum value in the range..
+   * Define the maximum value in the range
    */
   @Prop() max?: number = 100;
   @Watch('min')

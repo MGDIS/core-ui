@@ -14,7 +14,7 @@ export type Variant = 'info' | 'success' | 'warning' | 'danger' | 'danger-alt' |
 export type VariantStyle = 'icon' | 'background' | 'bar-left' | 'full';
 
 /**
- * Defines the possible values for araiRole
+ * Defines the possible values for ariaRole
  */
 export type AriaRole = 'progressbar' | 'meter' | 'form' | 'search' | 'none' | 'presentation';
 
