@@ -309,6 +309,14 @@ describe('mg-form', () => {
     },
     {
       slot: () => [
+        <mg-input identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" />
+        </mg-input>,
+      ],
+      message: null,
+    },
+    {
+      slot: () => [
         <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
         <mg-input-toggle
           identifier="mg-input-toggle"
@@ -330,8 +338,27 @@ describe('mg-form', () => {
     },
     {
       slot: () => [
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
+      ],
+      message: 'The field is required',
+    },
+    {
+      slot: () => [
         <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
         <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+      ],
+      message: 'All fields are required',
+    },
+    {
+      slot: () => [
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
       ],
       message: 'All fields are required',
     },
@@ -362,8 +389,51 @@ describe('mg-form', () => {
     },
     {
       slot: () => [
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
+        <mg-input identifier="mg-input" label="mg-input label">
+          {' '}
+          <input id="mg-input" type="text" />
+        </mg-input>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: 'Field with a <strong class="mg-u-is-asterisk">*</strong> is required',
+    },
+    {
+      slot: () => [
         <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
         <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: 'All fields are required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
         <mg-input-toggle
           identifier="mg-input-toggle"
           label="mg-input-toggle label"
@@ -388,7 +458,40 @@ describe('mg-form', () => {
     },
     {
       slot: () => [
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
+        <mg-input identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" />
+        </mg-input>,
+      ],
+      message: 'Fields with a <strong class="mg-u-is-asterisk">*</strong> are required',
+    },
+    {
+      slot: () => [
         <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: 'Field with a <strong class="mg-u-is-asterisk">*</strong> is required',
+    },
+    {
+      slot: () => [
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
         <mg-input-toggle
           identifier="mg-input-toggle"
           label="mg-input-toggle label"
