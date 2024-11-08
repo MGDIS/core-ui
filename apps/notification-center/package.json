@@ -9,13 +9,12 @@
     "preview": "vite preview",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint '**/*.{ts,html}' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint '**/*.{ts,html}' --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{cjs,json}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{cjs,json}' --ignore-path ../../.gitignore"
+    "lint:es": "eslint '**/*.ts' --ignore-path ../../.gitignore",
+    "lint:es:fix": "eslint '**/*.ts' --fix --ignore-path ../../.gitignore",
+    "lint:prettier": "prettier --check '**/*.{html,json}' --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write '**/*.{html,json}' --ignore-path ../../.gitignore"
   },
   "devDependencies": {
-    "@mgdis/linting-angularjs": "workspace:*",
     "typescript": "5.6.3",
     "vite": "5.4.10"
   },
