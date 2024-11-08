@@ -25,7 +25,7 @@ export const MgProgress = {
 export const MgProgressMeter = {
   render: Template,
   args: {
-  ...MgProgress.arg,  
+    ...MgProgress.arg,
     ariaRole: 'meter',
     ariaRole: 'meter',
     value: 20,
