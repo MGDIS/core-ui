@@ -3,11 +3,24 @@
 The `<mg-progress>` element must be accompanied by a visually visible text indicating a clear value.
 Ex: “€300 out of €1000”, “33MB out of 1GB”, “23%”
 
+### `aria-role="progress|undefined"`
+
+```html
+<section>
+    <h1>Files upload</h1>
+    [...]
+    <p aria-hidden="true">Passport - file upload in progress: 23%</p>
+    <mg-progress label="passport upload" value="23"></mg-progress>
+</section>
+```
+
+### `aria-role="meter"`
+
 ```html
 <article>
     <h1>Balance</h1>
-    <p>€300 spent out of €1000 available</p>
-    <mg-progress label="balance" value="300" max="1000" aria-role="meter"></mg-progress>
+    <p aria-hidden="true">€300 spent out of €1000 available</p>
+    <mg-progress label="balance" value="300" max="1000" aria-role="meter" aria-valuetext="€300 spent out of €1000 available"></mg-progress>
 </article>
 ```
 
@@ -16,15 +29,8 @@ Ex: “€300 out of €1000”, “33MB out of 1GB”, “23%”
 ### `aria-valuetext` attribute
 
 Assistive technologies often present the value of `aria-valuenow` as a percentage. If this would not be accurate use this property to make the progress bar value understandable.
+[See exemple](#aria-rolemeter)
 [See full recommendation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuetext)
-
-```html
-<article>
-    <h1>Balance</h1>
-    <p>€300 spent out of €1000 available</p>
-    <mg-progress label="balance" value="300" max="1000" aria-role="meter" aria-valuetext="€300 spent out of €1000 available"></mg-progress>
-</article>
-```
 
 ### `aria-busy` attribute
 

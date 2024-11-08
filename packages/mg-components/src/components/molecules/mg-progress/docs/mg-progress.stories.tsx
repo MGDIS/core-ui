@@ -27,7 +27,6 @@ export const MgProgressMeter = {
   args: {
     ...MgProgress.arg,
     ariaRole: 'meter',
-    ariaRole: 'meter',
     value: 20,
     min: 10,
     max: 30,
