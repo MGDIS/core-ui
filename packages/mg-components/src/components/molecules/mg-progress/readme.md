@@ -1,3 +1,16 @@
+## Usage
+
+The `<mg-progress>` element must be accompanied by a visually visible text indicating a clear value.
+Ex: “€300 out of €1000,” “33MB out of 1GB,” “23%”
+
+```html
+<article>
+    <h1>Balance</h1>
+    <p>€300 spent out of €1000 available</p>
+    <mg-progress label="balance" value="300" max="100" aria-role="meter"></mg-progress>
+</article>
+```
+
 ## Accessibility
 
 ### `aria-valuetext` attribute
@@ -29,8 +42,9 @@ With the role `progressbar`, if the progress bar is describing the loading progr
 | Name                                    | Description                                                                                 |
 | --------------------------------------- | ------------------------------------------------------------------------------------------- |
 | `--mg-c-progress-bar-color-background`  | Defines the color of the progress bar. Default value is `--mg-b-color-neutral-30`.          |
-| `--mg-c-progress-border-radius`         | Defines the border radius of the progress bar. Default value is `--mg-b-size-32`.           |
+| `--mg-c-progress-border-color`          | Defines the color of the progress bar border. Default value is `--mg-b-color-neutral-80`.   |
 | `--mg-c-progress-fill-color-background` | Defines the color of the progress bar fill background. Default value is `--mg-b-color-app`. |
+| `--mg-c-progress-size`                  | Defines the size of the progress bar. Default value is `--mg-b-size-8`.                     |
 
 
 ----------------------------------------------
