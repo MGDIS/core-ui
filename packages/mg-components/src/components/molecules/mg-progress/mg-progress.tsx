@@ -62,7 +62,7 @@ export class MgProgress {
    * Define the maximum value in the range
    */
   @Prop() max?: number = 100;
-  @Watch('min')
+  @Watch('max')
   watchMax(newValue: MgProgress['max']): void {
     if (newValue !== 100 && newValue !== undefined && (!isValidNumber(newValue) || newValue <= this.min))
       throw new Error(`<mg-progress> prop “max” must be a number greater than: ${this.min}. Passed value: ${toString(newValue)}.`);

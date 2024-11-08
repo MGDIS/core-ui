@@ -1,7 +1,7 @@
 ## Usage
 
 The `<mg-progress>` element must be accompanied by a visually visible text indicating a clear value.
-Ex: “€300 out of €1000,” “33MB out of 1GB,” “23%”
+Ex: “€300 out of €1000”, “33MB out of 1GB”, “23%”
 
 ```html
 <article>
@@ -15,7 +15,7 @@ Ex: “€300 out of €1000,” “33MB out of 1GB,” “23%”
 
 ### `aria-valuetext` attribute
 
-Assistive technologies often present the value of aria-valuenow as a percentage. If this would not be accurate use this property to make the progress bar value understandable.
+Assistive technologies often present the value of `aria-valuenow` as a percentage. If this would not be accurate use this property to make the progress bar value understandable.
 [See full recommendation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuetext)
 
 ### `aria-busy` attribute
