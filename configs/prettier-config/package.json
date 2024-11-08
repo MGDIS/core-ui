@@ -10,10 +10,10 @@
   "scripts": {
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
+    "lint:es": "eslint '**/*.js' -c ../eslint-config-custom/src/index.js --ignore-path ../../.gitignore",
+    "lint:es:fix": "eslint '**/*.js' --fix -c ../eslint-config-custom/src/index.js --ignore-path ../../.gitignore",
     "lint:prettier": "prettier --check '**/*.{js,json}' --ignore-path ../../.gitignore --config ./src/index.js",
-    "lint:prettier:fix": "prettier --write '**/*.{js,json}' --ignore-path ../../.gitignore --config ./src/index.js",
-    "lint:es": "eslint 'src/**/*.js' -c ../eslint-config-custom/src/index.js --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint 'src/**/*.js' --fix -c ../eslint-config-custom/src/index.js --ignore-path ../../.gitignore"
+    "lint:prettier:fix": "prettier --write '**/*.{js,json}' --ignore-path ../../.gitignore --config ./src/index.js"
   },
   "dependencies": {
     "prettier": "3.3.3"

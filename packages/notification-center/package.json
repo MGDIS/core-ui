@@ -13,8 +13,8 @@
     "coverage": "jest --coverage",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint 'src/**/*.{ts,tsx}' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint 'src/**/*.{ts,tsx}' --fix --ignore-path ../../.gitignore",
+    "lint:es": "eslint '**/*.{ts,tsx}' --ignore-path ../../.gitignore",
+    "lint:es:fix": "eslint '**/*.{ts,tsx}' --fix --ignore-path ../../.gitignore",
     "lint:prettier": "prettier --check '**/*.{js,ts,tsx,scss,html,mdx,json}' --ignore-path ../../.gitignore",
     "lint:prettier:fix": "prettier --write '**/*.{js,ts,tsx,scss,html,mdx,json}' --ignore-path ../../.gitignore"
   },

@@ -9,8 +9,8 @@
     "preview": "vite preview",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint 'src/**/*.{html,js}' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint 'src/**/*.{html,js}' --fix --ignore-path ../../.gitignore",
+    "lint:es": "eslint '**/*.{html,js}' --ignore-path ../../.gitignore",
+    "lint:es:fix": "eslint '**/*.{html,js}' --fix --ignore-path ../../.gitignore",
     "lint:prettier": "prettier --check '**/*.{scss,md,json}' --ignore-path ../../.gitignore",
     "lint:prettier:fix": "prettier --write '**/*.{scss,md,json}' --ignore-path ../../.gitignore"
   },
