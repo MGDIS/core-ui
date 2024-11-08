@@ -3,11 +3,11 @@
  */
 
 // Custom properties (CSS variables)
-@import 'base/custom-properties';
-@import 'components/custom-properties';
+@use 'base/custom-properties';
+@use 'components/custom-properties' as components-custom-properties;
 
 // CSS
-@import 'base/document';
+@use 'base/document';
 
 // The default font is set to the system font, relieving components of font responsibility.
 :root {

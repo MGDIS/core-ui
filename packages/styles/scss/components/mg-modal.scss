@@ -1,5 +1,5 @@
 @use '../functions' as functions;
-@import 'mixins/reset-mg-card-slotted-variables';
+@use 'mixins/reset-mg-card-slotted-variables';
 
 /*!
  * @prop --mg-c-modal-border-radius: Defines the border radius of the modal. Default value: `--mg-b-size-radius`.
@@ -65,5 +65,5 @@
     overflow-y: auto;
   }
 
-  @include reset-slot-card-variables;
+  @include reset-mg-card-slotted-variables.reset-slot-card-variables;
 }

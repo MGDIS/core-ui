@@ -1,4 +1,4 @@
-@import 'mixins/reset-mg-card-slotted-variables';
+@use 'mixins/reset-mg-card-slotted-variables';
 
 /*!
  * @prop --mg-c-panel-border-radius: Defines the border radius of the panel. Default value: `--mg-b-size-radius`.
@@ -74,5 +74,5 @@
     gap: var(--mg-b-spacing-actions);
   }
 
-  @include reset-slot-card-variables;
+  @include reset-mg-card-slotted-variables.reset-slot-card-variables;
 }

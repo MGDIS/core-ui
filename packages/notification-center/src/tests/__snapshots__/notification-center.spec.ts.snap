@@ -150,7 +150,8 @@ exports[`Notification center defined custom elements mg-message Should display a
 <div id="mg-notification-center"
      class="notification-center"
 >
-  <mg-message class="notification-center__notification"
+  <mg-message close-button
+              class="notification-center__notification"
               variant="success"
   >
     Success variant without delay
@@ -162,7 +163,8 @@ exports[`Notification center defined custom elements mg-message Should display a
 <div id="mg-notification-center"
      class="notification-center"
 >
-  <mg-message class="notification-center__notification"
+  <mg-message close-button
+              class="notification-center__notification"
               variant="danger"
   >
     Danger variant
@@ -174,7 +176,9 @@ exports[`Notification center defined custom elements mg-message Should display a
 <div id="mg-notification-center"
      class="notification-center"
 >
-  <mg-message class="notification-center__notification">
+  <mg-message close-button
+              class="notification-center__notification"
+  >
     Default example
   </mg-message>
 </div>
@@ -184,7 +188,8 @@ exports[`Notification center defined custom elements mg-message Should display a
 <div id="mg-notification-center"
      class="notification-center"
 >
-  <mg-message class="notification-center__notification"
+  <mg-message close-button
+              class="notification-center__notification"
               variant="success"
               delay="5"
   >
@@ -197,7 +202,8 @@ exports[`Notification center defined custom elements mg-message Should display a
 <div id="mg-notification-center"
      class="notification-center"
 >
-  <mg-message class="notification-center__notification"
+  <mg-message close-button
+              class="notification-center__notification"
               variant="warning"
   >
     Warning variant
@@ -209,7 +215,8 @@ exports[`Notification center defined custom elements mg-message Should display a
 <div id="mg-notification-center"
      class="notification-center"
 >
-  <mg-message class="notification-center__notification"
+  <mg-message close-button
+              class="notification-center__notification"
               data-notification-context="blu"
   >
     With context
@@ -221,7 +228,8 @@ exports[`Notification center defined custom elements mg-message Should display a
 <div id="mg-notification-center"
      class="notification-center"
 >
-  <mg-message class="notification-center__notification"
+  <mg-message close-button
+              class="notification-center__notification"
               delay="5"
   >
     With delay
@@ -233,7 +241,9 @@ exports[`Notification center defined custom elements mg-message Should remove me
 <div id="mg-notification-center"
      class="notification-center"
 >
-  <mg-message class="notification-center__notification">
+  <mg-message close-button
+              class="notification-center__notification"
+  >
     Message to close
   </mg-message>
 </div>
@@ -250,7 +260,8 @@ exports[`Notification center defined custom elements mg-message Should remove pr
 <div id="mg-notification-center"
      class="notification-center"
 >
-  <mg-message class="notification-center__notification"
+  <mg-message close-button
+              class="notification-center__notification"
               data-notification-context="blu"
   >
     First message with context
@@ -262,7 +273,8 @@ exports[`Notification center defined custom elements mg-message Should remove pr
 <div id="mg-notification-center"
      class="notification-center"
 >
-  <mg-message class="notification-center__notification"
+  <mg-message close-button
+              class="notification-center__notification"
               data-notification-context="blu"
   >
     Second message with same context
@@ -274,7 +286,9 @@ exports[`Notification center defined custom elements mg-message Should remove un
 <div id="mg-notification-center"
      class="notification-center"
 >
-  <mg-message class="notification-center__notification">
+  <mg-message close-button
+              class="notification-center__notification"
+  >
     <p>
       Content with unsafe or unknown html
     </p>
