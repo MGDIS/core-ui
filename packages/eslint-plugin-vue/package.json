@@ -8,7 +8,15 @@
   ],
   "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "pnpm lint:es && pnpm lint:prettier",
+    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
+    "lint:es": "eslint '**/*.{js,mjs}' --ignore-path ../../.gitignore",
+    "lint:es:fix": "eslint '**/*.{js,mjs}' --fix --ignore-path ../../.gitignore",
+    "lint:prettier": "prettier --check '**/*.{js,mjs}' --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write '**/*.{js,mjs}' --ignore-path ../../.gitignore",
+    "coverage": "pnpm test:rules && vitest run --coverage",
+    "test:unit": "vitest",
+    "test:rules": "node tests/lib/rule-tester.js"
   },
   "dependencies": {
     "eslint-plugin-vue": "9.30.0",
@@ -17,10 +25,13 @@
   "devDependencies": {
     "@core-ui/jest-config": "workspace:*",
     "@core-ui/tsconfig": "workspace:*",
+    "@core-ui/vitest-config": "workspace:*",
+    "@vitest/coverage-istanbul": "1.6.0",
     "eslint": "8.57.1",
     "eslint-plugin-eslint-plugin": "6.3.1",
     "eslint-plugin-node": "11.1.0",
     "mocha": "10.8.2",
+    "vitest": "1.6.0",
     "vue-eslint-parser": "9.4.3"
   },
   "engines": {

@@ -473,6 +473,12 @@ importers:
       '@core-ui/tsconfig':
         specifier: workspace:*
         version: link:../../configs/tsconfig
+      '@core-ui/vitest-config':
+        specifier: workspace:*
+        version: link:../../configs/vitest-config
+      '@vitest/coverage-istanbul':
+        specifier: 1.6.0
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.6)(jsdom@25.0.1)(sass@1.80.6)(terser@5.36.0))
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -485,6 +491,9 @@ importers:
       mocha:
         specifier: 10.8.2
         version: 10.8.2
+      vitest:
+        specifier: 1.6.0
+        version: 1.6.0(@types/node@20.17.6)(jsdom@25.0.1)(sass@1.80.6)(terser@5.36.0)
       vue-eslint-parser:
         specifier: 9.4.3
         version: 9.4.3(eslint@8.57.1)

@@ -64,6 +64,12 @@ ruleTester.run('col-in-row', rule, {
     },
     {
       code: `<template>
+        <div class="col-md-2">First column content</div>
+      </template>`,
+      errors: [{ message: 'col-* classes must be immediate children of rows' }],
+    },
+    {
+      code: `<template>
         <div class="row">
           <div>Column content</div>
         </div>
