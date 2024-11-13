@@ -60,11 +60,7 @@ ruleTester.run('naming-convention', rule, {
           <span class="not__bem__convention">Button text</span>
         </button>
       </template>`,
-      errors: [
-        { message: 'Class must follow BEM convention' },
-        { message: 'Class must follow BEM convention' },
-        { message: 'Class must follow BEM convention' },
-      ],
+      errors: [{ message: 'Class must follow BEM convention' }, { message: 'Class must follow BEM convention' }, { message: 'Class must follow BEM convention' }],
     },
     {
       code: `
@@ -73,11 +69,7 @@ ruleTester.run('naming-convention', rule, {
           <span class="not__bem__convention">Button text</span>
         </button>
       </template>`,
-      errors: [
-        { message: 'Class must follow BEM convention' },
-        { message: 'Class must follow BEM convention' },
-        { message: 'Class must follow BEM convention' },
-      ],
+      errors: [{ message: 'Class must follow BEM convention' }, { message: 'Class must follow BEM convention' }, { message: 'Class must follow BEM convention' }],
     },
   ],
 });

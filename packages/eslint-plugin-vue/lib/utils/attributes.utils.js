@@ -7,8 +7,8 @@ module.exports = {
    * @returns {object} matching attribute
    */
   attribute(node, attribute) {
-    return node.startTag?.attributes?.find((attr) => {
-      return attr.directive ? attr.key.argument?.name === attribute : attr.key.name === attribute
+    return node.startTag?.attributes?.find(attr => {
+      return attr.directive ? attr.key.argument?.name === attribute : attr.key.name === attribute;
     });
   },
   /**
@@ -20,16 +20,23 @@ module.exports = {
    */
   hasClass(node, className) {
     const classesAttribute = module.exports.getAttributeValue(module.exports.attribute(node, 'class'))?.split(' ');
-    return classesAttribute && classesAttribute.some((classAttribute) => classAttribute === className);
+    return classesAttribute && classesAttribute.some(classAttribute => classAttribute === className);
   },
   /**
    * Get attribute value
    * If the attribute is a directive, the path to get the value is different
-   * 
-   * @param {object} attribute 
+   *
+   * @param {object} attribute
    * @returns {string} attribute value
    */
   getAttributeValue(attribute) {
-    return attribute ? attribute.directive ? attribute.value.expression.value : attribute.value.value : undefined;
-  }
+    let attributeValue = '';
+
+    if (Boolean(attribute?.directive) && typeof attribute?.value?.expression?.value === 'string') {
+      attributeValue = attribute.value.expression.value;
+    } else if (!attribute?.directive && typeof attribute?.value?.value === 'string') {
+      attributeValue = attribute.value.value;
+    }
+    return attributeValue;
+  },
 };

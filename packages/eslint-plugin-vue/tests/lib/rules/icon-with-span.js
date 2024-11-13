@@ -32,10 +32,7 @@ ruleTester.run('icon-with-span', rule, {
       code: `<template>
         <i class="fa fa-thumbs-down"></i>
       </template>`,
-      errors: [
-        { message: 'Icons must use the span element instead of i' },
-        { message: 'Icon aria-hidden attribute is missing' },
-      ],
+      errors: [{ message: 'Icons must use the span element instead of i' }, { message: 'Icon aria-hidden attribute is missing' }],
     },
     {
       code: `<template>
