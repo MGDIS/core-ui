@@ -1,7 +1,5 @@
 import { describe, expect, test } from 'vitest';
 import { localeCurrency, localeNumber, localeDate, localePercent, localeUnit, defineLocales, dateToString, getLocaleDatePattern } from './';
-import messagesEn from '../locales/en/messages.json';
-import messagesFr from '../locales/fr/messages.json';
 
 const messagesFr = { lang: 'fr' };
 const messagesEn = { lang: 'en' };
