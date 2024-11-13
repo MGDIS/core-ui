@@ -76,7 +76,7 @@ describe('locale', () => {
 
       test('Should return default locale', () => {
         const navigatorBackup = window.navigator;
-        globalThis.window.navigator = [];
+        globalThis.window.navigator = {} as Navigator;
         const locales = defineLocales(messages, locale)(document.createElement('div'));
         expect(locales.locale).toEqual(locale);
         expect(locales.messages).toMatchObject({ lang: locale });
