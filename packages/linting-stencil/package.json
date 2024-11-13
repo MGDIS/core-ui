@@ -17,16 +17,9 @@
   ],
   "scripts": {
     "build": "rollup -c ./rollup.config.js --bundleConfigAsCjs",
-    "build:config": "tsc --build --clean && tsc --build",
-    "lint": "pnpm lint:es && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint './{src,bin}/**/*.{js,ts}' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint './{src,bin}/**/*.{js,ts}' --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{js,ts,json,md}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{js,ts,json,md}' --ignore-path ../../.gitignore"
+    "build:config": "tsc --build --clean && tsc --build"
   },
   "devDependencies": {
-    "@core-ui/eslint-config-custom": "workspace:*",
     "@core-ui/eslint-config-stencil": "workspace:*",
     "@core-ui/prettier-config": "workspace:*",
     "@core-ui/tsconfig": "workspace:*",

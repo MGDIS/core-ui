@@ -1,7 +1,8 @@
+# Note: Prettier also ignores files in .gitignore
 pnpm-lock.yaml
 .changeset/*.md
+CHANGELOG.md
+
+# Stencil generated components docs
 apps/stencil/src/components/**/readme.md
-packages/mg-components/.storybook/docs/components.json
 packages/mg-components/src/components/**/readme.md
-packages/mg-components-helpers/docs/**/*.md
-packages/stencil-helpers/docs/**/*.md

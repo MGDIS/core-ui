@@ -1,6 +1,2 @@
 const { eslintrc } = require('@mgdis/linting-vue2');
-
-module.exports = {
-  root: true,
-  ...eslintrc,
-};
+module.exports = { ...eslintrc };

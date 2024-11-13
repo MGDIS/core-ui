@@ -6,13 +6,7 @@
   "scripts": {
     "dev": "vite --port 3210",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "pnpm lint:es && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint '**/*.ts' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint '**/*.ts' --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{html,json}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{html,json}' --ignore-path ../../.gitignore"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "typescript": "5.6.3",

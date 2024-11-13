@@ -24,8 +24,11 @@
     "test:e2e:docker": "./scripts/run-e2e.sh",
     "test:watch": "turbo test:watch",
     "coverage": "turbo coverage --force --filter='./packages/*'",
-    "lint": "pnpm --filter @mgdis/linting-stencil build:config && turbo lint",
-    "lint:fix": "pnpm --filter @mgdis/linting-stencil build:config && turbo lint:fix",
+    "lint": "pnpm lint:eslint && pnpm lint:prettier && pnpm lint:styles",
+    "lint:eslint": "pnpm -C packages/linting-stencil build:config && eslint '**/*.{js,ts,mjs,mts,cjs,tsx}' --ignore-path .gitignore",
+    "lint:prettier": "prettier --check '**/*.{json,yaml,yml,md,mdx,html}'",
+    "lint:styles": "stylelint '**/*.scss' -c packages/styles/.stylelintrc.json",
+    "lint:fix": "pnpm lint:eslint --fix && pnpm lint:prettier --write && pnpm lint:styles --fix",
     "build": "turbo build --force",
     "build:apps": "turbo build --filter='./apps/*' --force",
     "build:configs": "turbo build --filter='./configs/*' --force",
@@ -54,9 +57,9 @@
     ]
   },
   "lint-staged": {
-    "*.{js,ts,mjs,mts,cjs,tsx}": "eslint --fix --ignore-path .gitignore",
-    "*.{json,yaml,yml,md,mdx}": "prettier --write",
-    "packages/styles/**/*.scss": "stylelint --fix"
+    "*.{js,ts,mjs,mts,cjs,tsx}": "pnpm lint:eslint",
+    "*.{json,yaml,yml,md,mdx,html}": "pnpm lint:prettier",
+    "*.scss": "pnpm lint:styles"
   },
   "dependencies": {
     "@changesets/cli": "2.27.9",
@@ -64,8 +67,10 @@
     "@core-ui/prettier-config": "workspace:*",
     "@manypkg/cli": "0.22.0",
     "codename": "0.0.6",
+    "eslint": "8.57.1",
     "husky": "9.1.6",
     "lint-staged": "15.2.10",
+    "prettier": "3.3.3",
     "stylelint": "16.10.0",
     "turbo": "2.2.3"
   }

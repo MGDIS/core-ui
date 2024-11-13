@@ -1,9 +1,9 @@
 <div>
   <h1>AngularJS app</h1>
   <p>The purpose of this application is to ensure the integration of mg-components and styles into an AngularJS app.</p>
-  <mg-button id="button" type="button" ng-click="$ctrl.handleClick()" variant="secondary"
-    >count <mg-badge label="badge" value="{{$ctrl.counter}}" ng-if="$ctrl.counter > 0"></mg-badge
-  ></mg-button>
+  <mg-button id="button" type="button" ng-click="$ctrl.handleClick()" variant="secondary">
+    count <mg-badge label="badge" value="{{$ctrl.counter}}" ng-if="$ctrl.counter > 0"></mg-badge>
+  </mg-button>
   <mg-modal
     modal-title="{{$ctrl.modal.modalTitle}}"
     hidden="$ctrl.modal.hidden"

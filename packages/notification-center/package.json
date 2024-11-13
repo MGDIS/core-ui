@@ -10,13 +10,7 @@
     "test:e2e": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
     "test:e2e:docker": "pnpm dlx @playwright/test test",
     "test:watch": "jest --watch",
-    "coverage": "jest --coverage",
-    "lint": "pnpm lint:es && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint '**/*.{ts,tsx}' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint '**/*.{ts,tsx}' --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{js,ts,tsx,scss,html,mdx,json}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{js,ts,tsx,scss,html,mdx,json}' --ignore-path ../../.gitignore"
+    "coverage": "jest --coverage"
   },
   "files": [
     "dist"
@@ -32,9 +26,7 @@
     }
   },
   "devDependencies": {
-    "@core-ui/eslint-config-custom": "workspace:*",
     "@core-ui/jest-config": "workspace:*",
-    "@core-ui/prettier-config": "workspace:*",
     "@core-ui/tsconfig": "workspace:*",
     "@mgdis/mg-components": "workspace:*",
     "@mgdis/playwright-helpers": "workspace:*",
@@ -44,7 +36,6 @@
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
     "jest-serializer-html": "7.1.0",
-    "prettier": "3.3.3",
     "ts-jest": "29.2.5",
     "typescript": "5.6.3",
     "vite": "5.4.10",

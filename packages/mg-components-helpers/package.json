@@ -6,13 +6,7 @@
     "build": "rollup -c ./rollup.config.mjs",
     "doc": "typedoc",
     "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "lint": "pnpm lint:es && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint '**/*.{ts,tsx}' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint '**/*.{ts,tsx}' --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{js,ts,json}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{js,ts,json}' --ignore-path ../../.gitignore"
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "@core-ui/tsconfig": "workspace:*",

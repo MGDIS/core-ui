@@ -10,13 +10,7 @@
     "build": "pnpm \"/^(type-check|build-only)$/\"",
     "preview": "vite preview",
     "test": "pnpm /^test:.*/",
-    "test:unit": "vitest",
-    "lint": "pnpm lint:es && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint '**/*.{vue,ts,tsx}' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint '**/*.{vue,ts,tsx}' --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{scss,md,json}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{scss,md,json}' --ignore-path ../../.gitignore"
+    "test:unit": "vitest"
   },
   "dependencies": {
     "@mgdis/mg-components": "workspace:*",

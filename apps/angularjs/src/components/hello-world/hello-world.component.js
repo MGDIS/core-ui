@@ -18,6 +18,9 @@ export default {
         hidden: true,
       };
     }
+    /**
+     * Handle click button method
+     */
     handleClick = () => {
       this.counter++;
 
@@ -29,6 +32,10 @@ export default {
       });
     };
 
+    /**
+     * Define if modale is visible or not
+     * @param {boolean} newValue modal hidden value
+     */
     handleModalHide = (newValue) => {
       this.modal.hidden = newValue;
     };
