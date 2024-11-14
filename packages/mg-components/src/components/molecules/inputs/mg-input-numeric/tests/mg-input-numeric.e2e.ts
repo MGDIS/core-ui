@@ -254,6 +254,12 @@ test.describe('mg-input-numeric', () => {
             value: type === 'integer' ? 123456789 : 1234567.89,
             type,
             format,
+            ...(format === 'unit'
+              ? {
+                  unit: 'meter',
+                  unitDisplay: 'short',
+                }
+              : {}),
           };
           test(`format value ${renderAttributes(addedArgs)}`, async ({ page }) => {
             const args = { ...baseArgs, ...addedArgs };
