@@ -1,9 +1,9 @@
 ## Usage
 
 The `<mg-progress>` element must be accompanied by a visually visible text indicating a clear value.
-Ex: “€300 out of €1000”, “33MB out of 1GB”, “23%”
+Ex: "€300 out of €1000", "33MB out of 1GB", "23%"
 
-### `aria-role="progress|undefined"`
+### `aria-role="progress"`
 
 ```html
 <section>
