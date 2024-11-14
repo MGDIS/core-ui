@@ -634,4 +634,72 @@ describe('mg-input-numeric', () => {
 
     expect(page.root).toMatchSnapshot();
   });
+
+  describe('reset method', () => {
+    test('Should reset value', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+      });
+      const element = page.doc.querySelector('mg-input-numeric');
+      const input = element.shadowRoot.querySelector('input');
+
+      // Set a value
+      input.value = '5';
+      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+
+      // Verify initial state
+      expect(element.value).toEqual('5');
+
+      // Call reset method
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify value has been reset
+      expect(element.value).toEqual('');
+    });
+
+    test('Should reset error message when error is displayed', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+      });
+      const element = page.doc.querySelector('mg-input-numeric');
+
+      // Set error message
+      await element.setError(false, "Message d'erreur de test");
+      await page.waitForChanges();
+
+      // Verify initial state
+      expect(page.root).toMatchSnapshot();
+
+      // Call reset method
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify reset state
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should not reset when readonly', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        readonly: true,
+        value: '42',
+      });
+      const element = page.doc.querySelector('mg-input-numeric');
+
+      // Capture initial value
+      const initialValue = element.value;
+
+      // Try to reset
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify value remains unchanged
+      expect(element.value).toEqual(initialValue);
+    });
+  });
 });

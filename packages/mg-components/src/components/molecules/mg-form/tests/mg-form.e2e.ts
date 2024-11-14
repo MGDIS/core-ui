@@ -53,6 +53,17 @@ const inputsScriptSetValues = `
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
   mgInputToggle.value = mgInputToggle.items[1].value;`;
 
+const inputsScriptSetValuesExceptCheckbox = `
+  mgInputDate.value = '2022-04-15';
+  mgInputNumeric.value = 1234567890;
+  mgInputPassword.value = 'p455w0rD';
+  mgInputRadio.value = mgInputRadio.items[0];
+  mgInputSelect.value = mgInputSelect.items[0];
+  mgInputText.value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+  mgInputTextarea.value =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+  mgInputToggle.value = mgInputToggle.items[1].value;`;
+
 const inputsScriptSetLongValues = `
   mgInputRadio.items = ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'bli', 'bla', 'blo'];
   mgInputSelect.items = ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'bli', 'bla', 'blo'];
@@ -255,6 +266,30 @@ test.describe('mg-form', () => {
     await page.addScriptTag({ content: inputsScript });
     await page.addScriptTag({ content: inputsScriptSetLongValues });
 
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
+
+  test('Should reset inputs values', async ({ page }) => {
+    const html = createHTML({}, inputs);
+    await page.setContent(html);
+    await page.addScriptTag({ content: inputsScript });
+    await page.addScriptTag({ content: inputsScriptSetValuesExceptCheckbox });
+    await page.addScriptTag({ content: inputsScriptRequiredSingle });
+
+    // Display error
+    await page.locator('mg-form').evaluate((elm: HTMLMgFormElement) => {
+      elm.displayError();
+    });
+
+    // Check state with values and error
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+    // Call reset method
+    await page.locator('mg-form').evaluate((form: HTMLMgFormElement) => {
+      form.reset();
+    });
+
+    // Check that the inputs has been reseted and the errors has been removed
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });

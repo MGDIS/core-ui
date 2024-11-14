@@ -218,6 +218,10 @@ export namespace Components {
          */
         "requiredMessage"?: RequiredMessageStatusType;
         /**
+          * Reset form inputs values, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Define form valid state
          */
         "valid": boolean;
@@ -354,6 +358,10 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Overwrite default "select" button message
          */
         "selectButtonMessage": string;
@@ -475,6 +483,10 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
@@ -575,6 +587,10 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
@@ -659,6 +675,10 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
@@ -734,6 +754,10 @@ export namespace Components {
           * Define if input is required
          */
         "required": boolean;
+        /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
         /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
@@ -822,6 +846,10 @@ export namespace Components {
           * Define if input is required
          */
         "required": boolean;
+        /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
         /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
@@ -923,6 +951,10 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
@@ -1023,6 +1055,10 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Define if input is resizable
          */
         "resizable": 'none' | 'both' | 'horizontal' | 'vertical';
@@ -1116,6 +1152,10 @@ export namespace Components {
           * Define if input is readonly
          */
         "readonly": boolean;
+        /**
+          * Reset value, validity, error and visual state
+         */
+        "reset": () => Promise<void>;
         /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity

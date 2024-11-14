@@ -244,6 +244,19 @@ export class MgInputRadio {
   }
 
   /**
+   * Reset value, validity and error state
+   */
+  @Method()
+  async reset(): Promise<void> {
+    if (!this.readonly) {
+      this.value = undefined;
+      this.checkValidity();
+      this.errorMessage = undefined;
+      this.hasDisplayedError = false;
+    }
+  }
+
+  /**
    * Method to set validity values
    * @param newValue - valid new value
    */

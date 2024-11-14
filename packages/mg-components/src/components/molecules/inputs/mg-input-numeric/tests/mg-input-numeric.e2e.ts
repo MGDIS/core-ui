@@ -267,4 +267,30 @@ test.describe('mg-input-numeric', () => {
       });
     });
   });
+
+  test('Should reset value and error when calling reset method', async ({ page }) => {
+    const html = createHTML({
+      ...baseArgs,
+      min: 10, // Example of constraint to generate an error
+      max: 100,
+    });
+    await page.setContent(html);
+
+    await page.locator('mg-input-numeric.hydrated').waitFor();
+
+    // Enter a value that doesn't respect constraints
+    await page.locator('mg-input-numeric input').fill('5'); // Value outside limits
+    await page.locator('mg-input-numeric input').blur(); // Trigger error
+
+    // Check state with value and error
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+    // Call reset method
+    await page.evaluate(() => {
+      document.querySelector('mg-input-numeric').reset();
+    });
+
+    // Check that input has been reset and error has been removed
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
 });

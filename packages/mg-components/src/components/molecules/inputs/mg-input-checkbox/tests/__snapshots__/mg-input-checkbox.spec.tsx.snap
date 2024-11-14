@@ -15513,3 +15513,91 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
   </template>
 </mg-input-checkbox>
 `;
+
+exports[`mg-input-checkbox reset method Should reset displayed error 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-error" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_0">
+            Chase
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-error" aria-invalid="true" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            Marshall
+          </label>
+        </li>
+      </ul>
+      <div id="identifier-error" slot="error">
+        Message d'erreur de test
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox reset method Should reset displayed error 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" id="identifier_0" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_0">
+            Chase
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            Marshall
+          </label>
+        </li>
+      </ul>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;

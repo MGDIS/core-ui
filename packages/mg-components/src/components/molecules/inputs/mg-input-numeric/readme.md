@@ -1,11 +1,11 @@
 ## Usage
 
-An amount field is a numeric field.  
+An amount field is a numeric field.
 By default it is limited to 16 characters (including comma).
 
 It is not possible to enter characters other than numbers, "," or ".".
 
-Rounding is to two digits after the decimal point.  
+Rounding is to two digits after the decimal point.
 It is not possible to enter more than two digits after the decimal point.
 
 It is possible to specify a unit after the field for integers and decimals. For currencies, the symbol is positioned in the input field.
@@ -69,6 +69,16 @@ Unit term must be placed into the field slot using a "space" character before th
 ### `displayError() => Promise<void>`
 
 Display input error if it exists.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `reset() => Promise<void>`
+
+Reset value, validity and error state
 
 #### Returns
 

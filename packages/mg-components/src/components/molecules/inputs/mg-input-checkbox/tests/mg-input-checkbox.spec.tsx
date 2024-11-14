@@ -956,4 +956,83 @@ describe('mg-input-checkbox', () => {
       }
     });
   });
+
+  describe('reset method', () => {
+    test('Should reset invalid input', async () => {
+      // Initial setup with two checkboxes
+      const value = [
+        { title: 'Chase', value: false },
+        { title: 'Marshall', value: false },
+      ];
+      const page = await getPage({ label: 'label', identifier: 'identifier', value });
+      const element = page.doc.querySelector('mg-input-checkbox');
+      const allInputs = element.shadowRoot.querySelectorAll('input');
+      const input = allInputs[0];
+
+      // Check first checkbox
+      input.checked = true;
+      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+
+      // Verify initial value
+      expect(element.value).toEqual([
+        { title: 'Chase', value: true },
+        { title: 'Marshall', value: false },
+      ]);
+
+      // Call reset method
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify value has been reset
+      expect(element.value).toEqual([
+        { title: 'Chase', value: false },
+        { title: 'Marshall', value: false },
+      ]);
+    });
+
+    test('Should reset displayed error', async () => {
+      // Initial setup with two checkboxes
+      const value = [
+        { title: 'Chase', value: false },
+        { title: 'Marshall', value: false },
+      ];
+      const page = await getPage({ label: 'label', identifier: 'identifier', value });
+      const element = page.doc.querySelector('mg-input-checkbox');
+
+      // Set error message
+      await element.setError(false, "Message d'erreur de test");
+      await page.waitForChanges();
+
+      // Verify initial state
+      expect(page.root).toMatchSnapshot();
+
+      // Call reset method
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify reset state
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should not reset value when readonly', async () => {
+      // Initial setup with two checkboxes in readonly mode
+      const value = [
+        { title: 'Chase', value: true },
+        { title: 'Marshall', value: false },
+      ];
+      const page = await getPage({ label: 'label', identifier: 'identifier', value, readonly: true });
+      const element = page.doc.querySelector('mg-input-checkbox');
+
+      // Capture initial value
+      const initialValue = element.value;
+
+      // Try to reset
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify value remains unchanged
+      expect(element.value).toEqual(initialValue);
+    });
+  });
 });

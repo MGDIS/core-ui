@@ -642,4 +642,81 @@ describe('mg-input-date', () => {
     expect(page.rootInstance.hasDisplayedError).toEqual(false);
     expect(page.rootInstance.errorMessage).toBeUndefined();
   });
+
+  describe('reset method', () => {
+    test('Should reset value', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+      });
+      const element = page.doc.querySelector('mg-input-date');
+      const input = element.shadowRoot.querySelector('input');
+
+      // Set a value
+      input.value = '2024-12-24';
+      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+
+      // Verify initial value
+      expect(element.value).toEqual('2024-12-24');
+
+      // Reset input
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify value has been reset
+      expect(element.value).toEqual('');
+    });
+
+    test('Should reset error message when error is displayed', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+      });
+      const element = page.doc.querySelector('mg-input-date');
+      const input = element.shadowRoot.querySelector('input');
+
+      // Mock validity
+      input.checkValidity = jest.fn(() => false);
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          valueMissing: true,
+        })),
+      });
+
+      // Set error message
+      await element.setError(false, "Message d'erreur de test");
+      await page.waitForChanges();
+
+      // Verify initial error state
+      expect(page.root).toMatchSnapshot();
+
+      // Reset input
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify reset state
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should not reset when input is readonly', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        value: '2024-12-24',
+        readonly: true,
+      });
+      const element = page.doc.querySelector('mg-input-date');
+
+      // Capture initial value
+      const initialValue = element.value;
+
+      // Try to reset
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify value remains unchanged
+      expect(element.value).toEqual(initialValue);
+    });
+  });
 });

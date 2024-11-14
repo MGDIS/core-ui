@@ -497,4 +497,74 @@ describe('mg-input-select', () => {
 
     expect(page.root).toMatchSnapshot();
   });
+
+  describe('reset method', () => {
+    test('Should reset value', async () => {
+      const args = {
+        label: 'label',
+        identifier: 'identifier',
+        items: ['Chase', 'Marshall', 'Rubble', 'Rocky'],
+        value: 'Marshall',
+      };
+      const page = await getPage(args);
+      const element = page.doc.querySelector('mg-input-select');
+
+      // Check initial state
+      expect(element.value).toEqual('Marshall');
+
+      // Call reset method
+      await element.reset();
+      await page.waitForChanges();
+
+      // Check that value has been reset
+      expect(element.value).toBeNull();
+    });
+
+    test('Should reset error message when error is displayed', async () => {
+      const args = {
+        label: 'label',
+        identifier: 'identifier',
+        items: ['Chase', 'Marshall', 'Rubble', 'Rocky'],
+      };
+      const page = await getPage(args);
+      const element = page.doc.querySelector('mg-input-select');
+
+      // Set an error message intentionally
+      await element.setError(false, "Message d'erreur de test");
+      await page.waitForChanges();
+
+      // Verify initial state
+      expect(page.root).toMatchSnapshot();
+
+      // Call reset method
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify reset state
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should not reset value when readonly', async () => {
+      // Initialise with readonly and a value
+      const args = {
+        label: 'label',
+        identifier: 'identifier',
+        items: ['Chase', 'Marshall', 'Rubble', 'Rocky'],
+        readonly: true,
+        value: 'Marshall',
+      };
+      const page = await getPage(args);
+      const element = page.doc.querySelector('mg-input-select');
+
+      // Capture initial value
+      const initialValue = element.value;
+
+      // Try to reset
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify value remains unchanged
+      expect(element.value).toEqual(initialValue);
+    });
+  });
 });

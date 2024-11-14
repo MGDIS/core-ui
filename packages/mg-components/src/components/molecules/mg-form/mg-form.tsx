@@ -157,6 +157,22 @@ export class MgForm {
   }
 
   /**
+   * Reset form inputs values, validity and error state
+   */
+  @Method()
+  async reset(): Promise<void> {
+    if (!this.readonly) {
+      await Promise.all(
+        this.mgInputs.map(async input => {
+          if (input.reset !== undefined) {
+            await input.reset();
+          }
+        }),
+      );
+    }
+  }
+
+  /**
    * Define required message based on mg-inputs required elements
    */
   private setRequiredMessage = (): void => {

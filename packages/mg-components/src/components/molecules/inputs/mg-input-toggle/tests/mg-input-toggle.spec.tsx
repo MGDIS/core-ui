@@ -329,4 +329,81 @@ describe('mg-input-toggle', () => {
       }
     });
   });
+
+  describe('reset method', () => {
+    test('Should reset value', async () => {
+      const page = await getPage({
+        ...defaultProps,
+        items: [
+          { title: 'Non', value: false },
+          { title: 'Oui', value: true },
+        ],
+      });
+      const mgInputToggle = page.doc.querySelector('mg-input-toggle');
+      const button = mgInputToggle.shadowRoot.querySelector('button');
+
+      // Simulate a click to change the value
+      button.dispatchEvent(new CustomEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+
+      // Verify the value has changed
+      expect(mgInputToggle.value).toEqual(true);
+
+      // Call reset method
+      await mgInputToggle.reset();
+      await page.waitForChanges();
+
+      // Verify the value has been reset
+      expect(mgInputToggle.value).toEqual(false);
+    });
+
+    test('Should reset error message when error is displayed', async () => {
+      const page = await getPage({
+        ...defaultProps,
+        items: [
+          { title: 'Non', value: false },
+          { title: 'Oui', value: true },
+        ],
+      });
+      const mgInputToggle = page.doc.querySelector('mg-input-toggle');
+
+      // Add an error message
+      await mgInputToggle.setError(false, "Message d'erreur de test");
+      await page.waitForChanges();
+
+      // Verify initial state
+      expect(page.root).toMatchSnapshot();
+
+      // Call reset method
+      await mgInputToggle.reset();
+      await page.waitForChanges();
+
+      // Verify reset state
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should not reset value when component is readonly', async () => {
+      // Initialise with readonly and a value
+      const page = await getPage({
+        ...defaultProps,
+        items: [
+          { title: 'Non', value: false },
+          { title: 'Oui', value: true },
+        ],
+        readonly: true,
+        value: true,
+      });
+      const mgInputToggle = page.doc.querySelector('mg-input-toggle');
+
+      // Capture initial value
+      const initialValue = mgInputToggle.value;
+
+      // Try to reset
+      await mgInputToggle.reset();
+      await page.waitForChanges();
+
+      // Verify value remains unchanged
+      expect(mgInputToggle.value).toEqual(initialValue);
+    });
+  });
 });
