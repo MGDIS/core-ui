@@ -14,6 +14,11 @@ export type Variant = 'info' | 'success' | 'warning' | 'danger' | 'danger-alt' |
 export type VariantStyle = 'icon' | 'background' | 'bar-left' | 'full';
 
 /**
+ * Defines the possible values for ariaRole
+ */
+export type AriaRole = 'progressbar' | 'meter' | 'form' | 'search' | 'none' | 'presentation';
+
+/**
  * Defines the possible values for input error
  */
 export type InputError = 'min' | 'max' | 'minMax' | 'required' | 'badInput';
