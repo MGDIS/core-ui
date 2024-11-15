@@ -1,5 +1,16 @@
 # @mgdis/styles
 
+## 2.1.0
+
+### Minor Changes
+
+- 462e909: [**`<mg-progress>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-progress--docs) add mg-progress component
+
+### Patch Changes
+
+- 459444d: Replace import by use function in Sass to avoid using deprecated ones
+- f73a81d: Updated dependencies
+
 ## 2.0.1
 
 ### Patch Changes
