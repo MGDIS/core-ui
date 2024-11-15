@@ -611,6 +611,14 @@ export namespace Components {
          */
         "type": NumericType;
         /**
+          * Define unit symbol (km, L, etc.)
+         */
+        "unit"?: Intl.NumberFormatOptions['unit'];
+        /**
+          * Define unit display format ('short', 'long', 'narrow')
+         */
+        "unitDisplay": Intl.NumberFormatOptions['unitDisplay'];
+        /**
           * Define input pattern to validate
          */
         "valid": boolean;
@@ -2642,6 +2650,14 @@ declare namespace LocalJSX {
           * Define numeric type
          */
         "type"?: NumericType;
+        /**
+          * Define unit symbol (km, L, etc.)
+         */
+        "unit"?: Intl.NumberFormatOptions['unit'];
+        /**
+          * Define unit display format ('short', 'long', 'narrow')
+         */
+        "unitDisplay"?: Intl.NumberFormatOptions['unitDisplay'];
         /**
           * Define input pattern to validate
          */

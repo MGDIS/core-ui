@@ -45,10 +45,19 @@ const getLocaleMessages = (element: HTMLElement, messages: ObjectType, defaultLo
   const locale = closestLang.length > 0 && typeof closestLang[0] === 'string' ? closestLang[0] : navigator.language || defaultLocale;
   // Only keep first subtag
   const localeSubtag = locale.split('-').shift() as string;
+
+  // If messages is empty, return a default object
+  if (Object.keys(messages).length === 0) {
+    return {
+      locale,
+      messages: { lang: defaultLocale },
+    };
+  }
+
   // Return
   return {
     locale,
-    messages: (messages[localeSubtag] || messages[defaultLocale]) as ObjectType,
+    messages: (messages[localeSubtag] || messages[defaultLocale] || { lang: defaultLocale }) as ObjectType,
   };
 };
 
@@ -78,6 +87,57 @@ export const localeCurrency = (number: number, locale: string, currency: string)
  */
 export const localeNumber = (number: number, locale: string, decimalLength: number = 0): string =>
   new Intl.NumberFormat(locale, { minimumFractionDigits: decimalLength }).format(decimalLength > 0 ? Number(number?.toFixed(decimalLength)) : number);
+
+/**
+ * Format number as percentage based on locale
+ * @param number - number to format
+ * @param locale - locale to apply
+ * @param decimalLength - decimal length to apply
+ * @returns formatted percentage
+ * @example
+ * ```ts
+ * localePercent(0.42, 'fr', 2) // '42,00 %'
+ * localePercent(0.42, 'en', 2) // '42.00%'
+ * ```
+ */
+export const localePercent = (number: number, locale: string, decimalLength: number = 0): string => {
+  return new Intl.NumberFormat(locale, {
+    style: 'percent',
+    minimumFractionDigits: decimalLength,
+    maximumFractionDigits: decimalLength,
+  }).format(number);
+};
+
+/**
+ * Format number with standardized unit based on locale using Intl unit formatting
+ * @param number - number to format
+ * @param locale - locale to apply
+ * @param unit - standardized unit (e.g., 'kilometer', 'kilogram', 'celsius')
+ * @param unitDisplay - how to display the unit ('short', 'long', 'narrow')
+ * @param decimalLength - decimal length to apply
+ * @returns formatted number with localized unit
+ * @example
+ * ```ts
+ * localeUnit(1234567890.12, 'fr', 'kilometer') // '1 234 567 890,12 km'
+ * localeUnit(23, 'fr', 'celsius') // '23 °C'
+ * localeUnit(10, 'fr', 'kilometer', 0, 'long') // '10 kilomètres'
+ * ```
+ */
+export const localeUnit = (
+  number: number,
+  locale: string,
+  unit: Intl.NumberFormatOptions['unit'],
+  unitDisplay: Intl.NumberFormatOptions['unitDisplay'] = 'short',
+  decimalLength: number = 0,
+): string => {
+  return new Intl.NumberFormat(locale, {
+    style: 'unit',
+    unit,
+    unitDisplay,
+    minimumFractionDigits: decimalLength,
+    maximumFractionDigits: decimalLength,
+  }).format(number);
+};
 
 /**
  * Date RegExp, usefull to test if string is a follow the date pattern

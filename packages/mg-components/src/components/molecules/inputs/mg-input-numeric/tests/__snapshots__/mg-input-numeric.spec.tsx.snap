@@ -402,7 +402,7 @@ exports[`mg-input-numeric should display override error with setError component'
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type decimal Format currency args { readonly: true } 1`] = `
+exports[`mg-input-numeric type decimal Format currency args { args: [Object] } 1`] = `
 <mg-input-numeric value="1234567890">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
@@ -432,7 +432,7 @@ exports[`mg-input-numeric type decimal Format currency args { readonly: true } 1
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type decimal Format currency args {} 1`] = `
+exports[`mg-input-numeric type decimal Format currency args { args: {} } 1`] = `
 <mg-input-numeric value="1234567890">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -461,7 +461,7 @@ exports[`mg-input-numeric type decimal Format currency args {} 1`] = `
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type decimal Format none args { readonly: true } 1`] = `
+exports[`mg-input-numeric type decimal Format none args { args: [Object] } 1`] = `
 <mg-input-numeric value="1234567890">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
@@ -491,7 +491,7 @@ exports[`mg-input-numeric type decimal Format none args { readonly: true } 1`] =
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type decimal Format none args {} 1`] = `
+exports[`mg-input-numeric type decimal Format none args { args: {} } 1`] = `
 <mg-input-numeric value="1234567890">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -520,7 +520,7 @@ exports[`mg-input-numeric type decimal Format none args {} 1`] = `
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type decimal Format number args { readonly: true } 1`] = `
+exports[`mg-input-numeric type decimal Format number args { args: [Object] } 1`] = `
 <mg-input-numeric value="1234567890">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
@@ -550,7 +550,7 @@ exports[`mg-input-numeric type decimal Format number args { readonly: true } 1`]
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type decimal Format number args {} 1`] = `
+exports[`mg-input-numeric type decimal Format number args { args: {} } 1`] = `
 <mg-input-numeric value="1234567890">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -573,6 +573,124 @@ exports[`mg-input-numeric type decimal Format number args {} 1`] = `
             label
           </span>
         </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Format percent args { args: [Object] } 1`] = `
+<mg-input-numeric value="1234567890">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <b class="mg-c-input__readonly-value">
+        1,234,567,890.00%
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Format percent args { args: {} } 1`] = `
+<mg-input-numeric value="1234567890">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--numeric">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890.00%">
+      <slot name="append-input"></slot>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Format unit args { args: [Object] } 1`] = `
+<mg-input-numeric value="1234567890">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--numeric">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890.00 m">
+      <slot name="append-input"></slot>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Format unit args { args: [Object] } 2`] = `
+<mg-input-numeric value="1234567890">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <b class="mg-c-input__readonly-value">
+        1,234,567,890.00 m
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
       </mg-input-title>
     </mg-input>
   </template>
@@ -1740,7 +1858,7 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type integer Format currency args { readonly: true } 1`] = `
+exports[`mg-input-numeric type integer Format currency args { args: [Object] } 1`] = `
 <mg-input-numeric value="1234567890">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
@@ -1770,7 +1888,7 @@ exports[`mg-input-numeric type integer Format currency args { readonly: true } 1
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type integer Format currency args {} 1`] = `
+exports[`mg-input-numeric type integer Format currency args { args: {} } 1`] = `
 <mg-input-numeric value="1234567890">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -1799,7 +1917,7 @@ exports[`mg-input-numeric type integer Format currency args {} 1`] = `
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type integer Format none args { readonly: true } 1`] = `
+exports[`mg-input-numeric type integer Format none args { args: [Object] } 1`] = `
 <mg-input-numeric value="1234567890">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
@@ -1829,7 +1947,7 @@ exports[`mg-input-numeric type integer Format none args { readonly: true } 1`] =
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type integer Format none args {} 1`] = `
+exports[`mg-input-numeric type integer Format none args { args: {} } 1`] = `
 <mg-input-numeric value="1234567890">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -1858,7 +1976,7 @@ exports[`mg-input-numeric type integer Format none args {} 1`] = `
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type integer Format number args { readonly: true } 1`] = `
+exports[`mg-input-numeric type integer Format number args { args: [Object] } 1`] = `
 <mg-input-numeric value="1234567890">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
@@ -1888,7 +2006,7 @@ exports[`mg-input-numeric type integer Format number args { readonly: true } 1`]
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type integer Format number args {} 1`] = `
+exports[`mg-input-numeric type integer Format number args { args: {} } 1`] = `
 <mg-input-numeric value="1234567890">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -1911,6 +2029,124 @@ exports[`mg-input-numeric type integer Format number args {} 1`] = `
             label
           </span>
         </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Format percent args { args: [Object] } 1`] = `
+<mg-input-numeric value="1234567890">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <b class="mg-c-input__readonly-value">
+        1,234,567,890%
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Format percent args { args: {} } 1`] = `
+<mg-input-numeric value="1234567890">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--numeric">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890%">
+      <slot name="append-input"></slot>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Format unit args { args: [Object] } 1`] = `
+<mg-input-numeric value="1234567890">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--numeric">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890 m">
+      <slot name="append-input"></slot>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Format unit args { args: [Object] } 2`] = `
+<mg-input-numeric value="1234567890">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <b class="mg-c-input__readonly-value">
+        1,234,567,890 m
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
       </mg-input-title>
     </mg-input>
   </template>

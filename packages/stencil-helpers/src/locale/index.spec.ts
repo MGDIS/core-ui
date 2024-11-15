@@ -1,7 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { localeCurrency, localeNumber, localeDate, defineLocales, dateToString, getLocaleDatePattern } from './';
-import messagesEn from '../locales/en/messages.json';
-import messagesFr from '../locales/fr/messages.json';
+import { localeCurrency, localeNumber, localeDate, localePercent, localeUnit, defineLocales, dateToString, getLocaleDatePattern } from './';
 
 const messagesFr = { lang: 'fr' };
 const messagesEn = { lang: 'en' };
@@ -78,7 +76,7 @@ describe('locale', () => {
 
       test('Should return default locale', () => {
         const navigatorBackup = window.navigator;
-        globalThis.window.navigator = [];
+        globalThis.window.navigator = {} as Navigator;
         const locales = defineLocales(messages, locale)(document.createElement('div'));
         expect(locales.locale).toEqual(locale);
         expect(locales.messages).toMatchObject({ lang: locale });
@@ -101,6 +99,82 @@ describe('locale', () => {
         const locales = defineLocales(messages, locale)(div);
         expect(locales.locale).toEqual(div.lang);
         expect(locales.messages).toMatchObject({ lang: locale });
+      });
+
+      test('Should handle empty messages object', () => {
+        const div = document.createElement('div');
+        div.lang = 'fr';
+        const locales = defineLocales({}, 'en')(div);
+        expect(locales.locale).toEqual('fr');
+        expect(locales.messages).toMatchObject({ lang: 'en' });
+      });
+
+      test('Should return default object when messages and default locale are not found', () => {
+        const div = document.createElement('div');
+        div.lang = 'fr';
+        const locales = defineLocales({ it: { lang: 'it' } }, 'es')(div);
+        expect(locales.locale).toEqual('fr');
+        expect(locales.messages).toMatchObject({ lang: 'es' });
+      });
+    });
+
+    describe('localePercent', () => {
+      test.each([
+        [0.42, 'en', 2, '42.00%'],
+        [0.42, 'fr', 2, '42,00 %'],
+        [1.23, 'en', 1, '123.0%'],
+        [1.23, 'fr', 1, '123,0 %'],
+        [0, 'fr', 0, '0 %'],
+        [0, 'en', 0, '0%'],
+        [1, 'fr', 0, '100 %'],
+        [1, 'en', 0, '100%'],
+        [-0.5, 'fr', 2, '-50,00 %'],
+        [-0.5, 'en', 2, '-50.00%'],
+        [Number.POSITIVE_INFINITY, 'fr', 0, '∞ %'],
+        [Number.POSITIVE_INFINITY, 'en', 0, '∞%'],
+        [Number.NEGATIVE_INFINITY, 'fr', 0, '-∞ %'],
+        [Number.NEGATIVE_INFINITY, 'en', 0, '-∞%'],
+        [NaN, 'fr', 0, 'NaN %'],
+        [NaN, 'en', 0, 'NaN%'],
+      ])('Should format %s value correctly for locale %s with %s decimals', (value, locale, decimals, expected) => {
+        const result = localePercent(value, locale, decimals);
+        // Normalize spaces before comparison
+        expect(result.replace(/\s/g, ' ')).toBe(expected.replace(/\s/g, ' '));
+      });
+
+      test('Should handle undefined decimal length', () => {
+        expect(localePercent(0.42, 'fr').replace(/\s/g, ' ')).toBe('42 %'.replace(/\s/g, ' '));
+        expect(localePercent(0.42, 'en').replace(/\s/g, ' ')).toBe('42%'.replace(/\s/g, ' '));
+      });
+    });
+
+    describe('localeUnit', () => {
+      test.each([
+        [1234567890.12, 'fr', 'kilometer', 'short', 2, '1 234 567 890,12 km'],
+        [23, 'fr', 'celsius', 'short', 0, '23 °C'],
+        [10, 'fr', 'kilometer', 'long', 0, '10 kilomètres'],
+        [1234567890.12, 'en', 'kilometer', 'short', 2, '1,234,567,890.12 km'],
+        [23, 'en', 'celsius', 'short', 0, '23°C'],
+        [10, 'en', 'kilometer', 'long', 0, '10 kilometers'],
+      ])('Should format %s value correctly for locale %s with unit %s', (value, locale, unit, unitDisplay, decimals, expected) => {
+        const result = localeUnit(value, locale, unit, unitDisplay as Intl.NumberFormatOptions['unitDisplay'], decimals);
+        // Normalize spaces before comparison
+        expect(result.replace(/\s/g, ' ')).toBe(expected.replace(/\s/g, ' '));
+      });
+
+      test('Should respect decimal length', () => {
+        expect(localeUnit(1234.567, 'en', 'kilometer', 'short', 2).replace(/\s/g, ' ')).toBe('1,234.57 km'.replace(/\s/g, ' '));
+        expect(localeUnit(1234.567, 'fr', 'kilometer', 'short', 2).replace(/\s/g, ' ')).toBe('1 234,57 km'.replace(/\s/g, ' '));
+      });
+
+      test('Should use default unitDisplay and decimalLength when not provided', () => {
+        expect(localeUnit(1234, 'en', 'kilometer').replace(/\s/g, ' ')).toBe('1,234 km');
+        expect(localeUnit(1234, 'fr', 'kilometer').replace(/\s/g, ' ')).toBe('1 234 km');
+      });
+
+      test('Should use default unitDisplay when only decimalLength is provided', () => {
+        expect(localeUnit(1234.567, 'en', 'kilometer', undefined, 2).replace(/\s/g, ' ')).toBe('1,234.57 km');
+        expect(localeUnit(1234.567, 'fr', 'kilometer', undefined, 2).replace(/\s/g, ' ')).toBe('1 234,57 km');
       });
     });
   });
