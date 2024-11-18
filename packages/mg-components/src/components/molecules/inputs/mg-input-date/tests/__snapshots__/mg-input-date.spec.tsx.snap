@@ -1469,6 +1469,94 @@ exports[`mg-input-date display error with displayError component's public method
 </mg-input-date>
 `;
 
+exports[`mg-input-date reset method Should reset error message when error is displayed 1`] = `
+<mg-input-date>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
+      <div id="identifier-help-text" slot="help-text">
+        Expected format:
+        <span aria-hidden="true">
+          mm/dd/yyyy
+        </span>
+        <span class="mg-u-visually-hidden">
+          m m / d d / y y y y
+        </span>
+        (ex: 12/24/2023)
+      </div>
+      <div id="identifier-error" slot="error">
+        Message d'erreur de test
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-date>
+`;
+
+exports[`mg-input-date reset method Should reset error message when error is displayed 2`] = `
+<mg-input-date value="">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--date">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="">
+      <div id="identifier-help-text" slot="help-text">
+        Expected format:
+        <span aria-hidden="true">
+          mm/dd/yyyy
+        </span>
+        <span class="mg-u-visually-hidden">
+          m m / d d / y y y y
+        </span>
+        (ex: 12/24/2023)
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-date>
+`;
+
 exports[`mg-input-date should display override error with setError component's public method 1`] = `
 <mg-input-date>
   <template shadowrootmode="open">

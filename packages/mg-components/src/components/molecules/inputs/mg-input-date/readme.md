@@ -45,6 +45,16 @@ Type: `Promise<void>`
 
 
 
+### `reset() => Promise<void>`
+
+Reset value, validity and error state
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `setError(valid: MgInputDate["valid"], errorMessage: string) => Promise<void>`
 
 Set an error and display a custom error message.

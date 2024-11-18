@@ -431,4 +431,76 @@ describe('mg-input-radio', () => {
     expect(page.rootInstance.hasDisplayedError).toEqual(false);
     expect(page.rootInstance.errorMessage).toBeUndefined();
   });
+
+  describe('reset method', () => {
+    test('Should reset value', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        items: ['batman', 'robin', 'joker', 'bane'],
+      });
+      const element = page.doc.querySelector('mg-input-radio');
+      const input = element.shadowRoot.querySelector('input');
+
+      // Simulate selecting a value
+      input.value = '0'; // Select first option
+      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+
+      // Verify value is set
+      expect(element.value).toEqual('batman');
+
+      // Call reset method
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify value is reset
+      expect(element.value).toBeUndefined();
+    });
+
+    test('Should reset error message when error is displayed', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        items: ['batman', 'robin', 'joker', 'bane'],
+      });
+      const element = page.doc.querySelector('mg-input-radio');
+
+      // Set an error message
+      await element.setError(false, "Message d'erreur de test");
+      await page.waitForChanges();
+
+      // Verify initial state
+      expect(page.root).toMatchSnapshot();
+
+      // Call reset method
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify reset state
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should not reset value when readonly', async () => {
+      // Initialise with readonly and a value
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        items: ['batman', 'robin', 'joker', 'bane'],
+        readonly: true,
+        value: 'batman',
+      });
+      const element = page.doc.querySelector('mg-input-radio');
+
+      // Capture initial value
+      const initialValue = element.value;
+
+      // Try to reset
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify value remains unchanged
+      expect(element.value).toEqual(initialValue);
+    });
+  });
 });

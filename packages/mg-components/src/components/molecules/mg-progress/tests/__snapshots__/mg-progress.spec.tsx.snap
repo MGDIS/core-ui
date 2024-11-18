@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mg-progress with args { label: 'meter', ariaRole: 'meter' } 1`] = `
+<mg-progress aria-label="meter" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="meter">
+  <template shadowrootmode="open">
+    <div class="mg-c-progress">
+      <div class="mg-c-progress__bar">
+        <div class="mg-c-progress__fill" style="width: 0%;"></div>
+      </div>
+    </div>
+  </template>
+</mg-progress>
+`;
+
+exports[`mg-progress with args { label: 'progress' } 1`] = `
+<mg-progress aria-label="progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar">
+  <template shadowrootmode="open">
+    <div class="mg-c-progress">
+      <div class="mg-c-progress__bar">
+        <div class="mg-c-progress__fill" style="width: 0%;"></div>
+      </div>
+    </div>
+  </template>
+</mg-progress>
+`;
+
+exports[`mg-progress with args { label: 'progress', value: 10 } 1`] = `
+<mg-progress aria-label="progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="10" role="progressbar">
+  <template shadowrootmode="open">
+    <div class="mg-c-progress">
+      <div class="mg-c-progress__bar mg-c-progress__bar--active">
+        <div class="mg-c-progress__fill" style="width: 10%;"></div>
+      </div>
+    </div>
+  </template>
+</mg-progress>
+`;
+
+exports[`mg-progress with args { label: 'progress', value: 10, max: 10 } 1`] = `
+<mg-progress aria-label="progress" aria-valuemax="10" aria-valuemin="0" aria-valuenow="10" role="progressbar">
+  <template shadowrootmode="open">
+    <div class="mg-c-progress">
+      <div class="mg-c-progress__bar mg-c-progress__bar--active">
+        <div class="mg-c-progress__fill" style="width: 100%;"></div>
+      </div>
+    </div>
+  </template>
+</mg-progress>
+`;
+
+exports[`mg-progress with args { label: 'progress', value: 10, max: 15 } 1`] = `
+<mg-progress aria-label="progress" aria-valuemax="15" aria-valuemin="0" aria-valuenow="10" role="progressbar">
+  <template shadowrootmode="open">
+    <div class="mg-c-progress">
+      <div class="mg-c-progress__bar mg-c-progress__bar--active">
+        <div class="mg-c-progress__fill" style="width: 67%;"></div>
+      </div>
+    </div>
+  </template>
+</mg-progress>
+`;
+
+exports[`mg-progress with args { label: 'progress', value: 10, min: 5 } 1`] = `
+<mg-progress aria-label="progress" aria-valuemax="100" aria-valuemin="5" aria-valuenow="10" role="progressbar">
+  <template shadowrootmode="open">
+    <div class="mg-c-progress">
+      <div class="mg-c-progress__bar mg-c-progress__bar--active">
+        <div class="mg-c-progress__fill" style="width: 5%;"></div>
+      </div>
+    </div>
+  </template>
+</mg-progress>
+`;
+
+exports[`mg-progress with args { label: 'progress', value: 10, min: 5, max: 15 } 1`] = `
+<mg-progress aria-label="progress" aria-valuemax="15" aria-valuemin="5" aria-valuenow="10" role="progressbar">
+  <template shadowrootmode="open">
+    <div class="mg-c-progress">
+      <div class="mg-c-progress__bar mg-c-progress__bar--active">
+        <div class="mg-c-progress__fill" style="width: 50%;"></div>
+      </div>
+    </div>
+  </template>
+</mg-progress>
+`;

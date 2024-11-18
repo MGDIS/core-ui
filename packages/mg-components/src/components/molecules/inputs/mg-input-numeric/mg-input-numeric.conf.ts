@@ -7,7 +7,7 @@ export const types = ['decimal', 'integer'] as const;
 
 export type NumericType = (typeof types)[number];
 
-export const formats = ['none', 'number', 'currency'] as const;
+export const formats = ['none', 'number', 'currency', 'percent', 'unit'] as const;
 
 export type Format = (typeof formats)[number];
 

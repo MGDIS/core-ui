@@ -1695,6 +1695,100 @@ exports[`mg-input-select display error with displayError component's public meth
 </mg-input-select>
 `;
 
+exports[`mg-input-select reset method Should reset error message when error is displayed 1`] = `
+<mg-input-select>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--select">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <select aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
+        <option value="">
+          Select a value
+        </option>
+        <option value="Chase">
+          Chase
+        </option>
+        <option value="Marshall">
+          Marshall
+        </option>
+        <option value="Rubble">
+          Rubble
+        </option>
+        <option value="Rocky">
+          Rocky
+        </option>
+      </select>
+      <div id="identifier-error" slot="error">
+        Message d'erreur de test
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-select>
+`;
+
+exports[`mg-input-select reset method Should reset error message when error is displayed 2`] = `
+<mg-input-select>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--select">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
+        <option value="">
+          Select a value
+        </option>
+        <option value="Chase">
+          Chase
+        </option>
+        <option value="Marshall">
+          Marshall
+        </option>
+        <option value="Rubble">
+          Rubble
+        </option>
+        <option value="Rocky">
+          Rocky
+        </option>
+      </select>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-select>
+`;
+
 exports[`mg-input-select should display override error with setError component's public method 1`] = `
 <mg-input-select>
   <template shadowrootmode="open">

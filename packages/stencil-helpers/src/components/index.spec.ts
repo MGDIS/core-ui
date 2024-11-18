@@ -1,5 +1,5 @@
 import { describe, expect, test, afterEach, vi } from 'vitest';
-import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick, toString, isValideID } from './';
+import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick, toString, isValideID, isValidNumber } from './';
 
 describe('components.utils', () => {
   describe('createID', () => {
@@ -154,6 +154,16 @@ describe('components.utils', () => {
 
     test.each(['batman', 'batman '])('Should return "true" for valid value', value => {
       expect(isValidString(value)).toEqual(true);
+    });
+  });
+
+  describe('isValidNumber', () => {
+    test.each(['', ' ', null, undefined, '1', {}, []])('Should return "false" for invalid values', value => {
+      expect(isValidNumber(value)).toEqual(false);
+    });
+
+    test.each([1, 1.0])('Should return "true" for valid value', value => {
+      expect(isValidNumber(value)).toEqual(true);
     });
   });
 

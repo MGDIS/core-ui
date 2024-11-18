@@ -1,5 +1,5 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
-import { ClassList, isValidString, localeCurrency, localeNumber, toString } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString, localeCurrency, localeNumber, localePercent, localeUnit, toString } from '@mgdis/stencil-helpers';
 import { types, type InputNumericError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
 import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales/';
@@ -208,6 +208,16 @@ export class MgInputNumeric {
   @Prop() currency = 'EUR';
 
   /**
+   * Define unit symbol (km, L, etc.)
+   */
+  @Prop() unit?: Intl.NumberFormatOptions['unit'];
+
+  /**
+   * Define unit display format ('short', 'long', 'narrow')
+   */
+  @Prop() unitDisplay: Intl.NumberFormatOptions['unitDisplay'] = 'short';
+
+  /**
    * Override integer length
    * integer is the number before the decimal point
    */
@@ -294,6 +304,19 @@ export class MgInputNumeric {
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);
       this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Reset value, validity and error state
+   */
+  @Method()
+  async reset(): Promise<void> {
+    if (!this.readonly) {
+      this.value = '';
+      this.checkValidity();
+      this.errorMessage = undefined;
+      this.hasDisplayedError = false;
     }
   }
 
@@ -408,7 +431,9 @@ export class MgInputNumeric {
       } else if (inputError === 'required') {
         this.errorMessage = this.messages.errors[inputError];
       } else {
-        this.errorMessage = this.messages.errors.numeric[inputError].replace('{min}', `${this.formatValue(this.min)}`).replace('{max}', `${this.formatValue(this.max)}`);
+        const formattedMin = this.formatValue(this.min);
+        const formattedMax = this.formatValue(this.max);
+        this.errorMessage = this.messages.errors.numeric[inputError].replace('{min}', formattedMin).replace('{max}', formattedMax);
       }
     }
   };
@@ -450,6 +475,10 @@ export class MgInputNumeric {
         return localeNumber(value, this.locale, this.type === 'decimal' ? this.decimalLength : undefined);
       case 'currency':
         return localeCurrency(value, this.locale, this.currency);
+      case 'percent':
+        return localePercent(value / 100, this.locale, this.type === 'decimal' ? this.decimalLength : undefined);
+      case 'unit':
+        return localeUnit(value, this.locale, this.unit, this.unitDisplay, this.type === 'decimal' ? this.decimalLength : undefined);
       case 'none':
         return value.toString();
     }

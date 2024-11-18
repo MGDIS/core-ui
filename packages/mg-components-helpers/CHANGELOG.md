@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.11
+
+### Patch Changes
+
+- f73a81d: Updated dependencies
+
 ## 4.1.10
 
 ### Patch Changes

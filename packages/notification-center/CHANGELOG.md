@@ -1,5 +1,12 @@
 # @mgdis/notification-center
 
+## 1.2.2
+
+### Patch Changes
+
+- f73a81d: Updated dependencies
+- 7569381: [#520](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/520) notification-center: missing closing button when using the last version with mg-component@5
+
 ## 1.2.1
 
 ### Patch Changes

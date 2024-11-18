@@ -38,6 +38,16 @@
 
 ## Methods
 
+### `reset() => Promise<void>`
+
+Reset value, validity, error and visual state
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `setError(valid: boolean, errorMessage: string) => Promise<void>`
 
 Set an error and display a custom error message.

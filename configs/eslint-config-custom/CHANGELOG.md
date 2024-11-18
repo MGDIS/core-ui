@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.0.13
+
+### Patch Changes
+
+- f73a81d: Updated dependencies
+
 ## 1.0.12
 
 ### Patch Changes

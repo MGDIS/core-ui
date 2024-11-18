@@ -1,5 +1,16 @@
 # @mgdis/stencil-helpers
 
+## 2.2.0
+
+### Minor Changes
+
+- 462e909: [**`<mg-progress>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-progress--docs) add mg-progress component
+- 47b5cf5: [`mg-input-numeric`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-numeric--docs) Add percent and unit format to mg-input-numeric
+
+### Patch Changes
+
+- f73a81d: Updated dependencies
+
 ## 2.1.0
 
 ### Minor Changes

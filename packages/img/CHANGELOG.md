@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 2.1.1
+
+### Patch Changes
+
+- f73a81d: Updated dependencies
+
 ## 2.1.0
 
 ### Minor Changes
