@@ -6,7 +6,7 @@ describe('locales', () => {
   describe('initLocales', () => {
     test('Should return default locale', () => {
       const locales = initLocales(document.createElement('div'));
-      expect(locales.locale).toEqual('en');
+      expect(locales.locale).toEqual('en-US');
       expect(locales.messages).toMatchObject(messagesEn);
     });
 
