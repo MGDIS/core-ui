@@ -75,12 +75,16 @@ const getSlottedContent = () => [
 ];
 
 const setCheckValitidy = (input: HTMLMgInputsElement): void => {
-  const shadowInputs = input.shadowRoot.querySelectorAll('input, textarea, select') as NodeListOf<HTMLInputElement>;
+  const shadowInputs: NodeListOf<HTMLInputElement> = input.shadowRoot.querySelectorAll('input, textarea, select');
   shadowInputs.forEach(input => {
-    input.checkValidity = jest.fn(() => false);
+    // select and textarea mock use prototype of MockElement instead of MockHTMLElement
+    // so attributes aren't available on the object, but we can get attribute in stringified DOM.
+    const required = input.required || input.outerHTML.includes('required=""');
+    input.checkValidity = jest.fn(() => !required);
+
     Object.defineProperty(input, 'validity', {
       get: jest.fn(() => ({
-        valueMissing: true,
+        valueMissing: required,
       })),
     });
   });
@@ -251,6 +255,34 @@ describe('mg-form', () => {
     expect(page.rootInstance.setMgInputs).toHaveBeenCalled();
   });
 
+  test('Should update mg-form valid when content is updated', async () => {
+    const args = { identifier: 'identifier' };
+    const slots = [
+      <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+      <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+    ];
+
+    const page = await getPage(args, slots);
+
+    const mgForm = page.doc.querySelector('mg-form');
+    Array.from(mgForm.querySelectorAll('*')).forEach(setCheckValitidy);
+    await mgForm.displayError();
+
+    await page.waitForChanges();
+    expect(mgForm.valid).toEqual(false);
+
+    const mgInputText: HTMLMgInputTextElement = page.doc.querySelector('mg-input-text');
+    jest.spyOn(page.rootInstance, 'checkValidity');
+
+    // remove input-text wich trigger the valid=false
+    mgInputText.remove();
+    fireMo([]);
+    await page.waitForChanges();
+
+    expect(mgForm.valid).toEqual(true);
+    expect(page.rootInstance.checkValidity).toHaveBeenCalledTimes(1);
+  });
+
   test.each(['readonly', 'disabled'])('Should update input list when attribute % change', async attribute => {
     const args = { identifier: 'identifier' };
     const slot = getSlottedContent();
@@ -277,6 +309,14 @@ describe('mg-form', () => {
     },
     {
       slot: () => [
+        <mg-input identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" />
+        </mg-input>,
+      ],
+      message: null,
+    },
+    {
+      slot: () => [
         <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
         <mg-input-toggle
           identifier="mg-input-toggle"
@@ -298,8 +338,27 @@ describe('mg-form', () => {
     },
     {
       slot: () => [
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
+      ],
+      message: 'The field is required',
+    },
+    {
+      slot: () => [
         <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
         <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+      ],
+      message: 'All fields are required',
+    },
+    {
+      slot: () => [
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
       ],
       message: 'All fields are required',
     },
@@ -330,8 +389,51 @@ describe('mg-form', () => {
     },
     {
       slot: () => [
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
+        <mg-input identifier="mg-input" label="mg-input label">
+          {' '}
+          <input id="mg-input" type="text" />
+        </mg-input>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: 'Field with a <strong class="mg-u-is-asterisk">*</strong> is required',
+    },
+    {
+      slot: () => [
         <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
         <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: 'All fields are required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
         <mg-input-toggle
           identifier="mg-input-toggle"
           label="mg-input-toggle label"
@@ -356,7 +458,40 @@ describe('mg-form', () => {
     },
     {
       slot: () => [
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
+        <mg-input identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" />
+        </mg-input>,
+      ],
+      message: 'Fields with a <strong class="mg-u-is-asterisk">*</strong> are required',
+    },
+    {
+      slot: () => [
         <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: 'Field with a <strong class="mg-u-is-asterisk">*</strong> is required',
+    },
+    {
+      slot: () => [
+        <mg-input required identifier="mg-input" label="mg-input label">
+          <input id="mg-input" type="text" required />
+        </mg-input>,
         <mg-input-toggle
           identifier="mg-input-toggle"
           label="mg-input-toggle label"
@@ -410,5 +545,55 @@ describe('mg-form', () => {
       expect(formSpy).not.toHaveBeenCalled();
       expect(mgFormSpy).not.toHaveBeenCalled();
     }
+  });
+
+  test('Should reset all inputs when reset is called', async () => {
+    const args = { identifier: 'identifier' };
+    const slot = getSlottedContent();
+    const page = await getPage(args, slot);
+    const mgForm = page.doc.querySelector('mg-form');
+
+    // Mock reset method for all inputs
+    const mgInputs = Array.from(mgForm.querySelectorAll('*')).filter((node: Node) => node.nodeName.startsWith('MG-INPUT')) as HTMLMgInputsElement[];
+
+    mgInputs.forEach(input => {
+      Object.defineProperty(input, 'reset', {
+        value: jest.fn(),
+        configurable: true,
+      });
+    });
+
+    // Call reset method
+    await mgForm.reset();
+
+    // Verify that reset was called for each input
+    mgInputs.forEach(input => {
+      expect(input.reset).toHaveBeenCalled();
+    });
+  });
+
+  test('Should not reset inputs when form is readonly', async () => {
+    const args = { identifier: 'identifier', readonly: true };
+    const slot = getSlottedContent();
+    const page = await getPage(args, slot);
+    const mgForm = page.doc.querySelector('mg-form');
+
+    // Mock reset method for all inputs
+    const mgInputs = Array.from(mgForm.querySelectorAll('*')).filter((node: Node) => node.nodeName.startsWith('MG-INPUT')) as HTMLMgInputsElement[];
+
+    mgInputs.forEach(input => {
+      Object.defineProperty(input, 'reset', {
+        value: jest.fn(),
+        configurable: true,
+      });
+    });
+
+    // Call reset method
+    await mgForm.reset();
+
+    // Verify that reset was not called for each input
+    mgInputs.forEach(input => {
+      expect(input.reset).not.toHaveBeenCalled();
+    });
   });
 });

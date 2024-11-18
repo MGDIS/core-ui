@@ -1,5 +1,30 @@
 # angularjs
 
+## 0.2.0
+
+### Minor Changes
+
+- bb08fbb: [#517](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/517) linting-angularjs: html-eslint rules in conflict with prettier
+
+### Patch Changes
+
+- f73a81d: Updated dependencies
+- Updated dependencies [b194f5f]
+- Updated dependencies [caa4498]
+- Updated dependencies [6f854b9]
+- Updated dependencies [459444d]
+- Updated dependencies [f73a81d]
+- Updated dependencies [7569381]
+- Updated dependencies [462e909]
+- Updated dependencies [45e0c34]
+- Updated dependencies [47b5cf5]
+- Updated dependencies [0ddefc0]
+- Updated dependencies [c818bb0]
+  - @mgdis/mg-components@6.2.0
+  - @mgdis/styles@2.1.0
+  - @mgdis/mg-components-helpers@4.1.11
+  - @mgdis/notification-center@1.2.2
+
 ## 0.1.1
 
 ### Patch Changes

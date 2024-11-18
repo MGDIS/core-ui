@@ -157,6 +157,22 @@ export class MgForm {
   }
 
   /**
+   * Reset form inputs values, validity and error state
+   */
+  @Method()
+  async reset(): Promise<void> {
+    if (!this.readonly) {
+      await Promise.all(
+        this.mgInputs.map(async input => {
+          if (input.reset !== undefined) {
+            await input.reset();
+          }
+        }),
+      );
+    }
+  }
+
+  /**
    * Define required message based on mg-inputs required elements
    */
   private setRequiredMessage = (): void => {
@@ -232,7 +248,7 @@ export class MgForm {
    */
   private setMgInputs = (): void => {
     // Get slotted mgInputs
-    this.mgInputs = Array.from(this.element.querySelectorAll('*')).filter((node: Node) => node.nodeName.startsWith('MG-INPUT-')) as (HTMLMgInputsElement & { disabled: boolean })[];
+    this.mgInputs = Array.from(this.element.querySelectorAll('*')).filter((node: Node) => node.nodeName.startsWith('MG-INPUT')) as (HTMLMgInputsElement & { disabled: boolean })[];
     // Set inputs readonly or disabled based on form configuration
     // Othewise listen to events
     this.mgInputs.forEach(input => {
@@ -296,6 +312,7 @@ export class MgForm {
     // Update mgInputs when mgForm content change
     new MutationObserver(() => {
       this.setMgInputs();
+      this.checkValidity();
     }).observe(this.element, { childList: true });
   }
 

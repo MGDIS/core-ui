@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- bb08fbb: [#517](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/517) linting-angularjs: html-eslint rules in conflict with prettier
+
+### Patch Changes
+
+- @mgdis/eslint-plugin-html@4.0.2
+
 ## 4.0.9
 
 ### Patch Changes

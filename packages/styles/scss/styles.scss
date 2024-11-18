@@ -1,15 +1,15 @@
 // Modern Normalize: https://github.com/sindresorhus/modern-normalize
-@import '../node_modules/modern-normalize/modern-normalize';
+@use '../node_modules/modern-normalize/modern-normalize';
 
 // Custom properties (CSS variables)
-@import 'base/custom-properties';
-@import 'layout/custom-properties';
+@use 'base/custom-properties';
+@use 'layout/custom-properties' as layout-custom-properties;
 
 // Base
-@import 'base';
+@use 'base';
 
 // Layouts
-@import 'layout';
+@use 'layout';
 
 // Utils
-@import 'utils';
+@use 'utils';

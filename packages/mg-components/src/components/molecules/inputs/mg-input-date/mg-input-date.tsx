@@ -222,6 +222,20 @@ export class MgInputDate {
   }
 
   /**
+   * Reset value, validity and error state
+   */
+  @Method()
+  async reset(): Promise<void> {
+    if (!this.readonly) {
+      this.value = '';
+      this.checkValidity();
+      this.invalid = false;
+      this.errorMessage = undefined;
+      this.hasDisplayedError = false;
+    }
+  }
+
+  /**
    * Method to validate date pattern string
    * @param value - value to test
    * @returns truthy when value match the pattern

@@ -1,0 +1,31 @@
+/*!
+ * @prop --mg-c-progress-size: Defines the size of the progress bar. Default value is `--mg-b-size-8`.
+ * @prop --mg-c-progress-border-color: Defines the color of the progress bar border. Default value is `--mg-b-color-neutral-80`.
+ * @prop --mg-c-progress-bar-color-background: Defines the color of the progress bar. Default value is `--mg-b-color-neutral-30`.
+ * @prop --mg-c-progress-fill-color-background: Defines the color of the progress bar fill background. Default value is `--mg-b-color-app`.
+ */
+
+.mg-c-progress {
+  min-width: calc(var(--mg-b-size-16) * 4); // 64px
+
+  &__bar {
+    position: relative;
+    overflow: hidden;
+    height: var(--mg-c-progress-size);
+    border-width: var(--mg-b-size-border);
+    border-style: solid;
+    border-color: var(--mg-c-progress-border-color);
+    border-radius: calc((var(--mg-c-progress-size) + var(--mg-b-size-border) * 2) / 2);
+    background-color: var(--mg-c-progress-bar-color-background);
+  }
+
+  &__fill {
+    height: 100%;
+    border-radius: calc((var(--mg-c-progress-size) + var(--mg-b-size-border) * 2) / 2);
+    transition: width 300ms ease-in-out;
+  }
+
+  &__bar.mg-c-progress__bar--active .mg-c-progress__fill {
+    background-color: var(--mg-c-progress-fill-color-background);
+  }
+}

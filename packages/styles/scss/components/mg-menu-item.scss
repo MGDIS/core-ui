@@ -1,7 +1,7 @@
 @use 'sass:map';
-@import '../utils/a11y';
-@import 'mixins/navigation-button';
-@import 'mixins/mg-icon-animation';
+@use '../utils/a11y';
+@use 'mixins/navigation-button';
+@use 'mixins/mg-icon-animation';
 
 /*!
  * @prop --mg-c-menu-item-color: Defines menu item global color, used for bottom line and active tabs. Default value: `--mg-b-color-app`.
@@ -45,7 +45,7 @@ $navigation-button-sizes: (
   }
 }
 
-@include navigation-button('mg-c-menu-item', $navigation-button-sizes);
+@include navigation-button.navigation-button('mg-c-menu-item', $navigation-button-sizes);
 @include level($navigation-button-sizes);
 
 .mg-c-menu-item {
@@ -81,7 +81,7 @@ $navigation-button-sizes: (
       display: var(--mg-c-menu-item-chevron-display);
       margin-left: auto;
 
-      @include rotate('.mg-c-menu-item__navigation-button-chevron', 200ms);
+      @include mg-icon-animation.rotate('.mg-c-menu-item__navigation-button-chevron', 200ms);
     }
   }
 }

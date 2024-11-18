@@ -174,6 +174,12 @@ In your project using mg-components:
 
 If `settings.json` already exists, simply add the above line to the root of the object. Note that you may need to restart VS Code for the changes to take effect.
 
+#### Troubleshooting
+
+##### `*.vue` files auto-completion
+
+To enable custom elements auto-completion in VS Code for `*.vue` files, you need to install the official [Vue VS Code extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar) in addition to the previous VS Code settings.
+
 ### JetBrains IDEs
 
 If you are using a JetBrains IDE, such as WebStorm, the editor will automatically detect the `web-types.json` file from the package, and you should immediately see component information in your editor.

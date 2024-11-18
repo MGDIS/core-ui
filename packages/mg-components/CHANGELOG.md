@@ -1,5 +1,29 @@
 # @mgdis/mg-components
 
+## 6.2.0
+
+### Minor Changes
+
+- 462e909: [**`<mg-progress>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-progress--docs) add mg-progress component
+- 47b5cf5: [`mg-input-numeric`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-numeric--docs) Add percent and unit format to mg-input-numeric
+- c818bb0: [#508](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/508) mg-form: add method to reset form
+
+### Patch Changes
+
+- b194f5f: [#515](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/515) mg-input-checkbox: click on label does not send valid-input
+- caa4498: [#519](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/519) auto-complete only works on html files
+- 6f854b9: [#503](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/503) mg-button variant not updating when not explicitly set and displayed conditionally on Vue.js
+- f73a81d: Updated dependencies
+- 45e0c34: [#510](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/510) mg-form: when required mg-inputs are added to or removed from an already loaded mg-form, the validity check of the form is broken
+- 0ddefc0: [#518](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/518) mg-form: mg-input elements are excluded
+- Updated dependencies [459444d]
+- Updated dependencies [f73a81d]
+- Updated dependencies [462e909]
+- Updated dependencies [47b5cf5]
+  - @mgdis/styles@2.1.0
+  - @mgdis/stencil-helpers@2.2.0
+  - @mgdis/img@2.1.1
+
 ## 6.1.0
 
 ### Minor Changes

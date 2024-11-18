@@ -158,4 +158,34 @@ test.describe('mg-input-radio', () => {
       });
     });
   });
+
+  test.describe('Reset input', () => {
+    test('Should reset value and error when calling reset method', async ({ page }) => {
+      const componentArgs = { ...baseArgs };
+      const html = createHTML(componentArgs);
+      await page.setContent(html);
+      await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
+
+      await page.locator('mg-input-radio.hydrated').waitFor();
+
+      // Select a radio option
+      await page.locator('.mg-c-input__input-group input').first().press('Space');
+
+      // Set an error message intentionally
+      await page.evaluate(() => {
+        document.querySelector('mg-input-radio').setError(false, "Message d'erreur de test");
+      });
+
+      // Verify the state with selection and error
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Call the reset method
+      await page.evaluate(() => {
+        document.querySelector('mg-input-radio').reset();
+      });
+
+      // Verify that the input has been reset and the error has been removed
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
 });

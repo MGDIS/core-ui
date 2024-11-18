@@ -145,8 +145,8 @@ test.describe('mg-input-toggle', () => {
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    await page.$eval('mg-input-toggle', async el => {
-      await el.setError(false, 'This is an error Batman');
+    await page.locator('mg-input-toggle').evaluate((elm: HTMLMgInputToggleElement) => {
+      elm.setError(false, 'This is an error Batman');
     });
 
     page.locator('.mg-c-input__input--has-error');
@@ -167,6 +167,34 @@ test.describe('mg-input-toggle', () => {
         // Responsive state
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
+    });
+  });
+
+  test.describe('Reset input', () => {
+    test('Should reset value when calling reset method', async ({ page }) => {
+      await setPageContent(page, {
+        items: getItemsFromStrings(['Non', 'Oui']),
+      });
+
+      await page.locator('mg-input-toggle.hydrated').waitFor();
+
+      // Toggle the value
+      await page.locator('mg-input-toggle .mg-c-input__button-toggle').click();
+
+      // Set an error message intentionally
+      await page.evaluate(() => {
+        document.querySelector('mg-input-toggle').setError(false, "Message d'erreur de test");
+      });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Call reset method
+      await page.evaluate(() => {
+        document.querySelector('mg-input-toggle').reset();
+      });
+
+      // Verify that the input has been reset
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 });

@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
-import { localeNumber, toString } from '@mgdis/stencil-helpers';
+import { localeNumber, localeUnit, toString } from '@mgdis/stencil-helpers';
 import { MgInputNumeric } from '../mg-input-numeric';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
@@ -53,8 +53,29 @@ describe('mg-input-numeric', () => {
     });
 
     describe.each(formats)('Format %s', format => {
-      test.each([{}, { readonly: true }])('args %s', async args => {
-        const { root } = await getPage({ ...args, label: 'label', identifier: 'identifier', type, format, value: '1234567890' });
+      test.each([
+        {
+          args: {
+            // Add default unit for 'unit' format tests
+            ...(format === 'unit' ? { unit: 'meter', unitDisplay: 'short' } : {}),
+          },
+        },
+        {
+          args: {
+            readonly: true,
+            // Add default unit for 'unit' format tests
+            ...(format === 'unit' ? { unit: 'meter', unitDisplay: 'short' } : {}),
+          },
+        },
+      ])('args %s', async ({ args }) => {
+        const { root } = await getPage({
+          ...args,
+          label: 'label',
+          identifier: 'identifier',
+          type,
+          format,
+          value: '1234567890',
+        });
         expect(root).toMatchSnapshot();
       });
     });
@@ -633,5 +654,138 @@ describe('mg-input-numeric', () => {
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
+  });
+
+  describe('reset method', () => {
+    test('Should reset value', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+      });
+      const element = page.doc.querySelector('mg-input-numeric');
+      const input = element.shadowRoot.querySelector('input');
+
+      // Set a value
+      input.value = '5';
+      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+
+      // Verify initial state
+      expect(element.value).toEqual('5');
+
+      // Call reset method
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify value has been reset
+      expect(element.value).toEqual('');
+    });
+
+    test('Should reset error message when error is displayed', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+      });
+      const element = page.doc.querySelector('mg-input-numeric');
+
+      // Set error message
+      await element.setError(false, "Message d'erreur de test");
+      await page.waitForChanges();
+
+      // Verify initial state
+      expect(page.root).toMatchSnapshot();
+
+      // Call reset method
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify reset state
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should not reset when readonly', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        readonly: true,
+        value: '42',
+      });
+      const element = page.doc.querySelector('mg-input-numeric');
+
+      // Capture initial value
+      const initialValue = element.value;
+
+      // Try to reset
+      await element.reset();
+      await page.waitForChanges();
+
+      // Verify value remains unchanged
+      expect(element.value).toEqual(initialValue);
+    });
+  });
+
+  test.each([
+    { value: '42', lang: 'fr' },
+    { value: '42', lang: 'en' },
+    { value: '123.45', lang: 'fr' },
+    { value: '123.45', lang: 'en' },
+    { value: '0.42', lang: 'fr' },
+    { value: '0.42', lang: 'en' },
+  ])('Should format percentage value correctly for locale %s', async ({ value, lang }) => {
+    const page = await getPage({
+      label: 'label',
+      identifier: 'identifier',
+      value,
+      lang,
+      format: 'percent',
+    });
+
+    const element = page.doc.querySelector('mg-input-numeric');
+    const input = element.shadowRoot.querySelector('input');
+
+    input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+    await page.waitForChanges();
+
+    // Format according to locale
+    const number = localeNumber(parseFloat(value), lang, 2);
+    const expectedValue = lang === 'fr' ? `${number} %` : `${number}%`;
+
+    // Normalize spaces before comparison
+    expect(input.value.replace(/\s/g, ' ')).toBe(expectedValue.replace(/\s/g, ' '));
+  });
+
+  describe('localeUnit', () => {
+    test.each([
+      // Length units tests
+      [1000, 'fr', 'meter', 'short', 2, '1 000,00 m'],
+      [1000, 'fr', 'meter', 'long', 2, '1 000,00 mètres'],
+      [1000, 'fr', 'meter', 'narrow', 2, '1 000,00m'],
+
+      // Volume units tests
+      [25.5, 'fr', 'liter', 'short', 1, '25,5 l'],
+      [25.5, 'fr', 'liter', 'long', 1, '25,5 litres'],
+      [25.5, 'fr', 'liter', 'narrow', 1, '25,5l'],
+
+      // Mass units tests
+      [500, 'fr', 'kilogram', 'short', 0, '500 kg'],
+      [500, 'fr', 'kilogram', 'long', 0, '500 kilogrammes'],
+      [500, 'fr', 'kilogram', 'narrow', 0, '500kg'],
+
+      // Tests with English locale
+      [1000, 'en', 'meter', 'short', 2, '1,000.00 m'],
+      [25.5, 'en', 'liter', 'long', 1, '25.5 liters'],
+      [500, 'en', 'kilogram', 'narrow', 0, '500kg'],
+    ])('Should format %s %s with unit %s in %s display with %s decimals', (value, locale, unit, unitDisplay, decimals, expected) => {
+      const result = localeUnit(value, locale, unit, unitDisplay as Intl.NumberFormatOptions['unitDisplay'], decimals);
+      // Normalize spaces before comparison
+      expect(result.replace(/\s/g, ' ')).toBe(expected.replace(/\s/g, ' '));
+    });
+
+    test('Should throw error with invalid unit', () => {
+      type Unit = 'meter' | 'liter' | 'kilogram';
+      expect(() => {
+        localeUnit(100, 'fr', 'invalidUnit' as Unit, 'short', 2);
+      }).toThrow();
+    });
   });
 });

@@ -20,11 +20,14 @@ npx linting-angularjs-prepare
 
 This command will create `.eslintrc.js` and `.prettierrc.js` in your local folder.
 
-You can now use the linter, here an example script you can use for you project:
+You can now integrate the linter into your project. Here is an example of scripts you can use:
 
 ```json
-"lint": "eslint --ext js,html app/",
+"lint": "eslint 'src/**/*.{html,js}'",
+"format": "prettier --check '**/*.{scss,md,json}'",
 ```
+
+Since HTML linting includes Prettier, it's not necessary to separately format HTML files with Prettier.
 
 ## Troubleshooting
 

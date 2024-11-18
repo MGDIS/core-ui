@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.1.2
+
+### Patch Changes
+
+- f73a81d: Updated dependencies
+- 31f6d38: [#516](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/516) [eslint-plugin-vue] Eslint crash
+
 ## 4.1.1
 
 ### Patch Changes

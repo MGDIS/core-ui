@@ -27,6 +27,7 @@ import { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } fr
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 import { Placement } from "@popperjs/core";
+import { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 import { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
@@ -52,6 +53,7 @@ export { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } fr
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 export { Placement } from "@popperjs/core";
+export { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 export { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 export { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 export { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
@@ -218,6 +220,10 @@ export namespace Components {
          */
         "requiredMessage"?: RequiredMessageStatusType;
         /**
+          * Reset form inputs values, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Define form valid state
          */
         "valid": boolean;
@@ -354,6 +360,10 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Overwrite default "select" button message
          */
         "selectButtonMessage": string;
@@ -475,6 +485,10 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
@@ -575,6 +589,10 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
@@ -592,6 +610,14 @@ export namespace Components {
           * Define numeric type
          */
         "type": NumericType;
+        /**
+          * Define unit symbol (km, L, etc.)
+         */
+        "unit"?: Intl.NumberFormatOptions['unit'];
+        /**
+          * Define unit display format ('short', 'long', 'narrow')
+         */
+        "unitDisplay": Intl.NumberFormatOptions['unitDisplay'];
         /**
           * Define input pattern to validate
          */
@@ -658,6 +684,10 @@ export namespace Components {
           * Define if input is required
          */
         "required": boolean;
+        /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
         /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
@@ -734,6 +764,10 @@ export namespace Components {
           * Define if input is required
          */
         "required": boolean;
+        /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
         /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
@@ -822,6 +856,10 @@ export namespace Components {
           * Define if input is required
          */
         "required": boolean;
+        /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
         /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
@@ -923,6 +961,10 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
@@ -1023,6 +1065,10 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Define if input is resizable
          */
         "resizable": 'none' | 'both' | 'horizontal' | 'vertical';
@@ -1116,6 +1162,10 @@ export namespace Components {
           * Define if input is readonly
          */
         "readonly": boolean;
+        /**
+          * Reset value, validity, error and visual state
+         */
+        "reset": () => Promise<void>;
         /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
@@ -1326,6 +1376,28 @@ export namespace Components {
           * Define if popover has a cross button
          */
         "closeButton": boolean;
+    }
+    interface MgProgress {
+        /**
+          * Define progress role - `progressbar` to indicate a progress, such as loading or percent completion of a task - `meter` to indicate a graphical display of a numeric value that varies within a defined range
+         */
+        "ariaRole"?: AriaRoleType1;
+        /**
+          * Define label
+         */
+        "label": string;
+        /**
+          * Define the maximum value in the range
+         */
+        "max"?: number;
+        /**
+          * Define the minimum value in the range
+         */
+        "min"?: number;
+        /**
+          * Define current value By default, it will be displayed as a percentage value. If you don’t specify the min and max props, the value should be a number within the range of 0 to 100.
+         */
+        "value"?: number;
     }
     interface MgSkipLinks {
         /**
@@ -1923,6 +1995,12 @@ declare global {
         prototype: HTMLMgPopoverContentElement;
         new (): HTMLMgPopoverContentElement;
     };
+    interface HTMLMgProgressElement extends Components.MgProgress, HTMLStencilElement {
+    }
+    var HTMLMgProgressElement: {
+        prototype: HTMLMgProgressElement;
+        new (): HTMLMgProgressElement;
+    };
     interface HTMLMgSkipLinksElementEventMap {
         "go-to-anchor": string;
     }
@@ -2009,6 +2087,7 @@ declare global {
         "mg-panel": HTMLMgPanelElement;
         "mg-popover": HTMLMgPopoverElement;
         "mg-popover-content": HTMLMgPopoverContentElement;
+        "mg-progress": HTMLMgProgressElement;
         "mg-skip-links": HTMLMgSkipLinksElement;
         "mg-tabs": HTMLMgTabsElement;
         "mg-tag": HTMLMgTagElement;
@@ -2571,6 +2650,14 @@ declare namespace LocalJSX {
           * Define numeric type
          */
         "type"?: NumericType;
+        /**
+          * Define unit symbol (km, L, etc.)
+         */
+        "unit"?: Intl.NumberFormatOptions['unit'];
+        /**
+          * Define unit display format ('short', 'long', 'narrow')
+         */
+        "unitDisplay"?: Intl.NumberFormatOptions['unitDisplay'];
         /**
           * Define input pattern to validate
          */
@@ -3334,6 +3421,28 @@ declare namespace LocalJSX {
          */
         "onHide-content"?: (event: MgPopoverContentCustomEvent<void>) => void;
     }
+    interface MgProgress {
+        /**
+          * Define progress role - `progressbar` to indicate a progress, such as loading or percent completion of a task - `meter` to indicate a graphical display of a numeric value that varies within a defined range
+         */
+        "ariaRole"?: AriaRoleType1;
+        /**
+          * Define label
+         */
+        "label": string;
+        /**
+          * Define the maximum value in the range
+         */
+        "max"?: number;
+        /**
+          * Define the minimum value in the range
+         */
+        "min"?: number;
+        /**
+          * Define current value By default, it will be displayed as a percentage value. If you don’t specify the min and max props, the value should be a number within the range of 0 to 100.
+         */
+        "value"?: number;
+    }
     interface MgSkipLinks {
         /**
           * Skip links
@@ -3446,6 +3555,7 @@ declare namespace LocalJSX {
         "mg-panel": MgPanel;
         "mg-popover": MgPopover;
         "mg-popover-content": MgPopoverContent;
+        "mg-progress": MgProgress;
         "mg-skip-links": MgSkipLinks;
         "mg-tabs": MgTabs;
         "mg-tag": MgTag;
@@ -3493,6 +3603,7 @@ declare module "@stencil/core" {
             "mg-panel": LocalJSX.MgPanel & JSXBase.HTMLAttributes<HTMLMgPanelElement>;
             "mg-popover": LocalJSX.MgPopover & JSXBase.HTMLAttributes<HTMLMgPopoverElement>;
             "mg-popover-content": LocalJSX.MgPopoverContent & JSXBase.HTMLAttributes<HTMLMgPopoverContentElement>;
+            "mg-progress": LocalJSX.MgProgress & JSXBase.HTMLAttributes<HTMLMgProgressElement>;
             "mg-skip-links": LocalJSX.MgSkipLinks & JSXBase.HTMLAttributes<HTMLMgSkipLinksElement>;
             "mg-tabs": LocalJSX.MgTabs & JSXBase.HTMLAttributes<HTMLMgTabsElement>;
             "mg-tag": LocalJSX.MgTag & JSXBase.HTMLAttributes<HTMLMgTagElement>;

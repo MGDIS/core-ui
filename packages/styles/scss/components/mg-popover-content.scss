@@ -1,5 +1,5 @@
 @use '../functions' as functions;
-@import 'mixins/reset-mg-card-slotted-variables';
+@use 'mixins/reset-mg-card-slotted-variables';
 
 $border-arrow-head: var(--mg-b-size-8) solid var(--mg-c-popover-color-background);
 $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
@@ -40,7 +40,7 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
     font-weight: 600 !important; /* stylelint-disable-line declaration-no-important */
   }
 
-  @include reset-slot-card-variables;
+  @include reset-mg-card-slotted-variables.reset-slot-card-variables;
 }
 
 /**

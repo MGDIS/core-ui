@@ -235,6 +235,94 @@ exports[`mg-input-toggle Should trigger events for items with inputValue: { item
 </mg-input-toggle>
 `;
 
+exports[`mg-input-toggle reset method Should reset error message when error is displayed 1`] = `
+<mg-input-toggle>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--toggle">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <button aria-checked="false" aria-describedby="identifier-error" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <div id="identifier-error" slot="error">
+        Message d'erreur de test
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+  <span slot="item-1" title="Non">
+    Non
+  </span>
+  <span slot="item-2" title="Oui">
+    Oui
+  </span>
+</mg-input-toggle>
+`;
+
+exports[`mg-input-toggle reset method Should reset error message when error is displayed 2`] = `
+<mg-input-toggle>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+  <span slot="item-1" title="Non">
+    Non
+  </span>
+  <span slot="item-2" title="Oui">
+    Oui
+  </span>
+</mg-input-toggle>
+`;
+
 exports[`mg-input-toggle setError should display override error with setError component's public method 1`] = `
 <mg-input-toggle>
   <template shadowrootmode="open">

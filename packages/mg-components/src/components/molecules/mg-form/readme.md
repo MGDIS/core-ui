@@ -121,6 +121,16 @@ Type: `Promise<void>`
 
 
 
+### `reset() => Promise<void>`
+
+Reset form inputs values, validity and error state
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## Slots
 

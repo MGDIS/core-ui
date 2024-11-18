@@ -233,6 +233,19 @@ export class MgInputToggle {
   };
 
   /**
+   * Reset value, validity, error and visual state
+   */
+  @Method()
+  async reset(): Promise<void> {
+    if (!this.readonly) {
+      this.value = this.options[0].value;
+      this.errorMessage = undefined;
+      this.valid = undefined;
+      this.setChecked();
+    }
+  }
+
+  /**
    * Change checked value
    */
   private toggleChecked = (): void => {
