@@ -1167,7 +1167,7 @@ exports[`mg-input-text readonly false Should render with slot. 1`] = `
   </template>
   <mg-button aria-label="search" role="button" slot="append-input" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -1251,13 +1251,13 @@ exports[`mg-input-text readonly false Should render with slot. 3`] = `
   </template>
   <mg-button aria-label="cancel" is-icon="" role="button" slot="append-input" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--icon mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--icon mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </template>
-    <mg-icon>
+    <mg-icon size="medium">
       <template shadowrootmode="open">
         <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
@@ -1268,13 +1268,13 @@ exports[`mg-input-text readonly false Should render with slot. 3`] = `
   </mg-button>
   <mg-button aria-label="validate" is-icon="" role="button" slot="append-input" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--icon mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--icon mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </template>
-    <mg-icon>
+    <mg-icon size="medium">
       <template shadowrootmode="open">
         <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
           <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
@@ -1314,7 +1314,7 @@ exports[`mg-input-text readonly true Should render with slot. 1`] = `
   </template>
   <mg-button aria-label="search" role="button" slot="append-input" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -1397,13 +1397,13 @@ exports[`mg-input-text readonly true Should render with slot. 3`] = `
   </template>
   <mg-button aria-label="cancel" is-icon="" role="button" slot="append-input" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--icon mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--icon mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </template>
-    <mg-icon>
+    <mg-icon size="medium">
       <template shadowrootmode="open">
         <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
@@ -1414,13 +1414,13 @@ exports[`mg-input-text readonly true Should render with slot. 3`] = `
   </mg-button>
   <mg-button aria-label="validate" is-icon="" role="button" slot="append-input" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--icon mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--icon mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </template>
-    <mg-icon>
+    <mg-icon size="medium">
       <template shadowrootmode="open">
         <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
           <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>

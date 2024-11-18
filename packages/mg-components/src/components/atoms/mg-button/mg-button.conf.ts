@@ -1,4 +1,14 @@
-import type { Variant } from '../../../types';
+import type { Variant, Size } from '../../../types';
+
+/**
+ * List of all possibles sizes
+ */
+export const sizes = ['medium', 'large'] as const;
+
+/**
+ * SizeType type from button sizes
+ */
+export type SizeType = Size & (typeof sizes)[number];
 
 /**
  * List of all possibles variants

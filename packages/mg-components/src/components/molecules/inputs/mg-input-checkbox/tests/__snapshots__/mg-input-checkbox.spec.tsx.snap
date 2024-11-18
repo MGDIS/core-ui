@@ -69,7 +69,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -170,7 +170,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -234,7 +234,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -248,23 +248,23 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -378,7 +378,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -526,7 +526,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -590,7 +590,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -604,23 +604,23 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -734,7 +734,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -798,7 +798,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -880,7 +880,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -944,7 +944,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -1008,7 +1008,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -1107,7 +1107,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -1171,7 +1171,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -1185,23 +1185,23 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -1315,7 +1315,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -1379,7 +1379,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -1393,23 +1393,23 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -1469,7 +1469,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -1527,7 +1527,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
                   <div class="mg-c-input__section-header">
                     <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                       <template shadowrootmode="open">
-                        <div class="mg-c-button mg-c-button--flat">
+                        <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
                           <div class="mg-c-button__content">
                             <slot></slot>
                           </div>
@@ -1543,7 +1543,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Unselect all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -1574,7 +1574,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -1588,23 +1588,23 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -1718,7 +1718,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -1782,7 +1782,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -1796,23 +1796,23 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -1926,7 +1926,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -1990,7 +1990,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -2004,23 +2004,23 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -2134,7 +2134,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -2198,7 +2198,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -2212,23 +2212,23 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -2288,7 +2288,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -2352,7 +2352,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -2366,23 +2366,23 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -2496,7 +2496,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -2560,7 +2560,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -2574,23 +2574,23 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -2704,7 +2704,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -2768,7 +2768,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -2782,23 +2782,23 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -2912,7 +2912,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -2976,7 +2976,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -2990,23 +2990,23 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -3120,7 +3120,7 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -3184,7 +3184,7 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -3198,23 +3198,23 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -3328,7 +3328,7 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -3386,7 +3386,7 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
                   <div class="mg-c-input__section-header">
                     <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                       <template shadowrootmode="open">
-                        <div class="mg-c-button mg-c-button--flat">
+                        <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
                           <div class="mg-c-button__content">
                             <slot></slot>
                           </div>
@@ -3402,7 +3402,7 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Unselect all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -3433,7 +3433,7 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -3509,7 +3509,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -3567,7 +3567,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                   <div class="mg-c-input__section-header">
                     <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                       <template shadowrootmode="open">
-                        <div class="mg-c-button mg-c-button--flat">
+                        <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
                           <div class="mg-c-button__content">
                             <slot></slot>
                           </div>
@@ -3583,7 +3583,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Unselect all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -3614,7 +3614,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -3628,23 +3628,23 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -3758,7 +3758,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 1`] = 
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -3822,7 +3822,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 1`] = 
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -3836,23 +3836,23 @@ exports[`mg-input-checkbox multi search Should select all filtered values 1`] = 
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -3966,7 +3966,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 2`] = 
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -4024,7 +4024,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 2`] = 
                   <div class="mg-c-input__section-header">
                     <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                       <template shadowrootmode="open">
-                        <div class="mg-c-button mg-c-button--flat">
+                        <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
                           <div class="mg-c-button__content">
                             <slot></slot>
                           </div>
@@ -4040,7 +4040,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 2`] = 
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Unselect all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -4122,7 +4122,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 1`]
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -4180,7 +4180,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 1`]
                   <div class="mg-c-input__section-header">
                     <mg-button aria-controls="items-selected-container" aria-expanded="false" role="button" tabindex="0">
                       <template shadowrootmode="open">
-                        <div class="mg-c-button mg-c-button--flat">
+                        <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
                           <div class="mg-c-button__content">
                             <slot></slot>
                           </div>
@@ -4233,7 +4233,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 1`]
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -4247,23 +4247,23 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 1`]
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -4377,7 +4377,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 2`]
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -4435,7 +4435,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 2`]
                   <div class="mg-c-input__section-header">
                     <mg-button aria-controls="items-selected-container" aria-expanded="false" role="button" tabindex="0">
                       <template shadowrootmode="open">
-                        <div class="mg-c-button mg-c-button--flat">
+                        <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
                           <div class="mg-c-button__content">
                             <slot></slot>
                           </div>
@@ -4557,7 +4557,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -4621,7 +4621,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -4635,23 +4635,23 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -4765,7 +4765,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -4829,7 +4829,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -4843,23 +4843,23 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -4973,7 +4973,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -5031,7 +5031,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   <div class="mg-c-input__section-header">
                     <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                       <template shadowrootmode="open">
-                        <div class="mg-c-button mg-c-button--flat">
+                        <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
                           <div class="mg-c-button__content">
                             <slot></slot>
                           </div>
@@ -5047,7 +5047,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Unselect all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -5061,23 +5061,23 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -5191,7 +5191,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -5255,7 +5255,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -5269,23 +5269,23 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -6075,7 +6075,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -6133,7 +6133,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                   <div class="mg-c-input__section-header">
                     <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                       <template shadowrootmode="open">
-                        <div class="mg-c-button mg-c-button--flat">
+                        <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
                           <div class="mg-c-button__content">
                             <slot></slot>
                           </div>
@@ -6149,7 +6149,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Désélectionne tous les résultats de la recherche en cours">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -6163,23 +6163,23 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -6260,7 +6260,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Sélectionne tous les résultats de la recherche en cours">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -6274,23 +6274,23 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -8319,7 +8319,7 @@ exports[`mg-input-checkbox render by type multi Should display error message on 
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -8422,7 +8422,7 @@ exports[`mg-input-checkbox render by type multi Should display error message on 
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -8522,7 +8522,7 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -8586,7 +8586,7 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -8600,23 +8600,23 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -8736,7 +8736,7 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -8842,7 +8842,7 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -8942,7 +8942,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -9000,7 +9000,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                   <div class="mg-c-input__section-header">
                     <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                       <template shadowrootmode="open">
-                        <div class="mg-c-button mg-c-button--flat">
+                        <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
                           <div class="mg-c-button__content">
                             <slot></slot>
                           </div>
@@ -9016,7 +9016,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Désélectionne tous les résultats de la recherche en cours">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -9030,23 +9030,23 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -9127,7 +9127,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Sélectionne tous les résultats de la recherche en cours">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -9141,23 +9141,23 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -9276,7 +9276,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -9370,7 +9370,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -9469,7 +9469,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -9569,7 +9569,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -9913,7 +9913,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -10048,7 +10048,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -10145,7 +10145,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -10242,7 +10242,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -10342,7 +10342,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -10439,7 +10439,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -10528,7 +10528,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -10617,7 +10617,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -10709,7 +10709,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -10801,7 +10801,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -10890,7 +10890,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -10979,7 +10979,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -11128,7 +11128,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -11226,7 +11226,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -11303,7 +11303,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -11380,7 +11380,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -11460,7 +11460,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -11563,7 +11563,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -11666,7 +11666,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -11766,7 +11766,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -11866,7 +11866,7 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -11969,7 +11969,7 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -12072,7 +12072,7 @@ exports[`mg-input-checkbox render by type multi should display override error wi
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -12172,7 +12172,7 @@ exports[`mg-input-checkbox render by type multi should display override error wi
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -12272,7 +12272,7 @@ exports[`mg-input-checkbox render by type multi should display override error wi
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -12375,7 +12375,7 @@ exports[`mg-input-checkbox render by type multi should display override error wi
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -12481,7 +12481,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -12584,7 +12584,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -12685,7 +12685,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -12947,7 +12947,7 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -13011,7 +13011,7 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -13025,23 +13025,23 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -13295,7 +13295,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
           </template>
           <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
             <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
                 <div class="mg-c-button__content">
                   <slot></slot>
                 </div>
@@ -13353,7 +13353,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                   <div class="mg-c-input__section-header">
                     <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                       <template shadowrootmode="open">
-                        <div class="mg-c-button mg-c-button--flat">
+                        <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
                           <div class="mg-c-button__content">
                             <slot></slot>
                           </div>
@@ -13369,7 +13369,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Désélectionne tous les résultats de la recherche en cours">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -13383,23 +13383,23 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>
@@ -13480,7 +13480,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                     <mg-tooltip class="mg-c-input__section-header-tootlip" message="Sélectionne tous les résultats de la recherche en cours">
                       <mg-button role="button" tabindex="0">
                         <template shadowrootmode="open">
-                          <div class="mg-c-button mg-c-button--link">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
                             <div class="mg-c-button__content">
                               <slot></slot>
                             </div>
@@ -13494,23 +13494,23 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                         <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
                           <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-left"></mg-icon>
+                            <mg-icon icon="chevron-left" size="medium"></mg-icon>
                           </mg-button>
                           <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
                             <template shadowrootmode="open">
-                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                                 <div class="mg-c-button__content">
                                   <slot></slot>
                                 </div>
                               </div>
                             </template>
-                            <mg-icon icon="chevron-right"></mg-icon>
+                            <mg-icon icon="chevron-right" size="medium"></mg-icon>
                           </mg-button>
                         </nav>
                       </template>

@@ -6,13 +6,13 @@ exports[`mg-pagination Should render Should hide navigation labels 1`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
           </div>
         </template>
-        <mg-icon>
+        <mg-icon size="medium">
           <template shadowrootmode="open">
             <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-left mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
               <path d="m4 8 6 6 .708-.708L5.415 8l5.293-5.292L10 2z" fill="currentColor"></path>
@@ -60,13 +60,13 @@ exports[`mg-pagination Should render Should hide navigation labels 1`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
           </div>
         </template>
-        <mg-icon>
+        <mg-icon size="medium">
           <template shadowrootmode="open">
             <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-right mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
               <path d="m11.708 8-6-6L5 2.708 10.293 8 5 13.293l.708.707z" fill="currentColor"></path>
@@ -85,7 +85,7 @@ exports[`mg-pagination Should render Should hide navigation labels 2`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -140,7 +140,7 @@ exports[`mg-pagination Should render Should hide navigation labels 2`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -166,7 +166,7 @@ exports[`mg-pagination Should render Should hide page select 1`] = `
     <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -183,7 +183,7 @@ exports[`mg-pagination Should render Should hide page select 1`] = `
       </mg-button>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -209,7 +209,7 @@ exports[`mg-pagination Should render Should hide page select 2`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -264,7 +264,7 @@ exports[`mg-pagination Should render Should hide page select 2`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -290,7 +290,7 @@ exports[`mg-pagination Should render Should set custom label 1`] = `
     <nav aria-label="custom label" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -345,7 +345,7 @@ exports[`mg-pagination Should render Should set custom label 1`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -371,7 +371,7 @@ exports[`mg-pagination Should render with locale: fr 1`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Page précédente" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -426,7 +426,7 @@ exports[`mg-pagination Should render with locale: fr 1`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Page suivante" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -452,7 +452,7 @@ exports[`mg-pagination Should render with locale: xx 1`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -507,7 +507,7 @@ exports[`mg-pagination Should render with locale: xx 1`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -533,7 +533,7 @@ exports[`mg-pagination Should render with totalPages 1 1`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -585,7 +585,7 @@ exports[`mg-pagination Should render with totalPages 1 1`] = `
       </div>
       <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -611,7 +611,7 @@ exports[`mg-pagination Should render with totalPages 2 1`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -666,7 +666,7 @@ exports[`mg-pagination Should render with totalPages 2 1`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -692,7 +692,7 @@ exports[`mg-pagination Should render with totalPages 2 2`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -747,7 +747,7 @@ exports[`mg-pagination Should render with totalPages 2 2`] = `
       </div>
       <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -773,7 +773,7 @@ exports[`mg-pagination Should render with totalPages 3 1`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -831,7 +831,7 @@ exports[`mg-pagination Should render with totalPages 3 1`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -857,7 +857,7 @@ exports[`mg-pagination Should render with totalPages 3 2`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -915,7 +915,7 @@ exports[`mg-pagination Should render with totalPages 3 2`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -941,7 +941,7 @@ exports[`mg-pagination Should render with totalPages 3 3`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -999,7 +999,7 @@ exports[`mg-pagination Should render with totalPages 3 3`] = `
       </div>
       <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1025,7 +1025,7 @@ exports[`mg-pagination Should render with totalPages 10 1`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1104,7 +1104,7 @@ exports[`mg-pagination Should render with totalPages 10 1`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1130,7 +1130,7 @@ exports[`mg-pagination Should render with totalPages 10 2`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1209,7 +1209,7 @@ exports[`mg-pagination Should render with totalPages 10 2`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1235,7 +1235,7 @@ exports[`mg-pagination Should render with totalPages 10 3`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1314,7 +1314,7 @@ exports[`mg-pagination Should render with totalPages 10 3`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1340,7 +1340,7 @@ exports[`mg-pagination Should render with totalPages 10 4`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1419,7 +1419,7 @@ exports[`mg-pagination Should render with totalPages 10 4`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1445,7 +1445,7 @@ exports[`mg-pagination Should render with totalPages 10 5`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1524,7 +1524,7 @@ exports[`mg-pagination Should render with totalPages 10 5`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1550,7 +1550,7 @@ exports[`mg-pagination Should render with totalPages 10 6`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1629,7 +1629,7 @@ exports[`mg-pagination Should render with totalPages 10 6`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1655,7 +1655,7 @@ exports[`mg-pagination Should render with totalPages 10 7`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1734,7 +1734,7 @@ exports[`mg-pagination Should render with totalPages 10 7`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1760,7 +1760,7 @@ exports[`mg-pagination Should render with totalPages 10 8`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1839,7 +1839,7 @@ exports[`mg-pagination Should render with totalPages 10 8`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1865,7 +1865,7 @@ exports[`mg-pagination Should render with totalPages 10 9`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1944,7 +1944,7 @@ exports[`mg-pagination Should render with totalPages 10 9`] = `
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -1970,7 +1970,7 @@ exports[`mg-pagination Should render with totalPages 10 10`] = `
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2049,7 +2049,7 @@ exports[`mg-pagination Should render with totalPages 10 10`] = `
       </div>
       <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2075,7 +2075,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2139,7 +2139,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2165,7 +2165,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2229,7 +2229,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2255,7 +2255,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2319,7 +2319,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2345,7 +2345,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2409,7 +2409,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2435,7 +2435,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2499,7 +2499,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2525,7 +2525,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2589,7 +2589,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
       </div>
       <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2615,7 +2615,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2679,7 +2679,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2705,7 +2705,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
     <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -2772,7 +2772,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
       </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--flat">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>

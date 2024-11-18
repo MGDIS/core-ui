@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, State, Watch, Host, EventEmitter, Event } from '@stencil/core';
-import { variants, VariantType, ButtonType } from './mg-button.conf';
+import { variants, VariantType, ButtonType, SizeType, sizes } from './mg-button.conf';
 import { ClassList, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 
 /**
@@ -63,6 +63,26 @@ export class MgButton {
   @Prop() type?: ButtonType;
 
   /**
+   * Define button size
+   */
+  @Prop() size: SizeType = 'medium';
+  @Watch('size')
+  validateSize(newValue: MgButton['size'], oldValue?: MgButton['size']): void {
+    // validate new value
+    if (!sizes.includes(newValue)) {
+      throw new Error(`<mg-button> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${toString(newValue)}.`);
+    } else {
+      if (oldValue !== undefined) {
+        this.classCollection.delete(`mg-c-button--${oldValue}`);
+      }
+      this.classCollection.add(`mg-c-button--${newValue}`);
+      if (this.isIcon) {
+        this.setIconSize();
+      }
+    }
+  }
+
+  /**
    * Set button to full-width
    */
   @Prop() fullWidth = false;
@@ -112,6 +132,12 @@ export class MgButton {
    * Used for icon button.
    */
   @Prop() isIcon = false;
+  @Watch('isIcon')
+  watchIsIcon(newValue: MgButton['isIcon']): void {
+    if (newValue) {
+      this.setIconSize();
+    }
+  }
 
   /**
    * Option to set input disable on click, in order to prevent multi-click.
@@ -183,11 +209,20 @@ export class MgButton {
   };
 
   /**
+   * Set child `<mg-icon>` element `size` prop to follow the current `size` prop
+   */
+  private setIconSize = (): void => {
+    this.element.querySelector('mg-icon')?.setAttribute('size', this.size);
+  };
+
+  /**
    * Check if props are well configured on init
    */
   componentWillLoad(): void {
     this.validateVariant(this.variant);
     this.validateFullWidth(this.fullWidth);
+    this.validateSize(this.size);
+    this.watchIsIcon(this.isIcon);
     if (this.isIcon) {
       this.classCollection.add(`mg-c-button--icon`);
       if (!isValidString(this.label)) {
