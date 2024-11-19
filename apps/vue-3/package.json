@@ -10,13 +10,7 @@
     "build": "pnpm \"/^(type-check|build-only)$/\"",
     "preview": "vite preview",
     "test": "pnpm /^test:.*/",
-    "test:unit": "vitest",
-    "lint": "pnpm lint:es && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint 'src/**/*.{vue,ts,tsx}' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint 'src/**/*.{vue,ts,tsx}' --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{scss,vue,ts,tsx,md,json}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{scss,vue,ts,tsx,md,json}' --ignore-path ../../.gitignore"
+    "test:unit": "vitest"
   },
   "dependencies": {
     "@mgdis/mg-components": "workspace:*",
@@ -27,6 +21,7 @@
   "devDependencies": {
     "@mgdis/eslint-config-vue3": "workspace:*",
     "@mgdis/eslint-plugin-vue": "workspace:*",
+    "@mgdis/prettier-config": "2.0.2",
     "@tsconfig/node22": "22.0.0",
     "@types/jest-axe": "3.5.9",
     "@types/jsdom": "21.1.7",

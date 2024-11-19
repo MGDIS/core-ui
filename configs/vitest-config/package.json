@@ -4,19 +4,10 @@
   "version": "1.0.1",
   "license": "ISC",
   "main": "./src/index.js",
-  "scripts": {
-    "lint": "pnpm lint:es && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint '**/*.js' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint '**/*.js' --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{js,ts,json}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{js,ts,json}' --ignore-path ../../.gitignore"
-  },
   "dependencies": {
     "vitest": "1.6.0"
   },
   "devDependencies": {
-    "@core-ui/eslint-config-custom": "workspace:*",
     "@core-ui/prettier-config": "workspace:*"
   }
 }

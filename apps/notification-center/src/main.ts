@@ -13,7 +13,9 @@ document.querySelectorAll('mg-button').forEach(button => {
     const {
       dataset: { variant, delay, context },
     } = target;
+
     const content = target.dataset.content ?? `message ${variant ?? 'info'} de ${target.closest('body')?.dataset.source}.html`;
+
     notif.postMessage({
       content,
       variant,

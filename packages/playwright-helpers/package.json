@@ -10,20 +10,12 @@
   "scripts": {
     "build": "tsc",
     "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "lint": "pnpm lint:es && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint '**/*.{ts,tsx}' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint '**/*.{ts,tsx}' --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{js,ts,json}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{js,ts,json}' --ignore-path ../../.gitignore"
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@playwright/test": "1.48.2"
   },
   "devDependencies": {
-    "@core-ui/eslint-config-custom": "workspace:*",
-    "@core-ui/prettier-config": "workspace:*",
     "@core-ui/tsconfig": "workspace:*",
     "@core-ui/vitest-config": "workspace:*",
     "@types/node": "22.7.5",

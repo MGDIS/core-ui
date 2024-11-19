@@ -6,13 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "lint": "pnpm lint:es && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint 'src/**/*.{vue,js,jsx}' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint 'src/**/*.{vue,js,jsx}' --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{scss,vue,js,jsx,md,json}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{scss,vue,js,jsx,md,json}' --ignore-path ../../.gitignore"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@mgdis/mg-components": "workspace:*",

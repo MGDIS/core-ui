@@ -9,15 +9,13 @@ This rule aims to ensure buttons and anchors have an ID attribute.
 Examples of **incorrect** code for this rule:
 
 ```html
-<button>button text</button>
-<a>anchor text</a>
+<button>button text</button> <a>anchor text</a>
 ```
 
 Examples of **correct** code for this rule:
 
 ```html
-<button id="tnr-id">button text</button>
-<a id="tnr-id">anchor text</a>
+<button id="tnr-id">button text</button> <a id="tnr-id">anchor text</a>
 ```
 
 ## Further Reading

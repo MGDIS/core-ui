@@ -7,22 +7,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "scripts": {
-    "lint": "pnpm lint:es && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint 'src/**/*.js' -c ./src/index.js --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint 'src/**/*.js' --fix -c ./src/index.js --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{js,json}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{js,json}' --ignore-path ../../.gitignore"
-  },
   "dependencies": {
     "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-config-turbo": "2.3.0",
     "eslint-plugin-jsdoc": "48.11.0",
     "eslint-plugin-tsdoc": "0.3.0"
-  },
-  "devDependencies": {
-    "@core-ui/prettier-config": "workspace:*"
   }
 }

@@ -6,4 +6,4 @@ if echo "$LAST_COMMIT_MESSAGE" | grep -iq wip; then
 fi
 
 # Check linting
-pnpm --filter @mgdis/linting-stencil build:config && pnpm dlx lint-staged
+pnpm dlx lint-staged

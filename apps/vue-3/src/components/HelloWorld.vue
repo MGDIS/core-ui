@@ -35,7 +35,9 @@ export default defineComponent({
     return (
       <>
         <h1>{this.msg}</h1>
-        <p>The purpose of this application is to ensure the integration of mg-components and styles into a Vue 3 app.</p>
+        <p>
+          The purpose of this application is to ensure the integration of mg-components and styles into a Vue 3 app.
+        </p>
         <mg-button type="button" onClick={this.handleClick} variant="secondary">
           count is {this.count}
         </mg-button>
@@ -48,9 +50,11 @@ export default defineComponent({
           }}
         >
           <p slot="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
           </p>
         </mg-modal>
       </>

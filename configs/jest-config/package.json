@@ -3,14 +3,6 @@
   "private": true,
   "version": "1.0.8",
   "license": "ISC",
-  "scripts": {
-    "lint": "pnpm lint:es && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint '**/*.{ts,tsx}' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint '**/*.{ts,tsx}' --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{js,ts,json}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{js,ts,json}' --ignore-path ../../.gitignore"
-  },
   "dependencies": {
     "@swc/core": "1.9.2",
     "@swc/jest": "0.2.37",

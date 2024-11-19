@@ -8,12 +8,6 @@
   ],
   "main": "lib/index.js",
   "scripts": {
-    "lint": "pnpm lint:es && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint '**/*.{js,mjs}' --ignore-path ../../.gitignore",
-    "lint:es:fix": "eslint '**/*.{js,mjs}' --fix --ignore-path ../../.gitignore",
-    "lint:prettier": "prettier --check '**/*.{js,mjs}' --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write '**/*.{js,mjs}' --ignore-path ../../.gitignore",
     "coverage": "pnpm test:rules && vitest run --coverage",
     "test:unit": "vitest",
     "test:rules": "node tests/lib/rule-tester.js"

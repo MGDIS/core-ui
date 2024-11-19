@@ -19,6 +19,7 @@ Examples of **correct** code for this rule:
 ```html
 <span class="fa fa-thumbs-up" aria-hidden="true"></span>
 ```
+
 ## Further Reading
 
 [6.3. Managing alternative text on Icon Fonts - AcceDe Web](https://www.accede-web.com/en/guidelines/html-css/images-and-icons/managing-alternative-text-on-icon-fonts/)
