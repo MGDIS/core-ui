@@ -57,7 +57,7 @@
     ]
   },
   "lint-staged": {
-    "*.{js,ts,mjs,mts,cjs,tsx}": "pnpm lint:eslint",
+    "*.{js,ts,mjs,mts,cjs,tsx,vue}": "pnpm lint:eslint",
     "*.{json,yaml,yml,md,mdx,html}": "pnpm lint:prettier",
     "*.scss": "pnpm lint:styles"
   },
