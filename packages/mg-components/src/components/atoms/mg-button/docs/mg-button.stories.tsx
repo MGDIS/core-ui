@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { variants } from '../mg-button.conf';
+import { sizes, variants } from '../mg-button.conf';
 import iconList from '@mgdis/img/dist/icons/index.json';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgButton as MgButtonType } from '../mg-button';
@@ -15,13 +15,16 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgButtonType & { slot: string }): HTMLElement => <mg-button {...filterArgs(args, { variant: variants[0] })} innerHTML={args.slot}></mg-button>;
+const Template = (args: MgButtonType & { slot: string }): HTMLElement => (
+  <mg-button {...filterArgs(args, { variant: variants[0], size: sizes[0] })} innerHTML={args.slot}></mg-button>
+);
 
 export const MgButton = {
   render: Template,
   args: {
     slot: 'Text button',
     variant: variants[0],
+    size: sizes[0],
     label: 'Explicit aria label',
     disabled: false,
     disableOnClick: false,

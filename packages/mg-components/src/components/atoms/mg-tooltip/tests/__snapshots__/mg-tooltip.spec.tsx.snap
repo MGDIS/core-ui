@@ -51,7 +51,7 @@ exports[`mg-tooltip Should NOT update mg-button wrapper when MutationRecord not 
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -81,7 +81,7 @@ exports[`mg-tooltip Should NOT update mg-button wrapper when MutationRecord not 
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -133,7 +133,7 @@ exports[`mg-tooltip Should manage disconnectedCallback hook 1`] = `
     <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
       <mg-button aria-disabled="true" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -167,7 +167,7 @@ exports[`mg-tooltip Should manage disconnectedCallback hook without window conte
     <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
       <mg-button aria-disabled="true" role="button" tabindex="0">
         <template shadowrootmode="open">
-          <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
             <div class="mg-c-button__content">
               <slot></slot>
             </div>
@@ -266,7 +266,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
   </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -295,7 +295,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -391,7 +391,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
   </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -420,7 +420,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -516,7 +516,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
   </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -545,7 +545,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -641,7 +641,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
   </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -670,7 +670,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -866,7 +866,7 @@ exports[`mg-tooltip Should update mg-button wrapper dynamically 1`] = `
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -895,13 +895,13 @@ exports[`mg-tooltip Should update mg-button wrapper dynamically 2`] = `
   </template>
   <mg-button aria-disabled="true" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </template><template shadowrootmode="open" shadowrootmode="open">
-    <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+    <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
       <div class="mg-c-button__content">
         <slot></slot>
       </div>
@@ -920,7 +920,7 @@ exports[`mg-tooltip Should update mg-tooltip-content id when "identifier" is upd
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -950,7 +950,7 @@ exports[`mg-tooltip Should update mg-tooltip-content id when "identifier" is upd
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -979,7 +979,7 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
   </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -1007,7 +1007,7 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
   </template>
   <mg-button aria-describedby="identifier" aria-disabled="true" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--disabled mg-c-button--loading mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--disabled mg-c-button--loading mg-c-button--medium mg-c-button--primary">
         <mg-icon>
           <template shadowrootmode="open">
             <svg aria-hidden="true" class="mg-c-icon mg-c-icon--loader mg-c-icon--size-medium mg-c-icon--spin" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -1043,7 +1043,7 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
   </template>
   <mg-button aria-describedby="identifier" aria-disabled="false" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -1071,7 +1071,7 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
   </template>
   <mg-button aria-describedby="identifier" aria-disabled="false" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -1501,7 +1501,7 @@ exports[`mg-tooltip render Should render with tooltip 19`] = `
   </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -1529,7 +1529,7 @@ exports[`mg-tooltip render Should render with tooltip 20`] = `
   </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -1557,7 +1557,7 @@ exports[`mg-tooltip render Should render with tooltip 21`] = `
   </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -1585,7 +1585,7 @@ exports[`mg-tooltip render Should render with tooltip 22`] = `
   </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -1613,7 +1613,7 @@ exports[`mg-tooltip render Should render with tooltip 23`] = `
   </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -1641,7 +1641,7 @@ exports[`mg-tooltip render Should render with tooltip 24`] = `
   </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--primary">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
@@ -1670,7 +1670,7 @@ exports[`mg-tooltip render Should render with tooltip 25`] = `
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -1700,7 +1700,7 @@ exports[`mg-tooltip render Should render with tooltip 26`] = `
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -1730,7 +1730,7 @@ exports[`mg-tooltip render Should render with tooltip 27`] = `
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -1760,7 +1760,7 @@ exports[`mg-tooltip render Should render with tooltip 28`] = `
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -1790,7 +1790,7 @@ exports[`mg-tooltip render Should render with tooltip 29`] = `
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
@@ -1820,7 +1820,7 @@ exports[`mg-tooltip render Should render with tooltip 30`] = `
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <template shadowrootmode="open">
-        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>

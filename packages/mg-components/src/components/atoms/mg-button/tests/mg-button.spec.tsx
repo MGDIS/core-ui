@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgButton } from '../mg-button';
 import { MgForm } from '../../../molecules/mg-form/mg-form';
-import { variants, buttonTypes } from '../mg-button.conf';
+import { variants, buttonTypes, sizes } from '../mg-button.conf';
 import { setupMutationObserverMock, setupSubmitEventMock } from '@mgdis/stencil-helpers';
 
 const getPage = async (args, content = 'Text button') =>
@@ -66,12 +66,47 @@ describe('mg-button', () => {
     expect(classDanger).not.toBeNull();
   });
 
-  test.each([' ', 'blu'])('Should throw error', async variant => {
+  test.each([true, false])('Should update button on size to large with icon: %s', async isIcon => {
+    const page = await getPage({ label: 'label', isIcon }, isIcon ? <mg-icon icon="user"></mg-icon> : undefined);
+    const element = page.doc.querySelector('mg-button');
+
+    expect(page.root).toMatchSnapshot();
+
+    // Change size
+    element.size = 'large';
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test('Should update button on size to large with svg: %s', async () => {
+    const page = await getPage({ label: 'label', isIcon: true }, <svg></svg>);
+    const element = page.doc.querySelector('mg-button');
+
+    expect(page.root).toMatchSnapshot();
+
+    // Change size
+    element.size = 'large';
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test.each([' ', 'blu'])('Should throw error with invalid variant: %s', async variant => {
     expect.assertions(1);
     try {
-      await getPage({ variant });
+      await getPage({ variant, label: 'label' });
     } catch (err) {
       expect(err.message).toEqual(`<mg-button> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${variant}.`);
+    }
+  });
+
+  test.each([' ', 'batman'])('Should throw error with invalid variant: %s', async size => {
+    expect.assertions(1);
+    try {
+      await getPage({ size, label: 'label' });
+    } catch (err) {
+      expect(err.message).toEqual(`<mg-button> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${size}.`);
     }
   });
 

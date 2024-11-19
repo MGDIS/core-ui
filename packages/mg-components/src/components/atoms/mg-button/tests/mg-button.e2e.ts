@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
-import { variants } from '../mg-button.conf';
+import { sizes, variants } from '../mg-button.conf';
 
 test.describe('mg-button', () => {
   variants.forEach(variant => {
@@ -29,17 +29,6 @@ test.describe('mg-button', () => {
     });
   });
 
-  test('Should render a full-width button', async ({ page }) => {
-    await page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
-
-    const html = ['batman', '<mg-icon icon="check-circle"></mg-icon>batman'].map(slot => `<mg-button full-width>${slot}</mg-button>`).join('');
-
-    await page.setViewportSize({ width: 600, height: 100 });
-    await page.setContent(html);
-
-    await expect(page.locator('body')).toHaveScreenshot();
-  });
-
   [
     '<mg-button disable-on-click>Message action</mg-button>',
     '<mg-button disable-on-click label="test" is-icon><mg-icon icon="info-circle"></mg-icon></mg-button>',
@@ -62,20 +51,46 @@ test.describe('mg-button', () => {
     });
   });
 
-  test('Should render with icon slot', async ({ page }) => {
-    const html = ['<mg-icon icon="trash"></mg-icon>Text button', '<mg-icon icon="trash"></mg-icon>Text button<mg-badge value="1" label="label"></mg-badge>']
-      .map(slot => `<div><mg-button>${slot}</mg-button></div>`)
-      .join('');
+  sizes.forEach(size => {
+    test.describe(`size="${size}"`, () => {
+      test('Should render', async ({ page }) => {
+        await page.setContent(`<div>
+  <mg-button size="${size}">${size}</mg-button>
+  <mg-button size="${size}" is-icon><mg-icon icon="check-circle"></mg-icon></mg-button>
+  <mg-button size="${size}" disabled>disabled</mg-button>
+  <mg-button size="${size}" is-icon disabled label="disabled"><mg-icon icon="check-circle"></mg-icon></mg-button>
+  </div>`);
 
-    await page.setContent(html);
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
 
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-  });
+      test('Should render a full-width button', async ({ page }) => {
+        await page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
 
-  test('Should render a 2 lines button', async ({ page }) => {
-    await page.setContent(`<mg-button>Button with a<br> two lines text</mg-button>`);
+        const html = ['batman', '<mg-icon icon="check-circle"></mg-icon>batman'].map(slot => `<mg-button size="${size}" full-width>${slot}</mg-button>`).join('');
 
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        await page.setViewportSize({ width: 600, height: 100 });
+        await page.setContent(html);
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+
+      test('Should render with icon slot', async ({ page }) => {
+        const html = ['<mg-icon icon="trash"></mg-icon>Text button', '<mg-icon icon="trash"></mg-icon>Text button<mg-badge value="1" label="label"></mg-badge>']
+          .map(slot => `<div><mg-button size="${size}">${slot}</mg-button></div>`)
+          .join('');
+
+        await page.setContent(html);
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+
+      test('Should render a 2 lines button', async ({ page }) => {
+        await page.setContent(`<mg-button size="${size}">Button with a<br> two lines text</mg-button>`);
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
   });
 
   test('Should render a button in a paragraph', async ({ page }) => {
