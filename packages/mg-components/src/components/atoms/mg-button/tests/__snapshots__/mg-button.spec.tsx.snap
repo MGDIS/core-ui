@@ -347,7 +347,7 @@ exports[`mg-button Should update button on size to large with icon: true 1`] = `
       </div>
     </div>
   </template>
-  <mg-icon icon="user" size="medium"></mg-icon>
+  <mg-icon icon="user"></mg-icon>
 </mg-button>
 `;
 
@@ -361,6 +361,32 @@ exports[`mg-button Should update button on size to large with icon: true 2`] = `
     </div>
   </template>
   <mg-icon icon="user" size="large"></mg-icon>
+</mg-button>
+`;
+
+exports[`mg-button Should update button on size to large with svg: %s 1`] = `
+<mg-button aria-label="label" role="button" tabindex="0">
+  <template shadowrootmode="open">
+    <div class="mg-c-button mg-c-button--icon mg-c-button--medium mg-c-button--primary">
+      <div class="mg-c-button__content">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  <svg></svg>
+</mg-button>
+`;
+
+exports[`mg-button Should update button on size to large with svg: %s 2`] = `
+<mg-button aria-label="label" role="button" tabindex="0">
+  <template shadowrootmode="open">
+    <div class="mg-c-button mg-c-button--icon mg-c-button--large mg-c-button--primary">
+      <div class="mg-c-button__content">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  <svg></svg>
 </mg-button>
 `;
 

@@ -79,6 +79,19 @@ describe('mg-button', () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  test('Should update button on size to large with svg: %s', async () => {
+    const page = await getPage({ label: 'label', isIcon: true }, <svg></svg>);
+    const element = page.doc.querySelector('mg-button');
+
+    expect(page.root).toMatchSnapshot();
+
+    // Change size
+    element.size = 'large';
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   test.each([' ', 'blu'])('Should throw error with invalid variant: %s', async variant => {
     expect.assertions(1);
     try {

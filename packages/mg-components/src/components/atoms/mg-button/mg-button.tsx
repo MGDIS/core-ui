@@ -76,9 +76,7 @@ export class MgButton {
         this.classCollection.delete(`mg-c-button--${oldValue}`);
       }
       this.classCollection.add(`mg-c-button--${newValue}`);
-      if (this.isIcon) {
-        this.setIconSize();
-      }
+      this.setIconSize();
     }
   }
 
@@ -133,10 +131,8 @@ export class MgButton {
    */
   @Prop() isIcon = false;
   @Watch('isIcon')
-  watchIsIcon(newValue: MgButton['isIcon']): void {
-    if (newValue) {
-      this.setIconSize();
-    }
+  watchIsIcon(): void {
+    this.setIconSize();
   }
 
   /**
@@ -212,7 +208,11 @@ export class MgButton {
    * Set child `<mg-icon>` element `size` prop to follow the current `size` prop
    */
   private setIconSize = (): void => {
-    this.element.querySelector('mg-icon')?.setAttribute('size', this.size);
+    if (this.size === 'medium') {
+      this.element.querySelector('mg-icon')?.removeAttribute('size');
+    } else if (this.isIcon) {
+      this.element.querySelector('mg-icon')?.setAttribute('size', this.size);
+    }
   };
 
   /**
@@ -222,7 +222,7 @@ export class MgButton {
     this.validateVariant(this.variant);
     this.validateFullWidth(this.fullWidth);
     this.validateSize(this.size);
-    this.watchIsIcon(this.isIcon);
+    this.watchIsIcon();
     if (this.isIcon) {
       this.classCollection.add(`mg-c-button--icon`);
       if (!isValidString(this.label)) {
