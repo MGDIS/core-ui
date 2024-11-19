@@ -160,8 +160,9 @@
     line-height: var(--mg-b-font-size);
 
     &.mg-c-button--large {
-      padding-top: calc(var(--mg-b-size-24) - var(--mg-b-size-border));
-      padding-bottom: calc(var(--mg-b-size-24) - var(--mg-b-size-border));
+      width: unset;
+      height: unset;
+      padding: calc(var(--mg-b-size-12) - var(--mg-b-size-border));
 
       ::slotted(*) {
         min-width: var(--mg-b-size-24);

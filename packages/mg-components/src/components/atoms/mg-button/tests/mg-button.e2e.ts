@@ -52,46 +52,48 @@ test.describe('mg-button', () => {
   });
 
   sizes.forEach(size => {
-    test(`Should render ${size} button`, async ({ page }) => {
-      await page.setContent(`<div>
-<mg-button size="${size}">${size}</mg-button>
-<mg-button size="${size}" is-icon><mg-icon icon="check-circle"></mg-icon></mg-button>
-<mg-button size="${size}" disabled>disabled</mg-button>
-<mg-button size="${size}" is-icon disabled label="disabled"><mg-icon icon="check-circle"></mg-icon></mg-button>
-</div>`);
+    test.describe(`size="${size}"`, () => {
+      test('Should render', async ({ page }) => {
+        await page.setContent(`<div>
+  <mg-button size="${size}">${size}</mg-button>
+  <mg-button size="${size}" is-icon><mg-icon icon="check-circle"></mg-icon></mg-button>
+  <mg-button size="${size}" disabled>disabled</mg-button>
+  <mg-button size="${size}" is-icon disabled label="disabled"><mg-icon icon="check-circle"></mg-icon></mg-button>
+  </div>`);
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
 
-    test(`Should render a full-width button, size: ${size}`, async ({ page }) => {
-      await page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
+      test('Should render a full-width button', async ({ page }) => {
+        await page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
 
-      const html = ['batman', '<mg-icon icon="check-circle"></mg-icon>batman'].map(slot => `<mg-button size="${size}" full-width>${slot}</mg-button>`).join('');
+        const html = ['batman', '<mg-icon icon="check-circle"></mg-icon>batman'].map(slot => `<mg-button size="${size}" full-width>${slot}</mg-button>`).join('');
 
-      await page.setViewportSize({ width: 600, height: 100 });
-      await page.setContent(html);
+        await page.setViewportSize({ width: 600, height: 100 });
+        await page.setContent(html);
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
 
-    test(`Should render with icon slot, size: ${size}`, async ({ page }) => {
-      const html = ['<mg-icon icon="trash"></mg-icon>Text button', '<mg-icon icon="trash"></mg-icon>Text button<mg-badge value="1" label="label"></mg-badge>']
-        .map(slot => `<div><mg-button size="${size}">${slot}</mg-button></div>`)
-        .join('');
+      test('Should render with icon slot', async ({ page }) => {
+        const html = ['<mg-icon icon="trash"></mg-icon>Text button', '<mg-icon icon="trash"></mg-icon>Text button<mg-badge value="1" label="label"></mg-badge>']
+          .map(slot => `<div><mg-button size="${size}">${slot}</mg-button></div>`)
+          .join('');
 
-      await page.setContent(html);
+        await page.setContent(html);
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
 
-    test(`Should render a 2 lines button, size: ${size}`, async ({ page }) => {
-      await page.setContent(`<mg-button size="${size}">Button with a<br> two lines text</mg-button>`);
+      test('Should render a 2 lines button', async ({ page }) => {
+        await page.setContent(`<mg-button size="${size}">Button with a<br> two lines text</mg-button>`);
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
     });
   });
 
-  test(`Should render a button in a paragraph`, async ({ page }) => {
+  test('Should render a button in a paragraph', async ({ page }) => {
     const html = [`<p>This is a <mg-button>button</mg-button> in a paragraph.</p>`, `<p>This is a <mg-button variant="link">button</mg-button> in a paragraph.</p>`].join('');
 
     await page.setContent(html);
