@@ -65,7 +65,7 @@ export class MgButton {
   /**
    * Define button size
    */
-  @Prop() size: SizeType = 'medium';
+  @Prop() size: SizeType = sizes[0]; // medium
   @Watch('size')
   validateSize(newValue: MgButton['size'], oldValue?: MgButton['size']): void {
     // validate new value
