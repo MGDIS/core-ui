@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 import { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
-import { ButtonType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
+import { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
@@ -20,7 +20,7 @@ import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-i
 import { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
-import { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
+import { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
 import { DirectionType, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 import { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 import { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
@@ -29,12 +29,12 @@ import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecul
 import { Placement } from "@popperjs/core";
 import { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
-import { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
+import { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
-export { ButtonType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
+export { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
@@ -46,7 +46,7 @@ export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-i
 export { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
-export { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
+export { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
 export { DirectionType, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 export { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 export { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
@@ -55,7 +55,7 @@ export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecul
 export { Placement } from "@popperjs/core";
 export { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 export { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
-export { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
+export { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 export { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export namespace Components {
     interface MgActionMore {
@@ -133,6 +133,10 @@ export namespace Components {
           * aria-label In case button text is not explicit enough
          */
         "label"?: string;
+        /**
+          * Define button size
+         */
+        "size": SizeType;
         /**
           * Define button type
          */
@@ -1193,7 +1197,7 @@ export namespace Components {
         /**
           * Define component child menu size.
          */
-        "size"?: SizeType;
+        "size"?: SizeType1;
         /**
           * Define slot label element
          */
@@ -1425,7 +1429,7 @@ export namespace Components {
         /**
           * Define tabs size
          */
-        "size": SizeType1;
+        "size": SizeType2;
     }
     interface MgTag {
         /**
@@ -2183,6 +2187,10 @@ declare namespace LocalJSX {
           * Emmited event when disabled change
          */
         "onDisabled-change"?: (event: MgButtonCustomEvent<HTMLMgButtonElement['disabled']>) => void;
+        /**
+          * Define button size
+         */
+        "size"?: SizeType;
         /**
           * Define button type
          */
@@ -3197,7 +3205,7 @@ declare namespace LocalJSX {
         /**
           * Define component child menu size.
          */
-        "size"?: SizeType;
+        "size"?: SizeType1;
         /**
           * Define slot label element
          */
@@ -3477,7 +3485,7 @@ declare namespace LocalJSX {
         /**
           * Define tabs size
          */
-        "size"?: SizeType1;
+        "size"?: SizeType2;
     }
     interface MgTag {
         /**
