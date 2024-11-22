@@ -1,0 +1,8 @@
+module.exports = {
+  extends: ['stylelint-config-standard-scss', 'stylelint-config-idiomatic-order', 'stylelint-prettier/recommended'],
+  rules: {
+    'declaration-property-value-no-unknown': true,
+    'declaration-no-important': true,
+    'unit-disallowed-list': 'px',
+  },
+};

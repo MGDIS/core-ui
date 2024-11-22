@@ -78,7 +78,3 @@ In addition to a global namespace, we have added prefixes to each custom propert
 - `b-` for base custom properties, such as `font-size`, which will be `--mg-b-font-size`.
 - `c-` for component-specific custom properties, such as the `min-width` variable of the `mg-card` component, which will be `--mg-c-card-min-width`.
 - `l-` for layout-related custom properties, such as grid spacing, which will be `--mg-l-grid-spacing`.
-
-## Lint
-
-To avoid errors and enforce conventions we are using [Stylelint](https://stylelint.io/) with a [custom config](.stylelintrc.json) and Prettier.
