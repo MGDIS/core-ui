@@ -26,7 +26,7 @@ Add a linting script to the `scripts` section of your `package.json`:
     "lint": "pnpm lint:es && pnpm lint:prettier && pnpm lint:styles",
     "lint:es": "eslint src/**/*.{ts,tsx}",
     "lint:prettier": "prettier --check **/*.{ts,tsx,html,mdx,json}",
-    "lint:styles": "stylelint '**/*.{scss,css}' --ignore-path .gitignore"
+    "lint:styles": "stylelint '**/*.{css,scss,sass,less}' --ignore-path .gitignore"
   }
 }
 ```
@@ -42,8 +42,12 @@ If you need to override the default configuration, you can use the [`overrides`]
     {
       "files": ["packages/styles/**/*.scss"],
       "rules": {
-        "selector-class-pattern": "^mg-(c|u|l)-((?!mg-)[a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}",
-        "custom-property-pattern": "^mg-(c|l|u|b)-(?!mg-)[a-z0-9-]+"
+        "selector-class-pattern": [
+          "^mg-(c|u|l)-((?!mg-)[a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}",
+          {
+            "resolveNestedSelectors": true
+          }
+        ],
       }
     }
   ]
