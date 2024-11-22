@@ -26,7 +26,7 @@ Add a linting script to the `scripts` section of your `package.json`:
     "lint": "pnpm lint:es && pnpm lint:prettier && pnpm lint:styles",
     "lint:es": "eslint src/**/*.{ts,tsx}",
     "lint:prettier": "prettier --check **/*.{ts,tsx,html,mdx,json}",
-    "lint:styles": "stylelint '**/*.{css,scss,sass,less}' --ignore-path .gitignore"
+    "lint:styles": "stylelint '**/*.{css,scss,sass}' --ignore-path .gitignore"
   }
 }
 ```
@@ -52,5 +52,23 @@ If you need to override the default configuration, you can use the [`overrides`]
     }
   ]
 }
+```
 
+#### Less
+
+Although this linter is designed for SCSS/CSS, you can configure it for projects using the LESS CSS preprocessor by overriding SCSS-specific rules. Here's an example configuration to disable SCSS-related rules for `.less` files:
+
+```JSON
+{
+  "extends": "@mgdis/linting-styles",
+  "overrides": [
+    {
+      "files": ["*.less"],
+      "rules": {
+        "scss/at-rule-no-unknown": null,
+        "scss/double-slash-comment-whitespace-inside": null
+      }
+    }
+  ]
+}
 ```
