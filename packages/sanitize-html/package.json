@@ -1,0 +1,43 @@
+{
+  "name": "@mgdis/sanitize-html",
+  "version": "0.0.0",
+  "description": "Sanitizer for unsafe HTML",
+  "author": "Amaury Berthelot <berthelot-a@mgdis.fr>",
+  "maintainers": [
+    "Simon Duhem <duhem-s@mgdis.fr>",
+    "Nicolas Jouanno <jouanno-n@mgdis.fr>"
+  ],
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "test:unit": "vitest --coverage",
+    "test:watch": "vitest --watch",
+    "coverage": "vitest --coverage"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/sanitize-html.umd.js",
+  "module": "./dist/sanitize-html.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/sanitize-html.es.js",
+      "require": "./dist/sanitize-html.umd.js"
+    }
+  },
+  "devDependencies": {
+    "@core-ui/tsconfig": "workspace:*",
+    "@core-ui/vitest-config": "workspace:*",
+    "@types/sanitize-html": "2.13.0",
+    "@vitest/coverage-istanbul": "1.6.0",
+    "typescript": "5.6.3",
+    "vite": "5.4.11",
+    "vite-plugin-dts": "4.3.0",
+    "vitest": "1.6.0"
+  },
+  "dependencies": {
+    "sanitize-html": "2.13.1"
+  }
+}

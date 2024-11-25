@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import type { NotificationData } from './types';
-import sanitizeHtml from 'sanitize-html';
+import { Sanitizer } from '@mgdis/sanitize-html';
 
 /**
  * NotificationCenter class
@@ -8,6 +8,7 @@ import sanitizeHtml from 'sanitize-html';
 class NotificationCenter {
   #rootWindow: Window;
 
+  #sanitizer = new Sanitizer();
   #notificationsReceiver: HTMLDivElement = document.createElement('div');
   #notifactionTagName: undefined | 'mg-message' | 'mg-alert';
 
@@ -181,7 +182,7 @@ class NotificationCenter {
       notificationElement.remove();
     });
     // Add content
-    notificationElement.innerHTML = sanitizeHtml(content);
+    notificationElement.innerHTML = this.#sanitizer.sanitize(content);
     // Add notification
     this.#notificationsReceiver.appendChild(notificationElement);
   };
