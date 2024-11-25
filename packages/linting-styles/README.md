@@ -23,8 +23,8 @@ Add a linting script to the `scripts` section of your `package.json`:
 ```json
 {
   "scripts": {
-    "lint": "pnpm lint:es && pnpm lint:prettier && pnpm lint:styles",
-    "lint:es": "eslint src/**/*.{ts,tsx}",
+    "lint": "pnpm lint:eslint && pnpm lint:prettier && pnpm lint:styles",
+    "lint:eslint": "eslint src/**/*.{ts,tsx}",
     "lint:prettier": "prettier --check **/*.{ts,tsx,html,mdx,json}",
     "lint:styles": "stylelint '**/*.{css,scss,sass}' --ignore-path .gitignore"
   }
