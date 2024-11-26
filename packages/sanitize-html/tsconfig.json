@@ -1,0 +1,10 @@
+{
+  "extends": "@core-ui/tsconfig/base.node.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "lib": ["ES2015", "dom"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.spec.ts", "src/**/*.e2e.ts"]
+}
