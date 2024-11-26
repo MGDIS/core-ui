@@ -23,6 +23,7 @@ stages:
   stencil-helpers: 'packages/stencil-helpers/**/*'
   styles: 'packages/styles/**/*'
   linting-styles: 'packages/linting-styles/**/*'
+  sanitize-html: 'packages/sanitize-html/**/*'
 
 .rules:changes:
   img:
@@ -53,6 +54,9 @@ stages:
   linting-styles:
     changes:
       - !reference [.changes, linting-styles]
+  sanitize-html:
+    changes:
+      - !reference [.changes, sanitize-html]
 
 .rules:if:
   except-tags: $CI_COMMIT_TAG == null && ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_MERGE_REQUEST_ID)
@@ -503,6 +507,24 @@ linting-styles:artifact:
     - .install:dependencies
   script:
     - cd packages/linting-styles
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+#################
+# sanitize-html #
+#################
+
+sanitize-html:artifact:
+  stage: artifacts
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, sanitize-html, changes]
+  extends:
+    - .install:dependencies
+  script:
+    - pnpm build --filter=@mgdis/sanitize-html
+    - cd packages/sanitize-html
     - !reference [.artifact, script]
   needs:
     - lint
