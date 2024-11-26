@@ -61,11 +61,11 @@
     "*.{json,yaml,yml,md,mdx,html}": "pnpm lint:prettier",
     "*.scss": "pnpm lint:styles"
   },
-  "dependencies": {
+  "devDependencies": {
     "@changesets/cli": "2.27.10",
     "@core-ui/eslint-config-custom": "workspace:*",
     "@core-ui/prettier-config": "workspace:*",
-    "@manypkg/cli": "0.22.0",
+    "@manypkg/cli": "0.23.0",
     "@mgdis/linting-styles": "workspace:*",
     "codename": "0.0.6",
     "eslint": "8.57.1",
