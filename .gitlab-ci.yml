@@ -22,6 +22,7 @@ stages:
   playwright-helpers: 'packages/playwright-helpers/**/*'
   stencil-helpers: 'packages/stencil-helpers/**/*'
   styles: 'packages/styles/**/*'
+  linting-styles: 'packages/linting-styles/**/*'
   sanitize-html: 'packages/sanitize-html/**/*'
 
 .rules:changes:
@@ -50,6 +51,9 @@ stages:
   styles:
     changes:
       - !reference [.changes, styles]
+  linting-styles:
+    changes:
+      - !reference [.changes, linting-styles]
   sanitize-html:
     changes:
       - !reference [.changes, sanitize-html]
@@ -489,6 +493,23 @@ stencil-helpers:npmjs:
   script:
     - !reference [.stencil-helpers, script]
     - pnpm publish --no-git-checks --access public
+
+##################
+# linting-styles #
+##################
+
+linting-styles:artifact:
+  stage: artifacts
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, linting-styles, changes]
+  extends:
+    - .install:dependencies
+  script:
+    - cd packages/linting-styles
+    - !reference [.artifact, script]
+  needs:
+    - lint
 
 #################
 # sanitize-html #
