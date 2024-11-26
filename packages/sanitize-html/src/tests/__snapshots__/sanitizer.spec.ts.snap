@@ -1,0 +1,80 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Sanitizer > Should sanitize HTML and remove configured disallowed attributes > sanitized HTML without style and anchor target attributes 1`] = `
+"
+      <h1>Sanitize Test</h1>
+      <img src="./img.png" />
+      <a href="#anchor">a link</a>
+      
+    "
+`;
+
+exports[`Sanitizer > Should sanitize HTML and remove configured disallowed tags > sanitized HTML without images 1`] = `
+"
+      <h1 style="color:red">Sanitize Test</h1>
+      
+      <a href="#anchor" target="_blank">a link</a>
+      
+    "
+`;
+
+exports[`Sanitizer > Should sanitize HTML with the default config: allow aria-* everywhere 1`] = `"<div aria-label="test"><span aria-hidden="true"></span></div>"`;
+
+exports[`Sanitizer > Should sanitize HTML with the default config: allow blockquotes 1`] = `
+"
+        <blockquote>
+          <p>test<br /></p>
+        </blockquote>
+      "
+`;
+
+exports[`Sanitizer > Should sanitize HTML with the default config: allow class attribute 1`] = `"<div class="test"></div>"`;
+
+exports[`Sanitizer > Should sanitize HTML with the default config: allow formatting tags 1`] = `"<strong>test</strong><em>test</em><sub>test</sub><sup>test</sup>"`;
+
+exports[`Sanitizer > Should sanitize HTML with the default config: allow image but remove unsafe properties 1`] = `"<img src="./img.png" alt="test" width="100" height="100" />"`;
+
+exports[`Sanitizer > Should sanitize HTML with the default config: allow links 1`] = `"<a href="http://localhost" target="_blank">test</a>"`;
+
+exports[`Sanitizer > Should sanitize HTML with the default config: allow mg-icon 1`] = `"<mg-icon icon="address-card"></mg-icon>"`;
+
+exports[`Sanitizer > Should sanitize HTML with the default config: allow ordered lists 1`] = `
+"<ol>
+        <li>test</li>
+        <li>test</li>
+      </ol>"
+`;
+
+exports[`Sanitizer > Should sanitize HTML with the default config: allow style attribute 1`] = `"<span style="color:#ff0099;background-color:#000066;text-align:right">test</span>"`;
+
+exports[`Sanitizer > Should sanitize HTML with the default config: allow tables 1`] = `
+"
+        <table>
+          <tbody>
+            <tr style="height:50%">
+              <td style="width:50%">1</td>
+              <td style="width:50%">2</td>
+            </tr>
+            <tr style="height:50%">
+              <td style="width:50%">3</td>
+              <td style="width:50%">4</td>
+            </tr>
+          </tbody>
+        </table>
+      "
+`;
+
+exports[`Sanitizer > Should sanitize HTML with the default config: allow titles 1`] = `
+"<h1>Test</h1>
+        <h2>test</h2>
+        <h3>test</h3>"
+`;
+
+exports[`Sanitizer > Should sanitize HTML with the default config: allow unordered lists 1`] = `
+"<ul style="text-align:left">
+        <li>test</li>
+        <li>test</li>
+      </ul> "
+`;
+
+exports[`Sanitizer > Should sanitize HTML with the default config: remove script tags 1`] = `""`;
