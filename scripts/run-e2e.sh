@@ -34,7 +34,7 @@ prepare_package "package.json" '{
     "apps:notification-center": .scripts."apps:notification-center",
     "test:e2e": .scripts."test:e2e"
   }, 
-  "dependencies": { "turbo": .dependencies.turbo } 
+  "devDependencies": { "turbo": .devDependencies.turbo } 
 }'
 
 # Prepare packages/mg-components/package.json
@@ -114,8 +114,12 @@ echo '{
 }' > "$temp_dir/turbo.json"
 echo "[$script_name] turbo.json added to your project."
 
+# Get base image version
+script_dir="$(cd "$(dirname "$0")" && pwd)"
+baseimage=$("${script_dir}/get-playwright-version.sh")
+
 # Build docker image with passed args
-docker build --build-arg args="$@" --platform linux/amd64 -t coreui-e2e:latest .
+docker build --build-arg baseimage="$baseimage" --build-arg args="$@" --platform linux/amd64 -t coreui-e2e:latest .
 
 echo "Press CTRL + C once tests are finished"
 

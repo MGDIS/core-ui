@@ -42,6 +42,8 @@ stages:
     changes:
       - !reference [.changes, notification-center]
       - !reference [.changes, notification-center:app]
+      - !reference [.changes, mg-components]
+      - !reference [.changes, styles]
   playwright-helpers:
     changes:
       - !reference [.changes, playwright-helpers]
@@ -57,6 +59,14 @@ stages:
   sanitize-html:
     changes:
       - !reference [.changes, sanitize-html]
+  e2e:
+    changes:
+      - !reference [.changes, mg-components]
+      - !reference [.changes, styles]
+      - !reference [.changes, img]
+      - !reference [.changes, stencil-helpers]
+      - !reference [.changes, notification-center]
+      - !reference [.changes, notification-center:app]
 
 .rules:if:
   except-tags: $CI_COMMIT_TAG == null && ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_MERGE_REQUEST_ID)
@@ -109,6 +119,20 @@ stages:
 # tests #
 #########
 
+playwright:baseimage:
+  stage: tests
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, e2e, changes]
+  extends:
+    - .install:dependencies
+  script:
+    - export PLAYWRIGHT_BASEIMAGE=$(./scripts/get-playwright-version.sh)
+    - echo "PLAYWRIGHT_BASEIMAGE=$PLAYWRIGHT_BASEIMAGE"  > playwright-baseimage.env
+  artifacts:
+    reports:
+      dotenv: playwright-baseimage.env
+
 lint:
   stage: tests
   extends:
@@ -139,7 +163,7 @@ test:unit:
 
 test:e2e:
   stage: tests
-  image: registre.mgcloud.fr/mgdis/playwright-baseimage:v1.48.1-jammy
+  image: $DOCKER_REGISTRE_URL/mgdis/playwright-baseimage:$PLAYWRIGHT_BASEIMAGE
   parallel: 7
   rules:
     - if: !reference [.rules:if, except-tags]
@@ -161,10 +185,12 @@ test:e2e:
       junit:
         - packages/mg-components/results.xml
         - packages/styles/results.xml
+  needs:
+    - playwright:baseimage
 
 test:e2e:notification-center:
   stage: tests
-  image: registre.mgcloud.fr/mgdis/playwright-baseimage:v1.48.1-jammy
+  image: $DOCKER_REGISTRE_URL/mgdis/playwright-baseimage:$PLAYWRIGHT_BASEIMAGE
   rules:
     - if: !reference [.rules:if, except-tags]
       changes: !reference [.rules:changes, notification-center, changes]
@@ -182,6 +208,8 @@ test:e2e:notification-center:
     reports:
       junit:
         - packages/notification-center/results.xml
+  needs:
+    - playwright:baseimage
 
 sonar:
   stage: tests

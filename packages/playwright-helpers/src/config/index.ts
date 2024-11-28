@@ -1,6 +1,4 @@
-import { devices, defineConfig } from '@playwright/test';
-
-export default defineConfig({
+export default {
   testMatch: '*.e2e.ts',
   snapshotPathTemplate: '{testFileDir}/__screenshots__/{arg}-{projectName}{ext}',
   /* Maximum time one test can run for. */
@@ -36,26 +34,4 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
-
-  /* Configure projects for major browsers */
-  projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-      },
-    },
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
-    {
-      name: 'webkit',
-      use: {
-        ...devices['Desktop Safari'],
-      },
-    },
-  ],
-});
+};
