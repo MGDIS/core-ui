@@ -328,8 +328,8 @@ importers:
         specifier: 0.26.11
         version: 0.26.11(typescript@5.7.2)
       typedoc-plugin-markdown:
-        specifier: 4.2.10
-        version: 4.2.10(typedoc@0.26.11(typescript@5.7.2))
+        specifier: 4.3.1
+        version: 4.3.1(typedoc@0.26.11(typescript@5.7.2))
 
   configs/vitest-config:
     dependencies:
@@ -750,8 +750,8 @@ importers:
         specifier: 0.26.11
         version: 0.26.11(typescript@5.7.2)
       typedoc-plugin-markdown:
-        specifier: 4.2.10
-        version: 4.2.10(typedoc@0.26.11(typescript@5.7.2))
+        specifier: 4.3.1
+        version: 4.3.1(typedoc@0.26.11(typescript@5.7.2))
       vitest:
         specifier: 2.1.6
         version: 2.1.6(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0)(terser@5.36.0)
@@ -894,8 +894,8 @@ importers:
         specifier: 0.26.11
         version: 0.26.11(typescript@5.7.2)
       typedoc-plugin-markdown:
-        specifier: 4.2.10
-        version: 4.2.10(typedoc@0.26.11(typescript@5.7.2))
+        specifier: 4.3.1
+        version: 4.3.1(typedoc@0.26.11(typescript@5.7.2))
       vite:
         specifier: 5.4.11
         version: 5.4.11(@types/node@22.9.4)(sass@1.81.0)(terser@5.36.0)
@@ -8898,11 +8898,11 @@ packages:
     resolution: {integrity: sha512-3KS2b+kL7fsuk/eJZ7EQdnEmQoaho/r6KUef7hxvltNA5DR8NAUM+8wJMbJyZ4G9/7i3v5zPBIMN5aybAh2/Jg==}
     engines: {node: '>= 0.4'}
 
-  typedoc-plugin-markdown@4.2.10:
-    resolution: {integrity: sha512-PLX3pc1/7z13UJm4TDE9vo9jWGcClFUErXXtd5LdnoLjV6mynPpqZLU992DwMGFSRqJFZeKbVyqlNNeNHnk2tQ==}
+  typedoc-plugin-markdown@4.3.1:
+    resolution: {integrity: sha512-cV0cjvNfr5keytkWUm5AXNFcW3/dd51BYFvbAVqo9AJbHZjt5SGkf2EZ0whSKCilqpwL7biPC/r1WNeW2NbV/w==}
     engines: {node: '>= 18'}
     peerDependencies:
-      typedoc: 0.26.x
+      typedoc: 0.27.x
 
   typedoc@0.26.11:
     resolution: {integrity: sha512-sFEgRRtrcDl2FxVP58Ze++ZK2UQAEvtvvH8rRlig1Ja3o7dDaMHmaBfvJmdGnNEFaLTpQsN8dpvZaTqJSu/Ugw==}
@@ -18588,7 +18588,7 @@ snapshots:
       possible-typed-array-names: 1.0.0
       reflect.getprototypeof: 1.0.7
 
-  typedoc-plugin-markdown@4.2.10(typedoc@0.26.11(typescript@5.7.2)):
+  typedoc-plugin-markdown@4.3.1(typedoc@0.26.11(typescript@5.7.2)):
     dependencies:
       typedoc: 0.26.11(typescript@5.7.2)
 
