@@ -13,7 +13,17 @@
   width: 100%;
 
   .mg-c-input.mg-u-is-focused & .mg-c-input__box {
-    padding-right: max(var(--mg-c-character-left-message-length) * 0.6ch + var(--mg-b-size-16) * clamp(0, var(--mg-c-character-left-message-length), 1), var(--mg-b-size-8));
+    /* Dynamic right padding calculation:
+     * - First part: space for character counter
+     *   (0.35ch + 0.3rem) per character multiplied by number of characters
+     *   this calculation is based on the width of a character with a calculated value (because each character has a different width)
+     * - Second part: adds 16px (2 x 8px) extra space if message exists (using clamp)
+     * - max() ensures minimum padding of 8px even without message
+     */
+    padding-right: max(
+      var(--mg-c-character-left-message-length) * (0.35ch + 0.3rem) + var(--mg-b-size-16) * clamp(0, var(--mg-c-character-left-message-length), 1),
+      var(--mg-b-size-8)
+    );
   }
 
   mg-character-left {
