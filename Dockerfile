@@ -1,5 +1,8 @@
+# Get baseimage version
+ARG baseimage=master
+
 # use builded image from https://gitlab.mgdis.fr/core/core-ui/playwright-baseimage repo
-FROM registre.mgcloud.fr/mgdis/playwright-baseimage:v1.48.1-jammy
+FROM registre.mgcloud.fr/mgdis/playwright-baseimage:${baseimage}
 
 # Get Args
 ARG args
@@ -18,7 +21,7 @@ RUN rm -rf temp/
 # optimize image with cache
 RUN --mount=type=cache,target=/cache
 
-# install dependancie
+# install dependancies
 RUN pnpm i ${ARGS}
 
 # run all tests in parallel
