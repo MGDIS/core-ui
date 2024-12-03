@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, Watch, State, Event, EventEmitter, Method } from '@stencil/core';
 import { ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
-import { classReadonly, type TooltipPosition } from '../mg-input/mg-input.conf';
+import { classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import Quill from 'quill';
 
@@ -14,14 +14,16 @@ export class MgInputRichTextEditor {
    * Internal *
    ************/
 
+  // Quill
   private quillEditor: Quill;
   private wrapperElement: HTMLDivElement;
   private editorElement: HTMLDivElement;
-  // private toolbarElement: HTMLDivElement;
 
-  private hasDisplayedError = false;
-
+  // Locales
   private messages;
+
+  // hasDisplayedError (triggered by blur event)
+  private hasDisplayedError = false;
 
   /**************
    * Decorators *
@@ -33,24 +35,9 @@ export class MgInputRichTextEditor {
   @Element() element: HTMLMgInputRichTextEditorElement;
 
   /**
-   * Component classes
+   * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
    */
-  private classCollection: ClassList = new ClassList(['mg-c-input--rich-text-editor']);
-
-  /**
-   * Define if input is required
-   */
-  @Prop() required = false;
-
-  /**
-   * Define if the editor is readonly
-   */
-  @Prop() readonly = false;
-  @Watch('readonly')
-  watchReadonly(newValue: MgInputRichTextEditor['readonly']): void {
-    if (newValue) this.classCollection.add(classReadonly);
-    else this.classCollection.delete(classReadonly);
-  }
+  @Prop() identifier!: string;
 
   /**
    * Define the initial value of the editor
@@ -73,30 +60,15 @@ export class MgInputRichTextEditor {
   @Prop() labelHide = false;
 
   /**
-   * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
-   */
-  @Prop() identifier!: string;
-
-  /**
    * Input placeholder.
    * It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
    */
   @Prop() placeholder?: string;
 
   /**
-   * Add a tooltip message next to the input
-   */
-  @Prop() tooltip?: string;
-
-  /**
-   * Define tooltip position
-   */
-  @Prop() tooltipPosition: TooltipPosition = 'input';
-
-  /**
    * Define the number of visible text lines for the control
    */
-  @Prop() rows = 3;
+  @Prop() rows = 5;
 
   /**
    * Add a help text under the input, usually expected data format and example
@@ -104,20 +76,60 @@ export class MgInputRichTextEditor {
   @Prop() helpText?: string;
 
   /**
+   * Define if input is required
+   */
+  @Prop() required = false;
+
+  /**
+   * Define if the editor is readonly
+   */
+  @Prop() readonly = false;
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputRichTextEditor['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
+
+  /**
+   * Define if input is disabled
+   */
+  @Prop() disabled = false;
+  @Watch('disabled')
+  watchDisabled(newValue: MgInputRichTextEditor['disabled']): void {
+    if (newValue) {
+      this.classCollection.add(classDisabled);
+      this.quillEditor?.disable();
+    } else {
+      this.classCollection.delete(classDisabled);
+      this.quillEditor?.enable();
+    }
+  }
+
+  @Watch('required')
+  @Watch('readonly')
+  @Watch('disabled')
+  handleValidityChange(newValue: boolean, _oldValue: boolean, prop: string): void {
+    if (this.quillEditor !== undefined) {
+      if (prop === 'disabled') {
+        if (newValue) {
+          this.quillEditor.disable();
+        } else {
+          this.quillEditor.enable();
+        }
+      }
+      this.checkValidity();
+      if (this.hasDisplayedError) {
+        this.setErrorMessage();
+        this.hasDisplayedError = false;
+      }
+    }
+  }
+
+  /**
    * Define input pattern to validate
    * Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
    */
   @Prop() pattern?: string;
-
-  /**
-   * Quill modules configuration
-   */
-  @Prop() modules?: Record<string, unknown>;
-  private defaultModules = {
-    toolbar: {
-      container: [['bold', 'italic', 'underline'], [{ list: 'ordered' }, { list: 'bullet' }], ['link'], ['clean']],
-    },
-  };
 
   /**
    * Define input pattern error message
@@ -132,6 +144,51 @@ export class MgInputRichTextEditor {
       );
     }
   }
+
+  /**
+   * Add a tooltip message next to the input
+   */
+  @Prop() tooltip?: string;
+
+  /**
+   * Define tooltip position
+   */
+  @Prop() tooltipPosition: TooltipPosition = 'input';
+
+  /**
+   * Define input valid state
+   */
+  @Prop({ mutable: true }) valid: boolean;
+
+  /**
+   * Define input invalid state
+   */
+  @Prop({ mutable: true }) invalid: boolean;
+
+  /**
+   * Quill modules configuration
+   */
+  @Prop() modules?: Record<string, unknown>;
+  private defaultModules = {
+    toolbar: {
+      container: [['bold', 'italic', 'underline'], [{ list: 'ordered' }, { list: 'bullet' }], ['link'], ['clean']],
+    },
+  };
+
+  /**
+   * Component classes
+   */
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--rich-text-editor']);
+
+  /**
+   * Error message to display
+   */
+  @State() errorMessage: string;
+
+  /**
+   * Emited event when checking validity
+   */
+  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
 
   /**
    * Get pattern validity
@@ -158,7 +215,7 @@ export class MgInputRichTextEditor {
   private checkValidity = (): void => {
     // Check if field is required and empty
     const isEmpty = this.value === undefined || this.value.trim() === '';
-    const isValid = this.readonly || ((!this.required || !isEmpty) && this.getPatternValidity());
+    const isValid = this.readonly || this.disabled || ((!this.required || !isEmpty) && this.getPatternValidity());
     this.setValidity(isValid);
   };
 
@@ -192,6 +249,30 @@ export class MgInputRichTextEditor {
       }
     }
   };
+
+  /**
+   * Display input error if it exists.
+   */
+  @Method()
+  async displayError(): Promise<void> {
+    this.checkValidity();
+    this.setErrorMessage();
+    this.hasDisplayedError = this.invalid;
+  }
+
+  /**
+   * Reset value, validity and error state
+   */
+  @Method()
+  async reset(): Promise<void> {
+    if (!this.readonly) {
+      this.value = '';
+      this.quillEditor.setContents([{ insert: '\n' }]);
+      this.checkValidity();
+      this.errorMessage = undefined;
+      this.hasDisplayedError = false;
+    }
+  }
 
   /**
    * Fixes for handling text selection in Quill when used within the Shadow DOM.
@@ -284,36 +365,6 @@ export class MgInputRichTextEditor {
     });
   }
 
-  /**
-   * Define input valid state
-   */
-  @Prop({ mutable: true }) valid: boolean;
-
-  /**
-   * Define input invalid state
-   */
-  @Prop({ mutable: true }) invalid: boolean;
-
-  /**
-   * Error message to display
-   */
-  @State() errorMessage: string;
-
-  /**
-   * Emited event when checking validity
-   */
-  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
-
-  /**
-   * Display input error if it exists.
-   */
-  @Method()
-  async displayError(): Promise<void> {
-    this.checkValidity();
-    this.setErrorMessage();
-    this.hasDisplayedError = this.invalid;
-  }
-
   /*************
    * Lifecycle *
    *************/
@@ -337,9 +388,8 @@ export class MgInputRichTextEditor {
     this.quillEditor = new Quill(this.editorElement, {
       theme: 'snow',
       modules: this.modules,
-      readOnly: this.readonly,
+      readOnly: this.readonly || this.disabled,
       placeholder: this.placeholder,
-      debug: 'log',
     });
 
     if (typeof this.value === 'string' && this.value.length > 0) {
@@ -357,6 +407,11 @@ export class MgInputRichTextEditor {
     });
 
     this.quillSelectionFixes();
+
+    // Initialiser l'état disabled
+    if (this.disabled) {
+      this.watchDisabled(true);
+    }
   }
 
   /**
