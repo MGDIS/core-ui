@@ -194,6 +194,97 @@ export class MgInputRichTextEditor {
   };
 
   /**
+   * Fixes for handling text selection in Quill when used within the Shadow DOM.
+   * - Fixes focus detection
+   * - Adapts native range handling to work with the Shadow DOM
+   * - Correctly manages text selection across Shadow DOM boundaries
+   * - Sets up selection change events
+   */
+  private quillSelectionFixes(): void {
+    const hasShadowRootSelection = Boolean((document.createElement('div').attachShadow({ mode: 'open' }) as ShadowRoot & { getSelection(): Selection }).getSelection);
+
+    // Each browser engine has a different implementation for retrieving the Range
+    const getNativeRange = (rootNode: ShadowRoot | Document) => {
+      try {
+        if (hasShadowRootSelection) {
+          // In Chromium, the shadow root has a getSelection function which returns the range
+          return (rootNode as ShadowRoot & { getSelection(): Selection }).getSelection().getRangeAt(0);
+        } else {
+          const selection = window.getSelection();
+          // Webkit range retrieval is done with getComposedRanges (see: https://bugs.webkit.org/show_bug.cgi?id=163921)
+          if (typeof (selection as Selection & { getComposedRanges?: (root: Node) => Range[] }).getComposedRanges === 'function') {
+            return (selection as Selection & { getComposedRanges: (root: Node) => Range[] }).getComposedRanges(rootNode)[0];
+          } else {
+            // Gecko implements the range API properly in Native Shadow: https://developer.mozilla.org/en-US/docs/Web/API/Selection/getRangeAt
+            return selection.getRangeAt(0);
+          }
+        }
+      } catch {
+        return null;
+      }
+    };
+
+    // Original implementation uses document.active element which does not work in Native Shadow.
+    // Replace document.activeElement with shadowRoot.activeElement
+    this.quillEditor.selection.hasFocus = () => {
+      const rootNode = this.quillEditor.root.getRootNode();
+      return (rootNode as ShadowRoot).activeElement === this.quillEditor.root;
+    };
+
+    // Original implementation uses document.getSelection which does not work in Native Shadow.
+    // Replace document.getSelection with shadow dom equivalent (different for each browser)
+    this.quillEditor.selection.getNativeRange = () => {
+      const rootNode = this.quillEditor.root.getRootNode();
+      const nativeRange = getNativeRange(rootNode as ShadowRoot);
+      return nativeRange !== null && nativeRange !== undefined ? this.quillEditor.selection.normalizeNative(nativeRange) : null;
+    };
+
+    // Original implementation relies on Selection.addRange to programatically set the range, which does not work in Webkit with Native Shadow. Selection.addRange works fine in Chromium and Gecko.
+    this.quillEditor.selection.setNativeRange = function (startNode, startOffset, endNode = startNode, endOffset = startOffset, force = false) {
+      if (startNode == null || this.root.parentNode == null || startNode.parentNode == null || endNode.parentNode == null) {
+        return;
+      }
+
+      const selection = document.getSelection();
+      if (selection == null) return;
+
+      if (startNode != null) {
+        if (!this.hasFocus()) this.root.focus();
+
+        const native = (this.getNativeRange() || {}).native;
+        if (
+          native == null ||
+          force ||
+          startNode !== native.startContainer ||
+          startOffset !== native.startOffset ||
+          endNode !== native.endContainer ||
+          endOffset !== native.endOffset
+        ) {
+          if (startNode instanceof HTMLElement && startNode.tagName === 'BR') {
+            startOffset = [].indexOf.call(startNode.parentNode.childNodes, startNode);
+            startNode = startNode.parentNode;
+          }
+          if (endNode instanceof HTMLElement && endNode.tagName === 'BR') {
+            endOffset = [].indexOf.call(endNode.parentNode.childNodes, endNode);
+            endNode = endNode.parentNode;
+          }
+
+          selection.setBaseAndExtent(startNode, startOffset, endNode, endOffset);
+        }
+      } else {
+        selection.removeAllRanges();
+        this.root.blur();
+        document.body.focus();
+      }
+    };
+
+    // Subscribe to selection change separately, because emitter in Quill doesn't catch this event in Shadow DOM
+    document.addEventListener('selectionchange', () => {
+      this.quillEditor.selection.update();
+    });
+  }
+
+  /**
    * Define input valid state
    */
   @Prop({ mutable: true }) valid: boolean;
@@ -234,7 +325,7 @@ export class MgInputRichTextEditor {
     this.messages = initLocales(this.element).messages;
     this.element.style.setProperty('--mg-c-input-rich-text-editor-rows', this.rows.toString());
 
-    if (!this.modules) {
+    if (this.modules === undefined || this.modules === null) {
       this.modules = this.defaultModules;
     }
   }
@@ -248,6 +339,7 @@ export class MgInputRichTextEditor {
       modules: this.modules,
       readOnly: this.readonly,
       placeholder: this.placeholder,
+      debug: 'log',
     });
 
     if (typeof this.value === 'string' && this.value.length > 0) {
@@ -259,11 +351,12 @@ export class MgInputRichTextEditor {
 
     // Add an event listener for the text-change event
     this.quillEditor.on('text-change', () => {
-      console.log('Text changed');
       this.value = this.quillEditor.getSemanticHTML();
       this.checkValidity();
       this.setErrorMessage();
     });
+
+    this.quillSelectionFixes();
   }
 
   /**
