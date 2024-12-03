@@ -1,0 +1,55 @@
+/* Component Custom Style */
+
+.mg-c-input__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Quill Editor styles override */
+/* stylelint-disable selector-class-pattern */
+
+.mg-c-input--rich-text-editor {
+  & .ql-toolbar {
+    border-width: var(--mg-c-input-border-width);
+    border-color: var(--mg-c-input-color-border);
+    border-start-end-radius: var(--mg-c-input-border-radius);
+    border-start-start-radius: var(--mg-c-input-border-radius);
+
+    & button {
+      border-radius: var(--mg-c-input-border-radius);
+      color: var(--mg-b-color-dark);
+
+      & .ql-stroke {
+        stroke: currentcolor;
+      }
+
+      &:focus-visible,
+      &:hover {
+        background: color-mix(in srgb, var(--mg-b-color-dark), transparent 90%);
+        color: var(--mg-b-color-dark);
+      }
+    }
+  }
+
+  & .ql-container {
+    border-width: var(--mg-c-input-border-width);
+    border-color: var(--mg-c-input-color-border);
+    border-end-end-radius: var(--mg-c-input-border-radius);
+    border-end-start-radius: var(--mg-c-input-border-radius);
+  }
+
+  & .ql-editor {
+    $ql-editor-padding-block: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
+    $ql-editor-content-height: calc(var(--mg-b-font-size) * var(--mg-b-line-height) * var(--mg-c-input-rich-text-editor-rows, 3));
+
+    min-height: calc(#{$ql-editor-content-height} + #{$ql-editor-padding-block});
+    padding: $ql-editor-padding-block var(--mg-b-size-8);
+    color: var(--mg-b-color-dark);
+    font-size: var(--mg-b-font-size);
+
+    &.ql-blank::before {
+      right: var(--mg-b-size-8);
+      left: var(--mg-b-size-8);
+    }
+  }
+}
