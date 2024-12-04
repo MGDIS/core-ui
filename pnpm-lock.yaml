@@ -67,11 +67,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/linting-angularjs
       sass:
-        specifier: 1.81.0
-        version: 1.81.0
+        specifier: 1.81.1
+        version: 1.81.1
       vite:
         specifier: 5.4.11
-        version: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+        version: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
 
   apps/notification-center:
     dependencies:
@@ -90,7 +90,7 @@ importers:
         version: 5.7.2
       vite:
         specifier: 5.4.11
-        version: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+        version: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
 
   apps/stencil:
     dependencies:
@@ -136,11 +136,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/linting-angularjs
       sass:
-        specifier: 1.81.0
-        version: 1.81.0
+        specifier: 1.81.1
+        version: 1.81.1
       vite:
         specifier: 5.4.11
-        version: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+        version: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
 
   apps/vue-2:
     dependencies:
@@ -164,14 +164,14 @@ importers:
         specifier: workspace:*
         version: link:../../packages/linting-vue2
       sass:
-        specifier: 1.81.0
-        version: 1.81.0
+        specifier: 1.81.1
+        version: 1.81.1
       vite:
         specifier: 5.4.11
-        version: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+        version: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
       vite-plugin-vue2:
         specifier: 2.0.3
-        version: 2.0.3(babel-core@6.26.3)(ejs@3.1.10)(lodash@4.17.21)(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))(vue-template-compiler@2.7.16)(vue@2.7.16)
+        version: 2.0.3(babel-core@6.26.3)(ejs@3.1.10)(lodash@4.17.21)(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))(vue-template-compiler@2.7.16)(vue@2.7.16)
 
   apps/vue-3:
     dependencies:
@@ -211,10 +211,10 @@ importers:
         version: 22.9.4
       '@vitejs/plugin-vue':
         specifier: 5.2.1
-        version: 5.2.1(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))(vue@3.5.13(typescript@5.7.2))
+        version: 5.2.1(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))(vue@3.5.13(typescript@5.7.2))
       '@vitejs/plugin-vue-jsx':
         specifier: 4.1.1
-        version: 4.1.1(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))(vue@3.5.13(typescript@5.7.2))
+        version: 4.1.1(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))(vue@3.5.13(typescript@5.7.2))
       '@vue/test-utils':
         specifier: 2.4.6
         version: 2.4.6
@@ -234,17 +234,17 @@ importers:
         specifier: 25.0.1
         version: 25.0.1
       sass:
-        specifier: 1.81.0
-        version: 1.81.0
+        specifier: 1.81.1
+        version: 1.81.1
       typescript:
         specifier: 5.7.2
         version: 5.7.2
       vite:
         specifier: 5.4.11
-        version: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+        version: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
       vitest:
         specifier: 2.1.8
-        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0)
+        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1)
       vue-tsc:
         specifier: 2.1.10
         version: 2.1.10(typescript@5.7.2)
@@ -309,7 +309,7 @@ importers:
     dependencies:
       vitest:
         specifier: 2.1.8
-        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0)
+        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1)
 
   packages/eslint-config-vue3:
     dependencies:
@@ -390,7 +390,7 @@ importers:
         version: link:../../configs/vitest-config
       '@vitest/coverage-istanbul':
         specifier: 2.1.8
-        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0))
+        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1))
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -405,7 +405,7 @@ importers:
         version: 10.8.2
       vitest:
         specifier: 2.1.8
-        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0)
+        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1)
       vue-eslint-parser:
         specifier: 9.4.3
         version: 9.4.3(eslint@8.57.1)
@@ -425,8 +425,8 @@ importers:
         specifier: 1.7.8
         version: 1.7.8
       dotenv:
-        specifier: 16.4.5
-        version: 16.4.5
+        specifier: 16.4.7
+        version: 16.4.7
       jsdom:
         specifier: 25.0.1
         version: 25.0.1
@@ -601,7 +601,7 @@ importers:
         version: 8.4.6(storybook@8.4.6(prettier@3.4.1))
       '@storybook/html-vite':
         specifier: 8.4.6
-        version: 8.4.6(storybook@8.4.6(prettier@3.4.1))(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))
+        version: 8.4.6(storybook@8.4.6(prettier@3.4.1))(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))
       '@storybook/manager-api':
         specifier: 8.4.6
         version: 8.4.6(storybook@8.4.6(prettier@3.4.1))
@@ -639,8 +639,8 @@ importers:
         specifier: 18.3.1
         version: 18.3.1
       sass:
-        specifier: 1.81.0
-        version: 1.81.0
+        specifier: 1.81.1
+        version: 1.81.1
       storybook:
         specifier: 8.4.6
         version: 8.4.6(prettier@3.4.1)
@@ -649,7 +649,7 @@ importers:
         version: 5.7.2
       vite:
         specifier: 5.4.11
-        version: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+        version: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
 
   packages/mg-components-helpers:
     dependencies:
@@ -680,7 +680,7 @@ importers:
         version: 4.17.13
       '@vitest/coverage-istanbul':
         specifier: 2.1.8
-        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0))
+        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1))
       '@vue/test-utils':
         specifier: npm:@vue/test-utils@1.3.6
         version: 1.3.6(vue-template-compiler@2.7.16)(vue@2.7.16)
@@ -698,7 +698,7 @@ importers:
         version: 4.2.10(typedoc@0.26.11(typescript@5.7.2))
       vitest:
         specifier: 2.1.8
-        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0)
+        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1)
       vue:
         specifier: npm:vue@2.7.16
         version: 2.7.16
@@ -750,10 +750,10 @@ importers:
         version: 5.7.2
       vite:
         specifier: 5.4.11
-        version: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+        version: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
       vite-plugin-dts:
         specifier: 4.3.0
-        version: 4.3.0(@types/node@22.9.4)(rollup@4.28.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))
+        version: 4.3.0(@types/node@22.9.4)(rollup@4.28.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))
 
   packages/playwright-helpers:
     devDependencies:
@@ -768,16 +768,16 @@ importers:
         version: 22.9.4
       '@vitest/coverage-istanbul':
         specifier: 2.1.8
-        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0))
+        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1))
       '@vitest/coverage-v8':
         specifier: 2.1.8
-        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0))
+        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1))
       typescript:
         specifier: 5.7.2
         version: 5.7.2
       vitest:
         specifier: 2.1.8
-        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0)
+        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1)
 
   packages/sanitize-html:
     dependencies:
@@ -796,19 +796,19 @@ importers:
         version: 2.13.0
       '@vitest/coverage-istanbul':
         specifier: 2.1.8
-        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0))
+        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1))
       typescript:
         specifier: 5.7.2
         version: 5.7.2
       vite:
         specifier: 5.4.11
-        version: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+        version: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
       vite-plugin-dts:
         specifier: 4.3.0
-        version: 4.3.0(@types/node@22.9.4)(rollup@4.28.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))
+        version: 4.3.0(@types/node@22.9.4)(rollup@4.28.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))
       vitest:
         specifier: 2.1.8
-        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0)
+        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1)
 
   packages/stencil-helpers:
     dependencies:
@@ -830,10 +830,10 @@ importers:
         version: 22.9.4
       '@vitest/coverage-istanbul':
         specifier: 2.1.8
-        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0))
+        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1))
       '@vitest/coverage-v8':
         specifier: 2.1.8
-        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0))
+        version: 2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1))
       typedoc:
         specifier: 0.26.11
         version: 0.26.11(typescript@5.7.2)
@@ -842,13 +842,13 @@ importers:
         version: 4.2.10(typedoc@0.26.11(typescript@5.7.2))
       vite:
         specifier: 5.4.11
-        version: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+        version: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
       vite-plugin-dts:
         specifier: 4.3.0
-        version: 4.3.0(@types/node@22.9.4)(rollup@4.28.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))
+        version: 4.3.0(@types/node@22.9.4)(rollup@4.28.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))
       vitest:
         specifier: 2.1.8
-        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0)
+        version: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1)
 
   packages/styles:
     dependencies:
@@ -863,8 +863,8 @@ importers:
         specifier: 1.49.0
         version: 1.49.0
       sass:
-        specifier: 1.81.0
-        version: 1.81.0
+        specifier: 1.81.1
+        version: 1.81.1
 
   tools/release-bot:
     dependencies:
@@ -4054,8 +4054,8 @@ packages:
     resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
     engines: {node: '>=12'}
 
-  dotenv@16.4.5:
-    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
+  dotenv@16.4.7:
+    resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
     engines: {node: '>=12'}
 
   eastasianwidth@0.2.0:
@@ -6318,8 +6318,8 @@ packages:
   sanitize-html@2.13.1:
     resolution: {integrity: sha512-ZXtKq89oue4RP7abL9wp/9URJcqQNABB5GGJ2acW1sdO8JTVl92f4ygD7Yc9Ze09VAZhnt2zegeU0tbNsdcLYg==}
 
-  sass@1.81.0:
-    resolution: {integrity: sha512-Q4fOxRfhmv3sqCLoGfvrC9pRV8btc0UtqL9mN6Yrv6Qi9ScL55CVH1vlPP863ISLEEMNLLuu9P+enCeGHlnzhA==}
+  sass@1.81.1:
+    resolution: {integrity: sha512-VNLgf4FC5yFyKwAumAAwwNh8X4SevlVREq3Y8aDZIkm0lI/zO1feycMXQ4hn+eB6FVhRbleSQ1Yb/q8juSldTA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -8821,13 +8821,13 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/builder-vite@8.4.6(storybook@8.4.6(prettier@3.4.1))(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))':
+  '@storybook/builder-vite@8.4.6(storybook@8.4.6(prettier@3.4.1))(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))':
     dependencies:
       '@storybook/csf-plugin': 8.4.6(storybook@8.4.6(prettier@3.4.1))
       browser-assert: 1.2.1
       storybook: 8.4.6(prettier@3.4.1)
       ts-dedent: 2.2.0
-      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
 
   '@storybook/components@8.4.6(storybook@8.4.6(prettier@3.4.1))':
     dependencies:
@@ -8864,9 +8864,9 @@ snapshots:
 
   '@storybook/global@5.0.0': {}
 
-  '@storybook/html-vite@8.4.6(storybook@8.4.6(prettier@3.4.1))(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))':
+  '@storybook/html-vite@8.4.6(storybook@8.4.6(prettier@3.4.1))(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))':
     dependencies:
-      '@storybook/builder-vite': 8.4.6(storybook@8.4.6(prettier@3.4.1))(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))
+      '@storybook/builder-vite': 8.4.6(storybook@8.4.6(prettier@3.4.1))(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))
       '@storybook/html': 8.4.6(storybook@8.4.6(prettier@3.4.1))
       magic-string: 0.30.14
       storybook: 8.4.6(prettier@3.4.1)
@@ -9258,22 +9258,22 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-vue-jsx@4.1.1(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))(vue@3.5.13(typescript@5.7.2))':
+  '@vitejs/plugin-vue-jsx@4.1.1(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))(vue@3.5.13(typescript@5.7.2))':
     dependencies:
       '@babel/core': 7.26.0
       '@babel/plugin-transform-typescript': 7.25.9(@babel/core@7.26.0)
       '@vue/babel-plugin-jsx': 1.2.5(@babel/core@7.26.0)
-      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
       vue: 3.5.13(typescript@5.7.2)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-vue@5.2.1(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))(vue@3.5.13(typescript@5.7.2))':
+  '@vitejs/plugin-vue@5.2.1(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))(vue@3.5.13(typescript@5.7.2))':
     dependencies:
-      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
       vue: 3.5.13(typescript@5.7.2)
 
-  '@vitest/coverage-istanbul@2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0))':
+  '@vitest/coverage-istanbul@2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1))':
     dependencies:
       '@istanbuljs/schema': 0.1.3
       debug: 4.3.7(supports-color@8.1.1)
@@ -9285,11 +9285,11 @@ snapshots:
       magicast: 0.3.5
       test-exclude: 7.0.1
       tinyrainbow: 1.2.0
-      vitest: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0)
+      vitest: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0))':
+  '@vitest/coverage-v8@2.1.8(vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -9303,7 +9303,7 @@ snapshots:
       std-env: 3.8.0
       test-exclude: 7.0.1
       tinyrainbow: 1.2.0
-      vitest: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0)
+      vitest: 2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -9321,13 +9321,13 @@ snapshots:
       chai: 5.1.2
       tinyrainbow: 1.2.0
 
-  '@vitest/mocker@2.1.8(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))':
+  '@vitest/mocker@2.1.8(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))':
     dependencies:
       '@vitest/spy': 2.1.8
       estree-walker: 3.0.3
       magic-string: 0.30.14
     optionalDependencies:
-      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
 
   '@vitest/pretty-format@2.0.5':
     dependencies:
@@ -10626,7 +10626,7 @@ snapshots:
 
   dotenv@16.0.3: {}
 
-  dotenv@16.4.5: {}
+  dotenv@16.4.7: {}
 
   eastasianwidth@0.2.0: {}
 
@@ -13328,7 +13328,7 @@ snapshots:
       parse-srcset: 1.0.2
       postcss: 8.4.49
 
-  sass@1.81.0:
+  sass@1.81.1:
     dependencies:
       chokidar: 4.0.1
       immutable: 5.0.3
@@ -14120,13 +14120,13 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite-node@2.1.8(@types/node@22.9.4)(sass@1.81.0):
+  vite-node@2.1.8(@types/node@22.9.4)(sass@1.81.1):
     dependencies:
       cac: 6.7.14
       debug: 4.3.7(supports-color@8.1.1)
       es-module-lexer: 1.5.4
       pathe: 1.1.2
-      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -14138,7 +14138,7 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-dts@4.3.0(@types/node@22.9.4)(rollup@4.28.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0)):
+  vite-plugin-dts@4.3.0(@types/node@22.9.4)(rollup@4.28.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1)):
     dependencies:
       '@microsoft/api-extractor': 7.48.0(@types/node@22.9.4)
       '@rollup/pluginutils': 5.1.3(rollup@4.28.0)
@@ -14151,13 +14151,13 @@ snapshots:
       magic-string: 0.30.14
       typescript: 5.7.2
     optionalDependencies:
-      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
 
-  vite-plugin-vue2@2.0.3(babel-core@6.26.3)(ejs@3.1.10)(lodash@4.17.21)(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))(vue-template-compiler@2.7.16)(vue@2.7.16):
+  vite-plugin-vue2@2.0.3(babel-core@6.26.3)(ejs@3.1.10)(lodash@4.17.21)(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))(vue-template-compiler@2.7.16)(vue@2.7.16):
     dependencies:
       '@babel/core': 7.26.0
       '@babel/parser': 7.26.2
@@ -14187,7 +14187,7 @@ snapshots:
       rollup: 2.79.2
       slash: 3.0.0
       source-map: 0.7.4
-      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
+      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
       vue-template-babel-compiler: 1.2.0(vue-template-compiler@2.7.16)
       vue-template-compiler: 2.7.16
     transitivePeerDependencies:
@@ -14247,7 +14247,7 @@ snapshots:
       - walrus
       - whiskers
 
-  vite@5.4.11(@types/node@22.9.4)(sass@1.81.0):
+  vite@5.4.11(@types/node@22.9.4)(sass@1.81.1):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.49
@@ -14255,12 +14255,12 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.9.4
       fsevents: 2.3.3
-      sass: 1.81.0
+      sass: 1.81.1
 
-  vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.0):
+  vitest@2.1.8(@types/node@22.9.4)(jsdom@25.0.1)(sass@1.81.1):
     dependencies:
       '@vitest/expect': 2.1.8
-      '@vitest/mocker': 2.1.8(vite@5.4.11(@types/node@22.9.4)(sass@1.81.0))
+      '@vitest/mocker': 2.1.8(vite@5.4.11(@types/node@22.9.4)(sass@1.81.1))
       '@vitest/pretty-format': 2.1.8
       '@vitest/runner': 2.1.8
       '@vitest/snapshot': 2.1.8
@@ -14276,8 +14276,8 @@ snapshots:
       tinyexec: 0.3.1
       tinypool: 1.0.2
       tinyrainbow: 1.2.0
-      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.0)
-      vite-node: 2.1.8(@types/node@22.9.4)(sass@1.81.0)
+      vite: 5.4.11(@types/node@22.9.4)(sass@1.81.1)
+      vite-node: 2.1.8(@types/node@22.9.4)(sass@1.81.1)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.9.4
