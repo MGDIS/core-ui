@@ -3,6 +3,7 @@ import { ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
 import { classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import Quill from 'quill';
+import { Delta as QuillDelta } from 'quill/dist/quill.js';
 
 @Component({
   tag: 'mg-input-rich-text-editor',
@@ -40,9 +41,10 @@ export class MgInputRichTextEditor {
   @Prop() identifier!: string;
 
   /**
-   * Define the initial value of the editor
+   * Define the value of the editor
+   * Can be either HTML string or Quill Delta
    */
-  @Prop() value: string = '';
+  @Prop({ mutable: true }) value: string | QuillDelta = '';
 
   /**
    * Input label
@@ -191,6 +193,11 @@ export class MgInputRichTextEditor {
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
 
   /**
+   * Emited event when value change
+   */
+  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<string>;
+
+  /**
    * Get pattern validity
    * @returns is pattern valid
    */
@@ -249,6 +256,33 @@ export class MgInputRichTextEditor {
       }
     }
   };
+
+  /**
+   * Get editor content as HTML
+   * @returns HTML content of the editor
+   */
+  @Method()
+  async getHTML(): Promise<string> {
+    return this.quillEditor.getSemanticHTML();
+  }
+
+  /**
+   * Get editor content as Delta
+   * @returns Delta content of the editor
+   */
+  @Method()
+  async getDelta(): Promise<QuillDelta> {
+    return this.quillEditor.getContents();
+  }
+
+  /**
+   * Get editor content as plain text
+   * @returns Plain text content of the editor
+   */
+  @Method()
+  async getText(): Promise<string> {
+    return this.quillEditor.getText();
+  }
 
   /**
    * Display input error if it exists.
@@ -392,8 +426,18 @@ export class MgInputRichTextEditor {
       placeholder: this.placeholder,
     });
 
-    if (typeof this.value === 'string' && this.value.length > 0) {
-      this.quillEditor.setContents([{ insert: this.value }, { insert: '\n' }]);
+    if (this.value) {
+      if (typeof this.value === 'string') {
+        // Check if the string contains HTML tags
+        const containsHTML = /<[a-z][\s\S]*>/i.test(this.value);
+        if (containsHTML) {
+          this.quillEditor.clipboard.dangerouslyPasteHTML(this.value);
+        } else {
+          this.quillEditor.setText(this.value);
+        }
+      } else {
+        this.quillEditor.setContents(this.value);
+      }
     }
 
     const editorContent = this.element.shadowRoot.querySelector('.ql-editor');
@@ -401,7 +445,21 @@ export class MgInputRichTextEditor {
 
     // Add an event listener for the text-change event
     this.quillEditor.on('text-change', () => {
-      this.value = this.quillEditor.getSemanticHTML();
+      // Get both HTML and Delta content
+      const htmlContent = this.quillEditor.getSemanticHTML();
+      const deltaContent = this.quillEditor.getContents();
+
+      // Update the value based on type
+      if (typeof this.value === 'string') {
+        this.value = htmlContent;
+      } else {
+        this.value = deltaContent;
+      }
+
+      // Emit the HTML content for form compatibility
+      this.valueChange.emit(htmlContent);
+
+      // Check validity
       this.checkValidity();
       this.setErrorMessage();
     });
