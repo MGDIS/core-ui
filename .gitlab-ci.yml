@@ -156,7 +156,7 @@ test:doc:
   stage: tests
   rules:
     - if: !reference [.rules:if, except-tags]
-      # changes: !reference [.rules:changes, doc, changes]
+      changes: !reference [.rules:changes, doc, changes]
   extends:
     - .install:dependencies
   script:
