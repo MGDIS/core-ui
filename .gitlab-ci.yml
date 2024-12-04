@@ -17,6 +17,7 @@ stages:
   img: 'packages/img/**/*'
   linting-stencil: 'packages/linting-stencil/**/*'
   mg-components: 'packages/mg-components/**/*'
+  mg-components-helpers: 'packages/mg-components-helpers/**/*'
   notification-center: 'packages/notification-center/**/*'
   notification-center:app: 'apps/notification-center/**/*'
   playwright-helpers: 'packages/playwright-helpers/**/*'
@@ -67,6 +68,10 @@ stages:
       - !reference [.changes, stencil-helpers]
       - !reference [.changes, notification-center]
       - !reference [.changes, notification-center:app]
+  doc:
+    changes:
+      - !reference [.changes, stencil-helpers]
+      - !reference [.changes, mg-components-helpers]
 
 .rules:if:
   except-tags: $CI_COMMIT_TAG == null && ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_MERGE_REQUEST_ID)
@@ -119,20 +124,6 @@ stages:
 # tests #
 #########
 
-playwright:baseimage:
-  stage: tests
-  rules:
-    - if: !reference [.rules:if, except-tags]
-      changes: !reference [.rules:changes, e2e, changes]
-  extends:
-    - .install:dependencies
-  script:
-    - export PLAYWRIGHT_BASEIMAGE=$(./scripts/get-playwright-version.sh)
-    - echo "PLAYWRIGHT_BASEIMAGE=$PLAYWRIGHT_BASEIMAGE"  > playwright-baseimage.env
-  artifacts:
-    reports:
-      dotenv: playwright-baseimage.env
-
 lint:
   stage: tests
   extends:
@@ -160,6 +151,30 @@ test:unit:
       coverage_report:
         coverage_format: cobertura
         path: packages/**/cobertura-coverage.xml
+
+test:doc:
+  stage: tests
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, doc, changes]
+  extends:
+    - .install:dependencies
+  script:
+    - pnpm doc
+
+playwright:baseimage:
+  stage: tests
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, e2e, changes]
+  extends:
+    - .install:dependencies
+  script:
+    - export PLAYWRIGHT_BASEIMAGE=$(./scripts/get-playwright-version.sh)
+    - echo "PLAYWRIGHT_BASEIMAGE=$PLAYWRIGHT_BASEIMAGE"  > playwright-baseimage.env
+  artifacts:
+    reports:
+      dotenv: playwright-baseimage.env
 
 test:e2e:
   stage: tests
