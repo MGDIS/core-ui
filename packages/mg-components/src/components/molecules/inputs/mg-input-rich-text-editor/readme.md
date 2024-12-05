@@ -1,5 +1,42 @@
-# mg-input-rich-text-editor
+The `mg-input-rich-text-editor` component is a rich text editor input that uses Quill as its underlying editor. It provides a user-friendly interface for editing formatted text with various styling options.
 
+## Features
+
+- Rich text editing capabilities powered by Quill
+- Customizable toolbar with formatting options
+- Support for both HTML string and Quill Delta formats
+- Accessibility features
+- Validation and error handling
+
+## Content Management
+
+### Receiving Content
+
+The component can receive content in three different ways:
+
+1. **HTML String**: A string containing formatted HTML
+2. **Plain Text**: A string containing unformatted text
+3. **Quill Delta**: A Quill Delta object representing the formatted content
+
+The component automatically detects the type of content received via the `value` property and handles it accordingly.
+
+### Emitting Content
+
+The component emits the modified content via the `value-change` event. To ensure compatibility with forms, the content is always emitted in HTML format, regardless of how it was initially received.
+
+### HTML Security and Sanitization
+
+⚠️ **Important**: When handling HTML content, it is crucial to sanitize the HTML to prevent XSS (Cross-Site Scripting) vulnerabilities. We strongly recommend using the `@mgdis/sanitize-html` package to sanitize HTML content before displaying it.
+
+The sanitizer is configured by default to allow commonly used tags and attributes in a rich text editor while blocking potentially dangerous content like `<script>` tags or inline JavaScript attributes.
+
+### Utility Methods
+
+The component provides several methods to retrieve content in different formats:
+
+- `getHTML()`: Retrieves the content in HTML format
+- `getText()`: Retrieves the content in plain text format
+- `getDelta()`: Retrieves the content in Quill Delta format
 
 
 <!-- Auto Generated Below -->
@@ -9,6 +46,7 @@
 
 | Property                  | Attribute               | Description                                                                                                                                                          | Type                        | Default     |
 | ------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ----------- |
+| `disabled`                | `disabled`              | Define if input is disabled                                                                                                                                          | `boolean`                   | `false`     |
 | `helpText`                | `help-text`             | Add a help text under the input, usually expected data format and example                                                                                            | `string`                    | `undefined` |
 | `identifier` _(required)_ | `identifier`            | Identifier is used for the element ID (id is a reserved prop in Stencil.js)                                                                                          | `string`                    | `undefined` |
 | `invalid`                 | `invalid`               | Define input invalid state                                                                                                                                           | `boolean`                   | `undefined` |
@@ -21,18 +59,19 @@
 | `placeholder`             | `placeholder`           | Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.                       | `string`                    | `undefined` |
 | `readonly`                | `readonly`              | Define if the editor is readonly                                                                                                                                     | `boolean`                   | `false`     |
 | `required`                | `required`              | Define if input is required                                                                                                                                          | `boolean`                   | `false`     |
-| `rows`                    | `rows`                  | Define the number of visible text lines for the control                                                                                                              | `number`                    | `3`         |
+| `rows`                    | `rows`                  | Define the number of visible text lines for the control                                                                                                              | `number`                    | `5`         |
 | `tooltip`                 | `tooltip`               | Add a tooltip message next to the input                                                                                                                              | `string`                    | `undefined` |
 | `tooltipPosition`         | `tooltip-position`      | Define tooltip position                                                                                                                                              | `"input" \| "label"`        | `'input'`   |
 | `valid`                   | `valid`                 | Define input valid state                                                                                                                                             | `boolean`                   | `undefined` |
-| `value`                   | `value`                 | Define the initial value of the editor                                                                                                                               | `string`                    | `''`        |
+| `value`                   | `value`                 | Define the value of the editor Can be either HTML string or Quill Delta                                                                                              | `any`                       | `''`        |
 
 
 ## Events
 
-| Event         | Description                         | Type                   |
-| ------------- | ----------------------------------- | ---------------------- |
-| `input-valid` | Emited event when checking validity | `CustomEvent<boolean>` |
+| Event          | Description                         | Type                   |
+| -------------- | ----------------------------------- | ---------------------- |
+| `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>` |
+| `value-change` | Emited event when value change      | `CustomEvent<string>`  |
 
 
 ## Methods
