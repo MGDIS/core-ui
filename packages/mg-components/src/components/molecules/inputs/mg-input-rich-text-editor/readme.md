@@ -47,6 +47,46 @@ Type: `Promise<void>`
 
 
 
+### `getDelta() => Promise<RichTextEditorValue>`
+
+Get editor content as Delta
+
+#### Returns
+
+Type: `Promise<any>`
+
+Delta content of the editor
+
+### `getHTML() => Promise<string>`
+
+Get editor content as HTML
+
+#### Returns
+
+Type: `Promise<string>`
+
+HTML content of the editor
+
+### `getText() => Promise<string>`
+
+Get editor content as plain text
+
+#### Returns
+
+Type: `Promise<string>`
+
+Plain text content of the editor
+
+### `reset() => Promise<void>`
+
+Reset value, validity and error state
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## Dependencies
 

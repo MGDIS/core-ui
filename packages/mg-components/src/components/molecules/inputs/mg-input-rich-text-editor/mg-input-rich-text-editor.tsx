@@ -1,9 +1,9 @@
 import { Component, Element, h, Prop, Watch, State, Event, EventEmitter, Method } from '@stencil/core';
 import { ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
 import { classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
+import { RichTextEditorValue, defaultModules } from './mg-input-rich-text-editor.conf';
 import { initLocales } from '../../../../locales';
 import Quill from 'quill';
-import { Delta as QuillDelta } from 'quill/dist/quill.js';
 
 @Component({
   tag: 'mg-input-rich-text-editor',
@@ -44,7 +44,7 @@ export class MgInputRichTextEditor {
    * Define the value of the editor
    * Can be either HTML string or Quill Delta
    */
-  @Prop({ mutable: true }) value: string | QuillDelta = '';
+  @Prop({ mutable: true }) value: RichTextEditorValue = '';
 
   /**
    * Input label
@@ -171,11 +171,7 @@ export class MgInputRichTextEditor {
    * Quill modules configuration
    */
   @Prop() modules?: Record<string, unknown>;
-  private defaultModules = {
-    toolbar: {
-      container: [['bold', 'italic', 'underline'], [{ list: 'ordered' }, { list: 'bullet' }], ['link'], ['clean']],
-    },
-  };
+  private defaultModules = defaultModules;
 
   /**
    * Component classes
@@ -271,7 +267,7 @@ export class MgInputRichTextEditor {
    * @returns Delta content of the editor
    */
   @Method()
-  async getDelta(): Promise<QuillDelta> {
+  async getDelta(): Promise<RichTextEditorValue> {
     return this.quillEditor.getContents();
   }
 

@@ -16,6 +16,7 @@ import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/m
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
+import { RichTextEditorValue } from "./components/molecules/inputs/mg-input-rich-text-editor/mg-input-rich-text-editor.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
@@ -42,6 +43,7 @@ export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/m
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
+export { RichTextEditorValue } from "./components/molecules/inputs/mg-input-rich-text-editor/mg-input-rich-text-editor.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
@@ -797,9 +799,28 @@ export namespace Components {
     }
     interface MgInputRichTextEditor {
         /**
+          * Define if input is disabled
+         */
+        "disabled": boolean;
+        /**
           * Display input error if it exists.
          */
         "displayError": () => Promise<void>;
+        /**
+          * Get editor content as Delta
+          * @returns Delta content of the editor
+         */
+        "getDelta": () => Promise<RichTextEditorValue>;
+        /**
+          * Get editor content as HTML
+          * @returns HTML content of the editor
+         */
+        "getHTML": () => Promise<string>;
+        /**
+          * Get editor content as plain text
+          * @returns Plain text content of the editor
+         */
+        "getText": () => Promise<string>;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -849,6 +870,10 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
           * Define the number of visible text lines for the control
          */
         "rows": number;
@@ -865,9 +890,9 @@ export namespace Components {
          */
         "valid": boolean;
         /**
-          * Define the initial value of the editor
+          * Define the value of the editor Can be either HTML string or Quill Delta
          */
-        "value": string;
+        "value": RichTextEditorValue;
     }
     interface MgInputSelect {
         /**
@@ -1872,6 +1897,7 @@ declare global {
     };
     interface HTMLMgInputRichTextEditorElementEventMap {
         "input-valid": boolean;
+        "value-change": string;
     }
     interface HTMLMgInputRichTextEditorElement extends Components.MgInputRichTextEditor, HTMLStencilElement {
         addEventListener<K extends keyof HTMLMgInputRichTextEditorElementEventMap>(type: K, listener: (this: HTMLMgInputRichTextEditorElement, ev: MgInputRichTextEditorCustomEvent<HTMLMgInputRichTextEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2931,6 +2957,10 @@ declare namespace LocalJSX {
     }
     interface MgInputRichTextEditor {
         /**
+          * Define if input is disabled
+         */
+        "disabled"?: boolean;
+        /**
           * Add a help text under the input, usually expected data format and example
          */
         "helpText"?: string;
@@ -2962,6 +2992,10 @@ declare namespace LocalJSX {
           * Emited event when checking validity
          */
         "onInput-valid"?: (event: MgInputRichTextEditorCustomEvent<boolean>) => void;
+        /**
+          * Emited event when value change
+         */
+        "onValue-change"?: (event: MgInputRichTextEditorCustomEvent<string>) => void;
         /**
           * Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
          */
@@ -2999,9 +3033,9 @@ declare namespace LocalJSX {
          */
         "valid"?: boolean;
         /**
-          * Define the initial value of the editor
+          * Define the value of the editor Can be either HTML string or Quill Delta
          */
-        "value"?: string;
+        "value"?: RichTextEditorValue;
     }
     interface MgInputSelect {
         /**
