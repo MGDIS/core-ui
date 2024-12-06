@@ -93,6 +93,11 @@ export class MgPopover {
   @Event({ eventName: 'display-change' }) displayChange: EventEmitter<HTMLMgPopoverElement['display']>;
 
   /**
+   * Emmited event when popover is closed
+   */
+  @Event({ eventName: 'component-close' }) componentClose: EventEmitter<void>;
+
+  /**
    * Check if clicked outside of component
    * @param event - mouse event
    */
@@ -163,6 +168,7 @@ export class MgPopover {
    */
   private handleHideContent = (): void => {
     this.display = false;
+    this.componentClose.emit();
   };
 
   /**
@@ -270,6 +276,7 @@ export class MgPopover {
     this.element.addEventListener('keydown', e => {
       if (!this.disabled && e.code === 'Escape') {
         this.display = false;
+        this.componentClose.emit();
         interactiveElement.focus();
       }
     });

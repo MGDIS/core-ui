@@ -20,10 +20,11 @@ To hide the component, you must use the native `hidden` attribute.
 
 ## Events
 
-| Event            | Description                         | Type                |
-| ---------------- | ----------------------------------- | ------------------- |
-| `component-hide` | Emited event when alert is hidden   | `CustomEvent<void>` |
-| `component-show` | Emited event when alert is diplayed | `CustomEvent<void>` |
+| Event             | Description                         | Type                |
+| ----------------- | ----------------------------------- | ------------------- |
+| `component-close` | Emmited event when alert is closed  | `CustomEvent<void>` |
+| `component-hide`  | Emited event when alert is hidden   | `CustomEvent<void>` |
+| `component-show`  | Emited event when alert is diplayed | `CustomEvent<void>` |
 
 
 ## Slots
