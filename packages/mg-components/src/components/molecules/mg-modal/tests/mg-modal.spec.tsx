@@ -75,13 +75,15 @@ describe('mg-modal', () => {
 
       expect(page.root).toMatchSnapshot();
 
-      const spy = jest.spyOn(page.rootInstance.componentHide, 'emit');
+      jest.spyOn(page.rootInstance.componentHide, 'emit');
+      jest.spyOn(page.rootInstance.componentClose, 'emit');
 
       closeButton.dispatchEvent(new CustomEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
-      expect(spy).toHaveBeenCalled();
+      expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
+      expect(page.rootInstance.componentClose.emit).toHaveBeenCalledTimes(1);
     });
 
     test.each([true, false])('should hide modal with escape keyboard', async closeButton => {
@@ -90,14 +92,16 @@ describe('mg-modal', () => {
       const dialog = mgModal.shadowRoot.querySelector('dialog');
       expect(page.root).toMatchSnapshot();
 
-      const spy = jest.spyOn(page.rootInstance.componentHide, 'emit');
+      jest.spyOn(page.rootInstance.componentHide, 'emit');
+      jest.spyOn(page.rootInstance.componentClose, 'emit');
 
       // Dialog natively listen to ESC key event
       dialog.dispatchEvent(new CustomEvent('close', { bubbles: true }));
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
-      expect(spy).toHaveBeenCalled();
+      expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
+      expect(page.rootInstance.componentClose.emit).toHaveBeenCalledTimes(1);
     });
   });
 });
