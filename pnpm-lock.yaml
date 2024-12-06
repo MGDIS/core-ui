@@ -606,8 +606,8 @@ importers:
         specifier: 8.4.7
         version: 8.4.7(storybook@8.4.7(prettier@3.4.2))
       '@storybook/theming':
-        specifier: 8.4.6
-        version: 8.4.6(storybook@8.4.7(prettier@3.4.2))
+        specifier: 8.4.7
+        version: 8.4.7(storybook@8.4.7(prettier@3.4.2))
       '@types/jest':
         specifier: 29.5.14
         version: 29.5.14
@@ -2323,11 +2323,6 @@ packages:
     resolution: {integrity: sha512-AhvJsu5zl3uG40itSQVuSy5WByp3UVhS6xAnme4FWRwgSxhvZjATJ3AZkkHWOYjnnk+P2/sbz/XuPli1FVCWoQ==}
     peerDependencies:
       storybook: ^8.4.7
-
-  '@storybook/theming@8.4.6':
-    resolution: {integrity: sha512-q7vDPN/mgj7cXIVQ9R1/V75hrzNgKkm2G0LjMo57//9/djQ+7LxvBsR1iScbFIRSEqppvMiBFzkts+2uXidySA==}
-    peerDependencies:
-      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
   '@storybook/theming@8.4.7':
     resolution: {integrity: sha512-99rgLEjf7iwfSEmdqlHkSG3AyLcK0sfExcr0jnc6rLiAkBhzuIsvcHjjUwkR210SOCgXqBPW0ZA6uhnuyppHLw==}
@@ -8859,10 +8854,6 @@ snapshots:
       '@testing-library/user-event': 14.5.2(@testing-library/dom@10.4.0)
       '@vitest/expect': 2.0.5
       '@vitest/spy': 2.0.5
-      storybook: 8.4.7(prettier@3.4.2)
-
-  '@storybook/theming@8.4.6(storybook@8.4.7(prettier@3.4.2))':
-    dependencies:
       storybook: 8.4.7(prettier@3.4.2)
 
   '@storybook/theming@8.4.7(storybook@8.4.7(prettier@3.4.2))':
