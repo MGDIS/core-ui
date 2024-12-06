@@ -361,8 +361,8 @@ importers:
         version: 1.2.0
     devDependencies:
       '@html-eslint/parser':
-        specifier: 0.27.0
-        version: 0.27.0
+        specifier: 0.30.0
+        version: 0.30.0
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -455,8 +455,8 @@ importers:
         specifier: 0.27.0
         version: 0.27.0
       '@html-eslint/parser':
-        specifier: 0.27.0
-        version: 0.27.0
+        specifier: 0.30.0
+        version: 0.30.0
       '@mgdis/eslint-plugin-html':
         specifier: workspace:*
         version: link:../eslint-plugin-html
@@ -1565,8 +1565,8 @@ packages:
     resolution: {integrity: sha512-aAF14sgDKidMCCQpJ4kIhe+fwyAaAbvDlgVTIgd99F+HOWxokTTXDt39a3gewMBo76IeEHDaoizUDJQ/Vc7Mdg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@html-eslint/parser@0.27.0':
-    resolution: {integrity: sha512-F/A1M0jnDAYoRvJiiSC7pIBD9DAsf4EhbndbvEi81aozD/wI8WWXON50xZPUaGHCI1C+2syTVifxDz8MvDKaQA==}
+  '@html-eslint/parser@0.30.0':
+    resolution: {integrity: sha512-LHSzx4rKk9d+N1J1sZgkq59OZkj7cCi20e/KsUKCv2nbzHWkeJIuDubOSamACdA2h59BUqrQwhZ880V4glrO1Q==}
     engines: {node: '>=8.10.0'}
 
   '@humanwhocodes/config-array@0.13.0':
@@ -4215,8 +4215,8 @@ packages:
     resolution: {integrity: sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw==}
     engines: {node: '>= 0.4'}
 
-  es-html-parser@0.0.9:
-    resolution: {integrity: sha512-oniQMi+466VFsDzcdron9Ry/sqUJpDJg1bbDn0jFJKDdxXhwIOYDr4DgBnO5/yPLGj2xv+n5yy4L1Q0vAC5TYQ==}
+  es-html-parser@1.0.0-alpha.4:
+    resolution: {integrity: sha512-5KUgd64goEPG1ZwP3rf/D+uAbdjyuNon0YY9u1yzR2NkFwa1UwxpsCQkzalAOlQaXAVtP32LGYRW4IAKAwo/sg==}
 
   es-iterator-helpers@1.2.0:
     resolution: {integrity: sha512-tpxqxncxnpw3c93u8n3VOzACmRFoVmWJqbWXvX/JfKbkhBw1oslgPrUfeSt2psuqyEJFD6N/9lg5i7bsKpoq+Q==}
@@ -8078,9 +8078,9 @@ snapshots:
 
   '@html-eslint/eslint-plugin@0.27.0': {}
 
-  '@html-eslint/parser@0.27.0':
+  '@html-eslint/parser@0.30.0':
     dependencies:
-      es-html-parser: 0.0.9
+      es-html-parser: 1.0.0-alpha.4
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
@@ -10820,7 +10820,7 @@ snapshots:
 
   es-errors@1.3.0: {}
 
-  es-html-parser@0.0.9: {}
+  es-html-parser@1.0.0-alpha.4: {}
 
   es-iterator-helpers@1.2.0:
     dependencies:
