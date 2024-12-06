@@ -11,7 +11,7 @@ module.exports = {
     'plugin:@mgdis/vue/recommended',
     'plugin:jsdoc/recommended',
     'plugin:vuejs-accessibility/recommended',
-    '@vue/eslint-config-prettier', // Must be last https://github.com/vuejs/eslint-config-prettier#usage
+    '@vue/prettier', // Must be last https://github.com/vuejs/eslint-config-prettier#usage
   ],
   parserOptions: {
     parser: '@babel/eslint-parser',

@@ -12,14 +12,14 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['@mgdis/vue', 'vue3-jsx', 'eslint-plugin-tsdoc'],
+  plugins: ['@mgdis/vue', 'vue3-jsx', 'tsdoc'],
   extends: [
     'eslint:recommended',
     'plugin:@mgdis/vue/recommended',
     'plugin:vue/vue3-recommended',
-    '@vue/eslint-config-typescript/recommended',
+    '@vue/typescript/recommended',
     'plugin:vuejs-accessibility/recommended',
-    '@vue/eslint-config-prettier', // Must be last https://github.com/vuejs/eslint-config-prettier#usage
+    '@vue/prettier', // Must be last https://github.com/vuejs/eslint-config-prettier#usage
   ],
   rules: {
     'tsdoc/syntax': 'error',
