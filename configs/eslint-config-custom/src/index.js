@@ -1,5 +1,5 @@
 module.exports = {
-  plugins: ['@typescript-eslint/eslint-plugin', 'eslint-plugin-tsdoc', 'jsdoc'],
+  plugins: ['@typescript-eslint/eslint-plugin', 'tsdoc', 'jsdoc'],
   extends: ['plugin:@typescript-eslint/recommended', 'prettier', 'turbo'],
   parser: '@typescript-eslint/parser',
   rules: {
