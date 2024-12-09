@@ -112,6 +112,11 @@ export class MgModal {
    */
   @Event({ eventName: 'component-hide' }) componentHide: EventEmitter<void>;
 
+  /**
+   * Emmited event when modal is closed
+   */
+  @Event({ eventName: 'component-close' }) componentClose: EventEmitter<void>;
+
   /***********
    * Handles *
    ***********/
@@ -121,6 +126,7 @@ export class MgModal {
    */
   private handleClose = (): void => {
     this.open = false;
+    this.componentClose.emit();
   };
 
   /*************
@@ -151,6 +157,7 @@ export class MgModal {
     // update open prop when use escape key
     this.dialog.addEventListener('close', () => {
       this.open = false;
+      this.componentClose.emit();
     });
   }
 
@@ -176,13 +183,7 @@ export class MgModal {
             <header class="mg-c-modal__header">
               {this.closeButton && (
                 <span class="mg-c-modal__close-button">
-                  <mg-button
-                    is-icon
-                    variant="flat"
-                    label={this.messages.modal.closeButton}
-                    // eslint-disable-next-line react/jsx-no-bind
-                    onClick={this.handleClose}
-                  >
+                  <mg-button is-icon variant="flat" label={this.messages.modal.closeButton} onClick={this.handleClose}>
                     <mg-icon icon="cross"></mg-icon>
                   </mg-button>
                 </span>

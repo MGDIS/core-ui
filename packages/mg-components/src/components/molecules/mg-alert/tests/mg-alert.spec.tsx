@@ -46,11 +46,13 @@ describe('mg-alert', () => {
     const button = element.shadowRoot.querySelector('mg-button');
 
     jest.spyOn(page.rootInstance.componentHide, 'emit');
+    jest.spyOn(page.rootInstance.componentClose, 'emit');
 
     button.dispatchEvent(new CustomEvent('click', { bubbles: true }));
     await page.waitForChanges();
 
     expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
+    expect(page.rootInstance.componentClose.emit).toHaveBeenCalledTimes(1);
     expect(page.rootInstance.element.hidden).toBe(true);
   });
 
@@ -60,6 +62,7 @@ describe('mg-alert', () => {
 
     jest.spyOn(page.rootInstance.componentHide, 'emit');
     jest.spyOn(page.rootInstance.componentShow, 'emit');
+    jest.spyOn(page.rootInstance.componentClose, 'emit');
 
     expect(page.rootInstance.element.hidden).toBe(false);
 
@@ -77,6 +80,7 @@ describe('mg-alert', () => {
 
     expect(page.rootInstance.element.hidden).toBe(true);
     expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(2);
+    expect(page.rootInstance.componentClose.emit).not.toHaveBeenCalled();
   });
 
   test.each(['focus', 'mouse'])('Should manage event %s with delay', async eventType => {

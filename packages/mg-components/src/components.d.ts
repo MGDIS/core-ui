@@ -1572,6 +1572,7 @@ declare global {
     interface HTMLMgAlertElementEventMap {
         "component-show": void;
         "component-hide": void;
+        "component-close": void;
     }
     interface HTMLMgAlertElement extends Components.MgAlert, HTMLStencilElement {
         addEventListener<K extends keyof HTMLMgAlertElementEventMap>(type: K, listener: (this: HTMLMgAlertElement, ev: MgAlertCustomEvent<HTMLMgAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1915,6 +1916,7 @@ declare global {
     interface HTMLMgModalElementEventMap {
         "component-show": void;
         "component-hide": void;
+        "component-close": void;
     }
     interface HTMLMgModalElement extends Components.MgModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLMgModalElementEventMap>(type: K, listener: (this: HTMLMgModalElement, ev: MgModalCustomEvent<HTMLMgModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1967,6 +1969,7 @@ declare global {
     };
     interface HTMLMgPopoverElementEventMap {
         "display-change": HTMLMgPopoverElement['display'];
+        "component-close": void;
     }
     interface HTMLMgPopoverElement extends Components.MgPopover, HTMLStencilElement {
         addEventListener<K extends keyof HTMLMgPopoverElementEventMap>(type: K, listener: (this: HTMLMgPopoverElement, ev: MgPopoverCustomEvent<HTMLMgPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2123,6 +2126,10 @@ declare namespace LocalJSX {
           * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds
          */
         "delay"?: number;
+        /**
+          * Emmited event when alert is closed
+         */
+        "onComponent-close"?: (event: MgAlertCustomEvent<void>) => void;
         /**
           * Emited event when alert is hidden
          */
@@ -3301,6 +3308,10 @@ declare namespace LocalJSX {
          */
         "modalTitle": string;
         /**
+          * Emmited event when modal is closed
+         */
+        "onComponent-close"?: (event: MgModalCustomEvent<void>) => void;
+        /**
           * Emmited event when modal is hidden
          */
         "onComponent-hide"?: (event: MgModalCustomEvent<void>) => void;
@@ -3410,6 +3421,10 @@ declare namespace LocalJSX {
           * Sets an `id` attribute. Needed by the input for accessibility `aria-decribedby`.
          */
         "identifier"?: string;
+        /**
+          * Emmited event when popover is closed
+         */
+        "onComponent-close"?: (event: MgPopoverCustomEvent<void>) => void;
         /**
           * Emited event when display value change
          */

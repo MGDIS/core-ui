@@ -19,9 +19,10 @@ A popover is more enhanced than a tooltip but less blocking than a modal.
 
 ## Events
 
-| Event            | Description                            | Type                   |
-| ---------------- | -------------------------------------- | ---------------------- |
-| `display-change` | Emited event when display value change | `CustomEvent<boolean>` |
+| Event             | Description                            | Type                   |
+| ----------------- | -------------------------------------- | ---------------------- |
+| `component-close` | Emmited event when popover is closed   | `CustomEvent<void>`    |
+| `display-change`  | Emited event when display value change | `CustomEvent<boolean>` |
 
 
 ## Slots

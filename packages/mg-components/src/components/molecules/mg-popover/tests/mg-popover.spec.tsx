@@ -98,7 +98,7 @@ describe('mg-popover', () => {
     }
 
     const focusSpy = jest.spyOn(interactiveElement, 'focus');
-    const displayChangeSpy = jest.spyOn(mgPopover, 'dispatchEvent');
+    const dispatchEventSpy = jest.spyOn(mgPopover, 'dispatchEvent');
 
     interactiveElement.dispatchEvent(new CustomEvent(eventIn, { bubbles: true }));
     await page.waitForChanges();
@@ -128,10 +128,14 @@ describe('mg-popover', () => {
 
     if (typeof eventOut === 'string' && ['clickPopover', 'clickGuard'].includes(eventOut)) {
       expect(popover).toHaveAttribute('data-show');
-      expect(displayChangeSpy).toHaveBeenCalledWith(expect.objectContaining({ detail: true, type: 'display-change' }));
+      expect(dispatchEventSpy).toHaveBeenCalledWith(expect.objectContaining({ detail: true, type: 'display-change' }));
     } else {
       expect(popover).not.toHaveAttribute('data-show');
-      expect(displayChangeSpy).toHaveBeenCalledWith(expect.objectContaining({ detail: false, type: 'display-change' }));
+      expect(dispatchEventSpy).toHaveBeenCalledWith(expect.objectContaining({ detail: false, type: 'display-change' }));
+    }
+    // if clickCross or Escape
+    if (eventOut === 'clickCross' || (typeof eventOut === 'object' && eventOut.code === 'Escape')) {
+      expect(dispatchEventSpy).toHaveBeenCalledWith(expect.objectContaining({ type: 'component-close' }));
     }
   });
 

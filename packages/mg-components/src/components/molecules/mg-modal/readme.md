@@ -16,10 +16,11 @@
 
 ## Events
 
-| Event            | Description                          | Type                |
-| ---------------- | ------------------------------------ | ------------------- |
-| `component-hide` | Emmited event when modal is hidden   | `CustomEvent<void>` |
-| `component-show` | Emmited event when modal is diplayed | `CustomEvent<void>` |
+| Event             | Description                          | Type                |
+| ----------------- | ------------------------------------ | ------------------- |
+| `component-close` | Emmited event when modal is closed   | `CustomEvent<void>` |
+| `component-hide`  | Emmited event when modal is hidden   | `CustomEvent<void>` |
+| `component-show`  | Emmited event when modal is diplayed | `CustomEvent<void>` |
 
 
 ## Slots

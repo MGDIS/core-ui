@@ -126,6 +126,11 @@ export class MgAlert {
   @Event({ eventName: 'component-hide' }) componentHide: EventEmitter<void>;
 
   /**
+   * Emmited event when alert is closed
+   */
+  @Event({ eventName: 'component-close' }) componentClose: EventEmitter<void>;
+
+  /**
    * Set timer
    */
   private setTimer = (): void => {
@@ -166,6 +171,7 @@ export class MgAlert {
    */
   private handleClose = (): void => {
     this.element.hidden = true;
+    this.componentClose.emit();
   };
 
   /*************
