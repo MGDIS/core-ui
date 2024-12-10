@@ -2,6 +2,18 @@
 
 A popover is more enhanced than a tooltip but less blocking than a modal.
 
+## `popover-target-action` attributes in `<mg-popover>` content
+
+The click on button with ’popover-target-action="hide"’ will hide a shown popover without adding any listener on the targeted button. If you try to hide an already hidden popover, no action will be taken.
+
+```html
+<mg-popover>
+  <div slot="content">
+    <mg-button popover-target-action="hide">Close</mg-button>
+  </div>
+</mg-popover>
+```
+
 <!-- Auto Generated Below -->
 
 

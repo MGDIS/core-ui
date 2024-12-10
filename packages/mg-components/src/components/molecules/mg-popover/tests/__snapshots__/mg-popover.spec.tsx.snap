@@ -1,5 +1,146 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`mg-popover Should close mg-popover when click on element with "popover-target-action" attribute 1`] = `
+<mg-popover>
+  <template shadowrootmode="open">
+    <slot></slot>
+    <slot name="content"></slot>
+  </template>
+  <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
+    <template shadowrootmode="open">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+        <div class="mg-c-button__content">
+          <slot></slot>
+        </div>
+      </div>
+    </template>
+    mg-button
+  </mg-button>
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <template shadowrootmode="open">
+      <mg-card class="mg-c-popover-content">
+        <template shadowrootmode="open">
+          <div class="mg-c-card">
+            <slot></slot>
+          </div>
+        </template>
+        <div class="mg-c-popover-content__title">
+          <slot name="title"></slot>
+        </div>
+        <slot name="content"></slot>
+      </mg-card>
+      <slot name="arrow"></slot>
+    </template>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div slot="content">
+      <mg-button popover-target-action="hide" role="button" tabindex="0">
+        <template shadowrootmode="open">
+          <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+            <div class="mg-c-button__content">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+      </mg-button>
+    </div>
+  </mg-popover-content>
+</mg-popover>
+`;
+
+exports[`mg-popover Should close mg-popover when click on element with "popover-target-action" attribute 2`] = `
+<mg-popover>
+  <template shadowrootmode="open">
+    <slot></slot>
+    <slot name="content"></slot>
+  </template>
+  <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
+    <template shadowrootmode="open">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+        <div class="mg-c-button__content">
+          <slot></slot>
+        </div>
+      </div>
+    </template>
+    mg-button
+  </mg-button>
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <template shadowrootmode="open">
+      <mg-card class="mg-c-popover-content">
+        <template shadowrootmode="open">
+          <div class="mg-c-card">
+            <slot></slot>
+          </div>
+        </template>
+        <div class="mg-c-popover-content__title">
+          <slot name="title"></slot>
+        </div>
+        <slot name="content"></slot>
+      </mg-card>
+      <slot name="arrow"></slot>
+    </template>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div slot="content">
+      <mg-button popover-target-action="hide" role="button" tabindex="0">
+        <template shadowrootmode="open">
+          <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+            <div class="mg-c-button__content">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+      </mg-button>
+    </div>
+  </mg-popover-content>
+</mg-popover>
+`;
+
+exports[`mg-popover Should close mg-popover when click on element with "popover-target-action" attribute 3`] = `
+<mg-popover>
+  <template shadowrootmode="open">
+    <slot></slot>
+    <slot name="content"></slot>
+  </template>
+  <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
+    <template shadowrootmode="open">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+        <div class="mg-c-button__content">
+          <slot></slot>
+        </div>
+      </div>
+    </template>
+    mg-button
+  </mg-button>
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <template shadowrootmode="open">
+      <mg-card class="mg-c-popover-content">
+        <template shadowrootmode="open">
+          <div class="mg-c-card">
+            <slot></slot>
+          </div>
+        </template>
+        <div class="mg-c-popover-content__title">
+          <slot name="title"></slot>
+        </div>
+        <slot name="content"></slot>
+      </mg-card>
+      <slot name="arrow"></slot>
+    </template>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div slot="content">
+      <mg-button popover-target-action="hide" role="button" tabindex="0">
+        <template shadowrootmode="open">
+          <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+            <div class="mg-c-button__content">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+      </mg-button>
+    </div>
+  </mg-popover-content>
+</mg-popover>
+`;
+
 exports[`mg-popover Should render with element 1`] = `
 <mg-popover>
   <template shadowrootmode="open">
