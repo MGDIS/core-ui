@@ -1,5 +1,14 @@
 # eslint-config-stencil
 
+## 1.2.3
+
+### Patch Changes
+
+- caffa47: Check dependencies
+- 24f51d8: Update linting dependencies
+- Updated dependencies [caffa47]
+  - @core-ui/eslint-config-custom@1.0.14
+
 ## 1.2.2
 
 ### Patch Changes

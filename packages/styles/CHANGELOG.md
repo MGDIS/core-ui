@@ -1,5 +1,17 @@
 # @mgdis/styles
 
+## 2.2.0
+
+### Minor Changes
+
+- 8fd9456: [**`<mg-button>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-button--docs) added `size` prop.
+
+### Patch Changes
+
+- 24f51d8: Init `@mgdis/linting-styles` package
+- e4dc545: [#524](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/524) mg-input-text: prevent input to shrink or expand with characters left count and provide enought place for the counter
+- 5851a2c: update dependencies
+
 ## 2.1.0
 
 ### Minor Changes

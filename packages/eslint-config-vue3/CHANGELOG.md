@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.3
+
+### Patch Changes
+
+- caffa47: Check dependencies
+- Updated dependencies [caffa47]
+  - @mgdis/eslint-plugin-vue@4.1.3
+
 ## 3.0.2
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # jest-config
 
+## 1.0.9
+
+### Patch Changes
+
+- caffa47: Check dependencies
+- 24f51d8: Update linting dependencies
+
 ## 1.0.8
 
 ### Patch Changes

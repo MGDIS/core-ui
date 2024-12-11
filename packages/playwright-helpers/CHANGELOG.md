@@ -1,5 +1,11 @@
 # @mgdis/playwright-helpers
 
+## 1.0.11
+
+### Patch Changes
+
+- 5851a2c: update dependencies
+
 ## 1.0.10
 
 ### Patch Changes

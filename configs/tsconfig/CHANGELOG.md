@@ -1,5 +1,11 @@
 # tsconfig
 
+## 1.0.5
+
+### Patch Changes
+
+- 5851a2c: update dependencies
+
 ## 1.0.4
 
 ### Patch Changes

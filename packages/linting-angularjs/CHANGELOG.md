@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.1.1
+
+### Patch Changes
+
+- 5851a2c: update dependencies
+- Updated dependencies [5851a2c]
+  - @mgdis/eslint-plugin-html@4.0.3
+
 ## 4.1.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # @mgdis/notification-center
 
+## 1.2.3
+
+### Patch Changes
+
+- 5851a2c: update dependencies
+- 6bd8ed1: Update dependencies (use new sanitizer lib)
+- Updated dependencies [6bd8ed1]
+  - @mgdis/sanitize-html@1.0.0
+
 ## 1.2.2
 
 ### Patch Changes
