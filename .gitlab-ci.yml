@@ -230,6 +230,7 @@ sonar:
   stage: tests
   variables:
     GIT_DEPTH: 0
+    LC_ALL: 'C.UTF-8'
   extends:
     - .rules:except-tags
     - .install:dependencies
