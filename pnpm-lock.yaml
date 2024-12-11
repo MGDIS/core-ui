@@ -98,15 +98,15 @@ importers:
         specifier: workspace:*
         version: link:../../packages/mg-components
       '@stencil/core':
-        specifier: 4.22.3
-        version: 4.22.3
+        specifier: 4.23.0
+        version: 4.23.0
     devDependencies:
       '@mgdis/linting-stencil':
         specifier: workspace:*
         version: link:../../packages/linting-stencil
       '@stencil/sass':
         specifier: 3.0.12
-        version: 3.0.12(@stencil/core@4.22.3)
+        version: 3.0.12(@stencil/core@4.23.0)
       '@types/jest':
         specifier: 29.5.14
         version: 29.5.14
@@ -563,8 +563,8 @@ importers:
         specifier: 2.11.8
         version: 2.11.8
       '@stencil/core':
-        specifier: 4.22.3
-        version: 4.22.3
+        specifier: 4.23.0
+        version: 4.23.0
     devDependencies:
       '@core-ui/jest-config':
         specifier: workspace:*
@@ -813,8 +813,8 @@ importers:
   packages/stencil-helpers:
     dependencies:
       '@stencil/core':
-        specifier: 4.22.3
-        version: 4.22.3
+        specifier: 4.23.0
+        version: 4.23.0
     devDependencies:
       '@core-ui/tsconfig':
         specifier: workspace:*
@@ -2255,8 +2255,8 @@ packages:
       eslint-plugin-react: ^7.0.0
       typescript: ^4.9.4 || ^5.0.0
 
-  '@stencil/core@4.22.3':
-    resolution: {integrity: sha512-dYaletX938WgEA2oMROLdh8wpUn1MgBx2zg5kYqwuUR8aua4Gy9EqGQ3zBu1AvL5MzLlZC+lMlxe/g5Dg1ldpw==}
+  '@stencil/core@4.23.0':
+    resolution: {integrity: sha512-9vI8ywhoqlaDEmrcntejrZ9X76Tddv2JyWakjVpqJAdDNXgf520sYkyjzGT0p8VJfPtSaKm6pMtl5sAH1r9cFg==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
@@ -8790,11 +8790,11 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@stencil/core@4.22.3': {}
+  '@stencil/core@4.23.0': {}
 
-  '@stencil/sass@3.0.12(@stencil/core@4.22.3)':
+  '@stencil/sass@3.0.12(@stencil/core@4.23.0)':
     dependencies:
-      '@stencil/core': 4.22.3
+      '@stencil/core': 4.23.0
 
   '@storybook/addon-a11y@8.4.7(storybook@8.4.7(prettier@3.4.2))':
     dependencies:
