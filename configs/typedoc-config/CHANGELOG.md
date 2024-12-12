@@ -1,5 +1,11 @@
 # typedoc-config
 
+## 1.0.2
+
+### Patch Changes
+
+- caffa47: Check dependencies
+
 ## 1.0.1
 
 ### Patch Changes

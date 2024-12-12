@@ -1,5 +1,11 @@
 # @mgdis/stencil-helpers
 
+## 2.2.1
+
+### Patch Changes
+
+- 5851a2c: update dependencies
+
 ## 2.2.0
 
 ### Minor Changes

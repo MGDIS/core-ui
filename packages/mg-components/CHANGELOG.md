@@ -1,5 +1,26 @@
 # @mgdis/mg-components
 
+## 6.3.0
+
+### Minor Changes
+
+- 8fd9456: [**`<mg-button>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-button--docs) added `size` prop.
+- 398e781: [**`<mg-modal>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-modal--docs), [**`<mg-popover>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-popover--docs) and [**`<mg-alert>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-alert--docs) added `component-close` event.
+
+### Patch Changes
+
+- caffa47: Check dependencies
+- e4dc545: [#524](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/524) mg-input-text: prevent input to shrink or expand with characters left count and provide enought place for the counter
+- 5851a2c: update dependencies
+- Updated dependencies [24f51d8]
+- Updated dependencies [caffa47]
+- Updated dependencies [8fd9456]
+- Updated dependencies [e4dc545]
+- Updated dependencies [5851a2c]
+  - @mgdis/styles@2.2.0
+  - @mgdis/img@2.1.2
+  - @mgdis/stencil-helpers@2.2.1
+
 ## 6.2.0
 
 ### Minor Changes

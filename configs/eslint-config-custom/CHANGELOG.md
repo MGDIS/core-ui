@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.0.14
+
+### Patch Changes
+
+- caffa47: Check dependencies
+
 ## 1.0.13
 
 ### Patch Changes

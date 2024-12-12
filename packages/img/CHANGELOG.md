@@ -1,5 +1,12 @@
 # @mgdis/img
 
+## 2.1.2
+
+### Patch Changes
+
+- caffa47: Check dependencies
+- 5851a2c: update dependencies
+
 ## 2.1.1
 
 ### Patch Changes
