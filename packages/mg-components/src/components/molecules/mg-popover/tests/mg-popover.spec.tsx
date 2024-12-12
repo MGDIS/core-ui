@@ -214,10 +214,10 @@ describe('mg-popover', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test('Should close mg-popover when click on element with "popover-target-action" attribute', async () => {
+  test('Should close mg-popover when click on element with "popovertargetaction" attribute', async () => {
     const page = await getPage({ identifier: 'identifier' }, [
       <div slot="content">
-        <mg-button popover-target-action='hide'></mg-button>
+        <mg-button popovertargetaction='hide'></mg-button>
       </div>,
       <mg-button>mg-button</mg-button>,
     ]);
@@ -231,7 +231,7 @@ describe('mg-popover', () => {
     expect(popover).toHaveAttribute('data-show');
     expect(page.root).toMatchSnapshot();
 
-    const buttonWithAction = page.doc.querySelector('mg-button[popover-target-action]');
+    const buttonWithAction = page.doc.querySelector('mg-button[popovertargetaction]');
     buttonWithAction.dispatchEvent(new MouseEvent('click', {bubbles: true}))
     
     await page.waitForChanges();

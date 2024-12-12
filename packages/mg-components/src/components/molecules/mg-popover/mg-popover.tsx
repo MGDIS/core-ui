@@ -273,8 +273,8 @@ export class MgPopover {
     });
 
     this.element.addEventListener('click', (event: MouseEvent & {target: HTMLElement}): void => {
-      const target = event.target.closest('[popover-target-action]')
-      if(this.display === true && target !== null && target.getAttribute('popover-target-action') === 'hide') {
+      const target = event.target.closest('[popovertargetaction]')
+      if(this.display === true && target !== null && target.getAttribute('popovertargetaction') === 'hide') {
         this.display = false;
       }
     });
