@@ -272,6 +272,13 @@ export class MgPopover {
       if (!this.disabled) this.display = !this.display;
     });
 
+    this.element.addEventListener('click', (event: MouseEvent & {target: HTMLElement}): void => {
+      const target = event.target.closest('[popovertargetaction]')
+      if(this.display === true && target !== null && target.getAttribute('popovertargetaction') === 'hide') {
+        this.display = false;
+      }
+    });
+
     // Add events to hide popover
     this.element.addEventListener('keydown', e => {
       if (!this.disabled && e.code === 'Escape') {

@@ -62,6 +62,6 @@ export const WithActions = {
     ...MgModal.args,
     closeButton: true,
     identifier: 'identifier-with-action',
-    slotActions: `<div class="mg-l-group-elements mg-l-group-elements--align-right"><mg-button>Primary</mg-button><mg-button variant="secondary">Secondary</mg-button></div>`,
+    slotActions: `<div><mg-button>Primary</mg-button><mg-button variant="secondary">Secondary</mg-button></div>`,
   },
 };

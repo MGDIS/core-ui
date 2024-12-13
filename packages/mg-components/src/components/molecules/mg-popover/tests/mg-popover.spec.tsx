@@ -213,4 +213,30 @@ describe('mg-popover', () => {
 
     expect(page.root).toMatchSnapshot();
   });
+
+  test('Should close mg-popover when click on element with "popovertargetaction" attribute', async () => {
+    const page = await getPage({ identifier: 'identifier' }, [
+      <div slot="content">
+        <mg-button popovertargetaction='hide'></mg-button>
+      </div>,
+      <mg-button>mg-button</mg-button>,
+    ]);
+    expect(page.root).toMatchSnapshot();
+
+    const popover = page.doc.querySelector('mg-popover-content')
+    const interactiveElement = page.doc.querySelector('mg-popover > mg-button');
+    interactiveElement.dispatchEvent(new MouseEvent('click', {bubbles: true}))
+    await page.waitForChanges();
+
+    expect(popover).toHaveAttribute('data-show');
+    expect(page.root).toMatchSnapshot();
+
+    const buttonWithAction = page.doc.querySelector('mg-button[popovertargetaction]');
+    buttonWithAction.dispatchEvent(new MouseEvent('click', {bubbles: true}))
+    
+    await page.waitForChanges();
+
+    expect(popover).not.toHaveAttribute('data-show');
+    expect(page.root).toMatchSnapshot();
+  });
 });
