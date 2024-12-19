@@ -6,7 +6,7 @@ const getPage = (
   args,
   title = <h2 slot="title">Lorem Ipsum</h2>,
   illustration = (
-    <svg slot="illustration" width="190" height="350" viewBox="0 0 190 350" xmlns="http://www.w3.org/2000/svg">
+    <svg slot="illustration" viewBox="0 0 190 350" xmlns="http://www.w3.org/2000/svg">
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
