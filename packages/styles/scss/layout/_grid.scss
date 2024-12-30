@@ -23,4 +23,11 @@ $grid-columns: 12;
       width: math.percentage(math.div($i, $grid-columns));
     }
   }
+
+  // Building offset classes
+  @for $i from 1 through $grid-columns - 1 {
+    &.mg-l-grid__offset-#{$i} {
+      margin-inline-start: math.percentage(math.div($i, $grid-columns));
+    }
+  }
 }
