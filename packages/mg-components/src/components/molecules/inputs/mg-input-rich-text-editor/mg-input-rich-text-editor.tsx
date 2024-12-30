@@ -73,11 +73,6 @@ export class MgInputRichTextEditor {
   @Prop() rows = 5;
 
   /**
-   * Add a help text under the input, usually expected data format and example
-   */
-  @Prop() helpText?: string;
-
-  /**
    * Define if input is required
    */
   @Prop() required = false;
@@ -158,6 +153,11 @@ export class MgInputRichTextEditor {
   @Prop() tooltipPosition: TooltipPosition = 'input';
 
   /**
+   * Add a help text under the input, usually expected data format and example
+   */
+  @Prop() helpText?: string;
+
+  /**
    * Define input valid state
    */
   @Prop({ mutable: true }) valid: boolean;
@@ -177,6 +177,11 @@ export class MgInputRichTextEditor {
    * Component classes
    */
   @State() classCollection: ClassList = new ClassList(['mg-c-input--rich-text-editor']);
+
+  /**
+   * Modules
+   */
+  @State() private internalModules: Record<string, unknown>;
 
   /**
    * Error message to display
@@ -216,8 +221,20 @@ export class MgInputRichTextEditor {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    // Check if field is required and empty
-    const isEmpty = this.value === undefined || this.value.trim() === '';
+    // Check if the field is empty taking into account the value format
+    const isEmpty = (() => {
+      if (this.value === undefined) return true;
+      if (typeof this.value === 'string') {
+        // For HTML values, remove tags and check if text is empty
+        const textContent = this.value.replace(/<[^>]*>/g, '').trim();
+        return textContent === '' || textContent === '\n';
+      } else {
+        // For Delta values, check if content is empty or contains only a line break
+        const ops = this.value.ops || [];
+        return ops.length === 0 || (ops.length === 1 && ops[0].insert === '\n');
+      }
+    })();
+
     const isValid = this.readonly || this.disabled || ((!this.required || !isEmpty) && this.getPatternValidity());
     this.setValidity(isValid);
   };
@@ -233,8 +250,22 @@ export class MgInputRichTextEditor {
         this.errorMessage = errorMessage;
       } else if (!this.getPatternValidity()) {
         this.errorMessage = this.patternErrorMessage;
-      } else if (this.required && (this.value === undefined || this.value.trim() === '')) {
-        this.errorMessage = this.messages.errors.required;
+      } else if (this.required) {
+        // Check if content is empty before displaying the required error message
+        const isEmpty = (() => {
+          if (this.value === undefined) return true;
+          if (typeof this.value === 'string') {
+            const textContent = this.value.replace(/<[^>]*>/g, '').trim();
+            return textContent === '' || textContent === '\n';
+          } else {
+            const ops = this.value.ops || [];
+            return ops.length === 0 || (ops.length === 1 && ops[0].insert === '\n');
+          }
+        })();
+
+        if (isEmpty) {
+          this.errorMessage = this.messages.errors.required;
+        }
       }
     }
   };
@@ -288,6 +319,27 @@ export class MgInputRichTextEditor {
     this.checkValidity();
     this.setErrorMessage();
     this.hasDisplayedError = this.invalid;
+  }
+
+  /**
+   * Set an error and display a custom error message.
+   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+   * It must be paired with an error message to display for the given context.
+   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+   * @param valid - value indicating the validity
+   * @param errorMessage - the error message to display
+   */
+  @Method()
+  async setError(valid: MgInputRichTextEditor['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-rich-text-editor> method "setError()" param "valid" must be a boolean.');
+    } else if (!isValidString(errorMessage)) {
+      throw new Error('<mg-input-rich-text-editor> method "setError()" param "errorMessage" must be a string.');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
   }
 
   /**
@@ -401,14 +453,28 @@ export class MgInputRichTextEditor {
 
   /**
    * Check if component props are well configured on init
+   * @returns timeout
    */
-  componentWillLoad(): void {
+  componentWillLoad(): ReturnType<typeof setTimeout> {
+    // Get locales
     this.messages = initLocales(this.element).messages;
     this.element.style.setProperty('--mg-c-input-rich-text-editor-rows', this.rows.toString());
+    // Watch
+    this.watchReadonly(this.readonly);
+    this.watchDisabled(this.disabled);
 
     if (this.modules === undefined || this.modules === null) {
-      this.modules = this.defaultModules;
+      this.internalModules = this.defaultModules;
+    } else {
+      this.internalModules = this.modules;
     }
+
+    // Check validity when component is ready
+    // return a promise to process action only in the FIRST render().
+    // https://stenciljs.com/docs/component-lifecycle#componentwillload
+    return setTimeout(() => {
+      this.checkValidity();
+    }, 0);
   }
 
   componentDidLoad(): void {
@@ -417,23 +483,24 @@ export class MgInputRichTextEditor {
 
     this.quillEditor = new Quill(this.editorElement, {
       theme: 'snow',
-      modules: this.modules,
+      modules: this.internalModules,
       readOnly: this.readonly || this.disabled,
       placeholder: this.placeholder,
     });
 
     if (this.value) {
-      if (typeof this.value === 'string') {
-        // Check if the string contains HTML tags
-        const containsHTML = /<[a-z][\s\S]*>/i.test(this.value);
-        if (containsHTML) {
-          this.quillEditor.clipboard.dangerouslyPasteHTML(this.value);
+      this.quillEditor.once('editor-change', () => {
+        if (typeof this.value === 'string') {
+          const containsHTML = /<[a-z][\s\S]*>/i.test(this.value);
+          if (containsHTML) {
+            this.quillEditor.clipboard.dangerouslyPasteHTML(this.value);
+          } else {
+            this.quillEditor.setText(this.value);
+          }
         } else {
-          this.quillEditor.setText(this.value);
+          this.quillEditor.setContents(this.value);
         }
-      } else {
-        this.quillEditor.setContents(this.value);
-      }
+      });
     }
 
     const editorContent = this.element.shadowRoot.querySelector('.ql-editor');
@@ -455,14 +522,16 @@ export class MgInputRichTextEditor {
       // Emit the HTML content for form compatibility
       this.valueChange.emit(htmlContent);
 
-      // Check validity
+      // Check validity but do not display the error message if the error message is already displayed
       this.checkValidity();
-      this.setErrorMessage();
+      if (this.hasDisplayedError) {
+        this.setErrorMessage();
+      }
     });
 
     this.quillSelectionFixes();
 
-    // Initialiser l'état disabled
+    // Initialize disabled state
     if (this.disabled) {
       this.watchDisabled(true);
     }

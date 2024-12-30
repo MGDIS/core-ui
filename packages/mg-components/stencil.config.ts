@@ -78,5 +78,6 @@ export const config: Config = {
     setupFilesAfterEnv: ['./jest.setup.ts'],
     coverageReporters,
     coverageThreshold,
+    transformIgnorePatterns: ['node_modules/(?!quill/)'],
   },
 };

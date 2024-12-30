@@ -12,7 +12,11 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgInputRichTextEditorType): HTMLElement => <mg-input-rich-text-editor {...filterArgs(args)}></mg-input-rich-text-editor>;
+const Template = (args: MgInputRichTextEditorType): HTMLElement => (
+  <div>
+    <mg-input-rich-text-editor {...filterArgs(args)}></mg-input-rich-text-editor>
+  </div>
+);
 
 export const MgInputRichTextEditor = {
   render: Template,
@@ -20,10 +24,12 @@ export const MgInputRichTextEditor = {
     // Global
     value: '',
     identifier: 'identifier',
+
     // Label
     label: 'Label',
     labelOnTop: false,
     labelHide: false,
+
     // Input
     required: true,
     readonly: false,
@@ -32,10 +38,14 @@ export const MgInputRichTextEditor = {
     modules: {
       toolbar: [['bold', 'italic', 'underline'], [{ list: 'ordered' }, { list: 'bullet' }], ['link'], ['clean']],
     },
+
     // Tooltip
     tooltip: 'This is a tooltip',
     tooltipPosition: undefined,
+
     // Help Text
     helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
+    pattern: '[a-z]+',
+    patternErrorMessage: 'Format invalide',
   },
 };
