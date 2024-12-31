@@ -259,10 +259,12 @@ describe('mg-input-numeric', () => {
       { label: 'label', identifier: 'identifier', type, min: undefined, max: 10, value: 20 },
       { label: 'label', identifier: 'identifier', type, min: 10, max: 20, value: 5 },
       { label: 'label', identifier: 'identifier', type, min: 10, max: 20, value: 25 },
+      { label: 'label', identifier: 'identifier', type, min: 10.5, max: undefined, value: 5 },
+      { label: 'label', identifier: 'identifier', type, min: undefined, max: 10.5, value: 20 },
+      { label: 'label', identifier: 'identifier', type, min: 10.5, max: 20.5, value: 5 },
+      { label: 'label', identifier: 'identifier', type, min: 10.5, max: 20.5, value: 25 },
     ])('Should return error when value does not match min and max setting (%s)', async args => {
       const page = await getPage(args);
-      const decimalLeft = type === 'decimal' ? 2 : undefined;
-
       const element = page.doc.querySelector('mg-input-numeric');
       const input = element.shadowRoot.querySelector('input');
 
@@ -270,6 +272,9 @@ describe('mg-input-numeric', () => {
 
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();
+
+      const hasDecimals = [args.min, args.max].some(val => val !== undefined && !Number.isInteger(val));
+      const decimalLeft = type === 'decimal' && hasDecimals ? 2 : 0;
 
       if (args.min !== undefined && args.max === undefined) {
         expect(page.rootInstance.errorMessage).toEqual(
