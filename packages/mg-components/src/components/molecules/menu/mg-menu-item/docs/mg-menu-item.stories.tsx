@@ -14,7 +14,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgMenuItemType & { slot: string }): HTMLElement => <mg-menu-item {...filterArgs(args)} innerHTML={args.slot}></mg-menu-item>;
+const Template = (args: MgMenuItemType & { slot: string }): HTMLElement => <mg-menu label="demo"><mg-menu-item {...filterArgs(args)} innerHTML={args.slot}></mg-menu-item></mg-menu>;
 
 export const MgMenuItem = {
   render: Template,
@@ -78,9 +78,10 @@ export const MgMenuItemWithSubmenu = {
   render: Template,
   args: {
     ...MgMenuItem.args,
+    expanded: true,
     slot: `<span slot="label">My label</span>
-    <mg-menu direction=${Direction.VERTICAL} label="submenu">
-      <mg-menu-item>
+    <mg-menu direction="${Direction.VERTICAL}" label="submenu">
+      <mg-menu-item status="active">
         <span slot="label">Subitem 1</span>
       </mg-menu-item>
       <mg-menu-item>

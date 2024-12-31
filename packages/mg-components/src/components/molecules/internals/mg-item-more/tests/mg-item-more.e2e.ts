@@ -1,7 +1,6 @@
 import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 import { test } from '../../../../../utils/playwright.fixture';
-import { OverflowBehaviorElements } from '../../../../../utils/behaviors.utils';
 import { Status } from '../../../menu/mg-menu-item/mg-menu-item.conf';
 import { Direction, type MenuSizeType, sizes } from '../../../menu/mg-menu/mg-menu.conf';
 
@@ -84,11 +83,11 @@ test.describe('mg-item-more', () => {
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-        await page.locator(`[${OverflowBehaviorElements.BASE_INDEX}="0"]`).evaluate((elm, status) => {
+        await page.locator(`mg-menu:first-of-type > mg-menu-item`).first().evaluate((elm, status) => {
           elm.setAttribute('status', status as string);
         }, Status.VISIBLE);
 
-        await page.locator(`[${OverflowBehaviorElements.BASE_INDEX}="2"]`).evaluate((elm, status) => {
+        await page.locator(`mg-item-more mg-menu > mg-menu-item`).nth(1).evaluate((elm, status) => {
           elm.setAttribute('status', status as string);
         }, Status.ACTIVE);
 

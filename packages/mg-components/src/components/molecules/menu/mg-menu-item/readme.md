@@ -56,11 +56,10 @@ Sub-items add to their left spacing the spacing between left border and content 
 
 ## Events
 
-| Event           | Description                       | Type                                                           |
-| --------------- | --------------------------------- | -------------------------------------------------------------- |
-| `item-loaded`   | Emited event when item is loaded  | `CustomEvent<void>`                                            |
-| `item-updated`  | Emited event when item is updated | `CustomEvent<void>`                                            |
-| `status-change` | Emited event when status change   | `CustomEvent<"active" \| "disabled" \| "hidden" \| "visible">` |
+| Event          | Description                       | Type                |
+| -------------- | --------------------------------- | ------------------- |
+| `item-loaded`  | Emited event when item is loaded  | `CustomEvent<void>` |
+| `item-updated` | Emited event when item is updated | `CustomEvent<void>` |
 
 
 ## Slots

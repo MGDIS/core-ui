@@ -5,7 +5,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
   <template shadowrootmode="open">
     <slot></slot>
   </template>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
     <template shadowrootmode="open">
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -24,45 +24,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" hidden="" identifier="identifier-2" role="listitem" status="visible">
-    <template shadowrootmode="open">
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-        <slot name="image"></slot>
-        <div class="mg-c-menu-item__navigation-button-center">
-          <div class="mg-c-menu-item__navigation-button-text-content">
-            <slot name="label"></slot>
-            <slot name="information"></slot>
-          </div>
-        </div>
-      </button>
-      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
-        <slot></slot>
-      </div>
-    </template>
-    <span slot="label" title="Joker">
-      Joker
-    </span>
-  </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" hidden="" identifier="identifier-3" role="listitem" status="visible">
-    <template shadowrootmode="open">
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-        <slot name="image"></slot>
-        <div class="mg-c-menu-item__navigation-button-center">
-          <div class="mg-c-menu-item__navigation-button-text-content">
-            <slot name="label"></slot>
-            <slot name="information"></slot>
-          </div>
-        </div>
-      </button>
-      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
-        <slot></slot>
-      </div>
-    </template>
-    <span slot="label" title="Bane">
-      Bane
-    </span>
-  </mg-menu-item>
-  <mg-item-more role="listitem">
+  <mg-item-more data-mg-popover-guard="mg-item-more-popover" role="listitem">
     <template shadowrootmode="open">
       <mg-menu-item data-overflow-more data-size="medium" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
         <template shadowrootmode="open">
@@ -88,13 +50,13 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
-        <mg-menu aria-label="Additional menu" direction="vertical" role="list">
+        <mg-menu aria-label="Additional menu" data-mg-popover-guard="mg-item-more-popover" direction="vertical" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" hidden="" identifier="identifier-1" role="listitem" status="visible">
+          <mg-menu-item data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
             <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -103,26 +65,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
                   </div>
                 </div>
               </button>
-              <div class="mg-c-menu-item__collapse-container" hidden="">
-                <slot></slot>
-              </div>
-            </template>
-            <span slot="label" title="Batman">
-              Batman
-            </span>
-          </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
-            <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
-                <slot name="image"></slot>
-                <div class="mg-c-menu-item__navigation-button-center">
-                  <div class="mg-c-menu-item__navigation-button-text-content">
-                    <slot name="label"></slot>
-                    <slot name="information"></slot>
-                  </div>
-                </div>
-              </button>
-              <div class="mg-c-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
                 <slot></slot>
               </div>
             </template>
@@ -130,9 +73,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
+          <mg-menu-item data-style-direction="horizontal" identifier="identifier-3" role="listitem" status="visible">
             <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -141,7 +84,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
                   </div>
                 </div>
               </button>
-              <div class="mg-c-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
                 <slot></slot>
               </div>
             </template>
@@ -149,6 +92,105 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
               Bane
             </span>
           </mg-menu-item>
+        </mg-menu>
+      </mg-menu-item>
+    </template>
+  </mg-item-more>
+</mg-menu>
+`;
+
+exports[`behavior.utils OverflowBehavior render menu should manage resize with observer, case 50 2`] = `
+<mg-menu aria-label="batman" direction="horizontal" role="list">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <slot name="image"></slot>
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
+            <slot name="label"></slot>
+            <slot name="information"></slot>
+          </div>
+        </div>
+      </button>
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
+        <slot></slot>
+      </div>
+    </template>
+    <span slot="label" title="Batman">
+      Batman
+    </span>
+  </mg-menu-item>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <slot name="image"></slot>
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
+            <slot name="label"></slot>
+            <slot name="information"></slot>
+          </div>
+        </div>
+      </button>
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
+        <slot></slot>
+      </div>
+    </template>
+    <span slot="label" title="Joker">
+      Joker
+    </span>
+  </mg-menu-item>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-3" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <slot name="image"></slot>
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
+            <slot name="label"></slot>
+            <slot name="information"></slot>
+          </div>
+        </div>
+      </button>
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
+        <slot></slot>
+      </div>
+    </template>
+    <span slot="label" title="Bane">
+      Bane
+    </span>
+  </mg-menu-item>
+  <mg-item-more data-mg-popover-guard="mg-item-more-popover" hidden="" role="listitem">
+    <template shadowrootmode="open">
+      <mg-menu-item data-overflow-more data-size="medium" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
+        <template shadowrootmode="open">
+          <mg-popover arrowhide="" data-fallback-placement="bottom-end" identifier="mg-item-more-popover" placement="bottom-start">
+            <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+              <slot name="image"></slot>
+              <div class="mg-c-menu-item__navigation-button-center">
+                <div class="mg-c-menu-item__navigation-button-text-content">
+                  <slot name="label"></slot>
+                  <slot name="information"></slot>
+                </div>
+              </div>
+              <span class="mg-c-menu-item__navigation-button-chevron">
+                <mg-icon icon="chevron-down"></mg-icon>
+              </span>
+            </button>
+            <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+              <slot></slot>
+            </div>
+          </mg-popover>
+        </template>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
+          Additional menu
+        </span>
+        <mg-menu aria-label="Additional menu" data-mg-popover-guard="mg-item-more-popover" direction="vertical" role="list">
+          <template shadowrootmode="open">
+            <slot></slot>
+          </template>
         </mg-menu>
       </mg-menu-item>
     </template>
@@ -161,7 +203,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
   <template shadowrootmode="open">
     <slot></slot>
   </template>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
     <template shadowrootmode="open">
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -180,45 +222,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" hidden="" identifier="identifier-2" role="listitem" status="visible">
-    <template shadowrootmode="open">
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-        <slot name="image"></slot>
-        <div class="mg-c-menu-item__navigation-button-center">
-          <div class="mg-c-menu-item__navigation-button-text-content">
-            <slot name="label"></slot>
-            <slot name="information"></slot>
-          </div>
-        </div>
-      </button>
-      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
-        <slot></slot>
-      </div>
-    </template>
-    <span slot="label" title="Joker">
-      Joker
-    </span>
-  </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" hidden="" identifier="identifier-3" role="listitem" status="visible">
-    <template shadowrootmode="open">
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-        <slot name="image"></slot>
-        <div class="mg-c-menu-item__navigation-button-center">
-          <div class="mg-c-menu-item__navigation-button-text-content">
-            <slot name="label"></slot>
-            <slot name="information"></slot>
-          </div>
-        </div>
-      </button>
-      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
-        <slot></slot>
-      </div>
-    </template>
-    <span slot="label" title="Bane">
-      Bane
-    </span>
-  </mg-menu-item>
-  <mg-item-more role="listitem">
+  <mg-item-more data-mg-popover-guard="mg-item-more-popover" role="listitem">
     <template shadowrootmode="open">
       <mg-menu-item data-overflow-more data-size="medium" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
         <template shadowrootmode="open">
@@ -244,13 +248,13 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
-        <mg-menu aria-label="Additional menu" direction="vertical" role="list">
+        <mg-menu aria-label="Additional menu" data-mg-popover-guard="mg-item-more-popover" direction="vertical" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" hidden="" identifier="identifier-1" role="listitem" status="visible">
+          <mg-menu-item data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
             <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -259,26 +263,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
                   </div>
                 </div>
               </button>
-              <div class="mg-c-menu-item__collapse-container" hidden="">
-                <slot></slot>
-              </div>
-            </template>
-            <span slot="label" title="Batman">
-              Batman
-            </span>
-          </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
-            <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
-                <slot name="image"></slot>
-                <div class="mg-c-menu-item__navigation-button-center">
-                  <div class="mg-c-menu-item__navigation-button-text-content">
-                    <slot name="label"></slot>
-                    <slot name="information"></slot>
-                  </div>
-                </div>
-              </button>
-              <div class="mg-c-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
                 <slot></slot>
               </div>
             </template>
@@ -286,9 +271,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
+          <mg-menu-item data-style-direction="horizontal" identifier="identifier-3" role="listitem" status="visible">
             <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -297,7 +282,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
                   </div>
                 </div>
               </button>
-              <div class="mg-c-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
                 <slot></slot>
               </div>
             </template>
@@ -305,6 +290,105 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
               Bane
             </span>
           </mg-menu-item>
+        </mg-menu>
+      </mg-menu-item>
+    </template>
+  </mg-item-more>
+</mg-menu>
+`;
+
+exports[`behavior.utils OverflowBehavior render menu should manage resize with observer, case 80 2`] = `
+<mg-menu aria-label="batman" direction="horizontal" role="list">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <slot name="image"></slot>
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
+            <slot name="label"></slot>
+            <slot name="information"></slot>
+          </div>
+        </div>
+      </button>
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
+        <slot></slot>
+      </div>
+    </template>
+    <span slot="label" title="Batman">
+      Batman
+    </span>
+  </mg-menu-item>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <slot name="image"></slot>
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
+            <slot name="label"></slot>
+            <slot name="information"></slot>
+          </div>
+        </div>
+      </button>
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
+        <slot></slot>
+      </div>
+    </template>
+    <span slot="label" title="Joker">
+      Joker
+    </span>
+  </mg-menu-item>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-3" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <slot name="image"></slot>
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
+            <slot name="label"></slot>
+            <slot name="information"></slot>
+          </div>
+        </div>
+      </button>
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
+        <slot></slot>
+      </div>
+    </template>
+    <span slot="label" title="Bane">
+      Bane
+    </span>
+  </mg-menu-item>
+  <mg-item-more data-mg-popover-guard="mg-item-more-popover" hidden="" role="listitem">
+    <template shadowrootmode="open">
+      <mg-menu-item data-overflow-more data-size="medium" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
+        <template shadowrootmode="open">
+          <mg-popover arrowhide="" data-fallback-placement="bottom-end" identifier="mg-item-more-popover" placement="bottom-start">
+            <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+              <slot name="image"></slot>
+              <div class="mg-c-menu-item__navigation-button-center">
+                <div class="mg-c-menu-item__navigation-button-text-content">
+                  <slot name="label"></slot>
+                  <slot name="information"></slot>
+                </div>
+              </div>
+              <span class="mg-c-menu-item__navigation-button-chevron">
+                <mg-icon icon="chevron-down"></mg-icon>
+              </span>
+            </button>
+            <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+              <slot></slot>
+            </div>
+          </mg-popover>
+        </template>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
+          Additional menu
+        </span>
+        <mg-menu aria-label="Additional menu" data-mg-popover-guard="mg-item-more-popover" direction="vertical" role="list">
+          <template shadowrootmode="open">
+            <slot></slot>
+          </template>
         </mg-menu>
       </mg-menu-item>
     </template>
@@ -317,7 +401,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
   <template shadowrootmode="open">
     <slot></slot>
   </template>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
     <template shadowrootmode="open">
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -336,45 +420,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" hidden="" identifier="identifier-2" role="listitem" status="visible">
-    <template shadowrootmode="open">
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-        <slot name="image"></slot>
-        <div class="mg-c-menu-item__navigation-button-center">
-          <div class="mg-c-menu-item__navigation-button-text-content">
-            <slot name="label"></slot>
-            <slot name="information"></slot>
-          </div>
-        </div>
-      </button>
-      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
-        <slot></slot>
-      </div>
-    </template>
-    <span slot="label" title="Joker">
-      Joker
-    </span>
-  </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" hidden="" identifier="identifier-3" role="listitem" status="visible">
-    <template shadowrootmode="open">
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-        <slot name="image"></slot>
-        <div class="mg-c-menu-item__navigation-button-center">
-          <div class="mg-c-menu-item__navigation-button-text-content">
-            <slot name="label"></slot>
-            <slot name="information"></slot>
-          </div>
-        </div>
-      </button>
-      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
-        <slot></slot>
-      </div>
-    </template>
-    <span slot="label" title="Bane">
-      Bane
-    </span>
-  </mg-menu-item>
-  <mg-item-more role="listitem">
+  <mg-item-more data-mg-popover-guard="mg-item-more-popover" role="listitem">
     <template shadowrootmode="open">
       <mg-menu-item data-overflow-more data-size="medium" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
         <template shadowrootmode="open">
@@ -400,13 +446,13 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
-        <mg-menu aria-label="Additional menu" direction="vertical" role="list">
+        <mg-menu aria-label="Additional menu" data-mg-popover-guard="mg-item-more-popover" direction="vertical" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" hidden="" identifier="identifier-1" role="listitem" status="visible">
+          <mg-menu-item data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
             <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -415,26 +461,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
                   </div>
                 </div>
               </button>
-              <div class="mg-c-menu-item__collapse-container" hidden="">
-                <slot></slot>
-              </div>
-            </template>
-            <span slot="label" title="Batman">
-              Batman
-            </span>
-          </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
-            <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
-                <slot name="image"></slot>
-                <div class="mg-c-menu-item__navigation-button-center">
-                  <div class="mg-c-menu-item__navigation-button-text-content">
-                    <slot name="label"></slot>
-                    <slot name="information"></slot>
-                  </div>
-                </div>
-              </button>
-              <div class="mg-c-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
                 <slot></slot>
               </div>
             </template>
@@ -442,9 +469,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
+          <mg-menu-item data-style-direction="horizontal" identifier="identifier-3" role="listitem" status="visible">
             <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -453,7 +480,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
                   </div>
                 </div>
               </button>
-              <div class="mg-c-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
                 <slot></slot>
               </div>
             </template>
@@ -468,12 +495,12 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
 </mg-menu>
 `;
 
-exports[`behavior.utils OverflowBehavior render menu should manage resize with observer, case 250 1`] = `
+exports[`behavior.utils OverflowBehavior render menu should manage resize with observer, case 100 2`] = `
 <mg-menu aria-label="batman" direction="horizontal" role="list">
   <template shadowrootmode="open">
     <slot></slot>
   </template>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
     <template shadowrootmode="open">
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -492,7 +519,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
     <template shadowrootmode="open">
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -511,7 +538,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" identifier="identifier-3" role="listitem" status="visible">
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-3" role="listitem" status="visible">
     <template shadowrootmode="open">
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -530,7 +557,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Bane
     </span>
   </mg-menu-item>
-  <mg-item-more hidden="" role="listitem">
+  <mg-item-more data-mg-popover-guard="mg-item-more-popover" hidden="" role="listitem">
     <template shadowrootmode="open">
       <mg-menu-item data-overflow-more data-size="medium" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
         <template shadowrootmode="open">
@@ -556,67 +583,208 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
-        <mg-menu aria-label="Additional menu" direction="vertical" role="list">
+        <mg-menu aria-label="Additional menu" data-mg-popover-guard="mg-item-more-popover" direction="vertical" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" hidden="" identifier="identifier-1" role="listitem" status="visible">
-            <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
-                <slot name="image"></slot>
-                <div class="mg-c-menu-item__navigation-button-center">
-                  <div class="mg-c-menu-item__navigation-button-text-content">
-                    <slot name="label"></slot>
-                    <slot name="information"></slot>
-                  </div>
+        </mg-menu>
+      </mg-menu-item>
+    </template>
+  </mg-item-more>
+</mg-menu>
+`;
+
+exports[`behavior.utils OverflowBehavior render menu should manage resize with observer, case 250 1`] = `
+<mg-menu aria-label="batman" direction="horizontal" role="list">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <slot name="image"></slot>
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
+            <slot name="label"></slot>
+            <slot name="information"></slot>
+          </div>
+        </div>
+      </button>
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
+        <slot></slot>
+      </div>
+    </template>
+    <span slot="label" title="Batman">
+      Batman
+    </span>
+  </mg-menu-item>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <slot name="image"></slot>
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
+            <slot name="label"></slot>
+            <slot name="information"></slot>
+          </div>
+        </div>
+      </button>
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
+        <slot></slot>
+      </div>
+    </template>
+    <span slot="label" title="Joker">
+      Joker
+    </span>
+  </mg-menu-item>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-3" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <slot name="image"></slot>
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
+            <slot name="label"></slot>
+            <slot name="information"></slot>
+          </div>
+        </div>
+      </button>
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
+        <slot></slot>
+      </div>
+    </template>
+    <span slot="label" title="Bane">
+      Bane
+    </span>
+  </mg-menu-item>
+  <mg-item-more data-mg-popover-guard="mg-item-more-popover" hidden="" role="listitem">
+    <template shadowrootmode="open">
+      <mg-menu-item data-overflow-more data-size="medium" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
+        <template shadowrootmode="open">
+          <mg-popover arrowhide="" data-fallback-placement="bottom-end" identifier="mg-item-more-popover" placement="bottom-start">
+            <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+              <slot name="image"></slot>
+              <div class="mg-c-menu-item__navigation-button-center">
+                <div class="mg-c-menu-item__navigation-button-text-content">
+                  <slot name="label"></slot>
+                  <slot name="information"></slot>
                 </div>
-              </button>
-              <div class="mg-c-menu-item__collapse-container" hidden="">
-                <slot></slot>
               </div>
-            </template>
-            <span slot="label" title="Batman">
-              Batman
-            </span>
-          </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" hidden="" identifier="identifier-2" role="listitem" status="visible">
-            <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
-                <slot name="image"></slot>
-                <div class="mg-c-menu-item__navigation-button-center">
-                  <div class="mg-c-menu-item__navigation-button-text-content">
-                    <slot name="label"></slot>
-                    <slot name="information"></slot>
-                  </div>
+              <span class="mg-c-menu-item__navigation-button-chevron">
+                <mg-icon icon="chevron-down"></mg-icon>
+              </span>
+            </button>
+            <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+              <slot></slot>
+            </div>
+          </mg-popover>
+        </template>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
+          Additional menu
+        </span>
+        <mg-menu aria-label="Additional menu" data-mg-popover-guard="mg-item-more-popover" direction="vertical" role="list">
+          <template shadowrootmode="open">
+            <slot></slot>
+          </template>
+        </mg-menu>
+      </mg-menu-item>
+    </template>
+  </mg-item-more>
+</mg-menu>
+`;
+
+exports[`behavior.utils OverflowBehavior render menu should manage resize with observer, case 250 2`] = `
+<mg-menu aria-label="batman" direction="horizontal" role="list">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <slot name="image"></slot>
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
+            <slot name="label"></slot>
+            <slot name="information"></slot>
+          </div>
+        </div>
+      </button>
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
+        <slot></slot>
+      </div>
+    </template>
+    <span slot="label" title="Batman">
+      Batman
+    </span>
+  </mg-menu-item>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <slot name="image"></slot>
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
+            <slot name="label"></slot>
+            <slot name="information"></slot>
+          </div>
+        </div>
+      </button>
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
+        <slot></slot>
+      </div>
+    </template>
+    <span slot="label" title="Joker">
+      Joker
+    </span>
+  </mg-menu-item>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-3" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <slot name="image"></slot>
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
+            <slot name="label"></slot>
+            <slot name="information"></slot>
+          </div>
+        </div>
+      </button>
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
+        <slot></slot>
+      </div>
+    </template>
+    <span slot="label" title="Bane">
+      Bane
+    </span>
+  </mg-menu-item>
+  <mg-item-more data-mg-popover-guard="mg-item-more-popover" hidden="" role="listitem">
+    <template shadowrootmode="open">
+      <mg-menu-item data-overflow-more data-size="medium" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
+        <template shadowrootmode="open">
+          <mg-popover arrowhide="" data-fallback-placement="bottom-end" identifier="mg-item-more-popover" placement="bottom-start">
+            <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+              <slot name="image"></slot>
+              <div class="mg-c-menu-item__navigation-button-center">
+                <div class="mg-c-menu-item__navigation-button-text-content">
+                  <slot name="label"></slot>
+                  <slot name="information"></slot>
                 </div>
-              </button>
-              <div class="mg-c-menu-item__collapse-container" hidden="">
-                <slot></slot>
               </div>
-            </template>
-            <span slot="label" title="Joker">
-              Joker
-            </span>
-          </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" hidden="" identifier="identifier-3" role="listitem" status="visible">
-            <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
-                <slot name="image"></slot>
-                <div class="mg-c-menu-item__navigation-button-center">
-                  <div class="mg-c-menu-item__navigation-button-text-content">
-                    <slot name="label"></slot>
-                    <slot name="information"></slot>
-                  </div>
-                </div>
-              </button>
-              <div class="mg-c-menu-item__collapse-container" hidden="">
-                <slot></slot>
-              </div>
-            </template>
-            <span slot="label" title="Bane">
-              Bane
-            </span>
-          </mg-menu-item>
+              <span class="mg-c-menu-item__navigation-button-chevron">
+                <mg-icon icon="chevron-down"></mg-icon>
+              </span>
+            </button>
+            <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+              <slot></slot>
+            </div>
+          </mg-popover>
+        </template>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
+          Additional menu
+        </span>
+        <mg-menu aria-label="Additional menu" data-mg-popover-guard="mg-item-more-popover" direction="vertical" role="list">
+          <template shadowrootmode="open">
+            <slot></slot>
+          </template>
         </mg-menu>
       </mg-menu-item>
     </template>

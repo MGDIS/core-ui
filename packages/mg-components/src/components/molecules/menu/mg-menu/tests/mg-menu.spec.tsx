@@ -86,7 +86,7 @@ const getPage = async (args, options = { submenu: true, itemMore: false }) => {
 };
 
 describe('mg-menu', () => {
-  let fireMo;
+  let fireMo = [];
   beforeEach(() => {
     id = 1;
     jest.useFakeTimers({ legacyFakeTimers: true });
@@ -100,14 +100,17 @@ describe('mg-menu', () => {
     });
     setupMutationObserverMock({
       observe: function () {
-        fireMo = this.cb;
+        fireMo.push(this.cb);
       },
       disconnect: () => null,
       takeRecords: () => [],
     });
   });
 
-  afterEach(() => jest.clearAllTimers());
+  afterEach(() => {
+    jest.clearAllTimers();
+    fireMo = [];
+  });
 
   describe('render', () => {
     test.each([{}, { direction: 'horizontal' }, { direction: 'vertical' }, { itemmore: { icon: { icon: 'user' } } }])('with args %s', async args => {
@@ -165,13 +168,11 @@ describe('mg-menu', () => {
 
       batmanItem.shadowRoot.querySelector('button').dispatchEvent(new CustomEvent('click', { bubbles: true }));
       await page.waitForChanges();
-      jest.runOnlyPendingTimers();
 
       expect(batmanItem.expanded).toBe(true);
 
       // open batman first child item
       const batmanChildItem: HTMLMgMenuItemElement = page.doc.querySelector('[title="batman begins"]').closest('mg-menu-item');
-
       batmanChildItem.shadowRoot.querySelector('button').dispatchEvent(new CustomEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
@@ -180,7 +181,6 @@ describe('mg-menu', () => {
 
       // open joker item must close batman first child item
       const jokerItem: HTMLMgMenuItemElement = page.doc.querySelector('[title="joker"]').closest('mg-menu-item');
-
       jokerItem.shadowRoot.querySelector('button').dispatchEvent(new CustomEvent(event, { bubbles: true }));
       await page.waitForChanges();
 
@@ -197,7 +197,7 @@ describe('mg-menu', () => {
       const mutations = [[{ type: 'childList', removedNodes: [{ nodeName: 'MG-ITEM-MORE' }] }], [{ type: 'childList', removedNodes: [{ nodeName: 'MG-MENU-ITEM' }] }]];
 
       for await (const mutation of mutations) {
-        fireMo(mutation);
+        fireMo[0](mutation);
 
         await page.waitForChanges();
 

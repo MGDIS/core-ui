@@ -79,7 +79,7 @@ test.describe('mg-menu-item', () => {
 
       [true, false].forEach(expanded => {
         test(`Should renders with props expanded="${expanded}"`, async ({ page }) => {
-          await page.setContent(createHTML({ expanded }, slotMenuItem, direction));
+          await page.setContent(createHTML({ expanded }, `<mg-menu direction="${Direction.VERTICAL}" label="submenu"><mg-menu-item status="active"><span slot="label">Batman begins</span></mg-menu-item></mg-menu>`, direction));
           await page.setViewportSize(defaultViewPortSize);
 
           await expect(page.locator(expanded ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
@@ -87,16 +87,18 @@ test.describe('mg-menu-item', () => {
       });
 
       test('Should render content slot', async ({ page }) => {
-        await page.setContent(createHTML({ expanded: true }, slotContent, direction));
+        await page.setContent(createHTML({ }, slotContent, direction));
         await page.setViewportSize(defaultViewPortSize);
+
+        await page.locator('mg-menu-item').first().click();
 
         await expect(page.locator('body')).toHaveScreenshot();
       });
 
       test('Should render slot image only with submenu', async ({ page }) => {
-        await page.setContent(createHTML({ expanded: true, size: 'xlarge' }, slotContent + slotImage, direction));
+        await page.setContent(createHTML({ size: 'xlarge' }, slotContent + slotImage, direction));
         await page.setViewportSize({ ...defaultViewPortSize, width: 170 });
-        await page.keyboard.press('Tab');
+        await page.locator('mg-menu-item').first().click();
 
         await expect(page.locator('body')).toHaveScreenshot();
 

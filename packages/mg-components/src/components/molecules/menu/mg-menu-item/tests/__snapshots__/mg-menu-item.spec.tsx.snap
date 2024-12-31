@@ -1,60 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mg-menu-item MutationObserver Should update display notifiaction badge with "attribute" mutation, from status %s 1`] = `
-<mg-menu-item data-style-direction="horizontal" identifier="identifier" label="batman" role="listitem" status="visible">
+exports[`mg-menu-item MutationObserver Should update display notifiaction badge with "attribute" mutation 1`] = `
+<mg-menu-item identifier="identifier" label="batman" role="listitem" status="visible">
   <template shadowrootmode="open">
-    <mg-popover data-fallback-placement="bottom-end">
-      <template shadowrootmode="open">
-        <slot></slot>
-        <slot name="content"></slot>
-      </template>
-      <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-        <slot name="image"></slot>
-        <div class="mg-c-menu-item__navigation-button-center">
-          <div class="mg-c-menu-item__navigation-button-text-content">
-            <slot name="label"></slot>
-            <span class="mg-c-menu-item__navigation-button-text-content-notification">
-              <mg-badge slot="information">
-                <template shadowrootmode="open">
-                  <span class="mg-c-badge mg-c-badge--text-color">
-                    <span class="mg-c-badge__value">
-                      !
-                    </span>
-                    <span class="mg-u-visually-hidden">
-                      Include notification(s)
-                    </span>
+    <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+      <slot name="image"></slot>
+      <div class="mg-c-menu-item__navigation-button-center">
+        <div class="mg-c-menu-item__navigation-button-text-content">
+          <slot name="label"></slot>
+          <span class="mg-c-menu-item__navigation-button-text-content-notification">
+            <mg-badge slot="information">
+              <template shadowrootmode="open">
+                <span class="mg-c-badge mg-c-badge--text-color">
+                  <span class="mg-c-badge__value">
+                    !
                   </span>
-                </template>
-              </mg-badge>
-            </span>
-          </div>
+                  <span class="mg-u-visually-hidden">
+                    Include notification(s)
+                  </span>
+                </span>
+              </template>
+            </mg-badge>
+          </span>
         </div>
-        <span class="mg-c-menu-item__navigation-button-chevron">
-          <mg-icon>
-            <template shadowrootmode="open">
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
-              </svg>
-            </template>
-          </mg-icon>
-        </span>
-      </button>
-      <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-        <template shadowrootmode="open">
-          <mg-card class="mg-c-popover-content">
-            <div class="mg-c-popover-content__title">
-              <slot name="title"></slot>
-            </div>
-            <slot name="content"></slot>
-          </mg-card>
-          <slot name="arrow"></slot>
-        </template>
-        <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
-        <div class="mg-c-menu-item__collapse-container" slot="content">
-          <slot></slot>
-        </div>
-      </mg-popover-content>
-    </mg-popover>
+      </div>
+      <span class="mg-c-menu-item__navigation-button-chevron">
+        <mg-icon>
+          <template shadowrootmode="open">
+            <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+            </svg>
+          </template>
+        </mg-icon>
+      </span>
+    </button>
+    <div class="mg-c-menu-item__collapse-container" hidden="">
+      <slot></slot>
+    </div>
   </template>
   <mg-menu aria-label="child menu" direction="horizontal" role="list">
     <template shadowrootmode="open">
@@ -98,48 +80,43 @@ exports[`mg-menu-item MutationObserver Should update display notifiaction badge 
 </mg-menu-item>
 `;
 
-exports[`mg-menu-item MutationObserver Should update display notifiaction badge with "attribute" mutation, from status %s 2`] = `
-<mg-menu-item data-style-direction="horizontal" identifier="identifier" label="batman" role="listitem" status="visible">
+exports[`mg-menu-item MutationObserver Should update display notifiaction badge with "attribute" mutation 2`] = `
+<mg-menu-item identifier="identifier" label="batman" role="listitem" status="visible">
   <template shadowrootmode="open">
-    <mg-popover data-fallback-placement="bottom-end">
-      <template shadowrootmode="open">
-        <slot></slot>
-        <slot name="content"></slot>
-      </template>
-      <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-        <slot name="image"></slot>
-        <div class="mg-c-menu-item__navigation-button-center">
-          <div class="mg-c-menu-item__navigation-button-text-content">
-            <slot name="label"></slot>
-            <slot name="information"></slot>
-          </div>
+    <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+      <slot name="image"></slot>
+      <div class="mg-c-menu-item__navigation-button-center">
+        <div class="mg-c-menu-item__navigation-button-text-content">
+          <slot name="label"></slot>
+          <span class="mg-c-menu-item__navigation-button-text-content-notification">
+            <mg-badge slot="information">
+              <template shadowrootmode="open">
+                <span class="mg-c-badge mg-c-badge--text-color">
+                  <span class="mg-c-badge__value">
+                    !
+                  </span>
+                  <span class="mg-u-visually-hidden">
+                    Include notification(s)
+                  </span>
+                </span>
+              </template>
+            </mg-badge>
+          </span>
         </div>
-        <span class="mg-c-menu-item__navigation-button-chevron">
-          <mg-icon>
-            <template shadowrootmode="open">
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
-              </svg>
-            </template>
-          </mg-icon>
-        </span>
-      </button>
-      <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-        <template shadowrootmode="open">
-          <mg-card class="mg-c-popover-content">
-            <div class="mg-c-popover-content__title">
-              <slot name="title"></slot>
-            </div>
-            <slot name="content"></slot>
-          </mg-card>
-          <slot name="arrow"></slot>
-        </template>
-        <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
-        <div class="mg-c-menu-item__collapse-container" slot="content">
-          <slot></slot>
-        </div>
-      </mg-popover-content>
-    </mg-popover>
+      </div>
+      <span class="mg-c-menu-item__navigation-button-chevron">
+        <mg-icon>
+          <template shadowrootmode="open">
+            <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+            </svg>
+          </template>
+        </mg-icon>
+      </span>
+    </button>
+    <div class="mg-c-menu-item__collapse-container" hidden="">
+      <slot></slot>
+    </div>
   </template>
   <mg-menu aria-label="child menu" direction="horizontal" role="list">
     <template shadowrootmode="open">
@@ -183,10 +160,126 @@ exports[`mg-menu-item MutationObserver Should update display notifiaction badge 
 </mg-menu-item>
 `;
 
-exports[`mg-menu-item MutationObserver Should update status with child "characterData" mutation, from status label 1`] = `
-<mg-menu-item data-style-direction="horizontal" identifier="identifier" label="my label" role="listitem" status="visible">
+exports[`mg-menu-item MutationObserver Should update item after child nodes update 1`] = `
+<mg-menu-item identifier="identifier" label="batman" role="listitem" status="visible">
   <template shadowrootmode="open">
-    <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+    <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+      <slot name="image"></slot>
+      <div class="mg-c-menu-item__navigation-button-center">
+        <div class="mg-c-menu-item__navigation-button-text-content">
+          <slot name="label"></slot>
+          <span class="mg-c-menu-item__navigation-button-text-content-notification">
+            <mg-badge slot="information">
+              <template shadowrootmode="open">
+                <span class="mg-c-badge mg-c-badge--text-color">
+                  <span class="mg-c-badge__value">
+                    !
+                  </span>
+                  <span class="mg-u-visually-hidden">
+                    Include notification(s)
+                  </span>
+                </span>
+              </template>
+            </mg-badge>
+          </span>
+        </div>
+      </div>
+      <span class="mg-c-menu-item__navigation-button-chevron">
+        <mg-icon>
+          <template shadowrootmode="open">
+            <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+            </svg>
+          </template>
+        </mg-icon>
+      </span>
+    </button>
+    <div class="mg-c-menu-item__collapse-container" hidden="">
+      <slot></slot>
+    </div>
+  </template>
+  <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <template shadowrootmode="open">
+      <slot></slot>
+    </template>
+    <mg-menu-item badge="" data-style-direction="horizontal" identifier="identifier" label="submenu" role="listitem" status="visible">
+      <template shadowrootmode="open">
+        <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+          <slot name="image"></slot>
+          <div class="mg-c-menu-item__navigation-button-center">
+            <div class="mg-c-menu-item__navigation-button-text-content">
+              <slot name="label"></slot>
+              <slot name="information"></slot>
+            </div>
+          </div>
+        </button>
+        <div class="mg-c-menu-item__collapse-container" hidden="">
+          <slot></slot>
+        </div>
+      </template>
+      <span slot="label" title="submenu">
+        submenu
+      </span>
+      <mg-badge slot="information">
+        <template shadowrootmode="open">
+          <span class="mg-c-badge mg-c-badge--info">
+            <span class="mg-c-badge__value">
+              1
+            </span>
+            <span class="mg-u-visually-hidden">
+              badge label
+            </span>
+          </span>
+        </template>
+      </mg-badge>
+    </mg-menu-item>
+  </mg-menu>
+  <span slot="label" title="batman">
+    batman
+  </span>
+</mg-menu-item>
+`;
+
+exports[`mg-menu-item MutationObserver Should update item after child nodes update 2`] = `
+<mg-menu-item identifier="identifier" label="batman" role="listitem" status="visible">
+  <template shadowrootmode="open">
+    <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+      <slot name="image"></slot>
+      <div class="mg-c-menu-item__navigation-button-center">
+        <div class="mg-c-menu-item__navigation-button-text-content">
+          <slot name="label"></slot>
+          <slot name="information"></slot>
+        </div>
+      </div>
+      <span class="mg-c-menu-item__navigation-button-chevron">
+        <mg-icon>
+          <template shadowrootmode="open">
+            <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+            </svg>
+          </template>
+        </mg-icon>
+      </span>
+    </button>
+    <div class="mg-c-menu-item__collapse-container" hidden="">
+      <slot></slot>
+    </div>
+  </template>
+  <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <template shadowrootmode="open">
+      <slot></slot>
+    </template>
+  </mg-menu>
+  <span slot="label" title="batman">
+    batman
+  </span>
+</mg-menu-item>
+`;
+
+exports[`mg-menu-item MutationObserver Should update status with child "characterData" mutation, from status label 1`] = `
+<mg-menu-item identifier="identifier" label="my label" role="listitem" status="visible">
+  <template shadowrootmode="open">
+    <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
       <slot name="image"></slot>
       <div class="mg-c-menu-item__navigation-button-center">
         <div class="mg-c-menu-item__navigation-button-text-content">
@@ -206,9 +299,9 @@ exports[`mg-menu-item MutationObserver Should update status with child "characte
 `;
 
 exports[`mg-menu-item MutationObserver Should update status with child "characterData" mutation, from status metadata 1`] = `
-<mg-menu-item data-style-direction="horizontal" identifier="identifier" label="Label" metadata="" role="listitem" status="visible">
+<mg-menu-item identifier="identifier" label="Label" metadata="" role="listitem" status="visible">
   <template shadowrootmode="open">
-    <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+    <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
       <slot name="image"></slot>
       <div class="mg-c-menu-item__navigation-button-center">
         <div class="mg-c-menu-item__navigation-button-text-content">
@@ -289,7 +382,7 @@ exports[`mg-menu-item MutationObserver menu-item status: { from: 'active', to: '
     <span slot="label" title="level 1">
       level 1
     </span>
-    <mg-menu aria-label="sub menu 1" direction="horizontal" role="list">
+    <mg-menu aria-label="sub menu 1" data-mg-popover-guard="identifier-1-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -376,7 +469,7 @@ exports[`mg-menu-item MutationObserver menu-item status: { from: 'active', to: '
     <span slot="label" title="level 1">
       level 1
     </span>
-    <mg-menu aria-label="sub menu 1" direction="horizontal" role="list">
+    <mg-menu aria-label="sub menu 1" data-mg-popover-guard="identifier-1-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -425,7 +518,7 @@ exports[`mg-menu-item MutationObserver menu-item status: { from: 'active', to: '
         <span slot="label" title="level 2">
           level 2
         </span>
-        <mg-menu aria-label="sub menu 2" direction="horizontal" role="list">
+        <mg-menu aria-label="sub menu 2" data-mg-popover-guard="identifier-2-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -514,7 +607,7 @@ exports[`mg-menu-item MutationObserver menu-item status: { from: 'visible', to: 
     <span slot="label" title="level 1">
       level 1
     </span>
-    <mg-menu aria-label="sub menu 1" direction="horizontal" role="list">
+    <mg-menu aria-label="sub menu 1" data-mg-popover-guard="identifier-1-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -601,7 +694,7 @@ exports[`mg-menu-item MutationObserver menu-item status: { from: 'visible', to: 
     <span slot="label" title="level 1">
       level 1
     </span>
-    <mg-menu aria-label="sub menu 1" direction="horizontal" role="list">
+    <mg-menu aria-label="sub menu 1" data-mg-popover-guard="identifier-1-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -650,7 +743,7 @@ exports[`mg-menu-item MutationObserver menu-item status: { from: 'visible', to: 
         <span slot="label" title="level 2">
           level 2
         </span>
-        <mg-menu aria-label="sub menu 2" direction="horizontal" role="list">
+        <mg-menu aria-label="sub menu 2" data-mg-popover-guard="identifier-2-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -680,177 +773,6 @@ exports[`mg-menu-item MutationObserver menu-item status: { from: 'visible', to: 
 </mg-menu>
 `;
 
-exports[`mg-menu-item MutationObserver should update notification badge with args false 1`] = `
-<mg-menu-item data-style-direction="horizontal" identifier="identifier" label="Batman" role="listitem" status="visible">
-  <template shadowrootmode="open">
-    <mg-popover data-fallback-placement="bottom-end">
-      <template shadowrootmode="open">
-        <slot></slot>
-        <slot name="content"></slot>
-      </template>
-      <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-        <slot name="image"></slot>
-        <div class="mg-c-menu-item__navigation-button-center">
-          <div class="mg-c-menu-item__navigation-button-text-content">
-            <slot name="label"></slot>
-            <slot name="information"></slot>
-          </div>
-        </div>
-        <span class="mg-c-menu-item__navigation-button-chevron">
-          <mg-icon>
-            <template shadowrootmode="open">
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
-              </svg>
-            </template>
-          </mg-icon>
-        </span>
-      </button>
-      <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-        <template shadowrootmode="open">
-          <mg-card class="mg-c-popover-content">
-            <div class="mg-c-popover-content__title">
-              <slot name="title"></slot>
-            </div>
-            <slot name="content"></slot>
-          </mg-card>
-          <slot name="arrow"></slot>
-        </template>
-        <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
-        <div class="mg-c-menu-item__collapse-container" slot="content">
-          <slot></slot>
-        </div>
-      </mg-popover-content>
-    </mg-popover>
-  </template>
-  <mg-menu aria-label="child menu" direction="horizontal" role="list">
-    <template shadowrootmode="open">
-      <slot></slot>
-    </template>
-    <mg-menu-item data-style-direction="horizontal" identifier="identifier" label="child menu" role="listitem" status="visible">
-      <template shadowrootmode="open">
-        <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-          <slot name="image"></slot>
-          <div class="mg-c-menu-item__navigation-button-center">
-            <div class="mg-c-menu-item__navigation-button-text-content">
-              <slot name="label"></slot>
-              <slot name="information"></slot>
-            </div>
-          </div>
-        </button>
-        <div class="mg-c-menu-item__collapse-container" hidden="">
-          <slot></slot>
-        </div>
-      </template>
-      <span slot="label" title="child menu">
-        child menu
-      </span>
-    </mg-menu-item>
-  </mg-menu>
-  <span slot="label" title="Batman">
-    Batman
-  </span>
-</mg-menu-item>
-`;
-
-exports[`mg-menu-item MutationObserver should update notification badge with args true 1`] = `
-<mg-menu-item data-style-direction="horizontal" identifier="identifier" label="Batman" role="listitem" status="visible">
-  <template shadowrootmode="open">
-    <mg-popover data-fallback-placement="bottom-end">
-      <template shadowrootmode="open">
-        <slot></slot>
-        <slot name="content"></slot>
-      </template>
-      <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-        <slot name="image"></slot>
-        <div class="mg-c-menu-item__navigation-button-center">
-          <div class="mg-c-menu-item__navigation-button-text-content">
-            <slot name="label"></slot>
-            <span class="mg-c-menu-item__navigation-button-text-content-notification">
-              <mg-badge slot="information">
-                <template shadowrootmode="open">
-                  <span class="mg-c-badge mg-c-badge--text-color">
-                    <span class="mg-c-badge__value">
-                      !
-                    </span>
-                    <span class="mg-u-visually-hidden">
-                      Include notification(s)
-                    </span>
-                  </span>
-                </template>
-              </mg-badge>
-            </span>
-          </div>
-        </div>
-        <span class="mg-c-menu-item__navigation-button-chevron">
-          <mg-icon>
-            <template shadowrootmode="open">
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
-              </svg>
-            </template>
-          </mg-icon>
-        </span>
-      </button>
-      <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-        <template shadowrootmode="open">
-          <mg-card class="mg-c-popover-content">
-            <div class="mg-c-popover-content__title">
-              <slot name="title"></slot>
-            </div>
-            <slot name="content"></slot>
-          </mg-card>
-          <slot name="arrow"></slot>
-        </template>
-        <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
-        <div class="mg-c-menu-item__collapse-container" slot="content">
-          <slot></slot>
-        </div>
-      </mg-popover-content>
-    </mg-popover>
-  </template>
-  <mg-menu aria-label="child menu" direction="horizontal" role="list">
-    <template shadowrootmode="open">
-      <slot></slot>
-    </template>
-    <mg-menu-item badge="" data-style-direction="horizontal" identifier="identifier" label="child menu" role="listitem" status="visible">
-      <template shadowrootmode="open">
-        <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-          <slot name="image"></slot>
-          <div class="mg-c-menu-item__navigation-button-center">
-            <div class="mg-c-menu-item__navigation-button-text-content">
-              <slot name="label"></slot>
-              <slot name="information"></slot>
-            </div>
-          </div>
-        </button>
-        <div class="mg-c-menu-item__collapse-container" hidden="">
-          <slot></slot>
-        </div>
-      </template>
-      <span slot="label" title="child menu">
-        child menu
-      </span>
-      <mg-badge slot="information">
-        <template shadowrootmode="open">
-          <span class="mg-c-badge mg-c-badge--info">
-            <span class="mg-c-badge__value">
-              1
-            </span>
-            <span class="mg-u-visually-hidden">
-              badge label
-            </span>
-          </span>
-        </template>
-      </mg-badge>
-    </mg-menu-item>
-  </mg-menu>
-  <span slot="label" title="Batman">
-    Batman
-  </span>
-</mg-menu-item>
-`;
-
 exports[`mg-menu-item events popover Should prevent "expanded" to be update to "false" when click inside content slot 1`] = `
 <mg-menu aria-label="main menu" direction="horizontal" role="list">
   <template shadowrootmode="open">
@@ -863,7 +785,7 @@ exports[`mg-menu-item events popover Should prevent "expanded" to be update to "
           <slot></slot>
           <slot name="content"></slot>
         </template>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -871,7 +793,7 @@ exports[`mg-menu-item events popover Should prevent "expanded" to be update to "
               <slot name="information"></slot>
             </div>
           </div>
-          <span class="mg-c-menu-item__navigation-button-chevron mg-c-menu-item__navigation-button-chevron--rotate">
+          <span class="mg-c-menu-item__navigation-button-chevron">
             <mg-icon>
               <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -881,7 +803,7 @@ exports[`mg-menu-item events popover Should prevent "expanded" to be update to "
             </mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1011,7 +933,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -1089,7 +1011,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -1167,7 +1089,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -1213,7 +1135,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-menu aria-label="child menu" direction="horizontal" role="list">
+        <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -1296,7 +1218,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -1342,7 +1264,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-menu aria-label="child menu" direction="horizontal" role="list">
+        <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -1425,7 +1347,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -1471,7 +1393,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-menu aria-label="child menu" direction="horizontal" role="list">
+        <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -1554,7 +1476,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -1600,7 +1522,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-menu aria-label="child menu" direction="horizontal" role="list">
+        <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -1776,7 +1698,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </div>
         </div>
       </button>
-      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </template>
@@ -1803,7 +1725,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </div>
         </div>
       </button>
-      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </template>
@@ -1815,84 +1737,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
 `;
 
 exports[`mg-menu-item mouse navigation should manage toggle expand with template true 3`] = `
-<mg-menu aria-label="menu" direction="horizontal" role="list">
-  <template shadowrootmode="open">
-    <slot></slot>
-  </template>
-  <mg-menu-item data-style-direction="horizontal" identifier="identifier" label="Batman" role="listitem" status="visible">
-    <template shadowrootmode="open">
-      <mg-popover data-fallback-placement="bottom-end">
-        <template shadowrootmode="open">
-          <slot></slot>
-          <slot name="content"></slot>
-        </template>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-          <slot name="image"></slot>
-          <div class="mg-c-menu-item__navigation-button-center">
-            <div class="mg-c-menu-item__navigation-button-text-content">
-              <slot name="label"></slot>
-              <slot name="information"></slot>
-            </div>
-          </div>
-          <span class="mg-c-menu-item__navigation-button-chevron mg-c-menu-item__navigation-button-chevron--rotate">
-            <mg-icon>
-              <template shadowrootmode="open">
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
-                </svg>
-              </template>
-            </mg-icon>
-          </span>
-        </button>
-        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-          <template shadowrootmode="open">
-            <mg-card class="mg-c-popover-content">
-              <div class="mg-c-popover-content__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-            <slot name="arrow"></slot>
-          </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
-          <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
-            <slot></slot>
-          </div>
-        </mg-popover-content>
-      </mg-popover>
-    </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
-      <template shadowrootmode="open">
-        <slot></slot>
-      </template>
-      <mg-menu-item data-style-direction="horizontal" identifier="identifier" label="child menu item" role="listitem" status="visible">
-        <template shadowrootmode="open">
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-            <slot name="image"></slot>
-            <div class="mg-c-menu-item__navigation-button-center">
-              <div class="mg-c-menu-item__navigation-button-text-content">
-                <slot name="label"></slot>
-                <slot name="information"></slot>
-              </div>
-            </div>
-          </button>
-          <div class="mg-c-menu-item__collapse-container" hidden="">
-            <slot></slot>
-          </div>
-        </template>
-        <span slot="label" title="child menu item">
-          child menu item
-        </span>
-      </mg-menu-item>
-    </mg-menu>
-    <span slot="label" title="Batman">
-      Batman
-    </span>
-  </mg-menu-item>
-</mg-menu>
-`;
-
-exports[`mg-menu-item mouse navigation should manage toggle expand with template true 4`] = `
 <mg-menu aria-label="menu" direction="horizontal" role="list">
   <template shadowrootmode="open">
     <slot></slot>
@@ -1939,7 +1783,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -1970,7 +1814,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
 </mg-menu>
 `;
 
-exports[`mg-menu-item mouse navigation should manage toggle expand with template true 5`] = `
+exports[`mg-menu-item mouse navigation should manage toggle expand with template true 4`] = `
 <mg-menu aria-label="menu" direction="horizontal" role="list">
   <template shadowrootmode="open">
     <slot></slot>
@@ -2017,7 +1861,85 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
+      <template shadowrootmode="open">
+        <slot></slot>
+      </template>
+      <mg-menu-item data-style-direction="horizontal" identifier="identifier" label="child menu item" role="listitem" status="visible">
+        <template shadowrootmode="open">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+            <slot name="image"></slot>
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
+                <slot name="label"></slot>
+                <slot name="information"></slot>
+              </div>
+            </div>
+          </button>
+          <div class="mg-c-menu-item__collapse-container" hidden="">
+            <slot></slot>
+          </div>
+        </template>
+        <span slot="label" title="child menu item">
+          child menu item
+        </span>
+      </mg-menu-item>
+    </mg-menu>
+    <span slot="label" title="Batman">
+      Batman
+    </span>
+  </mg-menu-item>
+</mg-menu>
+`;
+
+exports[`mg-menu-item mouse navigation should manage toggle expand with template true 5`] = `
+<mg-menu aria-label="menu" direction="horizontal" role="list">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier" label="Batman" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <mg-popover data-fallback-placement="bottom-end">
+        <template shadowrootmode="open">
+          <slot></slot>
+          <slot name="content"></slot>
+        </template>
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+          <slot name="image"></slot>
+          <div class="mg-c-menu-item__navigation-button-center">
+            <div class="mg-c-menu-item__navigation-button-text-content">
+              <slot name="label"></slot>
+              <slot name="information"></slot>
+            </div>
+          </div>
+          <span class="mg-c-menu-item__navigation-button-chevron">
+            <mg-icon>
+              <template shadowrootmode="open">
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+                </svg>
+              </template>
+            </mg-icon>
+          </span>
+        </button>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <template shadowrootmode="open">
+            <mg-card class="mg-c-popover-content">
+              <div class="mg-c-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </template>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
+      </mg-popover>
+    </template>
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -2063,7 +1985,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-menu aria-label="child menu" direction="horizontal" role="list">
+        <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -2111,7 +2033,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </template>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2119,7 +2041,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot name="information"></slot>
             </div>
           </div>
-          <span class="mg-c-menu-item__navigation-button-chevron">
+          <span class="mg-c-menu-item__navigation-button-chevron mg-c-menu-item__navigation-button-chevron--rotate">
             <mg-icon>
               <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -2129,7 +2051,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2146,7 +2068,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -2192,7 +2114,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-menu aria-label="child menu" direction="horizontal" role="list">
+        <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -2240,7 +2162,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </template>
-        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
+        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2248,7 +2170,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot name="information"></slot>
             </div>
           </div>
-          <span class="mg-c-menu-item__navigation-button-chevron">
+          <span class="mg-c-menu-item__navigation-button-chevron mg-c-menu-item__navigation-button-chevron--rotate">
             <mg-icon>
               <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -2258,7 +2180,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2275,7 +2197,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -2321,7 +2243,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-menu aria-label="child menu" direction="horizontal" role="list">
+        <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -2369,7 +2291,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </template>
-        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
+        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2377,7 +2299,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot name="information"></slot>
             </div>
           </div>
-          <span class="mg-c-menu-item__navigation-button-chevron mg-c-menu-item__navigation-button-chevron--rotate">
+          <span class="mg-c-menu-item__navigation-button-chevron">
             <mg-icon>
               <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -2387,7 +2309,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2404,7 +2326,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -2415,7 +2337,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot></slot>
               <slot name="content"></slot>
             </template>
-            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
+            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
               <slot name="image"></slot>
               <div class="mg-c-menu-item__navigation-button-center">
                 <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2423,7 +2345,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   <slot name="information"></slot>
                 </div>
               </div>
-              <span class="mg-c-menu-item__navigation-button-chevron mg-c-menu-item__navigation-button-chevron--rotate">
+              <span class="mg-c-menu-item__navigation-button-chevron">
                 <mg-icon>
                   <template shadowrootmode="open">
                     <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -2433,7 +2355,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                 </mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden data-show id="mg-popover-test_1" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_1" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -2450,7 +2372,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-menu aria-label="child menu" direction="horizontal" role="list">
+        <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -2465,7 +2387,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   </div>
                 </div>
               </button>
-              <div class="mg-c-menu-item__collapse-container">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </template>
@@ -2498,7 +2420,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </template>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2506,7 +2428,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot name="information"></slot>
             </div>
           </div>
-          <span class="mg-c-menu-item__navigation-button-chevron mg-c-menu-item__navigation-button-chevron--rotate">
+          <span class="mg-c-menu-item__navigation-button-chevron">
             <mg-icon>
               <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -2516,7 +2438,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2560,7 +2482,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </template>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2568,7 +2490,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot name="information"></slot>
             </div>
           </div>
-          <span class="mg-c-menu-item__navigation-button-chevron">
+          <span class="mg-c-menu-item__navigation-button-chevron mg-c-menu-item__navigation-button-chevron--rotate">
             <mg-icon>
               <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -2578,7 +2500,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2711,7 +2633,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -2789,7 +2711,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -2867,7 +2789,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -2913,7 +2835,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-menu aria-label="child menu" direction="horizontal" role="list">
+        <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -2996,7 +2918,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -3042,7 +2964,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-menu aria-label="child menu" direction="horizontal" role="list">
+        <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -3125,7 +3047,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -3171,7 +3093,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-menu aria-label="child menu" direction="horizontal" role="list">
+        <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -3254,7 +3176,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -3300,7 +3222,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-menu aria-label="child menu" direction="horizontal" role="list">
+        <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
           <template shadowrootmode="open">
             <slot></slot>
           </template>
@@ -3456,6 +3378,460 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
     <span slot="label" title="Batman">
       Batman
     </span>
+  </mg-menu-item>
+</mg-menu>
+`;
+
+exports[`mg-menu-item render Should manage "data-overflow-more" attribute 1`] = `
+<mg-menu aria-label="menu" direction="horizontal" role="list">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <mg-menu-item data-overflow-more data-style-direction="horizontal" identifier="identifier-1" role="presentation" status="visible">
+    <template shadowrootmode="open">
+      <mg-popover data-fallback-placement="bottom-end">
+        <template shadowrootmode="open">
+          <slot></slot>
+          <slot name="content"></slot>
+        </template>
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-undefined mg-c-menu-item__navigation-button--visible">
+          <slot name="image"></slot>
+          <div class="mg-c-menu-item__navigation-button-center">
+            <div class="mg-c-menu-item__navigation-button-text-content">
+              <slot name="label"></slot>
+              <slot name="information"></slot>
+            </div>
+            <slot name="metadata"></slot>
+          </div>
+          <span class="mg-c-menu-item__navigation-button-chevron">
+            <mg-icon>
+              <template shadowrootmode="open">
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+                </svg>
+              </template>
+            </mg-icon>
+          </span>
+        </button>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <template shadowrootmode="open">
+            <mg-card class="mg-c-popover-content">
+              <div class="mg-c-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </template>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
+      </mg-popover>
+    </template>
+    <span slot="label" title="level 1">
+      level 1
+    </span>
+    <mg-menu aria-label="sub menu 1" data-mg-popover-guard="identifier-1-popover" direction="horizontal" role="list">
+      <template shadowrootmode="open">
+        <slot></slot>
+      </template>
+      <mg-menu-item data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
+        <template shadowrootmode="open">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+            <slot name="image"></slot>
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
+                <slot name="label"></slot>
+                <slot name="information"></slot>
+              </div>
+            </div>
+          </button>
+          <div class="mg-c-menu-item__collapse-container" hidden="">
+            <slot></slot>
+          </div>
+        </template>
+        <span slot="label" title="level 2">
+          level 2
+        </span>
+      </mg-menu-item>
+    </mg-menu>
+  </mg-menu-item>
+</mg-menu>
+`;
+
+exports[`mg-menu-item render Should manage "data-overflow-more" attribute 2`] = `
+<mg-menu aria-label="menu" direction="horizontal" role="list">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <mg-menu-item data-overflow-more data-style-direction="vertical" identifier="identifier-1" role="presentation" status="visible">
+    <template shadowrootmode="open">
+      <mg-popover data-fallback-placement="bottom-end">
+        <template shadowrootmode="open">
+          <slot></slot>
+          <slot name="content"></slot>
+        </template>
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-undefined mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+          <slot name="image"></slot>
+          <div class="mg-c-menu-item__navigation-button-center">
+            <div class="mg-c-menu-item__navigation-button-text-content">
+              <slot name="label"></slot>
+              <slot name="information"></slot>
+            </div>
+            <slot name="metadata"></slot>
+          </div>
+          <span class="mg-c-menu-item__navigation-button-chevron">
+            <mg-icon>
+              <template shadowrootmode="open">
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+                </svg>
+              </template>
+            </mg-icon>
+          </span>
+        </button>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <template shadowrootmode="open">
+            <mg-card class="mg-c-popover-content">
+              <div class="mg-c-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </template>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-c-menu-item__collapse-container" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
+      </mg-popover>
+    </template>
+    <span slot="label" title="level 1">
+      level 1
+    </span>
+    <mg-menu aria-label="sub menu 1" data-mg-popover-guard="identifier-1-popover" direction="horizontal" role="list">
+      <template shadowrootmode="open">
+        <slot></slot>
+      </template>
+      <mg-menu-item data-level="2" data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
+        <template shadowrootmode="open">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+            <slot name="image"></slot>
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
+                <slot name="label"></slot>
+                <slot name="information"></slot>
+              </div>
+            </div>
+          </button>
+          <div class="mg-c-menu-item__collapse-container" hidden="">
+            <slot></slot>
+          </div>
+        </template>
+        <span slot="label" title="level 2">
+          level 2
+        </span>
+      </mg-menu-item>
+    </mg-menu>
+  </mg-menu-item>
+</mg-menu>
+`;
+
+exports[`mg-menu-item render Should manage "data-overflow-more" attribute 3`] = `
+<mg-menu aria-label="menu" direction="horizontal" role="list">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <mg-menu-item data-overflow-more data-style-direction="horizontal" identifier="identifier-1" role="presentation" status="visible">
+    <template shadowrootmode="open">
+      <mg-popover data-fallback-placement="bottom-end">
+        <template shadowrootmode="open">
+          <slot></slot>
+          <slot name="content"></slot>
+        </template>
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-undefined mg-c-menu-item__navigation-button--visible">
+          <slot name="image"></slot>
+          <div class="mg-c-menu-item__navigation-button-center">
+            <div class="mg-c-menu-item__navigation-button-text-content">
+              <slot name="label"></slot>
+              <slot name="information"></slot>
+            </div>
+            <slot name="metadata"></slot>
+          </div>
+          <span class="mg-c-menu-item__navigation-button-chevron">
+            <mg-icon>
+              <template shadowrootmode="open">
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+                </svg>
+              </template>
+            </mg-icon>
+          </span>
+        </button>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <template shadowrootmode="open">
+            <mg-card class="mg-c-popover-content">
+              <div class="mg-c-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </template>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
+      </mg-popover>
+    </template>
+    <span slot="label" title="level 1">
+      level 1
+    </span>
+    <mg-menu aria-label="sub menu 1" data-mg-popover-guard="identifier-1-popover" direction="horizontal" role="list">
+      <template shadowrootmode="open">
+        <slot></slot>
+      </template>
+      <mg-menu-item data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
+        <template shadowrootmode="open">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+            <slot name="image"></slot>
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
+                <slot name="label"></slot>
+                <slot name="information"></slot>
+              </div>
+            </div>
+          </button>
+          <div class="mg-c-menu-item__collapse-container" hidden="">
+            <slot></slot>
+          </div>
+        </template>
+        <span slot="label" title="level 2">
+          level 2
+        </span>
+      </mg-menu-item>
+    </mg-menu>
+  </mg-menu-item>
+</mg-menu>
+`;
+
+exports[`mg-menu-item render Should manage "data-overflow-more" attribute 4`] = `
+<mg-menu aria-label="menu" direction="horizontal" role="list">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <mg-menu-item data-overflow-more data-style-direction="vertical" identifier="identifier-1" role="presentation" status="visible">
+    <template shadowrootmode="open">
+      <mg-popover data-fallback-placement="bottom-end">
+        <template shadowrootmode="open">
+          <slot></slot>
+          <slot name="content"></slot>
+        </template>
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-undefined mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+          <slot name="image"></slot>
+          <div class="mg-c-menu-item__navigation-button-center">
+            <div class="mg-c-menu-item__navigation-button-text-content">
+              <slot name="label"></slot>
+              <slot name="information"></slot>
+            </div>
+            <slot name="metadata"></slot>
+          </div>
+          <span class="mg-c-menu-item__navigation-button-chevron">
+            <mg-icon>
+              <template shadowrootmode="open">
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+                </svg>
+              </template>
+            </mg-icon>
+          </span>
+        </button>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <template shadowrootmode="open">
+            <mg-card class="mg-c-popover-content">
+              <div class="mg-c-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </template>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-c-menu-item__collapse-container" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
+      </mg-popover>
+    </template>
+    <span slot="label" title="level 1">
+      level 1
+    </span>
+    <mg-menu aria-label="sub menu 1" data-mg-popover-guard="identifier-1-popover" direction="horizontal" role="list">
+      <template shadowrootmode="open">
+        <slot></slot>
+      </template>
+      <mg-menu-item data-level="2" data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
+        <template shadowrootmode="open">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+            <slot name="image"></slot>
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
+                <slot name="label"></slot>
+                <slot name="information"></slot>
+              </div>
+            </div>
+          </button>
+          <div class="mg-c-menu-item__collapse-container" hidden="">
+            <slot></slot>
+          </div>
+        </template>
+        <span slot="label" title="level 2">
+          level 2
+        </span>
+      </mg-menu-item>
+    </mg-menu>
+  </mg-menu-item>
+</mg-menu>
+`;
+
+exports[`mg-menu-item render Should update direction from "data-style-direction" attribute update 1`] = `
+<mg-menu aria-label="menu" direction="horizontal" role="list">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <mg-popover data-fallback-placement="bottom-end">
+        <template shadowrootmode="open">
+          <slot></slot>
+          <slot name="content"></slot>
+        </template>
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+          <slot name="image"></slot>
+          <div class="mg-c-menu-item__navigation-button-center">
+            <div class="mg-c-menu-item__navigation-button-text-content">
+              <slot name="label"></slot>
+              <slot name="information"></slot>
+            </div>
+          </div>
+          <span class="mg-c-menu-item__navigation-button-chevron">
+            <mg-icon>
+              <template shadowrootmode="open">
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+                </svg>
+              </template>
+            </mg-icon>
+          </span>
+        </button>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <template shadowrootmode="open">
+            <mg-card class="mg-c-popover-content">
+              <div class="mg-c-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </template>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
+      </mg-popover>
+    </template>
+    <span slot="label" title="level 1">
+      level 1
+    </span>
+    <mg-menu aria-label="sub menu 1" data-mg-popover-guard="identifier-1-popover" direction="horizontal" role="list">
+      <template shadowrootmode="open">
+        <slot></slot>
+      </template>
+      <mg-menu-item data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
+        <template shadowrootmode="open">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+            <slot name="image"></slot>
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
+                <slot name="label"></slot>
+                <slot name="information"></slot>
+              </div>
+            </div>
+          </button>
+          <div class="mg-c-menu-item__collapse-container" hidden="">
+            <slot></slot>
+          </div>
+        </template>
+        <span slot="label" title="level 2">
+          level 2
+        </span>
+      </mg-menu-item>
+    </mg-menu>
+  </mg-menu-item>
+</mg-menu>
+`;
+
+exports[`mg-menu-item render Should update direction from "data-style-direction" attribute update 2`] = `
+<mg-menu aria-label="menu" direction="horizontal" role="list">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+        <slot name="image"></slot>
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
+            <slot name="label"></slot>
+            <slot name="information"></slot>
+          </div>
+        </div>
+        <span class="mg-c-menu-item__navigation-button-chevron">
+          <mg-icon>
+            <template shadowrootmode="open">
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+              </svg>
+            </template>
+          </mg-icon>
+        </span>
+      </button>
+      <div class="mg-c-menu-item__collapse-container" hidden="">
+        <slot></slot>
+      </div>
+    </template>
+    <span slot="label" title="level 1">
+      level 1
+    </span>
+    <mg-menu aria-label="sub menu 1" data-mg-popover-guard="identifier-1-popover" direction="horizontal" role="list">
+      <template shadowrootmode="open">
+        <slot></slot>
+      </template>
+      <mg-menu-item data-level="2" data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
+        <template shadowrootmode="open">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+            <slot name="image"></slot>
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
+                <slot name="label"></slot>
+                <slot name="information"></slot>
+              </div>
+            </div>
+          </button>
+          <div class="mg-c-menu-item__collapse-container" hidden="">
+            <slot></slot>
+          </div>
+        </template>
+        <span slot="label" title="level 2">
+          level 2
+        </span>
+      </mg-menu-item>
+    </mg-menu>
   </mg-menu-item>
 </mg-menu>
 `;
@@ -3708,19 +4084,37 @@ exports[`mg-menu-item render with args { label: 'Batman', overflow: true } 1`] =
   </template>
   <mg-menu-item data-overflow-more data-style-direction="horizontal" identifier="identifier" label="Batman" overflow="" role="presentation" status="visible">
     <template shadowrootmode="open">
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-undefined mg-c-menu-item__navigation-button--visible">
-        <slot name="image"></slot>
-        <div class="mg-c-menu-item__navigation-button-center">
-          <div class="mg-c-menu-item__navigation-button-text-content">
-            <slot name="label"></slot>
-            <slot name="information"></slot>
+      <mg-popover data-fallback-placement="bottom-end">
+        <template shadowrootmode="open">
+          <slot></slot>
+          <slot name="content"></slot>
+        </template>
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-undefined mg-c-menu-item__navigation-button--visible">
+          <slot name="image"></slot>
+          <div class="mg-c-menu-item__navigation-button-center">
+            <div class="mg-c-menu-item__navigation-button-text-content">
+              <slot name="label"></slot>
+              <slot name="information"></slot>
+            </div>
+            <slot name="metadata"></slot>
           </div>
-          <slot name="metadata"></slot>
-        </div>
-      </button>
-      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
-        <slot></slot>
-      </div>
+        </button>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <template shadowrootmode="open">
+            <mg-card class="mg-c-popover-content">
+              <div class="mg-c-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </template>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
+      </mg-popover>
     </template>
     <span slot="label" title="Batman">
       Batman
@@ -3776,7 +4170,7 @@ exports[`mg-menu-item render with expanded and sub-menu false 1`] = `
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -3854,7 +4248,7 @@ exports[`mg-menu-item render with expanded and sub-menu false 2`] = `
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -3886,84 +4280,6 @@ exports[`mg-menu-item render with expanded and sub-menu false 2`] = `
 `;
 
 exports[`mg-menu-item render with expanded and sub-menu true 1`] = `
-<mg-menu aria-label="menu" direction="horizontal" role="list">
-  <template shadowrootmode="open">
-    <slot></slot>
-  </template>
-  <mg-menu-item data-style-direction="horizontal" identifier="identifier" label="Batman" role="listitem" status="visible">
-    <template shadowrootmode="open">
-      <mg-popover data-fallback-placement="bottom-end">
-        <template shadowrootmode="open">
-          <slot></slot>
-          <slot name="content"></slot>
-        </template>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-          <slot name="image"></slot>
-          <div class="mg-c-menu-item__navigation-button-center">
-            <div class="mg-c-menu-item__navigation-button-text-content">
-              <slot name="label"></slot>
-              <slot name="information"></slot>
-            </div>
-          </div>
-          <span class="mg-c-menu-item__navigation-button-chevron mg-c-menu-item__navigation-button-chevron--rotate">
-            <mg-icon>
-              <template shadowrootmode="open">
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
-                </svg>
-              </template>
-            </mg-icon>
-          </span>
-        </button>
-        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-          <template shadowrootmode="open">
-            <mg-card class="mg-c-popover-content">
-              <div class="mg-c-popover-content__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-            <slot name="arrow"></slot>
-          </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
-          <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
-            <slot></slot>
-          </div>
-        </mg-popover-content>
-      </mg-popover>
-    </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
-      <template shadowrootmode="open">
-        <slot></slot>
-      </template>
-      <mg-menu-item data-style-direction="horizontal" identifier="identifier" label="child menu item" role="listitem" status="visible">
-        <template shadowrootmode="open">
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
-            <slot name="image"></slot>
-            <div class="mg-c-menu-item__navigation-button-center">
-              <div class="mg-c-menu-item__navigation-button-text-content">
-                <slot name="label"></slot>
-                <slot name="information"></slot>
-              </div>
-            </div>
-          </button>
-          <div class="mg-c-menu-item__collapse-container" hidden="">
-            <slot></slot>
-          </div>
-        </template>
-        <span slot="label" title="child menu item">
-          child menu item
-        </span>
-      </mg-menu-item>
-    </mg-menu>
-    <span slot="label" title="Batman">
-      Batman
-    </span>
-  </mg-menu-item>
-</mg-menu>
-`;
-
-exports[`mg-menu-item render with expanded and sub-menu true 2`] = `
 <mg-menu aria-label="menu" direction="horizontal" role="list">
   <template shadowrootmode="open">
     <slot></slot>
@@ -4010,7 +4326,85 @@ exports[`mg-menu-item render with expanded and sub-menu true 2`] = `
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
+      <template shadowrootmode="open">
+        <slot></slot>
+      </template>
+      <mg-menu-item data-style-direction="horizontal" identifier="identifier" label="child menu item" role="listitem" status="visible">
+        <template shadowrootmode="open">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+            <slot name="image"></slot>
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
+                <slot name="label"></slot>
+                <slot name="information"></slot>
+              </div>
+            </div>
+          </button>
+          <div class="mg-c-menu-item__collapse-container" hidden="">
+            <slot></slot>
+          </div>
+        </template>
+        <span slot="label" title="child menu item">
+          child menu item
+        </span>
+      </mg-menu-item>
+    </mg-menu>
+    <span slot="label" title="Batman">
+      Batman
+    </span>
+  </mg-menu-item>
+</mg-menu>
+`;
+
+exports[`mg-menu-item render with expanded and sub-menu true 2`] = `
+<mg-menu aria-label="menu" direction="horizontal" role="list">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <mg-menu-item data-style-direction="horizontal" identifier="identifier" label="Batman" role="listitem" status="visible">
+    <template shadowrootmode="open">
+      <mg-popover data-fallback-placement="bottom-end">
+        <template shadowrootmode="open">
+          <slot></slot>
+          <slot name="content"></slot>
+        </template>
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+          <slot name="image"></slot>
+          <div class="mg-c-menu-item__navigation-button-center">
+            <div class="mg-c-menu-item__navigation-button-text-content">
+              <slot name="label"></slot>
+              <slot name="information"></slot>
+            </div>
+          </div>
+          <span class="mg-c-menu-item__navigation-button-chevron mg-c-menu-item__navigation-button-chevron--rotate">
+            <mg-icon>
+              <template shadowrootmode="open">
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+                </svg>
+              </template>
+            </mg-icon>
+          </span>
+        </button>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <template shadowrootmode="open">
+            <mg-card class="mg-c-popover-content">
+              <div class="mg-c-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </template>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
+      </mg-popover>
+    </template>
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -4088,7 +4482,7 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 1`] = `
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -4166,7 +4560,7 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 2`] = `
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="horizontal" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="horizontal" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -4267,7 +4661,7 @@ exports[`mg-menu-item render with expanded true 1`] = `
           </div>
         </div>
       </button>
-      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </template>
@@ -4294,7 +4688,7 @@ exports[`mg-menu-item render with expanded true 2`] = `
           </div>
         </div>
       </button>
-      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level">
         <slot></slot>
       </div>
     </template>
@@ -4865,7 +5259,7 @@ exports[`mg-menu-item render with vertical sub-menu 1`] = `
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="vertical" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="vertical" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>
@@ -4976,7 +5370,7 @@ exports[`mg-menu-item render with vertical sub-menu 2`] = `
         </mg-popover-content>
       </mg-popover>
     </template>
-    <mg-menu aria-label="child menu" direction="vertical" role="list">
+    <mg-menu aria-label="child menu" data-mg-popover-guard="identifier-popover" direction="vertical" role="list">
       <template shadowrootmode="open">
         <slot></slot>
       </template>

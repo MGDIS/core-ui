@@ -1,5 +1,6 @@
 import { Component, h, Prop, Element, Host, Watch, State } from '@stencil/core';
-import { isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
+import { toString } from '@mgdis/stencil-helpers';
+// import { isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import type { IconType, SizeType, SlotLabelType } from './mg-item-more.conf';
 import type { MessageType } from '../../../../locales/index.conf';
 import { OverflowBehavior } from '../../../../utils/behaviors.utils';
@@ -20,9 +21,8 @@ export class MgItemMore {
    ************/
   private readonly name = 'mg-item-more';
   private messages: MessageType;
-  private parentMenuItems: HTMLMgMenuItemElement[];
-  private moreElementMenuItem: HTMLMgMenuItemElement;
   private overflowBehavior: OverflowBehavior;
+  private itemMoreContainer: HTMLMgMenuElement
 
   /**************
    * Decorators *
@@ -68,79 +68,6 @@ export class MgItemMore {
    */
   @State() parentMenu: HTMLMgMenuElement;
 
-  /**
-   * Set proxy element properties and listeners
-   * @param proxified - element to proxify from
-   */
-  private setProxyElement = (proxified: HTMLMgMenuItemElement): void => {
-    const proxy: HTMLMgMenuItemElement = this.moreElementMenuItem.querySelector(`[identifier="${proxified.identifier}"]`);
-    if (proxy === null) {
-      return;
-    }
-
-    // remove proxy id to prevent duplicate key. default html id is: '';
-    if (isValidString(proxy.id)) proxy.id = '';
-
-    const proxyClickHandler = (): void => {
-      this.parentMenu
-        .querySelector(`[identifier="${proxy.identifier}"]`)
-        .shadowRoot.querySelector('a, button')
-        .dispatchEvent(new MouseEvent('click', { bubbles: true }));
-    };
-
-    // Watch the `item-updated` event to keep element needeed properties and innerHTML in sync between the proxified and the proxy elements
-    const updateProxy = (element: HTMLMgMenuItemElement): void => {
-      for (const key in element) {
-        if (['identifier', 'href', 'targer', 'status', 'expanded'].includes(key)) element[key] ? proxy.setAttribute(key, element[key]) : proxy.removeAttribute(key);
-      }
-
-      proxy.innerHTML = element.innerHTML;
-      // When `href` is updated we need to wait the full component re-render before update its handler
-      setTimeout(() => {
-        const interactiveElement = proxy.shadowRoot.querySelector('a, button');
-        interactiveElement?.removeEventListener('click', proxyClickHandler);
-        interactiveElement?.addEventListener('click', proxyClickHandler);
-      });
-    };
-
-    updateProxy(proxified);
-
-    proxified.addEventListener('item-updated', event => {
-      updateProxy(event.target);
-    });
-
-    // update click event listener on proxy item and mirror the event on the main menu element
-    // we need to wait mg-menu-item to be loaded to ensure the shadowroot is rendered
-    proxy.addEventListener('item-loaded', () => {
-      updateProxy(proxified);
-    });
-  };
-
-  /***********
-   * Methods *
-   ***********/
-
-  /**
-   * render mg-item-more overflow element
-   * @returns mg-item-more element
-   */
-  private renderMgMenuItemOverflowElement = (): HTMLMgItemMoreElement => {
-    this.parentMenuItems.forEach((child: HTMLMgMenuItemElement) => {
-      // create item-more menu items element from main menu-items clones
-      this.moreElementMenuItem.querySelector('mg-menu').appendChild(child.cloneNode(true));
-
-      // we need to get all `mg-menu-item` linked to the cloned one to set mirror process
-      nextTick(() => {
-        this.setProxyElement(child);
-        if (child.querySelector('mg-menu') !== null) {
-          child.querySelectorAll('mg-menu-item').forEach(this.setProxyElement);
-        }
-      });
-    });
-
-    return this.element;
-  };
-
   /*************
    * Lifecycle *
    *************/
@@ -174,8 +101,7 @@ export class MgItemMore {
    */
   componentDidUpdate(): void {
     if (this.parentMenu && this.overflowBehavior === undefined) {
-      this.parentMenuItems = Array.from(this.parentMenu.children).filter(item => item.nodeName === 'MG-MENU-ITEM') as HTMLMgMenuItemElement[];
-      this.overflowBehavior = new OverflowBehavior(this.parentMenu, this.renderMgMenuItemOverflowElement);
+      this.overflowBehavior = new OverflowBehavior(this.parentMenu, this.element, this.itemMoreContainer);
     }
   }
 
@@ -191,24 +117,21 @@ export class MgItemMore {
    * @returns HTML Element
    */
   render(): HTMLElement {
+    const menuItemIdentifier = "mg-item-more"
     return (
-      <Host role="listitem">
+      <Host role="listitem" data-mg-popover-guard={`${menuItemIdentifier}-popover`}>
         {this.parentMenu && (
           <mg-menu-item
             data-overflow-more
             data-size={this.parentMenu.size}
-            identifier="mg-item-more"
-            ref={el => {
-              if (el !== null) {
-                this.moreElementMenuItem = el;
-              }
-            }}
+            data-style-direction={Direction.HORIZONTAL}
+            identifier={menuItemIdentifier}
           >
             <mg-icon icon={this.icon.icon} size={this.size} slot="image"></mg-icon>
             <span class={{ 'mg-u-visually-hidden': !this.slotlabel.display }} slot="label">
               {this.slotlabel.label}
             </span>
-            <mg-menu direction={Direction.VERTICAL} label={this.messages.menuLabel} size={this.size}></mg-menu>
+            <mg-menu direction={Direction.VERTICAL} label={this.messages.menuLabel} size={this.size} ref={(ref) => {if (ref !== null) this.itemMoreContainer = ref}}></mg-menu>
           </mg-menu-item>
         )}
       </Host>

@@ -74,11 +74,55 @@ describe('behavior.utils', () => {
         fireRo([{ contentRect: { width } }]);
 
         expect(page.root).toMatchSnapshot();
+
+        fireRo([{ contentRect: { width: 350 } }, { contentRect: { width: 250 } }]);
+        expect(page.root).toMatchSnapshot();
       });
     });
 
-    test('Should fire disconnect callback', () => {
-      const behavior = new OverflowBehavior(<div></div>, () => <span></span>);
+    test.each(['parentElement', 'itemMoreElement', 'itemMoreContainerElement'])('Should throw error when missing construtor param %s', async (param) => {
+      expect.assertions(1)
+      const page = await newSpecPage({
+        components: [],
+        template: () => (
+          <ul>
+            <li></li>
+            <li>
+              <ul></ul>
+            </li>
+          </ul>
+          ),
+      });
+      let itemMoreContainerElement
+      if(param !== 'itemMoreContainerElement') itemMoreContainerElement = page.doc.querySelector('ul > li > ul') as HTMLElement;
+      let itemMoreElement
+      if(param !== 'itemMoreElement') itemMoreElement = page.doc.querySelector('ul > li:last-of-type') as HTMLElement;
+      let parentElement
+      if(param !== 'parentElement') parentElement = page.doc.querySelector('ul');
+      
+      try {
+        new OverflowBehavior(parentElement, itemMoreElement, itemMoreContainerElement);
+      } catch (err) {
+        expect(err.message).toEqual(`OverflowBehavior - all construtor params are required`);
+      }
+    })
+
+    test('Should fire disconnect callback', async () => {
+      const page = await newSpecPage({
+        components: [],
+        template: () => (
+          <ul>
+            <li></li>
+            <li>
+              <ul></ul>
+            </li>
+          </ul>
+          ),
+      });
+      const itemMoreContainerElement = page.doc.querySelector('ul > li > ul') as HTMLElement;
+      const itemMoreElement = page.doc.querySelector('ul > li:last-of-type') as HTMLElement;
+      const parentElement = page.doc.querySelector('ul');
+      const behavior = new OverflowBehavior(parentElement, itemMoreElement, itemMoreContainerElement);
       const spy = jest.spyOn((behavior as unknown as { _resizeObserver: never })._resizeObserver, 'disconnect');
       behavior.disconnect();
 

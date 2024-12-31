@@ -7,7 +7,6 @@ import { MgMenu } from '../../../menu/mg-menu/mg-menu';
 import { MgMenuItem } from '../../../menu/mg-menu-item/mg-menu-item';
 import { MgPopover } from '../../../mg-popover/mg-popover';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
-import { Status } from '../../../menu/mg-menu-item/mg-menu-item.conf';
 
 mockWindowFrames();
 
@@ -77,7 +76,7 @@ const getPage = async args => {
 };
 
 describe('mg-item-more', () => {
-  let fireMo = beforeEach(() => {
+  beforeEach(() => {
     id = 1;
     jest.useFakeTimers({ legacyFakeTimers: true });
     setupResizeObserverMock({
@@ -86,9 +85,7 @@ describe('mg-item-more', () => {
     });
     setupMutationObserverMock({
       disconnect: () => null,
-      observe: function () {
-        fireMo = this.cb;
-      },
+      observe: () => null,
       takeRecords: () => null,
     });
   });
@@ -103,35 +100,6 @@ describe('mg-item-more', () => {
         expect(page.root).toMatchSnapshot();
       },
     );
-    test('should manage broken proxy link with parent', async () => {
-      const page = await getPage({ label: 'batman' });
-      const itemSelector = 'mg-menu-item[identifier="identifier-2"]';
-      const proxifiedMenuItem = page.doc.querySelector(itemSelector);
-      const proxyMenuItem = page.doc.querySelector('mg-item-more').shadowRoot.querySelector(itemSelector);
-
-      proxyMenuItem.identifier = 'new-identifier';
-      proxifiedMenuItem.dispatchEvent(new CustomEvent('item-updated'));
-
-      await page.waitForChanges();
-      jest.runOnlyPendingTimers();
-
-      expect(page.root).toMatchSnapshot();
-    });
-
-    test('should manage proxy DOM', async () => {
-      const page = await getPage({ label: 'batman' });
-      const itemSelector = 'mg-menu-item[identifier="identifier-2"]';
-      const proxifiedMenuItem = page.doc.querySelector(itemSelector);
-      const proxyMenuItem = page.doc.querySelector('mg-item-more').shadowRoot.querySelector(itemSelector);
-
-      proxyMenuItem.shadowRoot.querySelector('a,button').remove();
-      proxifiedMenuItem.dispatchEvent(new CustomEvent('item-updated'));
-
-      await page.waitForChanges();
-      jest.runOnlyPendingTimers();
-
-      expect(page.root).toMatchSnapshot();
-    });
   });
 
   describe('errors', () => {
@@ -159,63 +127,6 @@ describe('mg-item-more', () => {
       } catch (err) {
         expect(err.message).toEqual(error);
       }
-    });
-  });
-
-  describe('events', () => {
-    test('Should update proxy status when base item item-updated event was trigger', async () => {
-      const page = await getPage({ label: 'batman' });
-
-      expect(page.root).toMatchSnapshot();
-
-      const mgMenuItemBase = page.doc.querySelector('mg-menu-item');
-      const mgMenuItemProxy = page.doc.querySelector('mg-item-more').shadowRoot.querySelector('mg-menu mg-menu-item');
-      expect(mgMenuItemProxy).toHaveProperty('status', Status.VISIBLE);
-
-      mgMenuItemBase.status = Status.ACTIVE;
-      await page.waitForChanges();
-
-      mgMenuItemBase.dispatchEvent(new CustomEvent('item-updated', { bubbles: true }));
-
-      await page.waitForChanges();
-      expect(mgMenuItemProxy).toHaveProperty('status', Status.ACTIVE);
-
-      udpateItemMorePopoverId(page);
-      expect(page.root).toMatchSnapshot();
-    });
-
-    test('Should update proxy property when base item MutationObserver was trigger', async () => {
-      const page = await getPage({ label: 'batman' });
-
-      expect(page.root).toMatchSnapshot();
-
-      const mgMenuItemBase = page.doc.querySelector('mg-menu-item');
-      const mgMenuItemProxy = page.doc.querySelector('mg-item-more').shadowRoot.querySelector('mg-menu mg-menu-item');
-      expect(mgMenuItemBase).toHaveProperty('status', Status.VISIBLE);
-      mgMenuItemBase.status = Status.ACTIVE;
-
-      await page.waitForChanges();
-      fireMo([]);
-
-      expect(mgMenuItemProxy).toHaveProperty('status', Status.ACTIVE);
-
-      udpateItemMorePopoverId(page);
-      expect(page.root).toMatchSnapshot();
-    });
-
-    test.each([false, true])('should trigger base item click event when proxy item was clicked', async isHref => {
-      const page = await getPage({ label: 'batman', isHref });
-
-      const mgMenuItemBase = page.doc.querySelector('mg-menu-item');
-      const mgMenuItemProxy = page.doc.querySelector('mg-item-more').shadowRoot.querySelector('mg-menu mg-menu-item');
-      const spy = jest.spyOn(mgMenuItemBase.shadowRoot.querySelector(isHref ? 'a' : 'button'), 'dispatchEvent');
-
-      mgMenuItemProxy.shadowRoot.querySelector(isHref ? 'a' : 'button').dispatchEvent(new MouseEvent('click', { bubbles: true }));
-      await page.waitForChanges();
-
-      expect(spy).toHaveBeenCalledWith(expect.objectContaining({ type: 'click' }));
-
-      expect(page.root).toMatchSnapshot();
     });
   });
 

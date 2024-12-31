@@ -1,4 +1,4 @@
-import { Component, h, Prop, State, Element, Watch, Host } from '@stencil/core';
+import { Component, h, Prop, Element, Watch, Host } from '@stencil/core';
 import { Direction, sizes } from './mg-menu.conf';
 import type { MenuSizeType, ItemMoreType, DirectionType } from './mg-menu.conf';
 import { toString } from '@mgdis/stencil-helpers';
@@ -50,6 +50,8 @@ export class MgMenu {
   validateDirection(newValue: MgMenu['direction']): void {
     if (![Direction.VERTICAL, Direction.HORIZONTAL].includes(newValue)) {
       throw new Error(`<${this.name}> prop "direction" must be one of: ${Direction.HORIZONTAL}, ${Direction.VERTICAL}. Passed value: ${toString(newValue)}.`);
+    } else {
+      this.setMenuItems();
     }
   }
 
@@ -78,31 +80,15 @@ export class MgMenu {
     }
   }
 
-  /**
-   * is this menu a child menu. Used for conditional render.
-   */
-  @State() isChildMenu: boolean;
-
   /*************
    * Methods *
    *************/
 
   /**
-   * Close matching menu-item
-   * @param item - menu-item to close
-   * @param condition - addionnal condition
+   * Test if menu is a child menu
+   * @returns truthy if menu is a child menu
    */
-  private closeMenuItem = (item: HTMLMgMenuItemElement, condition: boolean): void => {
-    if (!this.isChildMenu && condition) {
-      item.expanded = false;
-    }
-  };
-
-  /**
-   * get mg-item-more child mg-menu-item element
-   * @returns mg-menu-item element
-   */
-  private getItemMoreMenuItem = (): HTMLMgMenuItemElement => this.itemMoreElement?.shadowRoot?.querySelector('mg-menu-item');
+  private isChildMenu = (): boolean => this.element.closest('mg-menu-item') !== null;
 
   /**
    * Set item listend
@@ -110,59 +96,56 @@ export class MgMenu {
    * @param index - number
    */
   private setItemListener = (item: HTMLMgMenuItemElement, index: MgMenu['focusedMenuItem']): void => {
+    const interactiveElement = item.shadowRoot.querySelector('button,a');
+    // disable menu
+    if(!interactiveElement) return;
+
     ['click', 'focus'].forEach(trigger => {
-      item.shadowRoot.querySelector('button,a').addEventListener(trigger, () => {
+      interactiveElement.addEventListener(trigger, () => {
         this.focusedMenuItem = index;
         // reset expanded on previous active menu item
-        const itemMoreMenuItem = this.getItemMoreMenuItem();
+        const itemMoreMenuItem = this.itemMoreElement?.shadowRoot?.querySelector('mg-menu-item');
         (![null, undefined].includes(itemMoreMenuItem) ? [...this.menuItems, itemMoreMenuItem] : this.menuItems).forEach((item, index) => {
-          this.closeMenuItem(item, index !== this.focusedMenuItem);
+          if (!this.isChildMenu() && index !== this.focusedMenuItem) item.expanded = false;
         });
       });
     });
   };
 
   /**
-   * Store menu-items on component init and add listeners
+   * Set menu items
    */
-  private initMenuItemsListeners = (): void => {
-    // add listeners on menu item and edit index
+  private setMenuItems = (): void => {
+    this.menuItems = Array.from(this.element.children).filter(child => child.nodeName === 'MG-MENU-ITEM') as HTMLMgMenuItemElement[];
     this.menuItems.forEach((item, index) => {
+      item.dataset.styleDirection = this.direction
       this.setItemListener(item, index);
-    });
-  };
+    })
 
-  /**
-   * Handle item-loaded event on mg-item-more element
-   */
-  private handleItemLoaded = (): void => {
-    this.setItemListener(this.getItemMoreMenuItem(), this.menuItems.length);
-  };
+    // render mg-item-more to manage OverflowBehavior
+    this.renderMgItemMore();
+  }
 
   /**
    * render mg-item-more
    */
   private renderMgItemMore = (): void => {
-    if (this.direction !== Direction.HORIZONTAL || this.isChildMenu || this.element.children.length <= 1) {
+    if (this.direction === Direction.VERTICAL || this.direction === Direction.HORIZONTAL && this.isChildMenu() || this.element.children.length <= 1) {
       return;
     }
 
     // Insert mg-item-more outside the mg-menu shadowdom
     if (this.itemMoreElement === undefined) {
       this.itemMoreElement = document.createElement('mg-item-more');
-      this.itemMoreElement.addEventListener('item-loaded', this.handleItemLoaded);
       this.element.appendChild(this.itemMoreElement);
+      this.itemMoreElement.addEventListener('item-loaded', () => {
+        this.setItemListener(this.itemMoreElement.shadowRoot.querySelector('mg-menu-item'), this.menuItems.length);
+      })
     }
 
     // update mg-item-more props
-    for (const attribute in this.itemmore) {
-      const newValue = this.itemmore[attribute];
-      // to improve rendering we use HTML attributes as much as possible
-      if (['string', 'number'].includes(typeof newValue)) {
-        this.itemMoreElement.setAttribute(attribute, newValue);
-      } else {
-        this.itemMoreElement[attribute] = newValue;
-      }
+    for (const propertie in this.itemmore) {
+      this.itemMoreElement[propertie] = this.itemmore[propertie];
     }
     if (this.itemmore?.size === undefined) this.itemMoreElement.size = this.size;
   };
@@ -183,32 +166,15 @@ export class MgMenu {
 
   /**
    * Check if component slots configuration
-   * @returns timeout
    */
-  componentDidLoad(): ReturnType<typeof setTimeout> {
-    // update props and states after componentDidLoad hook
-    // return a promise to process action only in the FIRST render().
-    // https://stenciljs.com/docs/component-lifecycle#componentwillload
-    return setTimeout(() => {
-      // store all menu-items
-      this.menuItems = Array.from(this.element.children).filter(child => child.nodeName === 'MG-MENU-ITEM') as HTMLMgMenuItemElement[];
-      this.isChildMenu = this.element.closest('mg-menu-item') !== null;
+  componentDidLoad(): void {
+    // set menu-items
+    this.setMenuItems();
 
-      // add mg-item-more to manage OverflowBehavior
-      // when all props, states and DOM are already rendered we can render the mg-item-more
-      this.renderMgItemMore();
-      // then use mutation observer on children to improve reactivity
-      new MutationObserver(() => {
-        this.renderMgItemMore();
-      }).observe(this.element, { childList: true });
-    });
-  }
-
-  /**
-   * Add listeners to items
-   */
-  componentDidRender(): void {
-    this.initMenuItemsListeners();
+    // add mutation observer to improve global reactivity
+    new MutationObserver(() => {
+      this.setMenuItems();
+    }).observe(this.element, { childList: true });
   }
 
   /**
