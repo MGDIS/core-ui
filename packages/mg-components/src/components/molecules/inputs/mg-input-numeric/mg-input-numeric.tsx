@@ -422,11 +422,7 @@ export class MgInputNumeric {
    * @param value - value to format
    * @returns formatted value according to locale
    */
-  private formatErrorValue = (value: number): string => {
-    // Check if value is an integer
-    const isInteger = Number.isInteger(value);
-    return localeNumber(value, this.locale, !isInteger && this.type === 'decimal' ? this.decimalLength : 0);
-  };
+  private formatErrorValue = (value: number): string => localeNumber(value, this.locale, !Number.isInteger(value) && this.type === 'decimal' ? this.decimalLength : 0);
 
   /**
    * Set input error message
