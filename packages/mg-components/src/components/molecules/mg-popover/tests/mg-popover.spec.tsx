@@ -175,7 +175,7 @@ describe('mg-popover', () => {
     }
   });
 
-  test('Should update popper instance when slot %s update', async () => {
+  test('Should update Floating UI instance when slot updates', async () => {
     const page = await getPage({ identifier: 'identifier', display: true }, [
       <h2 slot="title">Blu bli blo bla</h2>,
       <p slot="content">
@@ -187,7 +187,7 @@ describe('mg-popover', () => {
     ]);
     expect(page.root).toMatchSnapshot();
 
-    const spy = jest.spyOn(page.rootInstance.popper, 'update');
+    const spy = jest.spyOn(page.rootInstance.floatingUICleanup, 'call');
 
     fireRo([]);
 
@@ -217,23 +217,23 @@ describe('mg-popover', () => {
   test('Should close mg-popover when click on element with "popovertargetaction" attribute', async () => {
     const page = await getPage({ identifier: 'identifier' }, [
       <div slot="content">
-        <mg-button popovertargetaction='hide'></mg-button>
+        <mg-button popovertargetaction="hide"></mg-button>
       </div>,
       <mg-button>mg-button</mg-button>,
     ]);
     expect(page.root).toMatchSnapshot();
 
-    const popover = page.doc.querySelector('mg-popover-content')
+    const popover = page.doc.querySelector('mg-popover-content');
     const interactiveElement = page.doc.querySelector('mg-popover > mg-button');
-    interactiveElement.dispatchEvent(new MouseEvent('click', {bubbles: true}))
+    interactiveElement.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     await page.waitForChanges();
 
     expect(popover).toHaveAttribute('data-show');
     expect(page.root).toMatchSnapshot();
 
     const buttonWithAction = page.doc.querySelector('mg-button[popovertargetaction]');
-    buttonWithAction.dispatchEvent(new MouseEvent('click', {bubbles: true}))
-    
+    buttonWithAction.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+
     await page.waitForChanges();
 
     expect(popover).not.toHaveAttribute('data-show');

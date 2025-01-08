@@ -16,7 +16,7 @@ exports[`mg-popover Should close mg-popover when click on element with "popovert
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-popover-content data-placement="bottom" id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -31,7 +31,7 @@ exports[`mg-popover Should close mg-popover when click on element with "popovert
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
     <div slot="content">
       <mg-button popovertargetaction="hide" role="button" tabindex="0">
         <template shadowrootmode="open">
@@ -63,7 +63,7 @@ exports[`mg-popover Should close mg-popover when click on element with "popovert
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-popover-content data-placement="bottom" data-show id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -78,7 +78,7 @@ exports[`mg-popover Should close mg-popover when click on element with "popovert
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
     <div slot="content">
       <mg-button popovertargetaction="hide" role="button" tabindex="0">
         <template shadowrootmode="open">
@@ -110,7 +110,7 @@ exports[`mg-popover Should close mg-popover when click on element with "popovert
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-popover-content data-placement="bottom" id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -125,7 +125,7 @@ exports[`mg-popover Should close mg-popover when click on element with "popovert
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
     <div slot="content">
       <mg-button popovertargetaction="hide" role="button" tabindex="0">
         <template shadowrootmode="open">
@@ -157,7 +157,7 @@ exports[`mg-popover Should render with element 1`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-popover-content data-placement="bottom" id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -172,7 +172,7 @@ exports[`mg-popover Should render with element 1`] = `
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -199,7 +199,7 @@ exports[`mg-popover Should render with element 2`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-popper-placement="top" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);">
+  <mg-popover-content data-placement="auto" id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, NaNpx);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -214,7 +214,7 @@ exports[`mg-popover Should render with element 2`] = `
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: NaNpx; undefined: 1px;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -241,7 +241,7 @@ exports[`mg-popover Should render with element 3`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-popover-content data-placement="bottom" data-show id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -256,7 +256,7 @@ exports[`mg-popover Should render with element 3`] = `
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -283,7 +283,7 @@ exports[`mg-popover Should render with element 4`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-popover-content data-placement="bottom" id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -308,7 +308,7 @@ exports[`mg-popover Should render with element 4`] = `
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -335,7 +335,7 @@ exports[`mg-popover Should render with element 5`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-popover-content data-placement="bottom" data-show id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -350,7 +350,7 @@ exports[`mg-popover Should render with element 5`] = `
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -377,7 +377,7 @@ exports[`mg-popover Should render with element 6`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-popover-content data-placement="bottom" id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -402,7 +402,7 @@ exports[`mg-popover Should render with element 6`] = `
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -429,7 +429,7 @@ exports[`mg-popover Should render with element 7`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-popover-content data-placement="bottom" id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -454,7 +454,7 @@ exports[`mg-popover Should render with element 7`] = `
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -481,7 +481,7 @@ exports[`mg-popover Should render with element 8`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -496,7 +496,7 @@ exports[`mg-popover Should render with element 8`] = `
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -523,7 +523,7 @@ exports[`mg-popover Should render with element 9`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-popover-content data-placement="bottom" id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -538,7 +538,93 @@ exports[`mg-popover Should render with element 9`] = `
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
+</mg-popover>
+`;
+
+exports[`mg-popover Should update Floating UI instance when slot updates 1`] = `
+<mg-popover>
+  <template shadowrootmode="open">
+    <slot></slot>
+    <slot name="content"></slot>
+  </template>
+  <div slot="arrow"></div>
+  <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
+    <template shadowrootmode="open">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+        <div class="mg-c-button__content">
+          <slot></slot>
+        </div>
+      </div>
+    </template>
+    mg-button
+  </mg-button>
+  <mg-popover-content data-placement="bottom" data-show id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
+    <template shadowrootmode="open">
+      <mg-card class="mg-c-popover-content">
+        <template shadowrootmode="open">
+          <div class="mg-c-card">
+            <slot></slot>
+          </div>
+        </template>
+        <div class="mg-c-popover-content__title">
+          <slot name="title"></slot>
+        </div>
+        <slot name="content"></slot>
+      </mg-card>
+      <slot name="arrow"></slot>
+    </template>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
+</mg-popover>
+`;
+
+exports[`mg-popover Should update Floating UI instance when slot updates 2`] = `
+<mg-popover>
+  <template shadowrootmode="open">
+    <slot></slot>
+    <slot name="content"></slot>
+  </template>
+  <div slot="arrow"></div>
+  <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
+    <template shadowrootmode="open">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+        <div class="mg-c-button__content">
+          <slot></slot>
+        </div>
+      </div>
+    </template>
+    mg-button
+  </mg-button>
+  <mg-popover-content data-placement="bottom" data-show id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
+    <template shadowrootmode="open">
+      <mg-card class="mg-c-popover-content">
+        <template shadowrootmode="open">
+          <div class="mg-c-card">
+            <slot></slot>
+          </div>
+        </template>
+        <div class="mg-c-popover-content__title">
+          <slot name="title"></slot>
+        </div>
+        <slot name="content"></slot>
+      </mg-card>
+      <slot name="arrow"></slot>
+    </template>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -565,7 +651,7 @@ exports[`mg-popover Should update mg-popover-content id when identifier is updat
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-popover-content data-placement="bottom" id="identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -580,7 +666,7 @@ exports[`mg-popover Should update mg-popover-content id when identifier is updat
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -607,7 +693,7 @@ exports[`mg-popover Should update mg-popover-content id when identifier is updat
     </template>
     mg-button
   </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="new-identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-popover-content data-placement="bottom" id="new-identifier" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(NaNpx, 0px);">
     <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
         <template shadowrootmode="open">
@@ -622,91 +708,7 @@ exports[`mg-popover Should update mg-popover-content id when identifier is updat
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
-    <h2 slot="title">
-      Blu bli blo bla
-    </h2>
-    <p slot="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-  </mg-popover-content>
-</mg-popover>
-`;
-
-exports[`mg-popover Should update popper instance when slot %s update 1`] = `
-<mg-popover>
-  <template shadowrootmode="open">
-    <slot></slot>
-    <slot name="content"></slot>
-  </template>
-  <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
-    <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
-        <div class="mg-c-button__content">
-          <slot></slot>
-        </div>
-      </div>
-    </template>
-    mg-button
-  </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <template shadowrootmode="open">
-      <mg-card class="mg-c-popover-content">
-        <template shadowrootmode="open">
-          <div class="mg-c-card">
-            <slot></slot>
-          </div>
-        </template>
-        <div class="mg-c-popover-content__title">
-          <slot name="title"></slot>
-        </div>
-        <slot name="content"></slot>
-      </mg-card>
-      <slot name="arrow"></slot>
-    </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
-    <h2 slot="title">
-      Blu bli blo bla
-    </h2>
-    <p slot="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-  </mg-popover-content>
-</mg-popover>
-`;
-
-exports[`mg-popover Should update popper instance when slot %s update 2`] = `
-<mg-popover>
-  <template shadowrootmode="open">
-    <slot></slot>
-    <slot name="content"></slot>
-  </template>
-  <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
-    <template shadowrootmode="open">
-      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
-        <div class="mg-c-button__content">
-          <slot></slot>
-        </div>
-      </div>
-    </template>
-    mg-button
-  </mg-button>
-  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <template shadowrootmode="open">
-      <mg-card class="mg-c-popover-content">
-        <template shadowrootmode="open">
-          <div class="mg-c-card">
-            <slot></slot>
-          </div>
-        </template>
-        <div class="mg-c-popover-content__title">
-          <slot name="title"></slot>
-        </div>
-        <slot name="content"></slot>
-      </mg-card>
-      <slot name="arrow"></slot>
-    </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px; left: NaNpx;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
