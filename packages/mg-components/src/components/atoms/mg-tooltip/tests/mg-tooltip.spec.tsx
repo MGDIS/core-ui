@@ -328,9 +328,19 @@ describe('mg-tooltip', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test('Should set popper strategy to absolute', async () => {
+  test('Should set floating UI strategy to absolute when inside a popover', async () => {
     const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, 'tooltip in popover', 'mg-popover');
 
+    const mgTooltipContent = page.root.querySelector('mg-tooltip-content');
+    expect(mgTooltipContent.style.position).toBe('absolute');
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test('Should set floating UI strategy to fixed by default', async () => {
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, 'tooltip content');
+
+    const mgTooltipContent = page.root.querySelector('mg-tooltip-content');
+    expect(mgTooltipContent.style.position).toBe('fixed');
     expect(page.root).toMatchSnapshot();
   });
 
@@ -388,16 +398,19 @@ describe('mg-tooltip', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test('Should update popper instance when "message" prop change', async () => {
+  test('Should update floating UI instance when "message" prop change', async () => {
     const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <mg-button disabled>mg-button.disabled</mg-button>);
 
-    const spy = jest.spyOn(page.rootInstance.popper, 'update');
+    // Mock the cleanup function
+    const mockCleanup = jest.fn();
+    page.rootInstance.floatingUICleanup = mockCleanup;
+
     const mgTooltip = page.doc.querySelector('mg-tooltip');
     mgTooltip.message = 'my new message';
 
     await page.waitForChanges();
 
-    expect(spy).toHaveBeenCalled();
+    expect(mockCleanup).toHaveBeenCalled();
   });
 
   test('Should update mg-tooltip-content id when "identifier" is updated', async () => {
