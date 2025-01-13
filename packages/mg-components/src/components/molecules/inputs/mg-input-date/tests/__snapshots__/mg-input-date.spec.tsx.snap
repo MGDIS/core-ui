@@ -1,5 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`mg-input-date Should display a badInput message on a required field with a non-existing date 1`] = `
+<mg-input-date>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
+      <div id="identifier-help-text" slot="help-text">
+        Expected format:
+        <span aria-hidden="true">
+          mm/dd/yyyy
+        </span>
+        <span class="mg-u-visually-hidden">
+          m m / d d / y y y y
+        </span>
+        (ex: 12/24/2023)
+      </div>
+      <div id="identifier-error" slot="error">
+        The date format must be
+        <span aria-hidden="true">
+          mm/dd/yyyy
+        </span>
+        <span class="mg-u-visually-hidden">
+          m m / d d / y y y y
+        </span>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-date>
+`;
+
 exports[`mg-input-date Should display error with invalid value, case value="31-12-2022" 1`] = `
 <mg-input-date>
   <template shadowrootmode="open">
