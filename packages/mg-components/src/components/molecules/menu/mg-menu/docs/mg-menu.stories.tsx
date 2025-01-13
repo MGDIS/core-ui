@@ -69,7 +69,7 @@ const getMenuArgs = (direction: MgMenuType['direction'], level = 0, size: MgMenu
   label: 'Batman menu',
   direction,
   size,
-  itemmore: level === depth ? { size } : undefined,
+  itemmore: level === depth && direction === Direction.HORIZONTAL ? { size } : undefined,
   items: [
     {
       href: '#',

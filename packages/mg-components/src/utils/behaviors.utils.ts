@@ -75,12 +75,9 @@ export class OverflowBehavior {
    * @param isHidden - item is hidden
    */
   private toggleItem = (item: HTMLElement, isHidden: boolean):void => {
-    if (this.isMoreElement(item)) {
-      if (isHidden) item.setAttribute('hidden', '');
-      else item.removeAttribute('hidden');
-    } else {
-      if (isHidden) this.itemMoreContainerElement.appendChild(item)
-      else if(item.parentElement !== this.parentElement) this.parentElement.insertBefore(item, this.itemMoreElement)
-    }
+    if (this.isMoreElement(item) && isHidden) item.setAttribute('hidden', '');
+    else if(this.isMoreElement(item) && !isHidden) item.removeAttribute('hidden');
+    else if (!this.isMoreElement(item) && isHidden) this.itemMoreContainerElement.appendChild(item)
+    else if(!this.isMoreElement(item) && item.parentElement !== this.parentElement) this.parentElement.insertBefore(item, this.itemMoreElement)
   }
 }

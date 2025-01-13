@@ -76,9 +76,7 @@ export class MgMenuItem {
   @Prop({ reflect: true, mutable: true }) status?: MgMenuStatusType = Status.VISIBLE;
   @Watch('status')
   watchStatus(newValue: MgMenuItem['status'], oldValue?: MgMenuItem['status']): void {
-    if (oldValue !== undefined) {
-      this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
-    }
+    if (oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
     this.navigationButtonClassList.add(`${this.navigationButton}--${newValue}`);
   }
 
@@ -88,11 +86,13 @@ export class MgMenuItem {
   @Prop({ mutable: true }) expanded? = false;
   @Watch('expanded')
   watchExpanded(newValue: MgMenuItem['expanded']): void {
-    if (typeof newValue !== 'boolean') throw new Error(`<${this.name}> prop "expanded" must be a boolean. Passed value: ${toString(newValue)}.`);
-    else {
-      // when expanded all actives sub-items need to be expanded
+    if (typeof newValue !== 'boolean') {
+      throw new Error(`<${this.name}> prop "expanded" must be a boolean. Passed value: ${toString(newValue)}.`);
+    } else {
+      this.updateExpanded(newValue);
+      // when expanded all actives sub-items need to be expanded and non active closed
       Array.from(this.element.querySelectorAll('mg-menu-item')).forEach(item => {
-        item.expanded = newValue ? this.hasStatus(item, Status.ACTIVE) : false;
+        if(item !== this.element) item.expanded = newValue ? this.hasStatus(item, Status.ACTIVE) : false;
       })
     }
   }
@@ -121,7 +121,7 @@ export class MgMenuItem {
   @State() size: MenuSizeType = 'medium';
   @Watch('size')
   watchSize(newValue: MgMenuItem['size'], oldValue?: MgMenuItem['size']): void {
-    this.navigationButtonClassList.delete(`${this.navigationButton}--size-${oldValue}`);
+    if(oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--size-${oldValue}`);
     this.navigationButtonClassList.add(`${this.navigationButton}--size-${newValue}`);
   }
 
@@ -136,14 +136,16 @@ export class MgMenuItem {
   @State() direction: DirectionType;
   @Watch('direction')
   validateDirection(newValue: MgMenuItem['direction'], oldValue: MgMenuItem['direction']): void {
-    if(oldValue) this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
+    if(oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
     this.navigationButtonClassList.add(`${this.navigationButton}--${newValue}`);
     // manage all sub levels child menu-items level with data-level attribut
-    if (this.isDirection(Direction.VERTICAL, newValue)) {
-      Array.from(this.element.querySelectorAll('mg-menu-item')).forEach(item => {
+    Array.from(this.element.querySelectorAll('mg-menu-item')).forEach(item => {
+      if (this.isDirection(Direction.VERTICAL, newValue)) {
         item.dataset.level = `${(Number(item.dataset.level) || 1) + 1}`;
-      });
-    }
+      } else {
+        delete item.dataset.level
+      }
+    });
   }
 
   /**
@@ -173,13 +175,23 @@ export class MgMenuItem {
   @State() displayNotificationBadge: boolean;
 
   /**
-   * direction value in datase
+   * direction value in dataset
    * @param newValue - new direction value
    */
   // eslint-disable-next-line @stencil-community/no-unused-watch
   @Watch('data-style-direction')
   watchDataStyleDirection(newValue: DirectionType):void {
     this.direction = newValue;
+  }
+
+  /**
+   * has focus value in dataset
+   * @param newValue - new direction value
+   */
+  // eslint-disable-next-line @stencil-community/no-unused-watch
+  @Watch('data-has-focus')
+  watchDataHasFocus(newValue: string):void {
+    if(!newValue) this.updateExpanded(Boolean(newValue))
   }
 
   /***********
@@ -193,6 +205,27 @@ export class MgMenuItem {
    * @returns true if element with status is found
    */
   private hasStatus = (mgMenuItemElement: HTMLMgMenuItemElement, status: MgMenuItem['status']): boolean => mgMenuItemElement.status === status;
+
+  /**
+   * Condition to know if component should display a mg-popover
+   * @returns truthy if component display popover
+   */
+  private hasPopover = (): boolean => this.isDirection(Direction.HORIZONTAL) && (this.isInMainMenu && Array.from(this.element.children).some(element => !element.querySelector('[slot]')) || this.isItemMore) && this.href === undefined;
+
+  /**
+   * Method to control if one of component children have active status
+   * @returns truthy if component has active child
+   */
+  private hasActiveChild = (): boolean =>
+    Array.from(this.element.querySelector('mg-menu')?.children || []).some(
+      (element: HTMLMgMenuItemElement) => element.nodeName === 'MG-MENU-ITEM' && this.hasStatus(element, Status.ACTIVE) && !element.hasAttribute('hidden'),
+    );
+
+  /**
+   * Is component an interactive item 
+   * @returns truthy if element is clickable
+   */
+  private isInteractiveItem = (): boolean => this.hasChildren || !isValidString(this.href)
 
   /**
    * Is component contextual direction match the given direction
@@ -213,28 +246,14 @@ export class MgMenuItem {
   };
 
   /**
-   * Method to control if one of component children have active status
-   * @returns truthy if component has active child
+   * Update expanded prop
+   * @param newValue - expanded new value
    */
-  private hasActiveChild = (): boolean =>
-    Array.from(this.element.querySelector('mg-menu')?.children || []).some(
-      (element: HTMLMgMenuItemElement) => element.nodeName === 'MG-MENU-ITEM' && this.hasStatus(element, Status.ACTIVE) && !element.hasAttribute('hidden'),
-    );
-
-  /**
-   * Validate slots
-   * @param guard - prevent action with guard. Default: false.
-   */
-  private watchSlot = (guard = false): void => {
-    // slot title AND metadata validation
-    // add title on label AND metada slots due to text-overflow on these element
-    if (Array.from(this.element.children).find(child => child.getAttribute('slot') === 'label') === undefined) throw new Error(`<${this.name}> slot "label" is required.`);
-    ['label', 'metadata'].forEach(slot => {
-      Array.from(this.element.querySelectorAll(`[slot="${slot}"]`)).forEach(element => {
-        if (!isValidString(element.textContent)) throw new Error(`<${this.name}> slot "${slot}" must have text content.`);
-        if ((guard && !element.hasAttribute('title')) || !guard) element.setAttribute('title', element.textContent);
-      });
-    });
+  private updateExpanded = (newValue: MgMenuItem['expanded']):void => {
+    if (this.isInteractiveItem()) {
+      // item is always expanded in vertical menu when has active child
+      this.expanded = this.isDirection(Direction.VERTICAL) && this.hasActiveChild() || newValue
+    }
   };
 
   /**
@@ -253,21 +272,33 @@ export class MgMenuItem {
   private updatePopoverGuard(): void {
     const subItem = this.element.querySelector('*:not([slot])') as HTMLElement;
     if (!subItem) return;
-    if (this.isPopoverDisplay()) subItem.dataset.mgPopoverGuard = this.popoverIdentifier;
+    if (this.hasPopover()) subItem.dataset.mgPopoverGuard = this.popoverIdentifier;
     else delete subItem.dataset.mgPopoverGuard;
   }
 
   /**
-   * Condition to know if component should display a mg-popover
-   * @returns truthy if component display popover
+   * Update slots
+   * @param guard - prevent action with guard. Default: false.
    */
-  private isPopoverDisplay = (): boolean => this.isItemMore || this.isDirection(Direction.HORIZONTAL) && this.hasChildren && this.href === undefined;
+  private updateSlot = (guard = false): void => {
+    // slot title AND metadata validation
+    // add title on label AND metada slots due to text-overflow on these element
+    if (Array.from(this.element.children).find(child => child.getAttribute('slot') === 'label') === undefined) {
+      throw new Error(`<${this.name}> slot "label" is required.`);
+    }
+    ['label', 'metadata'].forEach(slot => {
+      Array.from(this.element.querySelectorAll(`[slot="${slot}"]`)).forEach(element => {
+        if (!isValidString(element.textContent)) throw new Error(`<${this.name}> slot "${slot}" must have text content.`);
+        if ((guard && !element.hasAttribute('title')) || !guard) element.setAttribute('title', element.textContent);
+      });
+    });
+  };
 
   /**
-   * Set menu item
+   * Update menu item
    * @param guard - prevent action with guard
    */
-  private setItem = (guard?: MgMenuItem['status'][]): void => {
+  private updateItem = (guard?: MgMenuItem['status'][]): void => {
     const menu = this.element.closest('mg-menu');
     this.isInMainMenu = menu !== null && this.element.parentElement.closest('mg-menu-item') === null;
 
@@ -275,10 +306,8 @@ export class MgMenuItem {
     if (menu?.size !== undefined && !this.isItemMore) this.size = menu.size;
     else if (this.isItemMore) this.size = this.element.dataset.size as MgMenuItem['size'];
 
-    // when main menu item contain an active item it will get the active style
-    // AND if item is in vertical menu it will be expanded
-    this.expanded = this.hasActiveChild() && this.isInMainMenu && (this.expanded || this.isDirection(Direction.VERTICAL));
-
+    // when vertical main menu item contain an active item we force expanded
+    this.updateExpanded(this.expanded)
     this.updateStatus(guard);
     this.updatePopoverGuard();
     this.updateDisplayNotificationBadge();
@@ -293,13 +322,26 @@ export class MgMenuItem {
    * @param event - click on element
    */
   private handleElementCLick = (event: MouseEvent): void => {
-    if ((this.hasChildren && !this.isInMainMenu) || this.status === Status.DISABLED) {
+    if (this.status === Status.DISABLED) {
       event.preventDefault();
       event.stopPropagation();
     }
 
-    // toggle expanded when mg-menu-item has child items
-    if (this.hasChildren) this.expanded = !this.expanded;
+    // for non "poperized" menu-item we toggle expanded manualy
+    this.updateExpanded(!this.expanded);
+
+    // when item is the last clickable item we close the parent popover
+    if(!this.isInteractiveItem()) {
+      const closePopover = (element: HTMLMgMenuItemElement):void => {
+        if(!element) return;
+        else if(element !== this.element && element.expanded && element.shadowRoot.querySelector('mg-popover') !== null) {
+          element.expanded = false;
+        } else {
+          closePopover(element.parentElement.closest('mg-menu-item'));
+        }
+      }
+      closePopover(this.element);
+    }
   };
 
   /**
@@ -307,7 +349,7 @@ export class MgMenuItem {
    * @param event - popover display event
    */
   private handlePopoverDisplay = (event: CustomEvent): void => {
-    this.expanded = event.detail;
+    this.updateExpanded(event.detail);
   };
 
   /*************
@@ -338,21 +380,22 @@ export class MgMenuItem {
    */
   componentDidLoad(): ReturnType<typeof setTimeout> {
     // validation
-    this.watchSlot(true);
+    this.updateSlot(true);
     // update props and states after componentDidLoad hook
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
     return setTimeout(() => {
       this.watchDataStyleDirection(this.element.dataset.styleDirection as DirectionType);
-      this.setItem([Status.ACTIVE])
+      this.watchDataHasFocus(this.element.dataset.hasFocus)
+      this.updateItem([Status.ACTIVE])
 
       // emit loaded event when component is fully loaded
       this.itemLoaded.emit();
 
       new MutationObserver(mutationsList => {
         if (mutationsList.some(mutation => ['hidden', 'status'].includes(mutation.attributeName))) this.updateStatus(this.hasChildren ? undefined : [Status.ACTIVE]);
-        if (mutationsList.some(mutation => mutation.type === 'characterData')) this.watchSlot();
-        if (mutationsList.some(mutation => mutation.type === 'childList')) this.setItem();
+        if (mutationsList.some(mutation => mutation.type === 'characterData')) this.updateSlot();
+        if (mutationsList.some(mutation => mutation.type === 'childList')) this.updateItem();
         this.itemUpdated.emit();
       }).observe(this.element, { attributes: true, childList: true, characterData: true, subtree: true });
     }, 0);
@@ -437,7 +480,7 @@ export class MgMenuItem {
 
     return (
       <Host role={this.isItemMore ? 'presentation' : 'listitem'}>
-        {this.isPopoverDisplay() ? (
+        {this.hasPopover() ? (
           <mg-popover
             display={this.expanded}
             placement="bottom-start"

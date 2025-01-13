@@ -1,4 +1,4 @@
-import { Component, h, Prop, Element, Watch, Host } from '@stencil/core';
+import { Component, h, Prop, Element, Watch, Host, Listen } from '@stencil/core';
 import { Direction, sizes } from './mg-menu.conf';
 import type { MenuSizeType, ItemMoreType, DirectionType } from './mg-menu.conf';
 import { toString } from '@mgdis/stencil-helpers';
@@ -17,9 +17,6 @@ export class MgMenu {
    ************/
 
   private readonly name = 'mg-menu';
-  private menuItems: HTMLMgMenuItemElement[] = [];
-  private focusedMenuItem = 0;
-  private itemMoreElement: HTMLMgItemMoreElement;
 
   /**************
    * Decorators *
@@ -51,7 +48,7 @@ export class MgMenu {
     if (![Direction.VERTICAL, Direction.HORIZONTAL].includes(newValue)) {
       throw new Error(`<${this.name}> prop "direction" must be one of: ${Direction.HORIZONTAL}, ${Direction.VERTICAL}. Passed value: ${toString(newValue)}.`);
     } else {
-      this.setMenuItems();
+      this.updateMenuItems();
     }
   }
 
@@ -80,6 +77,29 @@ export class MgMenu {
     }
   }
 
+  /**
+   * Define mg-menu-item listener when they are loaded
+   * @param event - mg-item-loaded "item-loaded" custom event
+   */
+  @Listen('item-loaded')
+  updateItemListener(event: CustomEvent & { target: HTMLMgMenuItemElement}): void {
+    const itemToWatch = event.target.nodeName === 'MG-ITEM-MORE' ? event.target.shadowRoot.querySelector('mg-menu-item') : event.target;
+
+    ['click', 'focus'].forEach(trigger => {
+      itemToWatch.addEventListener(trigger, ():void => {
+        const focusedItem: HTMLMgMenuItemElement = event.target.closest('mg-menu').querySelector('[data-has-focus]')
+        // exit process if new focused item in the current menu children
+        if(focusedItem === itemToWatch) return;
+
+        // reset expanded on previous active menu item
+        if(focusedItem) focusedItem.removeAttribute("data-has-focus");
+
+        // update focusedMenuItem with new value
+        itemToWatch.setAttribute('data-has-focus','true');
+      });
+    })
+  };
+
   /*************
    * Methods *
    *************/
@@ -91,35 +111,24 @@ export class MgMenu {
   private isChildMenu = (): boolean => this.element.closest('mg-menu-item') !== null;
 
   /**
-   * Set item listend
-   * @param item - mg-menu-item element
-   * @param index - number
+   * Get menu children items
+   * @returns menu children mg-menu-item
    */
-  private setItemListener = (item: HTMLMgMenuItemElement, index: MgMenu['focusedMenuItem']): void => {
-    const interactiveElement = item.shadowRoot.querySelector('button,a');
-    // disable menu
-    if(!interactiveElement) return;
-
-    ['click', 'focus'].forEach(trigger => {
-      interactiveElement.addEventListener(trigger, () => {
-        this.focusedMenuItem = index;
-        // reset expanded on previous active menu item
-        const itemMoreMenuItem = this.itemMoreElement?.shadowRoot?.querySelector('mg-menu-item');
-        (![null, undefined].includes(itemMoreMenuItem) ? [...this.menuItems, itemMoreMenuItem] : this.menuItems).forEach((item, index) => {
-          if (!this.isChildMenu() && index !== this.focusedMenuItem) item.expanded = false;
-        });
-      });
-    });
-  };
+  private getMenuItems = (menu = this.element): HTMLMgMenuItemElement[] => {
+    const menuItems = Array.from(menu.children).filter(child => child.nodeName === 'MG-MENU-ITEM') as HTMLMgMenuItemElement[];
+    const itemMoreMenuItem = menu.querySelector('mg-item-more')?.shadowRoot?.querySelector('mg-menu-item');
+    if(itemMoreMenuItem) {
+      menuItems.push(itemMoreMenuItem)
+    }
+    return menuItems;
+  }
 
   /**
-   * Set menu items
+   * Update menu items
    */
-  private setMenuItems = (): void => {
-    this.menuItems = Array.from(this.element.children).filter(child => child.nodeName === 'MG-MENU-ITEM') as HTMLMgMenuItemElement[];
-    this.menuItems.forEach((item, index) => {
+  private updateMenuItems = (): void => {
+    this.getMenuItems().forEach((item) => {
       item.dataset.styleDirection = this.direction
-      this.setItemListener(item, index);
     })
 
     // render mg-item-more to manage OverflowBehavior
@@ -135,19 +144,17 @@ export class MgMenu {
     }
 
     // Insert mg-item-more outside the mg-menu shadowdom
-    if (this.itemMoreElement === undefined) {
-      this.itemMoreElement = document.createElement('mg-item-more');
-      this.element.appendChild(this.itemMoreElement);
-      this.itemMoreElement.addEventListener('item-loaded', () => {
-        this.setItemListener(this.itemMoreElement.shadowRoot.querySelector('mg-menu-item'), this.menuItems.length);
-      })
+    let itemMoreElement = this.element.querySelector('mg-item-more')
+    if (itemMoreElement === null) {
+      itemMoreElement = document.createElement('mg-item-more');
+      this.element.appendChild(itemMoreElement);
     }
 
     // update mg-item-more props
     for (const propertie in this.itemmore) {
-      this.itemMoreElement[propertie] = this.itemmore[propertie];
+      itemMoreElement[propertie] = this.itemmore[propertie];
     }
-    if (this.itemmore?.size === undefined) this.itemMoreElement.size = this.size;
+    if (this.itemmore?.size === undefined) itemMoreElement.size = this.size;
   };
 
   /*************
@@ -169,12 +176,26 @@ export class MgMenu {
    */
   componentDidLoad(): void {
     // set menu-items
-    this.setMenuItems();
+    this.updateMenuItems();
 
+    // add listener to close main menu when focus leave it
+    if(!this.isChildMenu() && this.direction === Direction.HORIZONTAL) {
+      document.addEventListener('focusin', (event: FocusEvent & { target: HTMLElement}):void => {
+        const isElementChild = (element: HTMLElement):boolean => {
+          if (element === this.element) return true;
+          else if(!element.parentElement) return false;
+          else return isElementChild(element.parentElement);
+        };
+  
+        if(!event.target.closest('mg-menu') || !isElementChild(event.target)) {
+          const focusedItem = this.element.querySelector('[data-has-focus]')
+          // reset expanded on previous active menu item
+          if(focusedItem) focusedItem.removeAttribute('data-has-focus');
+        }
+      })
+    }
     // add mutation observer to improve global reactivity
-    new MutationObserver(() => {
-      this.setMenuItems();
-    }).observe(this.element, { childList: true });
+    new MutationObserver(this.updateMenuItems).observe(this.element, { childList: true });
   }
 
   /**
