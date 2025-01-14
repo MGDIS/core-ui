@@ -270,7 +270,7 @@ export class MgMenuItem {
    * Render popover clickoutside guard for content slot
    */
   private updatePopoverGuard(): void {
-    const subItem = this.element.querySelector('*:not([slot])') as HTMLElement;
+    const subItem: HTMLElement = this.element.querySelector('*:not([slot])');
     if (!subItem) return;
     if (this.hasPopover()) subItem.dataset.mgPopoverGuard = this.popoverIdentifier;
     else delete subItem.dataset.mgPopoverGuard;
