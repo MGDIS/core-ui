@@ -146,6 +146,28 @@ describe('mg-input-date', () => {
     expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(null);
   });
 
+  test('Should display a badInput message on a required field with a non-existing date', async () => {
+    const args = { label: 'label', identifier: 'identifier', required: true };
+    const page = await getPage(args);
+
+    const element = page.doc.querySelector('mg-input-date');
+    const input = element.shadowRoot.querySelector('input');
+
+    //mock validity
+    input.checkValidity = jest.fn(() => false);
+    Object.defineProperty(input, 'validity', {
+      get: jest.fn(() => ({
+        valueMissing: true,
+        badInput: true,
+      })),
+    });
+
+    input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   test('Should trigger events', async () => {
     const inputValue = '2021-10-14';
     const args = { label: 'label', identifier: 'identifier', helpText: 'My help text' };

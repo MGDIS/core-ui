@@ -320,13 +320,13 @@ export class MgInputDate {
   private getInputError = (): null | InputDateError => {
     let inputError: InputDateError = null;
 
-    // required
-    if (this.input.validity.valueMissing) {
-      inputError = 'required';
-    }
-    // pattern
-    else if (this.value && !this.isValidPattern(this.value)) {
+    // bad input or pattern
+    if (this.input.validity.badInput || (this.value && !this.isValidPattern(this.value))) {
       inputError = 'badInput';
+    }
+    // required
+    else if (this.input.validity.valueMissing) {
+      inputError = 'required';
     }
     // min & max
     else if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max !== '9999-12-31') {
