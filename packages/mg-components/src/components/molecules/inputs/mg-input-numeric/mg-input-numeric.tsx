@@ -418,6 +418,13 @@ export class MgInputNumeric {
   };
 
   /**
+   * Format min/max value for error message
+   * @param value - value to format
+   * @returns formatted value according to locale
+   */
+  private formatErrorValue = (value: number): string => localeNumber(value, this.locale, !Number.isInteger(value) && this.type === 'decimal' ? this.decimalLength : 0);
+
+  /**
    * Set input error message
    * @param errorMessage - errorMessage override
    */
@@ -431,8 +438,8 @@ export class MgInputNumeric {
       } else if (inputError === 'required') {
         this.errorMessage = this.messages.errors[inputError];
       } else {
-        const formattedMin = this.formatValue(this.min);
-        const formattedMax = this.formatValue(this.max);
+        const formattedMin = this.formatErrorValue(this.min);
+        const formattedMax = this.formatErrorValue(this.max);
         this.errorMessage = this.messages.errors.numeric[inputError].replace('{min}', formattedMin).replace('{max}', formattedMax);
       }
     }

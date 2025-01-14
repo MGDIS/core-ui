@@ -3508,7 +3508,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="2" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
-        The value cannot be less than 2.00
+        The value cannot be less than 2
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
@@ -3630,7 +3630,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="2" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
-        The value cannot be greater than 2.00
+        The value cannot be greater than 2
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
