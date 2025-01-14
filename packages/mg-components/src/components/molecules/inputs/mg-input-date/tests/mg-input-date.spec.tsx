@@ -147,7 +147,7 @@ describe('mg-input-date', () => {
   });
 
   test('Should display a badInput message on a required field with a non-existing date', async () => {
-    const args = { label: 'label', identifier: 'identifier' };
+    const args = { label: 'label', identifier: 'identifier', required: true };
     const page = await getPage(args);
 
     const element = page.doc.querySelector('mg-input-date');

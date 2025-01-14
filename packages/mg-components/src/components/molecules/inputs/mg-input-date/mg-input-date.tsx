@@ -320,7 +320,7 @@ export class MgInputDate {
   private getInputError = (): null | InputDateError => {
     let inputError: InputDateError = null;
 
-    // pattern
+    // bad input or pattern
     if (this.input.validity.badInput || (this.value && !this.isValidPattern(this.value))) {
       inputError = 'badInput';
     }
