@@ -1,4 +1,4 @@
-import { Fragment, h } from '@stencil/core';
+import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgMenu } from '../mg-menu';
 import { Direction, sizes } from '../mg-menu.conf';
@@ -24,49 +24,47 @@ const getPage = async (args, options = { submenu: true, itemMore: false, sibling
   if (options.itemMore) components.push(MgItemMore);
   const page = await newSpecPage({
     components,
-    template: () => (
-      <Fragment>
-        <mg-menu {...args}>
-          <mg-menu-item id={setId(args.hasId)} identifier="identifier-1">
-            <span slot="label">batman</span>
-            {options.submenu && (
-              <mg-menu label="batman - submenu" direction={Direction.VERTICAL}>
-                <mg-menu-item identifier="identifier-1">
-                  <span slot="label">batman begins</span>
-                  <mg-menu label="batman begins - submenu" direction={Direction.VERTICAL}>
-                    <mg-menu-item identifier="identifier-1">
-                      <span slot="label">movie</span>
-                    </mg-menu-item>
-                  </mg-menu>
-                </mg-menu-item>
-                <mg-menu-item identifier="identifier-2">
-                  <span slot="label">joker: the dark knight</span>
-                </mg-menu-item>
-                <mg-menu-item identifier="identifier-3">
-                  <span slot="label">bane: the dark knight rise</span>
-                </mg-menu-item>
-              </mg-menu>
-            )}
-          </mg-menu-item>
-          <mg-menu-item id={setId(args.hasId)} identifier="identifier-2">
-            <span slot="label">joker</span>
-            {args.badge && <mg-badge value={1} label="bad guy"></mg-badge>}
-            <div>
-              <h2>This is a joker card</h2>
-              <p>If you don't know the joker, you can watch the movie.</p>
-            </div>
-          </mg-menu-item>
-          <mg-menu-item href="#bane" id={setId(args.hasId)} identifier="identifier-3">
-            <span slot="label">bane</span>
-          </mg-menu-item>
-        </mg-menu>
-        {options.siblingMenu && <mg-menu label='sibling menu'>
-          <mg-menu-item identifier="identifier-1">
-            <span slot="label">sibling item</span>
-          </mg-menu-item>
-          </mg-menu>}
-      </Fragment>
-    ),
+    template: () => [
+      <mg-menu {...args}>
+        <mg-menu-item id={setId(args.hasId)} identifier="identifier-1">
+          <span slot="label">batman</span>
+          {options.submenu && (
+            <mg-menu label="batman - submenu" direction={Direction.VERTICAL}>
+              <mg-menu-item identifier="identifier-1">
+                <span slot="label">batman begins</span>
+                <mg-menu label="batman begins - submenu" direction={Direction.VERTICAL}>
+                  <mg-menu-item identifier="identifier-1">
+                    <span slot="label">movie</span>
+                  </mg-menu-item>
+                </mg-menu>
+              </mg-menu-item>
+              <mg-menu-item identifier="identifier-2">
+                <span slot="label">joker: the dark knight</span>
+              </mg-menu-item>
+              <mg-menu-item identifier="identifier-3">
+                <span slot="label">bane: the dark knight rise</span>
+              </mg-menu-item>
+            </mg-menu>
+          )}
+        </mg-menu-item>
+        <mg-menu-item id={setId(args.hasId)} identifier="identifier-2">
+          <span slot="label">joker</span>
+          {args.badge && <mg-badge value={1} label="bad guy"></mg-badge>}
+          <div>
+            <h2>This is a joker card</h2>
+            <p>If you don't know the joker, you can watch the movie.</p>
+          </div>
+        </mg-menu-item>
+        <mg-menu-item href="#bane" id={setId(args.hasId)} identifier="identifier-3">
+          <span slot="label">bane</span>
+        </mg-menu-item>
+      </mg-menu>,
+      options.siblingMenu && <mg-menu label='sibling menu'>
+        <mg-menu-item identifier="identifier-1">
+          <span slot="label">sibling item</span>
+        </mg-menu-item>
+      </mg-menu>
+    ],
   });
 
   // flush mg-menu timeout and render

@@ -24,10 +24,10 @@ const getSubMenuSize = (size: MenuSizeType) => (size === 'medium' ? 'large' : 'm
 const createHTML = args => `
   <header class="menu-container menu-container--${args.direction}-small">
     <mg-menu ${renderAttributes({ label: 'menu', ...args })}>
-      <mg-menu-item status="active">
+      <mg-menu-item>
         <span slot="label">1 - head-1</span>
         <mg-menu ${renderAttributes({ label: 'sub-menu 1', direction: Direction.VERTICAL, size: getSubMenuSize(args?.size) })}>
-          <mg-menu-item><span slot="label">Batman begins</span></mg-menu-item>
+          <mg-menu-item status="active"><span slot="label">Batman begins</span></mg-menu-item>
         </mg-menu>
       </mg-menu-item>
       <mg-menu-item status="disabled"><span slot="label">1 - head-2 long</span></mg-menu-item>
@@ -83,12 +83,12 @@ test.describe('mg-item-more', () => {
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-        await page.locator(`mg-menu:first-of-type > mg-menu-item`).first().evaluate((elm, status) => {
-          elm.setAttribute('status', status as string);
+        await page.getByText(`Batman begins`).first().evaluate((elm, status) => {
+          elm.closest('mg-menu-item').setAttribute('status', status as string);
         }, Status.VISIBLE);
 
-        await page.locator(`mg-item-more mg-menu > mg-menu-item`).nth(1).evaluate((elm, status) => {
-          elm.setAttribute('status', status as string);
+        await page.getByText(`1 - head-4`).first().evaluate((elm, status) => {
+          elm.closest('mg-menu-item').setAttribute('status', status as string);
         }, Status.ACTIVE);
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
