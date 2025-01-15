@@ -13,7 +13,7 @@ import { MgInputText } from '../../inputs/mg-input-text/mg-input-text';
 import { MgInputTextarea } from '../../inputs/mg-input-textarea/mg-input-textarea';
 import { MgInputToggle } from '../../inputs/mg-input-toggle/mg-input-toggle';
 import { HTMLMgInputsElement } from '../../inputs/mg-input/mg-input.conf';
-import { setupMutationObserverMock, setupSubmitEventMock } from '@mgdis/stencil-helpers';
+import { setupMutationObserverMock, setUpRequestAnimationFrameMock, setupSubmitEventMock } from '@mgdis/stencil-helpers';
 import { MgInputTitle } from '../../../atoms/internals/mg-input-title/mg-input-title';
 import { requiredMessageStatus, roles } from '../mg-form.conf';
 import { MgInput } from '../../inputs/mg-input/mg-input';
@@ -39,6 +39,7 @@ const getPage = async (args, content?) => {
   });
 
   jest.runOnlyPendingTimers();
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
 
   await page.waitForChanges();
 

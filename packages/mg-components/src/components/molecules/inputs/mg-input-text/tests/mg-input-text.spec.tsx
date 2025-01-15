@@ -7,7 +7,7 @@ import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
-import { toString } from '@mgdis/stencil-helpers';
+import { setUpRequestAnimationFrameMock, toString } from '@mgdis/stencil-helpers';
 
 const getPage = (args, content?) => {
   const page = newSpecPage({
@@ -16,6 +16,7 @@ const getPage = (args, content?) => {
   });
 
   jest.runAllTimers();
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
 
   return page;
 };

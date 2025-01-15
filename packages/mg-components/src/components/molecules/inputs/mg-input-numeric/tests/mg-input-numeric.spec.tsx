@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
-import { localeNumber, localeUnit, toString } from '@mgdis/stencil-helpers';
+import { localeNumber, localeUnit, setUpRequestAnimationFrameMock, toString } from '@mgdis/stencil-helpers';
 import { MgInputNumeric } from '../mg-input-numeric';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
@@ -16,6 +16,7 @@ const getPage = (args, slot?) => {
     template: () => <mg-input-numeric {...args}>{slot}</mg-input-numeric>,
   });
   jest.runAllTimers();
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
   return page;
 };
 

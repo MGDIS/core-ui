@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest';
-import { setupMutationObserverMock, setupResizeObserverMock, setupSubmitEventMock } from './unit.ts';
+import { setupMutationObserverMock, setUpRequestAnimationFrameMock, setupResizeObserverMock, setupSubmitEventMock } from './unit.ts';
 
 describe('test - e2e', () => {
   describe('setupMutationObserverMock', () => {
@@ -18,6 +18,12 @@ describe('test - e2e', () => {
     test('Should render html', () => {
       const Mock = setupSubmitEventMock();
       expect(new Mock({})).toMatchSnapshot();
+    });
+  });
+  describe('setUpRequestAnimationFrameMock', () => {
+    test('Should render html', () => {
+      const mock = setUpRequestAnimationFrameMock(()=>{});
+      expect(mock(()=>{})).toMatchSnapshot();
     });
   });
 });

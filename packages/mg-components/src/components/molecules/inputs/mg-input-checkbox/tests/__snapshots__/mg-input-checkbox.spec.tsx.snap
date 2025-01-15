@@ -92,37 +92,37 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
-                  <input aria-invalid="false" id="identifier_0" name="identifier" type="checkbox" value="false">
+                  <input aria-describedby="" aria-invalid="false" id="identifier_0" name="identifier" type="checkbox" value="false">
                   <label htmlfor="identifier_0">
                     item 1
                   </label>
                 </li>
                 <li class="mg-c-input__input-group">
-                  <input aria-invalid="false" id="identifier_1" name="identifier" type="checkbox" value="false">
+                  <input aria-describedby="" aria-invalid="false" id="identifier_1" name="identifier" type="checkbox" value="false">
                   <label htmlfor="identifier_1">
                     item 2
                   </label>
                 </li>
                 <li class="mg-c-input__input-group">
-                  <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+                  <input aria-describedby="" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
                   <label htmlfor="identifier_2">
                     item 3
                   </label>
                 </li>
                 <li class="mg-c-input__input-group">
-                  <input aria-invalid="false" id="identifier_3" name="identifier" type="checkbox" value="false">
+                  <input aria-describedby="" aria-invalid="false" id="identifier_3" name="identifier" type="checkbox" value="false">
                   <label htmlfor="identifier_3">
                     item 4
                   </label>
                 </li>
                 <li class="mg-c-input__input-group">
-                  <input aria-invalid="false" id="identifier_4" name="identifier" type="checkbox" value="false">
+                  <input aria-describedby="" aria-invalid="false" id="identifier_4" name="identifier" type="checkbox" value="false">
                   <label htmlfor="identifier_4">
                     item 5
                   </label>
                 </li>
                 <li class="mg-c-input__input-group">
-                  <input aria-invalid="false" id="identifier_5" name="identifier" type="checkbox" value="false">
+                  <input aria-describedby="" aria-invalid="false" id="identifier_5" name="identifier" type="checkbox" value="false">
                   <label htmlfor="identifier_5">
                     item 6
                   </label>
@@ -7559,25 +7559,25 @@ exports[`mg-input-checkbox render by type checkbox Should trigger events, case v
       </template>
       <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
         <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_0" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_0">
             batman
           </label>
         </li>
         <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_1">
             robin
           </label>
         </li>
         <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" id="identifier_2" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_2">
             joker
           </label>
         </li>
         <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_3" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" id="identifier_3" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_3">
             bane
           </label>
@@ -7687,25 +7687,25 @@ exports[`mg-input-checkbox render by type checkbox display error with displayErr
       </template>
       <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
         <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_0" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_0">
             batman
           </label>
         </li>
         <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_1">
             robin
           </label>
         </li>
         <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" id="identifier_2" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_2">
             joker
           </label>
         </li>
         <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
           <label htmlfor="identifier_3">
             bane
           </label>
@@ -14779,25 +14779,25 @@ exports[`mg-input-checkbox render by type undefined Should trigger events, case 
       </template>
       <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
         <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_0" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_0">
             batman
           </label>
         </li>
         <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_1">
             robin
           </label>
         </li>
         <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" id="identifier_2" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_2">
             joker
           </label>
         </li>
         <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_3" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" id="identifier_3" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_3">
             bane
           </label>
@@ -14907,25 +14907,25 @@ exports[`mg-input-checkbox render by type undefined display error with displayEr
       </template>
       <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
         <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_0" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_0">
             batman
           </label>
         </li>
         <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_1">
             robin
           </label>
         </li>
         <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" id="identifier_2" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_2">
             joker
           </label>
         </li>
         <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <input aria-describedby="identifier-help-text" aria-invalid="true" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
           <label htmlfor="identifier_3">
             bane
           </label>

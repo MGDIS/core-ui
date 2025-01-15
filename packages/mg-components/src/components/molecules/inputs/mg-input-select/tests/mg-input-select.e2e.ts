@@ -216,4 +216,38 @@ test.describe('mg-input-select', () => {
     // Verify that the value has been reset and the error has been removed
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
+  test('Should udpate error with displayError() after value update with props', async ({page}) => {
+    const componentArgs = {
+      ...baseArgs,
+      required: true,
+      items: ['Batman', 'Joker', 'Bane'],
+      value: 'Batman'
+    }
+    const html = createHTML(componentArgs);
+
+    await page.setContent(html);
+    await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
+
+    await page.locator('mg-input-select.hydrated').waitFor();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+    // Enter a new value programaticaly and display required error
+    await page.locator('mg-input-select').evaluate(async (elm: HTMLMgInputTextElement) => {
+      elm.value = '';
+      await elm.displayError()
+    });
+
+    // Check state with value and error
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+    // Enter a new value programaticaly and remove required error
+    await page.locator('mg-input-select').evaluate(async (elm: HTMLMgInputTextElement) => {
+      elm.value = 'Joker';
+      await elm.displayError()
+    });
+
+    // Check state with value and error
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  })
 });

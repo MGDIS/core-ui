@@ -224,4 +224,34 @@ test.describe('mg-input-textarea', () => {
     // Check that the input has been reset and the error has been removed
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
+  test('Should udpate error with displayError() after value update with props', async ({page}) => {
+    const html = createHTML({
+      ...baseArgs,
+      required: true,
+      value: 'Batman'
+    });
+    await page.setContent(html);
+
+    await page.locator('mg-input-textarea.hydrated').waitFor();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+    // Enter a new value programaticaly and display required error
+    await page.locator('mg-input-textarea').evaluate(async (elm: HTMLMgInputTextElement) => {
+      elm.value = '';
+      await elm.displayError()
+    });
+
+    // Check state with value and error
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+    // Enter a new value programaticaly and remove required error
+    await page.locator('mg-input-textarea').evaluate(async (elm: HTMLMgInputTextElement) => {
+      elm.value = 'Hello Batman';
+      await elm.displayError()
+    });
+
+    // Check state with value and error
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  })
 });

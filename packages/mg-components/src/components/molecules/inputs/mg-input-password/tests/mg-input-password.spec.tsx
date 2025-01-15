@@ -6,7 +6,7 @@ import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
-import { toString } from '@mgdis/stencil-helpers';
+import { setUpRequestAnimationFrameMock, toString } from '@mgdis/stencil-helpers';
 
 const getPage = async args => {
   const page = await newSpecPage({
@@ -14,6 +14,7 @@ const getPage = async args => {
     template: () => <mg-input-password {...args}></mg-input-password>,
   });
   jest.runOnlyPendingTimers();
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
   return page;
 };
 
