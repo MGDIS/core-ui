@@ -3,7 +3,6 @@ import { ClassList, createID, isValideID, isValidString, nextTick, toString } fr
 import { initLocales } from '../../../../locales';
 import { Direction, type MenuSizeType, type DirectionType } from '../mg-menu/mg-menu.conf';
 import { type MgMenuStatusType, Status, targets, type TargetType } from './mg-menu-item.conf';
-import type { MgPopover } from '../../mg-popover/mg-popover';
 import type { MessageType } from '../../../../locales/index.conf';
 
 /**
@@ -26,6 +25,7 @@ export class MgMenuItem {
   private readonly name = 'mg-menu-item';
   private readonly navigationButton = 'mg-c-menu-item__navigation-button';
   private messages: MessageType;
+  private popoverIdentifier: string;
 
   /**************
    * Decorators *
@@ -48,6 +48,8 @@ export class MgMenuItem {
   watchIdentifier(newValue: MgMenuItem['identifier']): void {
     if (!isValideID(newValue)) {
       console.error(`<mg-menu-item> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
+    } else {
+      this.popoverIdentifier = `${this.identifier}-popover`;
     }
   }
 
@@ -73,12 +75,9 @@ export class MgMenuItem {
    */
   @Prop({ reflect: true, mutable: true }) status?: MgMenuStatusType = Status.VISIBLE;
   @Watch('status')
-  validateStatus(newValue: MgMenuItem['status'], oldValue?: MgMenuItem['status']): void {
-    if (oldValue !== undefined) {
-      this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
-    }
+  watchStatus(newValue: MgMenuItem['status'], oldValue?: MgMenuItem['status']): void {
+    if (oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
     this.navigationButtonClassList.add(`${this.navigationButton}--${newValue}`);
-    this.statusChange.emit(newValue);
   }
 
   /**
@@ -86,36 +85,21 @@ export class MgMenuItem {
    */
   @Prop({ mutable: true }) expanded? = false;
   @Watch('expanded')
-  validateExpanded(newValue: MgMenuItem['expanded']): void {
-    if (typeof newValue !== 'boolean') throw new Error(`<${this.name}> prop "expanded" must be a boolean. Passed value: ${toString(newValue)}.`);
-
-    // if menu-item has sub-menu we have to apply some updates:
-    if (this.hasChildren) {
-      const subItems = Array.from(this.element.querySelectorAll(this.name));
-      if (!newValue) {
-        // - when main menu item is NOT expanded we need NOT expanded sub-items and NOT expanded sub-content
-        subItems.forEach(item => {
-          item.expanded = false;
-        });
-      } else if (this.element.querySelector(`${this.name}[status="${Status.ACTIVE}"]`) !== null) {
-        // - when expanded and contain an active item parents are expended too
-        subItems.forEach(item => {
-          if (this.hasStatus(item, Status.ACTIVE)) {
-            item.expanded = true;
-          }
-        });
-      }
+  watchExpanded(newValue: MgMenuItem['expanded']): void {
+    if (typeof newValue !== 'boolean') {
+      throw new Error(`<${this.name}> prop "expanded" must be a boolean. Passed value: ${toString(newValue)}.`);
+    } else {
+      this.updateExpanded(newValue);
+      // when expanded all actives sub-items need to be expanded and non active closed
+      Array.from(this.element.querySelectorAll('mg-menu-item')).forEach(item => {
+        if(item !== this.element) item.expanded = newValue ? this.hasStatus(item, Status.ACTIVE) : false;
+      })
     }
   }
 
   /**********
    * Events *
    *********/
-
-  /**
-   * Emited event when status change
-   */
-  @Event({ eventName: 'status-change' }) statusChange: EventEmitter<HTMLMgMenuItemElement['status']>;
 
   /**
    * Emited event when item is loaded
@@ -136,8 +120,8 @@ export class MgMenuItem {
    */
   @State() size: MenuSizeType = 'medium';
   @Watch('size')
-  validateSize(newValue: MgMenuItem['size'], oldValue?: MgMenuItem['size']): void {
-    this.navigationButtonClassList.delete(`${this.navigationButton}--size-${oldValue}`);
+  watchSize(newValue: MgMenuItem['size'], oldValue?: MgMenuItem['size']): void {
+    if(oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--size-${oldValue}`);
     this.navigationButtonClassList.add(`${this.navigationButton}--size-${newValue}`);
   }
 
@@ -151,16 +135,17 @@ export class MgMenuItem {
    */
   @State() direction: DirectionType;
   @Watch('direction')
-  validateDirection(newValue: MgMenuItem['direction']): void {
-    // manage menu items style depending to parent menu horientation
-    this.element.setAttribute('data-style-direction', newValue);
+  validateDirection(newValue: MgMenuItem['direction'], oldValue: MgMenuItem['direction']): void {
+    if(oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
     this.navigationButtonClassList.add(`${this.navigationButton}--${newValue}`);
     // manage all sub levels child menu-items level with data-level attribut
-    if (this.isDirection(Direction.VERTICAL, newValue)) {
-      Array.from(this.element.querySelectorAll('mg-menu-item')).forEach(item => {
+    Array.from(this.element.querySelectorAll('mg-menu-item')).forEach(item => {
+      if (this.isDirection(Direction.VERTICAL, newValue)) {
         item.dataset.level = `${(Number(item.dataset.level) || 1) + 1}`;
-      });
-    }
+      } else {
+        delete item.dataset.level
+      }
+    });
   }
 
   /**
@@ -189,16 +174,29 @@ export class MgMenuItem {
    */
   @State() displayNotificationBadge: boolean;
 
+  /**
+   * direction value in dataset
+   * @param newValue - new direction value
+   */
+  // eslint-disable-next-line @stencil-community/no-unused-watch
+  @Watch('data-style-direction')
+  watchDataStyleDirection(newValue: DirectionType):void {
+    this.direction = newValue;
+  }
+
+  /**
+   * has focus value in dataset
+   * @param newValue - new direction value
+   */
+  // eslint-disable-next-line @stencil-community/no-unused-watch
+  @Watch('data-has-focus')
+  watchDataHasFocus(newValue: string):void {
+    if(!newValue) this.updateExpanded(Boolean(newValue))
+  }
+
   /***********
    * Methods *
    **********/
-
-  /**
-   * Toggle expanded prop value
-   */
-  private toggleExpanded = (): void => {
-    this.expanded = !this.expanded;
-  };
 
   /**
    * Does an Element have given Status
@@ -207,6 +205,27 @@ export class MgMenuItem {
    * @returns true if element with status is found
    */
   private hasStatus = (mgMenuItemElement: HTMLMgMenuItemElement, status: MgMenuItem['status']): boolean => mgMenuItemElement.status === status;
+
+  /**
+   * Condition to know if component should display a mg-popover
+   * @returns truthy if component display popover
+   */
+  private hasPopover = (): boolean => this.isDirection(Direction.HORIZONTAL) && (this.isInMainMenu && Array.from(this.element.children).some(element => !element.querySelector('[slot]')) || this.isItemMore) && this.href === undefined;
+
+  /**
+   * Method to control if one of component children have active status
+   * @returns truthy if component has active child
+   */
+  private hasActiveChild = (): boolean =>
+    Array.from(this.element.querySelector('mg-menu')?.children || []).some(
+      (element: HTMLMgMenuItemElement) => element.nodeName === 'MG-MENU-ITEM' && this.hasStatus(element, Status.ACTIVE) && !element.hasAttribute('hidden'),
+    );
+
+  /**
+   * Is component an interactive item 
+   * @returns truthy if element is clickable
+   */
+  private isInteractiveItem = (): boolean => this.hasChildren || !isValidString(this.href)
 
   /**
    * Is component contextual direction match the given direction
@@ -227,22 +246,46 @@ export class MgMenuItem {
   };
 
   /**
-   * Method to control if one of component children have active status
-   * @returns truthy if component has active child
+   * Update expanded prop
+   * @param newValue - expanded new value
    */
-  private hasActiveChild = (): boolean =>
-    Array.from(this.element.querySelector('mg-menu')?.children || []).some(
-      (element: HTMLMgMenuItemElement) => element.nodeName === 'MG-MENU-ITEM' && this.hasStatus(element, Status.ACTIVE) && !element.hasAttribute('hidden'),
-    );
+  private updateExpanded = (newValue: MgMenuItem['expanded']):void => {
+    if (this.isInteractiveItem()) {
+      // item is always expanded in vertical menu when has active child
+      this.expanded = this.isDirection(Direction.VERTICAL) && this.hasActiveChild() || newValue
+    }
+  };
 
   /**
-   * Validate slots
+   * Update status
+   * @param guard - status to exclude from process in addition to [Status.HIDDEN, Status.DISABLED] . Default: [].
+   */
+  private updateStatus = (guard : MgMenuItem['status'][] = []): void => {
+    if (![Status.HIDDEN, Status.DISABLED, ...guard].includes(this.status)) {
+      this.status = this.hasActiveChild() ? Status.ACTIVE : Status.VISIBLE;
+    }
+  };
+
+  /**
+   * Render popover clickoutside guard for content slot
+   */
+  private updatePopoverGuard(): void {
+    const subItem: HTMLElement = this.element.querySelector('*:not([slot])');
+    if (!subItem) return;
+    if (this.hasPopover()) subItem.dataset.mgPopoverGuard = this.popoverIdentifier;
+    else delete subItem.dataset.mgPopoverGuard;
+  }
+
+  /**
+   * Update slots
    * @param guard - prevent action with guard. Default: false.
    */
-  private validateSlot = (guard = false): void => {
+  private updateSlot = (guard = false): void => {
     // slot title AND metadata validation
     // add title on label AND metada slots due to text-overflow on these element
-    if (Array.from(this.element.children).find(child => child.getAttribute('slot') === 'label') === undefined) throw new Error(`<${this.name}> slot "label" is required.`);
+    if (Array.from(this.element.children).find(child => child.getAttribute('slot') === 'label') === undefined) {
+      throw new Error(`<${this.name}> slot "label" is required.`);
+    }
     ['label', 'metadata'].forEach(slot => {
       Array.from(this.element.querySelectorAll(`[slot="${slot}"]`)).forEach(element => {
         if (!isValidString(element.textContent)) throw new Error(`<${this.name}> slot "${slot}" must have text content.`);
@@ -252,51 +295,23 @@ export class MgMenuItem {
   };
 
   /**
-   * Update status
-   * @param guard - status to exclude from process in addition to [Status.HIDDEN, Status.DISABLED] . Default: [].
+   * Update menu item
+   * @param guard - prevent action with guard
    */
-  private updateStatus = (guard = []): void => {
-    if (![Status.HIDDEN, Status.DISABLED, ...guard].includes(this.status)) {
-      this.status = this.hasActiveChild() ? Status.ACTIVE : Status.VISIBLE;
-    }
-  };
+  private updateItem = (guard?: MgMenuItem['status'][]): void => {
+    const menu = this.element.closest('mg-menu');
+    this.isInMainMenu = menu !== null && this.element.parentElement.closest('mg-menu-item') === null;
 
-  /**
-   * Init event-listeners
-   */
-  private initListeners = (): void => {
-    // manage first sub-level menu-items
-    Array.from(this.element.querySelector('mg-menu')?.children || []).forEach(item => {
-      if (item.nodeName === 'MG-MENU-ITEM') {
-        // manage child menu listener
-        item.addEventListener('status-change', () => {
-          this.updateStatus();
-        });
-      }
-    });
-  };
+    // define element size
+    if (menu?.size !== undefined && !this.isItemMore) this.size = menu.size;
+    else if (this.isItemMore) this.size = this.element.dataset.size as MgMenuItem['size'];
 
-  /**
-   * Get mg-popover identifier
-   * @returns generated mg-popover identifier
-   */
-  private getPopoverIdentifier = (): MgPopover['identifier'] => `${this.identifier}-popover`;
-
-  /**
-   * Render popover clickoutside guard for content slot
-   */
-  private updatePopoverGuard(): void {
-    if (this.displayPopover())
-      Array.from(this.element.children)
-        .filter((child: HTMLElement) => !child.hasAttribute('slot') && child.nodeName !== 'MG-MENU' && Boolean(child.dataset))
-        .forEach((slot: HTMLElement) => (slot.dataset.mgPopoverGuard = this.getPopoverIdentifier()));
+    // when vertical main menu item contain an active item we force expanded
+    this.updateExpanded(this.expanded)
+    this.updateStatus(guard);
+    this.updatePopoverGuard();
+    this.updateDisplayNotificationBadge();
   }
-
-  /**
-   * Condition to know if component should display a mg-popover
-   * @returns truthy if component display popover
-   */
-  private displayPopover = (): boolean => this.isDirection(Direction.HORIZONTAL) && this.hasChildren && this.href === undefined;
 
   /************
    * Handlers *
@@ -307,13 +322,26 @@ export class MgMenuItem {
    * @param event - click on element
    */
   private handleElementCLick = (event: MouseEvent): void => {
-    if ((this.hasChildren && !this.isInMainMenu) || this.status === Status.DISABLED) {
+    if (this.status === Status.DISABLED) {
       event.preventDefault();
       event.stopPropagation();
     }
 
-    // toggle expanded when mg-menu-item has child items
-    if (this.hasChildren) this.toggleExpanded();
+    // for non "poperized" menu-item we toggle expanded manualy
+    this.updateExpanded(!this.expanded);
+
+    // when item is the last clickable item we close the parent popover
+    if(!this.isInteractiveItem()) {
+      const closePopover = (element: HTMLMgMenuItemElement):void => {
+        if(!element) return;
+        else if(element !== this.element && element.expanded && element.shadowRoot.querySelector('mg-popover') !== null) {
+          element.expanded = false;
+        } else {
+          closePopover(element.parentElement.closest('mg-menu-item'));
+        }
+      }
+      closePopover(this.element);
+    }
   };
 
   /**
@@ -321,7 +349,7 @@ export class MgMenuItem {
    * @param event - popover display event
    */
   private handlePopoverDisplay = (event: CustomEvent): void => {
-    this.expanded = event.detail;
+    this.updateExpanded(event.detail);
   };
 
   /*************
@@ -338,14 +366,12 @@ export class MgMenuItem {
     this.messages = initLocales(this.element).messages.menuItem as MessageType;
     this.isItemMore = this.element.dataset.overflowMore !== undefined;
 
-    // Validate props
-    this.validateStatus(this.status);
-    this.validateExpanded(this.expanded);
+    // watchers
+    this.watchStatus(this.status);
+    this.watchExpanded(this.expanded);
     this.watchTarget(this.target);
     this.watchIdentifier(this.identifier);
-
-    // Validate states
-    this.validateSize(this.size);
+    this.watchSize(this.size);
   }
 
   /**
@@ -354,41 +380,35 @@ export class MgMenuItem {
    */
   componentDidLoad(): ReturnType<typeof setTimeout> {
     // validation
-    this.validateSlot(true);
-
+    this.updateSlot(true);
     // update props and states after componentDidLoad hook
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
     return setTimeout(() => {
-      // define menu-item context states
-      const menu = this.element.closest('mg-menu');
-      this.direction = this.isItemMore || menu === null ? Direction.HORIZONTAL : menu.direction;
-      this.isInMainMenu = menu !== null && this.element.parentElement.closest('mg-menu-item') === null;
-      if (menu?.size !== undefined) this.size = menu.size;
-
-      if (this.isItemMore) this.size = this.element.dataset.size as MgMenuItem['size'];
-
-      // when main menu item contain an active item it will get the active style
-      // AND if item is in vertical menu it will be expanded
-      if (this.hasActiveChild() && this.isInMainMenu) this.expanded = this.isDirection(Direction.VERTICAL);
-
-      this.updateStatus([Status.ACTIVE]);
-      this.updateDisplayNotificationBadge();
-      this.updatePopoverGuard();
-
-      // manage child dom changes with mutationObserver and listners
-      this.initListeners();
+      this.watchDataStyleDirection(this.element.dataset.styleDirection as DirectionType);
+      this.watchDataHasFocus(this.element.dataset.hasFocus)
+      this.updateItem([Status.ACTIVE])
 
       // emit loaded event when component is fully loaded
       this.itemLoaded.emit();
 
       new MutationObserver(mutationsList => {
-        if (mutationsList.some(mutation => mutation.attributeName === 'hidden')) this.updateStatus(this.hasChildren ? undefined : [Status.ACTIVE]);
-        if (mutationsList.some(mutation => mutation.type === 'characterData')) this.validateSlot();
-        this.updateDisplayNotificationBadge();
+        if (mutationsList.some(mutation => ['hidden', 'status'].includes(mutation.attributeName))) this.updateStatus(this.hasChildren ? undefined : [Status.ACTIVE]);
+        if (mutationsList.some(mutation => mutation.type === 'characterData')) this.updateSlot();
+        if (mutationsList.some(mutation => mutation.type === 'childList')) this.updateItem();
         this.itemUpdated.emit();
       }).observe(this.element, { attributes: true, childList: true, characterData: true, subtree: true });
     }, 0);
+  }
+
+  /**
+   * Emit event when component is updated
+   * @returns promise process wich emit the 'item-updated' event
+   */
+  componentShouldUpdate(): Promise<void> {
+    return nextTick(() => {
+      this.itemUpdated.emit();
+    });
   }
 
   /**
@@ -449,16 +469,6 @@ export class MgMenuItem {
   private renderSlot = (): HTMLElement => <slot></slot>;
 
   /**
-   * Emit event when component is updated
-   * @returns promise process wich emit the 'item-updated' event
-   */
-  componentShouldUpdate(): Promise<void> {
-    return nextTick(() => {
-      this.itemUpdated.emit();
-    });
-  }
-
-  /**
    * Render
    * @returns HTML Element
    */
@@ -470,13 +480,13 @@ export class MgMenuItem {
 
     return (
       <Host role={this.isItemMore ? 'presentation' : 'listitem'}>
-        {this.displayPopover() ? (
+        {this.hasPopover() ? (
           <mg-popover
             display={this.expanded}
             placement="bottom-start"
             arrowHide={true}
             onDisplay-change={this.handlePopoverDisplay}
-            identifier={this.getPopoverIdentifier()}
+            identifier={this.popoverIdentifier}
             data-fallback-placement="bottom-end" // use for the last element of the menu if it is placed on the right side
           >
             {this.renderInteractiveElement()}

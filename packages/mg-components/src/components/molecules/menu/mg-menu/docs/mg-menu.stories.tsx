@@ -27,6 +27,8 @@ type MenuArg = Pick<MgMenuType, 'direction' | 'label'> & {
   items: MenuItemArg[];
 };
 
+const depth = 2;
+
 /**
  * Render mg-menu-item
  * @param args - mg-menu-item args
@@ -67,7 +69,7 @@ const getMenuArgs = (direction: MgMenuType['direction'], level = 0, size: MgMenu
   label: 'Batman menu',
   direction,
   size,
-  itemmore: { size },
+  itemmore: level === depth && direction === Direction.HORIZONTAL ? { size } : undefined,
   items: [
     {
       href: '#',
@@ -114,12 +116,12 @@ const Template = (args: MenuArg): HTMLElement => <div>{menu(args)}</div>;
 
 export const MgMenuHorizontal = {
   render: Template,
-  args: getMenuArgs(Direction.HORIZONTAL, 2),
+  args: getMenuArgs(Direction.HORIZONTAL, depth),
 };
 
 export const MgMenuVertical = {
   render: Template,
-  args: getMenuArgs(Direction.VERTICAL, 2),
+  args: getMenuArgs(Direction.VERTICAL, depth),
 };
 
 const TemplateSmallContainer = (args: MenuArg): HTMLElement => {

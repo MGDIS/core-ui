@@ -1889,7 +1889,6 @@ declare global {
         new (): HTMLMgMenuElement;
     };
     interface HTMLMgMenuItemElementEventMap {
-        "status-change": HTMLMgMenuItemElement['status'];
         "item-loaded": void;
         "item-updated": void;
     }
@@ -3267,10 +3266,6 @@ declare namespace LocalJSX {
           * Emited event when item is updated
          */
         "onItem-updated"?: (event: MgMenuItemCustomEvent<void>) => void;
-        /**
-          * Emited event when status change
-         */
-        "onStatus-change"?: (event: MgMenuItemCustomEvent<HTMLMgMenuItemElement['status']>) => void;
         /**
           * Define menu-item status.
          */
