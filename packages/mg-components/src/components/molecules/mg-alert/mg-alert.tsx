@@ -202,7 +202,12 @@ export class MgAlert {
    */
   render(): HTMLElement {
     return (
-      <mg-message class={this.classCollection.join()} role={this.variant === 'info' ? 'status' : 'alert'} variant={this.variant} variantStyle={this.variantStyle}>
+      <mg-message
+        class={this.classCollection.join()}
+        role={['info', 'success'].includes(this.variant) ? 'status' : 'alert'}
+        variant={this.variant}
+        variantStyle={this.variantStyle}
+      >
         <slot></slot>
         {this.hasActions ? (
           <span slot="actions">

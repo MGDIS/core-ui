@@ -129,7 +129,7 @@ exports[`mg-alert Render Should render a info alert with args {} 1`] = `
 exports[`mg-alert Render Should render a success alert with args { lang: 'fr' } 1`] = `
 <mg-alert lang="fr">
   <template shadowrootmode="open">
-    <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="success">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="status" variant="success">
       <slot></slot>
       <span class="mg-c-alert__close-button">
         <mg-button is-icon="" label="Fermer le message" variant="flat">
@@ -150,7 +150,7 @@ exports[`mg-alert Render Should render a success alert with args { lang: 'fr' } 
 exports[`mg-alert Render Should render a success alert with args { lang: 'xx' } 1`] = `
 <mg-alert lang="xx">
   <template shadowrootmode="open">
-    <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="success">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="status" variant="success">
       <slot></slot>
       <span class="mg-c-alert__close-button">
         <mg-button is-icon="" label="Close message" variant="flat">
@@ -171,7 +171,7 @@ exports[`mg-alert Render Should render a success alert with args { lang: 'xx' } 
 exports[`mg-alert Render Should render a success alert with args {} 1`] = `
 <mg-alert>
   <template shadowrootmode="open">
-    <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="success">
+    <mg-message class="mg-c-alert mg-c-alert--close-button" role="status" variant="success">
       <slot></slot>
       <span class="mg-c-alert__close-button">
         <mg-button is-icon="" label="Close message" variant="flat">
