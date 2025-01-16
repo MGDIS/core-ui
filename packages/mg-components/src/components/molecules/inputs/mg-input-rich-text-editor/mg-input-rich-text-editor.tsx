@@ -250,23 +250,19 @@ export class MgInputRichTextEditor {
     if (!this.valid) {
       if (typeof errorMessage === 'string' && errorMessage.length > 0) {
         this.errorMessage = errorMessage;
-      } else if (!this.getPatternValidity()) {
-        this.errorMessage = this.patternErrorMessage;
-      } else if (this.required) {
-        // Check if content is empty before displaying the required error message
+      } else {
+        // Check if content is empty before displaying any other error
         const isEmpty = (() => {
           if (this.value === undefined) return true;
-          if (typeof this.value === 'string') {
-            const textContent = this.value.replace(/<[^>]*>/g, '').trim();
-            return textContent === '' || textContent === '\n';
-          } else {
-            const ops = this.value.ops || [];
-            return ops.length === 0 || (ops.length === 1 && ops[0].insert === '\n');
-          }
+          // For HTML values, remove tags and check if text is empty
+          const textContent = this.value.replace(/<[^>]*>/g, '').trim();
+          return textContent === '' || textContent === '\n';
         })();
 
-        if (isEmpty) {
+        if (this.required && isEmpty) {
           this.errorMessage = this.messages.errors.required;
+        } else if (!this.getPatternValidity()) {
+          this.errorMessage = this.patternErrorMessage;
         }
       }
     }

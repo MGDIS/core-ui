@@ -45,7 +45,5 @@ export const MgInputRichTextEditor = {
 
     // Help Text
     helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
-    pattern: '[a-z]+',
-    patternErrorMessage: 'Format invalide',
   },
 };
