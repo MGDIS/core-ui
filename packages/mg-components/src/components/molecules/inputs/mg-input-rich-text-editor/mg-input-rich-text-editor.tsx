@@ -478,18 +478,18 @@ export class MgInputRichTextEditor {
   }
 
   componentDidLoad(): void {
-    this.editorElement = document.createElement('div');
-    this.wrapperElement.append(this.editorElement);
+    if (!this.readonly) {
+      this.editorElement = document.createElement('div');
+      this.wrapperElement.append(this.editorElement);
 
-    this.quillEditor = new Quill(this.editorElement, {
-      theme: 'snow',
-      modules: this.internalModules,
-      readOnly: this.readonly || this.disabled,
-      placeholder: this.placeholder,
-    });
+      this.quillEditor = new Quill(this.editorElement, {
+        theme: 'snow',
+        modules: this.internalModules,
+        readOnly: this.readonly || this.disabled,
+        placeholder: this.placeholder,
+      });
 
-    if (this.value) {
-      this.quillEditor.once('editor-change', () => {
+      if (this.value) {
         if (typeof this.value === 'string') {
           const containsHTML = /<[a-z][\s\S]*>/i.test(this.value);
           if (containsHTML) {
@@ -500,40 +500,40 @@ export class MgInputRichTextEditor {
         } else {
           this.quillEditor.setContents(this.value);
         }
+      }
+
+      const editorContent = this.element.shadowRoot.querySelector('.ql-editor');
+      editorContent?.addEventListener('blur', this.handleBlur);
+
+      // Add an event listener for the text-change event
+      this.quillEditor.on('text-change', () => {
+        // Get both HTML and Delta content
+        const htmlContent = this.quillEditor.getSemanticHTML();
+        const deltaContent = this.quillEditor.getContents();
+
+        // Update the value based on type
+        if (typeof this.value === 'string') {
+          this.value = htmlContent;
+        } else {
+          this.value = deltaContent;
+        }
+
+        // Emit the HTML content for form compatibility
+        this.valueChange.emit(htmlContent);
+
+        // Check validity but do not display the error message if the error message is already displayed
+        this.checkValidity();
+        if (this.hasDisplayedError) {
+          this.setErrorMessage();
+        }
       });
-    }
 
-    const editorContent = this.element.shadowRoot.querySelector('.ql-editor');
-    editorContent?.addEventListener('blur', this.handleBlur);
+      this.quillSelectionFixes();
 
-    // Add an event listener for the text-change event
-    this.quillEditor.on('text-change', () => {
-      // Get both HTML and Delta content
-      const htmlContent = this.quillEditor.getSemanticHTML();
-      const deltaContent = this.quillEditor.getContents();
-
-      // Update the value based on type
-      if (typeof this.value === 'string') {
-        this.value = htmlContent;
-      } else {
-        this.value = deltaContent;
+      // Initialize disabled state
+      if (this.disabled) {
+        this.watchDisabled(true);
       }
-
-      // Emit the HTML content for form compatibility
-      this.valueChange.emit(htmlContent);
-
-      // Check validity but do not display the error message if the error message is already displayed
-      this.checkValidity();
-      if (this.hasDisplayedError) {
-        this.setErrorMessage();
-      }
-    });
-
-    this.quillSelectionFixes();
-
-    // Initialize disabled state
-    if (this.disabled) {
-      this.watchDisabled(true);
     }
   }
 
@@ -555,7 +555,11 @@ export class MgInputRichTextEditor {
         helpText={this.helpText}
         errorMessage={this.hasDisplayedError ? this.errorMessage : undefined}
       >
-        <div ref={el => (this.wrapperElement = el)} id={this.identifier} class="mg-c-input__wrapper" />
+        {this.readonly ? (
+          <div class="mg-c-input__readonly-value" innerHTML={this.value} />
+        ) : (
+          <div ref={el => (this.wrapperElement = el)} id={this.identifier} class="mg-c-input__wrapper" />
+        )}
       </mg-input>
     );
   }
