@@ -310,10 +310,13 @@ export class MgForm {
    */
   componentDidLoad(): void {
     // Update mgInputs when mgForm content change
-    new MutationObserver(() => {
-      this.setMgInputs();
-      this.checkValidity();
-    }).observe(this.element, { childList: true });
+    const observerOptions = { childList: true, subtree: true }
+    new MutationObserver((mutations) => {
+      if(mutations.some(mutation => Object.keys(observerOptions).includes(mutation.type))) {
+        this.setMgInputs();
+        this.checkValidity();
+      }
+    }).observe(this.element, observerOptions);
   }
 
   /**

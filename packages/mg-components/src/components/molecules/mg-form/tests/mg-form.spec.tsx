@@ -240,7 +240,7 @@ describe('mg-form', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test('Should update input list when element is added to DOM', async () => {
+  test.each([{ type: 'childList',}, { type: 'subtree',}, {type: 'attributes'}])('Should update input list when element is added to DOM', async (mutation) => {
     const args = { identifier: 'identifier' };
     const slot = getSlottedContent();
     const page = await getPage(args, slot);
@@ -249,13 +249,17 @@ describe('mg-form', () => {
 
     expect(page.rootInstance.setMgInputs).not.toHaveBeenCalled();
 
-    fireMo([]);
+    fireMo([mutation]);
     await page.waitForChanges();
 
-    expect(page.rootInstance.setMgInputs).toHaveBeenCalled();
+    if(mutation.type !== 'attributes') {
+      expect(page.rootInstance.setMgInputs).toHaveBeenCalled();
+    } else {
+      expect(page.rootInstance.setMgInputs).not.toHaveBeenCalled();
+    }
   });
 
-  test('Should update mg-form valid when content is updated', async () => {
+  test.each([{ type: 'childList'}, { type: 'subtree'}, {type: 'attributes'}])('Should update mg-form valid when content is updated', async (mutation) => {
     const args = { identifier: 'identifier' };
     const slots = [
       <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
@@ -276,11 +280,11 @@ describe('mg-form', () => {
 
     // remove input-text wich trigger the valid=false
     mgInputText.remove();
-    fireMo([]);
+    fireMo([mutation]);
     await page.waitForChanges();
 
-    expect(mgForm.valid).toEqual(true);
-    expect(page.rootInstance.checkValidity).toHaveBeenCalledTimes(1);
+    expect(mgForm.valid).toEqual(mutation.type !== 'attributes');
+    expect(page.rootInstance.checkValidity).toHaveBeenCalledTimes(mutation.type !== 'attributes' ? 1 : 0);
   });
 
   test.each(['readonly', 'disabled'])('Should update input list when attribute % change', async attribute => {
