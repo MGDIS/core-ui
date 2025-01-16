@@ -83,7 +83,7 @@ exports[`mg-item-more Should fire disconnect callback 1`] = `
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -93,7 +93,7 @@ exports[`mg-item-more Should fire disconnect callback 1`] = `
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -320,7 +320,7 @@ exports[`mg-item-more events Should update proxy property when base item Mutatio
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -330,7 +330,7 @@ exports[`mg-item-more events Should update proxy property when base item Mutatio
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -492,7 +492,7 @@ exports[`mg-item-more events Should update proxy property when base item Mutatio
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -502,7 +502,7 @@ exports[`mg-item-more events Should update proxy property when base item Mutatio
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -664,7 +664,7 @@ exports[`mg-item-more events Should update proxy status when base item item-upda
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -674,7 +674,7 @@ exports[`mg-item-more events Should update proxy status when base item item-upda
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -836,7 +836,7 @@ exports[`mg-item-more events Should update proxy status when base item item-upda
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -846,7 +846,7 @@ exports[`mg-item-more events Should update proxy status when base item item-upda
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -1008,7 +1008,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -1018,7 +1018,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -1180,7 +1180,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -1190,7 +1190,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -1352,7 +1352,7 @@ exports[`mg-item-more render should manage broken proxy link with parent 1`] = `
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -1362,7 +1362,7 @@ exports[`mg-item-more render should manage broken proxy link with parent 1`] = `
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -1524,7 +1524,7 @@ exports[`mg-item-more render should manage proxy DOM 1`] = `
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -1534,7 +1534,7 @@ exports[`mg-item-more render should manage proxy DOM 1`] = `
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -1687,7 +1687,7 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -1697,7 +1697,7 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -1859,7 +1859,7 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -1869,7 +1869,7 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -2035,7 +2035,7 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -2045,7 +2045,7 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -2210,7 +2210,7 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -2220,7 +2220,7 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -2323,7 +2323,7 @@ exports[`mg-item-more render should manage resize with observer, case { submenu:
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="identifier-1-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="identifier-1-popover" slot="content" style="position: fixed; top: 0; left: 0;">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2333,7 +2333,7 @@ exports[`mg-item-more render should manage resize with observer, case { submenu:
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2446,7 +2446,7 @@ exports[`mg-item-more render should manage resize with observer, case { submenu:
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -2456,7 +2456,7 @@ exports[`mg-item-more render should manage resize with observer, case { submenu:
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -2661,7 +2661,7 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0;">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -2671,7 +2671,7 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>

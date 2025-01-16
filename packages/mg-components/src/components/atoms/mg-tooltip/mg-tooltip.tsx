@@ -235,7 +235,7 @@ export class MgTooltip {
         middleware: [offset(8), flip(), shift({ limiter: limitShift() }), arrow({ element: this.mgTooltipContent.querySelector('[data-floating-arrow]') })],
       }).then(({ x, y, placement, middlewareData }) => {
         Object.assign(this.mgTooltipContent.style, {
-          transform: `translate(${x}px, ${y}px)`,
+          transform: !isNaN(x) && !isNaN(y) ? `translate(${x}px, ${y}px)` : undefined,
         });
 
         // Update arrow style
@@ -249,8 +249,8 @@ export class MgTooltip {
 
         const arrowElement = this.mgTooltipContent.querySelector('[data-floating-arrow]') as HTMLElement;
         Object.assign(arrowElement.style, {
-          left: arrowX != null ? `${arrowX}px` : '',
-          top: arrowY != null ? `${arrowY}px` : '',
+          left: !isNaN(arrowX) ? `${arrowX}px` : undefined,
+          top: !isNaN(arrowY) ? `${arrowY}px` : undefined,
           [staticSide]: '-4px',
           position: 'absolute',
         });

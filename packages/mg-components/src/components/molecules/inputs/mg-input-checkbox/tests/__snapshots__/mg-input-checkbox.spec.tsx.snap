@@ -78,7 +78,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -88,7 +88,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -179,7 +179,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -189,7 +189,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -387,7 +387,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -397,7 +397,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -535,7 +535,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -545,7 +545,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -743,7 +743,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -753,7 +753,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="2">
                 <template shadowrootmode="open">
@@ -889,7 +889,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -899,7 +899,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="11">
                 <template shadowrootmode="open">
@@ -1017,7 +1017,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -1027,7 +1027,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="111">
                 <template shadowrootmode="open">
@@ -1116,7 +1116,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -1126,7 +1126,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -1324,7 +1324,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -1334,7 +1334,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -1478,7 +1478,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -1488,7 +1488,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -1727,7 +1727,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -1737,7 +1737,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -1935,7 +1935,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -1945,7 +1945,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -2143,7 +2143,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -2153,7 +2153,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -2297,7 +2297,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -2307,7 +2307,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -2505,7 +2505,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -2515,7 +2515,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -2713,7 +2713,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -2723,7 +2723,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -2921,7 +2921,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -2931,7 +2931,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -3129,7 +3129,7 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -3139,7 +3139,7 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -3337,7 +3337,7 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -3347,7 +3347,7 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="2">
                 <template shadowrootmode="open">
@@ -3518,7 +3518,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -3528,7 +3528,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -3767,7 +3767,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 1`] = 
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -3777,7 +3777,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 1`] = 
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -3975,7 +3975,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 2`] = 
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -3985,7 +3985,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 2`] = 
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="2">
                 <template shadowrootmode="open">
@@ -4131,7 +4131,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 1`]
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -4141,7 +4141,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 1`]
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -4386,7 +4386,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 2`]
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -4396,7 +4396,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 2`]
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -4566,7 +4566,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -4576,7 +4576,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -4774,7 +4774,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -4784,7 +4784,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -4982,7 +4982,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -4992,7 +4992,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -5200,7 +5200,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -5210,7 +5210,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -6084,7 +6084,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
             <mg-icon icon="list"></mg-icon>
             Modifier
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -6094,7 +6094,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -8328,7 +8328,7 @@ exports[`mg-input-checkbox render by type multi Should display error message on 
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -8338,7 +8338,7 @@ exports[`mg-input-checkbox render by type multi Should display error message on 
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -8431,7 +8431,7 @@ exports[`mg-input-checkbox render by type multi Should display error message on 
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -8441,7 +8441,7 @@ exports[`mg-input-checkbox render by type multi Should display error message on 
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -8531,7 +8531,7 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -8541,7 +8541,7 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -8745,7 +8745,7 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
             <mg-icon icon="list"></mg-icon>
             Sélectionner des valeurs
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -8755,7 +8755,7 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -8851,7 +8851,7 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -8861,7 +8861,7 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -8951,7 +8951,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
             <mg-icon icon="list"></mg-icon>
             Modifier
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -8961,7 +8961,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -9285,7 +9285,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
             <mg-icon icon="list"></mg-icon>
             Show
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -9295,7 +9295,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
@@ -9379,7 +9379,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
             <mg-icon icon="list"></mg-icon>
             Show
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -9389,7 +9389,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
@@ -9478,7 +9478,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -9488,7 +9488,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -9578,7 +9578,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -9588,7 +9588,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -9922,7 +9922,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
             <mg-icon icon="list"></mg-icon>
             Show
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -9932,7 +9932,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
@@ -10057,7 +10057,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -10067,7 +10067,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -10154,7 +10154,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -10164,7 +10164,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -10251,7 +10251,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -10261,7 +10261,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -10351,7 +10351,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -10361,7 +10361,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -10448,7 +10448,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -10458,7 +10458,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -10537,7 +10537,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -10547,7 +10547,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -10626,7 +10626,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
             <mg-icon icon="list"></mg-icon>
             Show
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -10636,7 +10636,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
@@ -10718,7 +10718,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -10728,7 +10728,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -10810,7 +10810,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -10820,7 +10820,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -10899,7 +10899,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -10909,7 +10909,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -10988,7 +10988,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -10998,7 +10998,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -11137,7 +11137,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -11147,7 +11147,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -11235,7 +11235,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
             <mg-icon icon="list"></mg-icon>
             show button message
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -11245,7 +11245,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
@@ -11312,7 +11312,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
             <mg-icon icon="list"></mg-icon>
             edit button message
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -11322,7 +11322,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -11389,7 +11389,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
             <mg-icon icon="list"></mg-icon>
             select button message
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -11399,7 +11399,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -11469,7 +11469,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -11479,7 +11479,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -11572,7 +11572,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -11582,7 +11582,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -11675,7 +11675,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -11685,7 +11685,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -11775,7 +11775,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -11785,7 +11785,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -11875,7 +11875,7 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -11885,7 +11885,7 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -11978,7 +11978,7 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -11988,7 +11988,7 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -12081,7 +12081,7 @@ exports[`mg-input-checkbox render by type multi should display override error wi
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -12091,7 +12091,7 @@ exports[`mg-input-checkbox render by type multi should display override error wi
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -12181,7 +12181,7 @@ exports[`mg-input-checkbox render by type multi should display override error wi
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -12191,7 +12191,7 @@ exports[`mg-input-checkbox render by type multi should display override error wi
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -12281,7 +12281,7 @@ exports[`mg-input-checkbox render by type multi should display override error wi
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -12291,7 +12291,7 @@ exports[`mg-input-checkbox render by type multi should display override error wi
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -12384,7 +12384,7 @@ exports[`mg-input-checkbox render by type multi should display override error wi
             <mg-icon icon="list"></mg-icon>
             Edit
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -12394,7 +12394,7 @@ exports[`mg-input-checkbox render by type multi should display override error wi
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -12490,7 +12490,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -12500,7 +12500,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -12593,7 +12593,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
             <mg-icon icon="list"></mg-icon>
             Show
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -12603,7 +12603,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
@@ -12694,7 +12694,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -12704,7 +12704,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
@@ -12956,7 +12956,7 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
             <mg-icon icon="list"></mg-icon>
             Select values
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -12966,7 +12966,7 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">
@@ -13304,7 +13304,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
             <mg-icon icon="list"></mg-icon>
             Modifier
           </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mg-popover-content data-arrow-hide data-placement="bottom" id="identifier-input-mg-popover" slot="content" style="position: fixed; top: 0; left: 0;">
             <template shadowrootmode="open">
               <mg-card class="mg-c-popover-content">
                 <div class="mg-c-popover-content__title">
@@ -13314,7 +13314,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
               </mg-card>
               <slot name="arrow"></slot>
             </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div data-floating-arrow slot="arrow" style="position: absolute; top: 1px;"></div>
             <div class="mg-c-input__content" slot="content">
               <mg-input-text aria-controls="search-results items-list" value="">
                 <template shadowrootmode="open">

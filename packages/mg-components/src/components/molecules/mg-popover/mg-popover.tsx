@@ -208,12 +208,13 @@ export class MgPopover {
           }),
         ],
       }).then(({ x, y, placement, middlewareData }) => {
-        Object.assign(this.mgPopover.style, {
-          position: 'fixed',
-          top: '0',
-          left: '0',
-          transform: `translate(${Math.round(x)}px, ${Math.round(y)}px)`,
-        });
+        if (this.mgPopover !== null)
+          Object.assign(this.mgPopover.style, {
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            transform: !isNaN(x) && !isNaN(y) ? `translate(${Math.round(x)}px, ${Math.round(y)}px)` : undefined,
+          });
 
         // Update arrow style
         const staticSide = {
@@ -226,12 +227,13 @@ export class MgPopover {
         const arrowElement = this.mgPopover.querySelector('[data-floating-arrow]') as HTMLElement;
         const { x: arrowX, y: arrowY } = middlewareData.arrow;
 
-        Object.assign(arrowElement.style, {
-          position: 'absolute',
-          top: arrowY != null ? `${Math.round(arrowY)}px` : '',
-          left: arrowX != null ? `${Math.round(arrowX)}px` : '',
-          [staticSide]: '1px',
-        });
+        if (arrowElement !== null)
+          Object.assign(arrowElement.style, {
+            position: 'absolute',
+            top: !isNaN(arrowY) ? `${Math.round(arrowY)}px` : undefined,
+            left: !isNaN(arrowX) ? `${Math.round(arrowX)}px` : undefined,
+            [staticSide]: '1px',
+          });
 
         this.mgPopover.setAttribute('data-placement', placement);
       });
