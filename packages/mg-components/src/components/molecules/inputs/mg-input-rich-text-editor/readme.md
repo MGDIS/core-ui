@@ -4,7 +4,7 @@ The `mg-input-rich-text-editor` component is a rich text editor input that uses 
 
 - Rich text editing capabilities powered by Quill
 - Customizable toolbar with formatting options
-- Support for both HTML string and Quill Delta formats
+- Support for both HTML string and plain text formats
 - Accessibility features
 - Validation and error handling
 
@@ -12,11 +12,10 @@ The `mg-input-rich-text-editor` component is a rich text editor input that uses 
 
 ### Receiving Content
 
-The component can receive content in three different ways:
+The component can receive content in two different ways:
 
 1. **HTML String**: A string containing formatted HTML
 2. **Plain Text**: A string containing unformatted text
-3. **Quill Delta**: A Quill Delta object representing the formatted content
 
 The component automatically detects the type of content received via the `value` property and handles it accordingly.
 
@@ -36,8 +35,6 @@ The component provides several methods to retrieve content in different formats:
 
 - `getHTML()`: Retrieves the content in HTML format
 - `getText()`: Retrieves the content in plain text format
-- `getDelta()`: Retrieves the content in Quill Delta format
-
 
 <!-- Auto Generated Below -->
 
@@ -63,7 +60,7 @@ The component provides several methods to retrieve content in different formats:
 | `tooltip`                 | `tooltip`               | Add a tooltip message next to the input                                                                                                                              | `string`                    | `undefined` |
 | `tooltipPosition`         | `tooltip-position`      | Define tooltip position                                                                                                                                              | `"input" \| "label"`        | `'input'`   |
 | `valid`                   | `valid`                 | Define input valid state                                                                                                                                             | `boolean`                   | `undefined` |
-| `value`                   | `value`                 | Define the value of the editor Can be either HTML string or Quill Delta                                                                                              | `any`                       | `''`        |
+| `value`                   | `value`                 | Define the value of the editor Can be either HTML string or plain text                                                                                               | `string`                    | `''`        |
 
 
 ## Events
@@ -85,16 +82,6 @@ Display input error if it exists.
 Type: `Promise<void>`
 
 
-
-### `getDelta() => Promise<RichTextEditorValue>`
-
-Get editor content as Delta
-
-#### Returns
-
-Type: `Promise<any>`
-
-Delta content of the editor
 
 ### `getHTML() => Promise<string>`
 

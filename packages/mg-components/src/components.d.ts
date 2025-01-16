@@ -16,7 +16,6 @@ import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/m
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
-import { RichTextEditorValue } from "./components/molecules/inputs/mg-input-rich-text-editor/mg-input-rich-text-editor.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
@@ -43,7 +42,6 @@ export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/m
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
-export { RichTextEditorValue } from "./components/molecules/inputs/mg-input-rich-text-editor/mg-input-rich-text-editor.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
@@ -807,11 +805,6 @@ export namespace Components {
          */
         "displayError": () => Promise<void>;
         /**
-          * Get editor content as Delta
-          * @returns Delta content of the editor
-         */
-        "getDelta": () => Promise<RichTextEditorValue>;
-        /**
           * Get editor content as HTML
           * @returns HTML content of the editor
          */
@@ -896,9 +889,9 @@ export namespace Components {
          */
         "valid": boolean;
         /**
-          * Define the value of the editor Can be either HTML string or Quill Delta
+          * Define the value of the editor Can be either HTML string or plain text
          */
-        "value": RichTextEditorValue;
+        "value": string;
     }
     interface MgInputSelect {
         /**
@@ -3039,9 +3032,9 @@ declare namespace LocalJSX {
          */
         "valid"?: boolean;
         /**
-          * Define the value of the editor Can be either HTML string or Quill Delta
+          * Define the value of the editor Can be either HTML string or plain text
          */
-        "value"?: RichTextEditorValue;
+        "value"?: string;
     }
     interface MgInputSelect {
         /**

@@ -1,7 +1,7 @@
 import { Component, Element, h, Prop, Watch, State, Event, EventEmitter, Method } from '@stencil/core';
 import { ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
 import { classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
-import { RichTextEditorValue, defaultModules } from './mg-input-rich-text-editor.conf';
+import { defaultModules } from './mg-input-rich-text-editor.conf';
 import { initLocales } from '../../../../locales';
 import Quill from 'quill';
 
@@ -42,9 +42,9 @@ export class MgInputRichTextEditor {
 
   /**
    * Define the value of the editor
-   * Can be either HTML string or Quill Delta
+   * Can be either HTML string or plain text
    */
-  @Prop({ mutable: true }) value: RichTextEditorValue = '';
+  @Prop({ mutable: true }) value = '';
 
   /**
    * Input label
@@ -202,7 +202,15 @@ export class MgInputRichTextEditor {
    * Get pattern validity
    * @returns is pattern valid
    */
-  private getPatternValidity = (): boolean => this.pattern === undefined || new RegExp(`^${this.pattern}$`, 'u').test(this.value);
+  private getPatternValidity = (): boolean => {
+    if (this.pattern === undefined) return true;
+
+    // Extract the text without HTML tags
+    const textContent = this.value.replace(/<[^>]*>/g, '').trim();
+
+    // Apply the pattern only on the text content
+    return new RegExp(`^${this.pattern}$`, 'u').test(textContent);
+  };
 
   /**
    * Method to set validity values
@@ -224,15 +232,9 @@ export class MgInputRichTextEditor {
     // Check if the field is empty taking into account the value format
     const isEmpty = (() => {
       if (this.value === undefined) return true;
-      if (typeof this.value === 'string') {
-        // For HTML values, remove tags and check if text is empty
-        const textContent = this.value.replace(/<[^>]*>/g, '').trim();
-        return textContent === '' || textContent === '\n';
-      } else {
-        // For Delta values, check if content is empty or contains only a line break
-        const ops = this.value.ops || [];
-        return ops.length === 0 || (ops.length === 1 && ops[0].insert === '\n');
-      }
+      // For HTML values, remove tags and check if text is empty
+      const textContent = this.value.replace(/<[^>]*>/g, '').trim();
+      return textContent === '' || textContent === '\n';
     })();
 
     const isValid = this.readonly || this.disabled || ((!this.required || !isEmpty) && this.getPatternValidity());
@@ -291,15 +293,6 @@ export class MgInputRichTextEditor {
   @Method()
   async getHTML(): Promise<string> {
     return this.quillEditor.getSemanticHTML();
-  }
-
-  /**
-   * Get editor content as Delta
-   * @returns Delta content of the editor
-   */
-  @Method()
-  async getDelta(): Promise<RichTextEditorValue> {
-    return this.quillEditor.getContents();
   }
 
   /**
@@ -489,16 +482,12 @@ export class MgInputRichTextEditor {
         placeholder: this.placeholder,
       });
 
-      if (this.value) {
-        if (typeof this.value === 'string') {
-          const containsHTML = /<[a-z][\s\S]*>/i.test(this.value);
-          if (containsHTML) {
-            this.quillEditor.clipboard.dangerouslyPasteHTML(this.value);
-          } else {
-            this.quillEditor.setText(this.value);
-          }
+      if (this.value !== '') {
+        const containsHTML = /<[a-z][\s\S]*>/i.test(this.value);
+        if (containsHTML) {
+          this.quillEditor.clipboard.dangerouslyPasteHTML(this.value);
         } else {
-          this.quillEditor.setContents(this.value);
+          this.quillEditor.setText(this.value);
         }
       }
 
@@ -507,16 +496,9 @@ export class MgInputRichTextEditor {
 
       // Add an event listener for the text-change event
       this.quillEditor.on('text-change', () => {
-        // Get both HTML and Delta content
+        // Get HTML content
         const htmlContent = this.quillEditor.getSemanticHTML();
-        const deltaContent = this.quillEditor.getContents();
-
-        // Update the value based on type
-        if (typeof this.value === 'string') {
-          this.value = htmlContent;
-        } else {
-          this.value = deltaContent;
-        }
+        this.value = htmlContent;
 
         // Emit the HTML content for form compatibility
         this.valueChange.emit(htmlContent);
