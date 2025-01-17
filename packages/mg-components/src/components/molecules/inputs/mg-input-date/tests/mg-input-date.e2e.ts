@@ -200,22 +200,26 @@ test.describe('mg-input-date', () => {
     await page.locator('mg-input-date.hydrated').waitFor();
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    // Enter a new value programaticaly and display required error
+    // Programaticaly remove value to display required error message
     await page.locator('mg-input-date').evaluate(async (elm: HTMLMgInputTextElement) => {
       elm.value = '';
       await elm.displayError()
     });
 
-    // Check state with value and error
+    // Check state 
+    // - without value
+    // - with error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    // Enter a new value programaticaly and remove required error
+    // Enter a new value from JS and remove required error
     await page.locator('mg-input-date').evaluate(async (elm: HTMLMgInputTextElement) => {
       elm.value = '2025-12-01';
       await elm.displayError()
     });
 
-    // Check state with value and error
+    // Check state 
+    // - with value
+    // - without error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   })
 });

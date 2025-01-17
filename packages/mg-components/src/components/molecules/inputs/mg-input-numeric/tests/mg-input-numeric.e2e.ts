@@ -299,6 +299,7 @@ test.describe('mg-input-numeric', () => {
     // Check that input has been reset and error has been removed
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
   test('Should udpate error with displayError() after value update with props', async ({page}) => {
     const html = createHTML({
       ...baseArgs,
@@ -310,22 +311,26 @@ test.describe('mg-input-numeric', () => {
     await page.locator('mg-input-numeric.hydrated').waitFor();
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    // Enter a new value programaticaly and display required error
+    // Programaticaly remove value to display required error message
     await page.locator('mg-input-numeric').evaluate(async (elm: HTMLMgInputTextElement) => {
       elm.value = '';
       await elm.displayError()
     });
 
-    // Check state with value and error
+    // Check state 
+    // - without value
+    // - with error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    // Enter a new value programaticaly and remove required error
+    // Enter a new value from JS and remove required error
     await page.locator('mg-input-numeric').evaluate(async (elm: HTMLMgInputTextElement) => {
       elm.value = 1;
       await elm.displayError()
     });
 
-    // Check state with value and error
+    // Check state 
+    // - with value
+    // - without error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   })
 });

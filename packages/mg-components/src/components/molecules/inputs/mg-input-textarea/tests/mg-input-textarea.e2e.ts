@@ -236,22 +236,26 @@ test.describe('mg-input-textarea', () => {
     await page.locator('mg-input-textarea.hydrated').waitFor();
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    // Enter a new value programaticaly and display required error
+    // Programaticaly remove value to display required error message
     await page.locator('mg-input-textarea').evaluate(async (elm: HTMLMgInputTextElement) => {
       elm.value = '';
       await elm.displayError()
     });
 
-    // Check state with value and error
+    // Check state 
+    // - without value
+    // - with error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    // Enter a new value programaticaly and remove required error
+    // Enter a new value from JS and remove required error
     await page.locator('mg-input-textarea').evaluate(async (elm: HTMLMgInputTextElement) => {
       elm.value = 'Hello Batman';
       await elm.displayError()
     });
 
-    // Check state with value and error
+    // Check state 
+    // - with value
+    // - without error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   })
 });

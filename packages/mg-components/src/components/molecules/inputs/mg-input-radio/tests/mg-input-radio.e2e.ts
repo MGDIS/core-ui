@@ -204,22 +204,26 @@ test.describe('mg-input-radio', () => {
     await page.locator('mg-input-radio.hydrated').waitFor();
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    // Enter a new value programaticaly and display required error
+    // Programaticaly remove value to display required error message
     await page.locator('mg-input-radio').evaluate(async (elm: HTMLMgInputTextElement) => {
       elm.value = '';
       await elm.displayError()
     });
 
-    // Check state with value and error
+    // Check state 
+    // - without any selected value
+    // - with error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    // Enter a new value programaticaly and remove required error
+    // Enter a new value from JS and remove required error
     await page.locator('mg-input-radio').evaluate(async (elm: HTMLMgInputTextElement) => {
       elm.value = 'Joker';
       await elm.displayError()
     });
 
-    // Check state with value and error
+    // Check state 
+    // - with selected value
+    // - without error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   })
 });

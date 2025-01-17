@@ -18,8 +18,8 @@ import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 mockWindowFrames();
 
-const getPage = args => {
-  const page = newSpecPage({
+const getPage = async args => {
+  const page = await newSpecPage({
     components: [MgInputCheckbox, MgPopover, MgPopoverContent, MgInputText, MgMessage, MgPagination, MgButton, MgInputCheckboxPaginated, MgInputTitle, MgInput],
     template: () => <mg-input-checkbox {...args}></mg-input-checkbox>,
   });
@@ -54,7 +54,7 @@ describe('mg-input-checkbox', () => {
   });
 
   afterEach(() => {
-    jest.runOnlyPendingTimers();
+    jest.runAllTimers();
   });
 
   describe.each([...checkboxTypes, undefined])('render by type %s', type => {
@@ -143,45 +143,64 @@ describe('mg-input-checkbox', () => {
     });
 
     test.each([true, false])('Should trigger events, case validity check %s', async validity => {
-      const value = getValues().map((item, index) => ({ ...item, value: false, id: index, required: item.required, disabled: item.disabled, hero: 'batman' }));
-      value[0].value = !validity;
-      const page = await getPage({ label: 'label', type, identifier: 'identifier', helpText: 'My help text', value, required: true });
+      const value = getValues().map((item, index) => ({ ...item, value: index === 0 ? !validity : false }));
+      const page = await getPage({ label: 'label', type, identifier: 'identifier', value, required: true });
       const element = page.doc.querySelector('mg-input-checkbox');
-      const allInputs = element.shadowRoot.querySelectorAll('input');
-      const index = validity ? 2 : 0;
-      const input = allInputs[index];
+      const allInputs: HTMLInputElement[] = Array.from(element.shadowRoot.querySelectorAll('input'));
 
-      //mock validity
+      // define spys
+      jest.spyOn(page.rootInstance.valueChange, 'emit');
+      jest.spyOn(page.rootInstance.inputValid, 'emit');
+
+      // define validity mock
+      const validityState = (input) => ({
+        valueMissing: !Boolean(input.value),
+      });
+
       allInputs.forEach(input => {
-        input.checkValidity = jest.fn(() => validity);
+        input.checkValidity = jest.fn(() => {
+          console.log('id:', input.id, input.value, validityState(input))
+          return !Object.values(validityState(input)).some(val => val)
+        });
         Object.defineProperty(input, 'validity', {
-          get: jest.fn(() => ({
-            valueMissing: !validity,
-          })),
+          get: jest.fn(() => validityState(input)),
         });
       });
 
-      jest.spyOn(page.rootInstance.valueChange, 'emit');
-      const inputValidSpy = jest.spyOn(page.rootInstance.inputValid, 'emit');
-
+      // trigger 'focus' event
+      const index = validity ? 2 : 0;
+      const input = allInputs[index];
       input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
+
       await page.waitForChanges();
 
+      expect(element.valid).toEqual(!validity)
+      expect(page.rootInstance.inputValid.emit).not.toHaveBeenCalled();
       expect(page.root).toMatchSnapshot(); //Snapshot on focus
 
+      // update input and trigger 'input' validity must be toggled
       input.checked = validity;
       input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
 
-      const emittedValue = value;
-      emittedValue[index].value = input.checked;
       await page.waitForChanges();
+
+      expect(element.valid).toEqual(validity)
+      expect(page.rootInstance.inputValid.emit).toHaveBeenCalledWith(validity);
+      const emittedValue = value.map((val, i) => ({
+        ...val,
+        value: i !== index ? val.value : input.checked
+      }));
       expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(emittedValue);
-
+      
+      // trigger 'blur' without validity update
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+
       await page.waitForChanges();
 
+      expect(element.valid).toEqual(validity)
+      expect(page.rootInstance.inputValid.emit).toHaveBeenCalledTimes(1);
+      expect(page.rootInstance.valueChange.emit).toHaveBeenCalledTimes(1);
       expect(page.root).toMatchSnapshot(); //Snapshot on blur
-      expect(inputValidSpy).toHaveBeenCalledTimes(1);
     });
 
     describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {

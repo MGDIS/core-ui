@@ -1,4 +1,4 @@
-import { describe, expect, test, vi } from 'vitest';
+import { beforeEach, describe, expect, test, vi } from 'vitest';
 import { setupMutationObserverMock, setUpRequestAnimationFrameMock, setupResizeObserverMock, setupSubmitEventMock } from './unit.ts';
 
 describe('test - e2e', () => {
@@ -21,9 +21,23 @@ describe('test - e2e', () => {
     });
   });
   describe('setUpRequestAnimationFrameMock', () => {
-    test('Should render html', () => {
-      const mock = setUpRequestAnimationFrameMock(()=>{});
-      expect(mock(()=>{})).toMatchSnapshot();
+    beforeEach(() => {
+      vi.useFakeTimers()
+    })
+
+    test.each([window, global])('Should render html', (element) => {
+      const timer = vi.fn()
+      const callback = vi.fn();
+
+      setUpRequestAnimationFrameMock(timer);
+
+      expect(element.requestAnimationFrame).toBeDefined();
+
+      element.requestAnimationFrame(callback);
+      vi.runOnlyPendingTimers();
+
+      expect(timer).toHaveBeenCalled();
+      expect(callback).toHaveBeenCalled();
     });
   });
 });

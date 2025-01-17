@@ -498,22 +498,26 @@ test.describe('mg-input-checkbox', () => {
     await page.locator('mg-input-checkbox.hydrated').waitFor();
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    // Enter a new value programaticaly and display required error
+    // Programaticaly remove value to display required error message
     await page.locator('mg-input-checkbox').evaluate(async (elm: HTMLMgInputTextElement, value) => {
       elm.value = value;
       await elm.displayError()
     }, baseArgs.value);
 
-    // Check state with value and error
+    // Check state 
+    // - without any selected value
+    // - with error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    // Enter a new value programaticaly and remove required error
+    // Enter a new value from JS and remove required error
     await page.locator('mg-input-checkbox').evaluate(async (elm: HTMLMgInputTextElement, value) => {
       elm.value = value.map((val, i) => ({...val, value: i === 2}));
       await elm.displayError()
     }, baseArgs.value);
 
-    // Check state with value and error
+    // Check state 
+    // - with selected value
+    // - without error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   })
 });
