@@ -143,7 +143,14 @@ describe('mg-input-date', () => {
     input.value = '';
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(null);
+    const emittedValue = null;
+    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(emittedValue);
+
+    // update value with blank string must trigger only one `value-change` event
+    element.value = emittedValue;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledTimes(1);
   });
 
   test('Should display a badInput message on a required field with a non-existing date', async () => {
@@ -687,7 +694,7 @@ describe('mg-input-date', () => {
       await page.waitForChanges();
 
       // Verify value has been reset
-      expect(element.value).toEqual('');
+      expect(element.value).toEqual(null);
     });
 
     test('Should reset error message when error is displayed', async () => {

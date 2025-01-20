@@ -570,7 +570,7 @@ exports[`mg-input-date Should override keyboard event even if display error 1`] 
 `;
 
 exports[`mg-input-date Should override keyboard event even if display error 2`] = `
-<mg-input-date value="">
+<mg-input-date>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
       <template shadowrootmode="open">
@@ -586,7 +586,7 @@ exports[`mg-input-date Should override keyboard event even if display error 2`] 
           </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="">
+      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
@@ -1575,7 +1575,7 @@ exports[`mg-input-date reset method Should reset error message when error is dis
 `;
 
 exports[`mg-input-date reset method Should reset error message when error is displayed 2`] = `
-<mg-input-date value="">
+<mg-input-date>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
       <template shadowrootmode="open">
@@ -1591,7 +1591,7 @@ exports[`mg-input-date reset method Should reset error message when error is dis
           </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="">
+      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
