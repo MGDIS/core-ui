@@ -1,5 +1,13 @@
 # @mgdis/styles
 
+## 2.2.1
+
+### Patch Changes
+
+- 975aee1: [#528](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/528) mg-illustrated-message: svg illustration has bad size when direction="horizontal" is set
+- 06412ab: [#526](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/526) mg-menu: sub-menu responsive not working
+- e1fa2cd: [#59](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/59) Add offset classes to mg-l-grid
+
 ## 2.2.0
 
 ### Minor Changes

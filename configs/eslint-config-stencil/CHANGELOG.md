@@ -1,5 +1,12 @@
 # eslint-config-stencil
 
+## 1.2.4
+
+### Patch Changes
+
+- Updated dependencies [2d90802]
+  - @core-ui/eslint-config-custom@1.0.15
+
 ## 1.2.3
 
 ### Patch Changes
