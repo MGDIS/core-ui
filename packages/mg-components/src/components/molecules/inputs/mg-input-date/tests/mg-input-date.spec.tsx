@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInputDate } from '../mg-input-date';
 import messages from '../../../../../locales/en/messages.json';
-import { localeDate, toString } from '@mgdis/stencil-helpers';
+import { localeDate, setUpRequestAnimationFrameMock, toString } from '@mgdis/stencil-helpers';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
@@ -13,6 +13,7 @@ const getPage = args => {
     template: () => <mg-input-date {...args}></mg-input-date>,
   });
   jest.runAllTimers();
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
   return page;
 };
 

@@ -142,3 +142,31 @@ export const setupSubmitEventMock = (): typeof MockCustomEvent => {
 
   return SubmitEvent;
 };
+
+/**
+ * Utility function that mocks the `requestAnimationFrame` API. Recommended to execute inside `test`.
+ * @example
+ * ```
+ * setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
+ * ```
+ * @param faketimer - recommended to use jest.runOnlyPendingTimers()
+ * @returns custom setUpRequestAnimationFrameMock mock
+ */
+export const setUpRequestAnimationFrameMock = (faketimer:() => void): typeof requestAnimationFrame => {
+  const requestAnimationFrame = (callback: FrameRequestCallback) => {
+    setTimeout(callback, 1);
+    faketimer();
+    return 0;
+  };
+
+  [window, global].forEach(element => {
+    Object.defineProperty(element, 'requestAnimationFrame', {
+      writable: true,
+      configurable: true,
+      value: requestAnimationFrame,
+    });
+  });
+
+  return requestAnimationFrame;
+}
+

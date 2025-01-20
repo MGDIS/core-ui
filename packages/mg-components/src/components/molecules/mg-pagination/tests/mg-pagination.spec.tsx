@@ -6,6 +6,7 @@ import { MgIcon } from '../../../atoms/mg-icon/mg-icon';
 import { MgInputSelect } from '../../inputs/mg-input-select/mg-input-select';
 import { MgInput } from '../../inputs/mg-input/mg-input';
 import { MgInputTitle } from '../../../atoms/internals/mg-input-title/mg-input-title';
+import { setUpRequestAnimationFrameMock } from '@mgdis/stencil-helpers';
 
 const getPage = async args => {
   const page = await newSpecPage({
@@ -14,6 +15,7 @@ const getPage = async args => {
   });
 
   jest.runAllTimers();
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
 
   return page;
 };

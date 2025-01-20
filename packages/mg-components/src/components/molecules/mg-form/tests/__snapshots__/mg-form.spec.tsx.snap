@@ -398,7 +398,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -697,13 +697,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -781,7 +781,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
@@ -813,7 +813,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -856,25 +856,25 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" required="" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" required="" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" required="" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" required="" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" required="" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" required="" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" required="" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" required="" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -909,7 +909,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -1021,7 +1021,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -1082,13 +1082,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -1166,7 +1166,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -1193,7 +1193,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -1231,25 +1231,25 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -1279,7 +1279,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -1376,7 +1376,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -1437,13 +1437,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -1516,7 +1516,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -1543,7 +1543,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -1581,25 +1581,25 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -1629,7 +1629,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -1726,7 +1726,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -1787,13 +1787,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -1851,13 +1851,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -1925,7 +1925,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -1952,7 +1952,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -1990,25 +1990,25 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -2038,7 +2038,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -2135,7 +2135,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -2189,13 +2189,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -2273,7 +2273,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
@@ -2305,7 +2305,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -2348,25 +2348,25 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" required="" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" required="" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" required="" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" required="" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" required="" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" required="" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" required="" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" required="" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -2401,7 +2401,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -2513,7 +2513,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -2567,13 +2567,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -2651,7 +2651,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -2678,7 +2678,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -2716,25 +2716,25 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -2764,7 +2764,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -2861,7 +2861,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -2915,13 +2915,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -2994,7 +2994,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -3021,7 +3021,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -3059,25 +3059,25 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -3107,7 +3107,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -3204,7 +3204,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -3258,13 +3258,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -3315,13 +3315,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -3389,7 +3389,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -3416,7 +3416,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -3454,25 +3454,25 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -3502,7 +3502,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -3599,7 +3599,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -3656,13 +3656,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -3740,7 +3740,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
@@ -3772,7 +3772,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -3815,25 +3815,25 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" required="" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" required="" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" required="" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" required="" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" required="" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" required="" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" required="" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" required="" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -3868,7 +3868,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -3980,7 +3980,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -4041,13 +4041,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -4125,7 +4125,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -4152,7 +4152,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -4190,25 +4190,25 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -4238,7 +4238,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -4335,7 +4335,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -4396,13 +4396,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -4475,7 +4475,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -4502,7 +4502,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -4540,25 +4540,25 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -4588,7 +4588,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -4685,7 +4685,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -4742,13 +4742,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -4799,13 +4799,13 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -4873,7 +4873,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -4900,7 +4900,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -4938,25 +4938,25 @@ exports[`mg-form Should render with args {
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -4986,7 +4986,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -5083,7 +5083,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -5134,13 +5134,13 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -5208,7 +5208,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -5235,7 +5235,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -5273,25 +5273,25 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -5321,7 +5321,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -5418,7 +5418,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -5707,13 +5707,13 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-            <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-            <input aria-describedby="" aria-invalid="false" disabled="" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" disabled="" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -5781,7 +5781,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -5808,7 +5808,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="true" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -5846,25 +5846,25 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-            <input aria-describedby="" disabled="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input disabled="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-            <input aria-describedby="" disabled="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input disabled="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-            <input aria-describedby="" disabled="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input disabled="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-            <input aria-describedby="" disabled="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input disabled="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -5894,7 +5894,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" disabled="" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" disabled="" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -5991,7 +5991,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -6042,13 +6042,13 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -6116,7 +6116,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -6143,7 +6143,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -6181,25 +6181,25 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -6229,7 +6229,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -6326,7 +6326,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -6615,13 +6615,13 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -6689,7 +6689,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -6716,7 +6716,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -6754,25 +6754,25 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -6802,7 +6802,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -6899,7 +6899,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -6950,13 +6950,13 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -7024,7 +7024,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -7051,7 +7051,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -7089,25 +7089,25 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -7137,7 +7137,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -7234,7 +7234,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -7285,13 +7285,13 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -7359,7 +7359,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -7386,7 +7386,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -7424,25 +7424,25 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -7472,7 +7472,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -7569,7 +7569,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -7620,13 +7620,13 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -7694,7 +7694,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -7721,7 +7721,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -7759,25 +7759,25 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -7807,7 +7807,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -7904,7 +7904,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -7955,13 +7955,13 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -8029,7 +8029,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -8056,7 +8056,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -8094,25 +8094,25 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -8142,7 +8142,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -8239,7 +8239,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -8290,13 +8290,13 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
         </template>
         <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+            <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+            <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
@@ -8364,7 +8364,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </div>
           </div>
         </template>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
+        <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
@@ -8391,7 +8391,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
           </div>
         </template>
         <span class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
           <mg-button aria-controls="mg-input-password" aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
@@ -8429,25 +8429,25 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
         </template>
         <ul class="mg-c-input__input-group-container" role="list">
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+            <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+            <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+            <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
           </li>
           <li class="mg-c-input__input-group">
-            <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+            <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
@@ -8477,7 +8477,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </div>
           </div>
         </template>
-        <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+        <select aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
           <option value="">
             Select a value
           </option>
@@ -8574,7 +8574,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -9000,7 +9000,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
@@ -9426,7 +9426,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </div>
           </div>
         </template>
-        <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+        <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
           <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
