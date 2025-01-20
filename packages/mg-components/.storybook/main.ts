@@ -126,6 +126,7 @@ const config: StorybookConfig = {
         'v6.0.0': 'https://626149b307606d003ada26b4-atannsibmz.chromatic.com',
         'v6.1.0': 'https://626149b307606d003ada26b4-oclwtefwcd.chromatic.com',
         'v6.2.0': 'https://626149b307606d003ada26b4-hbbwykoxhm.chromatic.com',
+        'v6.3.0': 'https://626149b307606d003ada26b4-beadoltdra.chromatic.com',
       },
     },
   },
