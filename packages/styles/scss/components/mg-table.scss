@@ -1,0 +1,40 @@
+table.mg-c-table {
+  overflow: hidden;
+  border: none;
+  border-radius: var(--mg-b-size-8);
+  background: var(--mg-b-color-light);
+  border-collapse: separate;
+  border-spacing: 0;
+  color: var(--mg-b-color-dark);
+  text-align: left;
+
+  td,
+  th {
+    height: var(--mg-b-size-40);
+    box-sizing: border-box;
+    padding: var(--mg-b-size-8) var(--mg-b-size-16);
+  }
+
+  // Font weight for headers
+  thead td,
+  th {
+    font-weight: 600;
+  }
+
+  thead {
+    height: calc(var(--mg-b-size-min-height) + 2 * var(--mg-b-size-8));
+    background-color: var(--mg-b-color-app);
+    color: var(--mg-b-color-light);
+  }
+
+  :not(thead) tr {
+    &:nth-child(even) {
+      background: color-mix(in srgb, var(--mg-b-color-app), transparent 80%);
+    }
+
+    // Hover style is not wanted for now, but I'm keeping it, just a feeling... :)
+    // &:hover {
+    //   background: color-mix(in srgb, var(--mg-b-color-app), transparent 70%);
+    // }
+  }
+}
