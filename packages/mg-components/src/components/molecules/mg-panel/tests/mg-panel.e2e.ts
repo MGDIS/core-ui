@@ -70,6 +70,10 @@ test.describe('mg-panel', () => {
       slot: '<div>header right items should be vertically aligned</div><div slot="header-right"><mg-tag>Label</mg-tag><mg-icon size="small" icon="check-circle" variant="success"></mg-icon></div>',
     },
     { expanded: true, style: '--mg-c-panel-color-background:var(--mg-b-color-danger)', slot: '<mg-card>Content with child card.</mg-card>' },
+    { slot: '<mg-message>message</mg-message>' },
+    { slot: '<div><mg-message>message</mg-message></div>' },
+    { slot: '<mg-card>card</mg-card>' },
+    { slot: '<div><mg-card>card</mg-card></div>' }
   ].forEach(args => {
     test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, ...args });

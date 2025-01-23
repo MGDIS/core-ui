@@ -34,33 +34,31 @@ test.describe('mg-modal', () => {
   });
 
   test.describe('style', () => {
-    test('Should render with child mg-card', async ({ page }) => {
-      await setPageContent(
-        page,
-        { modalTitle: 'child mg-card', class: 'custom-modal-card', open: true },
-        {
-          content: `<mg-card>child card</mg-card>`,
-          open: true,
-        },
-      );
-
-      await page.addStyleTag({ content: '.custom-modal-card{--mg-c-card-color-background:var(--mg-b-color-danger)}' });
-
-      await expect(page.locator('body')).toHaveScreenshot();
-    });
-
-    test('Should render with mg-message slot', async ({ page }) => {
-      await setPageContent(
-        page,
-        { modalTitle: 'with mg-message slot', open: true },
-        {
-          content: `<mg-message identifier="identifier"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></mg-message>`,
-          open: true,
-        },
-      );
-
-      await expect(page.locator('body')).toHaveScreenshot();
-    });
+    [
+      { modalTitle: 'mg-card', content:'<mg-card>child card</mg-card>' },
+      { modalTitle: 'mg-card > mg-message', content:'<mg-card><mg-message>child message</mg-message></mg-card>' },
+      { modalTitle: 'mg-message', content: '<mg-message identifier="identifier"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></mg-message>' },
+      { modalTitle: 'mg-panel', content:'<mg-panel panel-title="panel title" expanded>panel content</mg-panel>' },
+      { modalTitle: 'mg-panel > mg-card', content:'<mg-panel panel-title="panel title" expanded><mg-card>child card</mg-card></mg-panel>' },
+      { modalTitle: 'mg-panel > mg-card > mg-message', content:'<mg-panel panel-title="panel title" expanded><mg-card><mg-message>child card</mg-message></mg-card></mg-panel>' },
+    ].forEach(({modalTitle, content}) => {
+      test(`Should render with slot ${modalTitle}`, async ({ page }) => {
+        await setPageContent(
+          page,
+          { modalTitle , class: 'custom-modal-card', open: true },
+          {
+            content,
+            open: true,
+          },
+        );
+  
+        if(content.includes('mg-card')) {
+          await page.addStyleTag({ content: '.custom-modal-card{--mg-c-card-color-background:var(--mg-b-color-danger)}' });
+        }
+  
+        await expect(page.locator('body')).toHaveScreenshot();
+      });
+    })
   });
 
   test.describe('navigation', () => {
