@@ -25,6 +25,7 @@ export class MgInputRichTextEditor {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private defaultModules = defaultModules;
 
   /**************
    * Decorators *
@@ -171,7 +172,6 @@ export class MgInputRichTextEditor {
    * Quill modules configuration
    */
   @Prop() modules?: Record<string, unknown>;
-  private defaultModules = defaultModules;
 
   /**
    * Component classes
@@ -181,7 +181,7 @@ export class MgInputRichTextEditor {
   /**
    * Modules
    */
-  @State() private internalModules: Record<string, unknown>;
+  @State() internalModules: Record<string, unknown>;
 
   /**
    * Error message to display
@@ -197,6 +197,88 @@ export class MgInputRichTextEditor {
    * Emited event when value change
    */
   @Event({ eventName: 'value-change' }) valueChange: EventEmitter<string>;
+
+  /**
+   * Get editor content as HTML
+   * @returns HTML content of the editor
+   */
+  @Method()
+  async getHTML(): Promise<string> {
+    return new Promise(resolve => {
+      requestAnimationFrame(() => {
+        resolve(this.quillEditor.getSemanticHTML())
+      })
+    })
+  }
+
+  /**
+   * Get editor content as plain text
+   * @returns Plain text content of the editor
+   */
+  @Method()
+  async getText(): Promise<string> {
+    return new Promise(resolve => {
+      requestAnimationFrame(() => {
+        resolve(this.quillEditor.getText())
+      })
+    })
+  }
+
+  /**
+   * Display input error if it exists.
+   */
+  @Method()
+  async displayError(): Promise<void> {
+    // Use `Promise` as requested for stencil method
+    // Use `requestAnimationFrame` to ensure:
+    // - DOM is fully updated before validation
+    // - Async operations are completed
+    // - No timing issues with Stencil's render cycle
+    // - Keep everything in sync both inside and outside the component
+    return new Promise(resolve => {
+      requestAnimationFrame(() => {
+        this.checkValidity();
+        this.setErrorMessage();
+        this.hasDisplayedError = this.invalid;
+        resolve()
+      })
+    })
+  }
+
+  /**
+   * Set an error and display a custom error message.
+   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+   * It must be paired with an error message to display for the given context.
+   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+   * @param valid - value indicating the validity
+   * @param errorMessage - the error message to display
+   */
+  @Method()
+  async setError(valid: MgInputRichTextEditor['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-rich-text-editor> method "setError()" param "valid" must be a boolean.');
+    } else if (!isValidString(errorMessage)) {
+      throw new Error('<mg-input-rich-text-editor> method "setError()" param "errorMessage" must be a string.');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Reset value, validity and error state
+   */
+  @Method()
+  async reset(): Promise<void> {
+    if (!this.readonly) {
+      this.value = '';
+      this.quillEditor.setContents([{ insert: '\n' }]);
+      this.checkValidity();
+      this.errorMessage = undefined;
+      this.hasDisplayedError = false;
+    }
+  }
 
   /**
    * Get pattern validity
@@ -230,12 +312,12 @@ export class MgInputRichTextEditor {
    */
   private checkValidity = (): void => {
     // Check if the field is empty taking into account the value format
-    const isEmpty = (() => {
-      if (this.value === undefined) return true;
-      // For HTML values, remove tags and check if text is empty
+    // For HTML values, remove tags and check if text is empty
+    let isEmpty = false
+    if(typeof this.value === 'string') {
       const textContent = this.value.replace(/<[^>]*>/g, '').trim();
-      return textContent === '' || textContent === '\n';
-    })();
+      isEmpty = !isValidString(textContent) || textContent !== '\n';
+    }
 
     const isValid = this.readonly || this.disabled || ((!this.required || !isEmpty) && this.getPatternValidity());
     this.setValidity(isValid);
@@ -281,69 +363,6 @@ export class MgInputRichTextEditor {
       }
     }
   };
-
-  /**
-   * Get editor content as HTML
-   * @returns HTML content of the editor
-   */
-  @Method()
-  async getHTML(): Promise<string> {
-    return this.quillEditor.getSemanticHTML();
-  }
-
-  /**
-   * Get editor content as plain text
-   * @returns Plain text content of the editor
-   */
-  @Method()
-  async getText(): Promise<string> {
-    return this.quillEditor.getText();
-  }
-
-  /**
-   * Display input error if it exists.
-   */
-  @Method()
-  async displayError(): Promise<void> {
-    this.checkValidity();
-    this.setErrorMessage();
-    this.hasDisplayedError = this.invalid;
-  }
-
-  /**
-   * Set an error and display a custom error message.
-   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
-   * It must be paired with an error message to display for the given context.
-   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
-   * @param valid - value indicating the validity
-   * @param errorMessage - the error message to display
-   */
-  @Method()
-  async setError(valid: MgInputRichTextEditor['valid'], errorMessage: string): Promise<void> {
-    if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-rich-text-editor> method "setError()" param "valid" must be a boolean.');
-    } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-rich-text-editor> method "setError()" param "errorMessage" must be a string.');
-    } else {
-      this.setValidity(valid);
-      this.setErrorMessage(valid ? undefined : errorMessage);
-      this.hasDisplayedError = this.invalid;
-    }
-  }
-
-  /**
-   * Reset value, validity and error state
-   */
-  @Method()
-  async reset(): Promise<void> {
-    if (!this.readonly) {
-      this.value = '';
-      this.quillEditor.setContents([{ insert: '\n' }]);
-      this.checkValidity();
-      this.errorMessage = undefined;
-      this.hasDisplayedError = false;
-    }
-  }
 
   /**
    * Fixes for handling text selection in Quill when used within the Shadow DOM.
@@ -446,7 +465,7 @@ export class MgInputRichTextEditor {
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
-    this.messages = initLocales(this.element).messages;
+    this.messages = initLocales(this.element as unknown as HTMLElement).messages;
     this.element.style.setProperty('--mg-c-input-rich-text-editor-rows', this.rows.toString());
     // Watch
     this.watchReadonly(this.readonly);

@@ -1,38 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mg-input-rich-text-editor Content retrieval methods getDelta should return correct content 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
-  <template shadowrootmode="open">
-    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div>
-          <div class="ql-editor"></div>
-        </div>
-        <div class="ql-editor"></div>
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-rich-text-editor>
-`;
-
 exports[`mg-input-rich-text-editor Content retrieval methods getHTML should return correct content 1`] = `
 <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
   <template shadowrootmode="open">
@@ -49,12 +16,11 @@ exports[`mg-input-rich-text-editor Content retrieval methods getHTML should retu
       </template>
       <div class="mg-c-input__wrapper" id="identifier">
         <div>
-          <div class="ql-editor"></div>
-        </div>
-        <div class="ql-editor">
-          <p>
-            Test content
-          </p>
+          <div class="ql-editor">
+            <p>
+              Test content
+            </p>
+          </div>
         </div>
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -87,9 +53,6 @@ exports[`mg-input-rich-text-editor Content retrieval methods getText should retu
       <div class="mg-c-input__wrapper" id="identifier">
         <div>
           <div class="ql-editor"></div>
-        </div>
-        <div class="ql-editor">
-          Test content
         </div>
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -126,11 +89,7 @@ exports[`mg-input-rich-text-editor Should render with args {
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div>
-          <div class="ql-editor"></div>
-        </div>
-      </div>
+      <div class="mg-c-input__readonly-value"></div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -166,10 +125,10 @@ exports[`mg-input-rich-text-editor Should render with args {
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div>
-          <div class="ql-editor"></div>
-        </div>
+      <div class="mg-c-input__readonly-value">
+        <p>
+          Content
+        </p>
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
@@ -208,7 +167,11 @@ exports[`mg-input-rich-text-editor Should render with args {
       </template>
       <div class="mg-c-input__wrapper" id="identifier">
         <div>
-          <div class="ql-editor"></div>
+          <div class="ql-editor">
+            <p>
+              Content
+            </p>
+          </div>
         </div>
       </div>
       <div id="identifier-help-text" slot="help-text">
@@ -246,10 +209,10 @@ exports[`mg-input-rich-text-editor Should render with args {
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div>
-          <div class="ql-editor"></div>
-        </div>
+      <div class="mg-c-input__readonly-value">
+        <p>
+          Content
+        </p>
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="true" slot="label">
         <!---->
@@ -381,11 +344,7 @@ exports[`mg-input-rich-text-editor Should render with args { readonly: true }: 1
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div>
-          <div class="ql-editor"></div>
-        </div>
-      </div>
+      <div class="mg-c-input__readonly-value"></div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -416,11 +375,7 @@ exports[`mg-input-rich-text-editor Should render with args { readonly: true, lab
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div>
-          <div class="ql-editor"></div>
-        </div>
-      </div>
+      <div class="mg-c-input__readonly-value"></div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -448,10 +403,10 @@ exports[`mg-input-rich-text-editor Should render with args { readonly: true, val
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div>
-          <div class="ql-editor"></div>
-        </div>
+      <div class="mg-c-input__readonly-value">
+        <p>
+          Content
+        </p>
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
@@ -485,7 +440,11 @@ exports[`mg-input-rich-text-editor Should render with args { required: true, val
       </template>
       <div class="mg-c-input__wrapper" id="identifier">
         <div>
-          <div class="ql-editor"></div>
+          <div class="ql-editor">
+            <p>
+              Content
+            </p>
+          </div>
         </div>
       </div>
       <div id="identifier-help-text" slot="help-text">
