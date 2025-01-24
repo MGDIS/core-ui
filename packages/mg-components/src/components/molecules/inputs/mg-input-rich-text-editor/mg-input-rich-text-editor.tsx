@@ -27,6 +27,9 @@ export class MgInputRichTextEditor {
   private hasDisplayedError = false;
   private defaultModules = defaultModules;
 
+  // Classes
+  private readonly classFocus = 'mg-u-is-focused';
+
   /**************
    * Decorators *
    **************/
@@ -206,9 +209,9 @@ export class MgInputRichTextEditor {
   async getHTML(): Promise<string> {
     return new Promise(resolve => {
       requestAnimationFrame(() => {
-        resolve(this.quillEditor.getSemanticHTML())
-      })
-    })
+        resolve(this.quillEditor.getSemanticHTML());
+      });
+    });
   }
 
   /**
@@ -219,9 +222,9 @@ export class MgInputRichTextEditor {
   async getText(): Promise<string> {
     return new Promise(resolve => {
       requestAnimationFrame(() => {
-        resolve(this.quillEditor.getText())
-      })
-    })
+        resolve(this.quillEditor.getText());
+      });
+    });
   }
 
   /**
@@ -240,9 +243,9 @@ export class MgInputRichTextEditor {
         this.checkValidity();
         this.setErrorMessage();
         this.hasDisplayedError = this.invalid;
-        resolve()
-      })
-    })
+        resolve();
+      });
+    });
   }
 
   /**
@@ -273,7 +276,7 @@ export class MgInputRichTextEditor {
   async reset(): Promise<void> {
     if (!this.readonly) {
       this.value = '';
-      this.quillEditor.setContents([{ insert: '\n' }]);
+      this.quillEditor.setText('');
       this.checkValidity();
       this.errorMessage = undefined;
       this.hasDisplayedError = false;
@@ -313,8 +316,8 @@ export class MgInputRichTextEditor {
   private checkValidity = (): void => {
     // Check if the field is empty taking into account the value format
     // For HTML values, remove tags and check if text is empty
-    let isEmpty = false
-    if(typeof this.value === 'string') {
+    let isEmpty = false;
+    if (typeof this.value === 'string') {
       const textContent = this.value.replace(/<[^>]*>/g, '').trim();
       isEmpty = !isValidString(textContent) || textContent !== '\n';
     }
@@ -351,10 +354,22 @@ export class MgInputRichTextEditor {
   };
 
   /**
+   * Handle focus event
+   */
+  private handleFocus = (): void => {
+    this.classCollection.add(this.classFocus);
+    this.classCollection = new ClassList(this.classCollection.classes);
+  };
+
+  /**
    * Handles the blur event on the editor
    * Checks validity and displays error messages if necessary
    */
   private handleBlur = (): void => {
+    // Manage focus
+    this.classCollection.delete(this.classFocus);
+    this.classCollection = new ClassList(this.classCollection.classes);
+
     if (!this.readonly) {
       this.checkValidity();
       this.setErrorMessage();
@@ -467,6 +482,9 @@ export class MgInputRichTextEditor {
     // Get locales
     this.messages = initLocales(this.element as unknown as HTMLElement).messages;
     this.element.style.setProperty('--mg-c-input-rich-text-editor-rows', this.rows.toString());
+    // Validate
+    this.validatePattern(this.pattern);
+    this.validatePattern(this.patternErrorMessage);
     // Watch
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
@@ -507,6 +525,7 @@ export class MgInputRichTextEditor {
       }
 
       const editorContent = this.element.shadowRoot.querySelector('.ql-editor');
+      editorContent?.addEventListener('focus', this.handleFocus);
       editorContent?.addEventListener('blur', this.handleBlur);
 
       // Add an event listener for the text-change event

@@ -11,8 +11,6 @@ const Quill = class {
     this.root = editor;
     this.root.innerHTML = '';
     this.root.getRootNode = () => ({ activeElement: null });
-    this.root.focus = jest.fn();
-    this.root.blur = jest.fn();
     this.root.parentNode = container;
     this.root.dispatchEvent = jest.fn();
 
@@ -24,7 +22,6 @@ const Quill = class {
     };
 
     this._content = '';
-    this._delta = { ops: [] };
 
     this.clipboard = {
       dangerouslyPasteHTML: jest.fn(html => {
@@ -40,22 +37,53 @@ const Quill = class {
 
     // Add content retrieval methods
     this.getSemanticHTML = jest.fn(() => this._content);
-    this.getContents = jest.fn(() => this._delta);
     this.getText = jest.fn(() => this._content.replace(/<[^>]*>/g, ''));
+
+    // Add focus method
+    this.focus = jest.fn(() => {
+      this.root.focus();
+      container.dispatchEvent(new CustomEvent('focus', { bubbles: true, composed: true }));
+    });
+
+    // Add blur method
+    this.blur = jest.fn(() => {
+      this.root.blur();
+      container.dispatchEvent(new CustomEvent('blur', { bubbles: true, composed: true }));
+    });
   }
 
+  /**
+   * Attaches an event handler to the editor
+   * @param event - The event name ('text-change', etc.)
+   * @param handler - The callback function to execute
+   */
   on = jest.fn((event, handler) => {
     if (event === 'text-change') {
       this._textChangeHandler = handler;
     }
   });
+
+  /**
+   * Attaches a one-time event handler
+   * @param event - The event name
+   * @param handler - The callback function to execute
+   */
   once = jest.fn();
+
+  /**
+   * Enables the editor for editing
+   */
   enable = jest.fn();
+
+  /**
+   * Disables the editor to prevent editing
+   */
   disable = jest.fn();
-  setContents = jest.fn(delta => {
-    this._delta = delta;
-    this._content = JSON.stringify(delta);
-  });
+
+  /**
+   * Sets editor contents with plain text
+   * @param text - The text to insert
+   */
   setText = jest.fn(text => {
     this._content = text;
     this._delta = { ops: [{ insert: text }, { insert: '\n' }] };

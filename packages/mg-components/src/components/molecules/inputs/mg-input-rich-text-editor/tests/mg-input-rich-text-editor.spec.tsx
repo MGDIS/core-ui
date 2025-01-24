@@ -8,7 +8,10 @@ import { setUpRequestAnimationFrameMock, toString } from '@mgdis/stencil-helpers
 import messages from '../../../../../locales/en/messages.json';
 import type Quill from 'quill';
 
-type HTMLQuillElement = HTMLElement & { checkValidity: () => boolean}
+type HTMLQuillElement = HTMLElement & {
+  checkValidity: () => boolean;
+  validatePattern: () => void;
+};
 
 const getPage = (args: Partial<MgInputRichTextEditor> & Pick<MgInputRichTextEditor, 'identifier' | 'label'>): Promise<SpecPage> => {
   const page = newSpecPage({
@@ -17,12 +20,12 @@ const getPage = (args: Partial<MgInputRichTextEditor> & Pick<MgInputRichTextEdit
   });
 
   jest.runAllTimers();
-  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
 
   return page;
 };
 
-const waitForEditor = async (page: SpecPage): Promise<{ element: HTMLMgInputRichTextEditorElement, quillInstance: Quill, quillElement: HTMLQuillElement}> => {
+const waitForEditor = async (page: SpecPage): Promise<{ element: HTMLMgInputRichTextEditorElement; quillInstance: Quill; quillElement: HTMLQuillElement }> => {
   const element = page.doc.querySelector('mg-input-rich-text-editor');
   const quillElement = element.shadowRoot.querySelector('.ql-editor') as HTMLQuillElement;
   const quillInstance = page.rootInstance.quillEditor;
@@ -142,6 +145,7 @@ describe('mg-input-rich-text-editor', () => {
   test('Should trigger events', async () => {
     const editorValue = '<p>Content</p>';
     const page = await getPage({ label: 'label', identifier: 'identifier', helpText: 'My help text' });
+    const element = page.doc.querySelector('mg-input-rich-text-editor');
     const { quillInstance, quillElement } = await waitForEditor(page);
 
     // Mock validity
@@ -152,24 +156,32 @@ describe('mg-input-rich-text-editor', () => {
       })),
     });
 
-    const valueChangeSpy = jest.spyOn(page.rootInstance.valueChange, 'emit');
+    jest.spyOn(page.rootInstance.valueChange, 'emit');
+    const inputValidSpy = jest.spyOn(page.rootInstance.inputValid, 'emit');
+    const handleFocusSpy = jest.spyOn(page.rootInstance, 'handleFocus');
+    const handleBlurSpy = jest.spyOn(page.rootInstance, 'handleBlur');
 
-    // Simulate content change via Quill API
-    quillInstance.clipboard.dangerouslyPasteHTML(editorValue);
-
-    // Simulate text-change event recording
-    const textChangeHandler = () => {
-      // Component logic when text changes
-      page.rootInstance.value = editorValue;
-      page.rootInstance.valueChange.emit(editorValue);
-    };
-    quillInstance.on('text-change', textChangeHandler);
-
-    // Trigger handler directly
-    textChangeHandler();
+    // Test focus event
+    quillInstance.focus();
     await page.waitForChanges();
+    expect(handleFocusSpy).toHaveBeenCalled();
+    expect(page.rootInstance.classCollection.has('mg-u-is-focused')).toBeTruthy();
+    expect(element.shadowRoot.querySelector('mg-input').classList.contains('mg-u-is-focused')).toBeTruthy();
 
-    expect(valueChangeSpy).toHaveBeenCalledWith(editorValue);
+    expect(page.root).toMatchSnapshot(); // Snapshot on focus
+
+    // Test content change
+    quillInstance.clipboard.dangerouslyPasteHTML(editorValue);
+    await page.waitForChanges();
+    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(editorValue);
+
+    // Test blur event
+    quillInstance.blur();
+    await page.waitForChanges();
+    expect(handleBlurSpy).toHaveBeenCalled();
+    expect(page.rootInstance.classCollection.has('mg-u-is-focused')).toBeFalsy();
+    expect(element.shadowRoot.querySelector('mg-input').classList.contains('mg-u-is-focused')).toBeFalsy();
+    expect(inputValidSpy).toHaveBeenCalledTimes(1);
   });
 
   test.each([
@@ -235,7 +247,7 @@ describe('mg-input-rich-text-editor', () => {
     ])('$method should return correct content', async ({ method, mockMethod, value, expectedValue }) => {
       const page = await getPage({ label: 'label', identifier: 'identifier', value });
       const { element, quillInstance } = await waitForEditor(page);
-      const spy = jest.spyOn(quillInstance, mockMethod as never)
+      const spy = jest.spyOn(quillInstance, mockMethod as never);
 
       expect(page.root).toMatchSnapshot();
 
@@ -244,5 +256,147 @@ describe('mg-input-rich-text-editor', () => {
       expect(result).toEqual(expectedValue);
       expect(spy).toHaveBeenCalled();
     });
+  });
+
+  test('Should reset editor content and validity state', async () => {
+    const page = await getPage({
+      label: 'label',
+      identifier: 'identifier',
+      value: '<p>Initial content</p>',
+    });
+    const { element } = await waitForEditor(page);
+
+    // Call reset method
+    await element.reset();
+    await page.waitForChanges();
+
+    const errorElement = element.shadowRoot.querySelector('[slot="error"]');
+
+    expect(element.value).toBe('');
+    expect(errorElement).toBeNull();
+  });
+
+  test.each([
+    { valid: true, message: 'Error message', expectError: false },
+    { valid: false, message: 'Error message', expectError: true },
+  ])('Should handle setError with valid: $valid', async ({ valid, message, expectError }) => {
+    const page = await getPage({ label: 'label', identifier: 'identifier' });
+    const { element } = await waitForEditor(page);
+
+    await element.setError(valid, message);
+    await page.waitForChanges();
+
+    const errorElement = element.shadowRoot.querySelector('[slot="error"]');
+    if (expectError) {
+      expect(errorElement).not.toBeNull();
+      expect(errorElement.textContent.trim()).toBe(message);
+    } else {
+      expect(errorElement).toBeNull();
+    }
+  });
+
+  test.each([
+    [null, 'error message'],
+    [undefined, 'error message'],
+    [true, ''],
+    [true, ' '],
+    [true, null],
+    [true, undefined],
+  ])('Should throw error when setError called with invalid arguments: %s, %s', async (valid, errorMessage) => {
+    const page = await getPage({ label: 'label', identifier: 'identifier' });
+    const { element } = await waitForEditor(page);
+
+    await expect(element.setError(valid as boolean | null | undefined, errorMessage as string | null | undefined)).rejects.toThrow();
+  });
+
+  test('Should validate pattern correctly', async () => {
+    const page = await getPage({
+      label: 'label',
+      identifier: 'identifier',
+      pattern: '[a-z]+',
+      patternErrorMessage: 'Letters only',
+      value: '<p>123</p>',
+    });
+    const { element } = await waitForEditor(page);
+
+    await element.displayError();
+    await page.waitForChanges();
+
+    const errorElement = element.shadowRoot.querySelector('[slot="error"]');
+
+    expect(errorElement).not.toBeNull();
+    expect(errorElement.textContent.trim()).toBe('Letters only');
+  });
+
+  test('Should handle custom Quill modules', async () => {
+    const customModules = {
+      toolbar: ['bold', 'italic'],
+      custom: { option: true },
+    };
+
+    const page = await getPage({
+      label: 'label',
+      identifier: 'identifier',
+      modules: customModules,
+    });
+
+    const { quillInstance } = await waitForEditor(page);
+    expect(quillInstance.options.modules).toEqual(expect.objectContaining(customModules));
+  });
+
+  test('Should reset hasDisplayedError when validity changes', async () => {
+    const page = await getPage({
+      label: 'label',
+      identifier: 'identifier',
+      required: true,
+      value: '',
+    });
+    const { element, quillElement } = await waitForEditor(page);
+
+    // Mock validity
+    quillElement.checkValidity = jest.fn(() => false);
+    Object.defineProperty(quillElement, 'validity', {
+      get: jest.fn(() => ({
+        valueMissing: true,
+      })),
+    });
+
+    await element.displayError();
+    await page.waitForChanges();
+
+    // Verify error is displayed
+    let errorElement = element.shadowRoot.querySelector('[slot="error"]');
+    expect(errorElement).not.toBeNull();
+    expect(errorElement.textContent.trim()).toBe(messages.errors.required);
+
+    // Change required property to trigger handleValidityChange
+    element.required = false;
+    await page.waitForChanges();
+
+    // Verify error message has been cleared
+    errorElement = element.shadowRoot.querySelector('[slot="error"]');
+    expect(errorElement).toBeNull();
+  });
+
+  test.each(['', ' ', null, undefined])('Should throw an error when pattern is used with invalid patternErrorMessage: %s', async patternErrorMessage => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'blu', pattern: '[a-z]*', patternErrorMessage });
+    } catch (err) {
+      expect(err.message).toEqual(
+        `<mg-input-rich-text-editor> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='[a-z]*'" and "patternErrorMessage='${patternErrorMessage}'".`,
+      );
+    }
+  });
+
+  test.each(['', ' ', null, undefined])('Should throw an error when patternErrorMessage is used with invalid pattern: %s', async pattern => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'blu', pattern, patternErrorMessage: 'pattern error message' });
+    } catch (err) {
+      expect(err.message).toEqual(
+        `<mg-input-rich-text-editor> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='${pattern}'" and "patternErrorMessage='pattern error message'".`,
+      );
+    }
   });
 });

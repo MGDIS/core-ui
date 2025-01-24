@@ -7,6 +7,21 @@
   display: flex;
   width: 100%;
   flex-direction: column;
+  border-width: var(--mg-c-input-border-width);
+  border-style: solid;
+  border-color: var(--mg-c-input-color-border);
+  border-radius: var(--mg-c-input-border-radius);
+  background-color: var(--mg-b-color-light);
+
+  &:focus-within {
+    box-shadow: 0 0 var(--mg-b-size-4) var(--mg-c-input-color-box-shadow-focus);
+    outline: Highlight auto 0.1rem;
+    outline: -webkit-focus-ring-color auto 0.1rem;
+  }
+
+  .mg-c-input--has-error & {
+    border-color: var(--mg-b-color-danger);
+  }
 }
 
 /* Quill Editor styles override */
@@ -29,12 +44,15 @@
 
   .ql-toolbar {
     padding: $ql-spacing;
-    background: var(--mg-b-color-neutral-0);
-    border: {
+    border: 0;
+    border-radius: var(--mg-c-input-border-radius) var(--mg-c-input-border-radius) 0 0;
+    border-block-end: {
       width: var(--mg-c-input-border-width);
       color: var(--mg-c-input-color-border);
-      radius: var(--mg-c-input-border-radius) var(--mg-c-input-border-radius) 0 0;
+      style: solid;
     }
+
+    background: var(--mg-b-color-neutral-0);
 
     .ql-formats {
       display: inline-flex;
@@ -120,12 +138,10 @@
   }
 
   .ql-container {
+    border: 0;
+    border-radius: 0 0 var(--mg-c-input-border-radius) var(--mg-c-input-border-radius);
+    margin: 0 0.1rem 0.1rem;
     background: var(--mg-b-color-neutral-0);
-    border: {
-      width: var(--mg-c-input-border-width);
-      color: var(--mg-c-input-color-border);
-      radius: 0 0 var(--mg-c-input-border-radius) var(--mg-c-input-border-radius);
-    }
   }
 
   .ql-editor {
