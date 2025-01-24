@@ -1,5 +1,12 @@
 # @mgdis/stencil-helpers
 
+## 2.2.2
+
+### Patch Changes
+
+- 2d90802: Update dependencies
+- 1d1cad4: [#529](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/529) mg-input-\*\*: field validity computation on programmatic change
+
 ## 2.2.1
 
 ### Patch Changes

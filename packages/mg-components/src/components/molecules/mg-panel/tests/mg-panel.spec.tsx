@@ -7,12 +7,18 @@ import { MgInputText } from '../../inputs/mg-input-text/mg-input-text';
 import { expandToggleDisplays, titlePositions } from '../mg-panel.conf';
 import { MgInputTitle } from '../../../atoms/internals/mg-input-title/mg-input-title';
 import { MgInput } from '../../inputs/mg-input/mg-input';
+import { setUpRequestAnimationFrameMock } from '@mgdis/stencil-helpers';
 
-const getPage = (args, slot?) =>
-  newSpecPage({
+const getPage = async (args, slot?) => {
+  const page = await newSpecPage({
     components: [MgPanel, MgButton, MgInputText, MgInputTitle, MgInput],
     template: () => <mg-panel {...args}>{slot}</mg-panel>,
   });
+
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
+  return page;
+}
+
 
 describe('mg-panel', () => {
   beforeAll(() => (global.HTMLInputElement.prototype.focus = jest.fn()));

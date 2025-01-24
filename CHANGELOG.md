@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2025-01-20-16-22_Cute-Cerise-Chicken)
+
+### Packages released
+
+- [linting-angularjs changelog](packages/linting-angularjs/CHANGELOG.md)
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [linting-styles changelog](packages/linting-styles/CHANGELOG.md)
+- [linting-vue2 changelog](packages/linting-vue2/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [sanitize-html changelog](packages/sanitize-html/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2024-12-11-17-48_Lonely-Lavender-Leopard)
 
 ### Packages released

@@ -42,12 +42,15 @@ export class MgInputDate {
   @Watch('value')
   validateValue(newValue: MgInputDate['value']): void {
     // When the input is not fully completed or has been cleared, the value becomes an empty string.
-    if (newValue === '') newValue = null;
-
-    // check value validity
-    if (newValue && !isValidString(newValue)) {
+    if (['', undefined].includes(newValue)) {
+      // need to force value update to `null` to prevent extra render
+      // - `''` is not a valide value
+      // - `undefined` is not allowed in CustomEvent['detail']
+      this.value = null;
+    } else if (newValue && !isValidString(newValue)) {
+      // check value validity
       throw new Error(`<mg-input-date> props 'value' must be a valid string. Passed value: ${toString(newValue)}.`);
-    } else if ([null, undefined].includes(newValue) || this.isValidPattern(newValue)) {
+    } else if (newValue === null || this.isValidPattern(newValue)) {
       this.valueChange.emit(newValue);
     } else {
       console.error("<mg-input-date> props 'value' doesn't match pattern: 'yyyy-mm-dd'.");
@@ -194,10 +197,21 @@ export class MgInputDate {
    * Display input error if it exists.
    */
   @Method()
-  async displayError(): Promise<void> {
-    this.checkValidity();
-    this.setErrorMessage();
-    this.hasDisplayedError = this.invalid;
+  displayError(): Promise<void> {
+    // Use `Promise` as requested for stencil method
+    // Use `requestAnimationFrame` to ensure:
+    // - DOM is fully updated before validation
+    // - Async operations are completed
+    // - No timing issues with Stencil's render cycle
+    // - Keep everything in sync both inside and outside the component
+    return new Promise(resolve => {
+      requestAnimationFrame(() => {
+        this.checkValidity();
+        this.setErrorMessage();
+        this.hasDisplayedError = this.invalid;
+        resolve()
+      })
+    })
   }
 
   /**
@@ -227,7 +241,7 @@ export class MgInputDate {
   @Method()
   async reset(): Promise<void> {
     if (!this.readonly) {
-      this.value = '';
+      this.value = null;
       this.checkValidity();
       this.invalid = false;
       this.errorMessage = undefined;
@@ -298,7 +312,7 @@ export class MgInputDate {
     // when we reset the field we need to test a blank value.
     if (['Delete', 'Backspace'].includes(event.key)) {
       event.preventDefault();
-      this.value = '';
+      this.value = null;
       this.checkValidity();
       if (this.hasDisplayedError) {
         this.setErrorMessage();
@@ -310,7 +324,7 @@ export class MgInputDate {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(this.readonly || this.disabled || (this.input.checkValidity() && (['', undefined].includes(this.value) || this.isValidPattern(this.value))));
+    this.setValidity(this.readonly || this.disabled || (this.input.checkValidity() && (this.value === null || this.isValidPattern(this.value))));
   };
 
   /**
@@ -320,13 +334,13 @@ export class MgInputDate {
   private getInputError = (): null | InputDateError => {
     let inputError: InputDateError = null;
 
-    // required
-    if (this.input.validity.valueMissing) {
-      inputError = 'required';
-    }
-    // pattern
-    else if (this.value && !this.isValidPattern(this.value)) {
+    // bad input or pattern
+    if (this.input.validity.badInput || (this.value && !this.isValidPattern(this.value))) {
       inputError = 'badInput';
+    }
+    // required
+    else if (this.input.validity.valueMissing) {
+      inputError = 'required';
     }
     // min & max
     else if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max !== '9999-12-31') {
@@ -434,7 +448,7 @@ export class MgInputDate {
         labelHide={this.labelHide}
         required={this.required}
         tooltip={this.tooltip}
-        tooltipPosition={this.readonly && ['', undefined].includes(this.value) ? 'label' : this.tooltipPosition}
+        tooltipPosition={this.readonly && this.value === null ? 'label' : this.tooltipPosition}
         helpText={this.formatHelpText(this.helpText)}
         errorMessage={this.errorMessage}
       >

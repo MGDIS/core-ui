@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInputDate } from '../mg-input-date';
 import messages from '../../../../../locales/en/messages.json';
-import { localeDate, toString } from '@mgdis/stencil-helpers';
+import { localeDate, setUpRequestAnimationFrameMock, toString } from '@mgdis/stencil-helpers';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
@@ -13,6 +13,7 @@ const getPage = args => {
     template: () => <mg-input-date {...args}></mg-input-date>,
   });
   jest.runAllTimers();
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
   return page;
 };
 
@@ -143,7 +144,36 @@ describe('mg-input-date', () => {
     input.value = '';
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(null);
+    const emittedValue = null;
+    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(emittedValue);
+
+    // update value with blank string must trigger only one `value-change` event
+    element.value = emittedValue;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledTimes(1);
+  });
+
+  test('Should display a badInput message on a required field with a non-existing date', async () => {
+    const args = { label: 'label', identifier: 'identifier', required: true };
+    const page = await getPage(args);
+
+    const element = page.doc.querySelector('mg-input-date');
+    const input = element.shadowRoot.querySelector('input');
+
+    //mock validity
+    input.checkValidity = jest.fn(() => false);
+    Object.defineProperty(input, 'validity', {
+      get: jest.fn(() => ({
+        valueMissing: true,
+        badInput: true,
+      })),
+    });
+
+    input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
   });
 
   test('Should trigger events', async () => {
@@ -665,7 +695,7 @@ describe('mg-input-date', () => {
       await page.waitForChanges();
 
       // Verify value has been reset
-      expect(element.value).toEqual('');
+      expect(element.value).toEqual(null);
     });
 
     test('Should reset error message when error is displayed', async () => {

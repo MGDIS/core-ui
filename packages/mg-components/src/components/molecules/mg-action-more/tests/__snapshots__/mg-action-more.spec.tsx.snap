@@ -35,9 +35,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -55,9 +55,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -74,9 +74,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -94,9 +94,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -113,9 +113,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -133,9 +133,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -153,9 +153,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -220,9 +220,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -240,9 +240,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -259,9 +259,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -279,9 +279,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -298,9 +298,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -318,9 +318,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -338,9 +338,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -405,9 +405,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -425,9 +425,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -444,9 +444,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -464,9 +464,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -483,9 +483,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -503,9 +503,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -523,9 +523,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -593,9 +593,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -613,9 +613,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -632,9 +632,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -652,9 +652,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -671,9 +671,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -691,9 +691,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -711,9 +711,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -781,9 +781,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -801,9 +801,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -820,9 +820,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -840,9 +840,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -859,9 +859,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -879,9 +879,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -899,9 +899,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -969,9 +969,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -989,9 +989,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1008,9 +1008,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1028,9 +1028,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1047,9 +1047,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1067,9 +1067,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1087,9 +1087,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1154,9 +1154,9 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1174,9 +1174,9 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1193,9 +1193,9 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1213,9 +1213,9 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1232,9 +1232,9 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1252,9 +1252,9 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1272,9 +1272,9 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1339,9 +1339,9 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1359,9 +1359,9 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1378,9 +1378,9 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1398,9 +1398,9 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1417,9 +1417,9 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1437,9 +1437,9 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1457,9 +1457,9 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1527,9 +1527,9 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1547,9 +1547,9 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1566,9 +1566,9 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1586,9 +1586,9 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1605,9 +1605,9 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1625,9 +1625,9 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1645,9 +1645,9 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1716,9 +1716,9 @@ exports[`mg-action-more render Should render with args [object Object] 4`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1736,9 +1736,9 @@ exports[`mg-action-more render Should render with args [object Object] 4`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1755,9 +1755,9 @@ exports[`mg-action-more render Should render with args [object Object] 4`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1775,9 +1775,9 @@ exports[`mg-action-more render Should render with args [object Object] 4`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1794,9 +1794,9 @@ exports[`mg-action-more render Should render with args [object Object] 4`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1814,9 +1814,9 @@ exports[`mg-action-more render Should render with args [object Object] 4`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1834,9 +1834,9 @@ exports[`mg-action-more render Should render with args [object Object] 4`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1902,9 +1902,9 @@ exports[`mg-action-more render Should render with args [object Object] 5`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1922,9 +1922,9 @@ exports[`mg-action-more render Should render with args [object Object] 5`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1941,9 +1941,9 @@ exports[`mg-action-more render Should render with args [object Object] 5`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1961,9 +1961,9 @@ exports[`mg-action-more render Should render with args [object Object] 5`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1980,9 +1980,9 @@ exports[`mg-action-more render Should render with args [object Object] 5`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2000,9 +2000,9 @@ exports[`mg-action-more render Should render with args [object Object] 5`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2020,9 +2020,9 @@ exports[`mg-action-more render Should render with args [object Object] 5`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2087,9 +2087,9 @@ exports[`mg-action-more render Should render with args [object Object] 6`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2107,9 +2107,9 @@ exports[`mg-action-more render Should render with args [object Object] 6`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2126,9 +2126,9 @@ exports[`mg-action-more render Should render with args [object Object] 6`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2146,9 +2146,9 @@ exports[`mg-action-more render Should render with args [object Object] 6`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2165,9 +2165,9 @@ exports[`mg-action-more render Should render with args [object Object] 6`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2185,9 +2185,9 @@ exports[`mg-action-more render Should render with args [object Object] 6`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2205,9 +2205,9 @@ exports[`mg-action-more render Should render with args [object Object] 6`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2272,9 +2272,9 @@ exports[`mg-action-more render Should render with args [object Object] 7`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2292,9 +2292,9 @@ exports[`mg-action-more render Should render with args [object Object] 7`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2311,9 +2311,9 @@ exports[`mg-action-more render Should render with args [object Object] 7`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2331,9 +2331,9 @@ exports[`mg-action-more render Should render with args [object Object] 7`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2350,9 +2350,9 @@ exports[`mg-action-more render Should render with args [object Object] 7`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2370,9 +2370,9 @@ exports[`mg-action-more render Should render with args [object Object] 7`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2390,9 +2390,9 @@ exports[`mg-action-more render Should render with args [object Object] 7`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2457,9 +2457,9 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2477,9 +2477,9 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2496,9 +2496,9 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2516,9 +2516,9 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2535,9 +2535,9 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2555,9 +2555,9 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2575,9 +2575,9 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2642,9 +2642,9 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2662,9 +2662,9 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2681,9 +2681,9 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2701,9 +2701,9 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2720,9 +2720,9 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2740,9 +2740,9 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2760,9 +2760,9 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2827,9 +2827,9 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2847,9 +2847,9 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2866,9 +2866,9 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2886,9 +2886,9 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2905,9 +2905,9 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2925,9 +2925,9 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2945,9 +2945,9 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3012,9 +3012,9 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3032,9 +3032,9 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3051,9 +3051,9 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3071,9 +3071,9 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3090,9 +3090,9 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3110,9 +3110,9 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3130,9 +3130,9 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3200,9 +3200,9 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3220,9 +3220,9 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3239,9 +3239,9 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3259,9 +3259,9 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3278,9 +3278,9 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3298,9 +3298,9 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3318,9 +3318,9 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3388,9 +3388,9 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3408,9 +3408,9 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3427,9 +3427,9 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3447,9 +3447,9 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3466,9 +3466,9 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3486,9 +3486,9 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3506,9 +3506,9 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3577,9 +3577,9 @@ exports[`mg-action-more render Should toggle menu on click 7`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3597,9 +3597,9 @@ exports[`mg-action-more render Should toggle menu on click 7`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3616,9 +3616,9 @@ exports[`mg-action-more render Should toggle menu on click 7`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3636,9 +3636,9 @@ exports[`mg-action-more render Should toggle menu on click 7`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3655,9 +3655,9 @@ exports[`mg-action-more render Should toggle menu on click 7`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3675,9 +3675,9 @@ exports[`mg-action-more render Should toggle menu on click 7`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3695,9 +3695,9 @@ exports[`mg-action-more render Should toggle menu on click 7`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3766,9 +3766,9 @@ exports[`mg-action-more render Should toggle menu on click 8`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3786,9 +3786,9 @@ exports[`mg-action-more render Should toggle menu on click 8`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3805,9 +3805,9 @@ exports[`mg-action-more render Should toggle menu on click 8`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3825,9 +3825,9 @@ exports[`mg-action-more render Should toggle menu on click 8`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3844,9 +3844,9 @@ exports[`mg-action-more render Should toggle menu on click 8`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3864,9 +3864,9 @@ exports[`mg-action-more render Should toggle menu on click 8`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3884,9 +3884,9 @@ exports[`mg-action-more render Should toggle menu on click 8`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3952,9 +3952,9 @@ exports[`mg-action-more render Should toggle menu on click 9`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3972,9 +3972,9 @@ exports[`mg-action-more render Should toggle menu on click 9`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3991,9 +3991,9 @@ exports[`mg-action-more render Should toggle menu on click 9`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4011,9 +4011,9 @@ exports[`mg-action-more render Should toggle menu on click 9`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4030,9 +4030,9 @@ exports[`mg-action-more render Should toggle menu on click 9`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4050,9 +4050,9 @@ exports[`mg-action-more render Should toggle menu on click 9`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4070,9 +4070,9 @@ exports[`mg-action-more render Should toggle menu on click 9`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4138,9 +4138,9 @@ exports[`mg-action-more render Should toggle menu on click 10`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4158,9 +4158,9 @@ exports[`mg-action-more render Should toggle menu on click 10`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4177,9 +4177,9 @@ exports[`mg-action-more render Should toggle menu on click 10`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4197,9 +4197,9 @@ exports[`mg-action-more render Should toggle menu on click 10`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4216,9 +4216,9 @@ exports[`mg-action-more render Should toggle menu on click 10`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4236,9 +4236,9 @@ exports[`mg-action-more render Should toggle menu on click 10`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4256,9 +4256,9 @@ exports[`mg-action-more render Should toggle menu on click 10`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4323,9 +4323,9 @@ exports[`mg-action-more render Should toggle menu on click 11`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4343,9 +4343,9 @@ exports[`mg-action-more render Should toggle menu on click 11`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4362,9 +4362,9 @@ exports[`mg-action-more render Should toggle menu on click 11`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4382,9 +4382,9 @@ exports[`mg-action-more render Should toggle menu on click 11`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4401,9 +4401,9 @@ exports[`mg-action-more render Should toggle menu on click 11`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4421,9 +4421,9 @@ exports[`mg-action-more render Should toggle menu on click 11`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4441,9 +4441,9 @@ exports[`mg-action-more render Should toggle menu on click 11`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4508,9 +4508,9 @@ exports[`mg-action-more render Should toggle menu on click 12`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4528,9 +4528,9 @@ exports[`mg-action-more render Should toggle menu on click 12`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4547,9 +4547,9 @@ exports[`mg-action-more render Should toggle menu on click 12`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4567,9 +4567,9 @@ exports[`mg-action-more render Should toggle menu on click 12`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4586,9 +4586,9 @@ exports[`mg-action-more render Should toggle menu on click 12`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4606,9 +4606,9 @@ exports[`mg-action-more render Should toggle menu on click 12`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4626,9 +4626,9 @@ exports[`mg-action-more render Should toggle menu on click 12`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4693,9 +4693,9 @@ exports[`mg-action-more render Should toggle menu on click 13`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4713,9 +4713,9 @@ exports[`mg-action-more render Should toggle menu on click 13`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4732,9 +4732,9 @@ exports[`mg-action-more render Should toggle menu on click 13`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4752,9 +4752,9 @@ exports[`mg-action-more render Should toggle menu on click 13`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4771,9 +4771,9 @@ exports[`mg-action-more render Should toggle menu on click 13`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4791,9 +4791,9 @@ exports[`mg-action-more render Should toggle menu on click 13`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4811,9 +4811,9 @@ exports[`mg-action-more render Should toggle menu on click 13`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4878,9 +4878,9 @@ exports[`mg-action-more render Should toggle menu on click 14`] = `
               <template shadowrootmode="open">
                 <slot></slot>
               </template>
-              <mg-menu-item identifier="identifier-0" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-0" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4898,9 +4898,9 @@ exports[`mg-action-more render Should toggle menu on click 14`] = `
                 </span>
               </mg-menu-item>
               <mg-divider class="mg-c-action-more__divider"></mg-divider>
-              <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4917,9 +4917,9 @@ exports[`mg-action-more render Should toggle menu on click 14`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-2" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
+                  <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4937,9 +4937,9 @@ exports[`mg-action-more render Should toggle menu on click 14`] = `
                 </span>
                 <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-3" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4956,9 +4956,9 @@ exports[`mg-action-more render Should toggle menu on click 14`] = `
                   bane
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-4" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-4" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4976,9 +4976,9 @@ exports[`mg-action-more render Should toggle menu on click 14`] = `
                   robin
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-5" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-5" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="#">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4996,9 +4996,9 @@ exports[`mg-action-more render Should toggle menu on click 14`] = `
                   harley quinn
                 </span>
               </mg-menu-item>
-              <mg-menu-item identifier="identifier-6" role="listitem" status="visible">
+              <mg-menu-item data-style-direction="vertical" identifier="identifier-6" role="listitem" status="visible">
                 <template shadowrootmode="open">
-                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
                     <slot name="image"></slot>
                     <div class="mg-c-menu-item__navigation-button-center">
                       <div class="mg-c-menu-item__navigation-button-text-content">

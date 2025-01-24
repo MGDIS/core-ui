@@ -188,4 +188,42 @@ test.describe('mg-input-radio', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
+
+  test('Should udpate error with displayError() after value update with props', async ({page}) => {
+    const componentArgs = {
+      ...baseArgs,
+      required: true,
+      items: ['Batman', 'Joker', 'Bane'],
+      value: 'Batman'
+    }
+    const html = createHTML(componentArgs);
+
+    await page.setContent(html);
+    await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
+
+    await page.locator('mg-input-radio.hydrated').waitFor();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+    // Programaticaly remove value to display required error message
+    await page.locator('mg-input-radio').evaluate(async (elm: HTMLMgInputTextElement) => {
+      elm.value = '';
+      await elm.displayError()
+    });
+
+    // Check state 
+    // - without any selected value
+    // - with error message
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+    // Enter a new value from JS and remove required error
+    await page.locator('mg-input-radio').evaluate(async (elm: HTMLMgInputTextElement) => {
+      elm.value = 'Joker';
+      await elm.displayError()
+    });
+
+    // Check state 
+    // - with selected value
+    // - without error message
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  })
 });

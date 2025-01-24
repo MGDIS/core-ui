@@ -1,36 +1,35 @@
 /**
- * MgItemMore type guard
- * @param element - element to control type
- * @returns truthy if element is mg-item-more
+ * 
  */
-const isMgItemMore = (element: HTMLElement): element is HTMLMgItemMoreElement => element.nodeName === 'MG-ITEM-MORE';
-
-export const OverflowBehaviorElements = {
-  BASE_INDEX: 'data-overflow-base-index',
-  PROXY_INDEX: 'data-overflow-proxy-index',
-};
-
 export class OverflowBehavior {
   // variables
   private _resizeObserver: ResizeObserver;
-  private _moreElement: HTMLElement;
-  private _baseChildren: Element[];
-  private _proxyChildren: Element[];
+  private _availableWidth: number;
 
   constructor(
-    private element: Element,
-    private render: () => HTMLElement,
+    private parentElement: HTMLElement,
+    private itemMoreElement:  HTMLElement,
+    private itemMoreContainerElement: HTMLElement
   ) {
-    if (this._resizeObserver === undefined) {
-      // add resize observer
-      this._resizeObserver = new ResizeObserver(entries => {
-        entries.forEach(entry => {
-          this.run(entry.contentRect.width);
-        });
-      });
-      this._resizeObserver.observe(this.element);
+    if(!this.parentElement || !this.itemMoreElement || !this.itemMoreContainerElement) {
+      throw new Error('OverflowBehavior - all construtor params are required')
     }
-    this.run();
+
+    const items = Array.from(this.parentElement.children) as HTMLElement[]
+
+    this._resizeObserver = new ResizeObserver(entries => {
+      this._availableWidth = entries.map(entry => entry.contentRect.width).sort((a, b) => a - b).shift();
+      // reset items
+      items.forEach(item => this.toggleItem(item, false));
+      
+      let accWidth = 0;
+
+      items.forEach((item, index) => {
+        accWidth += item.offsetWidth;
+        if(index) this.toggleItem(item, this.isOverflowElement(accWidth, item))
+      });
+    });
+    this._resizeObserver.observe(this.parentElement);
   }
 
   /**********
@@ -49,112 +48,36 @@ export class OverflowBehavior {
    ************/
 
   /**
-   * run overflow behavior
-   * @param width - width of the container. Optional.
+   * Utility method to know if element is HTMLMgItemMoreElement
+   * @param element - element to match with 'MORE' element
+   * @returns truthy if element is the 'MORE' element
    */
-  private run = (width?: number): void => {
-    if (this._moreElement === undefined) {
-      // set moreElement
-      this._moreElement = this.render();
-
-      // set children
-      this._baseChildren = this.getInteractiveItems(this.element);
-      if (isMgItemMore(this._moreElement)) {
-        this._proxyChildren = this.getInteractiveItems(this._moreElement.shadowRoot.querySelector('mg-menu'));
-      }
-
-      // update children
-      this._baseChildren.forEach((child, index) => {
-        child.setAttribute(OverflowBehaviorElements.BASE_INDEX, `${index}`);
-        // set moreElement children
-        this._proxyChildren[index].setAttribute(OverflowBehaviorElements.PROXY_INDEX, `${index}`);
-      });
-    }
-
-    if (width !== undefined) this.updateDisplayedItems(width);
-  };
-
-  /**
-   * Get interactive children filtred by authorized nodeName ['MG-MENU-ITEM', 'MG-BUTTON']
-   * @param element - element to parse
-   * @returns children
-   */
-  private getInteractiveItems = (element: Element) =>
-    (element.children?.length > 0 ? Array.from(element.children) : []).filter(element => ['MG-MENU-ITEM', 'MG-BUTTON'].includes(element.nodeName));
-
-  /**
-   * Update displayed items in container from a given available space
-   * @param availableWidth - available width in container to display child items
-   */
-  private updateDisplayedItems = (availableWidth: number): void => {
-    this.restoreItems();
-    const acc = { accWidth: 0, previousItem: null };
-    [...this._baseChildren, this._moreElement].forEach((child: HTMLMgMenuItemElement | HTMLMgItemMoreElement) => {
-      acc.accWidth += child.offsetWidth;
-      const hasPreviuosItem = acc.previousItem !== null;
-      const isPreviousItemHidden = hasPreviuosItem && acc.previousItem.hasAttribute('hidden');
-      // if previous item is hidden AND is NOT more element we hide current
-      // OR if item has an overflow we hide current
-      // OR if current item is more element AND have NOT previous hidden items, current more element item is an hidden item
-      // ELSE current is a display item
-      this.toggleItem(
-        child,
-        (isPreviousItemHidden && !this.isMoreElement(child)) || this.isOverflowElement(acc.accWidth, child, availableWidth) || (this.isMoreElement(child) && !isPreviousItemHidden),
-      );
-
-      // update previous item with current item
-      acc.previousItem = child;
-    });
-  };
+  private isMoreElement = (element: HTMLElement): element is HTMLMgItemMoreElement => element === this.itemMoreElement;
 
   /**
    * Utility method to know if item overflow partialy or totaly in the container
    * @param cumulateWidth - previous sibling elements cumulate width + item width
    * @param item - item HTML element
-   * @param availableWidth - container available width
    * @returns truthy if element is overflow
    */
-  private isOverflowElement = (cumulateWidth: number, item: HTMLElement, availableWidth: number): boolean => {
-    if (item.previousElementSibling === null || this.isMoreElement(item)) return false;
-    else if (!this.isMoreElement(item.nextElementSibling)) return cumulateWidth + this._moreElement.offsetWidth > availableWidth;
-    else return cumulateWidth > availableWidth;
-  };
-
-  /**
-   * Utility method to know if a given element is the 'MORE' element
-   * @param element - element to match with 'MORE' element
-   * @returns truthy if element is the 'MORE' element
-   */
-  private isMoreElement = (element: Element): boolean => element.nodeName === 'MG-ITEM-MORE';
-
-  /**
-   * Toggle display item element
-   * @param item - item to control
-   * @param isHidden - is item hidden
-   */
-  private toggleItem = (item: HTMLElement, isHidden: boolean): void => {
-    const mgActionMenuindex = Number(item.getAttribute(OverflowBehaviorElements.BASE_INDEX));
-    if (this.isMoreElement(item)) this.toggleElement(this._moreElement, isHidden);
-    else if (mgActionMenuindex >= 0) {
-      this.toggleElement(item, isHidden);
-      this.toggleElement(this._proxyChildren[mgActionMenuindex], !isHidden);
+  private isOverflowElement = (cumulateWidth: number, item: HTMLElement): boolean => {
+    const displayMgItemMore = this.itemMoreContainerElement.children.length > 0
+    if (!this.isMoreElement(item)) {
+      if (item.nextElementSibling.nodeName !== 'MG-ITEM-MORE' && !displayMgItemMore) return cumulateWidth + this.itemMoreElement.offsetWidth > this._availableWidth;
+      else return cumulateWidth > this._availableWidth;
     }
+    else return !displayMgItemMore;
   };
 
   /**
-   * Toggle element's hide attribute
-   * @param element - element to toggle
-   * @param isHidden - element is hidden
+   * Toogle item from isHidden condition
+   * @param item - item to update
+   * @param isHidden - item is hidden
    */
-  private toggleElement = (element: Element, isHidden: boolean): void => {
-    if (isHidden) element.setAttribute('hidden', '');
-    else element.removeAttribute('hidden');
-  };
-
-  /**
-   * Remove hidden attributes on all items
-   */
-  private restoreItems = (): void => {
-    [...this._baseChildren, this._moreElement].forEach(item => item.removeAttribute('hidden'));
-  };
+  private toggleItem = (item: HTMLElement, isHidden: boolean):void => {
+    if (this.isMoreElement(item) && isHidden) item.setAttribute('hidden', '');
+    else if(this.isMoreElement(item) && !isHidden) item.removeAttribute('hidden');
+    else if (!this.isMoreElement(item) && isHidden) this.itemMoreContainerElement.appendChild(item)
+    else if(!this.isMoreElement(item) && item.parentElement !== this.parentElement) this.parentElement.insertBefore(item, this.itemMoreElement)
+  }
 }

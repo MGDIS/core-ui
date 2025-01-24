@@ -1,5 +1,30 @@
 # @mgdis/mg-components
 
+## 6.4.0
+
+### Minor Changes
+
+- b06743b: [**`<mg-popover>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-popover--docs) can be closed from element with "popovertargetaction" attribute
+
+### Patch Changes
+
+- 975aee1: [#528](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/528) mg-illustrated-message: svg illustration has bad size when direction="horizontal" is set
+- 06412ab: [#526](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/526) mg-menu: sub-menu responsive not working
+- c9cf4c6: [#532](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/532) Should display a badInput message on a required field with a non-existing date
+- d5d6cdd: [#510](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/510) update validity when subtree is update
+- 2d90802: Update dependencies
+- 1d1cad4: [#529](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/529) mg-input-\*\*: field validity computation on programmatic change
+- da655c4: [#533](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/533) notification-center : role alert on success messages
+- 033533d: [#512](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/512) mg-input-date: clearing value with keyboard is not working on Chrome
+- b9b31b4: [**`<mg-input-numeric>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-numeric--docs) display decimal places in error messages only when min/max values contain decimals
+- Updated dependencies [975aee1]
+- Updated dependencies [06412ab]
+- Updated dependencies [2d90802]
+- Updated dependencies [1d1cad4]
+- Updated dependencies [e1fa2cd]
+  - @mgdis/styles@2.2.1
+  - @mgdis/stencil-helpers@2.2.2
+
 ## 6.3.0
 
 ### Minor Changes

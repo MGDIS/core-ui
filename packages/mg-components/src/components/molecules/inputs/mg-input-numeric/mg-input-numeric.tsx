@@ -280,10 +280,21 @@ export class MgInputNumeric {
    * Display input error if it exists.
    */
   @Method()
-  async displayError(): Promise<void> {
-    this.checkValidity();
-    this.setErrorMessage();
-    this.hasDisplayedError = this.invalid;
+  displayError(): Promise<void> {
+    // Use `Promise` as requested for stencil method
+    // Use `requestAnimationFrame` to ensure:
+    // - DOM is fully updated before validation
+    // - Async operations are completed
+    // - No timing issues with Stencil's render cycle
+    // - Keep everything in sync both inside and outside the component
+    return new Promise(resolve => {
+      requestAnimationFrame(() => {
+        this.checkValidity();
+        this.setErrorMessage();
+        this.hasDisplayedError = this.invalid;
+        resolve()
+      })
+    })
   }
 
   /**
@@ -418,6 +429,13 @@ export class MgInputNumeric {
   };
 
   /**
+   * Format min/max value for error message
+   * @param value - value to format
+   * @returns formatted value according to locale
+   */
+  private formatErrorValue = (value: number): string => localeNumber(value, this.locale, !Number.isInteger(value) && this.type === 'decimal' ? this.decimalLength : 0);
+
+  /**
    * Set input error message
    * @param errorMessage - errorMessage override
    */
@@ -431,8 +449,8 @@ export class MgInputNumeric {
       } else if (inputError === 'required') {
         this.errorMessage = this.messages.errors[inputError];
       } else {
-        const formattedMin = this.formatValue(this.min);
-        const formattedMax = this.formatValue(this.max);
+        const formattedMin = this.formatErrorValue(this.min);
+        const formattedMax = this.formatErrorValue(this.max);
         this.errorMessage = this.messages.errors.numeric[inputError].replace('{min}', formattedMin).replace('{max}', formattedMax);
       }
     }
