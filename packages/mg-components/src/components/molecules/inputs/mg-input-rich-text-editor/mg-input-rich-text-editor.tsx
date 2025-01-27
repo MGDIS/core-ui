@@ -431,7 +431,7 @@ export class MgInputRichTextEditor {
         return;
       }
 
-      const selection = document.getSelection();
+      const selection = window.getSelection();
       if (selection == null) return;
 
       if (startNode != null) {

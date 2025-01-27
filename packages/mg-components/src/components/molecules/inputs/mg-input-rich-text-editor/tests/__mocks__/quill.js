@@ -18,7 +18,19 @@ const Quill = class {
       hasFocus: jest.fn().mockReturnValue(false),
       getNativeRange: jest.fn(() => null),
       normalizeNative: jest.fn(range => range),
-      setNativeRange: jest.fn(),
+      setNativeRange: function (startNode, startOffset, endNode = startNode, endOffset = startOffset) {
+        const selection = window.getSelection();
+        if (selection === null) return;
+
+        if (startNode == null) {
+          selection.removeAllRanges();
+          this.root.blur();
+        } else {
+          if (!this.hasFocus()) this.root.focus();
+          selection.setBaseAndExtent(startNode, startOffset, endNode, endOffset);
+        }
+      },
+      root: this.root,
     };
 
     this._content = '';

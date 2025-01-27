@@ -399,4 +399,91 @@ describe('mg-input-rich-text-editor', () => {
       );
     }
   });
+
+  describe('quillSelectionFixes', () => {
+    test('Should handle text selection in Shadow DOM', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        value: '<p>Test content</p>',
+      });
+      const { quillInstance } = await waitForEditor(page);
+
+      // Mock selection methods
+      const mockSelection = {
+        getRangeAt: jest.fn().mockReturnValue({ startContainer: document.createElement('div') }),
+        removeAllRanges: jest.fn(),
+        setBaseAndExtent: jest.fn(),
+      };
+
+      // Mock getSelection
+      const originalGetSelection = window.getSelection;
+      window.getSelection = jest.fn().mockReturnValue(mockSelection);
+
+      // Create a valid DOM structure for the test
+      const rootParent = document.createElement('div');
+      const root = document.createElement('div');
+      rootParent.appendChild(root);
+
+      // Ensure that this.root is correctly defined in the context of setNativeRange
+      quillInstance.selection.root = root;
+      quillInstance.root = root;
+
+      // Test setNativeRange with valid nodes
+      const startNode = document.createElement('div');
+      const endNode = document.createElement('div');
+      rootParent.appendChild(startNode);
+      rootParent.appendChild(endNode);
+
+      quillInstance.selection.setNativeRange(startNode, 0, endNode, 1);
+      expect(mockSelection.setBaseAndExtent).toHaveBeenCalled();
+
+      // Cleanup
+      window.getSelection = originalGetSelection;
+    });
+
+    test('Should handle <br> elements in setNativeRange', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+      });
+      const { quillInstance } = await waitForEditor(page);
+
+      // Mock selection
+      const mockSelection = {
+        setBaseAndExtent: jest.fn(),
+        removeAllRanges: jest.fn(),
+      };
+      window.getSelection = jest.fn().mockReturnValue(mockSelection);
+
+      // Create <br> elements with parent nodes
+      const parentNode = document.createElement('div');
+      const startBR = document.createElement('br');
+      const endBR = document.createElement('br');
+      parentNode.appendChild(startBR);
+      parentNode.appendChild(endBR);
+
+      // Test setNativeRange with <br> elements
+      quillInstance.selection.setNativeRange(startBR, 0, endBR, 0);
+      expect(mockSelection.setBaseAndExtent).toHaveBeenCalled();
+    });
+
+    test('Should handle null range in setNativeRange', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+      });
+      const { quillInstance } = await waitForEditor(page);
+
+      // Mock selection
+      const mockSelection = {
+        removeAllRanges: jest.fn(),
+      };
+      window.getSelection = jest.fn().mockReturnValue(mockSelection);
+
+      // Test setNativeRange with null
+      quillInstance.selection.setNativeRange(null);
+      expect(mockSelection.removeAllRanges).toHaveBeenCalled();
+    });
+  });
 });
