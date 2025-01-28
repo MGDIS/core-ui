@@ -1,5 +1,4 @@
-import { Placement } from "../../../types";
-import { placements } from '../../../utils/floating-ui.utils'
+import { type ExtendedPlacement, placements } from '../../../utils/floating-ui.utils'
 export * from '../../../utils/floating-ui.utils'
 
 export type GuardType = 'focus' | 'hoverTooltip' | 'hoverTooltiped' | 'disableOnClick';
@@ -14,4 +13,4 @@ export const Guard: Record<string, GuardType> = {
 /**
  * Placement type from placements
  */
-export type TooltipPlacementType = Placement & (typeof placements)[number];
+export type TooltipPlacementType = ExtendedPlacement & (typeof placements)[number];

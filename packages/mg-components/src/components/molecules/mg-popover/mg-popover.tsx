@@ -1,7 +1,7 @@
 import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event } from '@stencil/core';
 import { createID, getWindows, isValideID, toString } from '@mgdis/stencil-helpers';
 import { computePosition, autoUpdate, flip, shift, limitShift, offset, arrow, type Placement } from '@floating-ui/dom';
-import { isFloatingUIPlacement, PopoverPlacementType, sides } from './mg-popover.conf';
+import { isFloatingUIPlacement, type PopoverPlacementType, sides } from './mg-popover.conf';
 
 /**
  * @slot - Element that will display the popover
@@ -48,7 +48,7 @@ export class MgPopover {
   /**
    * Popover placement
    */
-  @Prop() placement: PopoverPlacementType = 'bottom';
+  @Prop({ mutable: true }) placement: PopoverPlacementType = 'bottom';
   @Watch('placement')
   watchPlacement(newValue) :void {
     if(!isFloatingUIPlacement(newValue)) this.placement = 'bottom';
@@ -231,8 +231,10 @@ export class MgPopover {
         const arrowElement: HTMLElement = this.mgPopover.querySelector('[data-floating-arrow]');
         const { x: arrowX, y: arrowY } = middlewareData.arrow;
         // https://floating-ui.com/docs/arrow 
-        // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined. Due to this, either x or y will be undefined, depending on the side of placement.
-        // The above code uses != to check for null and undefined simultaneously. Don’t remove != null, because either value can be falsy (0), causing a bug!
+        // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined.
+        // Due to this, either x or y will be undefined, depending on the side of placement.
+        // The above code uses `isNaN` to check for null and undefined simultaneously.
+        // Don’t remove `isNaN`, because either value can be falsy (0), causing a bug!
         const numberToPx = (number: number): string => !isNaN(number) ? `${number}px` : '';
 
         if (arrowElement !== null)

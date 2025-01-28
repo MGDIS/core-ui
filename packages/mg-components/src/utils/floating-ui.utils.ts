@@ -1,6 +1,5 @@
 import { type Placement } from "@floating-ui/dom";
 
-
 /**
  * List of all possibles sides
  */
@@ -29,7 +28,12 @@ export const placements  = [
     'left-end',
   ] as const;
 
-  /**
+/**
+ * Define placement type
+ */
+export type ExtendedPlacement = Placement | (typeof placements)[number];
+
+/**
  * FloatingUI Placement type guard
  * @param placement - value to check
  * @returns truthy if placement is valid

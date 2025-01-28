@@ -1,8 +1,7 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
 import { createID, focusableElements, getWindows, isValideID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { computePosition, autoUpdate, flip, shift, limitShift, offset, arrow, type Strategy, type Placement } from '@floating-ui/dom';
-import { type GuardType, Guard, TooltipPlacementType } from './mg-tooltip.conf';
-import { isFloatingUIPlacement } from './mg-tooltip.conf';
+import { type GuardType, Guard, type TooltipPlacementType, isFloatingUIPlacement } from './mg-tooltip.conf';
 
 /**
  * HTMLMgButtonElement type guard
@@ -254,8 +253,10 @@ export class MgTooltip {
 
         const arrowElement: HTMLElement = this.mgTooltipContent.querySelector('[data-floating-arrow]');
         // https://floating-ui.com/docs/arrow 
-        // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined. Due to this, either x or y will be undefined, depending on the side of placement.
-        // The above code uses != to check for null and undefined simultaneously. Don’t remove != null, because either value can be falsy (0), causing a bug!
+        // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined.
+        // Due to this, either x or y will be undefined, depending on the side of placement.
+        // The above code uses `isNaN` to check for null and undefined simultaneously.
+        // Don’t remove `isNaN`, because either value can be falsy (0), causing a bug!
         const numberToPx = (number: number): string => !isNaN(number) ? `${number}px` : '';
 
         Object.assign(arrowElement.style, {
