@@ -26,11 +26,12 @@ import { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-men
 import { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
-import { Placement } from "@floating-ui/dom";
+import { PopoverPlacementType } from "./components/molecules/mg-popover/mg-popover.conf";
 import { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 import { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
+import { TooltipPlacementType } from "./components/atoms/mg-tooltip/mg-tooltip.conf";
 export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
@@ -52,11 +53,12 @@ export { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-men
 export { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
-export { Placement } from "@floating-ui/dom";
+export { PopoverPlacementType } from "./components/molecules/mg-popover/mg-popover.conf";
 export { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 export { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 export { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 export { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
+export { TooltipPlacementType } from "./components/atoms/mg-tooltip/mg-tooltip.conf";
 export namespace Components {
     interface MgActionMore {
         /**
@@ -1373,7 +1375,7 @@ export namespace Components {
         /**
           * Popover placement
          */
-        "placement": Placement;
+        "placement": PopoverPlacementType;
     }
     interface MgPopoverContent {
         /**
@@ -1465,7 +1467,7 @@ export namespace Components {
         /**
           * Tooltip placement
          */
-        "placement": Placement;
+        "placement": TooltipPlacementType;
     }
     interface MgTooltipContent {
         /**
@@ -3427,7 +3429,7 @@ declare namespace LocalJSX {
         /**
           * Popover placement
          */
-        "placement"?: Placement;
+        "placement"?: PopoverPlacementType;
     }
     interface MgPopoverContent {
         /**
@@ -3531,7 +3533,7 @@ declare namespace LocalJSX {
         /**
           * Tooltip placement
          */
-        "placement"?: Placement;
+        "placement"?: TooltipPlacementType;
     }
     interface MgTooltipContent {
         /**

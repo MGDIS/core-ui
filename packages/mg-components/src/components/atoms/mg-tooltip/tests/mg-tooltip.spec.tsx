@@ -74,6 +74,15 @@ describe('mg-tooltip', () => {
     expect(root).toMatchSnapshot();
   });
 
+  test.each(['auto', 'auto-end', 'auto-start', 'batman'])('Should update placement', async(placement) => {
+    const args = { identifier: 'identifier', message: 'My tooltip message', placement };
+    const { doc } = await getPage(args, <span>span</span>);
+
+    const mgTooltip = doc.querySelector('mg-tooltip');
+
+    expect(mgTooltip.placement).toEqual('bottom');
+  })
+
   test.each(['', ' ', undefined])('Should throw error, case invalid message prop', async message => {
     expect.assertions(1);
     try {
@@ -341,6 +350,50 @@ describe('mg-tooltip', () => {
 
     const mgTooltipContent = page.root.querySelector('mg-tooltip-content');
     expect(mgTooltipContent.style.position).toBe('fixed');
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test.each([undefined, 'mg-popover'])('Should update floating UI strategy when component prop is update', async (parent) => {
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, 'tooltip content', parent);
+    jest.spyOn(page.rootInstance, 'setFloatingUI')
+
+    const mgTooltip = page.doc.querySelector('mg-tooltip');
+    mgTooltip.placement = 'top';
+    await page.waitForChanges();
+
+    const mgTooltipContent = mgTooltip.querySelector('mg-tooltip-content');
+    expect(mgTooltipContent.style.position).toBe(parent === 'mg-popover' ? 'absolute' : 'fixed');
+    expect(page.rootInstance.setFloatingUI).toHaveBeenCalledTimes(1)
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test.each([undefined, 'mg-popover'])('Should NOT update floating UI strategy when MutationObserver is called', async (parent) => {
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, 'tooltip content', parent);
+    jest.spyOn(page.rootInstance, 'setFloatingUI')
+
+    const mgTooltip = page.doc.querySelector('mg-tooltip');
+    
+    fireMo([]);
+    await page.waitForChanges();
+
+    const mgTooltipContent = mgTooltip.querySelector('mg-tooltip-content');
+    expect(mgTooltipContent.style.position).toBe(parent === 'mg-popover' ? 'absolute' : 'fixed');
+    expect(page.rootInstance.setFloatingUI).toHaveBeenCalledTimes(0)
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test.each([undefined, 'mg-popover'])('Should update floating UI strategy when MutationObserver is called', async (parent) => {
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <mg-button>mgButton</mg-button>, parent);
+    jest.spyOn(page.rootInstance, 'setFloatingUI')
+
+    const mgTooltip = page.doc.querySelector('mg-tooltip');
+    
+    fireMo([{ attributeName: 'disabled', target: {} }]);
+    await page.waitForChanges();
+
+    const mgTooltipContent = mgTooltip.querySelector('mg-tooltip-content');
+    expect(mgTooltipContent.style.position).toBe(parent === 'mg-popover' ? 'absolute' : 'fixed');
+    expect(page.rootInstance.setFloatingUI).toHaveBeenCalledTimes(1)
     expect(page.root).toMatchSnapshot();
   });
 

@@ -61,6 +61,23 @@ describe('mg-popover', () => {
     expect(root).toMatchSnapshot();
   });
 
+  test.each(['auto', 'auto-end', 'auto-start', 'batman'])('Should update placement', async(placement) => {
+    const args = { identifier: 'identifier', placement };
+    const { doc } = await getPage(args, [
+      <h2 slot="title">Blu bli blo bla</h2>,
+      <p slot="content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>,
+      <mg-button>mg-button</mg-button>,
+    ]);
+
+    const mgTooltip = doc.querySelector('mg-popover');
+
+    expect(mgTooltip.placement).toEqual('bottom');
+  })
+
   test.each([
     { eventIn: 'click', eventOut: 'clickBtn' },
     { eventIn: 'click', eventOut: { code: 'Escape' } },
@@ -187,7 +204,7 @@ describe('mg-popover', () => {
     ]);
     expect(page.root).toMatchSnapshot();
 
-    const spy = jest.spyOn(page.rootInstance.floatingUICleanup, 'call');
+    const spy = jest.spyOn(page.rootInstance, 'floatingUICleanup');
 
     fireRo([]);
 

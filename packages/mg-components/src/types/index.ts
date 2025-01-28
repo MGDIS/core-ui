@@ -35,3 +35,8 @@ export type Option = {
   title: string;
   value: unknown;
 };
+
+/**
+ * Define placement type
+ */
+export type Placement = 'top' | 'right' | 'bottom' | 'left' | 'top-start' | 'top-end' | 'right-start' | 'right-end' | 'bottom-start' | 'bottom-end' | 'left-start' | 'left-end' | 'auto' | 'auto-end' | 'auto-start';

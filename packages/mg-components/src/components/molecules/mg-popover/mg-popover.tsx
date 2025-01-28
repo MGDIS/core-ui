@@ -1,6 +1,7 @@
 import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event } from '@stencil/core';
 import { createID, getWindows, isValideID, toString } from '@mgdis/stencil-helpers';
 import { computePosition, autoUpdate, flip, shift, limitShift, offset, arrow, type Placement } from '@floating-ui/dom';
+import { isFloatingUIPlacement, PopoverPlacementType, sides } from './mg-popover.conf';
 
 /**
  * @slot - Element that will display the popover
@@ -19,7 +20,7 @@ export class MgPopover {
   private mgPopover: HTMLElement;
   private mgPopoverContent: HTMLMgPopoverContentElement;
   private windows: Window[];
-  private floatingUICleanup: () => void;
+  private floatingUICleanup: ReturnType<typeof autoUpdate>;
 
   /**************
    * Decorators *
@@ -47,7 +48,11 @@ export class MgPopover {
   /**
    * Popover placement
    */
-  @Prop() placement: Placement = 'bottom';
+  @Prop() placement: PopoverPlacementType = 'bottom';
+  @Watch('placement')
+  watchPlacement(newValue) :void {
+    if(!isFloatingUIPlacement(newValue)) this.placement = 'bottom';
+  }
 
   /**
    * Hide popover arrow
@@ -189,16 +194,16 @@ export class MgPopover {
    * @param interactiveElement - Element that triggers the popover
    */
   private setFloatingUI = (interactiveElement: HTMLElement): void => {
-    const fallbackPlacements = this.element.dataset.fallbackPlacement?.split(',').filter((p): p is Placement => ['top', 'right', 'bottom', 'left'].includes(p)) || [];
+    const fallbackPlacements = (this.element.dataset.fallbackPlacement || '').split(',').map(t => t.trim());
 
     this.floatingUICleanup = autoUpdate(interactiveElement, this.mgPopover, () => {
       computePosition(interactiveElement, this.mgPopover, {
-        placement: this.placement,
+        placement: this.placement as Placement,
         strategy: 'fixed',
         middleware: [
           offset(0),
           flip({
-            fallbackPlacements: fallbackPlacements.length > 0 ? fallbackPlacements : undefined,
+            fallbackPlacements: Array.from(new Set([...fallbackPlacements, ...sides]).values()).filter(isFloatingUIPlacement), // simulate "auto" placement with default fallback values
           }),
           shift({
             limiter: limitShift(),
@@ -208,13 +213,12 @@ export class MgPopover {
           }),
         ],
       }).then(({ x, y, placement, middlewareData }) => {
-        if (this.mgPopover !== null)
-          Object.assign(this.mgPopover.style, {
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            transform: !isNaN(x) && !isNaN(y) ? `translate(${Math.round(x)}px, ${Math.round(y)}px)` : undefined,
-          });
+        Object.assign(this.mgPopover.style, {
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          transform: `translate(${Math.round(x)}px, ${Math.round(y)}px)`,
+        });
 
         // Update arrow style
         const staticSide = {
@@ -226,12 +230,16 @@ export class MgPopover {
 
         const arrowElement = this.mgPopover.querySelector('[data-floating-arrow]') as HTMLElement;
         const { x: arrowX, y: arrowY } = middlewareData.arrow;
+        // https://floating-ui.com/docs/arrow 
+        // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined. Due to this, either x or y will be undefined, depending on the side of placement.
+        // The above code uses != to check for null and undefined simultaneously. Don’t remove != null, because either value can be falsy (0), causing a bug!
+        const numberToPx = (number: number): string => !isNaN(number) ? `${number}px` : '';
 
         if (arrowElement !== null)
           Object.assign(arrowElement.style, {
             position: 'absolute',
-            top: !isNaN(arrowY) ? `${Math.round(arrowY)}px` : undefined,
-            left: !isNaN(arrowX) ? `${Math.round(arrowX)}px` : undefined,
+            left: numberToPx(arrowX),
+            top: numberToPx(arrowY),
             [staticSide]: '1px',
           });
 
@@ -248,7 +256,7 @@ export class MgPopover {
    * update popper position after props change on component did update hook to benefit from render ended
    */
   componentDidUpdate(): void {
-    this.floatingUICleanup?.();
+    this.floatingUICleanup();
   }
 
   /**
@@ -262,6 +270,7 @@ export class MgPopover {
     this.validateCloseButton(this.closeButton);
     this.validateIdentifier(this.identifier);
     this.validateArrowHide(this.arrowHide);
+    this.watchPlacement(this.placement)
   }
 
   /**
@@ -289,7 +298,7 @@ export class MgPopover {
     // Add resize observer
     [interactiveElement, this.mgPopoverContent].forEach(element => {
       new ResizeObserver(() => {
-        this.floatingUICleanup?.();
+        this.floatingUICleanup();
         this.setFloatingUI(interactiveElement);
       }).observe(element);
     });
@@ -323,7 +332,7 @@ export class MgPopover {
    */
   disconnectedCallback(): void {
     // Cleanup Floating UI instance
-    this.floatingUICleanup?.();
+    this.floatingUICleanup();
   }
 
   /**
