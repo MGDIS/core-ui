@@ -252,7 +252,7 @@ export class MgTooltip {
           left: 'right',
         }[placement.split('-')[0]];
 
-        const arrowElement = this.mgTooltipContent.querySelector('[data-floating-arrow]') as HTMLElement;
+        const arrowElement: HTMLElement = this.mgTooltipContent.querySelector('[data-floating-arrow]');
         // https://floating-ui.com/docs/arrow 
         // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined. Due to this, either x or y will be undefined, depending on the side of placement.
         // The above code uses != to check for null and undefined simultaneously. Don’t remove != null, because either value can be falsy (0), causing a bug!
