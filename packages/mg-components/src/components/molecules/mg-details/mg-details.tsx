@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Prop, Watch, Element } from '@stencil/core';
 import { isValidString } from '@mgdis/stencil-helpers';
 
 /**
@@ -21,6 +21,11 @@ export class MgDetails {
   /**************
    * Decorators *
    **************/
+
+  /**
+   * Get component DOM element
+   */
+  @Element() element: HTMLMgDetailsElement;
 
   /**
    * Displayed title when details are closed
@@ -77,6 +82,9 @@ export class MgDetails {
   componentWillLoad(): void {
     this.validateTitles(this.toggleClosed);
     this.validateTitles(this.toggleOpened);
+    this.element.addEventListener('click', (event: MouseEvent & {target: HTMLElement}) => {
+      if(event.target.closest('[slot="summary"] mg-button, mg-button[slot="summary"]')) event.preventDefault();
+    })
   }
 
   /**
