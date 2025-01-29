@@ -1,5 +1,24 @@
 # @mgdis/mg-components
 
+## 6.5.0
+
+### Minor Changes
+
+- 68ea6da: [chore] replace popper.js by floating-ui
+
+### Patch Changes
+
+- 48ed887: [#531](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/531) mg-menu: responsive issues on Chrome
+- eb52aa3: [#390](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/390) mg-detail: summary and mg-button click event conflict
+- b4d7191: [#536](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/536) mg-menu-item: safari crash
+- 7aca391: [#2](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/2) mg-message : additional padding when mg-message is a direct child of a mg-panel
+- 3fa417e: Update dependencies
+- Updated dependencies [48ed887]
+- Updated dependencies [7aca391]
+- Updated dependencies [3fa417e]
+  - @mgdis/styles@2.2.2
+  - @mgdis/stencil-helpers@2.2.3
+
 ## 6.4.0
 
 ### Minor Changes

@@ -1,5 +1,12 @@
 # @mgdis/styles
 
+## 2.2.2
+
+### Patch Changes
+
+- 48ed887: [#531](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/531) mg-menu: responsive issues on Chrome
+- 7aca391: [#2](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/2) mg-message : additional padding when mg-message is a direct child of a mg-panel
+
 ## 2.2.1
 
 ### Patch Changes
