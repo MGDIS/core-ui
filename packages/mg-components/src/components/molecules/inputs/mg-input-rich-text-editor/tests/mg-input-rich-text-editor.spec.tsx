@@ -5,13 +5,8 @@ import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
 import { setUpRequestAnimationFrameMock, toString } from '@mgdis/stencil-helpers';
+import { QuillMock, HTMLQuillElement } from '../mg-input-rich-text-editor.conf';
 import messages from '../../../../../locales/en/messages.json';
-import type Quill from 'quill';
-
-type HTMLQuillElement = HTMLElement & {
-  checkValidity: () => boolean;
-  validatePattern: () => void;
-};
 
 const getPage = (args: Partial<MgInputRichTextEditor> & Pick<MgInputRichTextEditor, 'identifier' | 'label'>): Promise<SpecPage> => {
   const page = newSpecPage({
@@ -25,7 +20,7 @@ const getPage = (args: Partial<MgInputRichTextEditor> & Pick<MgInputRichTextEdit
   return page;
 };
 
-const waitForEditor = async (page: SpecPage): Promise<{ element: HTMLMgInputRichTextEditorElement; quillInstance: Quill; quillElement: HTMLQuillElement }> => {
+const waitForEditor = async (page: SpecPage): Promise<{ element: HTMLMgInputRichTextEditorElement; quillInstance: QuillMock; quillElement: HTMLQuillElement }> => {
   const element = page.doc.querySelector('mg-input-rich-text-editor');
   const quillElement = element.shadowRoot.querySelector('.ql-editor') as HTMLQuillElement;
   const quillInstance = page.rootInstance.quillEditor;
@@ -485,5 +480,42 @@ describe('mg-input-rich-text-editor', () => {
       quillInstance.selection.setNativeRange(null);
       expect(mockSelection.removeAllRanges).toHaveBeenCalled();
     });
+  });
+
+  test('Should handle text-change event correctly', async () => {
+    const page = await getPage({
+      label: 'label',
+      identifier: 'identifier',
+      required: true,
+    });
+    const { quillInstance } = await waitForEditor(page);
+
+    // Spy on relevant methods
+    const valueChangeSpy = jest.spyOn(page.rootInstance.valueChange, 'emit');
+    const checkValiditySpy = jest.spyOn(page.rootInstance, 'checkValidity');
+    const setErrorMessageSpy = jest.spyOn(page.rootInstance, 'setErrorMessage');
+
+    // Simulate an error displayed
+    page.rootInstance.hasDisplayedError = true;
+
+    // Simulate text change
+    const htmlContent = '<p>Test content</p>';
+    jest.spyOn(quillInstance, 'getSemanticHTML').mockReturnValue(htmlContent);
+
+    // Trigger text-change event using stored handler
+    (quillInstance as QuillMock)._textChangeHandler();
+    await page.waitForChanges();
+
+    // Verify that value has been updated
+    expect(page.rootInstance.value).toBe(htmlContent);
+
+    // Verify that valueChange event has been emitted
+    expect(valueChangeSpy).toHaveBeenCalledWith(htmlContent);
+
+    // Verify that checkValidity has been called
+    expect(checkValiditySpy).toHaveBeenCalled();
+
+    // Verify that setErrorMessage has been called when hasDisplayedError is true
+    expect(setErrorMessageSpy).toHaveBeenCalled();
   });
 });
