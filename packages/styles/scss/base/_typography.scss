@@ -34,12 +34,12 @@ p {
 }
 
 /**
-   * Headings
-   *
-   * Classes can also be used on element to match attending, for exemples :
-   * <h4 class="mg-u-h3">blu</h4>
-   * <div role="heading" aria-level="4" class="mg-u-h4">blu</div>
-   */
+ * Headings
+ *
+ * Classes can also be used on element to match attending, for exemples :
+ * <h4 class="mg-u-h3">blu</h4>
+ * <div role="heading" aria-level="4" class="mg-u-h4">blu</div>
+ */
 
 @for $i from 1 through 6 {
   h#{$i},
@@ -104,4 +104,19 @@ a {
   */
 small {
   font-size: var(--mg-b-small-font-size);
+}
+
+/**
+ * Text alignment
+ */
+.mg-u-text-left {
+  text-align: left !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.mg-u-text-center {
+  text-align: center !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.mg-u-text-right {
+  text-align: right !important; /* stylelint-disable-line declaration-no-important */
 }

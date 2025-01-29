@@ -1,4 +1,12 @@
-table.mg-c-table {
+@use '../utils/a11y';
+@use '../base/typography';
+
+.mg-c-table {
+  // TODO : Rename variables
+  --mg-c-table-spacing: var(--mg-b-size-8) var(--mg-b-size-16);
+  --mg-c-table-height: var(--mg-b-size-40);
+  --mg-c-table-head-height: calc(var(--mg-b-size-min-height) + 2 * var(--mg-b-size-8));
+
   overflow: hidden;
   border: none;
   border-radius: var(--mg-b-size-8);
@@ -6,13 +14,40 @@ table.mg-c-table {
   border-collapse: separate;
   border-spacing: 0;
   color: var(--mg-b-color-dark);
-  text-align: left;
+  text-align: start;
+
+  /**
+  * Sizes
+  */
+  &.mg-c-table--size-small {
+    --mg-c-table-spacing: var(--mg-b-size-4) var(--mg-b-size-16);
+    --mg-c-table-height: var(--mg-b-size-32);
+    --mg-c-table-head-height: var(--mg-b-size-32);
+  }
+
+  &.mg-c-table--size-large {
+    --mg-c-table-height: var(--mg-c-table-head-height);
+  }
+
+  &.mg-c-table--size-xlarge {
+    --mg-c-table-spacing: var(--mg-b-size-12) var(--mg-b-size-16);
+    --mg-c-table-height: var(--mg-b-size-64);
+    --mg-c-table-head-height: var(--mg-b-size-64);
+  }
+
+  /**
+  * full width
+  */
+  &.mg-c-table--full-width {
+    width: 100%;
+  }
 
   td,
   th {
-    height: var(--mg-b-size-40);
+    height: var(--mg-c-table-height);
     box-sizing: border-box;
-    padding: var(--mg-b-size-8) var(--mg-b-size-16);
+    padding: var(--mg-c-table-spacing);
+    text-align: start;
   }
 
   // Font weight for headers
@@ -22,7 +57,7 @@ table.mg-c-table {
   }
 
   thead {
-    height: calc(var(--mg-b-size-min-height) + 2 * var(--mg-b-size-8));
+    height: var(--mg-c-table-head-height);
     background-color: var(--mg-b-color-app);
     color: var(--mg-b-color-light);
   }
@@ -36,5 +71,9 @@ table.mg-c-table {
     // &:hover {
     //   background: color-mix(in srgb, var(--mg-b-color-app), transparent 70%);
     // }
+  }
+
+  &-wrapper {
+    overflow: auto;
   }
 }

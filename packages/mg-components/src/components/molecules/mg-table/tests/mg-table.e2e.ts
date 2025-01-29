@@ -1,11 +1,45 @@
-import { newE2EPage } from '@stencil/core/testing';
+import { renderAttributes } from '@mgdis/playwright-helpers';
+import { expect } from '@playwright/test';
+import { test } from '../../../../utils/playwright.fixture';
 
-describe('mg-table', () => {
-  it('renders', async () => {
-    const page = await newE2EPage();
-    await page.setContent('<mg-table></mg-table>');
+const createHTML = (args, slot) => `<mg-table ${renderAttributes(args)}>${slot}</mg-table>`;
 
-    const element = await page.find('mg-table');
-    expect(element).toHaveClass('hydrated');
+const table = `<table>
+  <thead>
+    <tr>
+      <th>Dev</th>
+      <th>Role</th>
+      <th>Test signature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Simon</th>
+      <td>Archi front-end</td>
+      <td>Blu / Daron Crew</td>
+    </tr>
+    <tr>
+      <th>Nico</th>
+      <td>Dev front-end</td>
+      <td>DC Comics (Batman, Jocker, etc.)</td>
+    </tr>
+    <tr>
+      <th>Guirec</th>
+      <td>Dev front-end</td>
+      <td>Pat'Patrouille</td>
+    </tr>
+  </tbody>
+</table>`;
+
+test.describe.only('mg-table', () => {
+  [{}, { size: 'small' }, { size: 'large' }, { size: 'xlarge' }, { fullWidth: true }].forEach(args => {
+    test(`Should render with args ${JSON.stringify(args)}`, async ({ page }) => {
+      const html = createHTML(args, table);
+      await page.setContent(html);
+      if (args.fullWidth) {
+        await page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
+      }
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
   });
 });

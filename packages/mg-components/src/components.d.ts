@@ -29,6 +29,7 @@ import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecul
 import { Placement } from "@popperjs/core";
 import { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
+import { TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
 import { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
@@ -55,6 +56,7 @@ export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecul
 export { Placement } from "@popperjs/core";
 export { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 export { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
+export { TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
 export { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 export { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export namespace Components {
@@ -1410,6 +1412,14 @@ export namespace Components {
         "links": SkipLink[];
     }
     interface MgTable {
+        /**
+          * Define if table fits its parent element
+         */
+        "fullWidth": boolean;
+        /**
+          * Define table size
+         */
+        "size": TableSizeType;
     }
     interface MgTabs {
         /**
@@ -3481,6 +3491,14 @@ declare namespace LocalJSX {
         "onGo-to-anchor"?: (event: MgSkipLinksCustomEvent<string>) => void;
     }
     interface MgTable {
+        /**
+          * Define if table fits its parent element
+         */
+        "fullWidth"?: boolean;
+        /**
+          * Define table size
+         */
+        "size"?: TableSizeType;
     }
     interface MgTabs {
         /**
