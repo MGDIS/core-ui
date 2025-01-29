@@ -239,6 +239,7 @@ export class MgMenuItem {
 
   /**
    * Does component is in main menu
+   * @returns true if component is in main menu
    */
   private isInMainMenu = (): boolean => this.getParentMenu() !== null && this.element.parentElement.closest('mg-menu-item') === null;
 
