@@ -149,11 +149,6 @@ export class MgMenuItem {
   }
 
   /**
-   * Does component is in main menu
-   */
-  @State() isInMainMenu: boolean;
-
-  /**
    * Does element is item-more
    */
   @State() isItemMore: boolean;
@@ -199,6 +194,13 @@ export class MgMenuItem {
    **********/
 
   /**
+   * Get parent menu
+   * @returns parent menu
+   */
+  private getParentMenu = (): HTMLMgMenuElement => this.element.closest('mg-menu');
+
+
+  /**
    * Does an Element have given Status
    * @param mgMenuItemElement - to parse
    * @param status - to check
@@ -210,7 +212,7 @@ export class MgMenuItem {
    * Condition to know if component should display a mg-popover
    * @returns truthy if component display popover
    */
-  private hasPopover = (): boolean => this.isDirection(Direction.HORIZONTAL) && (this.isInMainMenu && Array.from(this.element.children).some(element => !element.querySelector('[slot]')) || this.isItemMore) && this.href === undefined;
+  private hasPopover = (): boolean => this.isDirection(Direction.HORIZONTAL) && (this.isInMainMenu() && Array.from(this.element.children).some(element => !element.querySelector('[slot]')) || this.isItemMore) && this.href === undefined;
 
   /**
    * Method to control if one of component children have active status
@@ -234,6 +236,11 @@ export class MgMenuItem {
    * @returns true is direction match the direction propertie
    */
   private isDirection = (direction: MgMenuItem['direction'], compareWith = this.direction): boolean => direction === compareWith;
+
+  /**
+   * Does component is in main menu
+   */
+  private isInMainMenu = (): boolean => this.getParentMenu() !== null && this.element.parentElement.closest('mg-menu-item') === null;
 
   /**
    * Update displayNotificationBadge
@@ -299,8 +306,7 @@ export class MgMenuItem {
    * @param guard - prevent action with guard
    */
   private updateItem = (guard?: MgMenuItem['status'][]): void => {
-    const menu = this.element.closest('mg-menu');
-    this.isInMainMenu = menu !== null && this.element.parentElement.closest('mg-menu-item') === null;
+    const menu = this.getParentMenu();
 
     // define element size
     if (menu?.size !== undefined && !this.isItemMore) this.size = menu.size;
@@ -475,7 +481,7 @@ export class MgMenuItem {
   render(): HTMLElement {
     const getContainerClasses = () => ({
       ['mg-c-menu-item__collapse-container']: true,
-      ['mg-c-menu-item__collapse-container--first-level']: (this.isInMainMenu || this.isItemMore) && this.isDirection(Direction.HORIZONTAL),
+      ['mg-c-menu-item__collapse-container--first-level']: (this.isInMainMenu() || this.isItemMore) && this.isDirection(Direction.HORIZONTAL),
     });
 
     return (
