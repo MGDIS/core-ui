@@ -550,6 +550,9 @@ importers:
 
   packages/mg-components:
     dependencies:
+      '@floating-ui/dom':
+        specifier: 1.6.13
+        version: 1.6.13
       '@mgdis/img':
         specifier: workspace:*
         version: link:../img
@@ -559,9 +562,6 @@ importers:
       '@mgdis/styles':
         specifier: workspace:*
         version: link:../styles
-      '@popperjs/core':
-        specifier: 2.11.8
-        version: 2.11.8
       '@stencil/core':
         specifier: 4.23.2
         version: 4.23.2
@@ -576,8 +576,8 @@ importers:
         specifier: workspace:*
         version: link:../playwright-helpers
       '@playwright/test':
-        specifier: 1.49.1
-        version: 1.49.1
+        specifier: 1.50.0
+        version: 1.50.0
       '@storybook/addon-a11y':
         specifier: 8.5.2
         version: 8.5.2(storybook@8.5.2(prettier@3.4.2))(vitest@2.1.8(@types/node@22.12.0)(jsdom@25.0.1)(sass@1.83.4))
@@ -728,8 +728,8 @@ importers:
         specifier: workspace:*
         version: link:../playwright-helpers
       '@playwright/test':
-        specifier: 1.49.1
-        version: 1.49.1
+        specifier: 1.50.0
+        version: 1.50.0
       '@types/jest':
         specifier: 29.5.14
         version: 29.5.14
@@ -860,8 +860,8 @@ importers:
         specifier: workspace:*
         version: link:../playwright-helpers
       '@playwright/test':
-        specifier: 1.49.1
-        version: 1.49.1
+        specifier: 1.50.0
+        version: 1.50.0
       sass:
         specifier: 1.83.4
         version: 1.83.4
@@ -1564,6 +1564,15 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
+  '@floating-ui/core@1.6.8':
+    resolution: {integrity: sha512-7XJ9cPU+yI2QeLS+FCSlqNFZJq8arvswefkZrYI1yQBbftw6FyrZOxYSh+9S7z7TpeWlRt9zJ5IhM1WIL334jA==}
+
+  '@floating-ui/dom@1.6.13':
+    resolution: {integrity: sha512-umqzocjDgNRGTuO7Q8CU32dkHkECqI8ZdMZ5Swb6QAM0t5rnlrN3lGo1hdpscRd3WS8T6DKYK4ephgIH9iRh3w==}
+
+  '@floating-ui/utils@0.2.9':
+    resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
+
   '@gerrit0/mini-shiki@1.24.1':
     resolution: {integrity: sha512-PNP/Gjv3VqU7z7DjRgO3F9Ok5frTKqtpV+LJW1RzMcr2zpRk0ulhEWnbcNGXzPC7BZyWMIHrkfQX2GZRfxrn6Q==}
 
@@ -1962,8 +1971,8 @@ packages:
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.49.1':
-    resolution: {integrity: sha512-Ky+BVzPz8pL6PQxHqNRW1k3mIyv933LML7HktS8uik0bUXNCdPhoS/kLihiO1tMf/egaJb4IutXd7UywvXEW+g==}
+  '@playwright/test@1.50.0':
+    resolution: {integrity: sha512-ZGNXbt+d65EGjBORQHuYKj+XhCewlwpnSd/EDuLPZGSiEWmgOJB5RmMCCYGy5aMfTs9wx61RivfDKi8H/hcMvw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1978,9 +1987,6 @@ packages:
   '@pnpm/npm-conf@2.3.1':
     resolution: {integrity: sha512-c83qWb22rNRuB0UaVCI0uRPNRr8Z0FWnEIvT47jiHAmOIUHbBOg5XvV7pM5x+rKn9HRpjxquDbXYSXr3fAKFcw==}
     engines: {node: '>=12'}
-
-  '@popperjs/core@2.11.8':
-    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
   '@rollup/plugin-commonjs@28.0.2':
     resolution: {integrity: sha512-BEFI2EDqzl+vA1rl97IDRZ61AIwGH093d9nz8+dThxJNH8oSoB7MjWvPCX3dkaK1/RCJ/1v/R1XB15FuSs0fQw==}
@@ -6132,13 +6138,13 @@ packages:
   pkg-types@1.2.1:
     resolution: {integrity: sha512-sQoqa8alT3nHjGuTjuKgOnvjo4cljkufdtLMnO2LBP/wRwuDlo1tkaEdMxCRhyGRPacv/ztlZgDPm2b7FAmEvw==}
 
-  playwright-core@1.49.1:
-    resolution: {integrity: sha512-BzmpVcs4kE2CH15rWfzpjzVGhWERJfmnXmniSyKeRZUs9Ws65m+RGIi7mjJK/euCegfn3i7jvqWeWyHe9y3Vgg==}
+  playwright-core@1.50.0:
+    resolution: {integrity: sha512-CXkSSlr4JaZs2tZHI40DsZUN/NIwgaUPsyLuOAaIZp2CyF2sN5MM5NJsyB188lFSSozFxQ5fPT4qM+f0tH/6wQ==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.49.1:
-    resolution: {integrity: sha512-VYL8zLoNTBxVOrJBbDuRgDWa3i+mfQgDTrL8Ah9QXZ7ax4Dsj0MSq5bYgytRnDVVe+njoKnfsYkH3HzqVj5UZA==}
+  playwright@1.50.0:
+    resolution: {integrity: sha512-+GinGfGTrd2IfX1TA4N2gNmeIksSb+IAe589ZH+FlmpV3MYTx6+buChGIuDLQwrGNCw2lWibqV50fU510N7S+w==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -8246,6 +8252,17 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
+  '@floating-ui/core@1.6.8':
+    dependencies:
+      '@floating-ui/utils': 0.2.9
+
+  '@floating-ui/dom@1.6.13':
+    dependencies:
+      '@floating-ui/core': 1.6.8
+      '@floating-ui/utils': 0.2.9
+
+  '@floating-ui/utils@0.2.9': {}
+
   '@gerrit0/mini-shiki@1.24.1':
     dependencies:
       '@shikijs/engine-oniguruma': 1.24.0
@@ -8738,9 +8755,9 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
-  '@playwright/test@1.49.1':
+  '@playwright/test@1.50.0':
     dependencies:
-      playwright: 1.49.1
+      playwright: 1.50.0
 
   '@pnpm/config.env-replace@1.1.0': {}
 
@@ -8753,8 +8770,6 @@ snapshots:
       '@pnpm/config.env-replace': 1.1.0
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
-
-  '@popperjs/core@2.11.8': {}
 
   '@rollup/plugin-commonjs@28.0.2(rollup@4.31.0)':
     dependencies:
@@ -13440,11 +13455,11 @@ snapshots:
       mlly: 1.7.3
       pathe: 1.1.2
 
-  playwright-core@1.49.1: {}
+  playwright-core@1.50.0: {}
 
-  playwright@1.49.1:
+  playwright@1.50.0:
     dependencies:
-      playwright-core: 1.49.1
+      playwright-core: 1.50.0
     optionalDependencies:
       fsevents: 2.3.2
 

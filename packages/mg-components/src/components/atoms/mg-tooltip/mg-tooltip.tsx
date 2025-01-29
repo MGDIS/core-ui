@@ -1,7 +1,7 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
 import { createID, focusableElements, getWindows, isValideID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
-import { Instance as PopperInstance, createPopper, Placement, PositioningStrategy } from '@popperjs/core';
-import { type GuardType, Guard } from './mg-tooltip.conf';
+import { computePosition, autoUpdate, flip, shift, limitShift, offset, arrow, type Strategy, type Placement } from '@floating-ui/dom';
+import { type GuardType, Guard, type TooltipPlacementType, isFloatingUIPlacement } from './mg-tooltip.conf';
 
 /**
  * HTMLMgButtonElement type guard
@@ -24,7 +24,7 @@ export class MgTooltip {
    * Internal *
    ************/
 
-  private popper: PopperInstance;
+  private floatingUICleanup: ReturnType<typeof autoUpdate>;
   private mgTooltipContent: HTMLMgTooltipContentElement;
   private tooltipedElement: HTMLElement;
   private windows: Window[];
@@ -71,7 +71,11 @@ export class MgTooltip {
   /**
    * Tooltip placement
    */
-  @Prop() placement: Placement = 'bottom';
+  @Prop({ mutable: true }) placement: TooltipPlacementType = 'bottom';
+  @Watch('placement')
+  watchPlacement(newValue) :void {
+    if(!isFloatingUIPlacement(newValue)) this.placement = 'bottom';
+  }
 
   /**
    * Display tooltip
@@ -104,11 +108,6 @@ export class MgTooltip {
   private show = (): void => {
     // Make the tooltip visible
     this.mgTooltipContent.dataset.show = '';
-    // Enable the event listeners
-    this.popper.setOptions(options => ({
-      ...options,
-      modifiers: [...options.modifiers, { name: 'eventListeners', enabled: true }],
-    }));
     // hide when click outside on nextTick to prevent event to trigger after creation
     nextTick(() => {
       this.windows.forEach((localWindow: Window) => {
@@ -124,11 +123,6 @@ export class MgTooltip {
   private hide = (): void => {
     // Hide the tooltip
     this.mgTooltipContent.removeAttribute('data-show');
-    // Disable the event listeners
-    this.popper.setOptions(options => ({
-      ...options,
-      modifiers: [...options.modifiers, { name: 'eventListeners', enabled: false }],
-    }));
     // Remove event listener
     this.windows.forEach((localWindow: Window) => {
       localWindow.removeEventListener('click', this.handleClickOutside, false);
@@ -225,28 +219,55 @@ export class MgTooltip {
   };
 
   /**
-   * Set popper instance
-   * @param strategy - popper strategy to apply on instance
+   * Set Floating UI instance
+   * @param strategy - Floating UI strategy to apply on instance
    */
-  private setPopper = (strategy: PositioningStrategy): void => {
-    // Create popperjs tooltip
-    this.popper = createPopper(this.tooltipedElement, this.mgTooltipContent, {
-      placement: this.placement,
-      strategy,
-      modifiers: [
-        {
-          name: 'offset',
-          options: {
-            offset: [0, 8],
-          },
-        },
-        {
-          name: 'flip',
-          options: {
-            fallbackPlacements: ['auto'],
-          },
-        },
-      ],
+  private setFloatingUI = (strategy: Strategy): void => {
+    // Initial styles configuration
+    Object.assign(this.mgTooltipContent.style, {
+      position: strategy,
+      top: '0',
+      left: '0',
+      transform: 'translate(0, 0)',
+    });
+
+    // Create Floating UI instance with autoUpdate
+    this.floatingUICleanup = autoUpdate(this.tooltipedElement, this.mgTooltipContent, () => {
+      computePosition(this.tooltipedElement, this.mgTooltipContent, {
+        placement: this.placement as Placement,
+        strategy,
+        middleware: [offset(8), flip(), shift({ limiter: limitShift() }), arrow({ element: this.mgTooltipContent.querySelector('[data-floating-arrow]') })],
+      }).then(({ x, y, placement, middlewareData }) => {
+        Object.assign(this.mgTooltipContent.style, {
+          transform: !isNaN(x) && !isNaN(y) ? `translate(${x}px, ${y}px)` : undefined,
+        });
+
+        // Update arrow style
+        const { x: arrowX, y: arrowY } = middlewareData.arrow;
+        const staticSide = {
+          top: 'bottom',
+          right: 'left',
+          bottom: 'top',
+          left: 'right',
+        }[placement.split('-')[0]];
+
+        const arrowElement: HTMLElement = this.mgTooltipContent.querySelector('[data-floating-arrow]');
+        // https://floating-ui.com/docs/arrow 
+        // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined.
+        // Due to this, either x or y will be undefined, depending on the side of placement.
+        // The above code uses `isNaN` to check for null and undefined simultaneously.
+        // Don’t remove `isNaN`, because either value can be falsy (0), causing a bug!
+        const numberToPx = (number: number): string => !isNaN(number) ? `${number}px` : '';
+
+        Object.assign(arrowElement.style, {
+          left: numberToPx(arrowX),
+          top: numberToPx(arrowY),
+          [staticSide]: '-4px',
+          position: 'absolute',
+        });
+
+        this.mgTooltipContent.setAttribute('data-placement', placement);
+      });
     });
   };
 
@@ -309,8 +330,9 @@ export class MgTooltip {
       // we have to manually unlock the guard because the "blur" handler of the tooltipedElement won't do it.
       this.resetGuard();
 
-      // update popper instance
-      this.popper.update();
+      // update Floating UI instance
+      this.floatingUICleanup();
+      this.setFloatingUI(this.element.closest('mg-popover') !== null ? 'absolute' : 'fixed');
     }).observe(mgButton, { attributes: true });
   };
 
@@ -341,7 +363,7 @@ export class MgTooltip {
 
       const arrow = document.createElement('div');
       arrow.setAttribute('slot', 'arrow');
-      arrow.dataset.popperArrow = '';
+      arrow.dataset.floatingArrow = '';
       this.mgTooltipContent.appendChild(arrow);
 
       // manage tooltipElement & tooltipedElement mouseenter/mouseleave events
@@ -372,6 +394,7 @@ export class MgTooltip {
     this.renderTooltipContent();
 
     //validate properties
+    this.watchPlacement(this.placement);
     this.watchDisabled(this.disabled);
     this.watchMessage(this.message);
     this.watchIdentifier(this.identifier);
@@ -410,7 +433,7 @@ export class MgTooltip {
     this.setAriaDescribedby(slotElement);
 
     // set Tooltip
-    this.setPopper(this.element.closest('mg-popover') !== null ? 'absolute' : 'fixed');
+    this.setFloatingUI(this.element.closest('mg-popover') !== null ? 'absolute' : 'fixed');
 
     // add document keyboard handler
     document.addEventListener('keydown', this.handlePressEscape);
@@ -423,7 +446,8 @@ export class MgTooltip {
    * update popper position after props change on component did update hook to benefit from render ended
    */
   componentDidUpdate(): void {
-    this.popper.update();
+    this.floatingUICleanup();
+    this.setFloatingUI(this.element.closest('mg-popover') !== null ? 'absolute' : 'fixed');
   }
 
   /**
@@ -435,6 +459,8 @@ export class MgTooltip {
       localWindow.removeEventListener('click', this.handleClickOutside, false);
       localWindow.removeEventListener('keydown', this.handlePressEscape, false);
     });
+    // cleanup Floating UI
+    this.floatingUICleanup();
   }
 
   /**

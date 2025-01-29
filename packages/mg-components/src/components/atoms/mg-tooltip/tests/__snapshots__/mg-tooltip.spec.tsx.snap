@@ -9,14 +9,14 @@ exports[`mg-tooltip Should NOT update button wrapper when MutationRecord not mat
   <button aria-describedby="identifier" disabled="">
     button.disabled
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -30,14 +30,52 @@ exports[`mg-tooltip Should NOT update button wrapper when MutationRecord not mat
   <button aria-describedby="identifier" disabled="">
     button.disabled
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
+  </mg-tooltip-content>
+</mg-tooltip>
+`;
+
+exports[`mg-tooltip Should NOT update floating UI strategy when MutationObserver is called 1`] = `
+<mg-tooltip>
+  <template shadowrootmode="open">
+    <slot></slot>
+    <slot name="content"></slot>
+  </template>
+  tooltip content
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
+    <template shadowrootmode="open">
+      <span class="mg-tooltip-content__message">
+        My tooltip message
+      </span>
+      <slot name="arrow"></slot>
+    </template>
+    <div aria-describedby="identifier" data-floating-arrow role="button" slot="arrow" tabindex="0" style="left: 0px; top: -4px; position: absolute;"></div>
+  </mg-tooltip-content>
+</mg-tooltip>
+`;
+
+exports[`mg-tooltip Should NOT update floating UI strategy when MutationObserver is called 2`] = `
+<mg-tooltip>
+  <template shadowrootmode="open">
+    <slot></slot>
+    <slot name="content"></slot>
+  </template>
+  tooltip content
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: absolute; top: 0; left: 0;">
+    <template shadowrootmode="open">
+      <span class="mg-tooltip-content__message">
+        My tooltip message
+      </span>
+      <slot name="arrow"></slot>
+    </template>
+    <div aria-describedby="identifier" data-floating-arrow role="button" slot="arrow" tabindex="0" style="top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -60,14 +98,14 @@ exports[`mg-tooltip Should NOT update mg-button wrapper when MutationRecord not 
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -90,14 +128,14 @@ exports[`mg-tooltip Should NOT update mg-button wrapper when MutationRecord not 
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -111,14 +149,14 @@ exports[`mg-tooltip Should keep displayed tooltip when hover it 1`] = `
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -142,14 +180,14 @@ exports[`mg-tooltip Should manage disconnectedCallback hook 1`] = `
         mg-button.disabled
       </mg-button>
     </div>
-    <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
       <template shadowrootmode="open">
         <span class="mg-tooltip-content__message">
           My tooltip message
         </span>
         <slot name="arrow"></slot>
       </template>
-      <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+      <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
     </mg-tooltip-content>
   </mg-tooltip>
 </body>
@@ -176,14 +214,14 @@ exports[`mg-tooltip Should manage disconnectedCallback hook without window conte
         mg-button.disabled
       </mg-button>
     </div>
-    <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
       <template shadowrootmode="open">
         <span class="mg-tooltip-content__message">
           My tooltip message
         </span>
         <slot name="arrow"></slot>
       </template>
-      <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+      <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
     </mg-tooltip-content>
   </mg-tooltip>
 </body>
@@ -200,14 +238,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -221,14 +259,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
   <button aria-describedby="blu identifier">
     button
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -246,14 +284,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       </svg>
     </template>
   </mg-icon>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -274,14 +312,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
     </template>
     mg-button
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -304,14 +342,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -325,14 +363,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -346,14 +384,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
   <button aria-describedby="blu identifier">
     button
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -371,14 +409,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       </svg>
     </template>
   </mg-icon>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -399,14 +437,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
     </template>
     mg-button
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -429,14 +467,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -450,14 +488,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -471,14 +509,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
   <button aria-describedby="blu identifier">
     button
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -496,14 +534,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       </svg>
     </template>
   </mg-icon>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -524,14 +562,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
     </template>
     mg-button
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -554,14 +592,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -575,14 +613,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -596,14 +634,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
   <button aria-describedby="blu identifier">
     button
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -621,14 +659,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       </svg>
     </template>
   </mg-icon>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -649,14 +687,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
     </template>
     mg-button
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -679,14 +717,14 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -700,33 +738,52 @@ exports[`mg-tooltip Should render with element with given placement 1`] = `
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
-  <mg-tooltip-content data-popper-placement="top" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
 
-exports[`mg-tooltip Should set popper strategy to absolute 1`] = `
+exports[`mg-tooltip Should set floating UI strategy to absolute when inside a popover 1`] = `
 <mg-tooltip>
   <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
   </template>
   tooltip in popover
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: absolute; top: 0; left: 0;">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div aria-describedby="identifier" data-popper-arrow role="button" slot="arrow" tabindex="0" style="position: absolute;"></div>
+    <div aria-describedby="identifier" data-floating-arrow role="button" slot="arrow" tabindex="0" style="top: -4px; position: absolute;"></div>
+  </mg-tooltip-content>
+</mg-tooltip>
+`;
+
+exports[`mg-tooltip Should set floating UI strategy to fixed by default 1`] = `
+<mg-tooltip>
+  <template shadowrootmode="open">
+    <slot></slot>
+    <slot name="content"></slot>
+  </template>
+  tooltip content
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
+    <template shadowrootmode="open">
+      <span class="mg-tooltip-content__message">
+        My tooltip message
+      </span>
+      <slot name="arrow"></slot>
+    </template>
+    <div aria-describedby="identifier" data-floating-arrow role="button" slot="arrow" tabindex="0" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -740,14 +797,14 @@ exports[`mg-tooltip Should toggle tooltip from prop display, case display false 
   <span aria-describedby="identifier" role="button" tabindex="0">
     batman
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         batman
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -761,14 +818,14 @@ exports[`mg-tooltip Should toggle tooltip from prop display, case display false 
   <span aria-describedby="identifier" role="button" tabindex="0">
     batman
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         batman
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -782,14 +839,14 @@ exports[`mg-tooltip Should toggle tooltip from prop display, case display true 1
   <span aria-describedby="identifier" role="button" tabindex="0">
     batman
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         batman
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -803,14 +860,14 @@ exports[`mg-tooltip Should toggle tooltip from prop display, case display true 2
   <span aria-describedby="identifier" role="button" tabindex="0">
     batman
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         batman
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -824,14 +881,14 @@ exports[`mg-tooltip Should update button wrapper dynamically 1`] = `
   <button aria-describedby="identifier" disabled="">
     button.disabled
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -845,14 +902,108 @@ exports[`mg-tooltip Should update button wrapper dynamically 2`] = `
   <button aria-describedby="identifier" disabled="">
     button.disabled
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
+  </mg-tooltip-content>
+</mg-tooltip>
+`;
+
+exports[`mg-tooltip Should update floating UI strategy when MutationObserver is called 1`] = `
+<mg-tooltip>
+  <template shadowrootmode="open">
+    <slot></slot>
+    <slot name="content"></slot>
+  </template>
+  <mg-button aria-describedby="identifier" role="button" tabindex="0">
+    <template shadowrootmode="open">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+        <div class="mg-c-button__content">
+          <slot></slot>
+        </div>
+      </div>
+    </template>
+    mgButton
+  </mg-button>
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
+    <template shadowrootmode="open">
+      <span class="mg-tooltip-content__message">
+        My tooltip message
+      </span>
+      <slot name="arrow"></slot>
+    </template>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
+  </mg-tooltip-content>
+</mg-tooltip>
+`;
+
+exports[`mg-tooltip Should update floating UI strategy when MutationObserver is called 2`] = `
+<mg-tooltip>
+  <template shadowrootmode="open">
+    <slot></slot>
+    <slot name="content"></slot>
+  </template>
+  <mg-button aria-describedby="identifier" role="button" tabindex="0">
+    <template shadowrootmode="open">
+      <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+        <div class="mg-c-button__content">
+          <slot></slot>
+        </div>
+      </div>
+    </template>
+    mgButton
+  </mg-button>
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: absolute; top: 0; left: 0;">
+    <template shadowrootmode="open">
+      <span class="mg-tooltip-content__message">
+        My tooltip message
+      </span>
+      <slot name="arrow"></slot>
+    </template>
+    <div data-floating-arrow slot="arrow" style="top: -4px; position: absolute;"></div>
+  </mg-tooltip-content>
+</mg-tooltip>
+`;
+
+exports[`mg-tooltip Should update floating UI strategy when component prop is update 1`] = `
+<mg-tooltip>
+  <template shadowrootmode="open">
+    <slot></slot>
+    <slot name="content"></slot>
+  </template>
+  tooltip content
+  <mg-tooltip-content data-placement="top" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, -8px);">
+    <template shadowrootmode="open">
+      <span class="mg-tooltip-content__message">
+        My tooltip message
+      </span>
+      <slot name="arrow"></slot>
+    </template>
+    <div aria-describedby="identifier" data-floating-arrow role="button" slot="arrow" tabindex="0" style="left: 0px; position: absolute; bottom: -4px;"></div>
+  </mg-tooltip-content>
+</mg-tooltip>
+`;
+
+exports[`mg-tooltip Should update floating UI strategy when component prop is update 2`] = `
+<mg-tooltip>
+  <template shadowrootmode="open">
+    <slot></slot>
+    <slot name="content"></slot>
+  </template>
+  tooltip content
+  <mg-tooltip-content data-placement="top" id="identifier" role="tooltip" slot="content" style="position: absolute; top: 0; left: 0;">
+    <template shadowrootmode="open">
+      <span class="mg-tooltip-content__message">
+        My tooltip message
+      </span>
+      <slot name="arrow"></slot>
+    </template>
+    <div aria-describedby="identifier" data-floating-arrow role="button" slot="arrow" tabindex="0" style="position: absolute; bottom: -4px;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -875,14 +1026,14 @@ exports[`mg-tooltip Should update mg-button wrapper dynamically 1`] = `
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -929,14 +1080,14 @@ exports[`mg-tooltip Should update mg-tooltip-content id when "identifier" is upd
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -959,14 +1110,14 @@ exports[`mg-tooltip Should update mg-tooltip-content id when "identifier" is upd
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="new-identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="new-identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -987,14 +1138,14 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
     </template>
     mgButton.disableOnClick
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1023,14 +1174,14 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
     </template>
     mgButton.disableOnClick
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1051,14 +1202,14 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
     </template>
     mgButton.disableOnClick
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" data-show id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1079,14 +1230,14 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
     </template>
     mgButton.disableOnClick
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1100,14 +1251,14 @@ exports[`mg-tooltip render Should render with tooltip 1`] = `
   <span aria-describedby="identifier">
     span
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1121,14 +1272,14 @@ exports[`mg-tooltip render Should render with tooltip 2`] = `
   <span aria-describedby="identifier">
     span
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1142,14 +1293,14 @@ exports[`mg-tooltip render Should render with tooltip 3`] = `
   <span aria-describedby="identifier">
     span
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1163,14 +1314,14 @@ exports[`mg-tooltip render Should render with tooltip 4`] = `
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1184,14 +1335,14 @@ exports[`mg-tooltip render Should render with tooltip 5`] = `
   <span aria-describedby="identifier" role="button">
     span
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1205,14 +1356,14 @@ exports[`mg-tooltip render Should render with tooltip 6`] = `
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1226,14 +1377,14 @@ exports[`mg-tooltip render Should render with tooltip 7`] = `
   <button aria-describedby="blu identifier">
     button
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1247,14 +1398,14 @@ exports[`mg-tooltip render Should render with tooltip 8`] = `
   <button aria-describedby="blu identifier">
     button
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1268,14 +1419,14 @@ exports[`mg-tooltip render Should render with tooltip 9`] = `
   <button aria-describedby="blu identifier">
     button
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1289,14 +1440,14 @@ exports[`mg-tooltip render Should render with tooltip 10`] = `
   <button aria-describedby="blu identifier">
     button
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1310,14 +1461,14 @@ exports[`mg-tooltip render Should render with tooltip 11`] = `
   <button aria-describedby="blu identifier">
     button
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1331,14 +1482,14 @@ exports[`mg-tooltip render Should render with tooltip 12`] = `
   <button aria-describedby="blu identifier">
     button
   </button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1356,14 +1507,14 @@ exports[`mg-tooltip render Should render with tooltip 13`] = `
       </svg>
     </template>
   </mg-icon>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1381,14 +1532,14 @@ exports[`mg-tooltip render Should render with tooltip 14`] = `
       </svg>
     </template>
   </mg-icon>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1406,14 +1557,14 @@ exports[`mg-tooltip render Should render with tooltip 15`] = `
       </svg>
     </template>
   </mg-icon>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1431,14 +1582,14 @@ exports[`mg-tooltip render Should render with tooltip 16`] = `
       </svg>
     </template>
   </mg-icon>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1456,14 +1607,14 @@ exports[`mg-tooltip render Should render with tooltip 17`] = `
       </svg>
     </template>
   </mg-icon>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1481,14 +1632,14 @@ exports[`mg-tooltip render Should render with tooltip 18`] = `
       </svg>
     </template>
   </mg-icon>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1509,14 +1660,14 @@ exports[`mg-tooltip render Should render with tooltip 19`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1537,14 +1688,14 @@ exports[`mg-tooltip render Should render with tooltip 20`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1565,14 +1716,14 @@ exports[`mg-tooltip render Should render with tooltip 21`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1593,14 +1744,14 @@ exports[`mg-tooltip render Should render with tooltip 22`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1621,14 +1772,14 @@ exports[`mg-tooltip render Should render with tooltip 23`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1649,14 +1800,14 @@ exports[`mg-tooltip render Should render with tooltip 24`] = `
     </template>
     mg-button
   </mg-button>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1679,14 +1830,14 @@ exports[`mg-tooltip render Should render with tooltip 25`] = `
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1709,14 +1860,14 @@ exports[`mg-tooltip render Should render with tooltip 26`] = `
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1739,14 +1890,14 @@ exports[`mg-tooltip render Should render with tooltip 27`] = `
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1769,14 +1920,14 @@ exports[`mg-tooltip render Should render with tooltip 28`] = `
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1799,14 +1950,14 @@ exports[`mg-tooltip render Should render with tooltip 29`] = `
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1829,14 +1980,14 @@ exports[`mg-tooltip render Should render with tooltip 30`] = `
       mg-button.disabled
     </mg-button>
   </div>
-  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <mg-tooltip-content data-placement="bottom" id="identifier" role="tooltip" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 8px);">
     <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0px; top: -4px; position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
