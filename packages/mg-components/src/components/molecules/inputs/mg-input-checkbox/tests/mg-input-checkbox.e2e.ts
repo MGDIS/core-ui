@@ -427,6 +427,39 @@ test.describe('mg-input-checkbox', () => {
       await page.keyboard.down('Tab');
       await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 470 } });
     });
+
+    test('Should render without overflow when viewport height is limited', async ({ page }) => {
+      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
+        title: `item ${item}`,
+        value: false,
+      }));
+      const componentArgs = { ...baseArgs, value };
+      const html = createHTML(componentArgs);
+      await page.setContent(html);
+      await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
+
+      // Set viewport height to 250px
+      await page.setViewportSize({ width: 600, height: 250 });
+
+      // Wait to ensure to have the interactive element rendered
+      await waitForInteractiveElement(page, 'multi');
+
+      // Open popover
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Enter');
+      await page.locator('mg-popover-content').waitFor();
+
+      // Scroll to bottom
+      const section = page.locator('.mg-c-input__sections');
+      await section.evaluate(element => {
+        element.scrollTo({
+          top: element.scrollHeight,
+          behavior: 'instant',
+        });
+      });
+
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 600, height: 250 } });
+    });
   });
 
   test.describe('Responsive', () => {
@@ -484,12 +517,12 @@ test.describe('mg-input-checkbox', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
-  test('Should udpate error with displayError() after value update with props', async ({page}) => {
+  test('Should udpate error with displayError() after value update with props', async ({ page }) => {
     const componentArgs = {
       ...baseArgs,
       required: true,
-      value: baseArgs.value.map((val, i) => ({...val, value: i === 0}))
-    }
+      value: baseArgs.value.map((val, i) => ({ ...val, value: i === 0 })),
+    };
     const html = createHTML(componentArgs);
 
     await page.setContent(html);
@@ -501,23 +534,23 @@ test.describe('mg-input-checkbox', () => {
     // Programaticaly remove value to display required error message
     await page.locator('mg-input-checkbox').evaluate(async (elm: HTMLMgInputTextElement, value) => {
       elm.value = value;
-      await elm.displayError()
+      await elm.displayError();
     }, baseArgs.value);
 
-    // Check state 
+    // Check state
     // - without any selected value
     // - with error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
     // Enter a new value from JS and remove required error
     await page.locator('mg-input-checkbox').evaluate(async (elm: HTMLMgInputTextElement, value) => {
-      elm.value = value.map((val, i) => ({...val, value: i === 2}));
-      await elm.displayError()
+      elm.value = value.map((val, i) => ({ ...val, value: i === 2 }));
+      await elm.displayError();
     }, baseArgs.value);
 
-    // Check state 
+    // Check state
     // - with selected value
     // - without error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-  })
+  });
 });
