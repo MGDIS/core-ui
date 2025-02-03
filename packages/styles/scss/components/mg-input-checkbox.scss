@@ -27,7 +27,7 @@
       }
 
       &__sections {
-        max-height: 80vh;
+        max-height: 100%;
         padding-right: var(--mg-b-size-8);
         overflow-y: auto;
       }
@@ -98,6 +98,7 @@
       display: flex;
       width: calc(var(--mg-b-size-floating-element-max-width) - var(--mg-b-size-16));
       height: calc(50 * var(--mg-b-size-8)); // 400px;
+      max-height: calc(100vh - var(--mg-b-size-32));
       flex-direction: column;
       gap: var(--mg-b-size-8);
     }
