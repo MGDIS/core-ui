@@ -51,7 +51,7 @@ prepare_package "packages/mg-components/package.json" '{
   "dependencies": { 
     "@mgdis/stencil-helpers": .dependencies."@mgdis/stencil-helpers",
     "@stencil/core": .dependencies."@stencil/core",
-    "@popperjs/core": .dependencies."@popperjs/core"
+    "@floating-ui/dom": .dependencies."@floating-ui/dom"
   },
   "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
 }'

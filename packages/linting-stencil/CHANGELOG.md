@@ -1,5 +1,17 @@
 # @mgdis/linting-stencil
 
+## 1.3.4
+
+### Patch Changes
+
+- 3fa417e: Update dependencies
+
+## 1.3.3
+
+### Patch Changes
+
+- 2d90802: Update dependencies
+
 ## 1.3.2
 
 ### Patch Changes

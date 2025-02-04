@@ -1,5 +1,6 @@
 @mixin reset-slot-card-variables() {
-  ::slotted(*) {
+  ::slotted(*:not(mg-panel, mg-message, mg-modal)) {
+    // Exclude components that include mg-card to prevent variable inheritance.
     --mg-c-card-border: var(--mg-c-card-border-default);
     --mg-c-card-spacing: var(--mg-c-card-spacing-default);
     --mg-c-card-border-radius: var(--mg-c-card-border-radius-default);

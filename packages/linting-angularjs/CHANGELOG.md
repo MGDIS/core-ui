@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.2
+
+### Patch Changes
+
+- 2d90802: Update dependencies
+
 ## 4.1.1
 
 ### Patch Changes

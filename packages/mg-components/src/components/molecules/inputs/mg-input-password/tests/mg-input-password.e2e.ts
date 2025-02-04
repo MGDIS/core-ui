@@ -219,4 +219,38 @@ test.describe('mg-input-password', () => {
     // Check that the input has been reset and the error has been removed
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
+  test('Should udpate error with displayError() after value update with props', async ({page}) => {
+    const html = createHTML({
+      ...baseArgs,
+      required: true,
+      value: 'Batman'
+    });
+    await page.setContent(html);
+
+    await page.locator('mg-input-password.hydrated').waitFor();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+    // Programaticaly remove value to display required error message
+    await page.locator('mg-input-password').evaluate(async (elm: HTMLMgInputTextElement) => {
+      elm.value = '';
+      await elm.displayError()
+    });
+
+    // Check state 
+    // - without value
+    // - with error message
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+    // Enter a new value from JS and remove required error
+    await page.locator('mg-input-password').evaluate(async (elm: HTMLMgInputTextElement) => {
+      elm.value = 'Hello Batman';
+      await elm.displayError()
+    });
+
+    // Check state 
+    // - with value
+    // - without error message
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  })
 });

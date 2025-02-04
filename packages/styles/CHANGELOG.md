@@ -1,5 +1,20 @@
 # @mgdis/styles
 
+## 2.2.2
+
+### Patch Changes
+
+- 48ed887: [#531](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/531) mg-menu: responsive issues on Chrome
+- 7aca391: [#2](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/2) mg-message : additional padding when mg-message is a direct child of a mg-panel
+
+## 2.2.1
+
+### Patch Changes
+
+- 975aee1: [#528](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/528) mg-illustrated-message: svg illustration has bad size when direction="horizontal" is set
+- 06412ab: [#526](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/526) mg-menu: sub-menu responsive not working
+- e1fa2cd: [#59](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/59) Add offset classes to mg-l-grid
+
 ## 2.2.0
 
 ### Minor Changes

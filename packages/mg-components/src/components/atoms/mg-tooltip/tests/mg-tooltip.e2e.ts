@@ -1,27 +1,12 @@
 import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 import { test } from '../../../../utils/playwright.fixture';
+import { placements } from '../mg-tooltip.conf';
 
 const createHTML = (args, slot = '') => `<mg-tooltip ${renderAttributes(args)}>${slot}</mg-tooltip>`;
 
 test.describe('mg-tooltip', () => {
-  [
-    'auto',
-    'auto-start',
-    'auto-end',
-    'top',
-    'top-start',
-    'top-end',
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-    'right',
-    'right-start',
-    'right-end',
-    'left',
-    'left-start',
-    'left-end',
-  ].forEach(placement => {
+  placements.forEach(placement => {
     test(`placement ${placement}`, async ({ page }) => {
       page.addStyleTag({ content: '.e2e-screenshot{display:block}mg-icon{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)}' });
       await page.setViewportSize({ width: 400, height: 400 });

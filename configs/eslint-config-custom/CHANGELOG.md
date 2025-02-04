@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.0.15
+
+### Patch Changes
+
+- 2d90802: Update dependencies
+
 ## 1.0.14
 
 ### Patch Changes

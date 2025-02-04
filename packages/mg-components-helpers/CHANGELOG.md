@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.1.13
+
+### Patch Changes
+
+- 3fa417e: Update dependencies
+
+## 4.1.12
+
+### Patch Changes
+
+- 2d90802: Update dependencies
+
 ## 4.1.11
 
 ### Patch Changes

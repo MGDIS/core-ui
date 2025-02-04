@@ -1,6 +1,7 @@
 import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event } from '@stencil/core';
 import { createID, getWindows, isValideID, toString } from '@mgdis/stencil-helpers';
-import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
+import { computePosition, autoUpdate, flip, shift, limitShift, offset, arrow, type Placement } from '@floating-ui/dom';
+import { isFloatingUIPlacement, type PopoverPlacementType, sides } from './mg-popover.conf';
 
 /**
  * @slot - Element that will display the popover
@@ -16,10 +17,10 @@ export class MgPopover {
    * Internal *
    ************/
 
-  private popper: PopperInstance;
   private mgPopover: HTMLElement;
   private mgPopoverContent: HTMLMgPopoverContentElement;
   private windows: Window[];
+  private floatingUICleanup: ReturnType<typeof autoUpdate>;
 
   /**************
    * Decorators *
@@ -47,7 +48,11 @@ export class MgPopover {
   /**
    * Popover placement
    */
-  @Prop() placement: Placement = 'bottom';
+  @Prop({ mutable: true }) placement: PopoverPlacementType = 'bottom';
+  @Watch('placement')
+  watchPlacement(newValue) :void {
+    if(!isFloatingUIPlacement(newValue)) this.placement = 'bottom';
+  }
 
   /**
    * Hide popover arrow
@@ -113,8 +118,6 @@ export class MgPopover {
   private show = (): void => {
     // Make the popover visible
     this.mgPopover.dataset.show = '';
-    // Enable the event listeners
-    this.setPopperListeners(true);
     // hide when click outside
     // setTimeout is used to prevent event to trigger after creation
     setTimeout(() => {
@@ -128,21 +131,8 @@ export class MgPopover {
   private hide = (): void => {
     // Hide the popover
     this.mgPopover.removeAttribute('data-show');
-    // Disable the event listeners
-    this.setPopperListeners(false);
     // Remove event listener
     this.manageClickOutsideListeners('removeEventListener');
-  };
-
-  /**
-   * Set popper listeners
-   * @param newValue - if true enable popper listners
-   */
-  private setPopperListeners = (newValue: boolean): void => {
-    this.popper.setOptions(options => ({
-      ...options,
-      modifiers: [...options.modifiers, { name: 'eventListeners', enabled: newValue }],
-    }));
   };
 
   /**
@@ -184,7 +174,7 @@ export class MgPopover {
 
       const arrow = document.createElement('div');
       arrow.setAttribute('slot', 'arrow');
-      arrow.dataset.popperArrow = '';
+      arrow.dataset.floatingArrow = '';
       this.mgPopoverContent.appendChild(arrow);
 
       // insert elements in DOM
@@ -199,6 +189,67 @@ export class MgPopover {
     }
   };
 
+  /**
+   * Set up Floating UI positioning and arrow behavior
+   * @param interactiveElement - Element that triggers the popover
+   */
+  private setFloatingUI = (interactiveElement: HTMLElement): void => {
+    const fallbackPlacements = (this.element.dataset.fallbackPlacement || '').split(',').map(t => t.trim());
+
+    this.floatingUICleanup = autoUpdate(interactiveElement, this.mgPopover, () => {
+      computePosition(interactiveElement, this.mgPopover, {
+        placement: this.placement as Placement,
+        strategy: 'fixed',
+        middleware: [
+          offset(0),
+          flip({
+            fallbackPlacements: Array.from(new Set([...fallbackPlacements, ...sides]).values()).filter(isFloatingUIPlacement), // simulate "auto" placement with default fallback values
+          }),
+          shift({
+            limiter: limitShift(),
+          }),
+          arrow({
+            element: this.mgPopover.querySelector('[data-floating-arrow]'),
+          }),
+        ],
+      }).then(({ x, y, placement, middlewareData }) => {
+        Object.assign(this.mgPopover.style, {
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          transform: `translate(${Math.round(x)}px, ${Math.round(y)}px)`,
+        });
+
+        // Update arrow style
+        const staticSide = {
+          top: 'bottom',
+          right: 'left',
+          bottom: 'top',
+          left: 'right',
+        }[placement.split('-')[0]];
+
+        const arrowElement: HTMLElement = this.mgPopover.querySelector('[data-floating-arrow]');
+        const { x: arrowX, y: arrowY } = middlewareData.arrow;
+        // https://floating-ui.com/docs/arrow 
+        // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined.
+        // Due to this, either x or y will be undefined, depending on the side of placement.
+        // The above code uses `isNaN` to check for null and undefined simultaneously.
+        // Don’t remove `isNaN`, because either value can be falsy (0), causing a bug!
+        const numberToPx = (number: number): string => !isNaN(number) ? `${number}px` : '';
+
+        if (arrowElement !== null)
+          Object.assign(arrowElement.style, {
+            position: 'absolute',
+            left: numberToPx(arrowX),
+            top: numberToPx(arrowY),
+            [staticSide]: '1px',
+          });
+
+        this.mgPopover.setAttribute('data-placement', placement);
+      });
+    });
+  };
+
   /*************
    * Lifecycle *
    *************/
@@ -207,7 +258,7 @@ export class MgPopover {
    * update popper position after props change on component did update hook to benefit from render ended
    */
   componentDidUpdate(): void {
-    this.popper.update();
+    this.floatingUICleanup();
   }
 
   /**
@@ -221,6 +272,7 @@ export class MgPopover {
     this.validateCloseButton(this.closeButton);
     this.validateIdentifier(this.identifier);
     this.validateArrowHide(this.arrowHide);
+    this.watchPlacement(this.placement)
   }
 
   /**
@@ -230,40 +282,26 @@ export class MgPopover {
     // Get popover content
     this.mgPopover = this.element.querySelector(`#${this.identifier}`);
 
-    //Get interactive element (first element without slot attribute)
+    // Get interactive element (first element without slot attribute)
     const interactiveElement: HTMLElement = this.element.querySelector(':not([slot])');
+
     // Add aria attributes
     interactiveElement.setAttribute('aria-controls', this.identifier);
     interactiveElement.setAttribute('aria-expanded', `${this.display}`);
-    const fallbackPlacements = [];
-    if (this.element.dataset.fallbackPlacement !== undefined) {
-      fallbackPlacements.push(this.element.dataset.fallbackPlacement);
-    }
 
-    // Create popperjs popover
-    this.popper = createPopper(interactiveElement, this.mgPopover, {
-      placement: this.placement,
-      strategy: 'fixed',
-      modifiers: [
-        {
-          name: 'offset',
-          options: {
-            offset: [0, 0],
-          },
-        },
-        {
-          name: 'flip',
-          options: {
-            fallbackPlacements: [...fallbackPlacements, 'auto'],
-          },
-        },
-      ],
+    // Initial styles configuration
+    Object.assign(this.mgPopover.style, {
+      position: 'fixed',
     });
 
-    // add resize observer
-    [interactiveElement, this.element.querySelector('mg-popover-content')].forEach(element => {
+    // Create Floating UI instance
+    this.setFloatingUI(interactiveElement);
+
+    // Add resize observer
+    [interactiveElement, this.mgPopoverContent].forEach(element => {
       new ResizeObserver(() => {
-        this.popper.update();
+        this.floatingUICleanup();
+        this.setFloatingUI(interactiveElement);
       }).observe(element);
     });
 
@@ -272,9 +310,9 @@ export class MgPopover {
       if (!this.disabled) this.display = !this.display;
     });
 
-    this.element.addEventListener('click', (event: MouseEvent & {target: HTMLElement}): void => {
-      const target = event.target.closest('[popovertargetaction]')
-      if(this.display === true && target !== null && target.getAttribute('popovertargetaction') === 'hide') {
+    this.element.addEventListener('click', (event: MouseEvent & { target: HTMLElement }): void => {
+      const target = event.target.closest('[popovertargetaction]');
+      if (this.display === true && target !== null && target.getAttribute('popovertargetaction') === 'hide') {
         this.display = false;
       }
     });
@@ -289,6 +327,14 @@ export class MgPopover {
     });
 
     this.handleDisplay(this.display);
+  }
+
+  /**
+   * Cleanup when component is disconnected
+   */
+  disconnectedCallback(): void {
+    // Cleanup Floating UI instance
+    this.floatingUICleanup();
   }
 
   /**
