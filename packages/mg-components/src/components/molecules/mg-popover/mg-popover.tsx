@@ -1,7 +1,7 @@
 import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event } from '@stencil/core';
 import { createID, getWindows, isValideID, toString } from '@mgdis/stencil-helpers';
 import { computePosition, autoUpdate, flip, shift, limitShift, offset, arrow, type Placement } from '@floating-ui/dom';
-import { isFloatingUIPlacement, type PopoverPlacementType, sides } from './mg-popover.conf';
+import { isFloatingUIPlacement, type PopoverPlacementType, sides, alignments } from './mg-popover.conf';
 
 /**
  * @slot - Element that will display the popover
@@ -190,12 +190,36 @@ export class MgPopover {
   };
 
   /**
+   * Get alternative placements ordered by proximity to initial placement
+   * First check fallbackPlacement attribute, then generate alternatives:
+   * 1. Same side with different alignments (start, center, end)
+   * 2. Other sides in order
+   * @param placement - initial placement
+   * @returns array of alternative placements
+   */
+  private getClosestPlacements = (placement: Placement): Placement[] => {
+    // First check if fallbackPlacement attribute is defined
+    const fallbackPlacements = (this.element.dataset.fallbackPlacement || '')
+      .split(',')
+      .map(t => t.trim())
+      .filter(isFloatingUIPlacement);
+    if (fallbackPlacements.length > 0) return fallbackPlacements;
+
+    // Extract side from placement (e.g. "top" from "top-start")
+    const [side] = placement.split('-');
+
+    // Generate placements for same side with different alignments
+    const currentSidePlacements = alignments.map(alignment => (alignment !== null ? `${side}-${alignment}` : (side as Placement)));
+
+    // Return unique placements: current side variants first, then other sides
+    return Array.from(new Set([...currentSidePlacements, ...sides.filter(otherSide => otherSide !== side)])).filter(isFloatingUIPlacement);
+  };
+
+  /**
    * Set up Floating UI positioning and arrow behavior
    * @param interactiveElement - Element that triggers the popover
    */
   private setFloatingUI = (interactiveElement: HTMLElement): void => {
-    const fallbackPlacements = (this.element.dataset.fallbackPlacement || '').split(',').map(t => t.trim());
-
     this.floatingUICleanup = autoUpdate(interactiveElement, this.mgPopover, () => {
       computePosition(interactiveElement, this.mgPopover, {
         placement: this.placement as Placement,
@@ -203,7 +227,7 @@ export class MgPopover {
         middleware: [
           offset(0),
           flip({
-            fallbackPlacements: Array.from(new Set([...fallbackPlacements, ...sides]).values()).filter(isFloatingUIPlacement), // simulate "auto" placement with default fallback values
+            fallbackPlacements: this.getClosestPlacements(this.placement as Placement),
           }),
           shift({
             limiter: limitShift(),
