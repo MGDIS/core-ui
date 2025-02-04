@@ -256,4 +256,36 @@ describe('mg-popover', () => {
     expect(popover).not.toHaveAttribute('data-show');
     expect(page.root).toMatchSnapshot();
   });
+
+  test.each([
+    {
+      initialPlacement: 'bottom',
+      expectedFallbacks: ['bottom-start', 'bottom', 'bottom-end', 'top', 'right', 'left'],
+    },
+    {
+      initialPlacement: 'bottom-start',
+      expectedFallbacks: ['bottom-start', 'bottom', 'bottom-end', 'top', 'right', 'left'],
+    },
+    {
+      initialPlacement: 'right',
+      expectedFallbacks: ['right-start', 'right', 'right-end', 'top', 'bottom', 'left'],
+    },
+    {
+      initialPlacement: 'left',
+      expectedFallbacks: ['left-start', 'left', 'left-end', 'top', 'right', 'bottom'],
+    },
+  ])('Should generate closest fallback placements for $initialPlacement', async ({ initialPlacement, expectedFallbacks }) => {
+    const page = await getPage({ identifier: 'identifier', placement: initialPlacement, display: true }, [
+      <h2 slot="title">Blu bli blo bla</h2>,
+      <p slot="content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>,
+    ]);
+
+    const fallbacks = page.rootInstance.getClosestPlacements(initialPlacement);
+
+    expect(fallbacks).toEqual(expectedFallbacks);
+  });
 });
