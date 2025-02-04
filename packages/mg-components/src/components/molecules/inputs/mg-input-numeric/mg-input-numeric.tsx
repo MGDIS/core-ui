@@ -597,6 +597,7 @@ export class MgInputNumeric {
                 title={this.placeholder}
                 disabled={this.disabled}
                 required={this.required}
+                autocomplete="off"
                 aria-invalid={(this.invalid === true).toString()}
                 onInput={this.handleInput}
                 onFocus={this.handleFocus}
