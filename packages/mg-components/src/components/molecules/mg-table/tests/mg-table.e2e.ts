@@ -31,7 +31,7 @@ const table = `<table>
   </tbody>
 </table>`;
 
-test.describe.only('mg-table', () => {
+test.describe('mg-table', () => {
   [{}, { size: 'small' }, { size: 'large' }, { size: 'xlarge' }, { fullWidth: true }].forEach(args => {
     test(`Should render with args ${JSON.stringify(args)}`, async ({ page }) => {
       const html = createHTML(args, table);
