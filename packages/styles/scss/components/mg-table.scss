@@ -2,10 +2,10 @@
 @use '../base/typography';
 
 .mg-c-table {
-  // TODO : Rename variables
-  --mg-c-table-spacing: var(--mg-b-size-8) var(--mg-b-size-16);
-  --mg-c-table-height: var(--mg-b-size-40);
-  --mg-c-table-head-height: calc(var(--mg-b-size-min-height) + 2 * var(--mg-b-size-8));
+  // Keeping it in component for beta
+  --mg-c-table-cell-spacing: var(--mg-b-size-8) var(--mg-b-size-16);
+  --mg-c-table-cell-height: var(--mg-b-size-40);
+  --mg-c-table-header-cell-height: calc(var(--mg-b-size-min-height) + 2 * var(--mg-b-size-8));
 
   overflow: hidden;
   border: none;
@@ -20,19 +20,19 @@
   * Sizes
   */
   &.mg-c-table--size-small {
-    --mg-c-table-spacing: var(--mg-b-size-4) var(--mg-b-size-16);
-    --mg-c-table-height: var(--mg-b-size-32);
-    --mg-c-table-head-height: var(--mg-b-size-32);
+    --mg-c-table-cell-spacing: var(--mg-b-size-4) var(--mg-b-size-16);
+    --mg-c-table-cell-height: var(--mg-b-size-32);
+    --mg-c-table-header-cell-height: var(--mg-b-size-32);
   }
 
   &.mg-c-table--size-large {
-    --mg-c-table-height: var(--mg-c-table-head-height);
+    --mg-c-table-cell-height: var(--mg-c-table-header-cell-height);
   }
 
   &.mg-c-table--size-xlarge {
-    --mg-c-table-spacing: var(--mg-b-size-12) var(--mg-b-size-16);
-    --mg-c-table-height: var(--mg-b-size-64);
-    --mg-c-table-head-height: var(--mg-b-size-64);
+    --mg-c-table-cell-spacing: var(--mg-b-size-12) var(--mg-b-size-16);
+    --mg-c-table-cell-height: var(--mg-b-size-64);
+    --mg-c-table-header-cell-height: var(--mg-b-size-64);
   }
 
   /**
@@ -44,9 +44,9 @@
 
   td,
   th {
-    height: var(--mg-c-table-height);
+    height: var(--mg-c-table-cell-height);
     box-sizing: border-box;
-    padding: var(--mg-c-table-spacing);
+    padding: var(--mg-c-table-cell-spacing);
     text-align: start;
   }
 
@@ -57,20 +57,13 @@
   }
 
   thead {
-    height: var(--mg-c-table-head-height);
+    height: var(--mg-c-table-header-cell-height);
     background-color: var(--mg-b-color-app);
     color: var(--mg-b-color-light);
   }
 
-  :not(thead) tr {
-    &:nth-child(even) {
-      background: color-mix(in srgb, var(--mg-b-color-app), transparent 80%);
-    }
-
-    // Hover style is not wanted for now, but I'm keeping it, just a feeling... :)
-    // &:hover {
-    //   background: color-mix(in srgb, var(--mg-b-color-app), transparent 70%);
-    // }
+  :not(thead) tr:nth-child(even) {
+    background: color-mix(in srgb, var(--mg-b-color-app), transparent 80%);
   }
 
   &-wrapper {
