@@ -107,7 +107,7 @@ export class MgInputRichTextEditor {
   @Watch('readonly')
   @Watch('disabled')
   handleValidityChange(): void {
-    if (Boolean(this.editor)) {
+    if (this.editor) {
       this.checkValidity();
       if (this.hasDisplayedError) {
         this.setErrorMessage();
