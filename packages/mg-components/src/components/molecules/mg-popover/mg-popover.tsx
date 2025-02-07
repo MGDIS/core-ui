@@ -113,11 +113,24 @@ export class MgPopover {
   };
 
   /**
+   * Update aria-expanded attribute on interactive element
+   * @param expanded - expanded state
+   */
+  private updateAriaExpanded = (expanded: boolean): void => {
+    const interactiveElement = this.element.querySelector(':not([slot])');
+    if (interactiveElement !== null) {
+      interactiveElement.setAttribute('aria-expanded', String(expanded));
+    }
+  };
+
+  /**
    * Show popover
    */
   private show = (): void => {
     // Make the popover visible
     this.mgPopover.dataset.show = '';
+    // Update aria-expanded
+    this.updateAriaExpanded(true);
     // hide when click outside
     // setTimeout is used to prevent event to trigger after creation
     setTimeout(() => {
@@ -131,6 +144,8 @@ export class MgPopover {
   private hide = (): void => {
     // Hide the popover
     this.mgPopover.removeAttribute('data-show');
+    // Update aria-expanded
+    this.updateAriaExpanded(false);
     // Remove event listener
     this.manageClickOutsideListeners('removeEventListener');
   };
