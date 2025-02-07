@@ -35,19 +35,19 @@
     background-color: var(--mg-c-tooltip-color-background);
   }
 
-  :host([data-popper-placement^='top']) > & {
+  :host([data-placement^='top']) > & {
     bottom: calc(-1 * var(--mg-b-size-4));
   }
 
-  :host([data-popper-placement^='bottom']) > & {
+  :host([data-placement^='bottom']) > & {
     top: calc(-1 * var(--mg-b-size-4));
   }
 
-  :host([data-popper-placement^='left']) > & {
+  :host([data-placement^='left']) > & {
     right: calc(-1 * var(--mg-b-size-4));
   }
 
-  :host([data-popper-placement^='right']) > & {
+  :host([data-placement^='right']) > & {
     left: calc(-1 * var(--mg-b-size-4));
   }
 }

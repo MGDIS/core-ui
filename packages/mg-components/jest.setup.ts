@@ -10,6 +10,12 @@ Object.getPrototypeOf(global.HTMLElement).prototype.checkValidity = checkValidit
 Object.getPrototypeOf(global.HTMLElement).prototype.show = jest.fn();
 Object.getPrototypeOf(global.HTMLElement).prototype.showModal = jest.fn();
 Object.getPrototypeOf(global.HTMLElement).prototype.close = jest.fn();
+// floating-ui
+for (const property of ['clientWidth', 'clientHeight', 'offsetWidth', 'offsetHeight']) {
+  Object.defineProperty(Object.getPrototypeOf(global.HTMLElement).prototype, property, {
+    get:() => 0
+  })
+}
 // implement crypto behavior in jest
 Object.defineProperty(globalThis, 'crypto', {
   value: {

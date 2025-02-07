@@ -57,11 +57,11 @@ describe('mg-details', () => {
     expect(page.rootInstance.expandedChange.emit).toHaveBeenCalledTimes(1);
   });
 
-  test.each([<span slot="summary">button</span>, <span slot="summary"><mg-button>button</mg-button></span>, <mg-button slot="summary">button</mg-button>])('Should prevent toggle details toggled on mg-button click', async (slotSummary) => {
+  test.each([<span slot="summary"><mg-button>button</mg-button></span>, <mg-button slot="summary">button</mg-button>])('Should prevent toggle details toggled on mg-button click %s', async (slotSummary) => {
     const page = await getPage({ toggleClosed: 'Show details', toggleOpened: 'Hide details', slotSummary });
 
     const element = page.doc.querySelector('mg-details');
-    const mgButton = element.querySelector('mg-button, span');
+    const mgButton = element.querySelector('mg-button');
 
     jest.spyOn(page.rootInstance.expandedChange, 'emit');
 

@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2025-01-29-15-47_Sleepy-Shocking-Pink-Sheep)
+
+### Packages released
+
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [linting-styles changelog](packages/linting-styles/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2025-01-20-16-22_Cute-Cerise-Chicken)
 
 ### Packages released

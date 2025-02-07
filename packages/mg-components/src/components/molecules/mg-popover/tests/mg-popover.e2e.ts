@@ -1,29 +1,14 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { renderAttributes } from '@mgdis/playwright-helpers';
+import { placements } from '../mg-popover.conf';
 
 const mgButtonVerticalCenter = 'mg-button{position:fixed;left:50%;transform:translateX(-50%)}';
 
 const createHTML = (args, slot): string => `<mg-popover ${renderAttributes(args)}>${slot}</mg-popover>`;
 
 test.describe('mg-popover', () => {
-  [
-    'auto',
-    'auto-start',
-    'auto-end',
-    'top',
-    'top-start',
-    'top-end',
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-    'right',
-    'right-start',
-    'right-end',
-    'left',
-    'left-start',
-    'left-end',
-  ].forEach(placement => {
+  placements.forEach(placement => {
     test.describe(`placement ${placement}`, () => {
       [true, false].forEach(arrowHide => {
         test(`Should render, case arrowHide: ${arrowHide}`, async ({ page }) => {
@@ -186,8 +171,8 @@ test.describe('mg-popover', () => {
   test(`should position popover with fallbackplacement when it don't have enough place`, async ({ page }) => {
     const html = createHTML(
       {
-        placement: 'bottom-start',
-        dataFallbackPlacement: 'bottom-end',
+        placement: 'right',
+        dataFallbackPlacement: 'bottom',
       },
       `<mg-button>Button</mg-button>
       <p slot="content">

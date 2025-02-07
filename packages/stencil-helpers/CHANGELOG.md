@@ -1,5 +1,11 @@
 # @mgdis/stencil-helpers
 
+## 2.2.3
+
+### Patch Changes
+
+- 3fa417e: Update dependencies
+
 ## 2.2.2
 
 ### Patch Changes
