@@ -1,9 +1,8 @@
 import { Component, Element, h, Prop, Watch, State, Event, EventEmitter, Method } from '@stencil/core';
 import { ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
 import { classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
-import { defaultModules } from './mg-input-rich-text-editor.conf';
 import { initLocales } from '../../../../locales';
-import Quill from 'quill';
+import { defineEditor, type EditorType, type EditorOptionsType } from './editor';
 
 @Component({
   tag: 'mg-input-rich-text-editor',
@@ -15,17 +14,15 @@ export class MgInputRichTextEditor {
    * Internal *
    ************/
 
-  // Quill
-  private quillEditor: Quill;
+  // editor
+  private editor: EditorType;
   private wrapperElement: HTMLDivElement;
-  private editorElement: HTMLDivElement;
 
   // Locales
   private messages;
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private defaultModules = defaultModules;
 
   // Classes
   private readonly classFocus = 'mg-u-is-focused';
@@ -99,25 +96,18 @@ export class MgInputRichTextEditor {
   watchDisabled(newValue: MgInputRichTextEditor['disabled']): void {
     if (newValue) {
       this.classCollection.add(classDisabled);
-      this.quillEditor?.disable();
+      this.editor?.disable();
     } else {
       this.classCollection.delete(classDisabled);
-      this.quillEditor?.enable();
+      this.editor?.enable();
     }
   }
 
   @Watch('required')
   @Watch('readonly')
   @Watch('disabled')
-  handleValidityChange(newValue: boolean, _oldValue: boolean, prop: string): void {
-    if (this.quillEditor !== undefined) {
-      if (prop === 'disabled') {
-        if (newValue) {
-          this.quillEditor.disable();
-        } else {
-          this.quillEditor.enable();
-        }
-      }
+  handleValidityChange(): void {
+    if (Boolean(this.editor)) {
       this.checkValidity();
       if (this.hasDisplayedError) {
         this.setErrorMessage();
@@ -172,19 +162,14 @@ export class MgInputRichTextEditor {
   @Prop({ mutable: true }) invalid: boolean;
 
   /**
-   * Quill modules configuration
+   * Editor modules configuration
    */
-  @Prop() modules?: Record<string, unknown>;
+  @Prop() modules?: EditorOptionsType['modules'];
 
   /**
    * Component classes
    */
   @State() classCollection: ClassList = new ClassList(['mg-c-input--rich-text-editor']);
-
-  /**
-   * Modules
-   */
-  @State() internalModules: Record<string, unknown>;
 
   /**
    * Error message to display
@@ -209,7 +194,7 @@ export class MgInputRichTextEditor {
   async getHTML(): Promise<string> {
     return new Promise(resolve => {
       requestAnimationFrame(() => {
-        resolve(this.quillEditor.getSemanticHTML());
+        resolve(this.editor.getSemanticHTML());
       });
     });
   }
@@ -222,7 +207,7 @@ export class MgInputRichTextEditor {
   async getText(): Promise<string> {
     return new Promise(resolve => {
       requestAnimationFrame(() => {
-        resolve(this.quillEditor.getText());
+        resolve(this.editor.getText());
       });
     });
   }
@@ -276,7 +261,7 @@ export class MgInputRichTextEditor {
   async reset(): Promise<void> {
     if (!this.readonly) {
       this.value = '';
-      this.quillEditor.setText('');
+      this.editor.setText('');
       this.checkValidity();
       this.errorMessage = undefined;
       this.hasDisplayedError = false;
@@ -284,18 +269,25 @@ export class MgInputRichTextEditor {
   }
 
   /**
+   * Check if the field is empty taking into account the value format
+   * @returns truthy is value is invalid
+   */
+  private isEmpty = (): boolean => {
+    const textContent = this.getTextContent();
+    return !(isValidString(textContent) && textContent !== '\n');
+  }
+
+  /**
+   * Extract the text without HTML tags from value
+   * @returns text content
+   */
+  private getTextContent = (): string => this.value.replace(/<[^>]*>/g, '').trim();
+
+  /**
    * Get pattern validity
    * @returns is pattern valid
    */
-  private getPatternValidity = (): boolean => {
-    if (this.pattern === undefined) return true;
-
-    // Extract the text without HTML tags
-    const textContent = this.value.replace(/<[^>]*>/g, '').trim();
-
-    // Apply the pattern only on the text content
-    return new RegExp(`^${this.pattern}$`, 'u').test(textContent);
-  };
+  private getPatternValidity = (): boolean => this.pattern === undefined || new RegExp(`^${this.pattern}$`, 'u').test(this.getTextContent());
 
   /**
    * Method to set validity values
@@ -314,16 +306,7 @@ export class MgInputRichTextEditor {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    // Check if the field is empty taking into account the value format
-    // For HTML values, remove tags and check if text is empty
-    let isEmpty = false;
-    if (typeof this.value === 'string') {
-      const textContent = this.value.replace(/<[^>]*>/g, '').trim();
-      isEmpty = !isValidString(textContent) || textContent !== '\n';
-    }
-
-    const isValid = this.readonly || this.disabled || ((!this.required || !isEmpty) && this.getPatternValidity());
-    this.setValidity(isValid);
+    this.setValidity(this.readonly || this.disabled || ((this.required ? !this.isEmpty() : true) && this.getPatternValidity()));
   };
 
   /**
@@ -332,24 +315,13 @@ export class MgInputRichTextEditor {
    */
   private setErrorMessage = (errorMessage?: string): void => {
     this.errorMessage = undefined;
-    if (!this.valid) {
-      if (typeof errorMessage === 'string' && errorMessage.length > 0) {
-        this.errorMessage = errorMessage;
-      } else {
-        // Check if content is empty before displaying any other error
-        const isEmpty = (() => {
-          if (this.value === undefined) return true;
-          // For HTML values, remove tags and check if text is empty
-          const textContent = this.value.replace(/<[^>]*>/g, '').trim();
-          return textContent === '' || textContent === '\n';
-        })();
-
-        if (this.required && isEmpty) {
-          this.errorMessage = this.messages.errors.required;
-        } else if (!this.getPatternValidity()) {
-          this.errorMessage = this.patternErrorMessage;
-        }
-      }
+    if (this.valid) return;
+    else if (isValidString(errorMessage)) {
+      this.errorMessage = errorMessage;
+    } else if (this.required && this.isEmpty()) {
+      this.errorMessage = this.messages.errors.required;
+    } else if (!this.getPatternValidity()) {
+      this.errorMessage = this.patternErrorMessage;
     }
   };
 
@@ -380,94 +352,21 @@ export class MgInputRichTextEditor {
   };
 
   /**
-   * Fixes for handling text selection in Quill when used within the Shadow DOM.
-   * - Fixes focus detection
-   * - Adapts native range handling to work with the Shadow DOM
-   * - Correctly manages text selection across Shadow DOM boundaries
-   * - Sets up selection change events
+   * Handle `text-change` event
    */
-  private quillSelectionFixes(): void {
-    const hasShadowRootSelection = Boolean((document.createElement('div').attachShadow({ mode: 'open' }) as ShadowRoot & { getSelection(): Selection }).getSelection);
+  private handleTextChange = (): void => {
+    // Get HTML content
+    const htmlContent = this.editor.getSemanticHTML();
+    this.value = htmlContent;
 
-    // Each browser engine has a different implementation for retrieving the Range
-    const getNativeRange = (rootNode: ShadowRoot | Document) => {
-      try {
-        if (hasShadowRootSelection) {
-          // In Chromium, the shadow root has a getSelection function which returns the range
-          return (rootNode as ShadowRoot & { getSelection(): Selection }).getSelection().getRangeAt(0);
-        } else {
-          const selection = window.getSelection();
-          // Webkit range retrieval is done with getComposedRanges (see: https://bugs.webkit.org/show_bug.cgi?id=163921)
-          if (typeof (selection as Selection & { getComposedRanges?: (root: Node) => Range[] }).getComposedRanges === 'function') {
-            return (selection as Selection & { getComposedRanges: (root: Node) => Range[] }).getComposedRanges(rootNode)[0];
-          } else {
-            // Gecko implements the range API properly in Native Shadow: https://developer.mozilla.org/en-US/docs/Web/API/Selection/getRangeAt
-            return selection.getRangeAt(0);
-          }
-        }
-      } catch {
-        return null;
-      }
-    };
+    // Emit the HTML content for form compatibility
+    this.valueChange.emit(htmlContent);
 
-    // Original implementation uses document.active element which does not work in Native Shadow.
-    // Replace document.activeElement with shadowRoot.activeElement
-    this.quillEditor.selection.hasFocus = () => {
-      const rootNode = this.quillEditor.root.getRootNode();
-      return (rootNode as ShadowRoot).activeElement === this.quillEditor.root;
-    };
-
-    // Original implementation uses document.getSelection which does not work in Native Shadow.
-    // Replace document.getSelection with shadow dom equivalent (different for each browser)
-    this.quillEditor.selection.getNativeRange = () => {
-      const rootNode = this.quillEditor.root.getRootNode();
-      const nativeRange = getNativeRange(rootNode as ShadowRoot);
-      return nativeRange !== null && nativeRange !== undefined ? this.quillEditor.selection.normalizeNative(nativeRange) : null;
-    };
-
-    // Original implementation relies on Selection.addRange to programatically set the range, which does not work in Webkit with Native Shadow. Selection.addRange works fine in Chromium and Gecko.
-    this.quillEditor.selection.setNativeRange = function (startNode, startOffset, endNode = startNode, endOffset = startOffset, force = false) {
-      if (startNode == null || this.root.parentNode == null || startNode.parentNode == null || endNode.parentNode == null) {
-        return;
-      }
-
-      const selection = window.getSelection();
-      if (selection == null) return;
-
-      if (startNode != null) {
-        if (!this.hasFocus()) this.root.focus();
-
-        const native = (this.getNativeRange() || {}).native;
-        if (
-          native == null ||
-          force ||
-          startNode !== native.startContainer ||
-          startOffset !== native.startOffset ||
-          endNode !== native.endContainer ||
-          endOffset !== native.endOffset
-        ) {
-          if (startNode instanceof HTMLElement && startNode.tagName === 'BR') {
-            startOffset = [].indexOf.call(startNode.parentNode.childNodes, startNode);
-            startNode = startNode.parentNode;
-          }
-          if (endNode instanceof HTMLElement && endNode.tagName === 'BR') {
-            endOffset = [].indexOf.call(endNode.parentNode.childNodes, endNode);
-            endNode = endNode.parentNode;
-          }
-
-          selection.setBaseAndExtent(startNode, startOffset, endNode, endOffset);
-        }
-      } else {
-        selection.removeAllRanges();
-        this.root.blur();
-        document.body.focus();
-      }
-    };
-
-    // Subscribe to selection change separately, because emitter in Quill doesn't catch this event in Shadow DOM
-    document.addEventListener('selectionchange', () => {
-      this.quillEditor.selection.update();
-    });
+    // Check validity but do not display the error message if the error message is already displayed
+    this.checkValidity();
+    if (this.hasDisplayedError) {
+      this.setErrorMessage();
+    }
   }
 
   /*************
@@ -489,12 +388,6 @@ export class MgInputRichTextEditor {
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
 
-    if (this.modules === undefined || this.modules === null) {
-      this.internalModules = this.defaultModules;
-    } else {
-      this.internalModules = this.modules;
-    }
-
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -503,61 +396,28 @@ export class MgInputRichTextEditor {
     }, 0);
   }
 
+  /**
+   * add listeners and render editor element
+   */
   componentDidLoad(): void {
-    if (!this.readonly) {
-      this.editorElement = document.createElement('div');
-      this.wrapperElement.append(this.editorElement);
-
-      this.quillEditor = new Quill(this.editorElement, {
-        theme: 'snow',
-        modules: this.internalModules,
-        readOnly: this.readonly || this.disabled,
-        placeholder: this.placeholder,
-      });
-
-      if (this.value !== '') {
-        const containsHTML = /<[a-z][\s\S]*>/i.test(this.value);
-        if (containsHTML) {
-          this.quillEditor.clipboard.dangerouslyPasteHTML(this.value);
-        } else {
-          this.quillEditor.setText(this.value);
-        }
-      }
-
-      const editorContent = this.element.shadowRoot.querySelector('.ql-editor');
-      editorContent?.addEventListener('focus', this.handleFocus);
-      editorContent?.addEventListener('blur', this.handleBlur);
-
-      // Add an event listener for the text-change event
-      this.quillEditor.on('text-change', () => {
-        // Get HTML content
-        const htmlContent = this.quillEditor.getSemanticHTML();
-        this.value = htmlContent;
-
-        // Emit the HTML content for form compatibility
-        this.valueChange.emit(htmlContent);
-
-        // Check validity but do not display the error message if the error message is already displayed
-        this.checkValidity();
-        if (this.hasDisplayedError) {
-          this.setErrorMessage();
-        }
-      });
-
-      this.quillSelectionFixes();
-
-      // Initialize disabled state
-      if (this.disabled) {
-        this.watchDisabled(true);
-      }
-    }
+    if (this.readonly) return;
+    this.editor = defineEditor(this.wrapperElement, {
+      theme: 'snow',
+      modules: this.modules,
+      readOnly: this.readonly || this.disabled,
+      placeholder: this.placeholder,
+      value: this.value,
+      handleTextChange: this.handleTextChange,
+      handleBlur: this.handleBlur,
+      handleFocus: this.handleFocus
+    });
   }
 
   /**
    * Render
-   * @returns HTML Element
+   * @returns HTML mg-input Element
    */
-  render(): HTMLElement {
+  render(): HTMLMgInputElement {
     return (
       <mg-input
         identifier={this.identifier}
@@ -572,9 +432,11 @@ export class MgInputRichTextEditor {
         errorMessage={this.hasDisplayedError ? this.errorMessage : undefined}
       >
         {this.readonly ? (
-          <div class="mg-c-input__readonly-value" innerHTML={this.value} />
+          <div class="mg-c-input__readonly-value" innerHTML={this.value}></div>
         ) : (
-          <div ref={el => (this.wrapperElement = el)} id={this.identifier} class="mg-c-input__wrapper" />
+          <div ref={el => { this.wrapperElement = el }} id={this.identifier} class="mg-c-input__wrapper">
+            <div></div>
+          </div>
         )}
       </mg-input>
     );

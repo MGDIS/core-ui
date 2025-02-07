@@ -11,6 +11,7 @@ const inputs = `<mg-input-checkbox identifier="mg-input-checkbox" label="mg-inpu
 <mg-input-password identifier="mg-input-password" label="mg-input-password label"></mg-input-password>
 <mg-input-radio identifier="mg-input-radio" label="mg-input-radio label"></mg-input-radio>
 <mg-input-select identifier="mg-input-select" label="mg-input-select label"></mg-input-select>
+<mg-input-rich-text-editor identifier="mg-input-rich-text-editor" label='mg-input-rich-text-editor label'></mg-input-rich-text-editor>
 <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>
 <mg-input-textarea identifier="mg-input-textarea" label="mg-input-textarea label"></mg-input-textarea>
 <mg-input-toggle identifier="mg-input-toggle" label="mg-input-toggle label">
@@ -25,6 +26,7 @@ const inputsScript = `const mgInputCheckbox = document.querySelector('mg-input-c
   const mgInputRadio = document.querySelector('mg-input-radio');
   const mgInputSelect = document.querySelector('mg-input-select');
   const mgInputText = document.querySelector('mg-input-text');
+  const mgInputRichTextEditor = document.querySelector('mg-input-rich-text-editor');
   const mgInputTextarea = document.querySelector('mg-input-textarea');
   const mgInputToggle = document.querySelector('mg-input-toggle');
   mgInputCheckbox.value = [
@@ -48,6 +50,7 @@ const inputsScriptSetValues = `
   mgInputPassword.value = 'p455w0rD';
   mgInputRadio.value = mgInputRadio.items[0];
   mgInputSelect.value = mgInputSelect.items[0];
+  mgInputRichTextEditor.value = '<p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<p>';
   mgInputText.value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
   mgInputTextarea.value =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
@@ -59,6 +62,7 @@ const inputsScriptSetValuesExceptCheckbox = `
   mgInputPassword.value = 'p455w0rD';
   mgInputRadio.value = mgInputRadio.items[0];
   mgInputSelect.value = mgInputSelect.items[0];
+  mgInputRichTextEditor.value = '<p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<p>';
   mgInputText.value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
   mgInputTextarea.value =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
@@ -80,6 +84,7 @@ const inputsScriptSetLongValues = `
   mgInputPassword.value = 'p455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rD';
   mgInputRadio.value = mgInputRadio.items[0];
   mgInputSelect.value = mgInputSelect.items[0];
+  mgInputRichTextEditor.value = '<p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<p>';
   mgInputText.value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
   mgInputTextarea.value =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
@@ -92,6 +97,7 @@ const inputsScriptRequiredAll = `
   mgInputPassword.required = true;
   mgInputRadio.required = true;
   mgInputSelect.required = true;
+  mgInputRichTextEditor.required = true;
   mgInputText.required = true;
   mgInputTextarea.required = true;`;
 
@@ -108,6 +114,7 @@ const inputsScriptTooltipAll = `
   mgInputPassword.tooltip = 'tooltip';
   mgInputRadio.tooltip = 'tooltip';
   mgInputSelect.tooltip = 'tooltip';
+  mgInputRichTextEditor.tooltip = 'tooltip';
   mgInputText.tooltip = 'tooltip';
   mgInputTextarea.tooltip = 'tooltip';
   mgInputToggle.tooltip = 'tooltip';`;
@@ -122,6 +129,7 @@ const inputsScriptReadonlyAll = `
   mgInputPassword.readonly = true;
   mgInputRadio.readonly = true;
   mgInputSelect.readonly = true;
+  mgInputRichTextEditor.readonly = true;
   mgInputText.readonly = true;
   mgInputTextarea.readonly = true;
   mgInputToggle.readonly = true;`;
@@ -133,6 +141,7 @@ const inputsScriptDisabledAll = `
   mgInputPassword.disabled = true;
   mgInputRadio.disabled = true;
   mgInputSelect.disabled = true;
+  mgInputRichTextEditor.disabled = true;
   mgInputText.disabled = true;
   mgInputTextarea.disabled = true;
   mgInputToggle.disabled = true;`;

@@ -16,6 +16,7 @@ import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/m
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
+import { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
@@ -43,6 +44,7 @@ export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/m
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
+export { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
@@ -841,9 +843,9 @@ export namespace Components {
          */
         "labelOnTop"?: boolean;
         /**
-          * Quill modules configuration
+          * Editor modules configuration
          */
-        "modules"?: Record<string, unknown>;
+        "modules"?: EditorOptionsType['modules'];
         /**
           * Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
          */
@@ -2986,9 +2988,9 @@ declare namespace LocalJSX {
          */
         "labelOnTop"?: boolean;
         /**
-          * Quill modules configuration
+          * Editor modules configuration
          */
-        "modules"?: Record<string, unknown>;
+        "modules"?: EditorOptionsType['modules'];
         /**
           * Emited event when checking validity
          */
