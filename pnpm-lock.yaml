@@ -691,11 +691,11 @@ importers:
         specifier: 6.1.1
         version: 6.1.1(rollup@4.34.6)(typescript@5.7.3)
       typedoc:
-        specifier: 0.27.6
-        version: 0.27.6(typescript@5.7.3)
+        specifier: 0.27.7
+        version: 0.27.7(typescript@5.7.3)
       typedoc-plugin-markdown:
         specifier: 4.4.1
-        version: 4.4.1(typedoc@0.27.6(typescript@5.7.3))
+        version: 4.4.1(typedoc@0.27.7(typescript@5.7.3))
       vitest:
         specifier: 3.0.5
         version: 3.0.5(@types/node@22.13.1)(jsdom@26.0.0)(sass@1.83.4)(yaml@2.7.0)
@@ -835,11 +835,11 @@ importers:
         specifier: 3.0.5
         version: 3.0.5(vitest@3.0.5(@types/node@22.13.1)(jsdom@26.0.0)(sass@1.83.4)(yaml@2.7.0))
       typedoc:
-        specifier: 0.27.6
-        version: 0.27.6(typescript@5.7.3)
+        specifier: 0.27.7
+        version: 0.27.7(typescript@5.7.3)
       typedoc-plugin-markdown:
         specifier: 4.4.1
-        version: 4.4.1(typedoc@0.27.6(typescript@5.7.3))
+        version: 4.4.1(typedoc@0.27.7(typescript@5.7.3))
       vite:
         specifier: 6.0.11
         version: 6.0.11(@types/node@22.13.1)(sass@1.83.4)(yaml@2.7.0)
@@ -6920,8 +6920,8 @@ packages:
     peerDependencies:
       typedoc: 0.27.x
 
-  typedoc@0.27.6:
-    resolution: {integrity: sha512-oBFRoh2Px6jFx366db0lLlihcalq/JzyCVp7Vaq1yphL/tbgx2e+bkpkCgJPunaPvPwoTOXSwasfklWHm7GfAw==}
+  typedoc@0.27.7:
+    resolution: {integrity: sha512-K/JaUPX18+61W3VXek1cWC5gwmuLvYTOXJzBvD9W7jFvbPnefRnCHQCEPw7MSNrP/Hj7JJrhZtDDLKdcYm6ucg==}
     engines: {node: '>= 18'}
     hasBin: true
     peerDependencies:
@@ -14047,11 +14047,11 @@ snapshots:
       possible-typed-array-names: 1.0.0
       reflect.getprototypeof: 1.0.10
 
-  typedoc-plugin-markdown@4.4.1(typedoc@0.27.6(typescript@5.7.3)):
+  typedoc-plugin-markdown@4.4.1(typedoc@0.27.7(typescript@5.7.3)):
     dependencies:
-      typedoc: 0.27.6(typescript@5.7.3)
+      typedoc: 0.27.7(typescript@5.7.3)
 
-  typedoc@0.27.6(typescript@5.7.3):
+  typedoc@0.27.7(typescript@5.7.3):
     dependencies:
       '@gerrit0/mini-shiki': 1.27.2
       lunr: 2.3.9
