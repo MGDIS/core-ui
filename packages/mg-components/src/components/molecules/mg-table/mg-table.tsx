@@ -66,7 +66,7 @@ export class MgTable {
   /**
    *
    */
-  private renderTable(table): void {
+  private renderTable(table: HTMLTableElement): void {
     // Remove table classes
     table.className = '';
     // Add table classes
@@ -111,7 +111,7 @@ export class MgTable {
   componentDidLoad(): void {
     this.watchSize(this.size);
     this.watchFullWidth(this.fullWidth);
-    this.renderTable(this.element.firstElementChild);
+    this.renderTable(this.element.querySelector('table'));
   }
 
   componentWillUpdate(): void {

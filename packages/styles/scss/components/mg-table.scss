@@ -2,7 +2,7 @@
 @use '../base/typography';
 
 .mg-c-table {
-  // Keeping it in component for beta
+  // TODO: put variables in components custom properties after beta
   --mg-c-table-cell-spacing: var(--mg-b-size-8) var(--mg-b-size-16);
   --mg-c-table-cell-height: var(--mg-b-size-40);
   --mg-c-table-header-cell-height: calc(var(--mg-b-size-min-height) + 2 * var(--mg-b-size-8));
