@@ -8,7 +8,7 @@ const QuillMock = class QuillMock {
    */
   editorElement;
   /**
-   * Define fireOn mocl call
+   * Define fireOn mock call
    */
   fireOn = null
   #content: string;
