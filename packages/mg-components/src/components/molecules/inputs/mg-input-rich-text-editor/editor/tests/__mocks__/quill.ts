@@ -101,7 +101,7 @@ const QuillMock = class QuillMock {
   getSemanticHTML = jest.fn(() => this.content);
 
   /**
-   * Get html from content
+   * Get text from content
    */
   getText = jest.fn(() => this.content.replace(/<[^>]*>/g, ''));
 
