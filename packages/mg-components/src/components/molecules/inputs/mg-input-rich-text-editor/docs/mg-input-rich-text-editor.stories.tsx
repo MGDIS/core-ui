@@ -12,11 +12,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgInputRichTextEditorType): HTMLElement => (
-  <div>
-    <mg-input-rich-text-editor {...filterArgs(args)}></mg-input-rich-text-editor>
-  </div>
-);
+const Template = (args: MgInputRichTextEditorType): HTMLElement => <mg-input-rich-text-editor {...filterArgs(args)}></mg-input-rich-text-editor>;
 
 export const MgInputRichTextEditor = {
   render: Template,
