@@ -22,6 +22,10 @@
   .mg-c-input--has-error & {
     border-color: var(--mg-b-color-danger);
   }
+
+  .mg-c-input--disabled & {
+    opacity: var(--mg-b-opacity-element-disabled);
+  }
 }
 
 /* Quill Editor styles override */
@@ -164,15 +168,8 @@
   }
 
   &.mg-c-input--disabled {
-    .ql-toolbar,
-    .ql-container {
-      opacity: var(--mg-b-opacity-element-disabled);
-    }
-
     .ql-toolbar {
-      button {
-        pointer-events: none;
-      }
+      pointer-events: none;
     }
   }
 }
