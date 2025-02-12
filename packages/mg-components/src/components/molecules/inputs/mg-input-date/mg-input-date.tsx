@@ -263,10 +263,43 @@ export class MgInputDate {
    */
   private formatHelpText = (helpText: string): string => {
     const defaultHelpTextVariable = '{defaultHelpText}';
-    let text = isValidString(helpText) ? helpText : this.messages.input.date.helpText;
-    if (text.includes(defaultHelpTextVariable)) text = text.replace(defaultHelpTextVariable, this.formatHelpText(this.messages.input.date.helpText));
 
-    return text.replace('{pattern}', this.renderPattern()).replace('{date}', localeDate(dateToString(new Date('2023-12-24')), this.systemLocale));
+    // Default help message
+    let text = isValidString(helpText) ? helpText : this.messages.input.date.helpText;
+
+    // Handle defaultHelpText
+    if (text.includes(defaultHelpTextVariable)) {
+      text = text.replace(defaultHelpTextVariable, this.formatHelpText(this.messages.input.date.helpText));
+    }
+
+    // Replace pattern and date variables
+    text = text.replace('{pattern}', this.renderPattern()).replace('{date}', localeDate(dateToString(new Date('2025-12-24')), this.systemLocale));
+
+    // If a custom helpText is provided, return it directly
+    if (isValidString(helpText)) {
+      return text;
+    }
+
+    // Add additional message for min/max if necessary
+    if (!this.readonly && !this.disabled) {
+      let rangeMessage: string;
+      if (this.min?.length > 0 && this.max !== '9999-12-31') {
+        rangeMessage = this.messages.input.date.helpTextRange.minMax;
+        rangeMessage = rangeMessage.replace('{minDate}', localeDate(this.min, this.systemLocale)).replace('{maxDate}', localeDate(this.max, this.systemLocale));
+      } else if (this.min?.length > 0) {
+        rangeMessage = this.messages.input.date.helpTextRange.min;
+        rangeMessage = rangeMessage.replace('{minDate}', localeDate(this.min, this.systemLocale));
+      } else if (this.max !== '9999-12-31') {
+        rangeMessage = this.messages.input.date.helpTextRange.max;
+        rangeMessage = rangeMessage.replace('{maxDate}', localeDate(this.max, this.systemLocale));
+      }
+
+      if (rangeMessage !== undefined && rangeMessage !== '') {
+        text += `<br>${rangeMessage}`;
+      }
+    }
+
+    return text;
   };
 
   /**
