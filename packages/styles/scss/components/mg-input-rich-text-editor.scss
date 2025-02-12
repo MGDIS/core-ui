@@ -47,16 +47,17 @@
   }
 
   .ql-toolbar {
+    display: flex;
+    flex-wrap: wrap;
     padding: $ql-spacing;
     border: 0;
     border-radius: var(--mg-c-input-border-radius) var(--mg-c-input-border-radius) 0 0;
+    background: var(--mg-b-color-neutral-0);
     border-block-end: {
       width: var(--mg-c-input-border-width);
       color: var(--mg-c-input-color-border);
       style: solid;
     }
-
-    background: var(--mg-b-color-neutral-0);
 
     .ql-formats {
       display: inline-flex;
@@ -84,11 +85,16 @@
         stroke: currentcolor;
       }
 
-      width: $ql-button-size;
+      display: flex;
+      min-width: $ql-button-size;
       height: $ql-button-size;
+      align-items: center;
+      justify-content: center;
+      padding: var(--mg-b-size-4);
       border: 0.1rem solid transparent;
       border-radius: var(--mg-b-size-radius);
       color: var(--mg-b-color-dark);
+      float: inherit;
       transition: {
         duration: 0.2s;
         property: background-color, border-color;
@@ -170,6 +176,12 @@
   &.mg-c-input--disabled {
     .ql-toolbar {
       pointer-events: none;
+    }
+  }
+
+  &.mg-c-input--has-error {
+    .ql-toolbar {
+      border-color: var(--mg-b-color-danger);
     }
   }
 }
