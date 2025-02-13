@@ -23,6 +23,11 @@ Object.defineProperty(globalThis, 'crypto', {
   },
 });
 
+// rich-text-editor
+Object.defineProperty(Object.getPrototypeOf(Element).prototype, 'getSelection', {
+  get: () => window.getSelection,
+})
+
 /**
  * Change Jest Timeout
  */

@@ -307,6 +307,46 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+            <div aria-live="assertive" class="mg-c-input__error">
+              <slot name="error"></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <div id="mg-input-rich-text-editor-error" slot="error">
+          This field is required.
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
@@ -580,6 +620,31 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__readonly-value"></div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="true" required="true" slot="label">
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </span>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
@@ -942,6 +1007,40 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -1307,6 +1406,35 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -1657,6 +1785,35 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -2066,6 +2223,35 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -2434,6 +2620,40 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -2792,6 +3012,35 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -3135,6 +3384,35 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -3530,6 +3808,35 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -3901,6 +4208,40 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -4266,6 +4607,35 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -4616,6 +4986,35 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -5014,6 +5413,35 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -5349,6 +5777,35 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -5601,6 +6058,31 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__readonly-value"></div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="true" required="false" slot="label">
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </span>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
@@ -5922,6 +6404,35 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--text mg-c-input--width-full">
@@ -6257,6 +6768,35 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--text mg-c-input--width-full">
@@ -6508,6 +7048,31 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__readonly-value"></div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="true" required="false" slot="label">
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </span>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
@@ -6830,6 +7395,35 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -7165,6 +7759,35 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -7500,6 +8123,35 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -7835,6 +8487,35 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -8170,6 +8851,35 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -8505,6 +9215,35 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
@@ -8909,6 +9648,46 @@ exports[`mg-form display error message with locale: fr 1`] = `
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+            <div aria-live="assertive" class="mg-c-input__error">
+              <slot name="error"></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <div id="mg-input-rich-text-editor-error" slot="error">
+          Ce champ est obligatoire.
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
@@ -9335,6 +10114,46 @@ exports[`mg-form display error message with locale: xx 1`] = `
       </mg-input>
     </template>
   </mg-input-select>
+  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+            <div aria-live="assertive" class="mg-c-input__error">
+              <slot name="error"></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
+          <div class="ql-editor">
+            <div></div>
+          </div>
+        </div>
+        <div id="mg-input-rich-text-editor-error" slot="error">
+          This field is required.
+        </div>
+        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
+            <span class="mg-c-input-title__text">
+              mg-input-rich-text-editor label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">

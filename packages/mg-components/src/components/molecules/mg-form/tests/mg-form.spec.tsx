@@ -17,6 +17,7 @@ import { setupMutationObserverMock, setUpRequestAnimationFrameMock, setupSubmitE
 import { MgInputTitle } from '../../../atoms/internals/mg-input-title/mg-input-title';
 import { requiredMessageStatus, roles } from '../mg-form.conf';
 import { MgInput } from '../../inputs/mg-input/mg-input';
+import { MgInputRichTextEditor } from '../../inputs/mg-input-rich-text-editor/mg-input-rich-text-editor';
 
 const getPage = async (args, content?) => {
   const page = await newSpecPage({
@@ -28,6 +29,7 @@ const getPage = async (args, content?) => {
       MgInputPassword,
       MgInputRadio,
       MgInputSelect,
+      MgInputRichTextEditor,
       MgInputText,
       MgInputTextarea,
       MgInputToggle,
@@ -60,6 +62,7 @@ const getSlottedContent = () => [
   <mg-input-password identifier="mg-input-password" label="mg-input-password label"></mg-input-password>,
   <mg-input-radio identifier="mg-input-radio" label="mg-input-radio label" items={['blu', 'bli', 'bla', 'blo']}></mg-input-radio>,
   <mg-input-select identifier="mg-input-select" label="mg-input-select label" items={['blu', 'bli', 'bla', 'blo']}></mg-input-select>,
+  <mg-input-rich-text-editor identifier="mg-input-rich-text-editor" label='mg-input-rich-text-editor label'></mg-input-rich-text-editor>,
   <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
   <mg-input-textarea identifier="mg-input-textarea" label="mg-input-textarea label"></mg-input-textarea>,
   <mg-input-toggle
@@ -241,7 +244,7 @@ describe('mg-form', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test.each([{ type: 'childList',}, { type: 'subtree',}, {type: 'attributes'}])('Should update input list when element is added to DOM', async (mutation) => {
+  test.each([{ type: 'childList', }, { type: 'subtree', }, { type: 'attributes' }])('Should update input list when element is added to DOM', async (mutation) => {
     const args = { identifier: 'identifier' };
     const slot = getSlottedContent();
     const page = await getPage(args, slot);
@@ -253,14 +256,14 @@ describe('mg-form', () => {
     fireMo([mutation]);
     await page.waitForChanges();
 
-    if(mutation.type !== 'attributes') {
+    if (mutation.type !== 'attributes') {
       expect(page.rootInstance.setMgInputs).toHaveBeenCalled();
     } else {
       expect(page.rootInstance.setMgInputs).not.toHaveBeenCalled();
     }
   });
 
-  test.each([{ type: 'childList'}, { type: 'subtree'}, {type: 'attributes'}])('Should update mg-form valid when content is updated', async (mutation) => {
+  test.each([{ type: 'childList' }, { type: 'subtree' }, { type: 'attributes' }])('Should update mg-form valid when content is updated', async (mutation) => {
     const args = { identifier: 'identifier' };
     const slots = [
       <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,

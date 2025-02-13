@@ -16,6 +16,7 @@ import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/m
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
+import { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
@@ -43,6 +44,7 @@ export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/m
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
+export { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
@@ -797,6 +799,104 @@ export namespace Components {
          */
         "value": any;
     }
+    interface MgInputRichTextEditor {
+        /**
+          * Define if input is disabled
+         */
+        "disabled": boolean;
+        /**
+          * Display input error if it exists.
+         */
+        "displayError": () => Promise<void>;
+        /**
+          * Get editor content as HTML
+          * @returns HTML content of the editor
+         */
+        "getHTML": () => Promise<string>;
+        /**
+          * Get editor content as plain text
+          * @returns Plain text content of the editor
+         */
+        "getText": () => Promise<string>;
+        /**
+          * Add a help text under the input, usually expected data format and example
+         */
+        "helpText"?: string;
+        /**
+          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
+         */
+        "identifier": string;
+        /**
+          * Define input invalid state
+         */
+        "invalid": boolean;
+        /**
+          * Input label
+         */
+        "label": string;
+        /**
+          * Define if label is visible
+         */
+        "labelHide": boolean;
+        /**
+          * Define if label is displayed on top
+         */
+        "labelOnTop"?: boolean;
+        /**
+          * Editor modules configuration
+         */
+        "modules"?: EditorOptionsType['modules'];
+        /**
+          * Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
+         */
+        "pattern"?: string;
+        /**
+          * Define input pattern error message
+         */
+        "patternErrorMessage"?: string;
+        /**
+          * Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
+         */
+        "placeholder"?: string;
+        /**
+          * Define if the editor is readonly
+         */
+        "readonly": boolean;
+        /**
+          * Define if input is required
+         */
+        "required": boolean;
+        /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
+          * Define the number of visible text lines for the control
+         */
+        "rows": number;
+        /**
+          * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+          * @param valid - value indicating the validity
+          * @param errorMessage - the error message to display
+         */
+        "setError": (valid: MgInputRichTextEditor["valid"], errorMessage: string) => Promise<void>;
+        /**
+          * Add a tooltip message next to the input
+         */
+        "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
+          * Define input valid state
+         */
+        "valid": boolean;
+        /**
+          * Define the value of the editor Can be either HTML string or plain text
+         */
+        "value": string;
+    }
     interface MgInputSelect {
         /**
           * Define if input is disabled
@@ -1516,6 +1616,10 @@ export interface MgInputRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgInputRadioElement;
 }
+export interface MgInputRichTextEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMgInputRichTextEditorElement;
+}
 export interface MgInputSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgInputSelectElement;
@@ -1793,6 +1897,24 @@ declare global {
     var HTMLMgInputRadioElement: {
         prototype: HTMLMgInputRadioElement;
         new (): HTMLMgInputRadioElement;
+    };
+    interface HTMLMgInputRichTextEditorElementEventMap {
+        "input-valid": boolean;
+        "value-change": string;
+    }
+    interface HTMLMgInputRichTextEditorElement extends Components.MgInputRichTextEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgInputRichTextEditorElementEventMap>(type: K, listener: (this: HTMLMgInputRichTextEditorElement, ev: MgInputRichTextEditorCustomEvent<HTMLMgInputRichTextEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgInputRichTextEditorElementEventMap>(type: K, listener: (this: HTMLMgInputRichTextEditorElement, ev: MgInputRichTextEditorCustomEvent<HTMLMgInputRichTextEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLMgInputRichTextEditorElement: {
+        prototype: HTMLMgInputRichTextEditorElement;
+        new (): HTMLMgInputRichTextEditorElement;
     };
     interface HTMLMgInputSelectElementEventMap {
         "value-change": HTMLMgInputCheckboxElement['value'];
@@ -2080,6 +2202,7 @@ declare global {
         "mg-input-numeric": HTMLMgInputNumericElement;
         "mg-input-password": HTMLMgInputPasswordElement;
         "mg-input-radio": HTMLMgInputRadioElement;
+        "mg-input-rich-text-editor": HTMLMgInputRichTextEditorElement;
         "mg-input-select": HTMLMgInputSelectElement;
         "mg-input-text": HTMLMgInputTextElement;
         "mg-input-textarea": HTMLMgInputTextareaElement;
@@ -2835,6 +2958,88 @@ declare namespace LocalJSX {
          */
         "value"?: any;
     }
+    interface MgInputRichTextEditor {
+        /**
+          * Define if input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Add a help text under the input, usually expected data format and example
+         */
+        "helpText"?: string;
+        /**
+          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
+         */
+        "identifier": string;
+        /**
+          * Define input invalid state
+         */
+        "invalid"?: boolean;
+        /**
+          * Input label
+         */
+        "label": string;
+        /**
+          * Define if label is visible
+         */
+        "labelHide"?: boolean;
+        /**
+          * Define if label is displayed on top
+         */
+        "labelOnTop"?: boolean;
+        /**
+          * Editor modules configuration
+         */
+        "modules"?: EditorOptionsType['modules'];
+        /**
+          * Emited event when checking validity
+         */
+        "onInput-valid"?: (event: MgInputRichTextEditorCustomEvent<boolean>) => void;
+        /**
+          * Emited event when value change
+         */
+        "onValue-change"?: (event: MgInputRichTextEditorCustomEvent<string>) => void;
+        /**
+          * Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
+         */
+        "pattern"?: string;
+        /**
+          * Define input pattern error message
+         */
+        "patternErrorMessage"?: string;
+        /**
+          * Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
+         */
+        "placeholder"?: string;
+        /**
+          * Define if the editor is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * Define if input is required
+         */
+        "required"?: boolean;
+        /**
+          * Define the number of visible text lines for the control
+         */
+        "rows"?: number;
+        /**
+          * Add a tooltip message next to the input
+         */
+        "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
+        /**
+          * Define input valid state
+         */
+        "valid"?: boolean;
+        /**
+          * Define the value of the editor Can be either HTML string or plain text
+         */
+        "value"?: string;
+    }
     interface MgInputSelect {
         /**
           * Define if input is disabled
@@ -3560,6 +3765,7 @@ declare namespace LocalJSX {
         "mg-input-numeric": MgInputNumeric;
         "mg-input-password": MgInputPassword;
         "mg-input-radio": MgInputRadio;
+        "mg-input-rich-text-editor": MgInputRichTextEditor;
         "mg-input-select": MgInputSelect;
         "mg-input-text": MgInputText;
         "mg-input-textarea": MgInputTextarea;
@@ -3608,6 +3814,7 @@ declare module "@stencil/core" {
             "mg-input-numeric": LocalJSX.MgInputNumeric & JSXBase.HTMLAttributes<HTMLMgInputNumericElement>;
             "mg-input-password": LocalJSX.MgInputPassword & JSXBase.HTMLAttributes<HTMLMgInputPasswordElement>;
             "mg-input-radio": LocalJSX.MgInputRadio & JSXBase.HTMLAttributes<HTMLMgInputRadioElement>;
+            "mg-input-rich-text-editor": LocalJSX.MgInputRichTextEditor & JSXBase.HTMLAttributes<HTMLMgInputRichTextEditorElement>;
             "mg-input-select": LocalJSX.MgInputSelect & JSXBase.HTMLAttributes<HTMLMgInputSelectElement>;
             "mg-input-text": LocalJSX.MgInputText & JSXBase.HTMLAttributes<HTMLMgInputTextElement>;
             "mg-input-textarea": LocalJSX.MgInputTextarea & JSXBase.HTMLAttributes<HTMLMgInputTextareaElement>;

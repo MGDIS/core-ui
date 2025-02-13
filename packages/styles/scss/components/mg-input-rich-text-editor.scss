@@ -1,0 +1,187 @@
+@use 'mg-input-readonly';
+@use '../utils/a11y';
+
+/* Component Custom Style */
+
+.mg-c-input__wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  border-width: var(--mg-c-input-border-width);
+  border-style: solid;
+  border-color: var(--mg-c-input-color-border);
+  border-radius: var(--mg-c-input-border-radius);
+  background-color: var(--mg-b-color-light);
+
+  &:focus-within {
+    box-shadow: 0 0 var(--mg-b-size-4) var(--mg-c-input-color-box-shadow-focus);
+    outline: Highlight auto 0.1rem;
+    outline: -webkit-focus-ring-color auto 0.1rem;
+  }
+
+  .mg-c-input--has-error & {
+    border-color: var(--mg-b-color-danger);
+  }
+
+  .mg-c-input--disabled & {
+    opacity: var(--mg-b-opacity-element-disabled);
+  }
+}
+
+/* Quill Editor styles override */
+/* stylelint-disable selector-class-pattern */
+
+.mg-c-input--rich-text-editor {
+  $ql-button-size: var(--mg-b-size-32);
+  $ql-icon-size: var(--mg-b-size-20);
+  $ql-spacing: var(--mg-b-size-8);
+
+  .mg-c-input__readonly-value {
+    p {
+      margin: 0;
+
+      &:not(:first-child) {
+        margin-top: 1em;
+      }
+    }
+  }
+
+  .ql-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    padding: $ql-spacing;
+    border: 0;
+    border-radius: var(--mg-c-input-border-radius) var(--mg-c-input-border-radius) 0 0;
+    background: var(--mg-b-color-neutral-0);
+    border-block-end: {
+      width: var(--mg-c-input-border-width);
+      color: var(--mg-c-input-color-border);
+      style: solid;
+    }
+
+    .ql-formats {
+      display: inline-flex;
+      margin: inherit;
+      gap: 0.2rem;
+
+      &:not(:last-child)::after {
+        width: 0.1rem;
+        height: var(--mg-b-size-16);
+        background: var(--mg-c-input-color-border);
+        content: '';
+        margin: {
+          block: $ql-spacing;
+          inline: $ql-spacing;
+        }
+      }
+    }
+
+    button {
+      %ql-fill-styles {
+        fill: currentcolor;
+      }
+
+      %ql-stroke-styles {
+        stroke: currentcolor;
+      }
+
+      display: flex;
+      min-width: $ql-button-size;
+      height: $ql-button-size;
+      align-items: center;
+      justify-content: center;
+      padding: var(--mg-b-size-4);
+      border: 0.1rem solid transparent;
+      border-radius: var(--mg-b-size-radius);
+      color: var(--mg-b-color-dark);
+      float: inherit;
+      transition: {
+        duration: 0.2s;
+        property: background-color, border-color;
+        timing-function: ease-in-out;
+      }
+
+      svg {
+        width: $ql-icon-size;
+        height: $ql-icon-size;
+      }
+
+      &:focus {
+        color: var(--mg-b-color-dark);
+      }
+
+      &:focus-visible,
+      &:hover,
+      &.ql-active {
+        border-color: var(--mg-b-color-neutral-70);
+        background: var(--mg-b-color-neutral-20);
+        color: var(--mg-b-color-dark);
+      }
+
+      .ql-fill,
+      &:hover .ql-fill,
+      &:focus .ql-fill,
+      &.ql-active .ql-fill {
+        @extend %ql-fill-styles;
+      }
+
+      .ql-stroke {
+        @extend %ql-stroke-styles;
+
+        stroke-width: 0.12rem;
+
+        &.ql-thin {
+          stroke-width: 0.1rem;
+        }
+      }
+
+      &:hover .ql-stroke,
+      &:focus .ql-stroke,
+      &.ql-active .ql-stroke {
+        @extend %ql-stroke-styles;
+      }
+
+      &.ql-bold .ql-stroke {
+        stroke-width: 0.2rem;
+      }
+    }
+  }
+
+  .ql-container {
+    border: 0;
+    border-radius: 0 0 var(--mg-c-input-border-radius) var(--mg-c-input-border-radius);
+    margin: 0 0.1rem 0.1rem;
+    background: var(--mg-b-color-neutral-0);
+  }
+
+  .ql-editor {
+    $ql-editor-padding-block: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
+    $ql-editor-content-height: calc(var(--mg-b-font-size) * var(--mg-b-line-height) * var(--mg-c-input-rich-text-editor-rows, 3));
+
+    min-height: calc(#{$ql-editor-content-height} + #{$ql-editor-padding-block});
+    padding: $ql-editor-padding-block $ql-spacing;
+    color: var(--mg-b-color-dark);
+    font-size: var(--mg-b-font-size);
+
+    &.ql-blank::before {
+      right: $ql-spacing;
+      left: $ql-spacing;
+    }
+
+    p:not(:first-child) {
+      margin-top: 1em;
+    }
+  }
+
+  &.mg-c-input--disabled {
+    .ql-toolbar {
+      pointer-events: none;
+    }
+  }
+
+  &.mg-c-input--has-error {
+    .ql-toolbar {
+      border-color: var(--mg-b-color-danger);
+    }
+  }
+}
