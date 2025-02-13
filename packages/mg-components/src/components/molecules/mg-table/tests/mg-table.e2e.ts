@@ -31,6 +31,37 @@ const table = `<table>
   </tbody>
 </table>`;
 
+const tableWithLinks = `<table>
+  <thead>
+    <tr>
+      <th>
+        <a href="/">Dev</a>
+      </th>
+      <th>Role</th>
+      <th>Test signature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>
+        <a href="/">Simon</a>
+      </th>
+      <td>Archi front-end</td>
+      <td>Blu / Daron Crew</td>
+    </tr>
+    <tr>
+      <th>Nico</th>
+      <td>Dev front-end</td>
+      <td>DC Comics (Batman, Jocker, etc.)</td>
+    </tr>
+    <tr>
+      <th>Guirec</th>
+      <td>Dev front-end</td>
+      <td>Pat'Patrouille</td>
+    </tr>
+  </tbody>
+</table>`;
+
 test.describe('mg-table', () => {
   [
     {},
@@ -52,6 +83,17 @@ test.describe('mg-table', () => {
       }
       if (args.fullWidth) {
         await page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
+      }
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
+
+  [undefined, '#BADA55'].forEach(colorApp => {
+    test(`Should render table with links in table based on app color: ${colorApp}`, async ({ page }) => {
+      const html = createHTML({}, tableWithLinks);
+      await page.setContent(html);
+      if (colorApp !== undefined) {
+        await page.addStyleTag({ content: `mg-table{--mg-b-color-app:${colorApp}}` });
       }
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });

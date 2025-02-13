@@ -61,8 +61,10 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">Chris</th>
-                <td>HTML tables</td>
+                <th scope="row">
+                  <a href="/">Chris</a>
+                </th>
+                <td><mg-tag outline>HTML tables</mg-tag></td>
                 <td>22</td>
               </tr>
               <tr>
@@ -91,8 +93,8 @@
         </mg-table>
         <script>
           const mgTable = document.querySelector('mg-table');
-          mgTable.columnAlign = ['left', 'center', 'right'];
-          // mgTable.columnAlign = { 2: 'center' };
+          mgTable.columnsAlignment = ['left', 'center', 'right'];
+          // mgTable.columnsAlignment = { 2: 'center' };
         </script>
       </section>
       <section>
