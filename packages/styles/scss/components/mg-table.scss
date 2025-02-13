@@ -14,7 +14,30 @@
   border-collapse: separate;
   border-spacing: 0;
   color: var(--mg-b-color-dark);
-  text-align: start;
+
+  td,
+  th {
+    height: var(--mg-c-table-cell-height);
+    box-sizing: border-box;
+    padding: var(--mg-c-table-cell-spacing);
+    text-align: start;
+  }
+
+  // Font weight for headers
+  thead td,
+  th {
+    font-weight: 600;
+  }
+
+  thead {
+    height: var(--mg-c-table-header-cell-height);
+    background-color: var(--mg-b-color-app);
+    color: var(--mg-b-color-light);
+  }
+
+  :not(thead) tr:nth-child(even) {
+    background: color-mix(in srgb, var(--mg-b-color-app), transparent 80%);
+  }
 
   /**
   * Sizes
@@ -42,28 +65,29 @@
     width: 100%;
   }
 
-  td,
-  th {
-    height: var(--mg-c-table-cell-height);
-    box-sizing: border-box;
-    padding: var(--mg-c-table-cell-spacing);
-    text-align: start;
+  /**
+   * Column alignment
+   */
+
+  &.mg-c-table--align-left {
+    th,
+    td {
+      text-align: left;
+    }
   }
 
-  // Font weight for headers
-  thead td,
-  th {
-    font-weight: 600;
+  &.mg-c-table--align-center {
+    th,
+    td {
+      text-align: center;
+    }
   }
 
-  thead {
-    height: var(--mg-c-table-header-cell-height);
-    background-color: var(--mg-b-color-app);
-    color: var(--mg-b-color-light);
-  }
-
-  :not(thead) tr:nth-child(even) {
-    background: color-mix(in srgb, var(--mg-b-color-app), transparent 80%);
+  &.mg-c-table--align-right {
+    th,
+    td {
+      text-align: right;
+    }
   }
 
   &-wrapper {

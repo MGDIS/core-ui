@@ -1,4 +1,4 @@
-import { renderAttributes } from '@mgdis/playwright-helpers';
+import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 
@@ -32,10 +32,24 @@ const table = `<table>
 </table>`;
 
 test.describe('mg-table', () => {
-  [{}, { size: 'small' }, { size: 'large' }, { size: 'xlarge' }, { fullWidth: true }].forEach(args => {
-    test(`Should render with args ${JSON.stringify(args)}`, async ({ page }) => {
+  [
+    {},
+    { size: 'small' },
+    { size: 'large' },
+    { size: 'xlarge' },
+    { fullWidth: true },
+    { columnsAlignment: 'left' },
+    { columnsAlignment: 'center' },
+    { columnsAlignment: 'right' },
+    { columnsAlignment: ['left', 'center', 'right'] },
+    { columnsAlignment: { 2: 'center' } },
+  ].forEach(args => {
+    test.only(`Should render with args ${JSON.stringify(args)}`, async ({ page }) => {
       const html = createHTML(args, table);
       await page.setContent(html);
+      if (typeof args.columnsAlignment !== 'string') {
+        await page.addScriptTag({ content: renderProperties(args, 'mg-table') });
+      }
       if (args.fullWidth) {
         await page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
       }

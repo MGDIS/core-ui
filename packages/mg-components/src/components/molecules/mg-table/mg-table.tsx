@@ -1,6 +1,21 @@
 import { Component, Element, State, Prop, Watch } from '@stencil/core';
 import { ClassList, toString, createID, isValidString } from '@mgdis/stencil-helpers';
-import { type TableSizeType, sizes } from './mg-table.conf';
+import { type TableSizeType, type ColumnsAlignmentType, type TextAlignType, alignments, sizes } from './mg-table.conf';
+
+/**
+ * Check if value is a valid align array
+ * @param newValue - New value
+ * @returns True if value is a valid align array
+ */
+const isValidAlignArray = (newValue: unknown): boolean => Array.isArray(newValue) && newValue.every(value => alignments.includes(value));
+
+/**
+ * Check if value is a valid align object
+ * @param newValue - New value
+ * @returns True if value is a valid align object
+ */
+const isValidAlignObject = (newValue: unknown): boolean =>
+  typeof newValue === 'object' && Object.entries(newValue).every(([key, value]) => !isNaN(parseInt(key)) && alignments.includes(value));
 
 /**
  * @slot - Table content
@@ -19,6 +34,9 @@ export class MgTable {
   private readonly componentClass = 'mg-c-table';
   private readonly componentWrapperClass = 'mg-c-table-wrapper';
   private readonly classFullWidth = 'mg-c-table--full-width';
+
+  // Alignment stylesheet
+  private alignmentStylesheet = new CSSStyleSheet();
 
   /**************
    * Decorators *
@@ -59,18 +77,55 @@ export class MgTable {
   }
 
   /**
-   *
+   * Define column alignment
+   * Can be a string: 'left', 'center', 'right'; In this case all columns will have the same alignment
+   * Can be an array: ['left', 'center', 'right']; In this case each column will have the corresponding alignment
+   * Can be an object: \{ 2: 'center' \}; In this case the column 2 will have the corresponding alignment
+   */
+  @Prop() columnsAlignment: ColumnsAlignmentType;
+  @Watch('columnsAlignment')
+  watchColumnAlign(newValue: MgTable['columnsAlignment']): void {
+    if (newValue !== undefined) {
+      // String value
+      if (typeof newValue === 'string' && alignments.includes(newValue)) {
+        this.classCollection.add(`mg-c-table--align-${this.columnsAlignment}`);
+      }
+      // Array value
+      else if (Array.isArray(newValue) && isValidAlignArray(newValue)) {
+        newValue.forEach((value, index) => {
+          this.applyColumnAlignment(index + 1, value);
+        });
+      }
+      // Object value
+      else if (typeof newValue === 'object' && isValidAlignObject(newValue)) {
+        Object.entries(newValue).forEach(([key, value]) => {
+          this.applyColumnAlignment(parseInt(key), value);
+        });
+      } else {
+        throw new Error(
+          `<mg-table> prop "columnsAlignment" can be a string, an Array or an Object, values must be one of ${alignments.join(', ')}. Passed value: ${toString(newValue)}.`,
+        );
+      }
+    }
+  }
+
+  /**
+   * Class collection
    */
   @State() classCollection: ClassList = new ClassList([this.componentClass]);
 
   /**
-   *
+   * Render Table
+   * @param table - Table element
    */
   private renderTable(table: HTMLTableElement): void {
     // Remove table classes
     table.className = '';
     // Add table classes
     table.classList.add(...this.classCollection.classes);
+
+    // Add alignment to columns
+    this.element.shadowRoot.adoptedStyleSheets = [...this.element.shadowRoot.adoptedStyleSheets, this.alignmentStylesheet];
 
     // Create div wrapper for responsive behavior
     const divWrapper = document.createElement('div');
@@ -101,6 +156,15 @@ export class MgTable {
     this.element.shadowRoot.append(divWrapper);
   }
 
+  /**
+   * Add column align style
+   * @param column - Column number
+   * @param align - Column alignment
+   */
+  private applyColumnAlignment = (columnIndex: number, align: TextAlignType): void => {
+    this.alignmentStylesheet.insertRule(`.${this.componentClass}{th:nth-child(${columnIndex}),td:nth-child(${columnIndex}){text-align:${align}}}`);
+  };
+
   /*************
    * Lifecycle *
    *************/
@@ -111,9 +175,13 @@ export class MgTable {
   componentDidLoad(): void {
     this.watchSize(this.size);
     this.watchFullWidth(this.fullWidth);
+    this.watchColumnAlign(this.columnsAlignment);
     this.renderTable(this.element.querySelector('table'));
   }
 
+  /**
+   * Update table
+   */
   componentWillUpdate(): void {
     this.renderTable(this.element.shadowRoot.querySelector('table'));
   }

@@ -1,7 +1,8 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgTable } from '../mg-table';
-import { sizes } from '../mg-table.conf';
+import { sizes, alignments } from '../mg-table.conf';
+import { toString } from '@mgdis/stencil-helpers';
 
 const getPage = (args, caption?) =>
   newSpecPage({
@@ -40,7 +41,18 @@ const getPage = (args, caption?) =>
   });
 
 describe('mg-table', () => {
-  test.each([{}, { size: 'small' }, { size: 'large' }, { size: 'xlarge' }, { fullWidth: true }])('Should render with args %o:', async args => {
+  test.each([
+    {},
+    { size: 'small' },
+    { size: 'large' },
+    { size: 'xlarge' },
+    { fullWidth: true },
+    { columnsAlignment: 'left' },
+    { columnsAlignment: 'center' },
+    { columnsAlignment: 'right' },
+    { columnsAlignment: ['left', 'center', 'right'] },
+    { columnsAlignment: { 2: 'center' } },
+  ])('Should render with args %o:', async args => {
     const { root } = await getPage(args);
     expect(root).toMatchSnapshot();
   });
@@ -51,6 +63,17 @@ describe('mg-table', () => {
       await getPage({ size });
     } catch (err) {
       expect(err.message).toEqual(`<mg-table> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${size}.`);
+    }
+  });
+
+  test.each(['', ' ', 'blu', ['center', 'blu'], { a: 'left' }, { 2: 'blu' }])('Should not render with invalid columnsAlignment property: %s', async columnsAlignment => {
+    expect.assertions(1);
+    try {
+      await getPage({ columnsAlignment });
+    } catch (err) {
+      expect(err.message).toEqual(
+        `<mg-table> prop "columnsAlignment" can be a string, an Array or an Object, values must be one of ${alignments.join(', ')}. Passed value: ${toString(columnsAlignment)}.`,
+      );
     }
   });
 

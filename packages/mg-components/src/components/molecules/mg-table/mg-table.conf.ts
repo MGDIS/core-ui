@@ -4,6 +4,18 @@ import type { Size } from '../../../types';
  */
 export const sizes = ['small', 'medium', 'large', 'xlarge'] as const;
 /**
- * Icon Size from sizes
+ * Table Size from sizes
  */
 export type TableSizeType = Size & (typeof sizes)[number];
+/**
+ * List of all possibles alignments
+ */
+export const alignments = ['left', 'center', 'right'] as const;
+/**
+ * Text align type
+ */
+export type TextAlignType = (typeof alignments)[number];
+/**
+ * Column align type
+ */
+export type ColumnsAlignmentType = TextAlignType | TextAlignType[] | { [key: number]: TextAlignType };

@@ -62,6 +62,301 @@ exports[`mg-table Should link table to caption 1`] = `
 </mg-table>
 `;
 
+exports[`mg-table Should render with args { columnsAlignment: 'center' }: 1`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--align-center mg-c-table--size-medium">
+        <thead>
+          <tr>
+            <th>
+              Dev
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Should render with args { columnsAlignment: 'left' }: 1`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--align-left mg-c-table--size-medium">
+        <thead>
+          <tr>
+            <th>
+              Dev
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Should render with args { columnsAlignment: 'right' }: 1`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--align-right mg-c-table--size-medium">
+        <thead>
+          <tr>
+            <th>
+              Dev
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Should render with args { columnsAlignment: [ 'left', 'center', 'right', [length]: 3 ] }: 1`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--size-medium">
+        <thead>
+          <tr>
+            <th>
+              Dev
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Should render with args { columnsAlignment: { '2': 'center' } }: 1`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--size-medium">
+        <thead>
+          <tr>
+            <th>
+              Dev
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
 exports[`mg-table Should render with args { fullWidth: true }: 1`] = `
 <mg-table>
   <template shadowrootmode="open">
