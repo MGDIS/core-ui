@@ -2,11 +2,11 @@ import { isValidString } from '@mgdis/stencil-helpers';
 import Quill, { type QuillOptions } from 'quill';
 
 export type EditorOptionsType = QuillOptions & {
-  value: string,
-  handleTextChange: () => void,
-  handleFocus: () => void,
-  handleBlur: () => void
-}
+  value: string;
+  handleTextChange: () => void;
+  handleFocus: () => void;
+  handleBlur: () => void;
+};
 
 export type EditorType = Quill;
 
@@ -15,7 +15,7 @@ type ExtendSelection = Selection & { getComposedRanges?: (root: Node) => Range[]
 type ExtendedShadowRoot = ShadowRoot & { getSelection(): ExtendSelection };
 
 interface IdefineEditor {
-  (wrapperElement: HTMLElement, config: EditorOptionsType): EditorType
+  (wrapperElement: HTMLElement, config: EditorOptionsType): EditorType;
 }
 
 /**
@@ -23,7 +23,7 @@ interface IdefineEditor {
  * @param element - element to test
  * @returns truthy if element is an HTMLElement
  */
-const isHtmlElement = (element: unknown): element is HTMLElement => Boolean((element as HTMLElement).tagName)
+const isHtmlElement = (element: unknown): element is HTMLElement => Boolean((element as HTMLElement).tagName);
 
 /**
  * Implements the range API properly in Native Shadow
@@ -102,7 +102,7 @@ const setQuillOverrides = (editor: EditorType): void => {
   document.addEventListener('selectionchange', () => {
     editor.selection.update();
   });
-}
+};
 
 /**
  * Fixes for handling text selection in Quill when used within the Shadow DOM.
@@ -115,7 +115,7 @@ const setQuillOverrides = (editor: EditorType): void => {
 export const defineEditor: IdefineEditor = (wrapperElement, { value, modules, readOnly, placeholder, handleTextChange, handleFocus, handleBlur }) => {
   const toolbarOptions = {
     toolbar: [['bold', 'italic', 'underline'], [{ list: 'ordered' }, { list: 'bullet' }], ['link'], ['clean']],
-  }
+  };
   const editor = new Quill(wrapperElement.querySelector('div'), {
     theme: 'snow',
     modules: modules || toolbarOptions,
@@ -139,4 +139,4 @@ export const defineEditor: IdefineEditor = (wrapperElement, { value, modules, re
   setQuillOverrides(editor);
 
   return editor;
-}
+};

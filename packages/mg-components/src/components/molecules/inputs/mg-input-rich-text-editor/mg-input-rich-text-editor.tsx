@@ -107,7 +107,7 @@ export class MgInputRichTextEditor {
   @Watch('readonly')
   @Watch('disabled')
   handleValidityChange(): void {
-    if (this.editor) {
+    if (this.editor !== undefined && this.editor !== null) {
       this.checkValidity();
       if (this.hasDisplayedError) {
         this.setErrorMessage();
@@ -275,7 +275,7 @@ export class MgInputRichTextEditor {
   private isEmpty = (): boolean => {
     const textContent = this.getTextContent();
     return !(isValidString(textContent) && textContent !== '\n');
-  }
+  };
 
   /**
    * Extract the text without HTML tags from value
@@ -367,7 +367,7 @@ export class MgInputRichTextEditor {
     if (this.hasDisplayedError) {
       this.setErrorMessage();
     }
-  }
+  };
 
   /*************
    * Lifecycle *
@@ -409,7 +409,7 @@ export class MgInputRichTextEditor {
       value: this.value,
       handleTextChange: this.handleTextChange,
       handleBlur: this.handleBlur,
-      handleFocus: this.handleFocus
+      handleFocus: this.handleFocus,
     });
   }
 
@@ -434,7 +434,13 @@ export class MgInputRichTextEditor {
         {this.readonly ? (
           <div class="mg-c-input__readonly-value" innerHTML={this.value}></div>
         ) : (
-          <div ref={el => { this.wrapperElement = el }} id={this.identifier} class="mg-c-input__wrapper">
+          <div
+            ref={el => {
+              this.wrapperElement = el;
+            }}
+            id={this.identifier}
+            class="mg-c-input__wrapper"
+          >
             <div></div>
           </div>
         )}

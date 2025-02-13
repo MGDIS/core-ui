@@ -10,7 +10,7 @@ const QuillMock = class QuillMock {
   /**
    * Define fireOn mock call
    */
-  fireOn = null
+  fireOn = null;
   #content: string;
 
   constructor(editor: HTMLElement, options = {}) {
@@ -25,7 +25,7 @@ const QuillMock = class QuillMock {
    * @returns content
    */
   private get content(): string {
-    return this.#content
+    return this.#content;
   }
   /**
    * Content setter
@@ -49,9 +49,9 @@ const QuillMock = class QuillMock {
         activeElement = this.root;
       }),
       activeElement,
-      getSelection: jest.fn().mockReturnValue(this.editorElement)
-    }
-  };
+      getSelection: jest.fn().mockReturnValue(this.editorElement),
+    };
+  }
 
   /**
    * Define selection
@@ -72,24 +72,24 @@ const QuillMock = class QuillMock {
    * Define clipboard
    */
   clipboard = {
-    dangerouslyPasteHTML: jest.fn((newValue) => {
+    dangerouslyPasteHTML: jest.fn(newValue => {
       this.content = newValue;
     }),
   };
 
   /**
-  * Handle event
-  * @param eventName - eventName
-  * @param callback - callback to run
-  */
+   * Handle event
+   * @param eventName - eventName
+   * @param callback - callback to run
+   */
   on = jest.fn((_eventName, callback) => {
     this.fireOn = callback;
-  })
+  });
 
   /**
-  * Sets editor contents with plain text
-  * @param newValue - The text to insert
-  */
+   * Sets editor contents with plain text
+   * @param newValue - The text to insert
+   */
   setText = jest.fn(newValue => {
     this.content = newValue;
     return {};

@@ -8,7 +8,7 @@ import { MgInputRichTextEditor } from '../mg-input-rich-text-editor';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 
-type EditorTypeMock = EditorType & { editorElement: HTMLElement, selection: Selection & { setBaseAndExtent: () => void, getComposedRanges: () => void }, fireOn: () => void }
+type EditorTypeMock = EditorType & { editorElement: HTMLElement; selection: Selection & { setBaseAndExtent: () => void; getComposedRanges: () => void }; fireOn: () => void };
 
 type HTMLinput = HTMLElement & {
   checkValidity: () => boolean;
@@ -38,7 +38,7 @@ const waitForEditor = async (page: SpecPage): Promise<{ element: HTMLMgInputRich
 
 describe('mg-input-rich-text-editor', () => {
   beforeEach(() => {
-    jest.useFakeTimers({ legacyFakeTimers: true })
+    jest.useFakeTimers({ legacyFakeTimers: true });
     setupMutationObserverMock({
       observe: function () {
         return null;
@@ -145,11 +145,11 @@ describe('mg-input-rich-text-editor', () => {
         expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${toString(tooltipPosition)}.`);
       }
     });
-  })
+  });
 
   describe('style', () => {
-    describe.each([true, false])('with error', (error) => {
-      test.each(['disabled', 'readonly'])('Should update %s class', async (prop) => {
+    describe.each([true, false])('with error', error => {
+      test.each(['disabled', 'readonly'])('Should update %s class', async prop => {
         const page = await getPage({ label: 'label', identifier: 'identifier', required: error });
         const { element, editor, input } = await waitForEditor(page);
         const mgInput = element.shadowRoot.querySelector('mg-input');
@@ -180,8 +180,8 @@ describe('mg-input-rich-text-editor', () => {
         await page.waitForChanges();
         expect(mgInput.classList.contains(`mg-c-input--${prop}`)).toBeFalsy();
       });
-    })
-  })
+    });
+  });
 
   describe('Methods', () => {
     test.each([
@@ -205,7 +205,7 @@ describe('mg-input-rich-text-editor', () => {
       expect(page.root).toMatchSnapshot();
 
       const result = await element[method]();
-      jest.runOnlyPendingTimers()
+      jest.runOnlyPendingTimers();
 
       expect(result).toEqual(expectedValue);
       expect(spy).toHaveBeenCalled();
@@ -257,7 +257,6 @@ describe('mg-input-rich-text-editor', () => {
         expect(errorElement).toBeNull();
       }
     });
-
 
     test.each([
       { valid: true, message: 'Error message', expectError: false },
@@ -348,7 +347,7 @@ describe('mg-input-rich-text-editor', () => {
   });
 
   describe('Events', () => {
-    test.each([true, false])('Should manage focus and blur events', async (validity) => {
+    test.each([true, false])('Should manage focus and blur events', async validity => {
       const page = await getPage({ label: 'label', identifier: 'identifier', helpText: 'My help text', required: !validity });
       const { input } = await waitForEditor(page);
 
@@ -363,7 +362,7 @@ describe('mg-input-rich-text-editor', () => {
       jest.spyOn(page.rootInstance.valueChange, 'emit');
 
       // Test focus event
-      input.dispatchEvent(new CustomEvent('focus', { bubbles: true }))
+      input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot(); // Snapshot on focus
@@ -375,12 +374,11 @@ describe('mg-input-rich-text-editor', () => {
       expect(page.root).toMatchSnapshot(); // Snapshot on focus
     });
 
-
-    test.each([true, false])('Should handle text-change event', async (validity) => {
+    test.each([true, false])('Should handle text-change event', async validity => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
-        required: !validity
+        required: !validity,
       });
       const { editor, input, element } = await waitForEditor(page);
 
@@ -405,7 +403,7 @@ describe('mg-input-rich-text-editor', () => {
       jest.spyOn(editor, 'getSemanticHTML').mockReturnValue(htmlContent);
 
       // Trigger text-change event using stored handler
-      editor.fireOn()
+      editor.fireOn();
       await page.waitForChanges();
 
       // Verify that value has been updated
@@ -417,7 +415,7 @@ describe('mg-input-rich-text-editor', () => {
       // Verify that checkValidity has been called
       expect(checkValiditySpy).toHaveBeenCalled();
     });
-  })
+  });
 
   describe('Editor', () => {
     test('Should handle custom editor modules', async () => {
@@ -471,7 +469,7 @@ describe('mg-input-rich-text-editor', () => {
       expect(mockSelection.setBaseAndExtent).toHaveBeenCalled();
     });
 
-    test.each([true, false])('Should handle text selection in Shadow DOM from native element', async (hasNativeRange) => {
+    test.each([true, false])('Should handle text selection in Shadow DOM from native element', async hasNativeRange => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
@@ -504,16 +502,20 @@ describe('mg-input-rich-text-editor', () => {
 
       Object.defineProperty(editor.selection, 'getNativeRange', {
         get() {
-          return jest.fn().mockReturnValue(hasNativeRange ? {
-            native: {
-              startContainer,
-              startOffset,
-              endContainer,
-              endOffset
-            }
-          } : null);
-        }
-      })
+          return jest.fn().mockReturnValue(
+            hasNativeRange
+              ? {
+                  native: {
+                    startContainer,
+                    startOffset,
+                    endContainer,
+                    endOffset,
+                  },
+                }
+              : null,
+          );
+        },
+      });
 
       editor.selection.setNativeRange(startContainer, startOffset, endContainer, endOffset);
       if (hasNativeRange) {
@@ -550,7 +552,7 @@ describe('mg-input-rich-text-editor', () => {
       expect(mockSelection.setBaseAndExtent).not.toHaveBeenCalled();
     });
 
-    test.each(['startContainer', 'rootNode', 'endContainer'])('Should prevent trigger setNativeRange with %s null', async (nullValue) => {
+    test.each(['startContainer', 'rootNode', 'endContainer'])('Should prevent trigger setNativeRange with %s null', async nullValue => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
@@ -562,7 +564,7 @@ describe('mg-input-rich-text-editor', () => {
       if (nullValue === 'rootNode') {
         Object.defineProperty(editor.editorElement, 'parentNode', {
           get: () => null,
-        })
+        });
       }
 
       // Create <br> elements with parent nodes
@@ -610,12 +612,12 @@ describe('mg-input-rich-text-editor', () => {
       });
       const { editor } = await waitForEditor(page);
 
-      document.dispatchEvent(new CustomEvent('selectionchange', { bubbles: true }))
+      document.dispatchEvent(new CustomEvent('selectionchange', { bubbles: true }));
 
-      expect(editor.selection.update).toHaveBeenCalled()
-    })
+      expect(editor.selection.update).toHaveBeenCalled();
+    });
 
-    test.each(['chrome', 'firefox', 'safari', 'error'])('Should implement %s getNativeRange polyfill', async (browser) => {
+    test.each(['chrome', 'firefox', 'safari', 'error'])('Should implement %s getNativeRange polyfill', async browser => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
@@ -633,7 +635,7 @@ describe('mg-input-rich-text-editor', () => {
       let attachShadowSpy;
       if (browser === 'firefox') {
         attachShadowSpy = jest.spyOn(Object.getPrototypeOf(global.HTMLElement).prototype, 'attachShadow').mockReturnValue({
-          getSelection: "not_a_function"
+          getSelection: 'not_a_function',
         } as unknown as ShadowRoot);
 
         (window.getSelection as jest.Mock).mockReturnValue(editor.selection);
@@ -641,26 +643,26 @@ describe('mg-input-rich-text-editor', () => {
 
       if (browser === 'safari') {
         attachShadowSpy = jest.spyOn(Object.getPrototypeOf(global.HTMLElement).prototype, 'attachShadow').mockReturnValue({
-          getSelection: "not_a_function"
+          getSelection: 'not_a_function',
         } as unknown as ShadowRoot);
 
         (window.getSelection as jest.Mock).mockReturnValue(editor.selection);
-        delete editor.selection.getComposedRanges
+        delete editor.selection.getComposedRanges;
       }
 
       editor.selection.getNativeRange();
 
       if (browser === 'chrome') {
-        expect((editor.editorElement as HTMLElement & { getSelection: () => Selection }).getSelection().getRangeAt).toHaveBeenCalledWith(0)
-      } else if (browser === "firefox") {
-        expect(editor.selection.getComposedRanges).toHaveBeenCalled()
+        expect((editor.editorElement as HTMLElement & { getSelection: () => Selection }).getSelection().getRangeAt).toHaveBeenCalledWith(0);
+      } else if (browser === 'firefox') {
+        expect(editor.selection.getComposedRanges).toHaveBeenCalled();
         attachShadowSpy.mockRestore();
       } else if (browser === 'safari') {
-        expect(editor.selection.getRangeAt).toHaveBeenCalled()
+        expect(editor.selection.getRangeAt).toHaveBeenCalled();
         attachShadowSpy.mockRestore();
       } else if (browser === 'error') {
-        expect.assertions(1)
+        expect.assertions(1);
       }
-    })
-  })
+    });
+  });
 });
