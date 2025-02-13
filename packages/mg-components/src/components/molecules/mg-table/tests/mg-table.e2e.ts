@@ -47,7 +47,7 @@ test.describe('mg-table', () => {
     test(`Should render with args ${JSON.stringify(args)}`, async ({ page }) => {
       const html = createHTML(args, table);
       await page.setContent(html);
-      if (typeof args.columnsAlignment !== 'string') {
+      if (args.columnsAlignment && typeof args.columnsAlignment !== 'string') {
         await page.addScriptTag({ content: renderProperties(args, 'mg-table') });
       }
       if (args.fullWidth) {
