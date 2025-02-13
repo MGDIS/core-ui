@@ -57,9 +57,9 @@
     ]
   },
   "lint-staged": {
-    "*.{js,ts,mjs,mts,cjs,tsx,vue}": "pnpm lint:eslint --fix",
-    "*.{json,yaml,yml,md,mdx,html}": "pnpm lint:prettier --write",
-    "*.scss": "pnpm lint:styles --fix"
+    "*.{js,ts,mjs,mts,cjs,tsx,vue}": "pnpm lint:eslint",
+    "*.{json,yaml,yml,md,mdx,html}": "pnpm lint:prettier",
+    "*.scss": "pnpm lint:styles"
   },
   "devDependencies": {
     "@changesets/cli": "2.27.12",
