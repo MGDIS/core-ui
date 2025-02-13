@@ -5,6 +5,7 @@ import type { MgInputRichTextEditor as MgInputRichTextEditorType } from '../mg-i
 export default {
   component: 'mg-input-rich-text-editor',
   title: 'Molecules/Inputs/mg-input-rich-text-editor',
+  tags: ['beta'],
 };
 
 /**

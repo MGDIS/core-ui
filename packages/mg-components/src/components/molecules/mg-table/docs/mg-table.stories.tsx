@@ -1,11 +1,18 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgTable as MgTableType } from '../mg-table';
+import { alignments } from '../mg-table.conf';
 
 export default {
   component: 'mg-table',
   title: 'Molecules/mg-table',
   tags: ['beta'],
+  argTypes: {
+    columnsAlignment: {
+      options: [undefined, ...alignments],
+      control: { type: 'select' },
+    },
+  },
 };
 
 /**

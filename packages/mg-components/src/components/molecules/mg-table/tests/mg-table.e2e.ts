@@ -44,7 +44,7 @@ test.describe('mg-table', () => {
     { columnsAlignment: ['left', 'center', 'right'] },
     { columnsAlignment: { 2: 'center' } },
   ].forEach(args => {
-    test.only(`Should render with args ${JSON.stringify(args)}`, async ({ page }) => {
+    test(`Should render with args ${JSON.stringify(args)}`, async ({ page }) => {
       const html = createHTML(args, table);
       await page.setContent(html);
       if (typeof args.columnsAlignment !== 'string') {

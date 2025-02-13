@@ -30,7 +30,7 @@ import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecul
 import { PopoverPlacementType } from "./components/molecules/mg-popover/mg-popover.conf";
 import { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
-import { ColumnAlignmentType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
+import { ColumnsAlignmentType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
 import { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 import { TooltipPlacementType } from "./components/atoms/mg-tooltip/mg-tooltip.conf";
@@ -59,7 +59,7 @@ export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecul
 export { PopoverPlacementType } from "./components/molecules/mg-popover/mg-popover.conf";
 export { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 export { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
-export { ColumnAlignmentType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
+export { ColumnsAlignmentType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
 export { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 export { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export { TooltipPlacementType } from "./components/atoms/mg-tooltip/mg-tooltip.conf";
@@ -1515,9 +1515,9 @@ export namespace Components {
     }
     interface MgTable {
         /**
-          * Define column alignment Can be a string: 'left', 'center', 'right'; In this case all columns will have the same alignment Can be an array: ['left', 'center', 'right']; In this case each column will have the corresponding alignment Can be an object: \{ 2: 'center' \}; In this case the column 2 will have the corresponding alignment
+          * Define column alignment.  Can be a string: `left`, `center`, `right`; In this case all columns will have the same alignment.  Can be an array: `['left', 'center', 'right']`; In this case each column will have the corresponding alignment.  Can be an object: `{ 2: 'center' }`; In this case the column 2 will have the corresponding alignment.
          */
-        "columnAlign": ColumnAlignmentType;
+        "columnsAlignment": ColumnsAlignmentType;
         /**
           * Define if table fits its parent element
          */
@@ -3703,9 +3703,9 @@ declare namespace LocalJSX {
     }
     interface MgTable {
         /**
-          * Define column alignment Can be a string: 'left', 'center', 'right'; In this case all columns will have the same alignment Can be an array: ['left', 'center', 'right']; In this case each column will have the corresponding alignment Can be an object: \{ 2: 'center' \}; In this case the column 2 will have the corresponding alignment
+          * Define column alignment.  Can be a string: `left`, `center`, `right`; In this case all columns will have the same alignment.  Can be an array: `['left', 'center', 'right']`; In this case each column will have the corresponding alignment.  Can be an object: `{ 2: 'center' }`; In this case the column 2 will have the corresponding alignment.
          */
-        "columnAlign"?: ColumnAlignmentType;
+        "columnsAlignment"?: ColumnsAlignmentType;
         /**
           * Define if table fits its parent element
          */
