@@ -137,6 +137,7 @@ When we enter in an input field with an error its state is checked everytime the
  - [mg-input-numeric](../mg-input-numeric)
  - [mg-input-password](../mg-input-password)
  - [mg-input-radio](../mg-input-radio)
+ - [mg-input-rich-text-editor](../mg-input-rich-text-editor)
  - [mg-input-select](../mg-input-select)
  - [mg-input-text](../mg-input-text)
  - [mg-input-textarea](../mg-input-textarea)
@@ -160,6 +161,7 @@ graph TD;
   mg-input-numeric --> mg-input
   mg-input-password --> mg-input
   mg-input-radio --> mg-input
+  mg-input-rich-text-editor --> mg-input
   mg-input-select --> mg-input
   mg-input-text --> mg-input
   mg-input-textarea --> mg-input

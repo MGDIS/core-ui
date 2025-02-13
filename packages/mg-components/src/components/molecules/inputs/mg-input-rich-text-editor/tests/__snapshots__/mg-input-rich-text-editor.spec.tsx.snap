@@ -1,0 +1,798 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mg-input-rich-text-editor Events Should manage focus and blur events 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor mg-u-is-focused">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Events Should manage focus and blur events 2`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Events Should manage focus and blur events 3`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor mg-u-is-focused">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Events Should manage focus and blur events 4`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods getHTML should return correct content 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <p>
+            Test content
+          </p>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods getText should return correct content 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          Test content
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args {
+  readonly: true,
+  tooltip: 'Tooltip message',
+  tooltipPosition: 'input'
+}: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+              <mg-icon icon="info-circle"></mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__readonly-value"></div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args {
+  readonly: true,
+  tooltip: 'Tooltip message',
+  tooltipPosition: 'input',
+  value: '<p>Content</p>'
+}: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+              <mg-icon icon="info-circle"></mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__readonly-value">
+        <p>
+          Content
+        </p>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args {
+  required: true,
+  disabled: true,
+  value: '<p>Content</p>',
+  helpText: 'My help text'
+}: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args {
+  required: true,
+  readonly: true,
+  value: '<p>Content</p>',
+  helpText: 'My help text'
+}: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__readonly-value">
+        <p>
+          Content
+        </p>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="true" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args {
+  tooltip: 'My Tooltip Message',
+  tooltipPosition: 'input',
+  labelOnTop: true
+}: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args { labelHide: true }: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title mg-u-visually-hidden">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args { labelOnTop: true }: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args { readonly: true }: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__readonly-value"></div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args { readonly: true, labelOnTop: true, tooltip: 'Tooltip message' }: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--readonly mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__readonly-value"></div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args { readonly: true, value: '<p>Content</p>' }: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__readonly-value">
+        <p>
+          Content
+        </p>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args { readonly: true, value: 'Content' }: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__readonly-value">
+        Content
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args { required: true, value: '<p>Content</p>', helpText: 'My help text' }: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args { tooltip: 'My Tooltip Message' }: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+              <mg-icon icon="info-circle"></mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args { tooltip: 'My Tooltip Message', labelOnTop: true }: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args { tooltip: 'My Tooltip Message', tooltipPosition: 'label' }: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Should render with args {}: 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;

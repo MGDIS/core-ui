@@ -30,6 +30,11 @@ Object.defineProperty(globalThis, 'CSSStyleSheet', {
 });
 // implement adoptedStyleSheets
 Object.getPrototypeOf(global.HTMLElement).prototype.adoptedStyleSheets = [];
+// rich-text-editor
+Object.defineProperty(Object.getPrototypeOf(Element).prototype, 'getSelection', {
+  get: () => window.getSelection,
+});
+
 /**
  * Change Jest Timeout
  */
