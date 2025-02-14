@@ -59,11 +59,13 @@ const getPage = async (args, options = { submenu: true, itemMore: false, sibling
           <span slot="label">bane</span>
         </mg-menu-item>
       </mg-menu>,
-      options.siblingMenu && <mg-menu label='sibling menu'>
-        <mg-menu-item identifier="identifier-1">
-          <span slot="label">sibling item</span>
-        </mg-menu-item>
-      </mg-menu>
+      options.siblingMenu && (
+        <mg-menu label="sibling menu">
+          <mg-menu-item identifier="identifier-1">
+            <span slot="label">sibling item</span>
+          </mg-menu-item>
+        </mg-menu>
+      ),
     ],
   });
 
@@ -145,7 +147,7 @@ describe('mg-menu', () => {
 
   describe.each([Direction.HORIZONTAL, Direction.VERTICAL])('events', direction => {
     test.each(['click', 'focusin'])(`Should manage outside %s, case direction ${direction}`, async event => {
-      const page = await getPage({ label: 'batman menu', direction }, {submenu: true, siblingMenu: true, itemMore: false});
+      const page = await getPage({ label: 'batman menu', direction }, { submenu: true, siblingMenu: true, itemMore: false });
 
       const firstItem: HTMLMgMenuItemElement = page.root.querySelector('[title="batman"]').closest('mg-menu-item');
       expect(firstItem.expanded).toBe(false);
@@ -157,7 +159,7 @@ describe('mg-menu', () => {
 
       expect(firstItem.expanded).toBe(true);
 
-      if(event === 'focusin') {
+      if (event === 'focusin') {
         const batmanChildItem: HTMLMgMenuItemElement = page.doc.querySelector('[title="batman begins"]').closest('mg-menu-item');
         batmanChildItem.dispatchEvent(new MouseEvent(event, { bubbles: true }));
         expect(firstItem.expanded).toBe(true);
@@ -166,11 +168,11 @@ describe('mg-menu', () => {
         jokerItem.dispatchEvent(new MouseEvent(event, { bubbles: true }));
         expect(firstItem.expanded).toBe(true);
 
-        const siblingMenuItem = page.doc.querySelector('[title="sibling item"]').closest('mg-menu-item')
+        const siblingMenuItem = page.doc.querySelector('[title="sibling item"]').closest('mg-menu-item');
         siblingMenuItem.dispatchEvent(new MouseEvent(event, { bubbles: true }));
         expect(firstItem.expanded).toBe(direction === Direction.VERTICAL);
 
-        if(direction === Direction.HORIZONTAL) {
+        if (direction === Direction.HORIZONTAL) {
           firstItem.shadowRoot.querySelector('button').dispatchEvent(new MouseEvent('click', { bubbles: true }));
           firstItem.dispatchEvent(new MouseEvent('click', { bubbles: true }));
           await page.waitForChanges();
@@ -240,8 +242,8 @@ describe('mg-menu', () => {
     test('should update "itemmore" children direction', async () => {
       const page = await getPage({ label: 'batman menu' }, { submenu, itemMore: true, siblingMenu: false });
 
-      page.doc.querySelector('mg-item-more').shadowRoot.querySelector('mg-menu').appendChild(page.doc.querySelector('mg-menu-item'))
-      fireMo[0]({type: 'childList'})
+      page.doc.querySelector('mg-item-more').shadowRoot.querySelector('mg-menu').appendChild(page.doc.querySelector('mg-menu-item'));
+      fireMo[0]({ type: 'childList' });
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();

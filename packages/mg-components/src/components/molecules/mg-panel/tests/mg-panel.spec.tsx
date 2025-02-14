@@ -15,10 +15,9 @@ const getPage = async (args, slot?) => {
     template: () => <mg-panel {...args}>{slot}</mg-panel>,
   });
 
-  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
   return page;
-}
-
+};
 
 describe('mg-panel', () => {
   beforeAll(() => (global.HTMLInputElement.prototype.focus = jest.fn()));

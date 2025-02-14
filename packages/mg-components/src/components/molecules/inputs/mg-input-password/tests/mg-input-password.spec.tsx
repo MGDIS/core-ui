@@ -14,7 +14,7 @@ const getPage = async args => {
     template: () => <mg-input-password {...args}></mg-input-password>,
   });
   jest.runOnlyPendingTimers();
-  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
   return page;
 };
 

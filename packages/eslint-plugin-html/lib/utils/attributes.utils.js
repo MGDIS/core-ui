@@ -7,7 +7,7 @@ module.exports = {
    * @returns {object} matching attribute
    */
   attribute(node, attribute) {
-    return node.attrs?.find((attr) => attr.name === attribute);
+    return node.attrs?.find(attr => attr.name === attribute);
   },
   /**
    * Check if node has a specific class name
@@ -18,6 +18,6 @@ module.exports = {
    */
   hasClass(node, className) {
     const classesAttribute = module.exports.attribute(node, 'class')?.value.split(' ');
-    return classesAttribute && classesAttribute.some((classAttribute) => classAttribute === className);
+    return classesAttribute && classesAttribute.some(classAttribute => classAttribute === className);
   },
 };

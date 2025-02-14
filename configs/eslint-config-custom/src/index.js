@@ -1,6 +1,6 @@
 module.exports = {
   plugins: ['@typescript-eslint/eslint-plugin', 'tsdoc', 'jsdoc'],
-  extends: ['plugin:@typescript-eslint/recommended', 'prettier', 'turbo'],
+  extends: ['plugin:@typescript-eslint/recommended', 'turbo', 'prettier'], // Prettier MUST be the last one
   parser: '@typescript-eslint/parser',
   rules: {
     'jsdoc/require-jsdoc': ['warn', { publicOnly: true, require: { FunctionExpression: true, ArrowFunctionExpression: true } }],

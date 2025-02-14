@@ -14,7 +14,11 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgMenuItemType & { slot: string }): HTMLElement => <mg-menu label="demo"><mg-menu-item {...filterArgs(args)} innerHTML={args.slot}></mg-menu-item></mg-menu>;
+const Template = (args: MgMenuItemType & { slot: string }): HTMLElement => (
+  <mg-menu label="demo">
+    <mg-menu-item {...filterArgs(args)} innerHTML={args.slot}></mg-menu-item>
+  </mg-menu>
+);
 
 export const MgMenuItem = {
   render: Template,

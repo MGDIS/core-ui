@@ -308,9 +308,9 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         this.checkValidity();
         this.setErrorMessage();
         this.hasDisplayedError = this.invalid;
-        resolve()
-      })
-    })
+        resolve();
+      });
+    });
   }
 
   /**

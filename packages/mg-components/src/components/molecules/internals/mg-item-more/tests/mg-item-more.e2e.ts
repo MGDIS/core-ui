@@ -83,13 +83,19 @@ test.describe('mg-item-more', () => {
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-        await page.getByText(`Batman begins`).first().evaluate((elm, status) => {
-          elm.closest('mg-menu-item').setAttribute('status', status as string);
-        }, Status.VISIBLE);
+        await page
+          .getByText(`Batman begins`)
+          .first()
+          .evaluate((elm, status) => {
+            elm.closest('mg-menu-item').setAttribute('status', status as string);
+          }, Status.VISIBLE);
 
-        await page.getByText(`1 - head-4`).first().evaluate((elm, status) => {
-          elm.closest('mg-menu-item').setAttribute('status', status as string);
-        }, Status.ACTIVE);
+        await page
+          .getByText(`1 - head-4`)
+          .first()
+          .evaluate((elm, status) => {
+            elm.closest('mg-menu-item').setAttribute('status', status as string);
+          }, Status.ACTIVE);
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });

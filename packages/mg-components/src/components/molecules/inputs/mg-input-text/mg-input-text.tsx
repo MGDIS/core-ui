@@ -294,8 +294,8 @@ export class MgInputText {
         this.setErrorMessage();
         this.hasDisplayedError = this.invalid;
         resolve();
-      })
-    })
+      });
+    });
   }
 
   /**
@@ -502,10 +502,7 @@ export class MgInputText {
                 key="input"
                 class="mg-c-input__with-character-left"
                 style={{
-                  '--mg-c-character-left-message-length': (!this.characterLeftHide
-                    ? (this.maxlength.toString().length * 2 + 1)
-                    : 0
-                  ).toString(),
+                  '--mg-c-character-left-message-length': (!this.characterLeftHide ? this.maxlength.toString().length * 2 + 1 : 0).toString(),
                 }}
               >
                 {this.icon !== undefined && <mg-icon icon={this.icon}></mg-icon>}

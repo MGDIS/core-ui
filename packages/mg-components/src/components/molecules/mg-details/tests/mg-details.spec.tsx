@@ -7,7 +7,11 @@ const getPage = args =>
     components: [MgDetails],
     template: () => (
       <mg-details {...args}>
-        { args.slotSummary ? args.slotSummary : <span slot="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span> }
+        {args.slotSummary ? (
+          args.slotSummary
+        ) : (
+          <span slot="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+        )}
         <p slot="details">
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -57,7 +61,12 @@ describe('mg-details', () => {
     expect(page.rootInstance.expandedChange.emit).toHaveBeenCalledTimes(1);
   });
 
-  test.each([<span slot="summary"><mg-button>button</mg-button></span>, <mg-button slot="summary">button</mg-button>])('Should prevent toggle details toggled on mg-button click %s', async (slotSummary) => {
+  test.each([
+    <span slot="summary">
+      <mg-button>button</mg-button>
+    </span>,
+    <mg-button slot="summary">button</mg-button>,
+  ])('Should prevent toggle details toggled on mg-button click %s', async slotSummary => {
     const page = await getPage({ toggleClosed: 'Show details', toggleOpened: 'Hide details', slotSummary });
 
     const element = page.doc.querySelector('mg-details');

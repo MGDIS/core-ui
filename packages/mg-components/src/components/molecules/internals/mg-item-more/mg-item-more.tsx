@@ -21,7 +21,7 @@ export class MgItemMore {
   private readonly name = 'mg-item-more';
   private messages: MessageType;
   private overflowBehavior: OverflowBehavior;
-  private itemMoreContainer: HTMLMgMenuElement
+  private itemMoreContainer: HTMLMgMenuElement;
 
   /**************
    * Decorators *
@@ -116,21 +116,23 @@ export class MgItemMore {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    const menuItemIdentifier = "mg-item-more"
+    const menuItemIdentifier = 'mg-item-more';
     return (
       <Host role="listitem" data-mg-popover-guard={`${menuItemIdentifier}-popover`}>
         {this.parentMenu && (
-          <mg-menu-item
-            data-overflow-more
-            data-size={this.parentMenu.size}
-            data-style-direction={Direction.HORIZONTAL}
-            identifier={menuItemIdentifier}
-          >
+          <mg-menu-item data-overflow-more data-size={this.parentMenu.size} data-style-direction={Direction.HORIZONTAL} identifier={menuItemIdentifier}>
             <mg-icon icon={this.icon.icon} size={this.size} slot="image"></mg-icon>
             <span class={{ 'mg-u-visually-hidden': !this.slotlabel.display }} slot="label">
               {this.slotlabel.label}
             </span>
-            <mg-menu direction={Direction.VERTICAL} label={this.messages.menuLabel} size={this.size} ref={(ref) => {if (ref !== null) this.itemMoreContainer = ref}}></mg-menu>
+            <mg-menu
+              direction={Direction.VERTICAL}
+              label={this.messages.menuLabel}
+              size={this.size}
+              ref={ref => {
+                if (ref !== null) this.itemMoreContainer = ref;
+              }}
+            ></mg-menu>
           </mg-menu-item>
         )}
       </Host>

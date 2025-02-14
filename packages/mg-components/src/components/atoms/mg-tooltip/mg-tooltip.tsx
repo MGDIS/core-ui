@@ -73,8 +73,8 @@ export class MgTooltip {
    */
   @Prop({ mutable: true }) placement: TooltipPlacementType = 'bottom';
   @Watch('placement')
-  watchPlacement(newValue) :void {
-    if(!isFloatingUIPlacement(newValue)) this.placement = 'bottom';
+  watchPlacement(newValue): void {
+    if (!isFloatingUIPlacement(newValue)) this.placement = 'bottom';
   }
 
   /**
@@ -252,12 +252,12 @@ export class MgTooltip {
         }[placement.split('-')[0]];
 
         const arrowElement: HTMLElement = this.mgTooltipContent.querySelector('[data-floating-arrow]');
-        // https://floating-ui.com/docs/arrow 
+        // https://floating-ui.com/docs/arrow
         // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined.
         // Due to this, either x or y will be undefined, depending on the side of placement.
         // The above code uses `isNaN` to check for null and undefined simultaneously.
         // Don’t remove `isNaN`, because either value can be falsy (0), causing a bug!
-        const numberToPx = (number: number): string => !isNaN(number) ? `${number}px` : '';
+        const numberToPx = (number: number): string => (!isNaN(number) ? `${number}px` : '');
 
         Object.assign(arrowElement.style, {
           left: numberToPx(arrowX),

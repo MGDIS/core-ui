@@ -13,8 +13,8 @@ Object.getPrototypeOf(global.HTMLElement).prototype.close = jest.fn();
 // floating-ui
 for (const property of ['clientWidth', 'clientHeight', 'offsetWidth', 'offsetHeight']) {
   Object.defineProperty(Object.getPrototypeOf(global.HTMLElement).prototype, property, {
-    get:() => 0
-  })
+    get: () => 0,
+  });
 }
 // implement crypto behavior in jest
 Object.defineProperty(globalThis, 'crypto', {
@@ -26,7 +26,7 @@ Object.defineProperty(globalThis, 'crypto', {
 // rich-text-editor
 Object.defineProperty(Object.getPrototypeOf(Element).prototype, 'getSelection', {
   get: () => window.getSelection,
-})
+});
 
 /**
  * Change Jest Timeout
