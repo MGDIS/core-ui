@@ -22,7 +22,8 @@ import { OptionType, TextType } from "./components/molecules/inputs/mg-input-tex
 import { IconType as IconType1 } from "./components";
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 import { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
-import { DirectionType, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
+import { Direction } from "./types";
+import { ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 import { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 import { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
@@ -50,7 +51,8 @@ export { OptionType, TextType } from "./components/molecules/inputs/mg-input-tex
 export { IconType as IconType1 } from "./components";
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 export { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
-export { DirectionType, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
+export { Direction } from "./types";
+export { ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 export { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 export { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
@@ -1319,7 +1321,7 @@ export namespace Components {
         /**
           * Component display direction.
          */
-        "direction": DirectionType;
+        "direction": Direction;
         /**
           * Customize "mg-item-more" element Used with direction: 'vertical' to manage overflow
          */
@@ -3438,7 +3440,7 @@ declare namespace LocalJSX {
         /**
           * Component display direction.
          */
-        "direction"?: DirectionType;
+        "direction"?: Direction;
         /**
           * Customize "mg-item-more" element Used with direction: 'vertical' to manage overflow
          */

@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgMenuItem as MgMenuItemType } from '../../mg-menu-item/mg-menu-item';
 import type { MgMenu as MgMenuType } from '../mg-menu';
-import { Direction } from '../mg-menu.conf';
+import { directions } from '../mg-menu.conf';
 import { Status } from '../../mg-menu-item/mg-menu-item.conf';
 
 export default {
@@ -50,7 +50,7 @@ const menuItem = (args: MenuItemArg): HTMLMgMenuItemElement => (
         <p>some content</p>
       </div>
     )}
-    {args.submenu > 0 && menu(getMenuArgs(Direction.VERTICAL, args.submenu - 1, 'medium'))}
+    {args.submenu > 0 && menu(getMenuArgs(directions.VERTICAL, args.submenu - 1, 'medium'))}
   </mg-menu-item>
 );
 
@@ -69,7 +69,7 @@ const getMenuArgs = (direction: MgMenuType['direction'], level = 0, size: MgMenu
   label: 'Batman menu',
   direction,
   size,
-  itemmore: level === depth && direction === Direction.HORIZONTAL ? { size } : undefined,
+  itemmore: level === depth && direction === directions.HORIZONTAL ? { size } : undefined,
   items: [
     {
       href: '#',
@@ -105,7 +105,7 @@ const getMenuArgs = (direction: MgMenuType['direction'], level = 0, size: MgMenu
  * @param args - mg-menu args
  * @returns rendered mg-menu
  */
-const menu = (args: MenuArg): HTMLMgMenuElement => <mg-menu {...filterArgs(args, { direction: Direction.HORIZONTAL })}>{args.items.map(menuItem)}</mg-menu>;
+const menu = (args: MenuArg): HTMLMgMenuElement => <mg-menu {...filterArgs(args, { direction: directions.HORIZONTAL })}>{args.items.map(menuItem)}</mg-menu>;
 
 /**
  * Template
@@ -116,12 +116,12 @@ const Template = (args: MenuArg): HTMLElement => <div>{menu(args)}</div>;
 
 export const MgMenuHorizontal = {
   render: Template,
-  args: getMenuArgs(Direction.HORIZONTAL, depth),
+  args: getMenuArgs(directions.HORIZONTAL, depth),
 };
 
 export const MgMenuVertical = {
   render: Template,
-  args: getMenuArgs(Direction.VERTICAL, depth),
+  args: getMenuArgs(directions.VERTICAL, depth),
 };
 
 const TemplateSmallContainer = (args: MenuArg): HTMLElement => {

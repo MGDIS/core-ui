@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgMenu } from '../mg-menu';
-import { Direction, sizes } from '../mg-menu.conf';
+import { directions, sizes } from '../mg-menu.conf';
 import { MgMenuItem } from '../../mg-menu-item/mg-menu-item';
 import { MgPopover } from '../../../mg-popover/mg-popover';
 import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
@@ -29,10 +29,10 @@ const getPage = async (args, options = { submenu: true, itemMore: false, sibling
         <mg-menu-item id={setId(args.hasId)} identifier="identifier-1">
           <span slot="label">batman</span>
           {options.submenu && (
-            <mg-menu label="batman - submenu" direction={Direction.VERTICAL}>
+            <mg-menu label="batman - submenu" direction={directions.VERTICAL}>
               <mg-menu-item identifier="identifier-1">
                 <span slot="label">batman begins</span>
-                <mg-menu label="batman begins - submenu" direction={Direction.VERTICAL}>
+                <mg-menu label="batman begins - submenu" direction={directions.VERTICAL}>
                   <mg-menu-item identifier="identifier-1">
                     <span slot="label">movie</span>
                   </mg-menu-item>
@@ -59,11 +59,13 @@ const getPage = async (args, options = { submenu: true, itemMore: false, sibling
           <span slot="label">bane</span>
         </mg-menu-item>
       </mg-menu>,
-      options.siblingMenu && <mg-menu label='sibling menu'>
-        <mg-menu-item identifier="identifier-1">
-          <span slot="label">sibling item</span>
-        </mg-menu-item>
-      </mg-menu>
+      options.siblingMenu && (
+        <mg-menu label="sibling menu">
+          <mg-menu-item identifier="identifier-1">
+            <span slot="label">sibling item</span>
+          </mg-menu-item>
+        </mg-menu>
+      ),
     ],
   });
 
@@ -118,7 +120,7 @@ describe('mg-menu', () => {
   });
 
   describe('render', () => {
-    test.each([{}, { direction: Direction.HORIZONTAL }, { direction: Direction.VERTICAL }, { itemmore: { icon: { icon: 'user' } } }])('with args %s', async args => {
+    test.each([{}, { direction: directions.HORIZONTAL }, { direction: directions.VERTICAL }, { itemmore: { icon: { icon: 'user' } } }])('with args %s', async args => {
       const { root } = await getPage({ label: 'batman menu', ...args });
 
       expect(root).toMatchSnapshot();
@@ -128,9 +130,9 @@ describe('mg-menu', () => {
   describe('errors', () => {
     const baseProps = { label: 'batman menu' };
     test.each([
-      { props: { direction: Direction.HORIZONTAL }, error: `<mg-menu> prop "label" is required. Passed value: undefined.` },
+      { props: { direction: directions.HORIZONTAL }, error: `<mg-menu> prop "label" is required. Passed value: undefined.` },
       { props: { ...baseProps, direction: 'test' }, error: `<mg-menu> prop "direction" must be one of: horizontal, vertical. Passed value: test.` },
-      { props: { ...baseProps, direction: Direction.VERTICAL, itemmore: { icon: 'user' } }, error: `<mg-menu> prop "itemmore" must be paired with direction horizontal.` },
+      { props: { ...baseProps, direction: directions.VERTICAL, itemmore: { icon: 'user' } }, error: `<mg-menu> prop "itemmore" must be paired with direction horizontal.` },
       { props: { ...baseProps, size: 'batman' }, error: `<mg-menu> prop "size" must be one of: ${sizes.join(', ')}. Passed value: batman.` },
     ])('Should throw error when props are invalid, case %s', async ({ props, error }) => {
       expect.assertions(1);
@@ -143,9 +145,9 @@ describe('mg-menu', () => {
     });
   });
 
-  describe.each([Direction.HORIZONTAL, Direction.VERTICAL])('events', direction => {
+  describe.each([directions.HORIZONTAL, directions.VERTICAL])('events', direction => {
     test.each(['click', 'focusin'])(`Should manage outside %s, case direction ${direction}`, async event => {
-      const page = await getPage({ label: 'batman menu', direction }, {submenu: true, siblingMenu: true, itemMore: false});
+      const page = await getPage({ label: 'batman menu', direction }, { submenu: true, siblingMenu: true, itemMore: false });
 
       const firstItem: HTMLMgMenuItemElement = page.root.querySelector('[title="batman"]').closest('mg-menu-item');
       expect(firstItem.expanded).toBe(false);
@@ -157,7 +159,7 @@ describe('mg-menu', () => {
 
       expect(firstItem.expanded).toBe(true);
 
-      if(event === 'focusin') {
+      if (event === 'focusin') {
         const batmanChildItem: HTMLMgMenuItemElement = page.doc.querySelector('[title="batman begins"]').closest('mg-menu-item');
         batmanChildItem.dispatchEvent(new MouseEvent(event, { bubbles: true }));
         expect(firstItem.expanded).toBe(true);
@@ -166,11 +168,11 @@ describe('mg-menu', () => {
         jokerItem.dispatchEvent(new MouseEvent(event, { bubbles: true }));
         expect(firstItem.expanded).toBe(true);
 
-        const siblingMenuItem = page.doc.querySelector('[title="sibling item"]').closest('mg-menu-item')
+        const siblingMenuItem = page.doc.querySelector('[title="sibling item"]').closest('mg-menu-item');
         siblingMenuItem.dispatchEvent(new MouseEvent(event, { bubbles: true }));
-        expect(firstItem.expanded).toBe(direction === Direction.VERTICAL);
+        expect(firstItem.expanded).toBe(direction === directions.VERTICAL);
 
-        if(direction === Direction.HORIZONTAL) {
+        if (direction === directions.HORIZONTAL) {
           firstItem.shadowRoot.querySelector('button').dispatchEvent(new MouseEvent('click', { bubbles: true }));
           firstItem.dispatchEvent(new MouseEvent('click', { bubbles: true }));
           await page.waitForChanges();
@@ -181,7 +183,7 @@ describe('mg-menu', () => {
       document.dispatchEvent(new MouseEvent(event, { bubbles: true }));
       await page.waitForChanges();
 
-      expect(firstItem.expanded).toBe(direction === Direction.VERTICAL);
+      expect(firstItem.expanded).toBe(direction === directions.VERTICAL);
     });
 
     test.each(['click', 'focus'])(`should manage sibling menu-item expanded props in ${direction} menu, case %s event`, async event => {
@@ -189,7 +191,7 @@ describe('mg-menu', () => {
       // open batman item
       const batmanItem: HTMLMgMenuItemElement = page.doc.querySelector('[title="batman"]').closest('mg-menu-item');
       expect(batmanItem.expanded).toBe(false);
-      if (direction === Direction.HORIZONTAL) {
+      if (direction === directions.HORIZONTAL) {
         expect(batmanItem.shadowRoot.querySelector('mg-popover')).not.toBe(null);
       }
 
@@ -220,7 +222,7 @@ describe('mg-menu', () => {
     });
   });
 
-  describe.each([Direction.VERTICAL, Direction.HORIZONTAL])('MutationObserver %s', direction => {
+  describe.each([directions.VERTICAL, directions.HORIZONTAL])('MutationObserver %s', direction => {
     test.each([{ label: 'batman menu', direction }])('with args %s', async args => {
       const page = await getPage(args);
 
@@ -240,8 +242,8 @@ describe('mg-menu', () => {
     test('should update "itemmore" children direction', async () => {
       const page = await getPage({ label: 'batman menu' }, { submenu, itemMore: true, siblingMenu: false });
 
-      page.doc.querySelector('mg-item-more').shadowRoot.querySelector('mg-menu').appendChild(page.doc.querySelector('mg-menu-item'))
-      fireMo[0]({type: 'childList'})
+      page.doc.querySelector('mg-item-more').shadowRoot.querySelector('mg-menu').appendChild(page.doc.querySelector('mg-menu-item'));
+      fireMo[0]({ type: 'childList' });
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();

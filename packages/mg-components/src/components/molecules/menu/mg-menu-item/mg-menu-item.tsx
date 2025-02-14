@@ -1,9 +1,10 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
 import { ClassList, createID, isValideID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
-import { Direction, type MenuSizeType, type DirectionType } from '../mg-menu/mg-menu.conf';
+import { directions, type MenuSizeType } from '../mg-menu/mg-menu.conf';
 import { type MgMenuStatusType, Status, targets, type TargetType } from './mg-menu-item.conf';
 import type { MessageType } from '../../../../locales/index.conf';
+import { Direction } from '../../../../types';
 
 /**
  * @slot - Menu item content
@@ -92,8 +93,8 @@ export class MgMenuItem {
       this.updateExpanded(newValue);
       // when expanded all actives sub-items need to be expanded and non active closed
       Array.from(this.element.querySelectorAll('mg-menu-item')).forEach(item => {
-        if(item !== this.element) item.expanded = newValue ? this.hasStatus(item, Status.ACTIVE) : false;
-      })
+        if (item !== this.element) item.expanded = newValue ? this.hasStatus(item, Status.ACTIVE) : false;
+      });
     }
   }
 
@@ -121,7 +122,7 @@ export class MgMenuItem {
   @State() size: MenuSizeType = 'medium';
   @Watch('size')
   watchSize(newValue: MgMenuItem['size'], oldValue?: MgMenuItem['size']): void {
-    if(oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--size-${oldValue}`);
+    if (oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--size-${oldValue}`);
     this.navigationButtonClassList.add(`${this.navigationButton}--size-${newValue}`);
   }
 
@@ -133,17 +134,17 @@ export class MgMenuItem {
   /**
    * Parent menu direction
    */
-  @State() direction: DirectionType;
+  @State() direction: Direction;
   @Watch('direction')
   validateDirection(newValue: MgMenuItem['direction'], oldValue: MgMenuItem['direction']): void {
-    if(oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
+    if (oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
     this.navigationButtonClassList.add(`${this.navigationButton}--${newValue}`);
     // manage all sub levels child menu-items level with data-level attribut
     Array.from(this.element.querySelectorAll('mg-menu-item')).forEach(item => {
-      if (this.isDirection(Direction.VERTICAL, newValue)) {
+      if (this.isDirection(directions.VERTICAL, newValue)) {
         item.dataset.level = `${(Number(item.dataset.level) || 1) + 1}`;
       } else {
-        delete item.dataset.level
+        delete item.dataset.level;
       }
     });
   }
@@ -175,7 +176,7 @@ export class MgMenuItem {
    */
   // eslint-disable-next-line @stencil-community/no-unused-watch
   @Watch('data-style-direction')
-  watchDataStyleDirection(newValue: DirectionType):void {
+  watchDataStyleDirection(newValue: Direction): void {
     this.direction = newValue;
   }
 
@@ -185,8 +186,8 @@ export class MgMenuItem {
    */
   // eslint-disable-next-line @stencil-community/no-unused-watch
   @Watch('data-has-focus')
-  watchDataHasFocus(newValue: string):void {
-    if(!newValue) this.updateExpanded(Boolean(newValue))
+  watchDataHasFocus(newValue: string): void {
+    if (!newValue) this.updateExpanded(Boolean(newValue));
   }
 
   /***********
@@ -198,7 +199,6 @@ export class MgMenuItem {
    * @returns parent menu
    */
   private getParentMenu = (): HTMLMgMenuElement => this.element.closest('mg-menu');
-
 
   /**
    * Does an Element have given Status
@@ -212,7 +212,10 @@ export class MgMenuItem {
    * Condition to know if component should display a mg-popover
    * @returns truthy if component display popover
    */
-  private hasPopover = (): boolean => this.isDirection(Direction.HORIZONTAL) && (this.isInMainMenu() && Array.from(this.element.children).some(element => !element.querySelector('[slot]')) || this.isItemMore) && this.href === undefined;
+  private hasPopover = (): boolean =>
+    this.isDirection(directions.HORIZONTAL) &&
+    ((this.isInMainMenu() && Array.from(this.element.children).some(element => !element.querySelector('[slot]'))) || this.isItemMore) &&
+    this.href === undefined;
 
   /**
    * Method to control if one of component children have active status
@@ -224,10 +227,10 @@ export class MgMenuItem {
     );
 
   /**
-   * Is component an interactive item 
+   * Is component an interactive item
    * @returns truthy if element is clickable
    */
-  private isInteractiveItem = (): boolean => this.hasChildren || !isValidString(this.href)
+  private isInteractiveItem = (): boolean => this.hasChildren || !isValidString(this.href);
 
   /**
    * Is component contextual direction match the given direction
@@ -257,10 +260,10 @@ export class MgMenuItem {
    * Update expanded prop
    * @param newValue - expanded new value
    */
-  private updateExpanded = (newValue: MgMenuItem['expanded']):void => {
+  private updateExpanded = (newValue: MgMenuItem['expanded']): void => {
     if (this.isInteractiveItem()) {
       // item is always expanded in vertical menu when has active child
-      this.expanded = this.isDirection(Direction.VERTICAL) && this.hasActiveChild() || newValue
+      this.expanded = (this.isDirection(directions.VERTICAL) && this.hasActiveChild()) || newValue;
     }
   };
 
@@ -268,7 +271,7 @@ export class MgMenuItem {
    * Update status
    * @param guard - status to exclude from process in addition to [Status.HIDDEN, Status.DISABLED] . Default: [].
    */
-  private updateStatus = (guard : MgMenuItem['status'][] = []): void => {
+  private updateStatus = (guard: MgMenuItem['status'][] = []): void => {
     if (![Status.HIDDEN, Status.DISABLED, ...guard].includes(this.status)) {
       this.status = this.hasActiveChild() ? Status.ACTIVE : Status.VISIBLE;
     }
@@ -314,11 +317,11 @@ export class MgMenuItem {
     else if (this.isItemMore) this.size = this.element.dataset.size as MgMenuItem['size'];
 
     // when vertical main menu item contain an active item we force expanded
-    this.updateExpanded(this.expanded)
+    this.updateExpanded(this.expanded);
     this.updateStatus(guard);
     this.updatePopoverGuard();
     this.updateDisplayNotificationBadge();
-  }
+  };
 
   /************
    * Handlers *
@@ -338,15 +341,15 @@ export class MgMenuItem {
     this.updateExpanded(!this.expanded);
 
     // when item is the last clickable item we close the parent popover
-    if(!this.isInteractiveItem()) {
-      const closePopover = (element: HTMLMgMenuItemElement):void => {
-        if(!element) return;
-        else if(element !== this.element && element.expanded && element.shadowRoot.querySelector('mg-popover') !== null) {
+    if (!this.isInteractiveItem()) {
+      const closePopover = (element: HTMLMgMenuItemElement): void => {
+        if (!element) return;
+        else if (element !== this.element && element.expanded && element.shadowRoot.querySelector('mg-popover') !== null) {
           element.expanded = false;
         } else {
           closePopover(element.parentElement.closest('mg-menu-item'));
         }
-      }
+      };
       closePopover(this.element);
     }
   };
@@ -392,9 +395,9 @@ export class MgMenuItem {
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
     return setTimeout(() => {
-      this.watchDataStyleDirection(this.element.dataset.styleDirection as DirectionType);
-      this.watchDataHasFocus(this.element.dataset.hasFocus)
-      this.updateItem([Status.ACTIVE])
+      this.watchDataStyleDirection(this.element.dataset.styleDirection as Direction);
+      this.watchDataHasFocus(this.element.dataset.hasFocus);
+      this.updateItem([Status.ACTIVE]);
 
       // emit loaded event when component is fully loaded
       this.itemLoaded.emit();
@@ -482,7 +485,7 @@ export class MgMenuItem {
   render(): HTMLElement {
     const getContainerClasses = () => ({
       ['mg-c-menu-item__collapse-container']: true,
-      ['mg-c-menu-item__collapse-container--first-level']: (this.isInMainMenu() || this.isItemMore) && this.isDirection(Direction.HORIZONTAL),
+      ['mg-c-menu-item__collapse-container--first-level']: (this.isInMainMenu() || this.isItemMore) && this.isDirection(directions.HORIZONTAL),
     });
 
     return (
