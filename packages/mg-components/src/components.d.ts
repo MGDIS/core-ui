@@ -11,7 +11,7 @@ import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
-import { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
+import { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
@@ -39,7 +39,7 @@ export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 export { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
-export { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
+export { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
@@ -262,7 +262,7 @@ export namespace Components {
         /**
           * Define component orientation
          */
-        "direction": 'vertical' | 'horizontal';
+        "direction": IllustratedMessageDirectionType;
         /**
           * Define illustration size
          */
@@ -2447,7 +2447,7 @@ declare namespace LocalJSX {
         /**
           * Define component orientation
          */
-        "direction"?: 'vertical' | 'horizontal';
+        "direction"?: IllustratedMessageDirectionType;
         /**
           * Define illustration size
          */

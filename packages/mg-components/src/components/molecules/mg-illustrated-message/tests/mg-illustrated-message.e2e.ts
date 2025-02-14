@@ -1,10 +1,9 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { renderAttributes } from '@mgdis/playwright-helpers';
+import { directions, sizes } from '../mg-illustrated-message.conf';
 
-const baseArgs = { size: 'medium', direction: 'vertical' };
-
-const createHTML = args => `<mg-illustrated-message ${renderAttributes(args)}>
+const createHTML = (args, title = '<h2 slot="title">Lorem Ipsum</h2>') => `<mg-illustrated-message ${renderAttributes(args)}>
   <svg slot="illustration" viewBox="0 0 190 350" xmlns="http://www.w3.org/2000/svg">
     <path
       fill-rule="evenodd"
@@ -13,7 +12,7 @@ const createHTML = args => `<mg-illustrated-message ${renderAttributes(args)}>
       fill="black"
     />
   </svg>
-  <h2 slot="title">Lorem Ipsum</h2>
+  ${title}
   <h3 slot="details">The standard Lorem Ipsum passage, used since the 1500s</h3>
   <div slot="details">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -23,22 +22,27 @@ const createHTML = args => `<mg-illustrated-message ${renderAttributes(args)}>
 </mg-illustrated-message>`;
 
 test.describe('mg-illustrated-message', () => {
-  ['medium', 'small'].forEach(size => {
-    test(`renders size ${size}`, async ({ page }) => {
-      const html = createHTML({ ...baseArgs, size });
-      await page.setContent(html);
+  sizes.forEach(size => {
+    directions.forEach(direction => {
+      test(`renders size ${size} direction ${direction}`, async ({ page }) => {
+        const html = createHTML({ size, direction });
+        await page.setContent(html);
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        // Ensure responsive
+        if (direction === 'horizontal') {
+          await page.setViewportSize({ width: 600, height: 600 });
+
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        }
+      });
     });
   });
 
-  test('renders horizontal', async ({ page }) => {
-    const html = createHTML({ ...baseArgs, direction: 'horizontal' });
+  test('Should render without slot title', async ({ page }) => {
+    const html = createHTML({}, null);
     await page.setContent(html);
-
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-    await page.setViewportSize({ width: 600, height: 600 });
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
