@@ -25,7 +25,7 @@ const getPage = async args => {
   });
 
   jest.runAllTimers();
-  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
   return page;
 };
 
@@ -153,14 +153,13 @@ describe('mg-input-checkbox', () => {
       jest.spyOn(page.rootInstance.inputValid, 'emit');
 
       // define validity mock
-      const validityState = (input) => ({
+      const validityState = input => ({
         valueMissing: !Boolean(input.value),
       });
 
       allInputs.forEach(input => {
         input.checkValidity = jest.fn(() => {
-          console.log('id:', input.id, input.value, validityState(input))
-          return !Object.values(validityState(input)).some(val => val)
+          return !Object.values(validityState(input)).some(val => val);
         });
         Object.defineProperty(input, 'validity', {
           get: jest.fn(() => validityState(input)),
@@ -174,7 +173,7 @@ describe('mg-input-checkbox', () => {
 
       await page.waitForChanges();
 
-      expect(element.valid).toEqual(!validity)
+      expect(element.valid).toEqual(!validity);
       expect(page.rootInstance.inputValid.emit).not.toHaveBeenCalled();
       expect(page.root).toMatchSnapshot(); //Snapshot on focus
 
@@ -184,20 +183,20 @@ describe('mg-input-checkbox', () => {
 
       await page.waitForChanges();
 
-      expect(element.valid).toEqual(validity)
+      expect(element.valid).toEqual(validity);
       expect(page.rootInstance.inputValid.emit).toHaveBeenCalledWith(validity);
       const emittedValue = value.map((val, i) => ({
         ...val,
-        value: i !== index ? val.value : input.checked
+        value: i !== index ? val.value : input.checked,
       }));
       expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(emittedValue);
-      
+
       // trigger 'blur' without validity update
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
 
       await page.waitForChanges();
 
-      expect(element.valid).toEqual(validity)
+      expect(element.valid).toEqual(validity);
       expect(page.rootInstance.inputValid.emit).toHaveBeenCalledTimes(1);
       expect(page.rootInstance.valueChange.emit).toHaveBeenCalledTimes(1);
       expect(page.root).toMatchSnapshot(); //Snapshot on blur
