@@ -1,7 +1,8 @@
 import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 import { test } from '../../../../../utils/playwright.fixture';
-import { Direction, MenuSizeType, sizes } from '../mg-menu.conf';
+import { directions, MenuSizeType, sizes } from '../mg-menu.conf';
+import { Direction } from '../../../../../types';
 
 enum Position {
   PRESS = 'press',
@@ -17,7 +18,7 @@ enum Key {
 const getSubMenuSize = (size: MenuSizeType): MenuSizeType => (size === 'large' ? 'large' : 'medium');
 
 const getViewportSize = (direction: Direction, size?: MenuSizeType): { width: number; height: number } =>
-  direction === Direction.VERTICAL
+  direction === directions.VERTICAL
     ? { width: 400, height: ['large', 'xlarge'].includes(size) ? 400 : 250 }
     : { width: ['large', 'xlarge'].includes(size) ? 1200 : 800, height: 200 };
 
@@ -26,7 +27,7 @@ const createHTML = (args, containerSize?): string => `
     <mg-menu ${renderAttributes({ label: 'menu', ...args })}>
       <mg-menu-item status="active">
         <span slot="label">1 - head-1</span>
-        <mg-menu ${renderAttributes({ label: 'sub-menu 1', direction: Direction.VERTICAL, size: getSubMenuSize(args?.size) })}>
+        <mg-menu ${renderAttributes({ label: 'sub-menu 1', direction: directions.VERTICAL, size: getSubMenuSize(args?.size) })}>
           <mg-menu-item><span slot="label">Batman begins</span></mg-menu-item>
         </mg-menu>
       </mg-menu-item>
@@ -44,7 +45,7 @@ const createHTML = (args, containerSize?): string => `
         <span slot="label">1 - head-5</span>
         <mg-icon icon='user' slot='image'></mg-icon>
         ${args?.badge ? "<mg-badge value='2' label='hello' slot='information'></mg-badge>" : ''} 
-        <mg-menu ${renderAttributes({ label: 'sub-menu 2', direction: Direction.VERTICAL, size: getSubMenuSize(args?.size) })}>
+        <mg-menu ${renderAttributes({ label: 'sub-menu 2', direction: directions.VERTICAL, size: getSubMenuSize(args?.size) })}>
           <mg-menu-item><span slot="label">Batman begins with a longer title to go outide screen</span></mg-menu-item>
         </mg-menu>
       </mg-menu-item>
@@ -59,7 +60,7 @@ const setPageContent = async (page, args, viewport) => {
 };
 
 test.describe('mg-menu', () => {
-  [Direction.HORIZONTAL, Direction.VERTICAL].forEach(direction => {
+  [directions.HORIZONTAL, directions.VERTICAL].forEach(direction => {
     test.describe(`direction="${direction}"`, () => {
       sizes.forEach(size => {
         test(`should renders size="${size}" with large screen`, async ({ page }) => {
@@ -73,7 +74,7 @@ test.describe('mg-menu', () => {
 
   test.describe('navigation horizontal', () => {
     test(`should success mouse navigation`, async ({ page }) => {
-      await setPageContent(page, { direction: Direction.HORIZONTAL }, { width: 800, height: 80 });
+      await setPageContent(page, { direction: directions.HORIZONTAL }, { width: 800, height: 80 });
 
       const actions = [
         { position: 0, expanded: 'true' },
@@ -95,8 +96,8 @@ test.describe('mg-menu', () => {
 
       await expect(body).toHaveScreenshot();
     });
-    test(`should success keyboard navigation, case direction ${Direction.HORIZONTAL}`, async ({ page }) => {
-      await setPageContent(page, { direction: Direction.HORIZONTAL }, getViewportSize(Direction.HORIZONTAL));
+    test(`should success keyboard navigation, case direction ${directions.HORIZONTAL}`, async ({ page }) => {
+      await setPageContent(page, { direction: directions.HORIZONTAL }, getViewportSize(directions.HORIZONTAL));
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -133,7 +134,7 @@ test.describe('mg-menu', () => {
 
   test.describe('navigation vertical', () => {
     test(`should success mouse navigation`, async ({ page }) => {
-      await setPageContent(page, { direction: Direction.VERTICAL }, getViewportSize(Direction.VERTICAL));
+      await setPageContent(page, { direction: directions.VERTICAL }, getViewportSize(directions.VERTICAL));
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -151,8 +152,8 @@ test.describe('mg-menu', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
-    test(`should success keyboard navigation, case direction ${Direction.VERTICAL}`, async ({ page }) => {
-      await setPageContent(page, { direction: Direction.VERTICAL }, getViewportSize(Direction.VERTICAL));
+    test(`should success keyboard navigation, case direction ${directions.VERTICAL}`, async ({ page }) => {
+      await setPageContent(page, { direction: directions.VERTICAL }, getViewportSize(directions.VERTICAL));
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       const actions = [

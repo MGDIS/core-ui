@@ -1,6 +1,8 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgIllustratedMessage } from '../mg-illustrated-message';
+import { directions, sizes } from '../mg-illustrated-message.conf';
+import { toString } from '@mgdis/stencil-helpers';
 
 const getPage = (
   args,
@@ -15,6 +17,14 @@ const getPage = (
       />
     </svg>
   ),
+  details = [
+    <h3 slot="details">The standard Lorem Ipsum passage, used since the 1500s</h3>,
+    <div slot="details">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+      ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>,
+  ],
 ) =>
   newSpecPage({
     components: [MgIllustratedMessage],
@@ -22,24 +32,78 @@ const getPage = (
       <mg-illustrated-message {...args}>
         {illustration}
         {title}
-        <h3 slot="details">The standard Lorem Ipsum passage, used since the 1500s</h3>
-        <div slot="details">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
+        {details}
       </mg-illustrated-message>
     ),
   });
 
 describe('mg-illustrated-message', () => {
-  test.each([{}, { size: 'small' }, { direction: 'horizontal' }])('with args %s', async args => {
+  test.each([{}, { size: 'small' }, { size: 'large' }, { direction: 'horizontal' }])('with args %s', async args => {
     const { root } = await getPage(args);
     expect(root).toMatchSnapshot();
   });
 
+  test('Should throw error with invalid "size" property', async () => {
+    const size = 'blu';
+    expect.assertions(1);
+    try {
+      await getPage({ size });
+    } catch (err) {
+      expect(err.message).toEqual(`<mg-illustrated-message> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${toString(size)}.`);
+    }
+  });
+
+  test('Should throw error with invalid "direction" property', async () => {
+    const direction = 'blu';
+    expect.assertions(1);
+    try {
+      await getPage({ direction });
+    } catch (err) {
+      expect(err.message).toEqual(`<mg-illustrated-message> prop "direction" must be one of: ${directions.join(', ')}. Passed value: ${toString(direction)}.`);
+    }
+  });
+
+  test('Should update classes on size/direction changes', async () => {
+    const page = await getPage({});
+    const element = page.doc.querySelector('mg-illustrated-message');
+    let classMedium = element.shadowRoot.querySelector('.mg-c-illustrated-message--size-medium');
+    let classHorizontal = element.shadowRoot.querySelector('.mg-c-illustrated-message--direction-horizontal');
+
+    expect(classMedium).not.toBeNull();
+    expect(classHorizontal).toBeNull();
+
+    // Change size
+    element.size = 'large';
+    await page.waitForChanges();
+
+    classMedium = element.shadowRoot.querySelector('.mg-c-illustrated-message--size-medium');
+    const classLarge = element.shadowRoot.querySelector('.mg-c-illustrated-message--size-large');
+
+    expect(classMedium).toBeNull();
+    expect(classLarge).not.toBeNull();
+
+    // Change direction
+    element.direction = 'horizontal';
+    await page.waitForChanges();
+
+    classHorizontal = element.shadowRoot.querySelector('.mg-c-illustrated-message--direction-horizontal');
+    expect(classHorizontal).not.toBeNull;
+
+    // Reset direction
+    element.direction = undefined;
+    await page.waitForChanges();
+
+    classHorizontal = element.shadowRoot.querySelector('.mg-c-illustrated-message--direction-horizontal');
+    expect(classHorizontal).toBeNull();
+  });
+
   test('Should render even if slotted content is not an image file', async () => {
     const { root } = await getPage({}, undefined, <span slot="illustration"></span>);
+    expect(root).toMatchSnapshot();
+  });
+
+  test('Should render with details even if title is missing', async () => {
+    const { root } = await getPage({}, null);
     expect(root).toMatchSnapshot();
   });
 
@@ -49,6 +113,15 @@ describe('mg-illustrated-message', () => {
       await getPage({}, <span slot="title">Lorem Ipsum</span>);
     } catch (err) {
       expect(err.message).toContain('<mg-illustrated-message> Slotted title must be a heading: ');
+    }
+  });
+
+  test('Should throw error if slot title and details are missing', async () => {
+    expect.assertions(1);
+    try {
+      await getPage({}, null, undefined, null);
+    } catch (err) {
+      expect(err.message).toContain('<mg-illustrated-message> Slot "title" or "details" must be present.');
     }
   });
 

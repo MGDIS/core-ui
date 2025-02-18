@@ -22,11 +22,11 @@ describe('test - e2e', () => {
   });
   describe('setUpRequestAnimationFrameMock', () => {
     beforeEach(() => {
-      vi.useFakeTimers()
-    })
+      vi.useFakeTimers();
+    });
 
-    test.each([window, global])('Should render html', (element) => {
-      const timer = vi.fn()
+    test.each([window, global])('Should render html', element => {
+      const timer = vi.fn();
       const callback = vi.fn();
 
       setUpRequestAnimationFrameMock(timer);

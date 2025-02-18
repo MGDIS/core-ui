@@ -5,10 +5,10 @@
 
 ## Properties
 
-| Property    | Attribute   | Description                  | Type                         | Default      |
-| ----------- | ----------- | ---------------------------- | ---------------------------- | ------------ |
-| `direction` | `direction` | Define component orientation | `"horizontal" \| "vertical"` | `'vertical'` |
-| `size`      | `size`      | Define illustration size     | `"medium" \| "small"`        | `'medium'`   |
+| Property    | Attribute   | Description                  | Type                             | Default      |
+| ----------- | ----------- | ---------------------------- | -------------------------------- | ------------ |
+| `direction` | `direction` | Define component orientation | `"horizontal" \| "vertical"`     | `'vertical'` |
+| `size`      | `size`      | Define illustration size     | `"large" \| "medium" \| "small"` | `'medium'`   |
 
 
 ## Slots

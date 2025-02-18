@@ -217,13 +217,13 @@ test.describe('mg-input-select', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  test('Should udpate error with displayError() after value update with props', async ({page}) => {
+  test('Should udpate error with displayError() after value update with props', async ({ page }) => {
     const componentArgs = {
       ...baseArgs,
       required: true,
       items: ['Batman', 'Joker', 'Bane'],
-      value: 'Batman'
-    }
+      value: 'Batman',
+    };
     const html = createHTML(componentArgs);
 
     await page.setContent(html);
@@ -235,10 +235,10 @@ test.describe('mg-input-select', () => {
     // Programaticaly remove value to display required error message
     await page.locator('mg-input-select').evaluate(async (elm: HTMLMgInputTextElement) => {
       elm.value = '';
-      await elm.displayError()
+      await elm.displayError();
     });
 
-    // Check state 
+    // Check state
     // - without any selected value
     // - with error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -246,12 +246,12 @@ test.describe('mg-input-select', () => {
     // Enter a new value from JS and remove required error
     await page.locator('mg-input-select').evaluate(async (elm: HTMLMgInputTextElement) => {
       elm.value = 'Joker';
-      await elm.displayError()
+      await elm.displayError();
     });
 
-    // Check state 
+    // Check state
     // - with selected value
     // - without error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-  })
+  });
 });

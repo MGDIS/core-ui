@@ -1,5 +1,5 @@
-import { type ExtendedPlacement, placements } from '../../../utils/floating-ui.utils'
-export * from '../../../utils/floating-ui.utils'
+import { type ExtendedPlacement, placements } from '../../../utils/floating-ui.utils';
+export * from '../../../utils/floating-ui.utils';
 
 /**
  * Placement type from placements

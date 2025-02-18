@@ -82,9 +82,9 @@ export class MgDetails {
   componentWillLoad(): void {
     this.validateTitles(this.toggleClosed);
     this.validateTitles(this.toggleOpened);
-    this.element.addEventListener('click', (event: MouseEvent & {target: HTMLElement}) => {
-      if(event.target.closest('[slot="summary"] mg-button, mg-button[slot="summary"]')) event.preventDefault();
-    })
+    this.element.addEventListener('click', (event: MouseEvent & { target: HTMLElement }) => {
+      if (event.target.closest('[slot="summary"] mg-button, mg-button[slot="summary"]')) event.preventDefault();
+    });
   }
 
   /**

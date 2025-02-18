@@ -16,7 +16,7 @@ const getPage = (args, slot?) => {
     template: () => <mg-input-numeric {...args}>{slot}</mg-input-numeric>,
   });
   jest.runAllTimers();
-  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
   return page;
 };
 

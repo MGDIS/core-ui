@@ -1,10 +1,19 @@
-import type { Size } from '../../../types';
+import type { Size, Direction } from '../../../types';
 
 /**
  * List of all possibles sizes
  */
-const sizes = ['medium', 'small'] as const;
+export const sizes = ['small', 'medium', 'large'] as const;
 /**
  * IllustratedMessage size type
  */
 export type IllustratedMessageSizeType = Size & (typeof sizes)[number];
+
+/**
+ * List of all possibles directions
+ */
+export const directions = ['vertical', 'horizontal'] as const;
+/**
+ * IllustratedMessage direction type
+ */
+export type IllustratedMessageDirectionType = Direction & (typeof directions)[number];
