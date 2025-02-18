@@ -3,7 +3,7 @@ import { toString } from '@mgdis/stencil-helpers';
 import type { IconType, SizeType, SlotLabelType } from './mg-item-more.conf';
 import type { MessageType } from '../../../../locales/index.conf';
 import { OverflowBehavior } from '../../../../utils/behaviors.utils';
-import { Direction, sizes } from '../../menu/mg-menu/mg-menu.conf';
+import { directions, sizes } from '../../menu/mg-menu/mg-menu.conf';
 import { initLocales } from '../../../../locales';
 
 /**
@@ -120,13 +120,13 @@ export class MgItemMore {
     return (
       <Host role="listitem" data-mg-popover-guard={`${menuItemIdentifier}-popover`}>
         {this.parentMenu && (
-          <mg-menu-item data-overflow-more data-size={this.parentMenu.size} data-style-direction={Direction.HORIZONTAL} identifier={menuItemIdentifier}>
+          <mg-menu-item data-overflow-more data-size={this.parentMenu.size} data-style-direction={directions.HORIZONTAL} identifier={menuItemIdentifier}>
             <mg-icon icon={this.icon.icon} size={this.size} slot="image"></mg-icon>
             <span class={{ 'mg-u-visually-hidden': !this.slotlabel.display }} slot="label">
               {this.slotlabel.label}
             </span>
             <mg-menu
-              direction={Direction.VERTICAL}
+              direction={directions.VERTICAL}
               label={this.messages.menuLabel}
               size={this.size}
               ref={ref => {

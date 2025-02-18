@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 import { test } from '../../../../../utils/playwright.fixture';
 import { Status } from '../../../menu/mg-menu-item/mg-menu-item.conf';
-import { Direction, type MenuSizeType, sizes } from '../../../menu/mg-menu/mg-menu.conf';
+import { directions, type MenuSizeType, sizes } from '../../../menu/mg-menu/mg-menu.conf';
 
 const verticalFrameSizes = {
   medium: {
@@ -26,7 +26,7 @@ const createHTML = args => `
     <mg-menu ${renderAttributes({ label: 'menu', ...args })}>
       <mg-menu-item>
         <span slot="label">1 - head-1</span>
-        <mg-menu ${renderAttributes({ label: 'sub-menu 1', direction: Direction.VERTICAL, size: getSubMenuSize(args?.size) })}>
+        <mg-menu ${renderAttributes({ label: 'sub-menu 1', direction: directions.VERTICAL, size: getSubMenuSize(args?.size) })}>
           <mg-menu-item status="active"><span slot="label">Batman begins</span></mg-menu-item>
         </mg-menu>
       </mg-menu-item>
@@ -44,7 +44,7 @@ const createHTML = args => `
         <span slot="label">1 - head-5</span>
         <mg-icon icon='user' slot='image'></mg-icon>
         ${args?.badge ? "<mg-badge value='2' label='hello' slot='information'></mg-badge>" : ''} 
-        <mg-menu ${renderAttributes({ label: 'sub-menu 2', direction: Direction.VERTICAL, size: getSubMenuSize(args?.size) })}>
+        <mg-menu ${renderAttributes({ label: 'sub-menu 2', direction: directions.VERTICAL, size: getSubMenuSize(args?.size) })}>
           <mg-menu-item><span slot="label">Batman begins with a longer title to go outide screen</span></mg-menu-item>
         </mg-menu>
       </mg-menu-item>
@@ -70,8 +70,8 @@ const setPageContent = async (page, args, viewPortSize) => {
 test.describe('mg-item-more', () => {
   test.describe('mg-menu', () => {
     sizes.forEach(size => {
-      test(`should renders, case direction ${Direction.VERTICAL} size="${size}" with small screen`, async ({ page }) => {
-        await setPageContent(page, { direction: Direction.VERTICAL, size }, verticalFrameSizes[size]);
+      test(`should renders, case direction ${directions.VERTICAL} size="${size}" with small screen`, async ({ page }) => {
+        await setPageContent(page, { direction: directions.VERTICAL, size }, verticalFrameSizes[size]);
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
@@ -79,7 +79,7 @@ test.describe('mg-item-more', () => {
 
     [true, false].forEach(badge => {
       test(`should renders with overflow, case badge="${badge}"`, async ({ page }) => {
-        await setPageContent(page, { direction: Direction.HORIZONTAL, badge }, { width: 400, height: 250 });
+        await setPageContent(page, { direction: directions.HORIZONTAL, badge }, { width: 400, height: 250 });
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 

@@ -1,9 +1,10 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
 import { ClassList, createID, isValideID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
-import { Direction, type MenuSizeType, type DirectionType } from '../mg-menu/mg-menu.conf';
+import { directions, type MenuSizeType } from '../mg-menu/mg-menu.conf';
 import { type MgMenuStatusType, Status, targets, type TargetType } from './mg-menu-item.conf';
 import type { MessageType } from '../../../../locales/index.conf';
+import { Direction } from '../../../../types';
 
 /**
  * @slot - Menu item content
@@ -133,14 +134,14 @@ export class MgMenuItem {
   /**
    * Parent menu direction
    */
-  @State() direction: DirectionType;
+  @State() direction: Direction;
   @Watch('direction')
   validateDirection(newValue: MgMenuItem['direction'], oldValue: MgMenuItem['direction']): void {
     if (oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
     this.navigationButtonClassList.add(`${this.navigationButton}--${newValue}`);
     // manage all sub levels child menu-items level with data-level attribut
     Array.from(this.element.querySelectorAll('mg-menu-item')).forEach(item => {
-      if (this.isDirection(Direction.VERTICAL, newValue)) {
+      if (this.isDirection(directions.VERTICAL, newValue)) {
         item.dataset.level = `${(Number(item.dataset.level) || 1) + 1}`;
       } else {
         delete item.dataset.level;
@@ -175,7 +176,7 @@ export class MgMenuItem {
    */
   // eslint-disable-next-line @stencil-community/no-unused-watch
   @Watch('data-style-direction')
-  watchDataStyleDirection(newValue: DirectionType): void {
+  watchDataStyleDirection(newValue: Direction): void {
     this.direction = newValue;
   }
 
@@ -212,7 +213,7 @@ export class MgMenuItem {
    * @returns truthy if component display popover
    */
   private hasPopover = (): boolean =>
-    this.isDirection(Direction.HORIZONTAL) &&
+    this.isDirection(directions.HORIZONTAL) &&
     ((this.isInMainMenu() && Array.from(this.element.children).some(element => !element.querySelector('[slot]'))) || this.isItemMore) &&
     this.href === undefined;
 
@@ -262,7 +263,7 @@ export class MgMenuItem {
   private updateExpanded = (newValue: MgMenuItem['expanded']): void => {
     if (this.isInteractiveItem()) {
       // item is always expanded in vertical menu when has active child
-      this.expanded = (this.isDirection(Direction.VERTICAL) && this.hasActiveChild()) || newValue;
+      this.expanded = (this.isDirection(directions.VERTICAL) && this.hasActiveChild()) || newValue;
     }
   };
 
@@ -394,7 +395,7 @@ export class MgMenuItem {
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
     return setTimeout(() => {
-      this.watchDataStyleDirection(this.element.dataset.styleDirection as DirectionType);
+      this.watchDataStyleDirection(this.element.dataset.styleDirection as Direction);
       this.watchDataHasFocus(this.element.dataset.hasFocus);
       this.updateItem([Status.ACTIVE]);
 
@@ -484,7 +485,7 @@ export class MgMenuItem {
   render(): HTMLElement {
     const getContainerClasses = () => ({
       ['mg-c-menu-item__collapse-container']: true,
-      ['mg-c-menu-item__collapse-container--first-level']: (this.isInMainMenu() || this.isItemMore) && this.isDirection(Direction.HORIZONTAL),
+      ['mg-c-menu-item__collapse-container--first-level']: (this.isInMainMenu() || this.isItemMore) && this.isDirection(directions.HORIZONTAL),
     });
 
     return (

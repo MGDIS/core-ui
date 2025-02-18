@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
-import { Direction } from '../../mg-menu/mg-menu.conf';
+import { directions } from '../../mg-menu/mg-menu.conf';
 import type { MgMenuItem as MgMenuItemType } from '../mg-menu-item';
 
 export default {
@@ -84,7 +84,7 @@ export const MgMenuItemWithSubmenu = {
     ...MgMenuItem.args,
     expanded: true,
     slot: `<span slot="label">My label</span>
-    <mg-menu direction="${Direction.VERTICAL}" label="submenu">
+    <mg-menu direction="${directions.VERTICAL}" label="submenu">
       <mg-menu-item status="active">
         <span slot="label">Subitem 1</span>
       </mg-menu-item>

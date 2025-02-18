@@ -5,7 +5,7 @@ import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
 import { MgMenuItem } from '../../mg-menu-item/mg-menu-item';
 import { MgMenu } from '../../mg-menu/mg-menu';
 import { Status, targets } from '../mg-menu-item.conf';
-import { Direction } from '../../mg-menu/mg-menu.conf';
+import { directions } from '../../mg-menu/mg-menu.conf';
 import { MgPopover } from '../../../mg-popover/mg-popover';
 import { setupMutationObserverMock, setupResizeObserverMock, toString } from '@mgdis/stencil-helpers';
 import { forcePopoverId, mockWindowFrames } from '../../../../../utils/unit.test.utils';
@@ -40,7 +40,7 @@ const MenuItemTemplate: ITemplate<MenuItemArgs, HTMLMgMenuItemElement> = (args, 
 );
 
 const ChildMenuWithItemTemplate: ITemplate<MenuItemArgs, HTMLMgMenuElement> = (args, slots) => (
-  <MenuTemplate label={'child menu'} direction={Direction.VERTICAL}>
+  <MenuTemplate label={'child menu'} direction={directions.VERTICAL}>
     <MenuItemTemplate {...args}>{slots}</MenuItemTemplate>
   </MenuTemplate>
 );
@@ -196,7 +196,7 @@ describe('mg-menu-item', () => {
       expect(page.root).toMatchSnapshot();
 
       // should increment data-level when direction change to "vertical"
-      page.doc.querySelector('mg-menu').direction = Direction.VERTICAL;
+      page.doc.querySelector('mg-menu').direction = directions.VERTICAL;
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -213,7 +213,7 @@ describe('mg-menu-item', () => {
 
       expect(page.root).toMatchSnapshot();
 
-      element.setAttribute('data-style-direction', Direction.VERTICAL);
+      element.setAttribute('data-style-direction', directions.VERTICAL);
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -250,7 +250,7 @@ describe('mg-menu-item', () => {
 
       expect(page.root).toMatchSnapshot();
 
-      element.setAttribute('data-style-direction', Direction.VERTICAL);
+      element.setAttribute('data-style-direction', directions.VERTICAL);
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -518,16 +518,16 @@ describe('mg-menu-item', () => {
       test.each([
         <MenuTemplate label="menu">
           <MenuItemTemplate label="level 1" status={from}>
-            <MenuTemplate label="sub menu 1" direction={Direction.VERTICAL}>
+            <MenuTemplate label="sub menu 1" direction={directions.VERTICAL}>
               <MenuItemTemplate label="level 2" status={to}></MenuItemTemplate>
             </MenuTemplate>
           </MenuItemTemplate>
         </MenuTemplate>,
         <MenuTemplate label="menu">
           <MenuItemTemplate label="level 1" status={from}>
-            <MenuTemplate label="sub menu 1" direction={Direction.VERTICAL}>
+            <MenuTemplate label="sub menu 1" direction={directions.VERTICAL}>
               <MenuItemTemplate label="level 2">
-                <MenuTemplate label="sub menu 1" direction={Direction.VERTICAL}>
+                <MenuTemplate label="sub menu 1" direction={directions.VERTICAL}>
                   <MenuItemTemplate label="level 3" status={to}></MenuItemTemplate>
                 </MenuTemplate>
               </MenuItemTemplate>
@@ -558,7 +558,7 @@ describe('mg-menu-item', () => {
       const page = await getPage(
         <MenuTemplate label="menu">
           <MenuItemTemplate label="level 1">
-            <MenuTemplate label="sub menu 1" direction={Direction.VERTICAL}>
+            <MenuTemplate label="sub menu 1" direction={directions.VERTICAL}>
               <MenuItemTemplate label="level 2"></MenuItemTemplate>
             </MenuTemplate>
           </MenuItemTemplate>

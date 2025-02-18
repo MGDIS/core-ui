@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../../utils/playwright.fixture';
 import { renderAttributes } from '@mgdis/playwright-helpers';
-import { Direction, sizes } from '../../mg-menu/mg-menu.conf';
+import { directions, sizes } from '../../mg-menu/mg-menu.conf';
 import { Status, targets } from '../mg-menu-item.conf';
 
 const slotContent = '<div><h3>Demo title</h3><p>some content</p></div>';
@@ -10,7 +10,7 @@ const slotImage = '<mg-icon icon="user" slot="image"></mg-icon>';
 const slotInformation = '<mg-badge value="2" label="hello" slot="information"></mg-badge>';
 const slotMetadata = '<span slot="metadata">is a hero</span>';
 const defaultViewPortSize = { width: 130, height: 200 };
-const createHTML = (args, slot = '', direction = Direction.HORIZONTAL) => `
+const createHTML = (args, slot = '', direction = directions.HORIZONTAL) => `
 <mg-menu ${renderAttributes({ label: 'batmenu', direction, ...args })}">
   <mg-menu-item ${renderAttributes(args)}>
     <span slot="label">${args.label ? args.label : 'batman'} ${args.href ? 'link' : ''}</span>
@@ -20,7 +20,7 @@ const createHTML = (args, slot = '', direction = Direction.HORIZONTAL) => `
 `;
 
 test.describe('mg-menu-item', () => {
-  [Direction.HORIZONTAL, Direction.VERTICAL].forEach(direction => {
+  [directions.HORIZONTAL, directions.VERTICAL].forEach(direction => {
     test.describe(`render direction="${direction}"`, () => {
       [Status.ACTIVE, Status.VISIBLE, Status.HIDDEN, Status.DISABLED].forEach(status => {
         test.describe(`status="${status}"`, () => {
@@ -82,7 +82,7 @@ test.describe('mg-menu-item', () => {
           await page.setContent(
             createHTML(
               { expanded },
-              `<mg-menu direction="${Direction.VERTICAL}" label="submenu"><mg-menu-item status="active"><span slot="label">Batman begins</span></mg-menu-item></mg-menu>`,
+              `<mg-menu direction="${directions.VERTICAL}" label="submenu"><mg-menu-item status="active"><span slot="label">Batman begins</span></mg-menu-item></mg-menu>`,
               direction,
             ),
           );

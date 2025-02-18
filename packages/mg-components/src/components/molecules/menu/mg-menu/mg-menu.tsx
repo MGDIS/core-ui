@@ -1,7 +1,8 @@
 import { Component, h, Prop, Element, Watch, Host, Listen } from '@stencil/core';
-import { Direction, sizes } from './mg-menu.conf';
-import type { MenuSizeType, ItemMoreType, DirectionType } from './mg-menu.conf';
+import { directions, sizes } from './mg-menu.conf';
+import type { MenuSizeType, ItemMoreType } from './mg-menu.conf';
 import { toString } from '@mgdis/stencil-helpers';
+import { Direction } from '../../../../types';
 
 /**
  * @slot - Menu content
@@ -42,11 +43,11 @@ export class MgMenu {
   /**
    * Component display direction.
    */
-  @Prop({ reflect: true }) direction: DirectionType = Direction.HORIZONTAL;
+  @Prop({ reflect: true }) direction: Direction = directions.HORIZONTAL;
   @Watch('direction')
   validateDirection(newValue: MgMenu['direction']): void {
-    if (![Direction.VERTICAL, Direction.HORIZONTAL].includes(newValue)) {
-      throw new Error(`<${this.name}> prop "direction" must be one of: ${Direction.HORIZONTAL}, ${Direction.VERTICAL}. Passed value: ${toString(newValue)}.`);
+    if (![directions.VERTICAL, directions.HORIZONTAL].includes(newValue)) {
+      throw new Error(`<${this.name}> prop "direction" must be one of: ${directions.HORIZONTAL}, ${directions.VERTICAL}. Passed value: ${toString(newValue)}.`);
     } else {
       this.updateMenuItems();
     }
@@ -59,8 +60,8 @@ export class MgMenu {
   @Prop() itemmore?: ItemMoreType;
   @Watch('itemmore')
   validateItemMore(newValue: MgMenu['itemmore']): void {
-    if (newValue !== undefined && this.direction !== Direction.HORIZONTAL) {
-      throw new Error(`<${this.name}> prop "itemmore" must be paired with direction ${Direction.HORIZONTAL}.`);
+    if (newValue !== undefined && this.direction !== directions.HORIZONTAL) {
+      throw new Error(`<${this.name}> prop "itemmore" must be paired with direction ${directions.HORIZONTAL}.`);
     } else if (newValue !== undefined) {
       this.renderMgItemMore();
     }
@@ -139,7 +140,7 @@ export class MgMenu {
    * render mg-item-more
    */
   private renderMgItemMore = (): void => {
-    if (this.direction === Direction.VERTICAL || (this.direction === Direction.HORIZONTAL && this.isChildMenu()) || this.element.children.length <= 1) {
+    if (this.direction === directions.VERTICAL || (this.direction === directions.HORIZONTAL && this.isChildMenu()) || this.element.children.length <= 1) {
       return;
     }
 
@@ -179,7 +180,7 @@ export class MgMenu {
     this.updateMenuItems();
 
     // add listener to close main menu when focus leave it
-    if (!this.isChildMenu() && this.direction === Direction.HORIZONTAL) {
+    if (!this.isChildMenu() && this.direction === directions.HORIZONTAL) {
       document.addEventListener('focusin', (event: FocusEvent & { target: HTMLElement }): void => {
         const isElementChild = (element: HTMLElement): boolean => {
           if (element === this.element) return true;

@@ -1,7 +1,7 @@
 import { Component, h, Element, Prop, Watch, State, Host } from '@stencil/core';
 import { createID, toString } from '@mgdis/stencil-helpers';
 import { Status } from '../menu/mg-menu-item/mg-menu-item.conf';
-import { Direction } from '../menu/mg-menu/mg-menu.conf';
+import { directions } from '../menu/mg-menu/mg-menu.conf';
 import { initLocales } from '../../../locales';
 import type { MessageType } from '../../../locales/index.conf';
 import type { MgActionMoreItemType, MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreDividerType } from './mg-action-more.conf';
@@ -205,7 +205,7 @@ export class MgActionMore {
               {!this.button.isIcon && buttonContent}
             </mg-button>
             <div slot="content">
-              <mg-menu direction={Direction.VERTICAL} label={this.messages.label}>
+              <mg-menu direction={directions.VERTICAL} label={this.messages.label}>
                 {this.items.map(item =>
                   isMgActionMoreDivider(item) ? (
                     <mg-divider class="mg-c-action-more__divider" key="divider"></mg-divider>

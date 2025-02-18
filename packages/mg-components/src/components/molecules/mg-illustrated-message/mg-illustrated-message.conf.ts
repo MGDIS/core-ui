@@ -1,4 +1,4 @@
-import type { Size } from '../../../types';
+import type { Size, Direction } from '../../../types';
 
 /**
  * List of all possibles sizes
@@ -16,4 +16,4 @@ export const directions = ['vertical', 'horizontal'] as const;
 /**
  * IllustratedMessage direction type
  */
-export type IllustratedMessageDirectionType = (typeof directions)[number];
+export type IllustratedMessageDirectionType = Direction & (typeof directions)[number];
