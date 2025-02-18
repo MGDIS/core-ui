@@ -1,13 +1,6 @@
 import { Component, Element, State, Prop, Watch } from '@stencil/core';
 import { ClassList, toString, createID, isValidString } from '@mgdis/stencil-helpers';
-import { type TableSizeType, type ColumnsAlignmentType, type TextAlignType, alignments, sizes } from './mg-table.conf';
-
-/**
- * Check if value is a valid align array
- * @param newValue - New value
- * @returns True if value is a valid align array
- */
-const isValidAlignArray = (newValue: unknown): boolean => Array.isArray(newValue) && newValue.every(value => alignments.includes(value));
+import { type TableSizeType, type ColumnsAlignmentType, alignments, sizes } from './mg-table.conf';
 
 /**
  * Check if value is a valid align object
@@ -15,7 +8,11 @@ const isValidAlignArray = (newValue: unknown): boolean => Array.isArray(newValue
  * @returns True if value is a valid align object
  */
 const isValidAlignObject = (newValue: unknown): boolean =>
-  typeof newValue === 'object' && Object.entries(newValue).every(([key, value]) => !isNaN(parseInt(key)) && alignments.includes(value));
+  typeof newValue === 'object' &&
+  !Array.isArray(newValue) &&
+  Object.entries(newValue).every(([key, value]) => {
+    return !isNaN(parseInt(key)) && alignments.includes(value);
+  });
 
 /**
  * @slot - Table content
@@ -93,21 +90,13 @@ export class MgTable {
       if (typeof newValue === 'string' && alignments.includes(newValue)) {
         this.classCollection.add(`mg-c-table--align-${this.columnsAlignment}`);
       }
-      // Array value
-      else if (Array.isArray(newValue) && isValidAlignArray(newValue)) {
-        newValue.forEach((value, index) => {
-          this.applyColumnAlignment(index + 1, value);
-        });
-      }
       // Object value
       else if (typeof newValue === 'object' && isValidAlignObject(newValue)) {
         Object.entries(newValue).forEach(([key, value]) => {
-          this.applyColumnAlignment(parseInt(key), value);
+          this.alignmentStylesheet.insertRule(`.${this.componentClass}{th:nth-child(${key}),td:nth-child(${key}){text-align:${value}}}`);
         });
       } else {
-        throw new Error(
-          `<mg-table> prop "columnsAlignment" can be a string, an Array or an Object, values must be one of ${alignments.join(', ')}. Passed value: ${toString(newValue)}.`,
-        );
+        throw new Error(`<mg-table> prop "columnsAlignment" can be a string or an Object, values must be one of ${alignments.join(', ')}. Passed value: ${toString(newValue)}.`);
       }
     }
   }
@@ -158,15 +147,6 @@ export class MgTable {
     // Append table
     this.element.shadowRoot.append(divWrapper);
   }
-
-  /**
-   * Add column align style
-   * @param column - Column number
-   * @param align - Column alignment
-   */
-  private applyColumnAlignment = (columnIndex: number, align: TextAlignType): void => {
-    this.alignmentStylesheet.insertRule(`.${this.componentClass}{th:nth-child(${columnIndex}),td:nth-child(${columnIndex}){text-align:${align}}}`);
-  };
 
   /*************
    * Lifecycle *

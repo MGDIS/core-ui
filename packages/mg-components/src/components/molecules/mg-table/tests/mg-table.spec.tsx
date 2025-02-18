@@ -50,7 +50,6 @@ describe('mg-table', () => {
     { columnsAlignment: 'left' },
     { columnsAlignment: 'center' },
     { columnsAlignment: 'right' },
-    { columnsAlignment: ['left', 'center', 'right'] },
     { columnsAlignment: { 2: 'center' } },
   ])('Should render with args %o:', async args => {
     const { root } = await getPage(args);
@@ -66,13 +65,13 @@ describe('mg-table', () => {
     }
   });
 
-  test.each(['', ' ', 'blu', ['center', 'blu'], { a: 'left' }, { 2: 'blu' }])('Should not render with invalid columnsAlignment property: %s', async columnsAlignment => {
+  test.each(['', ' ', 'blu', ['center', 'left'], { a: 'left' }, { 2: 'blu' }])('Should not render with invalid columnsAlignment property: %s', async columnsAlignment => {
     expect.assertions(1);
     try {
       await getPage({ columnsAlignment });
     } catch (err) {
       expect(err.message).toEqual(
-        `<mg-table> prop "columnsAlignment" can be a string, an Array or an Object, values must be one of ${alignments.join(', ')}. Passed value: ${toString(columnsAlignment)}.`,
+        `<mg-table> prop "columnsAlignment" can be a string or an Object, values must be one of ${alignments.join(', ')}. Passed value: ${toString(columnsAlignment)}.`,
       );
     }
   });

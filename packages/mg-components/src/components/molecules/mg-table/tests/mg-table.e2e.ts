@@ -72,7 +72,6 @@ test.describe('mg-table', () => {
     { columnsAlignment: 'left' },
     { columnsAlignment: 'center' },
     { columnsAlignment: 'right' },
-    { columnsAlignment: ['left', 'center', 'right'] },
     { columnsAlignment: { 2: 'center' } },
   ].forEach(args => {
     test(`Should render with args ${JSON.stringify(args)}`, async ({ page }) => {

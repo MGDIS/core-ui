@@ -14,8 +14,8 @@ export const alignments = ['left', 'center', 'right'] as const;
 /**
  * Text align type
  */
-export type TextAlignType = (typeof alignments)[number];
+type TextAlignType = (typeof alignments)[number];
 /**
  * Column align type
  */
-export type ColumnsAlignmentType = TextAlignType | TextAlignType[] | { [key: number]: TextAlignType };
+export type ColumnsAlignmentType = TextAlignType | { [key: number]: TextAlignType };
