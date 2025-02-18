@@ -1,15 +1,10 @@
-import type { Size } from '../../../../types';
+import type { Size, Direction } from '../../../../types';
 import type { MgItemMore } from '../../internals/mg-item-more/mg-item-more';
-
-/**
- * Menu direction type
- */
-export type DirectionType = 'vertical' | 'horizontal';
 
 /**
  * Menu direction values
  */
-export const Direction: Record<string, DirectionType> = {
+export const directions: Record<string, Direction> = {
   VERTICAL: 'vertical',
   HORIZONTAL: 'horizontal',
 };

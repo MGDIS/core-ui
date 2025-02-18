@@ -9,6 +9,11 @@ export type Size = 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge
 export type Variant = 'info' | 'success' | 'warning' | 'danger' | 'danger-alt' | 'primary' | 'secondary' | 'app' | 'light' | 'dark' | 'flat' | 'text-color' | 'link';
 
 /**
+ * Defines the possible values for directions
+ */
+export type Direction = 'vertical' | 'horizontal';
+
+/**
  * Defines the possible values for variantStyle
  */
 export type VariantStyle = 'icon' | 'background' | 'bar-left' | 'full';
