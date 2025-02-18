@@ -61,7 +61,7 @@ describe('mg-popover', () => {
     expect(root).toMatchSnapshot();
   });
 
-  test.each(['auto', 'auto-end', 'auto-start', 'batman'])('Should update placement', async(placement) => {
+  test.each(['auto', 'auto-end', 'auto-start', 'batman'])('Should update placement', async placement => {
     const args = { identifier: 'identifier', placement };
     const { doc } = await getPage(args, [
       <h2 slot="title">Blu bli blo bla</h2>,
@@ -76,7 +76,7 @@ describe('mg-popover', () => {
     const mgTooltip = doc.querySelector('mg-popover');
 
     expect(mgTooltip.placement).toEqual('bottom');
-  })
+  });
 
   test.each([
     { eventIn: 'click', eventOut: 'clickBtn' },

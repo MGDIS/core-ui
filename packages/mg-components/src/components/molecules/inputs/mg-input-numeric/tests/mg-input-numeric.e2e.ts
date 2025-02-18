@@ -300,11 +300,11 @@ test.describe('mg-input-numeric', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  test('Should udpate error with displayError() after value update with props', async ({page}) => {
+  test('Should udpate error with displayError() after value update with props', async ({ page }) => {
     const html = createHTML({
       ...baseArgs,
       required: true,
-      value: 10
+      value: 10,
     });
     await page.setContent(html);
 
@@ -314,10 +314,10 @@ test.describe('mg-input-numeric', () => {
     // Programaticaly remove value to display required error message
     await page.locator('mg-input-numeric').evaluate(async (elm: HTMLMgInputTextElement) => {
       elm.value = '';
-      await elm.displayError()
+      await elm.displayError();
     });
 
-    // Check state 
+    // Check state
     // - without value
     // - with error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -325,12 +325,12 @@ test.describe('mg-input-numeric', () => {
     // Enter a new value from JS and remove required error
     await page.locator('mg-input-numeric').evaluate(async (elm: HTMLMgInputTextElement) => {
       elm.value = 1;
-      await elm.displayError()
+      await elm.displayError();
     });
 
-    // Check state 
+    // Check state
     // - with value
     // - without error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-  })
+  });
 });

@@ -198,9 +198,9 @@ export class MgInputPassword {
         this.checkValidity();
         this.setErrorMessage();
         this.hasDisplayedError = this.invalid;
-        resolve()
-      })
-    })
+        resolve();
+      });
+    });
   }
 
   /**

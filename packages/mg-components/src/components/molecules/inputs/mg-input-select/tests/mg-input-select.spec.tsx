@@ -15,7 +15,7 @@ const getPage = args => {
   });
 
   jest.runAllTimers();
-  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
 
   return page;
 };

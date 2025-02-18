@@ -73,7 +73,7 @@ test.describe('mg-panel', () => {
     { slot: '<mg-message>message</mg-message>' },
     { slot: '<div><mg-message>message</mg-message></div>' },
     { slot: '<mg-card>card</mg-card>' },
-    { slot: '<div><mg-card>card</mg-card></div>' }
+    { slot: '<div><mg-card>card</mg-card></div>' },
   ].forEach(args => {
     test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, ...args });

@@ -8,11 +8,11 @@ class RuleTester extends ESLintRuleTester {
   }
   run(name, rule, tests) {
     super.run(name, rule, {
-      valid: tests.valid.map((test) => ({
+      valid: tests.valid.map(test => ({
         ...test,
         filename: FILE_NAME,
       })),
-      invalid: tests.invalid.map((test) => ({
+      invalid: tests.invalid.map(test => ({
         ...test,
         filename: FILE_NAME,
       })),

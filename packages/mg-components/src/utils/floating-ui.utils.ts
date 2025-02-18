@@ -1,32 +1,27 @@
-import { type Placement } from "@floating-ui/dom";
+import { type Placement } from '@floating-ui/dom';
 
 /**
  * List of all possibles sides
  */
-export const sides = [
-    'top',
-    'right',
-    'bottom',
-    'left',
-  ] as const;
-  
+export const sides = ['top', 'right', 'bottom', 'left'] as const;
+
 /**
  * List of all possibles placements
  */
-export const placements  = [
-    ...sides,
-    'auto',
-    'auto-start',
-    'auto-end',
-    'top-start',
-    'top-end',
-    'bottom-start',
-    'bottom-end',
-    'right-start',
-    'right-end',
-    'left-start',
-    'left-end',
-  ] as const;
+export const placements = [
+  ...sides,
+  'auto',
+  'auto-start',
+  'auto-end',
+  'top-start',
+  'top-end',
+  'bottom-start',
+  'bottom-end',
+  'right-start',
+  'right-end',
+  'left-start',
+  'left-end',
+] as const;
 
 /**
  * Define placement type

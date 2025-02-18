@@ -80,8 +80,8 @@ describe('behavior.utils', () => {
       });
     });
 
-    test.each(['parentElement', 'itemMoreElement', 'itemMoreContainerElement'])('Should throw error when missing construtor param %s', async (param) => {
-      expect.assertions(1)
+    test.each(['parentElement', 'itemMoreElement', 'itemMoreContainerElement'])('Should throw error when missing construtor param %s', async param => {
+      expect.assertions(1);
       const page = await newSpecPage({
         components: [],
         template: () => (
@@ -91,21 +91,21 @@ describe('behavior.utils', () => {
               <ul></ul>
             </li>
           </ul>
-          ),
+        ),
       });
-      let itemMoreContainerElement
-      if(param !== 'itemMoreContainerElement') itemMoreContainerElement = page.doc.querySelector('ul > li > ul') as HTMLElement;
-      let itemMoreElement
-      if(param !== 'itemMoreElement') itemMoreElement = page.doc.querySelector('ul > li:last-of-type') as HTMLElement;
-      let parentElement
-      if(param !== 'parentElement') parentElement = page.doc.querySelector('ul');
-      
+      let itemMoreContainerElement;
+      if (param !== 'itemMoreContainerElement') itemMoreContainerElement = page.doc.querySelector('ul > li > ul') as HTMLElement;
+      let itemMoreElement;
+      if (param !== 'itemMoreElement') itemMoreElement = page.doc.querySelector('ul > li:last-of-type') as HTMLElement;
+      let parentElement;
+      if (param !== 'parentElement') parentElement = page.doc.querySelector('ul');
+
       try {
         new OverflowBehavior(parentElement, itemMoreElement, itemMoreContainerElement);
       } catch (err) {
         expect(err.message).toEqual(`OverflowBehavior - all construtor params are required`);
       }
-    })
+    });
 
     test('Should fire disconnect callback', async () => {
       const page = await newSpecPage({
@@ -117,7 +117,7 @@ describe('behavior.utils', () => {
               <ul></ul>
             </li>
           </ul>
-          ),
+        ),
       });
       const itemMoreContainerElement = page.doc.querySelector('ul > li > ul') as HTMLElement;
       const itemMoreElement = page.doc.querySelector('ul > li:last-of-type') as HTMLElement;

@@ -152,7 +152,7 @@ export const setupSubmitEventMock = (): typeof MockCustomEvent => {
  * @param faketimer - recommended to use jest.runOnlyPendingTimers()
  * @returns custom setUpRequestAnimationFrameMock mock
  */
-export const setUpRequestAnimationFrameMock = (faketimer:() => void): typeof requestAnimationFrame => {
+export const setUpRequestAnimationFrameMock = (faketimer: () => void): typeof requestAnimationFrame => {
   const requestAnimationFrame = (callback: FrameRequestCallback) => {
     setTimeout(callback, 1);
     faketimer();
@@ -168,5 +168,4 @@ export const setUpRequestAnimationFrameMock = (faketimer:() => void): typeof req
   });
 
   return requestAnimationFrame;
-}
-
+};

@@ -13,7 +13,7 @@ const getPage = args => {
     template: () => <mg-input-date {...args}></mg-input-date>,
   });
   jest.runAllTimers();
-  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers)
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
   return page;
 };
 

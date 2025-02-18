@@ -50,8 +50,8 @@ export class MgPopover {
    */
   @Prop({ mutable: true }) placement: PopoverPlacementType = 'bottom';
   @Watch('placement')
-  watchPlacement(newValue) :void {
-    if(!isFloatingUIPlacement(newValue)) this.placement = 'bottom';
+  watchPlacement(newValue): void {
+    if (!isFloatingUIPlacement(newValue)) this.placement = 'bottom';
   }
 
   /**
@@ -230,12 +230,12 @@ export class MgPopover {
 
         const arrowElement: HTMLElement = this.mgPopover.querySelector('[data-floating-arrow]');
         const { x: arrowX, y: arrowY } = middlewareData.arrow;
-        // https://floating-ui.com/docs/arrow 
+        // https://floating-ui.com/docs/arrow
         // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined.
         // Due to this, either x or y will be undefined, depending on the side of placement.
         // The above code uses `isNaN` to check for null and undefined simultaneously.
         // Don’t remove `isNaN`, because either value can be falsy (0), causing a bug!
-        const numberToPx = (number: number): string => !isNaN(number) ? `${number}px` : '';
+        const numberToPx = (number: number): string => (!isNaN(number) ? `${number}px` : '');
 
         if (arrowElement !== null)
           Object.assign(arrowElement.style, {
@@ -272,7 +272,7 @@ export class MgPopover {
     this.validateCloseButton(this.closeButton);
     this.validateIdentifier(this.identifier);
     this.validateArrowHide(this.arrowHide);
-    this.watchPlacement(this.placement)
+    this.watchPlacement(this.placement);
   }
 
   /**

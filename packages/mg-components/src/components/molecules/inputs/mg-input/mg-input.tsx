@@ -165,7 +165,7 @@ export class MgInput {
     }
 
     this.element.querySelectorAll('input,select,textarea,[role="switch"]').forEach(element => {
-      if(ariaDescribedbyIDs.size) element.setAttribute('aria-describedby', Array.from(ariaDescribedbyIDs).join(' '));
+      if (ariaDescribedbyIDs.size) element.setAttribute('aria-describedby', Array.from(ariaDescribedbyIDs).join(' '));
       else element.removeAttribute('aria-describedby');
     });
   }
