@@ -1,5 +1,19 @@
 # Changelog
 
+## Release (2025-02-20-14-05_Few-Fuzzy-Wuzzy-Brown-Fish)
+
+### Packages released
+
+- [eslint-config-vue3 changelog](packages/eslint-config-vue3/CHANGELOG.md)
+- [img changelog](packages/img/CHANGELOG.md)
+- [linting-angularjs changelog](packages/linting-angularjs/CHANGELOG.md)
+- [linting-vue2 changelog](packages/linting-vue2/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [sanitize-html changelog](packages/sanitize-html/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2025-01-29-15-47_Sleepy-Shocking-Pink-Sheep)
 
 ### Packages released

@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.4
+
+### Patch Changes
+
+- a513c99: Update dependencies
+
 ## 3.0.3
 
 ### Patch Changes

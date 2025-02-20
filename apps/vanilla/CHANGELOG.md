@@ -1,5 +1,20 @@
 # vanilla
 
+## 0.1.6
+
+### Patch Changes
+
+- a513c99: Update dependencies
+- Updated dependencies [5e91701]
+- Updated dependencies [0c556bb]
+- Updated dependencies [7089d79]
+- Updated dependencies [0b9a45e]
+- Updated dependencies [a513c99]
+- Updated dependencies [0964f29]
+  - @mgdis/styles@2.3.0
+  - @mgdis/mg-components@6.6.0
+  - @mgdis/notification-center@1.2.5
+
 ## 0.1.5
 
 ### Patch Changes

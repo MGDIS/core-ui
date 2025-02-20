@@ -1,5 +1,26 @@
 # @mgdis/mg-components
 
+## 6.6.0
+
+### Minor Changes
+
+- 0c556bb: [**`<mg-input-rich-text-editor>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-rich-text-editor--docs) new component
+- 0b9a45e: Add icons and illustrations
+- 0964f29: [**`<mg-illustrated-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-illustrated-message--docs) Update sizes ans spacings
+
+### Patch Changes
+
+- 7089d79: [#538](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/538) disable browser autocomplete
+- a513c99: Update dependencies
+- Updated dependencies [5e91701]
+- Updated dependencies [0c556bb]
+- Updated dependencies [0b9a45e]
+- Updated dependencies [a513c99]
+- Updated dependencies [0964f29]
+  - @mgdis/styles@2.3.0
+  - @mgdis/img@2.2.0
+  - @mgdis/stencil-helpers@2.2.4
+
 ## 6.5.0
 
 ### Minor Changes

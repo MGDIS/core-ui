@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.0.16
+
+### Patch Changes
+
+- a513c99: Update dependencies
+
 ## 1.0.15
 
 ### Patch Changes

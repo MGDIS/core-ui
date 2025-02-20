@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.3
+
+### Patch Changes
+
+- a513c99: Update dependencies
+
 ## 4.1.2
 
 ### Patch Changes

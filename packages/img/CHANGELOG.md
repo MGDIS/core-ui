@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 2.2.0
+
+### Minor Changes
+
+- 0b9a45e: Add icons and illustrations
+
 ## 2.1.2
 
 ### Patch Changes
