@@ -94,6 +94,7 @@ class NotificationCenter {
       // Add div to receive notifications
       this.#notificationsReceiver.innerHTML = '';
       this.#notificationsReceiver.id = this.#appId;
+      this.#notificationsReceiver.setAttribute('role', 'status');
       this.#notificationsReceiver.classList.add('notification-center');
       this.#rootWindow.document.body.appendChild(this.#notificationsReceiver);
     }
