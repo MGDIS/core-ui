@@ -60,6 +60,25 @@
     "password": {
       "display": "Afficher le mot de passe",
       "hide": "Masquer le mot de passe"
+    },
+    "numeric": {
+      "helpTextRange": {
+        "min": {
+          "number": "Le nombre doit être supérieur à {min}",
+          "currency": "Le montant doit être supérieur à {min}",
+          "percent": "Le pourcentage doit être supérieur à {min}"
+        },
+        "max": {
+          "number": "Le nombre doit être inférieur à {max}",
+          "currency": "Le montant doit être inférieur à {max}",
+          "percent": "Le pourcentage doit être inférieur à {max}"
+        },
+        "minMax": {
+          "number": "Le nombre doit être compris entre {min} et {max}",
+          "currency": "Le montant doit être compris entre {min} et {max}",
+          "percent": "Le pourcentage doit être compris entre {min} et {max}"
+        }
+      }
     }
   },
   "form": {

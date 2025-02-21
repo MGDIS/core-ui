@@ -794,4 +794,92 @@ describe('mg-input-numeric', () => {
       }).toThrow();
     });
   });
+
+  test.each([
+    // Test with custom helpText
+    {
+      args: { helpText: 'Custom help text' },
+      expected: 'Custom help text',
+    },
+    // Tests with min only
+    {
+      args: { min: 10 },
+      expected: 'The number must be greater than 10',
+    },
+    {
+      args: { min: 10, format: 'currency', currency: 'EUR' },
+      expected: 'The amount must be greater than 10',
+    },
+    {
+      args: { min: 10, format: 'percent' },
+      expected: 'The percentage must be greater than 10',
+    },
+    // Tests with max only
+    {
+      args: { max: 100 },
+      expected: 'The number must be less than 100',
+    },
+    {
+      args: { max: 100, format: 'currency', currency: 'EUR' },
+      expected: 'The amount must be less than 100',
+    },
+    {
+      args: { max: 100, format: 'percent' },
+      expected: 'The percentage must be less than 100',
+    },
+    // Tests with min and max
+    {
+      args: { min: 10, max: 100 },
+      expected: 'The number must be between 10 and 100',
+    },
+    {
+      args: { min: 10, max: 100, format: 'currency', currency: 'EUR' },
+      expected: 'The amount must be between 10 and 100',
+    },
+    {
+      args: { min: 10, max: 100, format: 'percent' },
+      expected: 'The percentage must be between 10 and 100',
+    },
+    // Tests with readonly or disabled
+    {
+      args: { min: 10, max: 100, readonly: true },
+      expected: '',
+    },
+    {
+      args: { min: 10, max: 100, disabled: true },
+      expected: '',
+    },
+    // Tests with different locales
+    {
+      args: { min: 10, max: 100, lang: 'fr' },
+      expected: 'Le nombre doit être compris entre 10 et 100',
+    },
+    {
+      args: { min: 10, max: 100, format: 'currency', currency: 'EUR', lang: 'fr' },
+      expected: 'Le montant doit être compris entre 10 et 100',
+    },
+    {
+      args: { min: 10, max: 100, format: 'percent', lang: 'fr' },
+      expected: 'Le pourcentage doit être compris entre 10 et 100',
+    },
+  ])('Should format help text with args: $args', async ({ args, expected }) => {
+    const page = await getPage({
+      label: 'label',
+      identifier: 'identifier',
+      ...args,
+    });
+    const element = page.doc.querySelector('mg-input-numeric');
+
+    // Wait for the component to be initialized
+    await page.waitForChanges();
+
+    // Verify the formatted help text using the slot content
+    const helpText = element.shadowRoot.querySelector('[slot="help-text"]');
+
+    if (args.readonly || args.disabled) {
+      expect(helpText).toBeNull();
+    } else {
+      expect(helpText.textContent.replace(/\s+/g, ' ')).toBe(expected.replace(/\s+/g, ' '));
+    }
+  });
 });

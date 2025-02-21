@@ -517,6 +517,39 @@ export class MgInputNumeric {
     }
   };
 
+  /**
+   * Format help text to display
+   * @param helpText - help text format
+   * @returns formatted help text with range information if applicable
+   */
+  private formatHelpText = (helpText: string): string => {
+    // If a custom helpText is provided, return it directly
+    if (isValidString(helpText)) {
+      return helpText;
+    }
+
+    // Add range message only if min or max are defined
+    if (!this.readonly && !this.disabled && (this.min !== undefined || this.max !== undefined)) {
+      let rangeMessage: string;
+      const formatType = this.format === 'currency' ? 'currency' : this.format === 'percent' ? 'percent' : 'number';
+
+      if (this.min !== undefined && this.max !== undefined) {
+        rangeMessage = this.messages.input.numeric.helpTextRange.minMax[formatType];
+        rangeMessage = rangeMessage.replace('{min}', this.formatErrorValue(this.min)).replace('{max}', this.formatErrorValue(this.max));
+      } else if (this.min !== undefined) {
+        rangeMessage = this.messages.input.numeric.helpTextRange.min[formatType];
+        rangeMessage = rangeMessage.replace('{min}', this.formatErrorValue(this.min));
+      } else if (this.max !== undefined) {
+        rangeMessage = this.messages.input.numeric.helpTextRange.max[formatType];
+        rangeMessage = rangeMessage.replace('{max}', this.formatErrorValue(this.max));
+      }
+
+      if (rangeMessage !== undefined) {
+        return rangeMessage;
+      }
+    }
+  };
+
   /*************
    * Lifecycle *
    *************/
@@ -580,7 +613,7 @@ export class MgInputNumeric {
         required={this.required}
         tooltip={this.tooltip}
         tooltipPosition={this.readonly && this.value === undefined ? 'label' : this.tooltipPosition}
-        helpText={this.helpText}
+        helpText={this.readonly && this.disabled ? undefined : this.formatHelpText(this.helpText)}
         errorMessage={this.errorMessage}
       >
         {this.readonly
