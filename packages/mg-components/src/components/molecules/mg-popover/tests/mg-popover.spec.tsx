@@ -288,4 +288,29 @@ describe('mg-popover', () => {
 
     expect(fallbacks).toEqual(expectedFallbacks);
   });
+
+  test('Should include sides in fallback placements when using data-fallback-placement', async () => {
+    const page = await getPage(
+      {
+        identifier: 'identifier',
+        placement: 'bottom',
+        display: true,
+        fallbackPlacement: 'right-start,right-end',
+      },
+      [
+        <h2 slot="title">Blu bli blo bla</h2>,
+        <p slot="content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>,
+      ],
+    );
+
+    const fallbacks = page.rootInstance.getClosestPlacements('bottom');
+
+    // The defined fallbackPlacements + the basic sides
+    const expectedFallbacks = ['right-start', 'right-end', 'top', 'right', 'bottom', 'left'];
+    expect(fallbacks).toEqual(expectedFallbacks);
+  });
 });

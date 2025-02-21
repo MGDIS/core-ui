@@ -218,7 +218,7 @@ export class MgPopover {
       .split(',')
       .map(t => t.trim())
       .filter(isFloatingUIPlacement);
-    if (fallbackPlacements.length > 0) return fallbackPlacements;
+    if (fallbackPlacements.length > 0) return Array.from(new Set([...fallbackPlacements, ...sides]).values()).filter(isFloatingUIPlacement);
 
     // Extract side from placement (e.g. "top" from "top-start")
     const [side] = placement.split('-');
