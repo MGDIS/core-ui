@@ -531,7 +531,15 @@ export class MgInputNumeric {
     // Add range message only if min or max are defined
     if (!this.readonly && !this.disabled && (this.min !== undefined || this.max !== undefined)) {
       let rangeMessage: string;
-      const formatType = this.format === 'currency' ? 'currency' : this.format === 'percent' ? 'percent' : 'number';
+      let formatType: string;
+
+      if (this.format === 'currency') {
+        formatType = 'currency';
+      } else if (this.format === 'percent') {
+        formatType = 'percent';
+      } else {
+        formatType = 'number';
+      }
 
       if (this.min !== undefined && this.max !== undefined) {
         rangeMessage = this.messages.input.numeric.helpTextRange.minMax[formatType];
