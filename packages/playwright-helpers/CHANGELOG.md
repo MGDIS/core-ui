@@ -1,5 +1,11 @@
 # @mgdis/playwright-helpers
 
+## 1.0.12
+
+### Patch Changes
+
+- d04ddfa: Update dependencies
+
 ## 1.0.11
 
 ### Patch Changes

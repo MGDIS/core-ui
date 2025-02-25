@@ -1,5 +1,16 @@
 # @mgdis/mg-components
 
+## 6.6.1
+
+### Patch Changes
+
+- 2b349d8: mg-modal text color should inherit from parent
+- d04ddfa: Update dependencies
+- Updated dependencies [2b349d8]
+- Updated dependencies [d04ddfa]
+  - @mgdis/styles@2.3.1
+  - @mgdis/stencil-helpers@2.2.5
+
 ## 6.6.0
 
 ### Minor Changes

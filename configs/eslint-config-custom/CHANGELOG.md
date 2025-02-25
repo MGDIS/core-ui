@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.0.17
+
+### Patch Changes
+
+- d04ddfa: Update dependencies
+
 ## 1.0.16
 
 ### Patch Changes
