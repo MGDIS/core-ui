@@ -212,7 +212,7 @@ export class MgPopover {
    * @param placement - initial placement
    * @returns array of alternative placements
    */
-  private getClosestPlacements = (placement: Placement): Placement[] => {
+  private getClosestPlacements = (placement: PopoverPlacementType): Placement[] => {
     // First check if fallbackPlacement attribute is defined
     const fallbackPlacements = (this.element.dataset.fallbackPlacement || '')
       .split(',')
@@ -224,7 +224,7 @@ export class MgPopover {
     const [side] = placement.split('-');
 
     // Generate placements for same side with different alignments
-    const currentSidePlacements = alignments.map(alignment => (alignment !== null ? `${side}-${alignment}` : (side as Placement)));
+    const currentSidePlacements = alignments.map(alignment => (alignment !== null ? `${side}-${alignment}` : side));
 
     // Return unique placements: current side variants first, then other sides
     return Array.from(new Set([...currentSidePlacements, ...sides.filter(otherSide => otherSide !== side)])).filter(isFloatingUIPlacement);
@@ -242,7 +242,7 @@ export class MgPopover {
         middleware: [
           offset(0),
           flip({
-            fallbackPlacements: this.getClosestPlacements(this.placement as Placement),
+            fallbackPlacements: this.getClosestPlacements(this.placement),
           }),
           shift({
             limiter: limitShift(),
