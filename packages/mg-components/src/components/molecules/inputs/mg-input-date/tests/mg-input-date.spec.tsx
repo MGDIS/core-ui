@@ -413,9 +413,6 @@ describe('mg-input-date', () => {
     const page = await getPage({ label: 'label', identifier: 'identifier', ...args });
     const element = page.doc.querySelector('mg-input-date');
 
-    // Wait for the component to be initialized
-    await page.waitForChanges();
-
     // Verify the formatted help text
     const helpText = element.shadowRoot.querySelector('[slot="help-text"]');
     expect(helpText.innerHTML.replace(/\s+/g, ' ')).toBe(expected.replace(/\s+/g, ' '));
