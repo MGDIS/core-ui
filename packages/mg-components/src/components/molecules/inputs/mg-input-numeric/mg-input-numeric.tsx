@@ -523,9 +523,9 @@ export class MgInputNumeric {
    * @returns formatted help text with range information if applicable
    */
   private formatHelpText = (helpText: string): string => {
-    // If the component is in readonly mode, return directly because the message will not be rendered
+    // If the component is in readonly mode, return undefined because the message will not be rendered
     if (this.readonly) {
-      return '';
+      return undefined;
     }
 
     // If a custom helpText is provided, return it directly
@@ -533,33 +533,38 @@ export class MgInputNumeric {
       return helpText;
     }
 
-    // Add range message only if min or max are defined
-    if (this.min !== undefined || this.max !== undefined) {
-      let rangeMessage: string;
-      let formatType: string;
-
-      if (this.format === 'currency') {
-        formatType = 'currency';
-      } else if (this.format === 'percent') {
-        formatType = 'percent';
-      } else {
-        formatType = 'number';
-      }
-
-      if (this.min !== undefined && this.max !== undefined) {
-        rangeMessage = this.messages.input.numeric.helpTextRange.minMax[formatType]
-          .replace('{min}', this.formatErrorValue(this.min))
-          .replace('{max}', this.formatErrorValue(this.max));
-      } else if (this.min !== undefined) {
-        rangeMessage = this.messages.input.numeric.helpTextRange.min[formatType].replace('{min}', this.formatErrorValue(this.min));
-      } else if (this.max !== undefined) {
-        rangeMessage = this.messages.input.numeric.helpTextRange.max[formatType].replace('{max}', this.formatErrorValue(this.max));
-      }
-
-      if (isValidString(rangeMessage)) {
-        return rangeMessage;
-      }
+    // If neither min nor max are defined, no range message is needed
+    if (this.min === undefined && this.max === undefined) {
+      return undefined;
     }
+
+    // Determine format type
+    let formatType: string;
+    if (this.format === 'currency') {
+      formatType = 'currency';
+    } else if (this.format === 'percent') {
+      formatType = 'percent';
+    } else {
+      formatType = 'number';
+    }
+
+    // Generate range message based on available constraints
+    let rangeMessage: string;
+    if (this.min !== undefined && this.max !== undefined) {
+      rangeMessage = this.messages.input.numeric.helpTextRange.minMax[formatType]
+        .replace('{min}', this.formatErrorValue(this.min))
+        .replace('{max}', this.formatErrorValue(this.max));
+    } else if (this.min !== undefined) {
+      rangeMessage = this.messages.input.numeric.helpTextRange.min[formatType].replace('{min}', this.formatErrorValue(this.min));
+    } else if (this.max !== undefined) {
+      rangeMessage = this.messages.input.numeric.helpTextRange.max[formatType].replace('{max}', this.formatErrorValue(this.max));
+    }
+
+    if (isValidString(rangeMessage)) {
+      return rangeMessage;
+    }
+
+    return undefined;
   };
 
   /*************
