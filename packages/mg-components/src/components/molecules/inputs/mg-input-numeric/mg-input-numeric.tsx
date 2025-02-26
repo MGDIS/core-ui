@@ -523,13 +523,18 @@ export class MgInputNumeric {
    * @returns formatted help text with range information if applicable
    */
   private formatHelpText = (helpText: string): string => {
+    // If the component is in readonly mode, return directly because the message will not be rendered
+    if (this.readonly) {
+      return '';
+    }
+
     // If a custom helpText is provided, return it directly
     if (isValidString(helpText)) {
       return helpText;
     }
 
     // Add range message only if min or max are defined
-    if (!this.readonly && !this.disabled && (this.min !== undefined || this.max !== undefined)) {
+    if (this.min !== undefined || this.max !== undefined) {
       let rangeMessage: string;
       let formatType: string;
 
@@ -620,7 +625,7 @@ export class MgInputNumeric {
         required={this.required}
         tooltip={this.tooltip}
         tooltipPosition={this.readonly && this.value === undefined ? 'label' : this.tooltipPosition}
-        helpText={this.readonly && this.disabled ? undefined : this.formatHelpText(this.helpText)}
+        helpText={this.formatHelpText(this.helpText)}
         errorMessage={this.errorMessage}
       >
         {this.readonly
