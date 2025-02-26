@@ -1,6 +1,6 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
 import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern, toString } from '@mgdis/stencil-helpers';
-import { type InputDateError } from './mg-input-date.conf';
+import { type InputDateError, DEFAULT_MAX_DATE } from './mg-input-date.conf';
 import { type EventType, classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
@@ -108,7 +108,7 @@ export class MgInputDate {
    * Define input maximum date
    * format: yyyy-mm-dd
    */
-  @Prop() max?: string = '9999-12-31';
+  @Prop() max?: string = DEFAULT_MAX_DATE;
   @Watch('min')
   @Watch('max')
   validateMinMax(newValue: string): void {
@@ -380,7 +380,7 @@ export class MgInputDate {
       inputError = 'required';
     }
     // min & max
-    else if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max !== '9999-12-31') {
+    else if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max !== DEFAULT_MAX_DATE) {
       inputError = 'minMax';
     }
     // min
