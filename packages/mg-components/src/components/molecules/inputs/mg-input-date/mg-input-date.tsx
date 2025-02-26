@@ -289,14 +289,13 @@ export class MgInputDate {
     let rangeMessage: string;
 
     if (this.min?.length > 0 && this.max !== DEFAULT_MAX_DATE) {
-      rangeMessage = this.messages.input.date.helpTextRange.minMax;
-      rangeMessage = rangeMessage.replace('{minDate}', localeDate(this.min, this.systemLocale)).replace('{maxDate}', localeDate(this.max, this.systemLocale));
+      rangeMessage = this.messages.input.date.helpTextRange.minMax
+        .replace('{minDate}', localeDate(this.min, this.systemLocale))
+        .replace('{maxDate}', localeDate(this.max, this.systemLocale));
     } else if (this.min?.length > 0) {
-      rangeMessage = this.messages.input.date.helpTextRange.min;
-      rangeMessage = rangeMessage.replace('{minDate}', localeDate(this.min, this.systemLocale));
+      rangeMessage = this.messages.input.date.helpTextRange.min.replace('{minDate}', localeDate(this.min, this.systemLocale));
     } else if (this.max !== DEFAULT_MAX_DATE) {
-      rangeMessage = this.messages.input.date.helpTextRange.max;
-      rangeMessage = rangeMessage.replace('{maxDate}', localeDate(this.max, this.systemLocale));
+      rangeMessage = this.messages.input.date.helpTextRange.max.replace('{maxDate}', localeDate(this.max, this.systemLocale));
     }
 
     if (rangeMessage !== undefined && rangeMessage !== '') {

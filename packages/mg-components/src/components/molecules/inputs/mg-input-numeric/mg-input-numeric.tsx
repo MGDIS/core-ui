@@ -542,14 +542,13 @@ export class MgInputNumeric {
       }
 
       if (this.min !== undefined && this.max !== undefined) {
-        rangeMessage = this.messages.input.numeric.helpTextRange.minMax[formatType];
-        rangeMessage = rangeMessage.replace('{min}', this.formatErrorValue(this.min)).replace('{max}', this.formatErrorValue(this.max));
+        rangeMessage = this.messages.input.numeric.helpTextRange.minMax[formatType]
+          .replace('{min}', this.formatErrorValue(this.min))
+          .replace('{max}', this.formatErrorValue(this.max));
       } else if (this.min !== undefined) {
-        rangeMessage = this.messages.input.numeric.helpTextRange.min[formatType];
-        rangeMessage = rangeMessage.replace('{min}', this.formatErrorValue(this.min));
+        rangeMessage = this.messages.input.numeric.helpTextRange.min[formatType].replace('{min}', this.formatErrorValue(this.min));
       } else if (this.max !== undefined) {
-        rangeMessage = this.messages.input.numeric.helpTextRange.max[formatType];
-        rangeMessage = rangeMessage.replace('{max}', this.formatErrorValue(this.max));
+        rangeMessage = this.messages.input.numeric.helpTextRange.max[formatType].replace('{max}', this.formatErrorValue(this.max));
       }
 
       if (rangeMessage !== undefined) {
