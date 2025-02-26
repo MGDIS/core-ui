@@ -262,6 +262,11 @@ export class MgInputDate {
    * @returns formated pattern help text. Ex: Format attendu : jj/mm/aaaa (ex : 20/12/2020)
    */
   private formatHelpText = (helpText: string): string => {
+    // If the component is in readonly mode, return directly because the message will not be rendered
+    if (this.readonly) {
+      return '';
+    }
+
     const defaultHelpTextVariable = '{defaultHelpText}';
 
     // Default help message
@@ -281,22 +286,21 @@ export class MgInputDate {
     }
 
     // Add additional message for min/max if necessary
-    if (!this.readonly && !this.disabled) {
-      let rangeMessage: string;
-      if (this.min?.length > 0 && this.max !== '9999-12-31') {
-        rangeMessage = this.messages.input.date.helpTextRange.minMax;
-        rangeMessage = rangeMessage.replace('{minDate}', localeDate(this.min, this.systemLocale)).replace('{maxDate}', localeDate(this.max, this.systemLocale));
-      } else if (this.min?.length > 0) {
-        rangeMessage = this.messages.input.date.helpTextRange.min;
-        rangeMessage = rangeMessage.replace('{minDate}', localeDate(this.min, this.systemLocale));
-      } else if (this.max !== '9999-12-31') {
-        rangeMessage = this.messages.input.date.helpTextRange.max;
-        rangeMessage = rangeMessage.replace('{maxDate}', localeDate(this.max, this.systemLocale));
-      }
+    let rangeMessage: string;
 
-      if (rangeMessage !== undefined && rangeMessage !== '') {
-        text += `<br>${rangeMessage}`;
-      }
+    if (this.min?.length > 0 && this.max !== DEFAULT_MAX_DATE) {
+      rangeMessage = this.messages.input.date.helpTextRange.minMax;
+      rangeMessage = rangeMessage.replace('{minDate}', localeDate(this.min, this.systemLocale)).replace('{maxDate}', localeDate(this.max, this.systemLocale));
+    } else if (this.min?.length > 0) {
+      rangeMessage = this.messages.input.date.helpTextRange.min;
+      rangeMessage = rangeMessage.replace('{minDate}', localeDate(this.min, this.systemLocale));
+    } else if (this.max !== DEFAULT_MAX_DATE) {
+      rangeMessage = this.messages.input.date.helpTextRange.max;
+      rangeMessage = rangeMessage.replace('{maxDate}', localeDate(this.max, this.systemLocale));
+    }
+
+    if (rangeMessage !== undefined && rangeMessage !== '') {
+      text += `<br>${rangeMessage}`;
     }
 
     return text;
