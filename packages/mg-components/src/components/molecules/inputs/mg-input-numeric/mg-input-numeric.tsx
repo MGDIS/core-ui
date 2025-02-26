@@ -551,7 +551,7 @@ export class MgInputNumeric {
         rangeMessage = this.messages.input.numeric.helpTextRange.max[formatType].replace('{max}', this.formatErrorValue(this.max));
       }
 
-      if (rangeMessage !== undefined) {
+      if (isValidString(rangeMessage)) {
         return rangeMessage;
       }
     }
