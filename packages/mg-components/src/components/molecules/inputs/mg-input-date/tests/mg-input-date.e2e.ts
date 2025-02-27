@@ -110,7 +110,7 @@ test.describe('mg-input-date', () => {
     });
   });
 
-  test.only(`Should render error when leaving input with non existing date date`, async ({ page }) => {
+  test(`Should render error when leaving input with non existing date date`, async ({ page }) => {
     await page.setContent(createHTML({ ...baseProps }));
     await page.locator('mg-input-date.hydrated').waitFor();
 
