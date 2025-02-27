@@ -264,7 +264,7 @@ export class MgInputDate {
   private formatHelpText = (helpText: string): string => {
     // If the component is in readonly mode, return directly because the message will not be rendered
     if (this.readonly) {
-      return '';
+      return undefined;
     }
 
     const defaultHelpTextVariable = '{defaultHelpText}';
