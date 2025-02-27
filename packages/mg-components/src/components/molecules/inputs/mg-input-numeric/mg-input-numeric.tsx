@@ -451,7 +451,7 @@ export class MgInputNumeric {
       } else {
         const formattedMin = this.formatErrorValue(this.min);
         const formattedMax = this.formatErrorValue(this.max);
-        this.errorMessage = this.messages.errors.numeric[inputError].replace('{min}', formattedMin).replace('{max}', formattedMax);
+        this.errorMessage = this.messages.validation.numeric[inputError].replace('{min}', formattedMin).replace('{max}', formattedMax);
       }
     }
   };
@@ -545,11 +545,11 @@ export class MgInputNumeric {
     // Generate range message based on available constraints
     let rangeMessage: string;
     if (this.min !== undefined && this.max !== undefined) {
-      rangeMessage = this.messages.input.numeric.helpTextRange.minMax.value.replace('{min}', this.formatErrorValue(this.min)).replace('{max}', this.formatErrorValue(this.max));
+      rangeMessage = this.messages.validation.numeric.minMax.replace('{min}', this.formatErrorValue(this.min)).replace('{max}', this.formatErrorValue(this.max));
     } else if (this.min !== undefined) {
-      rangeMessage = this.messages.input.numeric.helpTextRange.min.value.replace('{min}', this.formatErrorValue(this.min));
+      rangeMessage = this.messages.validation.numeric.min.replace('{min}', this.formatErrorValue(this.min));
     } else if (this.max !== undefined) {
-      rangeMessage = this.messages.input.numeric.helpTextRange.max.value.replace('{max}', this.formatErrorValue(this.max));
+      rangeMessage = this.messages.validation.numeric.max.replace('{max}', this.formatErrorValue(this.max));
     }
 
     if (isValidString(rangeMessage)) {

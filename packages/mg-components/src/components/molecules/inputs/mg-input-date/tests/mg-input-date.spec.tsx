@@ -310,7 +310,7 @@ describe('mg-input-date', () => {
         expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
       } else if (badInput) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.errors.date.badInput.replace('{pattern}', '<span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span>'),
+          messages.validation.date.badInput.replace('{pattern}', '<span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span>'),
         );
       }
       expect(page.rootInstance.valid).toEqual(validity);
@@ -475,13 +475,15 @@ describe('mg-input-date', () => {
     await page.waitForChanges();
 
     if (args.min !== undefined && args.max === undefined) {
-      expect(page.rootInstance.errorMessage).toEqual(messages.errors.date.min.replace('{min}', localeDate(date.middle, 'en')));
+      expect(page.rootInstance.errorMessage).toEqual(messages.validation.date.min.replace('{min}', localeDate(date.middle, 'en')));
     } else if (args.min === undefined && args.max !== undefined) {
-      expect(page.rootInstance.errorMessage).toEqual(messages.errors.date.max.replace('{max}', localeDate(date.middle, 'en')));
+      expect(page.rootInstance.errorMessage).toEqual(messages.validation.date.max.replace('{max}', localeDate(date.middle, 'en')));
     } else if (args.min !== undefined && args.max !== undefined && args.value === date.first) {
-      expect(page.rootInstance.errorMessage).toEqual(messages.errors.date.minMax.replace('{min}', localeDate(date.middle, 'en')).replace('{max}', localeDate(date.last, 'en')));
+      expect(page.rootInstance.errorMessage).toEqual(messages.validation.date.minMax.replace('{min}', localeDate(date.middle, 'en')).replace('{max}', localeDate(date.last, 'en')));
     } else if (args.min !== undefined && args.max !== undefined && args.value === date.last) {
-      expect(page.rootInstance.errorMessage).toEqual(messages.errors.date.minMax.replace('{min}', localeDate(date.first, 'en')).replace('{max}', localeDate(date.middle, 'en')));
+      expect(page.rootInstance.errorMessage).toEqual(
+        messages.validation.date.minMax.replace('{min}', localeDate(date.first, 'en')).replace('{max}', localeDate(date.middle, 'en')),
+      );
     }
 
     expect(page.rootInstance.valid).toEqual(false);
@@ -649,7 +651,7 @@ describe('mg-input-date', () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.hasDisplayedError).toEqual(true);
-    expect(page.rootInstance.errorMessage).toBeUndefined();
+    expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();

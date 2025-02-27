@@ -279,15 +279,15 @@ describe('mg-input-numeric', () => {
 
       if (args.min !== undefined && args.max === undefined) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.errors.numeric.min.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
+          messages.validation.numeric.min.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
         );
       } else if (args.min === undefined && args.max !== undefined) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.errors.numeric.max.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
+          messages.validation.numeric.max.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
         );
       } else if (args.min !== undefined && args.max !== undefined) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.errors.numeric.minMax.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
+          messages.validation.numeric.minMax.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
         );
       }
 

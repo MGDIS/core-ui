@@ -1,15 +1,17 @@
 {
   "errors": {
-    "required": "This field is required.",
+    "required": "This field is required."
+  },
+  "validation": {
     "date": {
-      "badInput": "The date is incorrect, the format must be {pattern}",
-      "min": "The date cannot be earlier than {min}",
-      "max": "The date cannot be later than {max}",
-      "minMax": "The date must be between {min} and {max}"
+      "min": "The date must be after {min}",
+      "max": "The date must be before {max}",
+      "minMax": "The date must be between {min} and {max}",
+      "badInput": "The date is incorrect, the format must be {pattern}"
     },
     "numeric": {
-      "min": "The value cannot be less than {min}",
-      "max": "The value cannot be greater than {max}",
+      "min": "The value must be greater than {min}",
+      "max": "The value must be less than {max}",
       "minMax": "The value must be between {min} and {max}"
     }
   },
@@ -50,29 +52,11 @@
         "dd": "dd",
         "mm": "mm",
         "yyyy": "yyyy"
-      },
-      "helpTextRange": {
-        "min": "The date must be after {minDate}",
-        "max": "The date must be before {maxDate}",
-        "minMax": "The date must be between {minDate} and {maxDate}"
       }
     },
     "password": {
       "display": "Display password value",
       "hide": "Hide password value"
-    },
-    "numeric": {
-      "helpTextRange": {
-        "min": {
-          "value": "The value must be greater than {min}"
-        },
-        "max": {
-          "value": "The value must be less than {max}"
-        },
-        "minMax": {
-          "value": "The value must be between {min} and {max}"
-        }
-      }
     }
   },
   "form": {

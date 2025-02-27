@@ -289,13 +289,11 @@ export class MgInputDate {
     let rangeMessage: string;
 
     if (this.min?.length > 0 && this.max !== DEFAULT_MAX_DATE) {
-      rangeMessage = this.messages.input.date.helpTextRange.minMax
-        .replace('{minDate}', localeDate(this.min, this.systemLocale))
-        .replace('{maxDate}', localeDate(this.max, this.systemLocale));
+      rangeMessage = this.messages.validation.date.minMax.replace('{min}', localeDate(this.min, this.systemLocale)).replace('{max}', localeDate(this.max, this.systemLocale));
     } else if (this.min?.length > 0) {
-      rangeMessage = this.messages.input.date.helpTextRange.min.replace('{minDate}', localeDate(this.min, this.systemLocale));
+      rangeMessage = this.messages.validation.date.min.replace('{min}', localeDate(this.min, this.systemLocale));
     } else if (this.max !== DEFAULT_MAX_DATE) {
-      rangeMessage = this.messages.input.date.helpTextRange.max.replace('{maxDate}', localeDate(this.max, this.systemLocale));
+      rangeMessage = this.messages.validation.date.max.replace('{max}', localeDate(this.max, this.systemLocale));
     }
 
     if (isValidString(rangeMessage)) {
@@ -414,14 +412,14 @@ export class MgInputDate {
       }
       // min, max & minMax
       else if (['min', 'max', 'minMax'].includes(inputError)) {
-        this.errorMessage = this.messages.errors.date[inputError]
+        this.errorMessage = this.messages.validation.date[inputError]
           .replace('{min}', localeDate(this.min, this.systemLocale))
           .replace('{max}', localeDate(this.max, this.systemLocale));
       }
       // wrong date format
       // element.validity.badInput is default error message
       else {
-        this.errorMessage = this.messages.errors.date.badInput.replace('{pattern}', this.renderPattern());
+        this.errorMessage = this.messages.validation.date.badInput.replace('{pattern}', this.renderPattern());
       }
     }
   };
