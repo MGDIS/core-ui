@@ -1,7 +1,7 @@
 import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event } from '@stencil/core';
 import { createID, getWindows, isValideID, toString } from '@mgdis/stencil-helpers';
 import { computePosition, autoUpdate, flip, shift, limitShift, offset, arrow, type Placement } from '@floating-ui/dom';
-import { isFloatingUIPlacement, type PopoverPlacementType, sides } from './mg-popover.conf';
+import { isFloatingUIPlacement, type PopoverPlacementType, sides, alignments } from './mg-popover.conf';
 
 /**
  * @slot - Element that will display the popover
@@ -113,11 +113,24 @@ export class MgPopover {
   };
 
   /**
+   * Update aria-expanded attribute on interactive element
+   * @param expanded - expanded state
+   */
+  private updateAriaExpanded = (expanded: boolean): void => {
+    const interactiveElement = this.element.querySelector(':not([slot])');
+    if (interactiveElement !== null) {
+      interactiveElement.setAttribute('aria-expanded', String(expanded));
+    }
+  };
+
+  /**
    * Show popover
    */
   private show = (): void => {
     // Make the popover visible
     this.mgPopover.dataset.show = '';
+    // Update aria-expanded
+    this.updateAriaExpanded(true);
     // hide when click outside
     // setTimeout is used to prevent event to trigger after creation
     setTimeout(() => {
@@ -131,6 +144,8 @@ export class MgPopover {
   private hide = (): void => {
     // Hide the popover
     this.mgPopover.removeAttribute('data-show');
+    // Update aria-expanded
+    this.updateAriaExpanded(false);
     // Remove event listener
     this.manageClickOutsideListeners('removeEventListener');
   };
@@ -190,12 +205,36 @@ export class MgPopover {
   };
 
   /**
+   * Get alternative placements ordered by proximity to initial placement
+   * First check fallbackPlacement attribute, then generate alternatives:
+   * 1. Same side with different alignments (start, center, end)
+   * 2. Other sides in order
+   * @param placement - initial placement
+   * @returns array of alternative placements
+   */
+  private getClosestPlacements = (placement: PopoverPlacementType): Placement[] => {
+    // First check if fallbackPlacement attribute is defined
+    const fallbackPlacements = (this.element.dataset.fallbackPlacement || '')
+      .split(',')
+      .map(t => t.trim())
+      .filter(isFloatingUIPlacement);
+    if (fallbackPlacements.length > 0) return Array.from(new Set([...fallbackPlacements, ...sides]).values()).filter(isFloatingUIPlacement);
+
+    // Extract side from placement (e.g. "top" from "top-start")
+    const [side] = placement.split('-');
+
+    // Generate placements for same side with different alignments
+    const currentSidePlacements = alignments.map(alignment => (alignment !== null ? `${side}-${alignment}` : side));
+
+    // Return unique placements: current side variants first, then other sides
+    return Array.from(new Set([...currentSidePlacements, ...sides.filter(otherSide => otherSide !== side)])).filter(isFloatingUIPlacement);
+  };
+
+  /**
    * Set up Floating UI positioning and arrow behavior
    * @param interactiveElement - Element that triggers the popover
    */
   private setFloatingUI = (interactiveElement: HTMLElement): void => {
-    const fallbackPlacements = (this.element.dataset.fallbackPlacement || '').split(',').map(t => t.trim());
-
     this.floatingUICleanup = autoUpdate(interactiveElement, this.mgPopover, () => {
       computePosition(interactiveElement, this.mgPopover, {
         placement: this.placement as Placement,
@@ -203,7 +242,7 @@ export class MgPopover {
         middleware: [
           offset(0),
           flip({
-            fallbackPlacements: Array.from(new Set([...fallbackPlacements, ...sides]).values()).filter(isFloatingUIPlacement), // simulate "auto" placement with default fallback values
+            fallbackPlacements: this.getClosestPlacements(this.placement),
           }),
           shift({
             limiter: limitShift(),
@@ -234,7 +273,7 @@ export class MgPopover {
         // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined.
         // Due to this, either x or y will be undefined, depending on the side of placement.
         // The above code uses `isNaN` to check for null and undefined simultaneously.
-        // Don’t remove `isNaN`, because either value can be falsy (0), causing a bug!
+        // Don't remove `isNaN`, because either value can be falsy (0), causing a bug!
         const numberToPx = (number: number): string => (!isNaN(number) ? `${number}px` : '');
 
         if (arrowElement !== null)
