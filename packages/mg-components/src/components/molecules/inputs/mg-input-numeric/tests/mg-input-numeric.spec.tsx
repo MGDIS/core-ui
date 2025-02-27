@@ -870,9 +870,6 @@ describe('mg-input-numeric', () => {
     });
     const element = page.doc.querySelector('mg-input-numeric');
 
-    // Wait for the component to be initialized
-    await page.waitForChanges();
-
     // Verify the formatted help text using the slot content
     const helpText = element.shadowRoot.querySelector('[slot="help-text"]');
 
