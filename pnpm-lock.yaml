@@ -361,8 +361,8 @@ importers:
         version: 1.2.0
     devDependencies:
       '@html-eslint/parser':
-        specifier: 0.33.0
-        version: 0.33.0
+        specifier: 0.35.0
+        version: 0.35.0
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -455,8 +455,8 @@ importers:
         specifier: 0.35.0
         version: 0.35.0
       '@html-eslint/parser':
-        specifier: 0.33.0
-        version: 0.33.0
+        specifier: 0.35.0
+        version: 0.35.0
       '@mgdis/eslint-plugin-html':
         specifier: workspace:*
         version: link:../eslint-plugin-html
@@ -1479,8 +1479,8 @@ packages:
     resolution: {integrity: sha512-49IfQCePw2+WluyHDBderyyaMXiKTMBFA70BvTDndbK2k2bHOmbgI/Nw2vcp8UkQ0t3b3LFGluCXpQsqBtg1BQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@html-eslint/parser@0.33.0':
-    resolution: {integrity: sha512-vYH6MtSIt79ufObABZuvRtemuSJGXtRWBVHCIfGnskJ+cAypq7HXQo/Lv03dI6PwcOfrPrCwBLW662411HHoNg==}
+  '@html-eslint/parser@0.35.0':
+    resolution: {integrity: sha512-8VSA1oRWR8qrTDyrM1syykFAhpKNbzSbsr7CfvYir9LhpZfD6TMcHqJSp+6jhzhSprWG24f2GsKqEUOOx9AopA==}
     engines: {node: '>=8.10.0'}
 
   '@html-eslint/template-parser@0.35.0':
@@ -4065,9 +4065,6 @@ packages:
 
   es-html-parser@0.1.0:
     resolution: {integrity: sha512-4YUmQ4kGKGQUb87jwr25XeGwuFIfjq7kZ+F5/V23ji+3gVXC9JEtUxngM0KbhgXl2L1jqbWZ138SI/UQ33XINw==}
-
-  es-html-parser@1.0.0-alpha.4:
-    resolution: {integrity: sha512-5KUgd64goEPG1ZwP3rf/D+uAbdjyuNon0YY9u1yzR2NkFwa1UwxpsCQkzalAOlQaXAVtP32LGYRW4IAKAwo/sg==}
 
   es-iterator-helpers@1.2.1:
     resolution: {integrity: sha512-uDn+FE1yrDzyC0pCo961B2IHbdM8y/ACZsKD4dG6WqrjV53BADjwa7D+1aom2rsNVfLyDgU/eigvlJGJ08OQ4w==}
@@ -7958,9 +7955,10 @@ snapshots:
       '@html-eslint/template-parser': 0.35.0
       '@html-eslint/template-syntax-parser': 0.35.0
 
-  '@html-eslint/parser@0.33.0':
+  '@html-eslint/parser@0.35.0':
     dependencies:
-      es-html-parser: 1.0.0-alpha.4
+      '@html-eslint/template-syntax-parser': 0.35.0
+      es-html-parser: 0.1.0
 
   '@html-eslint/template-parser@0.35.0':
     dependencies:
@@ -10687,8 +10685,6 @@ snapshots:
   es-errors@1.3.0: {}
 
   es-html-parser@0.1.0: {}
-
-  es-html-parser@1.0.0-alpha.4: {}
 
   es-iterator-helpers@1.2.1:
     dependencies:
