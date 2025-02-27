@@ -847,7 +847,7 @@ describe('mg-input-numeric', () => {
     },
     {
       args: { min: 10, max: 100, disabled: true },
-      expected: '',
+      expected: 'The number must be between 10 and 100',
     },
     // Tests with different locales
     {
@@ -873,7 +873,7 @@ describe('mg-input-numeric', () => {
     // Verify the formatted help text using the slot content
     const helpText = element.shadowRoot.querySelector('[slot="help-text"]');
 
-    if (args.readonly || args.disabled) {
+    if (args.readonly) {
       expect(helpText).toBeNull();
     } else {
       expect(helpText.textContent.replace(/\s+/g, ' ')).toBe(expected.replace(/\s+/g, ' '));
