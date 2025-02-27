@@ -1952,21 +1952,8 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
         </div>
       </template>
-      <div id="identifier-help-text" slot="help-text">
-        Expected format:
-        <span aria-hidden="true">
-          mm/dd/yyyy
-        </span>
-        <span class="mg-u-visually-hidden">
-          m m / d d / y y y y
-        </span>
-        (ex: 12/24/2025)
-      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -2264,7 +2251,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         The date must be after 2/1/2024
       </div>
       <div id="identifier-error" slot="error">
-        The date cannot be earlier than 2/1/2024
+        The date must be after 2/1/2024
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
@@ -2438,7 +2425,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         The date must be before 2/1/2024
       </div>
       <div id="identifier-error" slot="error">
-        The date cannot be later than 2/1/2024
+        The date must be before 2/1/2024
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
