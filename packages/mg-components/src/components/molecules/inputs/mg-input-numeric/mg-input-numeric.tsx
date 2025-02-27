@@ -552,7 +552,7 @@ export class MgInputNumeric {
       rangeMessage = this.messages.validation.numeric.max.replace('{max}', this.formatErrorValue(this.max));
     }
 
-    if (isValidString(rangeMessage)) {
+    if (rangeMessage !== undefined) {
       return rangeMessage;
     }
 

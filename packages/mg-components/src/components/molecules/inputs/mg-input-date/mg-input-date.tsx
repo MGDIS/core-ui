@@ -296,7 +296,7 @@ export class MgInputDate {
       rangeMessage = this.messages.validation.date.max.replace('{max}', localeDate(this.max, this.systemLocale));
     }
 
-    if (isValidString(rangeMessage)) {
+    if (rangeMessage !== undefined) {
       text += `<br>${rangeMessage}`;
     }
 
