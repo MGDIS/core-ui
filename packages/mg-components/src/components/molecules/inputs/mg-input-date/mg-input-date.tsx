@@ -270,11 +270,11 @@ export class MgInputDate {
     const defaultHelpTextVariable = '{defaultHelpText}';
 
     // Default help message
-    let text = isValidString(helpText) ? helpText : this.messages.input.date.helpText;
+    let text = isValidString(helpText) ? helpText : this.messages.input.date.helpText.expectedFormat;
 
     // Handle defaultHelpText
     if (text.includes(defaultHelpTextVariable)) {
-      text = text.replace(defaultHelpTextVariable, this.formatHelpText(this.messages.input.date.helpText));
+      text = text.replace(defaultHelpTextVariable, this.formatHelpText(this.messages.input.date.helpText.expectedFormat));
     }
 
     // Replace pattern and date variables
@@ -289,11 +289,11 @@ export class MgInputDate {
     let rangeMessage: string;
 
     if (this.min?.length > 0 && this.max !== DEFAULT_MAX_DATE) {
-      rangeMessage = this.messages.validation.date.minMax.replace('{min}', localeDate(this.min, this.systemLocale)).replace('{max}', localeDate(this.max, this.systemLocale));
+      rangeMessage = this.messages.input.date.helpText.minMax.replace('{min}', localeDate(this.min, this.systemLocale)).replace('{max}', localeDate(this.max, this.systemLocale));
     } else if (this.min?.length > 0) {
-      rangeMessage = this.messages.validation.date.min.replace('{min}', localeDate(this.min, this.systemLocale));
+      rangeMessage = this.messages.input.date.helpText.min.replace('{min}', localeDate(this.min, this.systemLocale));
     } else if (this.max !== DEFAULT_MAX_DATE) {
-      rangeMessage = this.messages.validation.date.max.replace('{max}', localeDate(this.max, this.systemLocale));
+      rangeMessage = this.messages.input.date.helpText.max.replace('{max}', localeDate(this.max, this.systemLocale));
     }
 
     if (rangeMessage !== undefined) {
@@ -412,14 +412,14 @@ export class MgInputDate {
       }
       // min, max & minMax
       else if (['min', 'max', 'minMax'].includes(inputError)) {
-        this.errorMessage = this.messages.validation.date[inputError]
+        this.errorMessage = this.messages.input.date.helpText[inputError]
           .replace('{min}', localeDate(this.min, this.systemLocale))
           .replace('{max}', localeDate(this.max, this.systemLocale));
       }
       // wrong date format
       // element.validity.badInput is default error message
       else {
-        this.errorMessage = this.messages.validation.date.badInput.replace('{pattern}', this.renderPattern());
+        this.errorMessage = this.messages.input.date.error.badInput.replace('{pattern}', this.renderPattern());
       }
     }
   };
