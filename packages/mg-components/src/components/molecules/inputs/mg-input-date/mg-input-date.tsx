@@ -368,30 +368,32 @@ export class MgInputDate {
    * @returns error code
    */
   private getInputError = (): null | InputDateError => {
-    let inputError: InputDateError = null;
-
     // bad input or pattern
     if (this.input.validity.badInput || (this.value && !this.isValidPattern(this.value))) {
-      inputError = 'badInput';
-    }
-    // required
-    else if (this.input.validity.valueMissing) {
-      inputError = 'required';
-    }
-    // min & max
-    else if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max !== DEFAULT_MAX_DATE) {
-      inputError = 'minMax';
-    }
-    // min
-    else if (this.input.validity.rangeUnderflow) {
-      inputError = 'min';
-    }
-    // max
-    else if (this.input.validity.rangeOverflow) {
-      inputError = 'max';
+      return 'badInput';
     }
 
-    return inputError;
+    // required
+    if (this.input.validity.valueMissing) {
+      return 'required';
+    }
+
+    // min & max
+    if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max !== DEFAULT_MAX_DATE) {
+      return 'minMax';
+    }
+
+    // min
+    if (this.input.validity.rangeUnderflow) {
+      return 'min';
+    }
+
+    // max
+    if (this.input.validity.rangeOverflow) {
+      return 'max';
+    }
+
+    return null;
   };
 
   /**

@@ -461,25 +461,29 @@ export class MgInputNumeric {
    * @returns error code
    */
   private getInputError = (): null | InputNumericError => {
-    let inputError: InputNumericError = null;
     const hasNotEmptyValues = (toControl: number[]) => !toControl.some(value => [null, undefined].includes(value));
 
     // required
     if (!this.input.checkValidity() && this.input.validity.valueMissing) {
-      inputError = 'required';
+      return 'required';
     }
-    // Min & Max
-    else if (hasNotEmptyValues([this.min, this.numericValue]) && this.numericValue < this.min && this.max === undefined) {
-      // Only a min value is set
-      inputError = 'min';
-    } else if (hasNotEmptyValues([this.max, this.numericValue]) && this.numericValue > this.max && this.min === undefined) {
-      // Only a max value is set
-      inputError = 'max';
-    } else if (hasNotEmptyValues([this.min, this.max, this.numericValue]) && (this.numericValue < this.min || this.numericValue > this.max)) {
-      // both min and max values are set
-      inputError = 'minMax';
+
+    // Only a min value is set
+    if (hasNotEmptyValues([this.min, this.numericValue]) && this.numericValue < this.min && this.max === undefined) {
+      return 'min';
     }
-    return inputError;
+
+    // Only a max value is set
+    if (hasNotEmptyValues([this.max, this.numericValue]) && this.numericValue > this.max && this.min === undefined) {
+      return 'max';
+    }
+
+    // both min and max values are set
+    if (hasNotEmptyValues([this.min, this.max, this.numericValue]) && (this.numericValue < this.min || this.numericValue > this.max)) {
+      return 'minMax';
+    }
+
+    return null;
   };
 
   /**
