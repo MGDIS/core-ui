@@ -130,10 +130,12 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => true);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: false,
         badInput: false,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     jest.spyOn(page.rootInstance.valueChange, 'emit');
@@ -164,10 +166,12 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => false);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: true,
         badInput: true,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
@@ -187,10 +191,12 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => true);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: false,
         badInput: false,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     jest.spyOn(page.rootInstance.valueChange, 'emit');
@@ -220,10 +226,12 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => true);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: false,
         badInput: false,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     const inputValidSpy = jest.spyOn(page.rootInstance.inputValid, 'emit');
@@ -256,10 +264,12 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => true);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: false,
         badInput: false,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
@@ -295,10 +305,12 @@ describe('mg-input-date', () => {
       //mock validity
       input.checkValidity = jest.fn(() => validity);
       Object.defineProperty(input, 'validity', {
-        get: jest.fn(() => ({
+        get: () => ({
           valueMissing,
           badInput,
-        })),
+          rangeUnderflow: rangeUnderflow(input),
+          rangeOverflow: rangeOverflow(input),
+        }),
       });
 
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
@@ -355,10 +367,10 @@ describe('mg-input-date', () => {
       //mock validity
       input.checkValidity = jest.fn(() => checkValidityFromRange(input));
       Object.defineProperty(input, 'validity', {
-        get: jest.fn(() => ({
+        get: () => ({
           rangeUnderflow: rangeUnderflow(input),
           rangeOverflow: rangeOverflow(input),
-        })),
+        }),
       });
 
       jest.runOnlyPendingTimers();
@@ -427,10 +439,10 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => checkValidityFromRange(input));
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         rangeUnderflow: rangeUnderflow(input),
         rangeOverflow: rangeOverflow(input),
-      })),
+      }),
     });
 
     jest.runOnlyPendingTimers();
@@ -463,10 +475,10 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => checkValidityFromRange(input));
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         rangeUnderflow: rangeUnderflow(input),
         rangeOverflow: rangeOverflow(input),
-      })),
+      }),
     });
 
     jest.runOnlyPendingTimers();
@@ -520,9 +532,11 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => false);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: true,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     await element.displayError();
@@ -551,7 +565,12 @@ describe('mg-input-date', () => {
 
     //mock validity
     Object.defineProperty(input, 'validity', {
-      get: () => ({}),
+      get: () => ({
+        valueMissing: false,
+        badInput: false,
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     await element.setError(params.valid, params.errorMessage);
@@ -603,9 +622,11 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => false);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: true,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     await element.displayError();
@@ -623,20 +644,11 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn().mockReturnValueOnce(false).mockReturnValueOnce(true).mockReturnValueOnce(true);
     Object.defineProperty(input, 'validity', {
-      get: jest
-        .fn()
-        .mockReturnValueOnce({
-          valueMissing: true,
-        })
-        .mockReturnValueOnce({
-          valueMissing: true,
-        })
-        .mockReturnValueOnce({
-          valueMissing: false,
-        })
-        .mockReturnValueOnce({
-          valueMissing: false,
-        }),
+      get: () => ({
+        valueMissing: true,
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     await element.displayError();
@@ -651,12 +663,12 @@ describe('mg-input-date', () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.hasDisplayedError).toEqual(true);
-    expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
 
     expect(page.rootInstance.hasDisplayedError).toEqual(false);
+    expect(page.rootInstance.errorMessage).toBeUndefined();
   });
 
   test('Should remove error on input when required change dynamically', async () => {
@@ -667,20 +679,11 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn().mockReturnValueOnce(false).mockReturnValueOnce(true).mockReturnValueOnce(true);
     Object.defineProperty(input, 'validity', {
-      get: jest
-        .fn()
-        .mockReturnValueOnce({
-          valueMissing: true,
-        })
-        .mockReturnValueOnce({
-          valueMissing: true,
-        })
-        .mockReturnValueOnce({
-          valueMissing: false,
-        })
-        .mockReturnValueOnce({
-          valueMissing: false,
-        }),
+      get: () => ({
+        valueMissing: true,
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     await element.displayError();
@@ -740,9 +743,11 @@ describe('mg-input-date', () => {
       // Mock validity
       input.checkValidity = jest.fn(() => false);
       Object.defineProperty(input, 'validity', {
-        get: jest.fn(() => ({
+        get: () => ({
           valueMissing: true,
-        })),
+          rangeUnderflow: false,
+          rangeOverflow: false,
+        }),
       });
 
       // Set error message
