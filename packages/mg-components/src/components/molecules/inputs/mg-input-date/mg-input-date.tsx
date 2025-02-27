@@ -108,7 +108,7 @@ export class MgInputDate {
    * Define input maximum date
    * format: yyyy-mm-dd
    */
-  @Prop() max?: string = DEFAULT_MAX_DATE;
+  @Prop() max?: string = '9999-12-31'; // DEFAULT_MAX_DATE value
   @Watch('min')
   @Watch('max')
   validateMinMax(newValue: string): void {
