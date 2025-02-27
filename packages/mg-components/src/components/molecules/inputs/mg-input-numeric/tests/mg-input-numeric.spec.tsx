@@ -804,41 +804,41 @@ describe('mg-input-numeric', () => {
     // Tests with min only
     {
       args: { min: 10 },
-      expected: 'The number must be greater than 10',
+      expected: 'The value must be greater than 10',
     },
     {
       args: { min: 10, format: 'currency', currency: 'EUR' },
-      expected: 'The amount must be greater than 10',
+      expected: 'The value must be greater than 10',
     },
     {
       args: { min: 10, format: 'percent' },
-      expected: 'The percentage must be greater than 10',
+      expected: 'The value must be greater than 10',
     },
     // Tests with max only
     {
       args: { max: 100 },
-      expected: 'The number must be less than 100',
+      expected: 'The value must be less than 100',
     },
     {
       args: { max: 100, format: 'currency', currency: 'EUR' },
-      expected: 'The amount must be less than 100',
+      expected: 'The value must be less than 100',
     },
     {
       args: { max: 100, format: 'percent' },
-      expected: 'The percentage must be less than 100',
+      expected: 'The value must be less than 100',
     },
     // Tests with min and max
     {
       args: { min: 10, max: 100 },
-      expected: 'The number must be between 10 and 100',
+      expected: 'The value must be between 10 and 100',
     },
     {
       args: { min: 10, max: 100, format: 'currency', currency: 'EUR' },
-      expected: 'The amount must be between 10 and 100',
+      expected: 'The value must be between 10 and 100',
     },
     {
       args: { min: 10, max: 100, format: 'percent' },
-      expected: 'The percentage must be between 10 and 100',
+      expected: 'The value must be between 10 and 100',
     },
     // Tests with readonly or disabled
     {
@@ -847,20 +847,20 @@ describe('mg-input-numeric', () => {
     },
     {
       args: { min: 10, max: 100, disabled: true },
-      expected: 'The number must be between 10 and 100',
+      expected: 'The value must be between 10 and 100',
     },
     // Tests with different locales
     {
       args: { min: 10, max: 100, lang: 'fr' },
-      expected: 'Le nombre doit être compris entre 10 et 100',
+      expected: 'La valeur doit être comprise entre 10 et 100',
     },
     {
       args: { min: 10, max: 100, format: 'currency', currency: 'EUR', lang: 'fr' },
-      expected: 'Le montant doit être compris entre 10 et 100',
+      expected: 'La valeur doit être comprise entre 10 et 100',
     },
     {
       args: { min: 10, max: 100, format: 'percent', lang: 'fr' },
-      expected: 'Le pourcentage doit être compris entre 10 et 100',
+      expected: 'La valeur doit être comprise entre 10 et 100',
     },
   ])('Should format help text with args: $args', async ({ args, expected }) => {
     const page = await getPage({
