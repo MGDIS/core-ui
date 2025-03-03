@@ -555,8 +555,6 @@ export class MgInputNumeric {
     if (rangeMessage !== undefined) {
       return rangeMessage;
     }
-
-    return undefined;
   };
 
   /*************
