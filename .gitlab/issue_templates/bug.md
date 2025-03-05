@@ -1,12 +1,11 @@
 <!---
+
 Please read this!
 
-Before opening a new issue, make sure to search for keywords in the issues
-filtered by the "regression" or "bug" label:
+Before opening a new issue, verify the issue you're about to submit isn't a duplicate.
 
-- https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues?label_name%5B%5D=bug
+https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues
 
-and verify the issue you're about to submit isn't a duplicate.
 --->
 
 ### Summary
@@ -34,4 +33,4 @@ and verify the issue you're about to submit isn't a duplicate.
 
 <!-- If you can, link to the line of code that might be responsible for the problem. -->
 
-/label ~bug ~core-ui
+/label ~core-ui
