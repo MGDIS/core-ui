@@ -1,5 +1,11 @@
 # @mgdis/playwright-helpers
 
+## 1.1.0
+
+### Minor Changes
+
+- 1a0f8f0: Set max failures on CI
+
 ## 1.0.12
 
 ### Patch Changes
