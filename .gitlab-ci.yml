@@ -39,6 +39,8 @@ stages:
       - !reference [.changes, img]
       - !reference [.changes, stencil-helpers]
       - !reference [.changes, styles]
+      - !reference [.changes, linting-stencil]
+      - !reference [.changes, playwright-helpers]
   notification-center:
     changes:
       - !reference [.changes, notification-center]
