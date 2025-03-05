@@ -1483,13 +1483,11 @@ packages:
     resolution: {integrity: sha512-8VSA1oRWR8qrTDyrM1syykFAhpKNbzSbsr7CfvYir9LhpZfD6TMcHqJSp+6jhzhSprWG24f2GsKqEUOOx9AopA==}
     engines: {node: '>=8.10.0'}
 
-  '@html-eslint/template-parser@0.35.0':
-    resolution: {integrity: sha512-0ztgICyCyR1YOTvi/YJGMJHQja9A/9wGJcAyBC4Ty8fi5kgeLQ+mVxbjyMwYzbSEde49bKscNAO0lOUb4EIVHA==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+  '@html-eslint/template-parser@0.35.1':
+    resolution: {integrity: sha512-+w56j9ggVdEsFxRJytDjgo6EYmuNHZz5VhOyWfJznj68AUBc9bdlbMt5dV6Goy4K2xxPIhb8rWNkPo3vRqUbIQ==}
 
-  '@html-eslint/template-syntax-parser@0.35.0':
-    resolution: {integrity: sha512-anUBh/5LhQGpx+E79s2ENCMk20S8SOPTwp1WBMzRm0CvLaN42st68FNwT3BKRhjFVs2RrmRcTJNSlKWulFrvAA==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+  '@html-eslint/template-syntax-parser@0.35.1':
+    resolution: {integrity: sha512-6ske9dCKn8LA00QADovSUzNPrVGvb6u5E8zp8vbD8yEg5aOsjK4v1lrOc1xzmrxpjUpcSYWbgsZMkObSb44HAg==}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -2814,8 +2812,8 @@ packages:
     resolution: {integrity: sha512-ueEepnujpqee2o5aIYnvHU6C0A42MNdsIDeqy5BydrkuC5R1ZuUFnm27EeFJGoEHJQgn3uleRvmTXaJgfXbt4g==}
     engines: {node: '>=0.4.0'}
 
-  acorn@8.14.0:
-    resolution: {integrity: sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==}
+  acorn@8.14.1:
+    resolution: {integrity: sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
 
@@ -4067,6 +4065,9 @@ packages:
 
   es-html-parser@0.1.0:
     resolution: {integrity: sha512-4YUmQ4kGKGQUb87jwr25XeGwuFIfjq7kZ+F5/V23ji+3gVXC9JEtUxngM0KbhgXl2L1jqbWZ138SI/UQ33XINw==}
+
+  es-html-parser@0.1.1:
+    resolution: {integrity: sha512-SNHdEpKkN4nWZ3sFq9AxPlaUzPKJewGh59JrVS2355vELTOFygyf/lbfDDIONuGvYrhvAHoaUd+sK9UGaGrKUg==}
 
   es-iterator-helpers@1.2.1:
     resolution: {integrity: sha512-uDn+FE1yrDzyC0pCo961B2IHbdM8y/ACZsKD4dG6WqrjV53BADjwa7D+1aom2rsNVfLyDgU/eigvlJGJ08OQ4w==}
@@ -8082,19 +8083,19 @@ snapshots:
 
   '@html-eslint/eslint-plugin@0.35.0':
     dependencies:
-      '@html-eslint/template-parser': 0.35.0
-      '@html-eslint/template-syntax-parser': 0.35.0
+      '@html-eslint/template-parser': 0.35.1
+      '@html-eslint/template-syntax-parser': 0.35.1
 
   '@html-eslint/parser@0.35.0':
     dependencies:
-      '@html-eslint/template-syntax-parser': 0.35.0
+      '@html-eslint/template-syntax-parser': 0.35.1
       es-html-parser: 0.1.0
 
-  '@html-eslint/template-parser@0.35.0':
+  '@html-eslint/template-parser@0.35.1':
     dependencies:
-      es-html-parser: 0.1.0
+      es-html-parser: 0.1.1
 
-  '@html-eslint/template-syntax-parser@0.35.0': {}
+  '@html-eslint/template-syntax-parser@0.35.1': {}
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
@@ -9745,18 +9746,18 @@ snapshots:
 
   acorn-globals@7.0.1:
     dependencies:
-      acorn: 8.14.0
+      acorn: 8.14.1
       acorn-walk: 8.3.4
 
-  acorn-jsx@5.3.2(acorn@8.14.0):
+  acorn-jsx@5.3.2(acorn@8.14.1):
     dependencies:
-      acorn: 8.14.0
+      acorn: 8.14.1
 
   acorn-walk@8.3.4:
     dependencies:
-      acorn: 8.14.0
+      acorn: 8.14.1
 
-  acorn@8.14.0: {}
+  acorn@8.14.1: {}
 
   agent-base@6.0.2:
     dependencies:
@@ -10811,6 +10812,8 @@ snapshots:
 
   es-html-parser@0.1.0: {}
 
+  es-html-parser@0.1.1: {}
+
   es-iterator-helpers@1.2.1:
     dependencies:
       call-bind: 1.0.8
@@ -11188,14 +11191,14 @@ snapshots:
 
   espree@10.3.0:
     dependencies:
-      acorn: 8.14.0
-      acorn-jsx: 5.3.2(acorn@8.14.0)
+      acorn: 8.14.1
+      acorn-jsx: 5.3.2(acorn@8.14.1)
       eslint-visitor-keys: 4.2.0
 
   espree@9.6.1:
     dependencies:
-      acorn: 8.14.0
-      acorn-jsx: 5.3.2(acorn@8.14.0)
+      acorn: 8.14.1
+      acorn-jsx: 5.3.2(acorn@8.14.1)
       eslint-visitor-keys: 3.4.3
 
   esprima@4.0.1: {}
@@ -12344,7 +12347,7 @@ snapshots:
   jsdom@20.0.3:
     dependencies:
       abab: 2.0.6
-      acorn: 8.14.0
+      acorn: 8.14.1
       acorn-globals: 7.0.1
       cssom: 0.5.0
       cssstyle: 2.3.0
@@ -12763,7 +12766,7 @@ snapshots:
 
   mlly@1.7.4:
     dependencies:
-      acorn: 8.14.0
+      acorn: 8.14.1
       pathe: 2.0.3
       pkg-types: 1.3.1
       ufo: 1.5.4
@@ -14120,7 +14123,7 @@ snapshots:
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
       '@types/node': 22.13.5
-      acorn: 8.14.0
+      acorn: 8.14.1
       acorn-walk: 8.3.4
       arg: 4.1.3
       create-require: 1.1.1
@@ -14265,7 +14268,7 @@ snapshots:
 
   unplugin@1.16.1:
     dependencies:
-      acorn: 8.14.0
+      acorn: 8.14.1
       webpack-virtual-modules: 0.6.2
 
   update-browserslist-db@1.1.3(browserslist@4.24.4):
