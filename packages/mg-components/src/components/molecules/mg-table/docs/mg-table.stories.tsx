@@ -1,18 +1,11 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgTable as MgTableType } from '../mg-table';
-import { alignments } from '../mg-table.conf';
 
 export default {
   component: 'mg-table',
   title: 'Molecules/mg-table',
   tags: ['beta'],
-  argTypes: {
-    columnsAlignment: {
-      options: [undefined, ...alignments],
-      control: { type: 'select' },
-    },
-  },
 };
 
 /**
@@ -25,7 +18,9 @@ const Template = (args: MgTableType & { slotContent: string }): HTMLElement => (
     <table>
       <thead>
         <tr>
-          <th>Dev</th>
+          <th>Name</th>
+          <th>Birthday</th>
+          <th>Age</th>
           <th>Role</th>
           <th>Test signature</th>
         </tr>
@@ -33,16 +28,22 @@ const Template = (args: MgTableType & { slotContent: string }): HTMLElement => (
       <tbody>
         <tr>
           <th>Simon</th>
-          <td>Archi front-end</td>
+          <td data-sort="1982-06-02">02/06/1982</td>
+          <td>42</td>
+          <td>Archi</td>
           <td>Blu / Daron Crew</td>
         </tr>
         <tr>
           <th>Nico</th>
+          <td data-sort="1990-10-31">31/10/1990</td>
+          <td>35</td>
           <td>Dev front-end</td>
           <td>DC Comics (Batman, Jocker, etc.)</td>
         </tr>
         <tr>
           <th>Guirec</th>
+          <td data-sort="1985-12-30">30/12/1985</td>
+          <td>39</td>
           <td>Dev front-end</td>
           <td>Pat'Patrouille</td>
         </tr>
@@ -55,5 +56,6 @@ export const MGTable = {
   render: Template,
   args: {
     fullWidth: false,
+    columns: { 1: { sortable: true }, 2: { datatype: 'date', sortable: true }, 3: { datatype: 'numeric', sortable: true } },
   },
 };
