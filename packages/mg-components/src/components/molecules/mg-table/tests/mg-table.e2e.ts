@@ -94,7 +94,7 @@ const sortableTable = `<table>
 </table>`;
 
 test.describe('mg-table', () => {
-  [{}, { size: 'small' }, { size: 'large' }, { size: 'xlarge' }, { fullWidth: true }, { columns: { 2: { align: 'center' } } }, { columns: { 3: { datatype: 'number' } } }].forEach(
+  [{}, { size: 'small' }, { size: 'large' }, { size: 'xlarge' }, { fullWidth: true }, { columns: { 2: { align: 'center' } } }, { columns: { 3: { datatype: 'numeric' } } }].forEach(
     args => {
       test(`Should render with args ${JSON.stringify(args)}`, async ({ page }) => {
         const html = createHTML(args, table);

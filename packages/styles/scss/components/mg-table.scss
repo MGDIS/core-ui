@@ -39,14 +39,6 @@
     background: color-mix(in srgb, var(--mg-b-color-app), transparent 80%);
   }
 
-  tbody a {
-    --mg-b-color-link: var(--mg-b-color-app);
-  }
-
-  thead a {
-    --mg-b-color-link: var(--mg-b-color-light);
-  }
-
   /**
   * Sizes
   */
@@ -90,6 +82,8 @@
       margin: 0;
       background: none;
       color: inherit;
+      font-size: inherit;
+      font-weight: 600;
 
       // Extend click area
       &::after {
