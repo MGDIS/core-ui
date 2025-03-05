@@ -70,6 +70,8 @@ stages:
       - !reference [.changes, stencil-helpers]
       - !reference [.changes, notification-center]
       - !reference [.changes, notification-center:app]
+      - !reference [.changes, linting-stencil]
+      - !reference [.changes, playwright-helpers]
   doc:
     changes:
       - !reference [.changes, stencil-helpers]
