@@ -214,7 +214,13 @@ export class MgTable {
 
             // Update button icon
             const icon = button.querySelector('mg-icon');
-            icon.setAttribute('icon', sortOrder === 'ascending' ? 'arrow-up' : sortOrder === 'descending' ? 'arrow-down' : 'arrows-up-down');
+            let iconType = 'arrows-up-down';
+            if (sortOrder === 'ascending') {
+              iconType = 'arrow-up';
+            } else if (sortOrder === 'descending') {
+              iconType = 'arrow-down';
+            }
+            icon.setAttribute('icon', iconType);
 
             // If sort order is none, return to original order
             if (sortOrder === 'none') {
