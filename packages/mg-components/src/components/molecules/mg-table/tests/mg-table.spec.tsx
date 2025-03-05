@@ -1,8 +1,9 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgTable } from '../mg-table';
-import { sizes, alignments } from '../mg-table.conf';
+import { sizes } from '../mg-table.conf';
 import { toString } from '@mgdis/stencil-helpers';
+import messages from '../../../../locales/en/messages.json';
 
 const getPage = (args, caption?) =>
   newSpecPage({
@@ -13,7 +14,9 @@ const getPage = (args, caption?) =>
           {caption}
           <thead>
             <tr>
-              <th>Dev</th>
+              <th>Name</th>
+              <th>Birthday</th>
+              <th>Age</th>
               <th>Role</th>
               <th>Test signature</th>
             </tr>
@@ -21,16 +24,22 @@ const getPage = (args, caption?) =>
           <tbody>
             <tr>
               <th>Simon</th>
+              <td data-sort="1982-06-02">02/06/1982</td>
+              <td>42</td>
               <td>Archi</td>
               <td>Blu / Daron Crew</td>
             </tr>
             <tr>
               <th>Nico</th>
+              <td data-sort="1990-10-31">31/10/1990</td>
+              <td>35</td>
               <td>Dev front-end</td>
               <td>DC Comics (Batman, Jocker, etc.)</td>
             </tr>
             <tr>
               <th>Guirec</th>
+              <td data-sort="1985-12-30">30/12/1985</td>
+              <td>39</td>
               <td>Dev front-end</td>
               <td>Pat'Patrouille</td>
             </tr>
@@ -47,16 +56,14 @@ describe('mg-table', () => {
     { size: 'large' },
     { size: 'xlarge' },
     { fullWidth: true },
-    { columnsAlignment: 'left' },
-    { columnsAlignment: 'center' },
-    { columnsAlignment: 'right' },
-    { columnsAlignment: { 2: 'center' } },
+    { columns: { 2: { align: 'center' } } },
+    { columns: { 2: { datatype: 'numeric' } } },
   ])('Should render with args %o:', async args => {
     const { root } = await getPage(args);
     expect(root).toMatchSnapshot();
   });
 
-  test.each(['', ' '])('Should not render with invalid size property: %s', async size => {
+  test.each(['', ' ', 'blu'])('Should not render with invalid size property: %s', async size => {
     expect.assertions(1);
     try {
       await getPage({ size });
@@ -65,14 +72,25 @@ describe('mg-table', () => {
     }
   });
 
-  test.each(['', ' ', 'blu', ['center', 'left'], { a: 'left' }, { 2: 'blu' }])('Should not render with invalid columnsAlignment property: %s', async columnsAlignment => {
+  test.each([
+    '',
+    ' ',
+    'blu',
+    ['center', 'left'],
+    { a: 'left' },
+    { 2: 'blu' },
+    { 2: ['blu'] },
+    { 2: { a: 'blu' } },
+    { 2: { align: 'blu' } },
+    { 2: { sortable: 'blu' } },
+    { 2: { datatype: 'blu' } },
+    { 2: { align: 'left', a: 'blu' } },
+  ])('Should not render with invalid columns property: %o', async columns => {
     expect.assertions(1);
     try {
-      await getPage({ columnsAlignment });
+      await getPage({ columns });
     } catch (err) {
-      expect(err.message).toEqual(
-        `<mg-table> prop "columnsAlignment" can be a string or an Object, values must be one of ${alignments.join(', ')}. Passed value: ${toString(columnsAlignment)}.`,
-      );
+      expect(err.message).toEqual(`<mg-table> prop "columns" must be a ColumnsType object. Passed value: ${toString(columns)}.`);
     }
   });
 
@@ -119,5 +137,48 @@ describe('mg-table', () => {
     // Ensure the wrapper div references the caption id
     const tableWrapper = page.doc.querySelector('mg-table').shadowRoot.querySelector('div');
     expect(tableWrapper).toHaveAttribute('aria-labelledby', generatedId);
+  });
+
+  describe('Sort', () => {
+    test('Should sort table on column click', async () => {
+      const page = await getPage(
+        { columns: { 1: { sortable: true }, 2: { datatype: 'date', sortable: true }, 3: { datatype: 'numeric', sortable: true } } },
+        <caption id="blu">Sortable table</caption>,
+      );
+      const sortButtons = page.doc.querySelector('mg-table').shadowRoot.querySelectorAll('th button');
+
+      // Sort is undefined
+      expect(page.root).toMatchSnapshot();
+
+      for (const sortButton of Array.from(sortButtons)) {
+        // Click on the sortable column
+        sortButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+        await page.waitForChanges();
+        // Sort is ascending
+        expect(page.root).toMatchSnapshot();
+
+        // Click on the sortable column
+        sortButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+        await page.waitForChanges();
+        // Sort is descending
+        expect(page.root).toMatchSnapshot();
+
+        // Click on the sortable column
+        sortButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+        await page.waitForChanges();
+        // Sort is none
+        expect(page.root).toMatchSnapshot();
+      }
+    });
+
+    test('Should add caption if not set', async () => {
+      const page = await getPage({ columns: { 1: { sortable: true } } });
+
+      // Get the caption element from the document
+      const captionElement = page.doc.querySelector('mg-table').shadowRoot.querySelector('caption');
+
+      // Ensure caption is added
+      expect(captionElement.innerHTML).toEqual(messages.table.sortableCaption);
+    });
   });
 });

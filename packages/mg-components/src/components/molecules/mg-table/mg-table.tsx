@@ -1,18 +1,54 @@
 import { Component, Element, State, Prop, Watch } from '@stencil/core';
 import { ClassList, toString, createID, isValidString } from '@mgdis/stencil-helpers';
-import { type TableSizeType, type ColumnsAlignmentType, alignments, sizes } from './mg-table.conf';
+import { type TableSizeType, type ColumnsType, type datatypesType, textAlignments, dataTypes, sizes } from './mg-table.conf';
+import { initLocales } from '../../../locales';
 
 /**
  * Check if value is a valid align object
  * @param newValue - New value
  * @returns True if value is a valid align object
  */
-const isValidAlignObject = (newValue: unknown): boolean =>
+const isValidColumnsObject = (newValue: ColumnsType): boolean =>
+  // ensure newValue is an object
   typeof newValue === 'object' &&
   !Array.isArray(newValue) &&
-  Object.entries(newValue).every(([key, value]) => {
-    return !isNaN(parseInt(key)) && alignments.includes(value);
-  });
+  // Ensure every property is well formatted
+  Object.entries(newValue).every(
+    ([key, value]) =>
+      // ensure key is a number
+      !isNaN(parseInt(key)) &&
+      // ensure value is an object
+      typeof value === 'object' &&
+      !Array.isArray(value) &&
+      // ensure value has at least one of the following properties
+      ((value.align !== undefined && textAlignments.includes(value.align)) ||
+        (value.sortable !== undefined && typeof value.sortable === 'boolean') ||
+        (value.datatype !== undefined && dataTypes.includes(value.datatype))) &&
+      // ensure no extra properties are present
+      Object.keys(value).every(key => ['align', 'sortable', 'datatype'].includes(key)),
+  );
+
+/**
+ * Compare values
+ * @param firstValue - First value
+ * @param secondValue - Second value
+ * @param descending - Define descending order
+ * @param datatype - Data type
+ * @returns Comparison result
+ * @example
+ * compareValues('a', 'b', false, 'string'); // -1
+ */
+const compareValues = (firstValue: string, secondValue: string, descending: boolean, datatype: datatypesType): number => {
+  if (descending) {
+    const temp = firstValue;
+    firstValue = secondValue;
+    secondValue = temp;
+  }
+  if (datatype === 'date') {
+    return new Date(firstValue).getTime() - new Date(secondValue).getTime();
+  }
+  return firstValue.localeCompare(secondValue, undefined, { numeric: datatype === 'numeric' });
+};
 
 /**
  * @slot - Table content
@@ -26,6 +62,8 @@ export class MgTable {
   /************
    * Internal *
    ************/
+
+  private messages;
 
   // Classes
   private readonly componentClass = 'mg-c-table';
@@ -74,30 +112,13 @@ export class MgTable {
   }
 
   /**
-   * Define column alignment.
-   *
-   * Can be a string: `left`, `center`, `right`; In this case all columns will have the same alignment.
-   *
-   * Can be an array: `['left', 'center', 'right']`; In this case each column will have the corresponding alignment.
-   *
-   * Can be an object: `{ 2: 'center' }`; In this case the column 2 will have the corresponding alignment.
+   * Define column properties
    */
-  @Prop() columnsAlignment: ColumnsAlignmentType;
-  @Watch('columnsAlignment')
-  watchColumnAlign(newValue: MgTable['columnsAlignment']): void {
-    if (newValue !== undefined) {
-      // String value
-      if (typeof newValue === 'string' && alignments.includes(newValue)) {
-        this.classCollection.add(`mg-c-table--align-${this.columnsAlignment}`);
-      }
-      // Object value
-      else if (typeof newValue === 'object' && isValidAlignObject(newValue)) {
-        Object.entries(newValue).forEach(([key, value]) => {
-          this.alignmentStylesheet.insertRule(`.${this.componentClass}{th:nth-child(${key}),td:nth-child(${key}){text-align:${value}}}`);
-        });
-      } else {
-        throw new Error(`<mg-table> prop "columnsAlignment" can be a string or an Object, values must be one of ${alignments.join(', ')}. Passed value: ${toString(newValue)}.`);
-      }
+  @Prop() columns: ColumnsType;
+  @Watch('columns')
+  watchColumns(newValue: ColumnsType): void {
+    if (newValue !== undefined && !isValidColumnsObject(newValue)) {
+      throw new Error(`<mg-table> prop "columns" must be a ColumnsType object. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -111,10 +132,120 @@ export class MgTable {
    * @param table - Table element
    */
   private renderTable(table: HTMLTableElement): void {
+    let isSortable = false;
     // Remove table classes
     table.className = '';
     // Add table classes
     table.classList.add(...this.classCollection.classes);
+
+    // Set columns based on columns prop
+    if (this.columns !== undefined) {
+      // Store original rows
+      const rowsDefault = Array.from(table.querySelectorAll('tbody tr'));
+
+      // Apply columns settings
+      Object.entries(this.columns).forEach(([key, value]) => {
+        // Add alignment to stylesheet
+        if (value.align !== undefined) {
+          this.alignmentStylesheet.insertRule(`.${this.componentClass}{th:nth-child(${key}),td:nth-child(${key}){text-align:${value.align}}}`);
+        }
+        // if align is not defined and datatype is number, align right
+        else if (value.datatype === 'numeric') {
+          this.alignmentStylesheet.insertRule(`.${this.componentClass}{th:nth-child(${key}),td:nth-child(${key}){text-align:right}}`);
+        }
+
+        // Define if column is sortable
+        if (value.sortable) {
+          isSortable = true;
+          // Add sortable class to table header
+          const sortableHeader = table.querySelector(`thead td:nth-child(${key}),thead th:nth-child(${key})`);
+
+          // Create button
+          const button = document.createElement('button');
+          button.classList.add('mg-c-table__sort-button');
+
+          // Append button to header
+          const sortableHeaderContent = sortableHeader.innerHTML;
+          sortableHeader.innerHTML = '';
+          button.innerHTML = sortableHeaderContent;
+
+          // Set icon
+          const icon = document.createElement('mg-icon');
+          icon.setAttribute('icon', 'arrows-up-down');
+
+          // Append icon to button
+          button.append(icon);
+          sortableHeader.append(button);
+
+          // Add event listener
+          button.addEventListener('click', (): void => {
+            // Reset aria pressed
+            table.querySelectorAll(`thead td:not(:nth-child(${key})) [aria-pressed],thead th:not(:nth-child(${key})) [aria-pressed]`).forEach(ariaPressed => {
+              ariaPressed.removeAttribute('aria-pressed');
+              ariaPressed.querySelector('mg-icon').setAttribute('icon', 'arrows-up-down');
+            });
+            // Reset aria sort
+            table.querySelectorAll(`thead td:not(:nth-child(${key}))[aria-sort],thead th:not(:nth-child(${key}))[aria-sort]`).forEach(ariaSort => {
+              ariaSort.removeAttribute('aria-sort');
+            });
+
+            // Set aria pressed
+            button.setAttribute('aria-pressed', 'true');
+
+            // Manage sort order
+            // Get sort order
+            let sortOrder = sortableHeader.getAttribute('aria-sort');
+
+            // First click sort asc
+            if ([null, 'none'].includes(sortOrder)) {
+              sortableHeader.setAttribute('aria-sort', 'ascending');
+            }
+            // Second click sort desc
+            else if (sortOrder === 'ascending') {
+              sortableHeader.setAttribute('aria-sort', 'descending');
+            }
+            // Third click remove sort
+            else {
+              sortableHeader.setAttribute('aria-sort', 'none');
+            }
+
+            // Update sort order
+            sortOrder = sortableHeader.getAttribute('aria-sort');
+
+            // Update button icon
+            const icon = button.querySelector('mg-icon');
+            icon.setAttribute('icon', sortOrder === 'ascending' ? 'arrow-up' : sortOrder === 'descending' ? 'arrow-down' : 'arrows-up-down');
+
+            // If sort order is none, return to original order
+            if (sortOrder === 'none') {
+              // Append rows to table
+              rowsDefault.forEach(row => table.querySelector('tbody').append(row));
+              return;
+            }
+
+            // Set a copy of rows
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+
+            // Sort rows
+            rows.sort((a, b) => {
+              // Get cells
+              const cellA: HTMLTableCellElement = a.querySelector(`td:nth-child(${key}),th:nth-child(${key})`);
+              const cellB: HTMLTableCellElement = b.querySelector(`td:nth-child(${key}),th:nth-child(${key})`);
+
+              // Get cell values
+              const cellValueA = cellA.dataset.sort ?? cellA.textContent;
+              const cellValueB = cellB.dataset.sort ?? cellB.textContent;
+
+              // Sort cells based on sort order
+              return compareValues(cellValueA, cellValueB, sortOrder === 'descending', value.datatype);
+            });
+
+            // Append rows to table
+            rows.forEach(row => table.querySelector('tbody').append(row));
+          });
+        }
+      });
+    }
 
     // Add alignment to columns
     this.element.shadowRoot.adoptedStyleSheets = [...this.element.shadowRoot.adoptedStyleSheets, this.alignmentStylesheet];
@@ -126,16 +257,28 @@ export class MgTable {
     divWrapper.setAttribute('role', 'region');
 
     // Get table title
-    const captionTable = table.querySelector('caption');
+    let captionTable = table.querySelector('caption');
+
+    // If table is sortable we must add a caption
+    if (captionTable === null && isSortable) {
+      captionTable = document.createElement('caption');
+      table.prepend(captionTable);
+    }
 
     if (captionTable !== null) {
       // Ensure caption is not visible (otherwhise the table does not have rounded corners)
       captionTable.className = 'mg-u-visually-hidden';
+
       // Link caption to div
       if (!isValidString(captionTable.id)) {
         captionTable.setAttribute('id', createID(`${this.componentClass}-caption`));
       }
       divWrapper.setAttribute('aria-labelledby', captionTable.id);
+
+      // Add sortable caption if neeeded
+      if (isSortable) {
+        captionTable.innerHTML = `${captionTable.innerHTML} ${this.messages.table.sortableCaption}`.trim();
+      }
     }
     divWrapper.append(table);
 
@@ -152,13 +295,17 @@ export class MgTable {
    * Lifecycle *
    *************/
 
+  componentWillLoad(): void {
+    this.messages = initLocales(this.element).messages;
+  }
+
   /**
    * Set variables and validate props
    */
   componentDidLoad(): void {
     this.watchSize(this.size);
     this.watchFullWidth(this.fullWidth);
-    this.watchColumnAlign(this.columnsAlignment);
+    this.watchColumns(this.columns);
     this.renderTable(this.element.querySelector('table'));
   }
 

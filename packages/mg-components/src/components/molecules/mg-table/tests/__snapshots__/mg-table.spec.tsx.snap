@@ -11,7 +11,13 @@ exports[`mg-table Should link table to caption 1`] = `
         <thead>
           <tr>
             <th>
-              Dev
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
             </th>
             <th>
               Role
@@ -26,6 +32,12 @@ exports[`mg-table Should link table to caption 1`] = `
             <th>
               Simon
             </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
             <td>
               Archi
             </td>
@@ -37,6 +49,12 @@ exports[`mg-table Should link table to caption 1`] = `
             <th>
               Nico
             </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
             <td>
               Dev front-end
             </td>
@@ -48,6 +66,12 @@ exports[`mg-table Should link table to caption 1`] = `
             <th>
               Guirec
             </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
             <td>
               Dev front-end
             </td>
@@ -62,184 +86,7 @@ exports[`mg-table Should link table to caption 1`] = `
 </mg-table>
 `;
 
-exports[`mg-table Should render with args { columnsAlignment: 'center' }: 1`] = `
-<mg-table>
-  <template shadowrootmode="open">
-    <div class="mg-c-table-wrapper" role="region" tabindex="0">
-      <table class="mg-c-table mg-c-table--align-center mg-c-table--size-medium">
-        <thead>
-          <tr>
-            <th>
-              Dev
-            </th>
-            <th>
-              Role
-            </th>
-            <th>
-              Test signature
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>
-              Simon
-            </th>
-            <td>
-              Archi
-            </td>
-            <td>
-              Blu / Daron Crew
-            </td>
-          </tr>
-          <tr>
-            <th>
-              Nico
-            </th>
-            <td>
-              Dev front-end
-            </td>
-            <td>
-              DC Comics (Batman, Jocker, etc.)
-            </td>
-          </tr>
-          <tr>
-            <th>
-              Guirec
-            </th>
-            <td>
-              Dev front-end
-            </td>
-            <td>
-              Pat'Patrouille
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </template>
-</mg-table>
-`;
-
-exports[`mg-table Should render with args { columnsAlignment: 'left' }: 1`] = `
-<mg-table>
-  <template shadowrootmode="open">
-    <div class="mg-c-table-wrapper" role="region" tabindex="0">
-      <table class="mg-c-table mg-c-table--align-left mg-c-table--size-medium">
-        <thead>
-          <tr>
-            <th>
-              Dev
-            </th>
-            <th>
-              Role
-            </th>
-            <th>
-              Test signature
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>
-              Simon
-            </th>
-            <td>
-              Archi
-            </td>
-            <td>
-              Blu / Daron Crew
-            </td>
-          </tr>
-          <tr>
-            <th>
-              Nico
-            </th>
-            <td>
-              Dev front-end
-            </td>
-            <td>
-              DC Comics (Batman, Jocker, etc.)
-            </td>
-          </tr>
-          <tr>
-            <th>
-              Guirec
-            </th>
-            <td>
-              Dev front-end
-            </td>
-            <td>
-              Pat'Patrouille
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </template>
-</mg-table>
-`;
-
-exports[`mg-table Should render with args { columnsAlignment: 'right' }: 1`] = `
-<mg-table>
-  <template shadowrootmode="open">
-    <div class="mg-c-table-wrapper" role="region" tabindex="0">
-      <table class="mg-c-table mg-c-table--align-right mg-c-table--size-medium">
-        <thead>
-          <tr>
-            <th>
-              Dev
-            </th>
-            <th>
-              Role
-            </th>
-            <th>
-              Test signature
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>
-              Simon
-            </th>
-            <td>
-              Archi
-            </td>
-            <td>
-              Blu / Daron Crew
-            </td>
-          </tr>
-          <tr>
-            <th>
-              Nico
-            </th>
-            <td>
-              Dev front-end
-            </td>
-            <td>
-              DC Comics (Batman, Jocker, etc.)
-            </td>
-          </tr>
-          <tr>
-            <th>
-              Guirec
-            </th>
-            <td>
-              Dev front-end
-            </td>
-            <td>
-              Pat'Patrouille
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </template>
-</mg-table>
-`;
-
-exports[`mg-table Should render with args { columnsAlignment: { '2': 'center' } }: 1`] = `
+exports[`mg-table Should render with args { columns: { '2': { align: 'center' } } }: 1`] = `
 <mg-table>
   <template shadowrootmode="open">
     <div class="mg-c-table-wrapper" role="region" tabindex="0">
@@ -247,7 +94,13 @@ exports[`mg-table Should render with args { columnsAlignment: { '2': 'center' } 
         <thead>
           <tr>
             <th>
-              Dev
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
             </th>
             <th>
               Role
@@ -262,6 +115,12 @@ exports[`mg-table Should render with args { columnsAlignment: { '2': 'center' } 
             <th>
               Simon
             </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
             <td>
               Archi
             </td>
@@ -273,6 +132,12 @@ exports[`mg-table Should render with args { columnsAlignment: { '2': 'center' } 
             <th>
               Nico
             </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
             <td>
               Dev front-end
             </td>
@@ -284,6 +149,95 @@ exports[`mg-table Should render with args { columnsAlignment: { '2': 'center' } 
             <th>
               Guirec
             </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Should render with args { columns: { '2': { datatype: 'numeric' } } }: 1`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--size-medium">
+        <thead>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
             <td>
               Dev front-end
             </td>
@@ -306,7 +260,13 @@ exports[`mg-table Should render with args { fullWidth: true }: 1`] = `
         <thead>
           <tr>
             <th>
-              Dev
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
             </th>
             <th>
               Role
@@ -321,6 +281,12 @@ exports[`mg-table Should render with args { fullWidth: true }: 1`] = `
             <th>
               Simon
             </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
             <td>
               Archi
             </td>
@@ -332,6 +298,12 @@ exports[`mg-table Should render with args { fullWidth: true }: 1`] = `
             <th>
               Nico
             </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
             <td>
               Dev front-end
             </td>
@@ -343,6 +315,12 @@ exports[`mg-table Should render with args { fullWidth: true }: 1`] = `
             <th>
               Guirec
             </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
             <td>
               Dev front-end
             </td>
@@ -365,7 +343,13 @@ exports[`mg-table Should render with args { size: 'large' }: 1`] = `
         <thead>
           <tr>
             <th>
-              Dev
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
             </th>
             <th>
               Role
@@ -380,6 +364,12 @@ exports[`mg-table Should render with args { size: 'large' }: 1`] = `
             <th>
               Simon
             </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
             <td>
               Archi
             </td>
@@ -391,6 +381,12 @@ exports[`mg-table Should render with args { size: 'large' }: 1`] = `
             <th>
               Nico
             </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
             <td>
               Dev front-end
             </td>
@@ -402,6 +398,12 @@ exports[`mg-table Should render with args { size: 'large' }: 1`] = `
             <th>
               Guirec
             </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
             <td>
               Dev front-end
             </td>
@@ -424,7 +426,13 @@ exports[`mg-table Should render with args { size: 'small' }: 1`] = `
         <thead>
           <tr>
             <th>
-              Dev
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
             </th>
             <th>
               Role
@@ -439,6 +447,12 @@ exports[`mg-table Should render with args { size: 'small' }: 1`] = `
             <th>
               Simon
             </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
             <td>
               Archi
             </td>
@@ -450,6 +464,12 @@ exports[`mg-table Should render with args { size: 'small' }: 1`] = `
             <th>
               Nico
             </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
             <td>
               Dev front-end
             </td>
@@ -461,6 +481,12 @@ exports[`mg-table Should render with args { size: 'small' }: 1`] = `
             <th>
               Guirec
             </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
             <td>
               Dev front-end
             </td>
@@ -483,7 +509,13 @@ exports[`mg-table Should render with args { size: 'xlarge' }: 1`] = `
         <thead>
           <tr>
             <th>
-              Dev
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
             </th>
             <th>
               Role
@@ -498,6 +530,12 @@ exports[`mg-table Should render with args { size: 'xlarge' }: 1`] = `
             <th>
               Simon
             </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
             <td>
               Archi
             </td>
@@ -509,6 +547,12 @@ exports[`mg-table Should render with args { size: 'xlarge' }: 1`] = `
             <th>
               Nico
             </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
             <td>
               Dev front-end
             </td>
@@ -520,6 +564,12 @@ exports[`mg-table Should render with args { size: 'xlarge' }: 1`] = `
             <th>
               Guirec
             </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
             <td>
               Dev front-end
             </td>
@@ -542,7 +592,13 @@ exports[`mg-table Should render with args {}: 1`] = `
         <thead>
           <tr>
             <th>
-              Dev
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
             </th>
             <th>
               Role
@@ -557,6 +613,12 @@ exports[`mg-table Should render with args {}: 1`] = `
             <th>
               Simon
             </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
             <td>
               Archi
             </td>
@@ -568,6 +630,12 @@ exports[`mg-table Should render with args {}: 1`] = `
             <th>
               Nico
             </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
             <td>
               Dev front-end
             </td>
@@ -579,6 +647,12 @@ exports[`mg-table Should render with args {}: 1`] = `
             <th>
               Guirec
             </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
             <td>
               Dev front-end
             </td>
@@ -601,7 +675,13 @@ exports[`mg-table Should update mg-table classes on props change 1`] = `
         <thead>
           <tr>
             <th>
-              Dev
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
             </th>
             <th>
               Role
@@ -616,6 +696,12 @@ exports[`mg-table Should update mg-table classes on props change 1`] = `
             <th>
               Simon
             </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
             <td>
               Archi
             </td>
@@ -627,6 +713,12 @@ exports[`mg-table Should update mg-table classes on props change 1`] = `
             <th>
               Nico
             </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
             <td>
               Dev front-end
             </td>
@@ -638,6 +730,12 @@ exports[`mg-table Should update mg-table classes on props change 1`] = `
             <th>
               Guirec
             </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
             <td>
               Dev front-end
             </td>
@@ -660,7 +758,13 @@ exports[`mg-table Should update mg-table classes on props change 2`] = `
         <thead>
           <tr>
             <th>
-              Dev
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
             </th>
             <th>
               Role
@@ -675,6 +779,12 @@ exports[`mg-table Should update mg-table classes on props change 2`] = `
             <th>
               Simon
             </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
             <td>
               Archi
             </td>
@@ -686,6 +796,12 @@ exports[`mg-table Should update mg-table classes on props change 2`] = `
             <th>
               Nico
             </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
             <td>
               Dev front-end
             </td>
@@ -697,6 +813,12 @@ exports[`mg-table Should update mg-table classes on props change 2`] = `
             <th>
               Guirec
             </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
             <td>
               Dev front-end
             </td>
@@ -719,7 +841,13 @@ exports[`mg-table Should update mg-table classes on props change 3`] = `
         <thead>
           <tr>
             <th>
-              Dev
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
             </th>
             <th>
               Role
@@ -734,6 +862,12 @@ exports[`mg-table Should update mg-table classes on props change 3`] = `
             <th>
               Simon
             </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
             <td>
               Archi
             </td>
@@ -745,6 +879,12 @@ exports[`mg-table Should update mg-table classes on props change 3`] = `
             <th>
               Nico
             </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
             <td>
               Dev front-end
             </td>
@@ -756,6 +896,962 @@ exports[`mg-table Should update mg-table classes on props change 3`] = `
             <th>
               Guirec
             </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Sort Should sort table on column click 1`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div aria-labelledby="blu" class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--size-medium">
+        <caption class="mg-u-visually-hidden" id="blu">
+          Sortable table (column headers with buttons are sortable)
+        </caption>
+        <thead>
+          <tr>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Name
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Birthday
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Age
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Sort Should sort table on column click 2`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div aria-labelledby="blu" class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--size-medium">
+        <caption class="mg-u-visually-hidden" id="blu">
+          Sortable table (column headers with buttons are sortable)
+        </caption>
+        <thead>
+          <tr>
+            <th aria-sort="ascending">
+              <button aria-pressed="true" class="mg-c-table__sort-button">
+                Name
+                <mg-icon icon="arrow-up"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Birthday
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Age
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Sort Should sort table on column click 3`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div aria-labelledby="blu" class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--size-medium">
+        <caption class="mg-u-visually-hidden" id="blu">
+          Sortable table (column headers with buttons are sortable)
+        </caption>
+        <thead>
+          <tr>
+            <th aria-sort="descending">
+              <button aria-pressed="true" class="mg-c-table__sort-button">
+                Name
+                <mg-icon icon="arrow-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Birthday
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Age
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Sort Should sort table on column click 4`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div aria-labelledby="blu" class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--size-medium">
+        <caption class="mg-u-visually-hidden" id="blu">
+          Sortable table (column headers with buttons are sortable)
+        </caption>
+        <thead>
+          <tr>
+            <th aria-sort="none">
+              <button aria-pressed="true" class="mg-c-table__sort-button">
+                Name
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Birthday
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Age
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Sort Should sort table on column click 5`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div aria-labelledby="blu" class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--size-medium">
+        <caption class="mg-u-visually-hidden" id="blu">
+          Sortable table (column headers with buttons are sortable)
+        </caption>
+        <thead>
+          <tr>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Name
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th aria-sort="ascending">
+              <button aria-pressed="true" class="mg-c-table__sort-button">
+                Birthday
+                <mg-icon icon="arrow-up"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Age
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Sort Should sort table on column click 6`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div aria-labelledby="blu" class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--size-medium">
+        <caption class="mg-u-visually-hidden" id="blu">
+          Sortable table (column headers with buttons are sortable)
+        </caption>
+        <thead>
+          <tr>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Name
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th aria-sort="descending">
+              <button aria-pressed="true" class="mg-c-table__sort-button">
+                Birthday
+                <mg-icon icon="arrow-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Age
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Sort Should sort table on column click 7`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div aria-labelledby="blu" class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--size-medium">
+        <caption class="mg-u-visually-hidden" id="blu">
+          Sortable table (column headers with buttons are sortable)
+        </caption>
+        <thead>
+          <tr>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Name
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th aria-sort="none">
+              <button aria-pressed="true" class="mg-c-table__sort-button">
+                Birthday
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Age
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Sort Should sort table on column click 8`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div aria-labelledby="blu" class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--size-medium">
+        <caption class="mg-u-visually-hidden" id="blu">
+          Sortable table (column headers with buttons are sortable)
+        </caption>
+        <thead>
+          <tr>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Name
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Birthday
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th aria-sort="ascending">
+              <button aria-pressed="true" class="mg-c-table__sort-button">
+                Age
+                <mg-icon icon="arrow-up"></mg-icon>
+              </button>
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Sort Should sort table on column click 9`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div aria-labelledby="blu" class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--size-medium">
+        <caption class="mg-u-visually-hidden" id="blu">
+          Sortable table (column headers with buttons are sortable)
+        </caption>
+        <thead>
+          <tr>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Name
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Birthday
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th aria-sort="descending">
+              <button aria-pressed="true" class="mg-c-table__sort-button">
+                Age
+                <mg-icon icon="arrow-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Sort Should sort table on column click 10`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div aria-labelledby="blu" class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--size-medium">
+        <caption class="mg-u-visually-hidden" id="blu">
+          Sortable table (column headers with buttons are sortable)
+        </caption>
+        <thead>
+          <tr>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Name
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              <button class="mg-c-table__sort-button">
+                Birthday
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th aria-sort="none">
+              <button aria-pressed="true" class="mg-c-table__sort-button">
+                Age
+                <mg-icon icon="arrows-up-down"></mg-icon>
+              </button>
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
             <td>
               Dev front-end
             </td>

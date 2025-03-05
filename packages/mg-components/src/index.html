@@ -49,52 +49,39 @@
         <h2 id="table">Table</h2>
         <mg-table full-width>
           <table>
-            <caption>
-              Front-end web developer course 2021
-            </caption>
             <thead>
               <tr>
-                <th scope="col">Person</th>
-                <th scope="col">Most interest in</th>
-                <th scope="col">Age</th>
+                <th>Name</th>
+                <th>Birthday</th>
+                <th>Age</th>
+                <th>Test signature</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">
-                  <a href="/">Chris</a>
-                </th>
-                <td><mg-tag outline>HTML tables</mg-tag></td>
-                <td>22</td>
+                <th>Simon</th>
+                <td data-sort="1982-06-02">02/06/1982</td>
+                <td>42</td>
+                <td>Blu / Daron Crew</td>
               </tr>
               <tr>
-                <th scope="row">Dennis</th>
-                <td>Web accessibility</td>
-                <td>45</td>
+                <th>Nico</th>
+                <td data-sort="1990-10-31">31/10/1990</td>
+                <td>35</td>
+                <td>DC Comics (Batman, Jocker, etc.)</td>
               </tr>
               <tr>
-                <th scope="row">Sarah</th>
-                <td>JavaScript frameworks</td>
-                <td>29</td>
-              </tr>
-              <tr>
-                <th scope="row">Karen</th>
-                <td>Web performance</td>
-                <td>36</td>
+                <th>Guirec</th>
+                <td data-sort="1985-12-30">30/12/1985</td>
+                <td>39</td>
+                <td>Pat'Patrouille</td>
               </tr>
             </tbody>
-            <tfoot>
-              <tr>
-                <th scope="row" colspan="2">Average age</th>
-                <td>33</td>
-              </tr>
-            </tfoot>
           </table>
         </mg-table>
         <script>
           const mgTable = document.querySelector('mg-table');
-          mgTable.columnsAlignment = ['left', 'center', 'right'];
-          // mgTable.columnsAlignment = { 2: 'center' };
+          mgTable.columns = { 1: { sortable: true }, 2: { datatype: 'date', sortable: true }, 3: { datatype: 'numeric', sortable: true } };
         </script>
       </section>
       <section>
@@ -523,6 +510,19 @@
           <mg-button onclick="document.getElementById('toggle-disabled-button').disabled = !document.getElementById('toggle-disabled-button').disabled"
             >👈 Toggle disabled</mg-button
           >
+        </div>
+        <h3>change icon button</h3>
+        <div class="mg-l-group-elements" style="padding: 0 0 1rem">
+          <mg-button id="update-button">icon <mg-icon icon="address-card" id="update-button-icon"></mg-icon></mg-button>
+          <mg-icon icon="address-card" id="update-icon"></mg-icon>
+          <script>
+            document.getElementById('update-button').addEventListener('click', () => {
+              document.getElementById('update-button-icon').setAttribute('icon', 'address-card-outline');
+            });
+            setTimeout(() => {
+              document.getElementById('update-icon').setAttribute('icon', 'address-card-outline');
+            }, 2000);
+          </script>
         </div>
       </section>
       <section>

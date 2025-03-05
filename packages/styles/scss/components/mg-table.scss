@@ -73,32 +73,44 @@
     width: 100%;
   }
 
-  /**
-   * Column alignment
-   */
-
-  &.mg-c-table--align-left {
-    th,
-    td {
-      text-align: left;
-    }
-  }
-
-  &.mg-c-table--align-center {
-    th,
-    td {
-      text-align: center;
-    }
-  }
-
-  &.mg-c-table--align-right {
-    th,
-    td {
-      text-align: right;
-    }
-  }
-
   &-wrapper {
     overflow: auto;
+  }
+
+  /**
+  * Sort
+  */
+  thead td,
+  thead th {
+    position: relative;
+
+    .mg-c-table__sort-button {
+      padding: 0;
+      border: none;
+      margin: 0;
+      background: none;
+      color: inherit;
+
+      // Extend click area
+      &::after {
+        position: absolute;
+        content: '';
+        inset: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      mg-icon {
+        margin-left: var(--mg-b-size-4);
+      }
+    }
+
+    &:has(.mg-c-table__sort-button):hover,
+    &[aria-sort='descending'],
+    &[aria-sort='ascending'] {
+      background-color: color-mix(in srgb, var(--mg-b-color-app), black 10%);
+    }
   }
 }

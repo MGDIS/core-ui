@@ -390,6 +390,19 @@ exports[`mg-button Should update button on size to large with svg: %s 2`] = `
 </mg-button>
 `;
 
+exports[`mg-button Should update mg-icon size when button size is on default value 1`] = `
+<mg-button aria-label="default size button" role="button" tabindex="0">
+  <template shadowrootmode="open">
+    <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+      <div class="mg-c-button__content">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  <mg-icon icon="user"></mg-icon>
+</mg-button>
+`;
+
 exports[`mg-button prevent double click Should NOT disable button after click 1`] = `
 <mg-button role="button" tabindex="0">
   <template shadowrootmode="open">
