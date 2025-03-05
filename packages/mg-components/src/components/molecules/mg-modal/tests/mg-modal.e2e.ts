@@ -63,6 +63,14 @@ test.describe('mg-modal', () => {
         await expect(page.locator('body')).toHaveScreenshot();
       });
     });
+
+    test('Should inherit color from parent', async ({ page }) => {
+      await setPageContent(page, { closeButton: true, open: true }, { action: true, content: 'short' });
+
+      await page.addStyleTag({ content: 'body{color:#BADA55}' });
+
+      await expect(page.locator('body')).toHaveScreenshot();
+    });
   });
 
   test.describe('navigation', () => {

@@ -1,5 +1,21 @@
 # @mgdis/notification-center
 
+## 1.2.6
+
+### Patch Changes
+
+- 2b9f123: Add role status on notification receiver
+- Updated dependencies [d04ddfa]
+  - @mgdis/sanitize-html@1.0.3
+
+## 1.2.5
+
+### Patch Changes
+
+- a513c99: Update dependencies
+- Updated dependencies [a513c99]
+  - @mgdis/sanitize-html@1.0.2
+
 ## 1.2.4
 
 ### Patch Changes
