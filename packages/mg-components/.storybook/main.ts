@@ -41,6 +41,7 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-essentials'),
     getAbsolutePath('@storybook/addon-interactions'),
     getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('storybook-addon-tag-badges'),
   ],
   framework: {
     name: getAbsolutePath('@storybook/html-vite'),
