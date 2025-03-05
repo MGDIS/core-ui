@@ -64,7 +64,7 @@ All of the MGDIS generated web components must use the prefix `mg`.
 
 ### Using this library
 
-You will find how to use the library instructions in the [Getting Started section](./getting-started.md).
+You will find how to use the library instructions in the [Getting Started section](./GETTING-STARTED.md).
 
 ### Storybook
 

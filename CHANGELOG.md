@@ -1,5 +1,13 @@
 # Changelog
 
+## Release (2025-03-05-15-23_Light-Lavender-Llama)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+
 ## Release (2025-02-25-16-06_Bitter-Blue-Violet-Beaver)
 
 ### Packages released

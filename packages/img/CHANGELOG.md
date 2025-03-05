@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 2.3.0
+
+### Minor Changes
+
+- bb4982f: Add icons and illustrations
+
 ## 2.2.0
 
 ### Minor Changes

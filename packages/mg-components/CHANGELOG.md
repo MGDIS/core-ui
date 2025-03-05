@@ -1,5 +1,19 @@
 # @mgdis/mg-components
 
+## 6.7.0
+
+### Minor Changes
+
+- bb4982f: New icons
+
+### Patch Changes
+
+- 6c1a18c: [#532](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/532) mg-input-date: invalid date displays required error
+- b0b26d5: [#469](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/469): mg-popover ajusted fallback placements and aria-expanded attribute
+- Updated dependencies [bb4982f]
+  - @mgdis/img@2.3.0
+  - @mgdis/styles@2.3.1
+
 ## 6.6.1
 
 ### Patch Changes
