@@ -6582,6 +6582,12 @@ packages:
     peerDependencies:
       storybook: ^8.4.0
 
+  storybook-addon-tag-badges@1.4.0:
+    resolution: {integrity: sha512-ecVwNVT4zIpnB14ltXCTHsWqykW2lgiHrDJW1VeblI3+aU9uMaSZG0zuey+r3vehMeODADnRNrcdk6sN9MAmBA==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      storybook: ^8.4.0
+
   storybook@8.6.3:
     resolution: {integrity: sha512-Vbmd8/FXp6X0AOMak6arcg3WdkHj+2AYJTNHbCPVHsCEbnREyRZIG+Eq5/Ffmy6byiz+4OAX5HwsHGSMR6Xmow==}
     hasBin: true
@@ -13731,6 +13737,14 @@ snapshots:
   stackback@0.0.2: {}
 
   std-env@3.8.1: {}
+
+  storybook-addon-tag-badges@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.3(prettier@3.5.3)):
+    dependencies:
+      '@storybook/icons': 1.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      storybook: 8.6.3(prettier@3.5.3)
+    transitivePeerDependencies:
+      - react
+      - react-dom
 
   storybook-addon-tag-badges@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.3(prettier@3.5.3)):
     dependencies:
