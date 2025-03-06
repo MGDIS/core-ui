@@ -670,13 +670,29 @@ describe('mg-input-date', () => {
 
     //mock validity
     input.checkValidity = jest.fn().mockReturnValueOnce(false).mockReturnValueOnce(true).mockReturnValueOnce(true);
-    let valueMissingState = true;
     Object.defineProperty(input, 'validity', {
-      get: () => ({
-        valueMissing: valueMissingState,
-        rangeUnderflow: false,
-        rangeOverflow: false,
-      }),
+      get: jest
+        .fn()
+        .mockReturnValueOnce({
+          valueMissing: true,
+          rangeUnderflow: false,
+          rangeOverflow: false,
+        })
+        .mockReturnValueOnce({
+          valueMissing: true,
+          rangeUnderflow: false,
+          rangeOverflow: false,
+        })
+        .mockReturnValueOnce({
+          valueMissing: false,
+          rangeUnderflow: false,
+          rangeOverflow: false,
+        })
+        .mockReturnValueOnce({
+          valueMissing: false,
+          rangeUnderflow: false,
+          rangeOverflow: false,
+        }),
     });
 
     await element.displayError();
@@ -685,7 +701,6 @@ describe('mg-input-date', () => {
     expect(page.rootInstance.hasDisplayedError).toEqual(true);
     expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
 
-    valueMissingState = false;
     input.value = '1982-06-02';
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
     await page.waitForChanges();
@@ -706,13 +721,29 @@ describe('mg-input-date', () => {
 
     //mock validity
     input.checkValidity = jest.fn().mockReturnValueOnce(false).mockReturnValueOnce(true).mockReturnValueOnce(true);
-    let valueMissingState = true;
     Object.defineProperty(input, 'validity', {
-      get: () => ({
-        valueMissing: valueMissingState,
-        rangeUnderflow: false,
-        rangeOverflow: false,
-      }),
+      get: jest
+        .fn()
+        .mockReturnValueOnce({
+          valueMissing: true,
+          rangeUnderflow: false,
+          rangeOverflow: false,
+        })
+        .mockReturnValueOnce({
+          valueMissing: true,
+          rangeUnderflow: false,
+          rangeOverflow: false,
+        })
+        .mockReturnValueOnce({
+          valueMissing: false,
+          rangeUnderflow: false,
+          rangeOverflow: false,
+        })
+        .mockReturnValueOnce({
+          valueMissing: false,
+          rangeUnderflow: false,
+          rangeOverflow: false,
+        }),
     });
 
     await element.displayError();
@@ -721,7 +752,6 @@ describe('mg-input-date', () => {
     expect(page.rootInstance.hasDisplayedError).toEqual(true);
     expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
 
-    valueMissingState = false;
     element.required = false;
     await page.waitForChanges();
 
