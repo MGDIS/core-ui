@@ -403,6 +403,10 @@ describe('mg-input-date', () => {
 
   test.each([
     {
+      args: { readonly: true },
+      expected: undefined,
+    },
+    {
       args: { helpText: undefined },
       expected: 'Expected format: <span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span> (ex: 12/24/2025)',
     },
@@ -421,13 +425,34 @@ describe('mg-input-date', () => {
       expected:
         'Expected format: <span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span> (ex: 12/24/2025)<br>The date must be between 1/1/2023 and 12/31/2026',
     },
+    {
+      args: { helpText: 'Custom help text', min: '2023-01-01' },
+      expected: 'Custom help text<br>The date must be after 1/1/2023',
+    },
+    {
+      args: { helpText: 'Custom help text', max: '2026-12-31' },
+      expected: 'Custom help text<br>The date must be before 12/31/2026',
+    },
+    {
+      args: { helpText: 'Custom help text', min: '2023-01-01', max: '2026-12-31' },
+      expected: 'Custom help text<br>The date must be between 1/1/2023 and 12/31/2026',
+    },
+    {
+      args: { helpText: "Texte d'aide personnalisé", min: '2023-01-01', max: '2026-12-31', lang: 'fr' },
+      expected: "Texte d'aide personnalisé<br>La date doit être comprise entre le 1/1/2023 et le 12/31/2026",
+    },
   ])('Should format help text with args: $args', async ({ args, expected }) => {
     const page = await getPage({ label: 'label', identifier: 'identifier', ...args });
     const element = page.doc.querySelector('mg-input-date');
 
     // Verify the formatted help text
     const helpText = element.shadowRoot.querySelector('[slot="help-text"]');
-    expect(helpText.innerHTML.replace(/\s+/g, ' ')).toBe(expected.replace(/\s+/g, ' '));
+
+    if (expected === undefined) {
+      expect(helpText).toBeNull();
+    } else {
+      expect(helpText.innerHTML.replace(/\s+/g, ' ')).toBe(expected.replace(/\s+/g, ' '));
+    }
   });
 
   test.each([2020, '2021', '31-12-2022', '2022-02-24T08:01:44.460Z'])('Should display error with invalid value, case value="%s"', async value => {

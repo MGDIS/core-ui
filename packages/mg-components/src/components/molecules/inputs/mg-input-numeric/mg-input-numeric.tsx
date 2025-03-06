@@ -532,13 +532,12 @@ export class MgInputNumeric {
       return undefined;
     }
 
-    // If a custom helpText is provided, return it directly
-    if (isValidString(helpText)) {
-      return helpText;
-    }
+    // If a custom helpText is provided, store it but don't return it directly
+    const text = isValidString(helpText) ? helpText : undefined;
 
-    // If neither min nor max are defined, no range message is needed
-    if (this.min === undefined && this.max === undefined) {
+    // If neither min nor max are defined, and there's no custom helpText,
+    // we can return undefined as there's no message to display
+    if (this.min === undefined && this.max === undefined && text === undefined) {
       return undefined;
     }
 
@@ -552,9 +551,13 @@ export class MgInputNumeric {
       rangeMessage = this.messages.input.numeric.helpText.max.replace('{max}', this.formatErrorValue(this.max));
     }
 
-    if (rangeMessage !== undefined) {
-      return rangeMessage;
+    // Combine custom helpText with range message if both exist
+    if (text !== undefined && rangeMessage !== undefined) {
+      return `${text}<br>${rangeMessage}`;
     }
+
+    // Return either custom helpText or range message
+    return text || rangeMessage;
   };
 
   /*************

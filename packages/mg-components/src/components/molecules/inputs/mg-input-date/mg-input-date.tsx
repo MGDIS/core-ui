@@ -269,7 +269,7 @@ export class MgInputDate {
 
     const defaultHelpTextVariable = '{defaultHelpText}';
 
-    // Default help message
+    // If a custom helpText is provided, store it but don't return it directly
     let text = isValidString(helpText) ? helpText : this.messages.input.date.helpText.expectedFormat;
 
     // Handle defaultHelpText
@@ -279,11 +279,6 @@ export class MgInputDate {
 
     // Replace pattern and date variables
     text = text.replace('{pattern}', this.renderPattern()).replace('{date}', localeDate(dateToString(new Date('2025-12-24')), this.systemLocale));
-
-    // If a custom helpText is provided, return it directly
-    if (isValidString(helpText)) {
-      return text;
-    }
 
     // Add additional message for min/max if necessary
     let rangeMessage: string;
@@ -296,8 +291,9 @@ export class MgInputDate {
       rangeMessage = this.messages.input.date.helpText.max.replace('{max}', localeDate(this.max, this.systemLocale));
     }
 
-    if (rangeMessage !== undefined) {
-      text += `<br>${rangeMessage}`;
+    // Combine custom helpText with range message if both exist
+    if (text !== undefined && rangeMessage !== undefined) {
+      return `${text}<br>${rangeMessage}`;
     }
 
     return text;

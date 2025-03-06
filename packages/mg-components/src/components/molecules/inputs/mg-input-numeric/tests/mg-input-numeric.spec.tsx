@@ -862,6 +862,15 @@ describe('mg-input-numeric', () => {
       args: { min: 10, max: 100, format: 'percent', lang: 'fr' },
       expected: 'La valeur doit être comprise entre 10 et 100',
     },
+    // Test with both custom helpText and min/max
+    {
+      args: { helpText: 'Custom help text', min: 10, max: 100 },
+      expected: 'Custom help text<br>The value must be between 10 and 100',
+    },
+    {
+      args: { helpText: "Texte d'aide personnalisé", min: 10, max: 100, lang: 'fr' },
+      expected: "Texte d'aide personnalisé<br>La valeur doit être comprise entre 10 et 100",
+    },
   ])('Should format help text with args: $args', async ({ args, expected }) => {
     const page = await getPage({
       label: 'label',
@@ -876,7 +885,7 @@ describe('mg-input-numeric', () => {
     if (args.readonly) {
       expect(helpText).toBeNull();
     } else {
-      expect(helpText.textContent.replace(/\s+/g, ' ')).toBe(expected.replace(/\s+/g, ' '));
+      expect(helpText.innerHTML.replace(/\s+/g, ' ')).toBe(expected.replace(/\s+/g, ' '));
     }
   });
 });
