@@ -1,6 +1,6 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { allItemsAreString, ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
-import { OptionType, TextType } from './mg-input-text.conf';
+import { helpTextTypes, type OptionType, type TextType, textTypes } from './mg-input-text.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import { IconType } from '../../../../components';
@@ -99,6 +99,12 @@ export class MgInputText {
    * Input type
    */
   @Prop() type: TextType = 'text';
+  @Watch('type')
+  validateType(newValue: TextType): void {
+    if (!textTypes.includes(newValue)) {
+      throw new Error(`<mg-input-text> prop "type" must be one of the following values: ${textTypes.join(', ')}. Passed value: ${newValue}.`);
+    }
+  }
 
   /**
    * Input icon
@@ -237,7 +243,13 @@ export class MgInputText {
   /**
    * Add a help text under the input, usually expected data format and example
    */
-  @Prop() helpText?: string;
+  @Prop({ mutable: true }) helpText?: string;
+  @Watch('helpText')
+  watchHelpText(newValue: string): void {
+    if (!isValidString(newValue) && helpTextTypes.includes(this.type)) {
+      this.helpText = this.messages.input.text.helpText[this.type];
+    }
+  }
 
   /**
    * Define input valid state
@@ -400,6 +412,10 @@ export class MgInputText {
     else if (!this.valid && this.input.validity.patternMismatch) {
       this.errorMessage = this.patternErrorMessage;
     }
+    // Does not match type (email, emails, tel, url, etc.)
+    else if (!this.valid && this.input.validity.typeMismatch) {
+      this.errorMessage = `${this.messages.input.text.errors.typeMismatch} ${this.messages.input.text.helpText[this.type]}`;
+    }
     // required
     else if (!this.valid && this.input.validity.valueMissing) {
       this.errorMessage = this.messages.errors.required;
@@ -453,6 +469,8 @@ export class MgInputText {
     this.watchMgWidth(this.mgWidth);
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
+    this.validateType(this.type);
+    this.watchHelpText(this.helpText);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -507,7 +525,8 @@ export class MgInputText {
               >
                 {this.icon !== undefined && <mg-icon icon={this.icon}></mg-icon>}
                 <input
-                  type={this.type}
+                  type={this.type === 'emails' ? 'email' : this.type}
+                  multiple={this.type === 'emails'}
                   class="mg-c-input__box mg-c-input__box--width"
                   value={this.value}
                   id={this.identifier}

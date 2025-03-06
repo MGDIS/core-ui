@@ -1,6 +1,56 @@
-## Use as `search` input
+## Types
 
-Due to [accessibility recommendation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/search#search_form_labels_and_accessibility), an `<input type="search" />` must be used within a `<form role="search" />` we recommend using mg-input-text as in dedicated story.
+It is possible to define types on the `mg-input-text`, depending on the type it will provide native validation, default help texts, error messages, and on mobile devices, a dedicated keyboard.
+
+### Email
+
+The `email` type is used for email addresses following the [`<input type="email">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email) element specifications.
+It provides a [basic validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#basic_validation).
+
+#### Pattern Validation
+
+If you need the entered email address to be restricted further than just "any string that looks like an email address," you can use the `pattern` attribute to specify a regular expression the value must match for it to be valid.
+
+At MGDIS, on products that use the Ajv JSON schema validator, you must use the [`@mgdis/validators`](http://core.pages.mgdis.fr/core-documentation/docs/core-js/@mgdis-validators) package.
+
+Example:
+
+```TS
+// TS
+import { emailPattern } from '@mgdis/validators';
+
+// Template
+<mg-input-text
+  type="email"
+  :pattern="emailPattern"
+  ...
+></mg-input-text>
+```
+
+### Emails
+
+The `emails` type is used for multiple email addresses. It is the same as the email type, adding a [`multiple`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#multiple) attribute.
+
+### URL
+
+The `url` type is used for web addresses following the [`<input type="url">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/url) element specifications.
+It provides a [basic validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/url#basic_validation).
+
+#### Pattern Validation
+
+If you need the entered URL to be restricted further than just "any string that looks like a URL," you can use the `pattern` attribute to specify a regular expression the value must match for the value to be valid.
+
+### Tel
+
+The `tel` type is used for telephone numbers following the [`<input type="tel">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/tel) element specifications.
+
+It provides a dedicated keyboard on mobile devices.
+
+Unlike `type="email"` and `type="url"`, there is no format validation; you must use a pattern to do so.
+
+### search
+
+The `search` type is used for search fields. Due to [accessibility recommendation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/search#search_form_labels_and_accessibility), an `<input type="search" />` must be used within a `<form role="search" />`. We recommend using `mg-input-text` as in the dedicated story.
 
 The "search" role can only be used when the input field is the main website search field.
 
