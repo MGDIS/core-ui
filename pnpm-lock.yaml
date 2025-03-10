@@ -105,8 +105,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/linting-stencil
       '@stencil/sass':
-        specifier: 3.1.8
-        version: 3.1.8(@stencil/core@4.25.1)
+        specifier: 3.1.9
+        version: 3.1.9(@stencil/core@4.25.1)
       '@types/jest':
         specifier: 29.5.14
         version: 29.5.14
@@ -2192,8 +2192,8 @@ packages:
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
-  '@stencil/sass@3.1.8':
-    resolution: {integrity: sha512-8fw4YcmKXjrubq0OhDGxJsnpP67LtBszSEXss3gpIEPHaIaWY7JJsy/ygoj7fupUdWxOespzm9kMiTMQB3A4sw==}
+  '@stencil/sass@3.1.9':
+    resolution: {integrity: sha512-NL6VVhiixuMBjSYETer0OVnGOB/x25hv1bnbq+p6GWH0/yXc2cKcaa2E67B8HH86SMRrshBo0PQAFCJjtyW2GA==}
     engines: {node: '>=12.0.0', npm: '>=6.0.0'}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3.0.0-beta.0 || >= 4.0.0-beta.0 || >= 4.0.0'
@@ -8962,7 +8962,7 @@ snapshots:
 
   '@stencil/core@4.25.1': {}
 
-  '@stencil/sass@3.1.8(@stencil/core@4.25.1)':
+  '@stencil/sass@3.1.9(@stencil/core@4.25.1)':
     dependencies:
       '@stencil/core': 4.25.1
       sass-embedded: 1.85.1
