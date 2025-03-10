@@ -22,7 +22,14 @@ Object.defineProperty(globalThis, 'crypto', {
     getRandomValues: length => crypto.getRandomValues(length),
   },
 });
-
+// implement CSSStyleSheet
+Object.defineProperty(globalThis, 'CSSStyleSheet', {
+  value: class CSSStyleSheet {
+    insertRule() {}
+  },
+});
+// implement adoptedStyleSheets
+Object.getPrototypeOf(global.HTMLElement).prototype.adoptedStyleSheets = [];
 // rich-text-editor
 Object.defineProperty(Object.getPrototypeOf(Element).prototype, 'getSelection', {
   get: () => window.getSelection,

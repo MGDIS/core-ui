@@ -92,6 +92,12 @@ describe('mg-button', () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  test('Should update mg-icon size when button size is on default value', async () => {
+    const page = await getPage({ label: 'default size button' }, <mg-icon icon="user" size="large"></mg-icon>);
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   test.each([' ', 'blu'])('Should throw error with invalid variant: %s', async variant => {
     expect.assertions(1);
     try {
@@ -212,6 +218,7 @@ describe('mg-button', () => {
         expect(spy).lastCalledWith(expect.objectContaining({ type: 'click' }));
       }
     });
+
     test.each(['ArrowRight', 'Tab', ' '])('Should NOT trigger click event on keydown', async key => {
       const page = await getPage(props);
       const button = page.doc.querySelector('mg-button');

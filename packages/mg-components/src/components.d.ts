@@ -31,6 +31,7 @@ import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecul
 import { PopoverPlacementType } from "./components/molecules/mg-popover/mg-popover.conf";
 import { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
+import { ColumnsType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
 import { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 import { TooltipPlacementType } from "./components/atoms/mg-tooltip/mg-tooltip.conf";
@@ -60,6 +61,7 @@ export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecul
 export { PopoverPlacementType } from "./components/molecules/mg-popover/mg-popover.conf";
 export { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 export { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
+export { ColumnsType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
 export { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 export { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export { TooltipPlacementType } from "./components/atoms/mg-tooltip/mg-tooltip.conf";
@@ -1513,6 +1515,20 @@ export namespace Components {
          */
         "links": SkipLink[];
     }
+    interface MgTable {
+        /**
+          * Define column properties
+         */
+        "columns": ColumnsType;
+        /**
+          * Define if table fits its parent element
+         */
+        "fullWidth": boolean;
+        /**
+          * Define table size
+         */
+        "size": TableSizeType;
+    }
     interface MgTabs {
         /**
           * Active tab number
@@ -2150,6 +2166,12 @@ declare global {
         prototype: HTMLMgSkipLinksElement;
         new (): HTMLMgSkipLinksElement;
     };
+    interface HTMLMgTableElement extends Components.MgTable, HTMLStencilElement {
+    }
+    var HTMLMgTableElement: {
+        prototype: HTMLMgTableElement;
+        new (): HTMLMgTableElement;
+    };
     interface HTMLMgTabsElementEventMap {
         "active-tab-change": HTMLMgTabsElement['activeTab'];
     }
@@ -2222,6 +2244,7 @@ declare global {
         "mg-popover-content": HTMLMgPopoverContentElement;
         "mg-progress": HTMLMgProgressElement;
         "mg-skip-links": HTMLMgSkipLinksElement;
+        "mg-table": HTMLMgTableElement;
         "mg-tabs": HTMLMgTabsElement;
         "mg-tag": HTMLMgTagElement;
         "mg-tooltip": HTMLMgTooltipElement;
@@ -3680,6 +3703,20 @@ declare namespace LocalJSX {
          */
         "onGo-to-anchor"?: (event: MgSkipLinksCustomEvent<string>) => void;
     }
+    interface MgTable {
+        /**
+          * Define column properties
+         */
+        "columns"?: ColumnsType;
+        /**
+          * Define if table fits its parent element
+         */
+        "fullWidth"?: boolean;
+        /**
+          * Define table size
+         */
+        "size"?: TableSizeType;
+    }
     interface MgTabs {
         /**
           * Active tab number
@@ -3785,6 +3822,7 @@ declare namespace LocalJSX {
         "mg-popover-content": MgPopoverContent;
         "mg-progress": MgProgress;
         "mg-skip-links": MgSkipLinks;
+        "mg-table": MgTable;
         "mg-tabs": MgTabs;
         "mg-tag": MgTag;
         "mg-tooltip": MgTooltip;
@@ -3834,6 +3872,7 @@ declare module "@stencil/core" {
             "mg-popover-content": LocalJSX.MgPopoverContent & JSXBase.HTMLAttributes<HTMLMgPopoverContentElement>;
             "mg-progress": LocalJSX.MgProgress & JSXBase.HTMLAttributes<HTMLMgProgressElement>;
             "mg-skip-links": LocalJSX.MgSkipLinks & JSXBase.HTMLAttributes<HTMLMgSkipLinksElement>;
+            "mg-table": LocalJSX.MgTable & JSXBase.HTMLAttributes<HTMLMgTableElement>;
             "mg-tabs": LocalJSX.MgTabs & JSXBase.HTMLAttributes<HTMLMgTabsElement>;
             "mg-tag": LocalJSX.MgTag & JSXBase.HTMLAttributes<HTMLMgTagElement>;
             "mg-tooltip": LocalJSX.MgTooltip & JSXBase.HTMLAttributes<HTMLMgTooltipElement>;

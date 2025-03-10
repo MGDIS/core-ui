@@ -22,9 +22,12 @@ export class MgIcon {
   @Prop() icon!: IconType;
   @Watch('icon')
   validateIcon(newValue: MgIcon['icon'], oldValue?: MgIcon['icon']): void {
-    if (!Object.keys(icons).includes(newValue)) throw new Error(`<mg-icon> prop "icon" must be one of: ${Object.keys(icons).join(', ')}. Passed value: ${toString(newValue)}.`);
-    else {
-      if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--${oldValue}`);
+    if (!Object.keys(icons).includes(newValue)) {
+      throw new Error(`<mg-icon> prop "icon" must be one of: ${Object.keys(icons).join(', ')}. Passed value: ${toString(newValue)}.`);
+    } else {
+      if (oldValue !== undefined) {
+        this.classCollection.delete(`mg-c-icon--${oldValue}`);
+      }
       this.classCollection.add(`mg-c-icon--${newValue}`);
       this.renderIcon(newValue);
     }
@@ -36,9 +39,16 @@ export class MgIcon {
   @Prop() size: IconSizeType = 'medium';
   @Watch('size')
   validateSize(newValue: MgIcon['size'], oldValue?: MgIcon['size']): void {
-    if (!sizes.includes(newValue)) throw new Error(`<mg-icon> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${toString(newValue)}.`);
-    else {
-      if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--size-${oldValue}`);
+    // When removing size attribute, it is set to null
+    if (newValue === null) {
+      newValue = 'medium';
+    }
+    if (!sizes.includes(newValue)) {
+      throw new Error(`<mg-icon> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${toString(newValue)}.`);
+    } else {
+      if (oldValue !== undefined) {
+        this.classCollection.delete(`mg-c-icon--size-${oldValue}`);
+      }
       this.classCollection.add(`mg-c-icon--size-${newValue}`);
     }
   }
@@ -109,9 +119,17 @@ export class MgIcon {
    * @param icon - icon to render
    */
   private renderIcon = (icon: IconType): void => {
-    this.element.shadowRoot.innerHTML = icons[icon];
-    this.svg = this.element.shadowRoot.querySelector('svg');
+    // Remove existing SVG from ShadowRoot
+    this.element.shadowRoot.querySelector('svg')?.remove();
+
+    // Append new SVG to ShadowRoot
+    const svgContainer = document.createElement('div');
+    svgContainer.innerHTML = icons[icon];
+    this.element.shadowRoot.append(svgContainer.firstChild);
+    svgContainer.remove();
+
     // update svg attributes
+    this.svg = this.element.shadowRoot.querySelector('svg');
     this.svg.setAttribute('aria-hidden', 'true');
     this.svg.setAttribute('focusable', 'false');
     this.svg.setAttribute('class', this.classCollection.join());
