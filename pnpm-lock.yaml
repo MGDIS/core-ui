@@ -491,8 +491,8 @@ importers:
         specifier: workspace:*
         version: link:../../configs/tsconfig
       '@rollup/plugin-commonjs':
-        specifier: 28.0.2
-        version: 28.0.2(rollup@4.34.9)
+        specifier: 28.0.3
+        version: 28.0.3(rollup@4.34.9)
       '@rollup/plugin-node-resolve':
         specifier: 16.0.0
         version: 16.0.0(rollup@4.34.9)
@@ -676,8 +676,8 @@ importers:
         specifier: workspace:*
         version: link:../../configs/vitest-config
       '@rollup/plugin-commonjs':
-        specifier: 28.0.2
-        version: 28.0.2(rollup@4.34.9)
+        specifier: 28.0.3
+        version: 28.0.3(rollup@4.34.9)
       '@rollup/plugin-node-resolve':
         specifier: 16.0.0
         version: 16.0.0(rollup@4.34.9)
@@ -1900,8 +1900,8 @@ packages:
     resolution: {integrity: sha512-c83qWb22rNRuB0UaVCI0uRPNRr8Z0FWnEIvT47jiHAmOIUHbBOg5XvV7pM5x+rKn9HRpjxquDbXYSXr3fAKFcw==}
     engines: {node: '>=12'}
 
-  '@rollup/plugin-commonjs@28.0.2':
-    resolution: {integrity: sha512-BEFI2EDqzl+vA1rl97IDRZ61AIwGH093d9nz8+dThxJNH8oSoB7MjWvPCX3dkaK1/RCJ/1v/R1XB15FuSs0fQw==}
+  '@rollup/plugin-commonjs@28.0.3':
+    resolution: {integrity: sha512-pyltgilam1QPdn+Zd9gaCfOLcnjMEJ9gV+bTw6/r73INdvzf1ah9zLIJBm+kW7R6IUFIQ1YO+VqZtYxZNWFPEQ==}
     engines: {node: '>=16.0.0 || 14 >= 14.17'}
     peerDependencies:
       rollup: ^2.68.0||^3.0.0||^4.0.0
@@ -8728,7 +8728,7 @@ snapshots:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
 
-  '@rollup/plugin-commonjs@28.0.2(rollup@4.34.9)':
+  '@rollup/plugin-commonjs@28.0.3(rollup@4.34.9)':
     dependencies:
       '@rollup/pluginutils': 5.1.4(rollup@4.34.9)
       commondir: 1.0.1
