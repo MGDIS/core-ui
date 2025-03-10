@@ -279,15 +279,15 @@ describe('mg-input-numeric', () => {
 
       if (args.min !== undefined && args.max === undefined) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.errors.numeric.min.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
+          messages.input.numeric.helpText.min.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
         );
       } else if (args.min === undefined && args.max !== undefined) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.errors.numeric.max.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
+          messages.input.numeric.helpText.max.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
         );
       } else if (args.min !== undefined && args.max !== undefined) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.errors.numeric.minMax.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
+          messages.input.numeric.helpText.minMax.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
         );
       }
 
@@ -793,5 +793,99 @@ describe('mg-input-numeric', () => {
         localeUnit(100, 'fr', 'invalidUnit' as Unit, 'short', 2);
       }).toThrow();
     });
+  });
+
+  test.each([
+    // Test with custom helpText
+    {
+      args: { helpText: 'Custom help text' },
+      expected: 'Custom help text',
+    },
+    // Tests with min only
+    {
+      args: { min: 10 },
+      expected: 'The value must be greater than 10',
+    },
+    {
+      args: { min: 10, format: 'currency', currency: 'EUR' },
+      expected: 'The value must be greater than 10',
+    },
+    {
+      args: { min: 10, format: 'percent' },
+      expected: 'The value must be greater than 10',
+    },
+    // Tests with max only
+    {
+      args: { max: 100 },
+      expected: 'The value must be less than 100',
+    },
+    {
+      args: { max: 100, format: 'currency', currency: 'EUR' },
+      expected: 'The value must be less than 100',
+    },
+    {
+      args: { max: 100, format: 'percent' },
+      expected: 'The value must be less than 100',
+    },
+    // Tests with min and max
+    {
+      args: { min: 10, max: 100 },
+      expected: 'The value must be between 10 and 100',
+    },
+    {
+      args: { min: 10, max: 100, format: 'currency', currency: 'EUR' },
+      expected: 'The value must be between 10 and 100',
+    },
+    {
+      args: { min: 10, max: 100, format: 'percent' },
+      expected: 'The value must be between 10 and 100',
+    },
+    // Tests with readonly or disabled
+    {
+      args: { min: 10, max: 100, readonly: true },
+      expected: '',
+    },
+    {
+      args: { min: 10, max: 100, disabled: true },
+      expected: 'The value must be between 10 and 100',
+    },
+    // Tests with different locales
+    {
+      args: { min: 10, max: 100, lang: 'fr' },
+      expected: 'La valeur doit être comprise entre 10 et 100',
+    },
+    {
+      args: { min: 10, max: 100, format: 'currency', currency: 'EUR', lang: 'fr' },
+      expected: 'La valeur doit être comprise entre 10 et 100',
+    },
+    {
+      args: { min: 10, max: 100, format: 'percent', lang: 'fr' },
+      expected: 'La valeur doit être comprise entre 10 et 100',
+    },
+    // Test with both custom helpText and min/max
+    {
+      args: { helpText: 'Custom help text', min: 10, max: 100 },
+      expected: 'Custom help text<br>The value must be between 10 and 100',
+    },
+    {
+      args: { helpText: "Texte d'aide personnalisé", min: 10, max: 100, lang: 'fr' },
+      expected: "Texte d'aide personnalisé<br>La valeur doit être comprise entre 10 et 100",
+    },
+  ])('Should format help text with args: $args', async ({ args, expected }) => {
+    const page = await getPage({
+      label: 'label',
+      identifier: 'identifier',
+      ...args,
+    });
+    const element = page.doc.querySelector('mg-input-numeric');
+
+    // Verify the formatted help text using the slot content
+    const helpText = element.shadowRoot.querySelector('[slot="help-text"]');
+
+    if (args.readonly) {
+      expect(helpText).toBeNull();
+    } else {
+      expect(helpText.innerHTML.replace(/\s+/g, ' ')).toBe(expected.replace(/\s+/g, ' '));
+    }
   });
 });

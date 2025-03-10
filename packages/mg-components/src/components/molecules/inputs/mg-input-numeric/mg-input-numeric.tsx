@@ -451,7 +451,7 @@ export class MgInputNumeric {
       } else {
         const formattedMin = this.formatErrorValue(this.min);
         const formattedMax = this.formatErrorValue(this.max);
-        this.errorMessage = this.messages.errors.numeric[inputError].replace('{min}', formattedMin).replace('{max}', formattedMax);
+        this.errorMessage = this.messages.input.numeric.helpText[inputError].replace('{min}', formattedMin).replace('{max}', formattedMax);
       }
     }
   };
@@ -461,25 +461,29 @@ export class MgInputNumeric {
    * @returns error code
    */
   private getInputError = (): null | InputNumericError => {
-    let inputError: InputNumericError = null;
     const hasNotEmptyValues = (toControl: number[]) => !toControl.some(value => [null, undefined].includes(value));
 
     // required
     if (!this.input.checkValidity() && this.input.validity.valueMissing) {
-      inputError = 'required';
+      return 'required';
     }
-    // Min & Max
-    else if (hasNotEmptyValues([this.min, this.numericValue]) && this.numericValue < this.min && this.max === undefined) {
-      // Only a min value is set
-      inputError = 'min';
-    } else if (hasNotEmptyValues([this.max, this.numericValue]) && this.numericValue > this.max && this.min === undefined) {
-      // Only a max value is set
-      inputError = 'max';
-    } else if (hasNotEmptyValues([this.min, this.max, this.numericValue]) && (this.numericValue < this.min || this.numericValue > this.max)) {
-      // both min and max values are set
-      inputError = 'minMax';
+
+    // Only a min value is set
+    if (hasNotEmptyValues([this.min, this.numericValue]) && this.numericValue < this.min && this.max === undefined) {
+      return 'min';
     }
-    return inputError;
+
+    // Only a max value is set
+    if (hasNotEmptyValues([this.max, this.numericValue]) && this.numericValue > this.max && this.min === undefined) {
+      return 'max';
+    }
+
+    // both min and max values are set
+    if (hasNotEmptyValues([this.min, this.max, this.numericValue]) && (this.numericValue < this.min || this.numericValue > this.max)) {
+      return 'minMax';
+    }
+
+    return null;
   };
 
   /**
@@ -515,6 +519,45 @@ export class MgInputNumeric {
         this.slotContent = slotAppendInput.textContent;
       }
     }
+  };
+
+  /**
+   * Format help text to display
+   * @param helpText - help text format
+   * @returns formatted help text with range information if applicable
+   */
+  private formatHelpText = (helpText: string): string => {
+    // If the component is in readonly mode, return undefined because the message will not be rendered
+    if (this.readonly) {
+      return undefined;
+    }
+
+    // If a custom helpText is provided, store it but don't return it directly
+    const text = isValidString(helpText) ? helpText : undefined;
+
+    // If neither min nor max are defined, and there's no custom helpText,
+    // we can return undefined as there's no message to display
+    if (this.min === undefined && this.max === undefined && text === undefined) {
+      return undefined;
+    }
+
+    // Generate range message based on available constraints
+    let rangeMessage: string;
+    if (this.min !== undefined && this.max !== undefined) {
+      rangeMessage = this.messages.input.numeric.helpText.minMax.replace('{min}', this.formatErrorValue(this.min)).replace('{max}', this.formatErrorValue(this.max));
+    } else if (this.min !== undefined) {
+      rangeMessage = this.messages.input.numeric.helpText.min.replace('{min}', this.formatErrorValue(this.min));
+    } else if (this.max !== undefined) {
+      rangeMessage = this.messages.input.numeric.helpText.max.replace('{max}', this.formatErrorValue(this.max));
+    }
+
+    // Combine custom helpText with range message if both exist
+    if (text !== undefined && rangeMessage !== undefined) {
+      return `${text}<br>${rangeMessage}`;
+    }
+
+    // Return either custom helpText or range message
+    return text || rangeMessage;
   };
 
   /*************
@@ -580,7 +623,7 @@ export class MgInputNumeric {
         required={this.required}
         tooltip={this.tooltip}
         tooltipPosition={this.readonly && this.value === undefined ? 'label' : this.tooltipPosition}
-        helpText={this.helpText}
+        helpText={this.formatHelpText(this.helpText)}
         errorMessage={this.errorMessage}
       >
         {this.readonly
