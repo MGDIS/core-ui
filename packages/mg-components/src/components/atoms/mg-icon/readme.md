@@ -47,6 +47,7 @@
  - [mg-pagination](../../molecules/mg-pagination)
  - [mg-panel](../../molecules/mg-panel)
  - mg-popover-content
+ - [mg-table](../../molecules/mg-table)
  - [mg-tabs](../../molecules/mg-tabs)
 
 ### Graph
@@ -69,6 +70,7 @@ graph TD;
   mg-pagination --> mg-icon
   mg-panel --> mg-icon
   mg-popover-content --> mg-icon
+  mg-table --> mg-icon
   mg-tabs --> mg-icon
   style mg-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

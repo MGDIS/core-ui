@@ -105,6 +105,7 @@ stages:
 .install:dependencies:
   before_script:
     - corepack enable
+    - npm i -g corepack@latest # https://github.com/pnpm/pnpm/issues/9029
     - pnpm i
 
 ###########

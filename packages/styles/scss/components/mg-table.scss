@@ -1,0 +1,110 @@
+@use '../utils/a11y';
+@use '../base/typography';
+
+.mg-c-table {
+  // TODO: put variables in components custom properties after beta
+  --mg-c-table-cell-spacing: var(--mg-b-size-8) var(--mg-b-size-16);
+  --mg-c-table-cell-height: var(--mg-b-size-40);
+  --mg-c-table-header-cell-height: calc(var(--mg-b-size-min-height) + 2 * var(--mg-b-size-8));
+
+  overflow: hidden;
+  border: none;
+  border-radius: var(--mg-b-size-8);
+  background: var(--mg-b-color-light);
+  border-collapse: separate;
+  border-spacing: 0;
+  color: var(--mg-b-color-dark);
+
+  td,
+  th {
+    height: var(--mg-c-table-cell-height);
+    box-sizing: border-box;
+    padding: var(--mg-c-table-cell-spacing);
+    text-align: start;
+  }
+
+  // Font weight for headers
+  thead td,
+  th {
+    font-weight: 600;
+  }
+
+  thead {
+    height: var(--mg-c-table-header-cell-height);
+    background-color: var(--mg-b-color-app);
+    color: var(--mg-b-color-light);
+  }
+
+  :not(thead) tr:nth-child(even) {
+    background: color-mix(in srgb, var(--mg-b-color-app), transparent 80%);
+  }
+
+  /**
+  * Sizes
+  */
+  &.mg-c-table--size-small {
+    --mg-c-table-cell-spacing: var(--mg-b-size-4) var(--mg-b-size-16);
+    --mg-c-table-cell-height: var(--mg-b-size-32);
+    --mg-c-table-header-cell-height: var(--mg-b-size-32);
+  }
+
+  &.mg-c-table--size-large {
+    --mg-c-table-cell-height: var(--mg-c-table-header-cell-height);
+  }
+
+  &.mg-c-table--size-xlarge {
+    --mg-c-table-cell-spacing: var(--mg-b-size-12) var(--mg-b-size-16);
+    --mg-c-table-cell-height: var(--mg-b-size-64);
+    --mg-c-table-header-cell-height: var(--mg-b-size-64);
+  }
+
+  /**
+  * full width
+  */
+  &.mg-c-table--full-width {
+    width: 100%;
+  }
+
+  &-wrapper {
+    overflow: auto;
+  }
+
+  /**
+  * Sort
+  */
+  thead td,
+  thead th {
+    position: relative;
+
+    .mg-c-table__sort-button {
+      padding: 0;
+      border: none;
+      margin: 0;
+      background: none;
+      color: inherit;
+      font-size: inherit;
+      font-weight: 600;
+
+      // Extend click area
+      &::after {
+        position: absolute;
+        content: '';
+        inset: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      mg-icon {
+        margin-left: var(--mg-b-size-4);
+      }
+    }
+
+    &:has(.mg-c-table__sort-button):hover,
+    &[aria-sort='descending'],
+    &[aria-sort='ascending'] {
+      background-color: color-mix(in srgb, var(--mg-b-color-app), black 10%);
+    }
+  }
+}

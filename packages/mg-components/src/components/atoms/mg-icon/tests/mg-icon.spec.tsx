@@ -28,6 +28,14 @@ describe('mg-icon', () => {
     });
   });
 
+  test('Should set icon size to medium when removing size attribute', async () => {
+    const page = await getPage({ icon: 'check-circle', size: 'medium' });
+    const element = page.doc.querySelector('mg-icon');
+    element.size = null;
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot();
+  });
+
   test('Should render a spin icon', async () => {
     const { root } = await getPage({ icon: 'check-circle', spin: true });
     expect(root).toMatchSnapshot();
