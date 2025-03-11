@@ -579,8 +579,8 @@ importers:
         specifier: workspace:*
         version: link:../playwright-helpers
       '@playwright/test':
-        specifier: 1.50.0
-        version: 1.50.0
+        specifier: 1.51.0
+        version: 1.51.0
       '@storybook/addon-a11y':
         specifier: 8.6.3
         version: 8.6.3(storybook@8.6.3(prettier@3.5.3))
@@ -737,8 +737,8 @@ importers:
         specifier: workspace:*
         version: link:../playwright-helpers
       '@playwright/test':
-        specifier: 1.50.0
-        version: 1.50.0
+        specifier: 1.51.0
+        version: 1.51.0
       '@types/jest':
         specifier: 29.5.14
         version: 29.5.14
@@ -869,8 +869,8 @@ importers:
         specifier: workspace:*
         version: link:../playwright-helpers
       '@playwright/test':
-        specifier: 1.50.0
-        version: 1.50.0
+        specifier: 1.51.0
+        version: 1.51.0
       sass:
         specifier: 1.85.1
         version: 1.85.1
@@ -1884,8 +1884,8 @@ packages:
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.50.0':
-    resolution: {integrity: sha512-ZGNXbt+d65EGjBORQHuYKj+XhCewlwpnSd/EDuLPZGSiEWmgOJB5RmMCCYGy5aMfTs9wx61RivfDKi8H/hcMvw==}
+  '@playwright/test@1.51.0':
+    resolution: {integrity: sha512-dJ0dMbZeHhI+wb77+ljx/FeC8VBP6j/rj9OAojO08JI80wTZy6vRk9KvHKiDCUh4iMpEiseMgqRBIeW+eKX6RA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -5943,13 +5943,13 @@ packages:
   pkg-types@2.1.0:
     resolution: {integrity: sha512-wmJwA+8ihJixSoHKxZJRBQG1oY8Yr9pGLzRmSsNms0iNWyHHAlZCa7mmKiFR10YPZuz/2k169JiS/inOjBCZ2A==}
 
-  playwright-core@1.50.0:
-    resolution: {integrity: sha512-CXkSSlr4JaZs2tZHI40DsZUN/NIwgaUPsyLuOAaIZp2CyF2sN5MM5NJsyB188lFSSozFxQ5fPT4qM+f0tH/6wQ==}
+  playwright-core@1.51.0:
+    resolution: {integrity: sha512-x47yPE3Zwhlil7wlNU/iktF7t2r/URR3VLbH6EknJd/04Qc/PSJ0EY3CMXipmglLG+zyRxW6HNo2EGbKLHPWMg==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.50.0:
-    resolution: {integrity: sha512-+GinGfGTrd2IfX1TA4N2gNmeIksSb+IAe589ZH+FlmpV3MYTx6+buChGIuDLQwrGNCw2lWibqV50fU510N7S+w==}
+  playwright@1.51.0:
+    resolution: {integrity: sha512-442pTfGM0xxfCYxuBa/Pu6B2OqxqqaYq39JS8QDMGThUvIOCd6s0ANDog3uwA0cHavVlnTQzGCN7Id2YekDSXA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -8614,9 +8614,9 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
-  '@playwright/test@1.50.0':
+  '@playwright/test@1.51.0':
     dependencies:
-      playwright: 1.50.0
+      playwright: 1.51.0
 
   '@pnpm/config.env-replace@1.1.0': {}
 
@@ -13125,11 +13125,11 @@ snapshots:
       exsolve: 1.0.1
       pathe: 2.0.3
 
-  playwright-core@1.50.0: {}
+  playwright-core@1.51.0: {}
 
-  playwright@1.50.0:
+  playwright@1.51.0:
     dependencies:
-      playwright-core: 1.50.0
+      playwright-core: 1.51.0
     optionalDependencies:
       fsevents: 2.3.2
 

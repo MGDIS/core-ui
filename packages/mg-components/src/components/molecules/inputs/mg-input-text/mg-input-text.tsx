@@ -246,7 +246,7 @@ export class MgInputText {
   @Prop({ mutable: true }) helpText?: string;
   @Watch('helpText')
   watchHelpText(newValue: string): void {
-    if (!isValidString(newValue) && helpTextTypes.includes(this.type)) {
+    if (!isValidString(newValue) && (helpTextTypes as unknown as string).includes(this.type)) {
       this.helpText = this.messages.input.text.helpText[this.type];
     }
   }

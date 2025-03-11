@@ -1,6 +1,7 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../../utils/playwright.fixture';
 import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
+import { helpTextTypes } from '../mg-input-text.conf';
 
 const createHTML = props => {
   const slot = props.slot;
@@ -329,5 +330,25 @@ test.describe('mg-input-text', () => {
     // - with value
     // - without error message
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
+
+  test.describe.only('types with helptext', () => {
+    helpTextTypes.forEach(type => {
+      test(`type: ${type}`, async ({ page }) => {
+        const html = createHTML({ ...baseArgs, type });
+        await page.setContent(html);
+
+        await page.locator('mg-input-text.hydrated').waitFor();
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        // Add bad value
+        const input = page.locator('mg-input-text input');
+        await input.fill('blu');
+        await input.blur();
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
   });
 });
