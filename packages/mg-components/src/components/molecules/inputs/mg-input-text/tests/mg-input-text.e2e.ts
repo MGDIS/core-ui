@@ -332,7 +332,7 @@ test.describe('mg-input-text', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  test.describe.only('types with helptext', () => {
+  test.describe('types with helptext', () => {
     helpTextTypes.forEach(type => {
       test(`type: ${type}`, async ({ page }) => {
         const html = createHTML({ ...baseArgs, type });
