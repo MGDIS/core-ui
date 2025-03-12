@@ -217,12 +217,8 @@ export class MgInputText {
   @Prop() patternErrorMessage?: string;
   @Watch('pattern')
   @Watch('patternErrorMessage')
-  validatePattern(newValue: string): void {
-    if (newValue !== undefined && !(isValidString(this.pattern) && isValidString(this.patternErrorMessage))) {
-      throw new Error(
-        `<mg-input-text> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='${toString(this.pattern)}'" and "patternErrorMessage='${toString(this.patternErrorMessage)}'".`,
-      );
-    }
+  watchPattern(): void {
+    this.validatePattern();
   }
 
   /**
@@ -357,6 +353,20 @@ export class MgInputText {
   }
 
   /**
+   * Validate pattern configuration
+   */
+  private validatePattern = (): void => {
+    if (
+      (this.pattern !== undefined || this.patternErrorMessage !== undefined) && // At least one is defined
+      (!isValidString(this.pattern) || (!(helpTextTypes as unknown as string).includes(this.type) && !isValidString(this.patternErrorMessage))) // Both must be defined
+    ) {
+      throw new Error(
+        `<mg-input-text> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='${this.pattern}'" and "patternErrorMessage='${this.patternErrorMessage}'".`,
+      );
+    }
+  };
+
+  /**
    * Handle input event
    */
   private handleInput = (): void => {
@@ -408,13 +418,13 @@ export class MgInputText {
     if (!this.valid && errorMessage !== undefined) {
       this.errorMessage = errorMessage;
     }
-    // Does not match pattern
-    else if (!this.valid && this.input.validity.patternMismatch) {
-      this.errorMessage = this.patternErrorMessage;
-    }
     // Does not match type (email, emails, tel, url, etc.)
     else if (!this.valid && this.input.validity.typeMismatch) {
       this.errorMessage = `${this.messages.input.text.errors.typeMismatch} ${this.messages.input.text.helpText[this.type]}`;
+    }
+    // Does not match pattern
+    else if (!this.valid && this.input.validity.patternMismatch) {
+      this.errorMessage = this.patternErrorMessage ?? `${this.messages.input.text.errors.typeMismatch} ${this.messages.input.text.helpText[this.type]}`;
     }
     // required
     else if (!this.valid && this.input.validity.valueMissing) {
@@ -463,8 +473,7 @@ export class MgInputText {
     // Validate
     this.validateIcon(this.icon);
     this.validateDatalistoptions(this.datalistoptions);
-    this.validatePattern(this.pattern);
-    this.validatePattern(this.patternErrorMessage);
+    this.watchPattern();
     this.validateAppendSlot();
     this.watchMgWidth(this.mgWidth);
     this.watchReadonly(this.readonly);

@@ -350,5 +350,23 @@ test.describe('mg-input-text', () => {
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
     });
+
+    test('Should display patternMismatch mesage with type and pattern', async ({ page }) => {
+      const html = createHTML({
+        ...baseArgs,
+        type: 'email',
+        pattern:
+          /^[a-zA-Z0-9!#$%&'*+\/=?^_`\{\|\}~\-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`\{\|\}~\-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-]*[a-zA-Z0-9])?$/
+            .source, // From https://gitlab.mgdis.fr/core/core-back/core/-/blob/master/packages/validators/src/email/email.ts#L10
+      });
+      await page.setContent(html);
+
+      await page.locator('mg-input-text.hydrated').waitFor();
+
+      await page.locator('mg-input-text input').fill('blu@blu');
+      await page.locator('mg-input-text input').blur();
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
   });
 });
