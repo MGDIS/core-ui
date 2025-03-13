@@ -361,8 +361,8 @@ importers:
         version: 1.2.0
     devDependencies:
       '@html-eslint/parser':
-        specifier: 0.35.0
-        version: 0.35.0
+        specifier: 0.35.2
+        version: 0.35.2
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -455,8 +455,8 @@ importers:
         specifier: 0.35.2
         version: 0.35.2
       '@html-eslint/parser':
-        specifier: 0.35.0
-        version: 0.35.0
+        specifier: 0.35.2
+        version: 0.35.2
       '@mgdis/eslint-plugin-html':
         specifier: workspace:*
         version: link:../eslint-plugin-html
@@ -516,7 +516,7 @@ importers:
         version: 10.0.0(stylelint@16.15.0(typescript@5.8.2))
       stylelint-config-standard-scss:
         specifier: 13.1.0
-        version: 13.1.0(postcss@8.5.3)(stylelint@16.15.0(typescript@5.8.2))
+        version: 13.1.0(postcss@8.5.1)(stylelint@16.15.0(typescript@5.8.2))
       stylelint-prettier:
         specifier: 5.0.3
         version: 5.0.3(prettier@3.5.3)(stylelint@16.15.0(typescript@5.8.2))
@@ -1487,16 +1487,11 @@ packages:
   '@html-eslint/eslint-plugin@0.35.2':
     resolution: {integrity: sha512-7CFxSpzu55Og457dEAAcSU+L7PNeYbeHD8HXDmAmHlbBpKjUHVJkLe0pLfuC6eV6ZpV5K2N9qk5SVu2dPFCC/w==}
 
-  '@html-eslint/parser@0.35.0':
-    resolution: {integrity: sha512-8VSA1oRWR8qrTDyrM1syykFAhpKNbzSbsr7CfvYir9LhpZfD6TMcHqJSp+6jhzhSprWG24f2GsKqEUOOx9AopA==}
-    engines: {node: '>=8.10.0'}
+  '@html-eslint/parser@0.35.2':
+    resolution: {integrity: sha512-NEr63Ak4Fr+VdI0svNpaPwROoimuO6djCJ2FKtbDPpCSJslCSerbB3+jorhByBO3+XyaJH2uZul44EuXIPeq3Q==}
 
   '@html-eslint/template-parser@0.35.2':
     resolution: {integrity: sha512-SauXPU4JO02Gf6sjHMZM4OFn4f2F6mRi0N6fZSPQaoBJqNL14Z4CXgN4QsvIAJ0zuDu9ssRR7TELFNZteTlS0w==}
-
-  '@html-eslint/template-syntax-parser@0.35.0':
-    resolution: {integrity: sha512-anUBh/5LhQGpx+E79s2ENCMk20S8SOPTwp1WBMzRm0CvLaN42st68FNwT3BKRhjFVs2RrmRcTJNSlKWulFrvAA==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
   '@html-eslint/template-syntax-parser@0.35.2':
     resolution: {integrity: sha512-y+JAzuNVzFvsmgu9tz2wr2lY0brGwPnrUTUIFsIooAZFPjESg/4SfmCTzo8/Y7QquGsdzYvvO15UBgT2Jc/Pdg==}
@@ -4182,9 +4177,6 @@ packages:
   es-errors@1.3.0:
     resolution: {integrity: sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw==}
     engines: {node: '>= 0.4'}
-
-  es-html-parser@0.1.0:
-    resolution: {integrity: sha512-4YUmQ4kGKGQUb87jwr25XeGwuFIfjq7kZ+F5/V23ji+3gVXC9JEtUxngM0KbhgXl2L1jqbWZ138SI/UQ33XINw==}
 
   es-html-parser@0.1.1:
     resolution: {integrity: sha512-SNHdEpKkN4nWZ3sFq9AxPlaUzPKJewGh59JrVS2355vELTOFygyf/lbfDDIONuGvYrhvAHoaUd+sK9UGaGrKUg==}
@@ -8240,16 +8232,14 @@ snapshots:
       '@html-eslint/template-parser': 0.35.2
       '@html-eslint/template-syntax-parser': 0.35.2
 
-  '@html-eslint/parser@0.35.0':
+  '@html-eslint/parser@0.35.2':
     dependencies:
-      '@html-eslint/template-syntax-parser': 0.35.0
-      es-html-parser: 0.1.0
+      '@html-eslint/template-syntax-parser': 0.35.2
+      es-html-parser: 0.1.1
 
   '@html-eslint/template-parser@0.35.2':
     dependencies:
       es-html-parser: 0.1.1
-
-  '@html-eslint/template-syntax-parser@0.35.0': {}
 
   '@html-eslint/template-syntax-parser@0.35.2': {}
 
@@ -11040,8 +11030,6 @@ snapshots:
 
   es-errors@1.3.0: {}
 
-  es-html-parser@0.1.0: {}
-
   es-html-parser@0.1.1: {}
 
   es-iterator-helpers@1.2.1:
@@ -13335,9 +13323,9 @@ snapshots:
     dependencies:
       postcss: 8.5.3
 
-  postcss-scss@4.0.9(postcss@8.5.3):
+  postcss-scss@4.0.9(postcss@8.5.1):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.1
 
   postcss-selector-parser@6.1.2:
     dependencies:
@@ -14144,26 +14132,26 @@ snapshots:
       stylelint: 16.15.0(typescript@5.8.2)
       stylelint-order: 6.0.4(stylelint@16.15.0(typescript@5.8.2))
 
-  stylelint-config-recommended-scss@14.1.0(postcss@8.5.3)(stylelint@16.15.0(typescript@5.8.2)):
+  stylelint-config-recommended-scss@14.1.0(postcss@8.5.1)(stylelint@16.15.0(typescript@5.8.2)):
     dependencies:
-      postcss-scss: 4.0.9(postcss@8.5.3)
+      postcss-scss: 4.0.9(postcss@8.5.1)
       stylelint: 16.15.0(typescript@5.8.2)
       stylelint-config-recommended: 14.0.1(stylelint@16.15.0(typescript@5.8.2))
       stylelint-scss: 6.11.0(stylelint@16.15.0(typescript@5.8.2))
     optionalDependencies:
-      postcss: 8.5.3
+      postcss: 8.5.1
 
   stylelint-config-recommended@14.0.1(stylelint@16.15.0(typescript@5.8.2)):
     dependencies:
       stylelint: 16.15.0(typescript@5.8.2)
 
-  stylelint-config-standard-scss@13.1.0(postcss@8.5.3)(stylelint@16.15.0(typescript@5.8.2)):
+  stylelint-config-standard-scss@13.1.0(postcss@8.5.1)(stylelint@16.15.0(typescript@5.8.2)):
     dependencies:
       stylelint: 16.15.0(typescript@5.8.2)
-      stylelint-config-recommended-scss: 14.1.0(postcss@8.5.3)(stylelint@16.15.0(typescript@5.8.2))
+      stylelint-config-recommended-scss: 14.1.0(postcss@8.5.1)(stylelint@16.15.0(typescript@5.8.2))
       stylelint-config-standard: 36.0.1(stylelint@16.15.0(typescript@5.8.2))
     optionalDependencies:
-      postcss: 8.5.3
+      postcss: 8.5.1
 
   stylelint-config-standard@36.0.1(stylelint@16.15.0(typescript@5.8.2)):
     dependencies:
