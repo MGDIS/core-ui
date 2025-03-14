@@ -43,7 +43,7 @@ export const Type = {
     ...MgInputText.args,
     // remove feature to focus on pattern
     tooltip: undefined,
-    label: 'Adresse email',
+    label: 'Site web',
     helpText: undefined,
     // Add pattern Email rules
     type: 'url',
