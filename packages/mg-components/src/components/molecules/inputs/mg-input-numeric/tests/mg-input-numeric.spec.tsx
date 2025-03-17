@@ -540,7 +540,14 @@ describe('mg-input-numeric', () => {
     expect(page.rootInstance.errorMessage).toBeUndefined();
   });
 
-  it('should manage negative number', async () => {
+  test.each([
+    { value: '-', expected: '' },
+    { value: '-5', expected: '-5.00' },
+    { value: '-0', expected: '-0.00' },
+    { value: '-0,', expected: '-0.00' },
+    { value: '-0,0', expected: '-0.00' },
+    { value: '-0,00', expected: '-0.00' },
+  ])('Should manage negative number', async ({ value, expected }) => {
     const args = { label: 'label', identifier: 'identifier' };
     const page = await getPage(args);
 
@@ -549,25 +556,16 @@ describe('mg-input-numeric', () => {
 
     input.checkValidity = jest.fn(() => true);
 
-    /**
-     * update input value
-     * @param value - to update input with
-     */
-    const updateInputValue = async (value: string): Promise<void> => {
-      input.value = value;
-      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
-      await page.waitForChanges();
+    input.value = value;
+    input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+    await page.waitForChanges();
 
-      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
-      await page.waitForChanges();
-    };
+    input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+    await page.waitForChanges();
 
-    for await (const newValue of ['-', '-5']) {
-      await updateInputValue(newValue);
-      expect(input.value).toEqual(newValue === '-' ? '' : '-5.00');
-      expect(page.rootInstance.valid).toEqual(true);
-      expect(page.rootInstance.invalid).toEqual(false);
-    }
+    expect(input.value).toEqual(expected);
+    expect(page.rootInstance.valid).toEqual(true);
+    expect(page.rootInstance.invalid).toEqual(false);
   });
 
   describe('validity, case update min/max prop value', () => {
