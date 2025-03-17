@@ -86,7 +86,7 @@ export const localeCurrency = (number: number, locale: string, currency: string)
  * ```
  */
 export const localeNumber = (number: number, locale: string, decimalLength: number = 0): string =>
-  new Intl.NumberFormat(locale, { minimumFractionDigits: decimalLength }).format(decimalLength > 0 ? Number(number?.toFixed(decimalLength)) : number);
+  new Intl.NumberFormat(locale, { minimumFractionDigits: decimalLength }).format(Number(number));
 
 /**
  * Format number as percentage based on locale
