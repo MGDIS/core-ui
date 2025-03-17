@@ -1,5 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`mg-input-text Should not throw an error when patternErrorMessage is not defined with pattern and type email 1`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" name="identifier" pattern="blu" type="email">
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        Expected format: name@example.com
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            blu
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
+exports[`mg-input-text Should not throw an error when patternErrorMessage is not defined with pattern and type emails 1`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" multiple="" name="identifier" pattern="blu" type="email">
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        Expected format: first@example.com, second@example.com
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            blu
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
+exports[`mg-input-text Should not throw an error when patternErrorMessage is not defined with pattern and type url 1`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" name="identifier" pattern="blu" type="url">
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        Expected format: https://example.com
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            blu
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
 exports[`mg-input-text Should render with args {
   readonly: true,
   labelOnTop: true,
@@ -1647,6 +1761,334 @@ exports[`mg-input-text should display override error with setError component's p
             <span class="mg-u-is-asterisk">
               *
             </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
+exports[`mg-input-text types with helptext Should display patternMismatch mesage with type and pattern 1`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" name="identifier" pattern="^[a-zA-Z0-9!#$%&amp;'*+\\/=?^_\`\\{\\|\\}~\\-]+(?:\\.[a-zA-Z0-9!#$%&amp;'*+\\/=?^_\`\\{\\|\\}~\\-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9\\-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\\-]*[a-zA-Z0-9])?$" type="email">
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        Expected format: name@example.com
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
+exports[`mg-input-text types with helptext Should display patternMismatch mesage with type and pattern 2`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" name="identifier" pattern="^[a-zA-Z0-9!#$%&amp;'*+\\/=?^_\`\\{\\|\\}~\\-]+(?:\\.[a-zA-Z0-9!#$%&amp;'*+\\/=?^_\`\\{\\|\\}~\\-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9\\-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\\-]*[a-zA-Z0-9])?$" type="email" value="blu@blo">
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        Expected format: name@example.com
+      </div>
+      <div id="identifier-error" slot="error">
+        The value is incorrect. Expected format: name@example.com
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
+exports[`mg-input-text types with helptext Should render with type: email 1`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" name="identifier" type="email">
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        Expected format: name@example.com
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
+exports[`mg-input-text types with helptext Should render with type: email 2`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" name="identifier" type="email" value="blu">
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        Expected format: name@example.com
+      </div>
+      <div id="identifier-error" slot="error">
+        The value is incorrect. Expected format: name@example.com
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
+exports[`mg-input-text types with helptext Should render with type: emails 1`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" multiple="" name="identifier" type="email">
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        Expected format: first@example.com, second@example.com
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
+exports[`mg-input-text types with helptext Should render with type: emails 2`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" multiple="" name="identifier" type="email" value="blu">
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        Expected format: first@example.com, second@example.com
+      </div>
+      <div id="identifier-error" slot="error">
+        The value is incorrect. Expected format: first@example.com, second@example.com
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
+exports[`mg-input-text types with helptext Should render with type: url 1`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" name="identifier" type="url">
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        Expected format: https://example.com
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
+exports[`mg-input-text types with helptext Should render with type: url 2`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" name="identifier" type="url" value="blu">
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        Expected format: https://example.com
+      </div>
+      <div id="identifier-error" slot="error">
+        The value is incorrect. Expected format: https://example.com
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
           </span>
         </label>
       </mg-input-title>

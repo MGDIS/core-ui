@@ -21,6 +21,9 @@ RUN rm -rf temp/
 # optimize image with cache
 RUN --mount=type=cache,target=/cache
 
+# https://github.com/pnpm/pnpm/issues/9029
+RUN npm i -g corepack@latest  
+
 # install dependancies
 RUN pnpm i ${ARGS}
 
