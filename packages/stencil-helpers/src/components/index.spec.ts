@@ -192,6 +192,13 @@ describe('components.utils', () => {
   });
 
   describe('nextTick', () => {
+    test('Should get a promise', async () => {
+      const job = nextTick();
+      expect(job.then).toBeDefined();
+
+      const res = await job;
+      expect(res).toBeUndefined();
+    });
     test('Should wrapp and execute a callback in a promise', async () => {
       const fn = vi.fn();
       const job = nextTick(fn);

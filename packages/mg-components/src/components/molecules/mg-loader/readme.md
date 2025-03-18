@@ -13,6 +13,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [mg-input-combobox](../inputs/mg-input-combobox)
+
 ### Depends on
 
 - [mg-icon](../../atoms/mg-icon)
@@ -21,6 +25,7 @@
 ```mermaid
 graph TD;
   mg-loader --> mg-icon
+  mg-input-combobox --> mg-loader
   style mg-loader fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

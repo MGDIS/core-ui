@@ -49,19 +49,22 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true,
   },
-  staticDirs: getFilePathsEndingWith(join(__dirname, '../src/'), '/img').reduce((acc: any[], from) => {
-    acc.push(
-      {
-        from,
-        to: '/docs/img',
-      },
-      {
-        from,
-        to: '/img',
-      },
-    );
-    return acc;
-  }, []),
+  staticDirs: getFilePathsEndingWith(join(__dirname, '../src/'), '/img').reduce(
+    (acc: any[], from) => {
+      acc.push(
+        {
+          from,
+          to: '/docs/img',
+        },
+        {
+          from,
+          to: '/img',
+        },
+      );
+      return acc;
+    },
+    [join(__dirname, './public')],
+  ),
   refs: {
     'design-system': {
       title: 'MG Components',

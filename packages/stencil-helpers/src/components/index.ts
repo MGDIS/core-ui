@@ -200,4 +200,6 @@ export const cleanString = (text: string): string =>
  * @param callback - code to excute on next tick
  * @returns differed code excution
  */
-export const nextTick = async (callback: () => void): Promise<void> => callback();
+export const nextTick = async (callback?: () => void): Promise<void> => {
+  if (callback) return callback();
+};

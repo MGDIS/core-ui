@@ -101,6 +101,7 @@ To reset the loader after the process has completed, set the `disabled` prop asy
  - [mg-alert](../../molecules/mg-alert)
  - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
  - mg-input-checkbox-paginated
+ - [mg-input-combobox](../../molecules/inputs/mg-input-combobox)
  - [mg-input-password](../../molecules/inputs/mg-input-password)
  - [mg-modal](../../molecules/mg-modal)
  - [mg-pagination](../../molecules/mg-pagination)
@@ -119,6 +120,7 @@ graph TD;
   mg-alert --> mg-button
   mg-input-checkbox --> mg-button
   mg-input-checkbox-paginated --> mg-button
+  mg-input-combobox --> mg-button
   mg-input-password --> mg-button
   mg-modal --> mg-button
   mg-pagination --> mg-button

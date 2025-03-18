@@ -1,0 +1,149 @@
+@use 'mg-input-box';
+@use 'mg-input-width';
+@use 'mg-input-readonly';
+@use '../utils/a11y';
+
+$reset-button-spacing: var(--mg-b-size-4);
+$reset-button-size: var(--mg-b-size-min-height);
+$toggle-button-size: var(--mg-b-size-min-height);
+$floating-element-width: calc(var(--mg-c-input-list-width, var(--mg-b-size-floating-element-max-width)) + #{$toggle-button-size});
+
+/**
+ * Used to define width input
+ * Kept it nested for coming widths
+ */
+
+@mixin input-width($width) {
+  .mg-c-input {
+    &__box {
+      width: $width;
+    }
+
+    &__popover-container {
+      width: calc(#{$width} + #{$toggle-button-size});
+    }
+  }
+}
+
+.mg-c-input.mg-c-input--combobox {
+  mg-popover {
+    --mg-c-popover-padding-vertical: 0;
+    --mg-c-popover-padding-horizontal: 0;
+  }
+
+  .mg-c-input {
+    &__input-group-container {
+      position: relative;
+
+      mg-button:last-of-type {
+        --mg-c-button-border-left-width: 0;
+        --mg-c-button-color-border-secondary: var(--mg-c-input-color-border);
+        --mg-c-button-border-radius-top-right: var(--mg-c-input-border-radius);
+        --mg-c-button-border-radius-bottom-right: var(--mg-c-input-border-radius);
+        --mg-c-button-border-radius-top-left: 0;
+        --mg-c-button-border-radius-bottom-left: 0;
+
+        vertical-align: bottom;
+      }
+    }
+
+    &__box {
+      border-radius: var(--mg-c-input-border-radius) 0 0 var(--mg-c-input-border-radius);
+      cursor: pointer;
+      text-overflow: ellipsis;
+    }
+
+    &__popover-container {
+      display: flex;
+      width: $floating-element-width;
+      max-height: calc(50 * var(--mg-b-size-8) - var(--mg-b-size-32));
+      flex-direction: column;
+      gap: var(--mg-b-size-4);
+      overflow-y: scroll;
+    }
+
+    &__popover-info {
+      padding: var(--mg-b-size-8);
+      margin: 0;
+      text-align: center;
+    }
+
+    &__load-more {
+      padding: 0 var(--mg-b-size-8) var(--mg-b-size-4);
+    }
+
+    &__input-list {
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      list-style: none;
+
+      &-item {
+        display: flex;
+        padding: var(--mg-b-size-8);
+
+        &:hover,
+        &.mg-c-input__input-list-item--focus-visible {
+          background-color: var(--mg-b-color-neutral-20);
+        }
+
+        &.mg-c-input__input-list-item--selected {
+          font-weight: 700;
+
+          mg-icon {
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+
+  /* Width variants */
+  &.mg-c-input--width-2 .mg-c-input {
+    @include input-width(calc(var(--mg-b-size-48) + #{$reset-button-size} + #{$reset-button-spacing}));
+  }
+
+  &.mg-c-input--width-4 .mg-c-input {
+    @include input-width(calc(var(--mg-b-size-72) + #{$reset-button-size} + #{$reset-button-spacing}));
+  }
+
+  &.mg-c-input--width-16 .mg-c-input {
+    @include input-width(calc(26 * var(--mg-b-size-8) + #{$reset-button-size} + #{$reset-button-spacing}));
+  }
+
+  &.mg-c-input--width-full {
+    mg-popover {
+      --mg-c-popover-max-width: $floating-element-width;
+    }
+
+    .mg-c-input {
+      &__input-group-container {
+        display: flex;
+        width: 100%;
+      }
+
+      &__box {
+        flex: 1;
+      }
+    }
+  }
+
+  /* input append variant */
+  &.mg-c-input--input-append .mg-c-input__box {
+    padding-right: calc(#{$reset-button-size} + #{$reset-button-spacing});
+
+    &-append {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: $toggle-button-size;
+    }
+  }
+
+  /* Error variant */
+  &.mg-c-input--has-error .mg-c-input__input-group-container {
+    mg-button:last-of-type {
+      --mg-c-button-color-border-secondary: var(--mg-b-color-danger);
+    }
+  }
+}
