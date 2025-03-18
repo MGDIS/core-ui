@@ -415,7 +415,9 @@ export class MgInputDate {
       // wrong date format
       // element.validity.badInput is default error message
       else {
-        this.errorMessage = this.messages.input.date.error.badInput.replace('{pattern}', this.renderPattern());
+        this.errorMessage = this.messages.input.date.error.badInput
+          .replace('{pattern}', this.renderPattern())
+          .replace('{date}', localeDate(dateToString(new Date('2025-12-24')), this.systemLocale));
       }
     }
   };
