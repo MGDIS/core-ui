@@ -1,5 +1,24 @@
 # @mgdis/mg-components
 
+## 6.8.0
+
+### Minor Changes
+
+- d674c7d: `mg-input-date|numeric`: add more informations in help text with min/max attributes
+- 7846cf7: Add mg-table component
+- 4697869: mg-input-text: add types
+- 90afca8: mg-input-date: Add example in error message
+
+### Patch Changes
+
+- 96f9cf2: #547 - mg-input-numeric: "-0" transformed into "0"
+- 8e9e1b3: Update dependencies
+- Updated dependencies [96f9cf2]
+- Updated dependencies [7846cf7]
+- Updated dependencies [8e9e1b3]
+  - @mgdis/stencil-helpers@2.2.6
+  - @mgdis/styles@2.4.0
+
 ## 6.7.0
 
 ### Minor Changes

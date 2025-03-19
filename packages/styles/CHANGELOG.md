@@ -1,5 +1,15 @@
 # @mgdis/styles
 
+## 2.4.0
+
+### Minor Changes
+
+- 7846cf7: Add mg-table component
+
+### Patch Changes
+
+- 8e9e1b3: Update dependencies
+
 ## 2.3.1
 
 ### Patch Changes

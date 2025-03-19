@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.0.18
+
+### Patch Changes
+
+- 8e9e1b3: Update dependencies
+
 ## 1.0.17
 
 ### Patch Changes

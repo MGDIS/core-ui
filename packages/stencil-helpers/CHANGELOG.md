@@ -1,5 +1,12 @@
 # @mgdis/stencil-helpers
 
+## 2.2.6
+
+### Patch Changes
+
+- 96f9cf2: #547 - mg-input-numeric: "-0" transformed into "0"
+- 8e9e1b3: Update dependencies
+
 ## 2.2.5
 
 ### Patch Changes
