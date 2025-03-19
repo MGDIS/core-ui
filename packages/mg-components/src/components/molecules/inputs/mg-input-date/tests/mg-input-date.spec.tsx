@@ -322,7 +322,9 @@ describe('mg-input-date', () => {
         expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
       } else if (badInput) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.input.date.error.badInput.replace('{pattern}', '<span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span>'),
+          messages.input.date.error.badInput
+            .replace('{pattern}', '<span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span>')
+            .replace('{date}', '12/24/2025'),
         );
       }
       expect(page.rootInstance.valid).toEqual(validity);
