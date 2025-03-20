@@ -67,7 +67,11 @@
         "url": "Format attendu&nbsp;: https://exemple.fr"
       },
       "errors": {
-        "typeMismatch": "La valeur est incorrecte."
+        "typeMismatch": {
+          "email": "La valeur est incorrecte, le format attendu est nom@exemple.fr",
+          "emails": "La valeur est incorrecte, le format attendu est premier@exemple.fr, second@exemple.fr",
+          "url": "La valeur est incorrecte, le format attendu est https://exemple.fr"
+        }
       }
     }
   },
