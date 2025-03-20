@@ -306,6 +306,7 @@ export class StorybookPreview {
     // Extract component dependencies
     const componentDependencies = componentData?.dependencies.reduce((acc, dependency) => {
       const dependencyData = this.#getComponentData(dependency);
+      if (!dependencyData) return acc; // Prevents from adding internal dependency
       return {
         ...acc,
         [dependency]: {
@@ -322,6 +323,7 @@ export class StorybookPreview {
     // Extract dependents components
     const componentDependents = componentData?.dependents.reduce((acc, dependent) => {
       const dependentData = this.#getComponentData(dependent);
+      if (!dependentData) return acc; // Prevents from adding internal dependent
       return {
         ...acc,
         [dependent]: {
