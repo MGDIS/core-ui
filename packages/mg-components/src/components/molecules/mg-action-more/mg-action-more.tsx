@@ -1,7 +1,7 @@
 import { Component, h, Element, Prop, Watch, State, Host } from '@stencil/core';
 import { createID, toString } from '@mgdis/stencil-helpers';
-import { Status } from '../menu/mg-menu-item/mg-menu-item.conf';
-import { directions } from '../menu/mg-menu/mg-menu.conf';
+import { Status } from '../menus/mg-menu-item/mg-menu-item.conf';
+import { directions } from '../menus/mg-menu/mg-menu.conf';
 import { initLocales } from '../../../locales';
 import type { MessageType } from '../../../locales/index.conf';
 import type { MgActionMoreItemType, MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreDividerType } from './mg-action-more.conf';

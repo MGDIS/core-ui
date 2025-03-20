@@ -24,9 +24,9 @@ In addition of the standard popover's behavior, when an item of the menu is clic
 - [mg-icon](../../atoms/mg-icon)
 - [mg-popover](../mg-popover)
 - [mg-button](../../atoms/mg-button)
-- [mg-menu](../menu/mg-menu)
+- [mg-menu](../menus/mg-menu)
 - [mg-divider](../../atoms/mg-divider)
-- [mg-menu-item](../menu/mg-menu-item)
+- [mg-menu-item](../menus/mg-menu-item)
 - [mg-badge](../../atoms/mg-badge)
 
 ### Graph

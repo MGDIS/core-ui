@@ -31,7 +31,7 @@ The badge displays a number (which can be followed by the `+` character) or a pu
 ### Used by
 
  - [mg-action-more](../../molecules/mg-action-more)
- - [mg-menu-item](../../molecules/menu/mg-menu-item)
+ - [mg-menu-item](../../molecules/menus/mg-menu-item)
  - [mg-tabs](../../molecules/mg-tabs)
 
 ### Graph

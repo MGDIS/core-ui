@@ -64,7 +64,7 @@ The click on button with ’popovertargetaction="hide"’ will hide a shown popo
 
  - [mg-action-more](../mg-action-more)
  - [mg-input-checkbox](../inputs/mg-input-checkbox)
- - [mg-menu-item](../menu/mg-menu-item)
+ - [mg-menu-item](../menus/mg-menu-item)
 
 ### Depends on
 

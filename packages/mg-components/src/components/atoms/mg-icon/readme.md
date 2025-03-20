@@ -41,7 +41,7 @@
  - [mg-input-text](../../molecules/inputs/mg-input-text)
  - mg-item-more
  - [mg-loader](../../molecules/mg-loader)
- - [mg-menu-item](../../molecules/menu/mg-menu-item)
+ - [mg-menu-item](../../molecules/menus/mg-menu-item)
  - [mg-message](../../molecules/mg-message)
  - [mg-modal](../../molecules/mg-modal)
  - [mg-pagination](../../molecules/mg-pagination)
