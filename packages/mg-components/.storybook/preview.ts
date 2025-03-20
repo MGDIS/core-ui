@@ -26,7 +26,7 @@ export const parameters: Preview['parameters'] = {
   },
   options: {
     storySort: {
-      order: ['Intro', 'Atoms', 'Molecules', 'Style'],
+      order: ['Atoms', 'Molecules', 'Style'],
     },
   },
 };
