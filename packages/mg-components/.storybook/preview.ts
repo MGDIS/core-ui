@@ -2,7 +2,6 @@ import { Preview } from '@storybook/html';
 import { withActions } from '@storybook/addon-actions/decorator';
 import { JsonDocs } from '@stencil/core/internal';
 import { stencilWrapper, getStoryHTML, StorybookPreview } from '@mgdis/stencil-helpers';
-import { initialize, mswLoader } from 'msw-storybook-addon';
 import jsonDoc from './components.json';
 
 // import mg-components
@@ -50,12 +49,3 @@ export const globalTypes: Preview['globalTypes'] = {
 };
 
 export const decorators: Preview['decorators'] = [stencilWrapper, withActions];
-
-/*
- * Initializes MSW
- * See https://github.com/mswjs/msw-storybook-addon#configuring-msw
- * to learn how to customize it
- */
-initialize();
-
-export const loaders: Preview['loaders'] = [mswLoader];

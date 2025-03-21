@@ -11,8 +11,6 @@ export default {
 
 const getOptionsItems = (length: number): ItemType[] => new Array(length).fill(() => '').map((_, index) => ({ title: `title ${index + 1}`, value: `/${index + 1}` }));
 
-import { http, HttpResponse, delay } from 'msw';
-
 /**
  * Template
  * @param args - component arguments
@@ -32,12 +30,9 @@ export const MgInputComboboxStringItems = {
     // Label
     label: 'Label',
     labelOnTop: false,
-    labelHide: false,
     // Input
     placeholder: 'placeholder',
     required: true,
-    disabled: false,
-    readonly: false,
     mgWidth: 'full',
     // Tooltip
     tooltip: 'This is a tooltip',
@@ -55,14 +50,16 @@ export const MgInputComboboxOptionsItems = {
   },
 };
 
-const API = new URL('https://your-restful-endpoint');
 const RequestMapping = {
-  filter: 'filter',
+  filter: 'q',
 };
+
 const ResponseMapping = {
-  items: 'items',
-  total: '_total',
-  next: '_next',
+  items: 'd.results',
+  total: 'd.__count',
+  next: 'd.__next',
+  itemTitle: 'libpayscourtmaj',
+  itemValue: 'codpaysnum',
 };
 
 export const MgInputComboboxAPI = {
@@ -70,52 +67,10 @@ export const MgInputComboboxAPI = {
   args: {
     ...MgInputComboboxStringItems.args,
     items: undefined,
-    fetchurl: API,
+    fetchurl: 'https://mdmmgdis.mgcloud.fr/dataserver/mdmmgdis/data/mdmpays?$top=25&$format=json&$inlinecount=allpages&$orderby=libpayscourtmaj%20asc',
     fetchmappings: {
       request: RequestMapping,
       response: ResponseMapping,
-    },
-  },
-  parameters: {
-    msw: {
-      handlers: [
-        http.get(API.toString(), async resolver => {
-          const skipKey = '$skip';
-          const topKey = '$top';
-          const url = new URL(resolver.request.url);
-          const filter = url.searchParams.get(RequestMapping.filter);
-          const top = Number(url.searchParams.get(topKey) || 10);
-          const skip = Number(url.searchParams.get(skipKey)) || 0;
-          let items = getOptionsItems(1000);
-          // fake backend filter from request
-          if (filter) {
-            items = items.filter((item: ItemType) => item.title.includes(filter));
-          }
-
-          const total = items.length;
-
-          // fake API pagination
-          const end = skip + top;
-          if (top) {
-            items = items.slice(skip, end);
-          }
-
-          // mock request delay
-          await delay(800);
-
-          // response
-          const response = {};
-          response[ResponseMapping.total] = total;
-          response[ResponseMapping.items] = items;
-          const next = total > skip + top ? new URL(resolver.request.url) : undefined;
-          if (next) {
-            next.searchParams.set(skipKey, end.toString());
-            next.searchParams.set(topKey, top.toString());
-            response[ResponseMapping.next] = next.toString();
-          }
-          return HttpResponse.json(response);
-        }),
-      ],
     },
   },
 };

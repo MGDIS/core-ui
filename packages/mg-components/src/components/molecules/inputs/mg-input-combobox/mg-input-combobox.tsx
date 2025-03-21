@@ -104,6 +104,27 @@ class Paginate<T> {
   };
 }
 
+/**
+ * Map new URL from old url
+ * @param newValue - new URL value
+ * @param oldValue - previous URL value
+ * @returns updated url
+ */
+const mapUrl = (newValue: string, oldValue: string): string => {
+  try {
+    new URL(newValue);
+    return newValue;
+  } catch {
+    const params = newValue.split('?').pop();
+    if (params) {
+      const { origin, pathname } = new URL(oldValue);
+      return `${origin}${pathname}?${params}`;
+    } else {
+      throw new Error("Cannot parse 'newValue' url");
+    }
+  }
+};
+
 @Component({
   tag: 'mg-input-combobox',
   styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-combobox.css',
@@ -850,6 +871,7 @@ export class MgInputCombobox {
     this.loadMore.emit();
     if (this.fetchurl) {
       return this.getOptions(typeof this.page.next === 'string' ? new URL(this.page.next) : undefined).then(nextPage => {
+        if (!nextPage) return;
         this.page = {
           ...nextPage,
           items: [...this.page.items, ...nextPage.items],
@@ -891,19 +913,20 @@ export class MgInputCombobox {
     if (!url || typeof url === 'string') return;
     const top = this.page?.top || DEFAULT_TOP;
 
-    // add default top param
-    if (!url.searchParams.get('$top')) {
-      url.searchParams.set('$top', top.toString());
-    }
     // add text filter
     if (this.filter) {
       url.searchParams.set(this.fetchmappings.request.filter, this.filter);
     }
     try {
-      const response = await fetch(url, this.fetchoptions).then(response => response.json());
-      const items = getObjectValueFromKey<Response, ItemType[]>(response, this.fetchmappings.response.items);
+      const response = await fetch(url.toString(), this.fetchoptions).then(response => response.json());
+      const items = getObjectValueFromKey<Response, ItemType[]>(response, this.fetchmappings.response.items).map(
+        (item): ItemType => ({
+          title: getObjectValueFromKey<unknown, ItemType['title']>(item, this.fetchmappings.response.itemTitle),
+          value: getObjectValueFromKey<unknown, ItemType['value']>(item, this.fetchmappings.response.itemValue),
+        }),
+      );
       const total = getObjectValueFromKey<Response, number>(response, this.fetchmappings.response.total);
-      const next = getObjectValueFromKey<Response, string>(response, this.fetchmappings.response.next);
+      const next = mapUrl(getObjectValueFromKey<Response, string>(response, this.fetchmappings.response.next), this.fetchurl.toString());
       return { items, total, next, top };
     } catch {}
   };
