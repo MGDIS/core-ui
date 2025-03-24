@@ -21,20 +21,12 @@ export const MgInputDate = {
     // Global
     value: `2023-06-02`,
     identifier: 'identifier',
-    name: 'input-name',
     // Label
     label: 'Label',
-    labelOnTop: false,
-    labelHide: false,
     // Input
     required: true,
-    readonly: false,
-    disabled: false,
     // Tooltip
     tooltip: 'This is a tooltip',
-    tooltipPosition: undefined,
-    // Help Text
-    helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
   },
 };
 

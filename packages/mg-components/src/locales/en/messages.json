@@ -46,7 +46,7 @@
         "minMax": "The date must be between {min} and {max}"
       },
       "error": {
-        "badInput": "The date is incorrect, the format must be {pattern} (ex: {date})"
+        "badInput": "The date is inexistent or incorrect, the expected format is {pattern} (ex: {date})"
       }
     },
     "numeric": {
@@ -67,7 +67,11 @@
         "url": "Expected format: https://example.com"
       },
       "errors": {
-        "typeMismatch": "The value is incorrect."
+        "typeMismatch": {
+          "email": "The value is incorrect, the expected format is name@example.com",
+          "emails": "The value is incorrect, the expected format is first@example.com, second@example.com",
+          "url": "The value is incorrect, the expected format is https://example.com"
+        }
       }
     }
   },
