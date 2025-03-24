@@ -51,7 +51,7 @@ export const MgInputComboboxOptionsItems = {
 };
 
 const RequestMapping = {
-  filter: 'q',
+  filter: '{q}',
 };
 
 const ResponseMapping = {
@@ -67,7 +67,7 @@ export const MgInputComboboxAPI = {
   args: {
     ...MgInputComboboxStringItems.args,
     items: undefined,
-    fetchurl: 'https://mdmmgdis.mgcloud.fr/dataserver/mdmmgdis/data/mdmpays?$top=25&$format=json&$inlinecount=allpages&$orderby=libpayscourtmaj%20asc',
+    fetchurl: `https://mdmmgdis.mgcloud.fr/dataserver/mdmmgdis/data/mdmpays?$format=json&$top=20&$inlinecount=allpages&$orderby=${encodeURIComponent('libpayscourtmaj asc')}&$filter=${encodeURIComponent("langue eq 'fr' and substringof('")}${RequestMapping.filter}${encodeURIComponent("',tolower(libpayscourtmaj))")}`,
     fetchmappings: {
       request: RequestMapping,
       response: ResponseMapping,

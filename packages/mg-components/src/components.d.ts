@@ -460,7 +460,7 @@ export namespace Components {
         /**
           * Define fetch options object Require `fetchurl` prop to be defined otherwith it will be ignored if defined
           * @description https://developer.mozilla.org/en-US/docs/Web/API/RequestInit
-          * @example ``` {   headers: {      token: 'my-token'   }, }
+          * @example ``` {   headers: {      authorization: 'my-token'   }, }
          */
         "fetchoptions"?: RequestInit;
         /**
@@ -2769,7 +2769,7 @@ declare namespace LocalJSX {
         /**
           * Define fetch options object Require `fetchurl` prop to be defined otherwith it will be ignored if defined
           * @description https://developer.mozilla.org/en-US/docs/Web/API/RequestInit
-          * @example ``` {   headers: {      token: 'my-token'   }, }
+          * @example ``` {   headers: {      authorization: 'my-token'   }, }
          */
         "fetchoptions"?: RequestInit;
         /**

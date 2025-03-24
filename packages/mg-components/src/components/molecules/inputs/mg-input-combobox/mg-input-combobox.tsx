@@ -111,10 +111,10 @@ class Paginate<T> {
  * @returns updated url
  */
 const mapUrl = (newValue: string, oldValue: string): string => {
-  try {
-    new URL(newValue);
+  if (!newValue) return;
+  else if (URL.canParse(newValue)) {
     return newValue;
-  } catch {
+  } else {
     const params = newValue.split('?').pop();
     if (params) {
       const { origin, pathname } = new URL(oldValue);
@@ -334,12 +334,10 @@ export class MgInputCombobox {
    * }
    * ```
    */
-  @Prop({ mutable: true }) fetchurl?: string | URL;
+  @Prop() fetchurl?: string | URL;
   @Watch('fetchurl')
   watchFetchUrl(newValue: MgInputCombobox['fetchurl']): void {
-    if (newValue && URL.canParse(newValue)) {
-      this.fetchurl = typeof newValue === 'string' ? new URL(newValue) : newValue;
-    } else if (newValue) {
+    if (typeof newValue !== 'string' || !URL.canParse(newValue)) {
       throw new Error(`<mg-input-combobox> prop "fetchurl" value must be URL or string. Passed value: ${toString(newValue)}.`);
     }
   }
@@ -352,7 +350,7 @@ export class MgInputCombobox {
    * ```
    * {
    *   headers: {
-   *      token: 'my-token'
+   *      authorization: 'my-token'
    *   },
    * }
    */
@@ -870,7 +868,7 @@ export class MgInputCombobox {
   private goToNextPage = (): Promise<void> => {
     this.loadMore.emit();
     if (this.fetchurl) {
-      return this.getOptions(typeof this.page.next === 'string' ? new URL(this.page.next) : undefined).then(nextPage => {
+      return this.getOptions(typeof this.page.next === 'string' ? this.page.next : undefined).then(nextPage => {
         if (!nextPage) return;
         this.page = {
           ...nextPage,
@@ -910,15 +908,11 @@ export class MgInputCombobox {
    * @param url - to fetch
    */
   private getOptions = async (url = this.fetchurl): Promise<PageType<ItemType>> => {
-    if (!url || typeof url === 'string') return;
-    const top = this.page?.top || DEFAULT_TOP;
-
     // add text filter
-    if (this.filter) {
-      url.searchParams.set(this.fetchmappings.request.filter, this.filter);
-    }
+    const updateUrl = (typeof url === 'string' ? url : url.toString()).replaceAll(this.fetchmappings.request.filter, encodeURIComponent(this.filter));
+
     try {
-      const response = await fetch(url.toString(), this.fetchoptions).then(response => response.json());
+      const response = await fetch(updateUrl, this.fetchoptions).then(response => response.json());
       const items = getObjectValueFromKey<Response, ItemType[]>(response, this.fetchmappings.response.items).map(
         (item): ItemType => ({
           title: getObjectValueFromKey<unknown, ItemType['title']>(item, this.fetchmappings.response.itemTitle),
@@ -927,7 +921,7 @@ export class MgInputCombobox {
       );
       const total = getObjectValueFromKey<Response, number>(response, this.fetchmappings.response.total);
       const next = mapUrl(getObjectValueFromKey<Response, string>(response, this.fetchmappings.response.next), this.fetchurl.toString());
-      return { items, total, next, top };
+      return { items, total, next, top: this.page?.top || DEFAULT_TOP };
     } catch {}
   };
 
@@ -1030,6 +1024,7 @@ export class MgInputCombobox {
                 title={this.placeholder}
                 disabled={this.disabled}
                 required={this.required}
+                autoComplete={'false'}
                 aria-autocomplete="list"
                 aria-expanded={this.popoverDisplay.toString()}
                 aria-controls={listId}
@@ -1048,7 +1043,7 @@ export class MgInputCombobox {
                   class="mg-c-input__box-append"
                   variant="flat"
                   is-icon
-                  label={'Reset' /*TODO use i18n*/}
+                  label={this.messages.general.reset}
                   aria-expanded={this.popoverDisplay.toString()}
                   aria-controls={listId}
                   onClick={this.handleResetButton}
@@ -1086,7 +1081,7 @@ export class MgInputCombobox {
                     );
                   })}
                 </ul>,
-                this.isLoading && <mg-loader key="loader"></mg-loader>,
+                this.isLoading && <mg-loader key="loader" message={this.messages.input.combobox.search} class={{ 'mg-u-visually-hidden': Boolean(this.page.next) }}></mg-loader>,
                 this.page.next && (
                   <mg-button
                     key="load-more"
@@ -1099,24 +1094,21 @@ export class MgInputCombobox {
                     onClick={this.handleLoadMoreButton}
                     aria-controls={listId}
                   >
-                    <mg-icon icon="chevron-down"></mg-icon>Afficher plus
+                    <mg-icon icon="chevron-down"></mg-icon>
+                    {this.messages.input.combobox.loadMore}
                   </mg-button>
-                ), // TODO i18n
+                ),
               ]}
-              {
-                popoverContent === 'notfound' && (
-                  <p id={popoverContent} class="mg-c-input__popover-info">
-                    Aucun élément ne correspondont a votre saisie.
-                  </p>
-                ) // TODO i18n
-              }
-              {
-                popoverContent === 'notavailable' && (
-                  <p id={popoverContent} class="mg-c-input__popover-info">
-                    Aucun élément disponible
-                  </p>
-                ) // TODO i18n
-              }
+              {popoverContent === 'notfound' && (
+                <p id={popoverContent} class="mg-c-input__popover-info">
+                  {this.messages.input.combobox.notFound}
+                </p>
+              )}
+              {popoverContent === 'notavailable' && (
+                <p id={popoverContent} class="mg-c-input__popover-info">
+                  {this.messages.input.combobox.notAvailable}
+                </p>
+              )}
             </div>
           </mg-popover>
         )}
