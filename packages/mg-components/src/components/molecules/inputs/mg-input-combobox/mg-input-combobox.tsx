@@ -1,11 +1,9 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
-import { allItemsAreString, ClassList, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
-import { type ActionType, Cursor, type CursorType, IGetPage, type ItemType, type PageType, type RequestMappingType, type ResponsMappingType } from './mg-input-combobox.conf';
+import { allItemsAreString, ClassList, getObjectValueFromKey, isValidString, nextTick, Page, Paginate, Cursor, type CursorType, toString } from '@mgdis/stencil-helpers';
+import { type ActionType, type ItemType, type RequestMappingType, type ResponsMappingType } from './mg-input-combobox.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import { Keys } from '../../../../utils/events.utils';
-
-const DEFAULT_TOP = 10;
 
 /**
  * Check if object is an item
@@ -45,66 +43,6 @@ const isFetchmappings = (value: unknown): value is MgInputCombobox['fetchmapping
 };
 
 /**
- * Check if obect is object typ
- * @param object - to validate
- * @returns truthy if is valid object format
- */
-const isObject = <T,>(object: unknown): object is T => typeof object === 'object' && !Array.isArray(object) && object !== null;
-
-/**
- * Get object value from key
- * @param object - object to parse
- * @param key - object[key] to get. Nested keys are allowed with `.` separators (eg: 'key0.key1.key2')
- * @returns object value
- */
-const getObjectValueFromKey = <T, R>(object: T, key: string): R | null => {
-  if (isObject(object) && typeof key === 'string') {
-    const [current, ...next] = key.split('.');
-    return next.length ? getObjectValueFromKey(object[current], next.join('.')) : object[current];
-  } else {
-    return null;
-  }
-};
-
-class Paginate<T> {
-  /**
-   * Define paginated items
-   */
-  public items: PageType<T>['items'] = [];
-  /**
-   * Define next page
-   */
-  public next: PageType<T>['next'];
-
-  /* Privates */
-  private _top: PageType<T>['top'] = DEFAULT_TOP;
-  private _total: PageType<T>['total'];
-
-  constructor(items: PageType<T>['items'], options?: { step?: number; top?: number; total?: PageType<T>['total']; next?: PageType<T>['next'] }) {
-    if (Array.isArray(items)) this.items = items;
-    if (['string', 'function'].includes(typeof options?.next)) this.next = options.next;
-    if (typeof options?.top === 'number') this._top = options.top;
-    if (typeof options?.total === 'number') this._total = options.total;
-  }
-
-  /**
-   * Get page
-   * @param offset - pagiantion offset
-   * @param filter - filter methode
-   * @returns formated page
-   */
-  getPage: IGetPage<T> = (offset = 0, filter) => {
-    const items = typeof filter === 'function' ? this.items.filter(filter) : this.items;
-    return {
-      items: items.slice(offset, offset + this._top),
-      total: this._total || items.length,
-      top: this._top,
-      next: this.next ? this.next : items.length > offset + this._top ? () => this.getPage(offset + this._top, filter) : undefined,
-    };
-  };
-}
-
-/**
  * Map new URL from old url
  * @param newValue - new URL value
  * @param oldValue - previous URL value
@@ -114,14 +52,15 @@ const mapUrl = (newValue: string, oldValue: string): string => {
   if (!newValue) return;
   else if (URL.canParse(newValue)) {
     return newValue;
+  }
+
+  // build new URL
+  const params = newValue.split('?').pop();
+  if (params) {
+    const { origin, pathname } = new URL(oldValue);
+    return `${origin}${pathname}?${params}`;
   } else {
-    const params = newValue.split('?').pop();
-    if (params) {
-      const { origin, pathname } = new URL(oldValue);
-      return `${origin}${pathname}?${params}`;
-    } else {
-      throw new Error("Cannot parse 'newValue' url");
-    }
+    throw new Error("Cannot parse 'newValue' url");
   }
 };
 
@@ -150,8 +89,7 @@ export class MgInputCombobox {
 
   private handlerInProgress: EventType;
 
-  private readonly baseIndex = 1;
-  private page: PageType<ItemType>;
+  private page: Page<ItemType>;
 
   /**************
    * Decorators *
@@ -719,7 +657,7 @@ export class MgInputCombobox {
    * @param index - targeted option index to scroll into
    */
   private scrollToIndex = (index: number = 0): void => {
-    this.element.shadowRoot.querySelector(`li:nth-of-type(${index + this.baseIndex})`)?.scrollIntoView();
+    this.element.shadowRoot.querySelector(`li:nth-of-type(${index + this.page.baseIndex})`)?.scrollIntoView();
   };
 
   /**
@@ -781,33 +719,6 @@ export class MgInputCombobox {
   };
 
   /**
-   * Get index of option
-   * @param cursor - cursor to find
-   * @param oldOption - previous option
-   * @returns option index
-   */
-  private getIndexOfOption = (cursor: CursorType = Cursor.FIRST, oldOption?: ItemType): number => {
-    const getOptionIndex = (compareWith: ItemType, defaultValue: number = 0): number =>
-      compareWith ? this.page.items.findIndex(option => option.value.toString() === compareWith.value.toString()) : defaultValue;
-    const firstOptionIndex = 0;
-    const lastOptionIndex = getOptionIndex(this.page.items[this.page.items.length - this.baseIndex]);
-
-    let index;
-    // Update index from cursor
-    if (cursor === Cursor.FIRST) {
-      index = firstOptionIndex;
-    } else if (cursor === Cursor.LAST) {
-      index = lastOptionIndex;
-    } else if (cursor === Cursor.PREVIOUS) {
-      index = oldOption && oldOption.value === this.page.items[firstOptionIndex].value ? lastOptionIndex : getOptionIndex(oldOption) - this.baseIndex;
-    } else if (cursor === Cursor.NEXT) {
-      index = oldOption && oldOption.value === this.page.items[lastOptionIndex].value ? firstOptionIndex : getOptionIndex(oldOption) + this.baseIndex;
-    }
-
-    return index;
-  };
-
-  /**
    * Get filtered options from `filter` input value
    * @returns filtered options
    */
@@ -829,7 +740,8 @@ export class MgInputCombobox {
       promise = nextTick;
     } else if (
       action.name === 'load-more' ||
-      (action.cursor === Cursor.NEXT && this.page.items.findIndex(option => option.value.toString() === this.option.value.toString()) + this.baseIndex >= this.page.items.length)
+      (action.cursor === Cursor.NEXT &&
+        this.page.items.findIndex(option => option.value.toString() === this.option.value.toString()) + this.page.baseIndex >= this.page.items.length)
     ) {
       promise = this.goToNextPage;
     } else {
@@ -843,12 +755,12 @@ export class MgInputCombobox {
         const options = this.options.items.filter(this.optionsFilter);
         if (action.name === 'scroll') {
           // update visual focus for keyboard nagivation
-          index = this.getIndexOfOption(action.cursor, this.option);
+          index = this.page.getIndexFromCursor(action.cursor, this.option);
           // update scroll position
           this.option = options[index];
         } else {
           // update next index for nagivation
-          index = this.getIndexOfOption(Cursor.LAST) - this.page.top;
+          index = this.page.getIndexFromCursor(Cursor.LAST) - this.page.top;
         }
 
         this.scrollToIndex(index);
@@ -870,19 +782,19 @@ export class MgInputCombobox {
     if (this.fetchurl) {
       return this.getOptions(typeof this.page.next === 'string' ? this.page.next : undefined).then(nextPage => {
         if (!nextPage) return;
-        this.page = {
+        this.page = new Page({
           ...nextPage,
           items: [...this.page.items, ...nextPage.items],
-        };
+        });
       });
     } else {
       return nextTick(() => {
         if (typeof this.page.next === 'function') {
           const nextPage = this.page.next();
-          this.page = {
+          this.page = new Page({
             ...nextPage,
             items: [...this.page.items, ...nextPage.items],
-          };
+          });
         }
       });
     }
@@ -907,7 +819,7 @@ export class MgInputCombobox {
    * Fetch request
    * @param url - to fetch
    */
-  private getOptions = async (url = this.fetchurl): Promise<PageType<ItemType>> => {
+  private getOptions = async (url = this.fetchurl): Promise<Pick<Page<ItemType>, 'items' | 'top'> & Partial<Page<ItemType>>> => {
     // add text filter
     const updateUrl = (typeof url === 'string' ? url : url.toString()).replaceAll(this.fetchmappings.request.filter, encodeURIComponent(this.filter));
 
@@ -921,7 +833,7 @@ export class MgInputCombobox {
       );
       const total = getObjectValueFromKey<Response, number>(response, this.fetchmappings.response.total);
       const next = mapUrl(getObjectValueFromKey<Response, string>(response, this.fetchmappings.response.next), this.fetchurl.toString());
-      return { items, total, next, top: this.page?.top || DEFAULT_TOP };
+      return { items, total, next, top: this.page?.top };
     } catch {}
   };
 
