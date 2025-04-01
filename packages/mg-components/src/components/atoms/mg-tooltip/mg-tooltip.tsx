@@ -12,7 +12,6 @@ const isButton = (element: unknown): element is HTMLMgButtonElement => typeof el
 
 /**
  * @slot - Element that will display the tooltip
- * @slot content - Tooltip content
  */
 @Component({
   tag: 'mg-tooltip',

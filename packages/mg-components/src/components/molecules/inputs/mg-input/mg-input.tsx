@@ -4,9 +4,6 @@ import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, c
 
 /**
  * @slot - Input content
- * @slot label - Label content
- * @slot help-text - Help text content
- * @slot error - error content
  */
 @Component({
   tag: 'mg-input',
@@ -67,7 +64,7 @@ export class MgInput {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop?: boolean;
+  @Prop() labelOnTop = false;
   @Watch('labelOnTop')
   watchLabelOnTop(newValue: MgInput['labelOnTop']): void {
     if (newValue) {
@@ -165,8 +162,11 @@ export class MgInput {
     }
 
     this.element.querySelectorAll('input,select,textarea,[role="switch"]').forEach(element => {
-      if (ariaDescribedbyIDs.size) element.setAttribute('aria-describedby', Array.from(ariaDescribedbyIDs).join(' '));
-      else element.removeAttribute('aria-describedby');
+      if (ariaDescribedbyIDs.size > 0) {
+        element.setAttribute('aria-describedby', Array.from(ariaDescribedbyIDs).join(' '));
+      } else {
+        element.removeAttribute('aria-describedby');
+      }
     });
   }
 

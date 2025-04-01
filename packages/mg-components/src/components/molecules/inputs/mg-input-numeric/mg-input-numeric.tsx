@@ -85,7 +85,7 @@ export class MgInputNumeric {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop?: boolean;
+  @Prop() labelOnTop = false;
 
   /**
    * Define if label is visible

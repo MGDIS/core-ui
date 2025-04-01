@@ -96,6 +96,16 @@ export class MgInputText {
   @Prop() label!: string;
 
   /**
+   * Define if label is displayed on top
+   */
+  @Prop() labelOnTop = false;
+
+  /**
+   * Define if label is visible
+   */
+  @Prop() labelHide = false;
+
+  /**
    * Input type
    */
   @Prop() type: TextType = 'text';
@@ -118,16 +128,6 @@ export class MgInputText {
       this.classCollection.delete(this.classHasIcon);
     }
   }
-
-  /**
-   * Define if label is displayed on top
-   */
-  @Prop() labelOnTop?: boolean;
-
-  /**
-   * Define if label is visible
-   */
-  @Prop() labelHide = false;
 
   /**
    * Input placeholder.
@@ -200,7 +200,6 @@ export class MgInputText {
     widths.forEach(width => {
       this.classCollection.delete(`mg-c-input--width-${width}`);
     });
-
     // apply new width
     if (newValue !== undefined) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
   }

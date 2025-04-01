@@ -147,7 +147,7 @@ export class MgInputSelect {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop?: boolean;
+  @Prop() labelOnTop = false;
 
   /**
    * Define if label is visible
@@ -219,7 +219,6 @@ export class MgInputSelect {
     widths.forEach(width => {
       this.classCollection.delete(`mg-c-input--width-${width}`);
     });
-
     // apply new width
     if (newValue !== undefined) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
   }

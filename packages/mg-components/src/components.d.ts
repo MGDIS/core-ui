@@ -74,7 +74,7 @@ export namespace Components {
         /**
           * Define if chevron is display
          */
-        "displayChevron"?: boolean;
+        "displayChevron": boolean;
         /**
           * Define displayed icon
          */
@@ -218,7 +218,7 @@ export namespace Components {
         /**
           * Define if slotted mg-component's label are displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input name If not set the value equals the identifier
          */
@@ -300,7 +300,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Define if input is required
          */
@@ -326,7 +326,7 @@ export namespace Components {
         /**
           * Display selected values list in "multi" type This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.
          */
-        "displaySelectedValues"?: boolean;
+        "displaySelectedValues": boolean;
         /**
           * Overwrite default "edit" button message
          */
@@ -358,7 +358,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Define input name If not set the value equals the identifier
          */
@@ -425,7 +425,7 @@ export namespace Components {
         /**
           * Define if mg-input-checkbox-list is disabled
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * Define mg-input-checkbox input invalid
          */
@@ -441,7 +441,7 @@ export namespace Components {
         /**
           * Define if mg-input-checkbox-list is readonly
          */
-        "readonly"?: boolean;
+        "readonly": boolean;
     }
     interface MgInputDate {
         /**
@@ -475,7 +475,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Define input maximum date format: yyyy-mm-dd
          */
@@ -571,7 +571,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Maximum value
          */
@@ -671,7 +671,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input max length
          */
@@ -845,7 +845,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Editor modules configuration
          */
@@ -937,7 +937,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Define input width
          */
@@ -1037,7 +1037,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input max length
          */
@@ -1141,7 +1141,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input max length
          */
@@ -1263,7 +1263,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input name If not set the value equals the identifier
          */
@@ -1317,7 +1317,7 @@ export namespace Components {
         /**
           * Hide message
          */
-        "messageHide"?: boolean;
+        "messageHide": boolean;
     }
     interface MgMenu {
         /**
@@ -1399,11 +1399,11 @@ export namespace Components {
         /**
           * Hide navigation label
          */
-        "hideNavigationLabels"?: boolean;
+        "hideNavigationLabels": boolean;
         /**
           * Hide select input
          */
-        "hidePageCount"?: boolean;
+        "hidePageCount": boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
@@ -1421,7 +1421,7 @@ export namespace Components {
         /**
           * Disable possibility to toggle expand
          */
-        "expandToggleDisabled"?: boolean;
+        "expandToggleDisabled": boolean;
         /**
           * Define expand toggle button display
          */
@@ -1555,11 +1555,11 @@ export namespace Components {
         /**
           * Define if tag is using outline style
          */
-        "outline"?: boolean;
+        "outline": boolean;
         /**
           * Define if tag is using soft style
          */
-        "soft"?: boolean;
+        "soft": boolean;
         /**
           * Define tag variant
          */

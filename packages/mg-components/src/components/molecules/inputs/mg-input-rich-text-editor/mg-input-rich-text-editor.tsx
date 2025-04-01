@@ -37,15 +37,15 @@ export class MgInputRichTextEditor {
   @Element() element: HTMLMgInputRichTextEditorElement;
 
   /**
-   * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
-   */
-  @Prop() identifier!: string;
-
-  /**
    * Define the value of the editor
    * Can be either HTML string or plain text
    */
   @Prop({ mutable: true }) value = '';
+
+  /**
+   * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
+   */
+  @Prop() identifier!: string;
 
   /**
    * Input label
@@ -55,7 +55,7 @@ export class MgInputRichTextEditor {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop?: boolean;
+  @Prop() labelOnTop = false;
 
   /**
    * Define if label is visible
@@ -152,6 +152,11 @@ export class MgInputRichTextEditor {
   @Prop() helpText?: string;
 
   /**
+   * Editor modules configuration
+   */
+  @Prop() modules?: EditorOptionsType['modules'];
+
+  /**
    * Define input valid state
    */
   @Prop({ mutable: true }) valid: boolean;
@@ -160,11 +165,6 @@ export class MgInputRichTextEditor {
    * Define input invalid state
    */
   @Prop({ mutable: true }) invalid: boolean;
-
-  /**
-   * Editor modules configuration
-   */
-  @Prop() modules?: EditorOptionsType['modules'];
 
   /**
    * Component classes

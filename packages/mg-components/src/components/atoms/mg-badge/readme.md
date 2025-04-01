@@ -9,12 +9,12 @@ The badge displays a number (which can be followed by the `+` character) or a pu
 
 ## Properties
 
-| Property             | Attribute | Description                                                        | Type                                                                                       | Default       |
-| -------------------- | --------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------- |
-| `label` _(required)_ | `label`   | Badge label. Include short description. Required for accessibility | `string`                                                                                   | `undefined`   |
-| `outline`            | `outline` | Define if button is using outline style                            | `boolean`                                                                                  | `undefined`   |
-| `value` _(required)_ | `value`   | Badge value                                                        | `number \| string`                                                                         | `undefined`   |
-| `variant`            | `variant` | Define badge variant                                               | `"danger" \| "info" \| "primary" \| "secondary" \| "success" \| "text-color" \| "warning"` | `variants[0]` |
+| Property             | Attribute | Description                                                        | Type                                                                                       | Default     |
+| -------------------- | --------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ----------- |
+| `label` _(required)_ | `label`   | Badge label. Include short description. Required for accessibility | `string`                                                                                   | `undefined` |
+| `outline`            | `outline` | Define if button is using outline style                            | `boolean`                                                                                  | `false`     |
+| `value` _(required)_ | `value`   | Badge value                                                        | `number \| string`                                                                         | `undefined` |
+| `variant`            | `variant` | Define badge variant                                               | `"danger" \| "info" \| "primary" \| "secondary" \| "success" \| "text-color" \| "warning"` | `'info'`    |
 
 
 ## CSS Custom Properties

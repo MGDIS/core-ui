@@ -32,7 +32,7 @@ export class MgButton {
   /**
    * Define button variant
    */
-  @Prop({ mutable: true }) variant: VariantType = variants[0]; // Primary
+  @Prop({ mutable: true }) variant: VariantType = 'primary';
   @Watch('variant')
   validateVariant(newValue: VariantType, oldValue?: VariantType): void {
     // validate new value
@@ -65,7 +65,7 @@ export class MgButton {
   /**
    * Define button size
    */
-  @Prop() size: SizeType = sizes[0]; // medium
+  @Prop() size: SizeType = 'medium';
   @Watch('size')
   validateSize(newValue: MgButton['size'], oldValue?: MgButton['size']): void {
     // validate new value

@@ -5,7 +5,6 @@ import jsonDocs from '../../json-doc.test.json';
 import { JsonDocs } from '@stencil/core/internal';
 
 describe('storybook', () => {
-
   describe('filterArgs', () => {
     test('Should get renderable args, case filtred default args', () => {
       const res = filterArgs({ name: 'batman', default: true }, { default: true });
@@ -90,7 +89,7 @@ describe('storybook', () => {
       },
       {
         $tag$: 'blu-blu',
-        $attrs$: { boolean: true, false: false, text: 'hello', blu: 'blu bli bla blo', number: 42, 'html-content': 'Help text with html <b>bold</b>, <em>italic</em>.' },
+        $attrs$: { 'boolean': true, 'false': false, 'text': 'hello', 'blu': 'blu bli bla blo', 'number': 42, 'html-content': 'Help text with html <b>bold</b>, <em>italic</em>.' },
         $children$: null,
         $text$: null,
       },
@@ -101,7 +100,6 @@ describe('storybook', () => {
   });
 
   describe('StorybookPreview', () => {
-
     describe('extractArgTypes', () => {
       test('Should extract arg types', () => {
         const { extractArgTypes } = new StorybookPreview(jsonDocs as JsonDocs);
@@ -119,6 +117,5 @@ describe('storybook', () => {
         expect(res).toMatchSnapshot();
       });
     });
-    
   });
 });

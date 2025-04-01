@@ -25,12 +25,12 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   /**
    * Define if mg-input-checkbox-list is readonly
    */
-  @Prop() readonly?: boolean;
+  @Prop() readonly = false;
 
   /**
    * Define if mg-input-checkbox-list is disabled
    */
-  @Prop() disabled?: boolean;
+  @Prop() disabled = false;
 
   /**
    * Define mg-input-checkbox input name

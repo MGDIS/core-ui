@@ -15,37 +15,40 @@ export default {
  */
 const Template = (args: MgInputTextareaType): HTMLElement => {
   // return element
-  return <mg-input-textarea {...filterArgs(args)}></mg-input-textarea>;
+  return (
+    <mg-input-textarea
+      {...filterArgs(args, {
+        maxlength: 4000,
+        mgWidth: 'full',
+        tooltip: 'input',
+        resizable: 'none',
+      })}
+    ></mg-input-textarea>
+  );
 };
 
 export const MgInputTextarea = {
   render: Template,
   args: {
-    // Global
     value: '',
     identifier: 'identifier',
     name: 'input-name',
-    // Label
     label: 'Label',
     labelOnTop: false,
     labelHide: false,
-    // Input
     placeholder: 'placeholder',
     maxlength: 4000,
-    required: true,
-    disabled: false,
+    required: false,
     readonly: false,
+    disabled: false,
+    mgWidth: undefined,
     pattern: undefined,
     patternErrorMessage: undefined,
     rows: 3,
-    mgWidth: 'full',
-    resizable: 'none',
-    // Tooltip
     tooltip: 'This is a tooltip',
     tooltipPosition: undefined,
-    // Nb Char Left
     characterLeftHide: false,
-    // Help Text
     helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
+    resizable: undefined,
   },
 };

@@ -50,7 +50,7 @@ Sub-items add to their left spacing the spacing between left border and content 
 | `expanded`   | `expanded`   | Define menu-item content expanded.                                               | `boolean`                                         | `false`                    |
 | `href`       | `href`       | Define menu-item href when defined menu-item contain an anchor instead of button | `string`                                          | `undefined`                |
 | `identifier` | `identifier` | Identifier is used to control mg-popover                                         | `string`                                          | `createID('mg-menu-item')` |
-| `status`     | `status`     | Define menu-item status.                                                         | `"active" \| "disabled" \| "hidden" \| "visible"` | `Status.VISIBLE`           |
+| `status`     | `status`     | Define menu-item status.                                                         | `"active" \| "disabled" \| "hidden" \| "visible"` | `'visible'`                |
 | `target`     | `target`     | Define target type                                                               | `"_blank" \| "_parent" \| "_self" \| "_top"`      | `undefined`                |
 
 

@@ -55,6 +55,8 @@ export const MgActionMoreIcon = {
         target: '_blank',
       },
     ],
+    icon: undefined,
+    button: undefined,
     displayChevron: false,
   },
 };
@@ -63,13 +65,13 @@ export const MgActionMoreIconCustomAndLabel = {
   render: Template,
   args: {
     ...MgActionMoreIcon.args,
+    icon: {
+      icon: 'user',
+    },
     button: {
       variant: 'flat',
       isIcon: false,
       label: 'mon user',
-    },
-    icon: {
-      icon: 'user',
     },
   },
 };
@@ -78,13 +80,13 @@ export const MgActionMoreIconCustomAndLabelAndChevron = {
   render: Template,
   args: {
     ...MgActionMoreIcon.args,
+    icon: {
+      icon: 'user',
+    },
     button: {
       variant: 'flat',
       isIcon: false,
       label: 'mon user',
-    },
-    icon: {
-      icon: 'user',
     },
     displayChevron: true,
   },

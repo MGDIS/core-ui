@@ -16,31 +16,50 @@ export default {
  */
 const Template = (args: MgMenuItemType & { slot: string }): HTMLElement => (
   <mg-menu label="demo">
-    <mg-menu-item {...filterArgs(args)} innerHTML={args.slot}></mg-menu-item>
+    <mg-menu-item
+      {...filterArgs(
+        args,
+        {
+          status: 'visible',
+        },
+        ['', 'image', 'information', 'label', 'metadata'],
+      )}
+      innerHTML={`${args['']}${args['image']}${args['information']}${args['label']}${args['metadata']}`}
+    ></mg-menu-item>
   </mg-menu>
 );
 
 export const MgMenuItem = {
   render: Template,
   args: {
-    slot: `<span slot="label">My label</span>`,
+    // Props
+    'identifier': 'identifier',
+    'href': '',
+    'target': undefined,
+    'status': undefined,
+    'expanded': false,
+    // Slots
+    '': '',
+    'image': '',
+    'information': '',
+    'label': `<span slot="label">My label</span>`,
+    'metadata': '',
   },
 };
 
 export const MgMenuItemAsLink = {
   render: Template,
   args: {
-    href: './',
     ...MgMenuItem.args,
+    href: './',
   },
 };
 
 export const MgMenuItemAsExternalLink = {
   render: Template,
   args: {
-    href: './',
+    ...MgMenuItemAsLink.args,
     target: '_blank',
-    ...MgMenuItem.args,
   },
 };
 
@@ -48,7 +67,9 @@ export const MgMenuItemWhitIcon = {
   render: Template,
   args: {
     ...MgMenuItem.args,
-    slot: `<span slot="label">My label</span><mg-icon icon="user" slot="image"></mg-icon>`,
+    // Slots
+    label: `<span slot="label">My label</span>`,
+    image: `<mg-icon icon="user" slot="image"></mg-icon>`,
   },
 };
 
@@ -56,7 +77,9 @@ export const MgMenuItemWhitBadge = {
   render: Template,
   args: {
     ...MgMenuItem.args,
-    slot: `<span slot="label">My label</span><mg-badge value="2" label="hello" slot="information"></mg-badge>`,
+    // Slots
+    label: `<span slot="label">My label</span>`,
+    information: `<mg-badge value="2" label="hello" slot="information"></mg-badge>`,
   },
 };
 
@@ -64,7 +87,10 @@ export const MgMenuItemWhitBadgeAndIcon = {
   render: Template,
   args: {
     ...MgMenuItem.args,
-    slot: `<span slot="label">My label</span><mg-badge value="2" label="hello" slot="information"></mg-badge><mg-icon icon="user" slot="image"></mg-icon>`,
+    // Slots
+    label: `<span slot="label">My label</span>`,
+    information: `<mg-badge value="2" label="hello" slot="information"></mg-badge>`,
+    image: `<mg-icon icon="user" slot="image"></mg-icon>`,
   },
 };
 
@@ -73,8 +99,10 @@ export const MgMenuItemWhitMetadata = {
   args: {
     ...MgMenuItem.args,
     'data-overflow-more': true,
-    'data-size': 'medium',
-    'slot': `<span slot="label">My label</span>, <span slot="metadata">My metadata</span>`,
+    'data-size': 'large',
+    // Slot
+    'label': `<span slot="label">My label</span>`,
+    'metadata': `<span slot="metadata">My metadata</span>`,
   },
 };
 
@@ -82,21 +110,22 @@ export const MgMenuItemWithSubmenu = {
   render: Template,
   args: {
     ...MgMenuItem.args,
-    expanded: true,
-    slot: `<span slot="label">My label</span>
-    <mg-menu direction="${directions.VERTICAL}" label="submenu">
-      <mg-menu-item status="active">
-        <span slot="label">Subitem 1</span>
-      </mg-menu-item>
-      <mg-menu-item>
-        <mg-icon icon="user" slot="image"></mg-icon>
-        <span slot="label">Subitem 2</span>
-      </mg-menu-item>
-      <mg-menu-item>
-        <span slot="label">Subitem 3</span>
-        <mg-icon icon="user" slot="image"></mg-icon>
-        <mg-badge value="2" label="hello" variant="text-color" slot="information"></mg-badge>
-      </mg-menu-item>
-    </mg-menu>`,
+    'expanded': true,
+    // Slot
+    'label': `<span slot="label">My label</span>`,
+    '': `<mg-menu direction="${directions.VERTICAL}" label="submenu">
+  <mg-menu-item status="active">
+    <span slot="label">Subitem 1</span>
+  </mg-menu-item>
+  <mg-menu-item>
+    <mg-icon icon="user" slot="image"></mg-icon>
+    <span slot="label">Subitem 2</span>
+  </mg-menu-item>
+  <mg-menu-item>
+    <span slot="label">Subitem 3</span>
+    <mg-icon icon="user" slot="image"></mg-icon>
+    <mg-badge value="2" label="hello" variant="text-color" slot="information"></mg-badge>
+  </mg-menu-item>
+</mg-menu>`,
   },
 };

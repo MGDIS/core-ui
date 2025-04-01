@@ -12,13 +12,24 @@ export default {
  * @param args - component arguments
  * @returns HTMLMgProgressElement
  */
-const Template = (args: MgProgressType): HTMLMgProgressElement => <mg-progress {...filterArgs(args)}></mg-progress>;
+const Template = (args: MgProgressType): HTMLMgProgressElement => (
+  <mg-progress
+    {...filterArgs(args, {
+      ariaRole: 'progressbar',
+      min: 0,
+      max: 100,
+    })}
+  ></mg-progress>
+);
 
 export const MgProgress = {
   render: Template,
   args: {
     label: 'label',
+    ariaRole: undefined,
     value: 10,
+    min: 0,
+    max: 100,
   },
 };
 

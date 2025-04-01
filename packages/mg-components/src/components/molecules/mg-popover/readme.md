@@ -43,6 +43,7 @@ The click on button with ’popovertargetaction="hide"’ will hide a shown popo
 | ----------- | ------------------------------------- |
 |             | Element that will display the popover |
 | `"content"` | popover content                       |
+| `"title"`   | popover title                         |
 
 
 ## CSS Custom Properties
