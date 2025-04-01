@@ -840,6 +840,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: 3.0.9
         version: 3.0.9(vitest@3.0.9(@types/node@22.13.10)(jsdom@26.0.0)(sass-embedded@1.86.0)(sass@1.86.0)(yaml@2.7.0))
+      htmlfy:
+        specifier: 0.6.5
+        version: 0.6.5
       typedoc:
         specifier: 0.27.9
         version: 0.27.9(typescript@5.8.2)
@@ -4953,6 +4956,9 @@ packages:
   html-tags@3.3.1:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
     engines: {node: '>=8'}
+
+  htmlfy@0.6.5:
+    resolution: {integrity: sha512-2idle1yo+Ft3ttDc4cZkVPaWBS5F15Pyrq4XGecSxF2ksqZVUzuCTd0OXar1vxq9UDQX/lzfr/iDwYo3aRuOTA==}
 
   htmlparser2@3.10.1:
     resolution: {integrity: sha512-IgieNijUMbkDovyoKObU1DUhm1iwNYE/fuifEoEHfd1oZKZDaONBSkal7Y01shxsM49R4XaMdGez3WnF9UfiCQ==}
@@ -12281,6 +12287,8 @@ snapshots:
   html-tags@2.0.0: {}
 
   html-tags@3.3.1: {}
+
+  htmlfy@0.6.5: {}
 
   htmlparser2@3.10.1:
     dependencies:
