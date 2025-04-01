@@ -675,7 +675,7 @@ export namespace Components {
         /**
           * Input max length
          */
-        "maxlength": any;
+        "maxlength"?: number;
         /**
           * Define input width
          */
@@ -2863,7 +2863,7 @@ declare namespace LocalJSX {
         /**
           * Input max length
          */
-        "maxlength"?: any;
+        "maxlength"?: number;
         /**
           * Define input width
          */

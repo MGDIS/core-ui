@@ -76,7 +76,7 @@ export class MgInputPassword {
   /**
    * Input max length
    */
-  @Prop() maxlength;
+  @Prop() maxlength?: number;
 
   /**
    * Define if input is required

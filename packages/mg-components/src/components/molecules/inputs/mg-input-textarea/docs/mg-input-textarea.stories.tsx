@@ -20,7 +20,8 @@ const Template = (args: MgInputTextareaType): HTMLElement => {
       {...filterArgs(args, {
         maxlength: 4000,
         mgWidth: 'full',
-        tooltip: 'input',
+        rows: 3,
+        tooltipPosition: 'input',
         resizable: 'none',
       })}
     ></mg-input-textarea>
