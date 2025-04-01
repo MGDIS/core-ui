@@ -419,11 +419,11 @@ export class MgInputText {
     }
     // Does not match type (email, emails, tel, url, etc.)
     else if (!this.valid && this.input.validity.typeMismatch) {
-      this.errorMessage = `${this.messages.input.text.errors.typeMismatch} ${this.messages.input.text.helpText[this.type]}`;
+      this.errorMessage = this.messages.input.text.errors.typeMismatch[this.type];
     }
     // Does not match pattern
     else if (!this.valid && this.input.validity.patternMismatch) {
-      this.errorMessage = this.patternErrorMessage ?? `${this.messages.input.text.errors.typeMismatch} ${this.messages.input.text.helpText[this.type]}`;
+      this.errorMessage = this.patternErrorMessage ?? this.messages.input.text.errors.typeMismatch[this.type];
     }
     // required
     else if (!this.valid && this.input.validity.valueMissing) {
