@@ -1,6 +1,8 @@
 # @mgdis/stencil-helpers
 
-This package centralizes helper functions for your [Stencil](https://stenciljs.com/) projects. It is divided into four thematic sections:
+This package centralizes helper functions for your [Stencil](https://stenciljs.com/) projects.
+
+It is divided into four thematic sections:
 
 - **Components**: Centralizes all component utilities.
 - **Locale**: Centralizes all necessary locale utilities for managing content translation.
@@ -12,7 +14,3 @@ This package centralizes helper functions for your [Stencil](https://stenciljs.c
 ```bash
 pnpm i @mgdis/stencil-helpers
 ```
-
-## Documentation
-
-Read the full [documentation](./docs/README.md)
