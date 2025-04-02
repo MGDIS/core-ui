@@ -29,13 +29,15 @@ Ex: "€300 out of €1000", "33MB out of 1GB", "23%"
 ### `aria-valuetext` attribute
 
 Assistive technologies often present the value of `aria-valuenow` as a percentage. If this would not be accurate use this property to make the progress bar value understandable.
-[See exemple](#aria-rolemeter)
-[See full recommendation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuetext)
+
+- [See exemple](#aria-rolemeter)
+- [See full recommendation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuetext)
 
 ### `aria-busy` attribute
 
 With the role `progressbar`, if the progress bar is describing the loading progress of a particular region of a page set the aria-busy attribute to true on the region until it is finished loading.
-[See full recommendation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role#best_practices)
+
+- [See full recommendation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role#best_practices)
 
 <!-- Auto Generated Below -->
 

@@ -36,7 +36,7 @@ setTimeout(()=> {
 })
 ```
 
-- in case the anchor is in another window, with the [iframeRisizer's moveToAnchor method](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/methods.md#movetoanchoranchor)
+- in case the anchor is in another window, with the [iframeRisizer's moveToAnchor method](https://iframe-resizer.com/api/parent/#movetoanchoranchor)
 
 <!-- Auto Generated Below -->
 
