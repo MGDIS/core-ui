@@ -95,7 +95,7 @@ To bind a non string value in a web component we have to use the Vue.js [`.prop`
 <mg-input-text :value="user.firstname" :label="$t('firstname')" @value-change="user.firstname = $event.detail"></mg-input-text>
 ```
 
-Given that this syntax is somewhat verbose, it is recommended to use the `v-mg-model` from the [mg-model directive](http://core.pages.mgdis.fr/core-back/core/docs/mg-components-helpers/mg-model-vue), the syntax will become:
+Given that this syntax is somewhat verbose, it is recommended to use the `v-mg-model` from the [mg-model directive](http://core.pages.mgdis.fr/core-documentation/docs/core-ui/packages/mg-components-helpers/docs/vue#mgmodel), the syntax will become:
 
 ```html
 <mg-input-text v-mg-model="user.firstname" :label="$t('firstname')"></mg-input-text>

@@ -5,7 +5,7 @@ Only 2 possible values.
 
 ## Warning
 
-Please be aware that this component has a known issue ([#139](https://gitlab.mgdis.fr/core/core-ui/mg-components/-/issues/139)) **when used with the Vue2 framework**. It is essential that your project loads the [mg-model directive](http://core.pages.mgdis.fr/core-back/core/docs/mg-components-helpers/mg-model-vue) and that the component uses it.
+Please be aware that this component has a known issue ([#139](https://gitlab.mgdis.fr/core/core-ui/mg-components/-/issues/139)) **when used with the Vue2 framework**. It is essential that your project loads the [mg-model directive](http://core.pages.mgdis.fr/core-documentation/docs/core-ui/packages/mg-components-helpers/docs/vue#mgmodel) and that the component uses it.
 
 <!-- Auto Generated Below -->
 
