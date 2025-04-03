@@ -48,8 +48,8 @@ export const MgInputToggle = {
     'tooltipPosition': undefined,
     'helpText': 'Help text with html <b>bold</b>, <em>italic</em>.',
     // Slots
-    'item-1': `<span slot="item-1">Oui</span>`,
-    'item-2': `<span slot="item-2">Non</span>`,
+    'item-1': `<span slot="item-1">non</span>`,
+    'item-2': `<span slot="item-2">oui</span>`,
   },
 };
 
@@ -60,7 +60,7 @@ export const MgInputToggleWithIcon = {
     'isIcon': true,
     'isOnOff': true,
     // Slots
-    'item-1': `<mg-icon slot="item-1" icon="check"></mg-icon>`,
-    'item-2': `<mg-icon slot="item-2" icon="cross"></mg-icon>`,
+    'item-1': `<mg-icon slot="item-2" icon="cross"></mg-icon>`,
+    'item-2': `<mg-icon slot="item-1" icon="check"></mg-icon>`,
   },
 };
