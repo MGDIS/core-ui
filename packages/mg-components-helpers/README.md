@@ -59,7 +59,3 @@ Mostly used when your project doesn't have a bundler but uses scripts to compile
 <!-- Use un in VUE project -->
 <script src="/node_modules/@mgdis/mg-components-helpers/dist/vue/index.umd.js"></script>
 ```
-
-## Documentation
-
-Read the full [documentation](./docs/README.md)

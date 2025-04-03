@@ -13,20 +13,25 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgInputDateType): HTMLElement => <mg-input-date {...filterArgs(args)}></mg-input-date>;
+const Template = (args: MgInputDateType): HTMLElement => <mg-input-date {...filterArgs(args, { tooltipPosition: 'input' })}></mg-input-date>;
 
 export const MgInputDate = {
   render: Template,
   args: {
-    // Global
     value: `2023-06-02`,
     identifier: 'identifier',
-    // Label
+    name: 'input-name',
     label: 'Label',
-    // Input
-    required: true,
-    // Tooltip
+    labelOnTop: false,
+    labelHide: false,
+    required: false,
+    readonly: false,
+    min: '',
+    max: '',
+    disabled: false,
     tooltip: 'This is a tooltip',
+    tooltipPosition: undefined,
+    helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
   },
 };
 

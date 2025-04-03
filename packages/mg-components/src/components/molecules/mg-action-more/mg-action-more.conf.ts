@@ -1,7 +1,7 @@
 import type { MgBadge } from '../../atoms/mg-badge/mg-badge';
 import type { MgButton } from '../../atoms/mg-button/mg-button';
 import type { MgIcon } from '../../atoms/mg-icon/mg-icon';
-import type { MgMenuItem } from '../menu/mg-menu-item/mg-menu-item';
+import type { MgMenuItem } from '../menus/mg-menu-item/mg-menu-item';
 
 /**
  * prop icon type

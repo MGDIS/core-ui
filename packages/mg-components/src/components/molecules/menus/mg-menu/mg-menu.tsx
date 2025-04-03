@@ -43,7 +43,7 @@ export class MgMenu {
   /**
    * Component display direction.
    */
-  @Prop({ reflect: true }) direction: Direction = directions.HORIZONTAL;
+  @Prop({ reflect: true }) direction: Direction = 'horizontal';
   @Watch('direction')
   validateDirection(newValue: MgMenu['direction']): void {
     if (![directions.VERTICAL, directions.HORIZONTAL].includes(newValue)) {
@@ -93,7 +93,7 @@ export class MgMenu {
         if (focusedItem === itemToWatch) return;
 
         // reset expanded on previous active menu item
-        if (focusedItem) focusedItem.removeAttribute('data-has-focus');
+        if (focusedItem !== null) focusedItem.removeAttribute('data-has-focus');
 
         // update focusedMenuItem with new value
         itemToWatch.setAttribute('data-has-focus', 'true');
@@ -184,14 +184,14 @@ export class MgMenu {
       document.addEventListener('focusin', (event: FocusEvent & { target: HTMLElement }): void => {
         const isElementChild = (element: HTMLElement): boolean => {
           if (element === this.element) return true;
-          else if (!element.parentElement) return false;
+          else if (element.parentElement === null) return false;
           else return isElementChild(element.parentElement);
         };
 
-        if (!event.target.closest('mg-menu') || !isElementChild(event.target)) {
+        if (event.target.closest('mg-menu') === null || !isElementChild(event.target)) {
           const focusedItem = this.element.querySelector('[data-has-focus]');
           // reset expanded on previous active menu item
-          if (focusedItem) focusedItem.removeAttribute('data-has-focus');
+          if (focusedItem !== null) focusedItem.removeAttribute('data-has-focus');
         }
       });
     }

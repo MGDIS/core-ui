@@ -74,7 +74,7 @@ export class MgMenuItem {
   /**
    * Define menu-item status.
    */
-  @Prop({ reflect: true, mutable: true }) status?: MgMenuStatusType = Status.VISIBLE;
+  @Prop({ reflect: true, mutable: true }) status?: MgMenuStatusType = 'visible';
   @Watch('status')
   watchStatus(newValue: MgMenuItem['status'], oldValue?: MgMenuItem['status']): void {
     if (oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
@@ -214,7 +214,7 @@ export class MgMenuItem {
    */
   private hasPopover = (): boolean =>
     this.isDirection(directions.HORIZONTAL) &&
-    ((this.isInMainMenu() && Array.from(this.element.children).some(element => !element.querySelector('[slot]'))) || this.isItemMore) &&
+    ((this.isInMainMenu() && Array.from(this.element.children).some(element => element.querySelector('[slot]') === null)) || this.isItemMore) &&
     this.href === undefined;
 
   /**
@@ -282,7 +282,7 @@ export class MgMenuItem {
    */
   private updatePopoverGuard(): void {
     const subItem: HTMLElement = this.element.querySelector('*:not([slot])');
-    if (!subItem) return;
+    if (subItem === null) return;
     if (this.hasPopover()) subItem.dataset.mgPopoverGuard = this.popoverIdentifier;
     else delete subItem.dataset.mgPopoverGuard;
   }

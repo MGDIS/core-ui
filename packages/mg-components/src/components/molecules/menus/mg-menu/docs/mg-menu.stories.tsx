@@ -23,8 +23,8 @@ type MenuItemArg = Pick<MgMenuItemType, 'status' | 'href'> & {
   submenu?: number;
 };
 
-type MenuArg = Pick<MgMenuType, 'direction' | 'label'> & {
-  items: MenuItemArg[];
+type MenuArg = MgMenuType & {
+  storyItems: MenuItemArg[];
 };
 
 const depth = 2;
@@ -34,25 +34,24 @@ const depth = 2;
  * @param args - mg-menu-item args
  * @returns rendered mg-menu-item
  */
-const menuItem = (args: MenuItemArg): HTMLMgMenuItemElement => (
-  <mg-menu-item {...filterArgs(args)}>
-    {args.label && <span slot="label">{args.label}</span>}
-    {args.metadata && <span slot="metadata">{args.metadata}</span>}
-    {args.icon && <mg-icon slot="image" icon="user"></mg-icon>}
-    {args.badge && (
-      <mg-badge slot="information" label="information" value="1" variant="text-color">
-        {args.icon}
-      </mg-badge>
-    )}
-    {args.content && (
-      <div>
-        <h3>Demo title</h3>
-        <p>some content</p>
-      </div>
-    )}
-    {args.submenu > 0 && menu(getMenuArgs(directions.VERTICAL, args.submenu - 1, 'medium'))}
-  </mg-menu-item>
-);
+const menuItem = (args: MenuItemArg): HTMLMgMenuItemElement => {
+  const mgMenuItemArgs = { href: args.href, status: args.status };
+  return (
+    <mg-menu-item {...filterArgs(mgMenuItemArgs, { status: 'visible' })}>
+      {args.label && <span slot="label">{args.label}</span>}
+      {args.metadata && <span slot="metadata">{args.metadata}</span>}
+      {args.icon && <mg-icon slot="image" icon="user"></mg-icon>}
+      {args.badge && <mg-badge slot="information" label="information" value="1" variant="text-color"></mg-badge>}
+      {args.content && (
+        <div>
+          <h3>Demo title</h3>
+          <p>some content</p>
+        </div>
+      )}
+      {args.submenu > 0 && menu(getMenuArgs(directions.VERTICAL, args.submenu - 1, 'medium'))}
+    </mg-menu-item>
+  );
+};
 
 /***********
  * mg-menu *
@@ -70,7 +69,7 @@ const getMenuArgs = (direction: MgMenuType['direction'], level = 0, size: MgMenu
   direction,
   size,
   itemmore: level === depth && direction === directions.HORIZONTAL ? { size } : undefined,
-  items: [
+  storyItems: [
     {
       href: '#',
       label: 'label 1',
@@ -105,7 +104,19 @@ const getMenuArgs = (direction: MgMenuType['direction'], level = 0, size: MgMenu
  * @param args - mg-menu args
  * @returns rendered mg-menu
  */
-const menu = (args: MenuArg): HTMLMgMenuElement => <mg-menu {...filterArgs(args, { direction: directions.HORIZONTAL })}>{args.items.map(menuItem)}</mg-menu>;
+const menu = (args): HTMLMgMenuElement => {
+  const mgMenuArgs = { label: args.label, direction: args.direction, itemmore: args.itemmore, size: args.size };
+  return (
+    <mg-menu
+      {...filterArgs(mgMenuArgs, {
+        direction: directions.HORIZONTAL,
+        size: 'medium',
+      })}
+    >
+      {args.storyItems.map(menuItem)}
+    </mg-menu>
+  );
+};
 
 /**
  * Template
@@ -130,7 +141,6 @@ const TemplateSmallContainer = (args: MenuArg): HTMLElement => {
 
 export const MgMenuVerticalSmallContainer = {
   render: TemplateSmallContainer,
-
   args: {
     ...MgMenuVertical.args,
   },

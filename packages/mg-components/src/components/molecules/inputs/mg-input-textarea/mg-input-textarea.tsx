@@ -68,7 +68,7 @@ export class MgInputTextarea {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop?: boolean;
+  @Prop() labelOnTop = false;
 
   /**
    * Define if label is visible
@@ -194,6 +194,11 @@ export class MgInputTextarea {
   @Prop() helpText?: string;
 
   /**
+   * Define if input is resizable
+   */
+  @Prop() resizable: 'none' | 'both' | 'horizontal' | 'vertical' = 'none';
+
+  /**
    * Define input valid state
    */
   @Prop({ mutable: true }) valid: boolean;
@@ -202,11 +207,6 @@ export class MgInputTextarea {
    * Define input invalid state
    */
   @Prop({ mutable: true }) invalid: boolean;
-
-  /**
-   * Define if input is resizable
-   */
-  @Prop() resizable: 'none' | 'both' | 'horizontal' | 'vertical' = 'none';
 
   /**
    * Component classes

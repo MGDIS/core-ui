@@ -33,7 +33,7 @@
     "build:apps": "turbo build --filter='./apps/*' --force",
     "build:configs": "turbo build --filter='./configs/*' --force",
     "build:packages": "turbo build --filter='./packages/*' --force",
-    "doc": "turbo doc",
+    "doc": "pnpm -r doc",
     "change": "changeset",
     "change:empty": "changeset --empty",
     "release": "./scripts/release.sh",

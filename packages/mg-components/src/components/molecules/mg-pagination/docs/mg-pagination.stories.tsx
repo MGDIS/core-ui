@@ -13,11 +13,22 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgPaginationType): HTMLElement => <mg-pagination {...filterArgs(args)}></mg-pagination>;
+const Template = (args: MgPaginationType): HTMLElement => (
+  <mg-pagination
+    {...filterArgs(args, {
+      totalPages: 1,
+      currentPage: 1,
+    })}
+  ></mg-pagination>
+);
 
 export const MgPagination = {
   render: Template,
   args: {
+    identifier: undefined,
+    label: undefined,
+    hideNavigationLabels: false,
+    hidePageCount: false,
     totalPages: 5,
     currentPage: 1,
   },

@@ -6,6 +6,7 @@ import { isFloatingUIPlacement, type PopoverPlacementType, sides, alignments } f
 /**
  * @slot - Element that will display the popover
  * @slot content - popover content
+ * @slot title - popover title
  */
 @Component({
   tag: 'mg-popover',

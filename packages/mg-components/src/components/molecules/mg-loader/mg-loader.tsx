@@ -36,7 +36,7 @@ export class MgLoader {
   /**
    * Hide message
    */
-  @Prop() messageHide?: boolean;
+  @Prop() messageHide = false;
 
   /*************
    * Lifecycle *

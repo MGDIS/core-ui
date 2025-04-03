@@ -53,7 +53,7 @@ export class MgModal {
   /**
    * Modal dialog role.
    */
-  @Prop() dialogRole: DialogRoleType = dialogRoles[0];
+  @Prop() dialogRole: DialogRoleType = 'dialog';
   @Watch('dialogRole')
   validateDialogRole(newValue: MgModal['dialogRole']): void {
     if (!dialogRoles.includes(newValue)) throw new Error(`<mg-modal> prop "dialogRole" must be one of: ${dialogRoles.join(', ')}. Passed value: ${toString(newValue)}.`);

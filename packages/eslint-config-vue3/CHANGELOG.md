@@ -153,6 +153,3 @@
 ### Minor Changes
 
 - b4e2cc07: first version of eslint-config-vue3
-
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.

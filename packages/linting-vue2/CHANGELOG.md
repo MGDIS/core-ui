@@ -187,9 +187,6 @@
 - Updated dependencies [6607a979]
   - @mgdis/eslint-plugin-vue@3.11.0
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## 3.10.0
 
 **Note:** Version bump only for package @mgdis/linting-vue2

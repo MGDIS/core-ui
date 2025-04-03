@@ -14,34 +14,30 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgInputSelectType): HTMLElement => <mg-input-select {...filterArgs(args, { placeholder: messages.input.select.placeholder })}></mg-input-select>;
+const Template = (args: MgInputSelectType): HTMLElement => (
+  <mg-input-select {...filterArgs(args, { placeholder: messages.input.select.placeholder, tooltipPosition: 'input' })}></mg-input-select>
+);
 
 export const MgInputSelect = {
   render: Template,
   args: {
-    // Global
     value: '',
+    items: ['blu', 'bli', 'blo', 'le long libellé qui va faire sortir le champ mg-input-select de sa zone de confort'],
     identifier: 'identifier',
     name: 'input-name',
-    // Label
     label: 'Label',
     labelOnTop: false,
     labelHide: false,
-    // Input
-    required: true,
-    readonly: false,
-    disabled: false,
-    items: ['blu', 'bli', 'blo', 'le long libellé qui va faire sortir le champ mg-input-select de sa zone de confort'],
-    mgWidth: undefined,
-    // Tooltip
-    tooltip: 'This is a tooltip',
-    tooltipPosition: undefined,
-    // Help Text
-    helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
-    // Placeholder
     placeholder: undefined,
     placeholderHide: false,
     placeholderDisabled: false,
+    required: false,
+    readonly: false,
+    disabled: false,
+    mgWidth: undefined,
+    tooltip: 'This is a tooltip',
+    tooltipPosition: undefined,
+    helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
   },
 };
 
@@ -49,10 +45,9 @@ export const WithObjectItems = {
   render: Template,
   args: {
     ...MgInputSelect.args,
-    // remove feature to focus on pattern
+    // remove extra
     tooltip: '',
     helpText: '',
-    required: false,
     //
     items: [
       { title: 'blu', value: 'blublu' },

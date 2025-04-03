@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgBadge } from '../../../../atoms/mg-badge/mg-badge';
 import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
-import { MgMenuItem } from '../../mg-menu-item/mg-menu-item';
+import { MgMenuItem } from '../mg-menu-item';
 import { MgMenu } from '../../mg-menu/mg-menu';
 import { Status, targets } from '../mg-menu-item.conf';
 import { directions } from '../../mg-menu/mg-menu.conf';

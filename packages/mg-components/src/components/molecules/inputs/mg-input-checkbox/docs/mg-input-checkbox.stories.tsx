@@ -14,7 +14,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgInputCheckboxType): HTMLElement => <mg-input-checkbox {...filterArgs(args)}></mg-input-checkbox>;
+const Template = (args: MgInputCheckboxType): HTMLElement => <mg-input-checkbox {...filterArgs(args, { tooltipPosition: 'input' })}></mg-input-checkbox>;
 
 export const MgInputCheckbox = {
   render: Template,
@@ -35,25 +35,23 @@ export const MgInputCheckbox = {
         value: null,
       },
     ],
+    type: undefined,
     identifier: 'identifier',
     name: 'input-name',
-    type: undefined,
-    // Label
     label: 'Option',
     labelOnTop: false,
     labelHide: false,
-    // placement
     inputVerticalList: false,
-    // Input
     required: false,
-    disabled: false,
     readonly: false,
-    // Tooltip
+    displaySelectedValues: false,
+    disabled: false,
     tooltip: 'This is a tooltip',
     tooltipPosition: undefined,
-    // Help Text
     helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
-    displaySelectedValues: false,
+    editButtonMessage: '',
+    showButtonMessage: '',
+    selectButtonMessage: '',
   },
 };
 

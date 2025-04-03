@@ -5,11 +5,11 @@
 
 ## Properties
 
-| Property  | Attribute | Description                          | Type                                                                       | Default       |
-| --------- | --------- | ------------------------------------ | -------------------------------------------------------------------------- | ------------- |
-| `outline` | `outline` | Define if tag is using outline style | `boolean`                                                                  | `undefined`   |
-| `soft`    | `soft`    | Define if tag is using soft style    | `boolean`                                                                  | `undefined`   |
-| `variant` | `variant` | Define tag variant                   | `"danger" \| "info" \| "primary" \| "secondary" \| "success" \| "warning"` | `variants[0]` |
+| Property  | Attribute | Description                          | Type                                                                       | Default     |
+| --------- | --------- | ------------------------------------ | -------------------------------------------------------------------------- | ----------- |
+| `outline` | `outline` | Define if tag is using outline style | `boolean`                                                                  | `false`     |
+| `soft`    | `soft`    | Define if tag is using soft style    | `boolean`                                                                  | `false`     |
+| `variant` | `variant` | Define tag variant                   | `"danger" \| "info" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
 
 
 ## Slots

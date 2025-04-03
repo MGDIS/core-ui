@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- 96f9cf2: #547 - mg-input-numeric: "-0" transformed into "0"
+- 96f9cf2: [#547](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/547) - mg-input-numeric: "-0" transformed into "0"
 - 8e9e1b3: Update dependencies
 
 ## 2.2.5
@@ -43,7 +43,7 @@
 ### Minor Changes
 
 - 462e909: [**`<mg-progress>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-progress--docs) add mg-progress component
-- 47b5cf5: [`mg-input-numeric`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-numeric--docs) Add percent and unit format to mg-input-numeric
+- 47b5cf5: [**`<mg-input-numeric>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-numeric--docs) Add percent and unit format to mg-input-numeric
 
 ### Patch Changes
 
