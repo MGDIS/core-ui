@@ -60,7 +60,7 @@ export const MgInputToggleWithIcon = {
     'isIcon': true,
     'isOnOff': true,
     // Slots
-    'item-1': `<mg-icon slot="item-2" icon="cross"></mg-icon>`,
-    'item-2': `<mg-icon slot="item-1" icon="check"></mg-icon>`,
+    'item-1': `<mg-icon slot="item-1" icon="cross"></mg-icon>`,
+    'item-2': `<mg-icon slot="item-2" icon="check"></mg-icon>`,
   },
 };
