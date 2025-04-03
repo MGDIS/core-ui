@@ -1,5 +1,11 @@
 # @mgdis/playwright-helpers
 
+## 1.1.2
+
+### Patch Changes
+
+- 0d14289: Update dependencies
+
 ## 1.1.1
 
 ### Patch Changes

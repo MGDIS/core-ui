@@ -1,5 +1,19 @@
 # Changelog
 
+## Release (2025-04-03-15-33_Faint-Forest-Green-Falcon)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [linting-angularjs changelog](packages/linting-angularjs/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+- [sanitize-html changelog](packages/sanitize-html/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2025-03-19-12-39_Ashamed-Antique-Brass-Alpaca)
 
 ### Packages released

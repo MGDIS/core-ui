@@ -1,5 +1,18 @@
 # vanilla
 
+## 0.1.10
+
+### Patch Changes
+
+- 0d14289: Update dependencies
+- Updated dependencies [c412c78]
+- Updated dependencies [b38953a]
+- Updated dependencies [0d14289]
+- Updated dependencies [90f7959]
+  - @mgdis/mg-components@6.9.0
+  - @mgdis/notification-center@1.2.8
+  - @mgdis/styles@2.4.1
+
 ## 0.1.9
 
 ### Patch Changes

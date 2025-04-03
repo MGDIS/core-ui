@@ -1,5 +1,20 @@
 # angularjs
 
+## 0.2.8
+
+### Patch Changes
+
+- 0d14289: Update dependencies
+- Updated dependencies [c412c78]
+- Updated dependencies [b38953a]
+- Updated dependencies [0d14289]
+- Updated dependencies [90f7959]
+- Updated dependencies [c412c78]
+  - @mgdis/mg-components@6.9.0
+  - @mgdis/mg-components-helpers@4.1.16
+  - @mgdis/notification-center@1.2.8
+  - @mgdis/styles@2.4.1
+
 ## 0.2.7
 
 ### Patch Changes

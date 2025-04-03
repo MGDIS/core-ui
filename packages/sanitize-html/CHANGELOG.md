@@ -1,5 +1,11 @@
 # @mgdis/sanitize-html
 
+## 1.0.5
+
+### Patch Changes
+
+- 0d14289: Update dependencies
+
 ## 1.0.4
 
 ### Patch Changes

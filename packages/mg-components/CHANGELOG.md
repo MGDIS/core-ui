@@ -1,5 +1,23 @@
 # @mgdis/mg-components
 
+## 6.9.0
+
+### Minor Changes
+
+- c412c78: Update stories and define default values
+- 90f7959: Better consistency in mg-input-... that requires a specific format.
+
+### Patch Changes
+
+- b38953a: Storybook colors set right neutral indexes
+- 0d14289: Update dependencies
+- Updated dependencies [c412c78]
+- Updated dependencies [0d14289]
+- Updated dependencies [c412c78]
+  - @mgdis/img@2.4.0
+  - @mgdis/stencil-helpers@3.0.0
+  - @mgdis/styles@2.4.1
+
 ## 6.8.0
 
 ### Minor Changes
@@ -1202,4 +1220,3 @@ Dedicated stories to show how to setup :
 #### More stories
 
 - A dedicated story to show [all the availables icons](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-icons--docs)
-

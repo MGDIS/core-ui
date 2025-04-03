@@ -1,5 +1,13 @@
 # @mgdis/notification-center
 
+## 1.2.8
+
+### Patch Changes
+
+- 0d14289: Update dependencies
+- Updated dependencies [0d14289]
+  - @mgdis/sanitize-html@1.0.5
+
 ## 1.2.7
 
 ### Patch Changes

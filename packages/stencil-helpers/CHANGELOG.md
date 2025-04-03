@@ -1,5 +1,15 @@
 # @mgdis/stencil-helpers
 
+## 3.0.0
+
+### Major Changes
+
+- c412c78: Update way to filter args
+
+### Patch Changes
+
+- 0d14289: Update dependencies
+
 ## 2.2.6
 
 ### Patch Changes

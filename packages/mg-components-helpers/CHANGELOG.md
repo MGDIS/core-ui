@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.1.16
+
+### Patch Changes
+
+- 0d14289: Update dependencies
+- c412c78: No need of a breaking changes file
+
 ## 4.1.15
 
 ### Patch Changes
