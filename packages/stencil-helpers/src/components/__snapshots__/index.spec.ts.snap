@@ -245,3 +245,47 @@ Page {
   "total": 3,
 }
 `;
+
+exports[`components.utils > Paginate > getPage() > Should get next() page from instance 1`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+  ],
+  "next": [Function],
+  "top": 10,
+  "total": 10,
+}
+`;
+
+exports[`components.utils > Paginate > getPage() > Should get next() page from instance 2`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+  ],
+  "next": undefined,
+  "top": 10,
+  "total": 10,
+}
+`;

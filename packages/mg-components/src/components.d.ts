@@ -532,6 +532,10 @@ export namespace Components {
          */
         "setError": (valid: MgInputCombobox["valid"], errorMessage: string) => Promise<void>;
         /**
+          * Public method to play input focus
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;

@@ -366,6 +366,16 @@ describe('components.utils', () => {
         const page = res.getPage(0, val => val.includes('an'));
         expect(page).toMatchSnapshot();
       });
+
+      test('Should get next() page from instance', () => {
+        const res = new Paginate(initArray(20));
+        // get first page
+        const page = res.getPage();
+        expect(page).toMatchSnapshot();
+        // get next page
+        const next = (page.next as unknown as () => Page<unknown>)();
+        expect(next).toMatchSnapshot();
+      });
     });
   });
 

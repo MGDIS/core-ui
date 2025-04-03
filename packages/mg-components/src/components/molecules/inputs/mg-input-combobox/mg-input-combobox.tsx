@@ -1,5 +1,5 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
-import { allItemsAreString, ClassList, getObjectValueFromKey, isValidString, nextTick, Page, Paginate, Cursor, type CursorType, toString } from '@mgdis/stencil-helpers';
+import { allItemsAreString, ClassList, getObjectValueFromKey, isValidString, nextTick, Page, Paginate, Cursor, type CursorType, toString, isObject } from '@mgdis/stencil-helpers';
 import { type ActionType, type ItemType, type RequestMappingType, type ResponsMappingType } from './mg-input-combobox.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
@@ -25,10 +25,11 @@ const isItems = (items: unknown[]): items is ItemType[] => Array.isArray(items) 
  * @returns truthy if mapping is valid
  */
 const isFetchmappings = (value: unknown): value is MgInputCombobox['fetchmappings'] => {
-  const isValidRoot = typeof value === 'object' && Object.hasOwn(value, 'request') && !Object.hasOwn(value, 'response');
+  const isValidRoot = isObject<Record<string, unknown>>(value) && Object.hasOwn(value, 'request') && Object.hasOwn(value, 'response');
   if (isValidRoot) {
     const { request, response } = value as MgInputCombobox['fetchmappings'];
-    const isValidRequest = typeof request === 'object' && typeof request.filter === 'string';
+    if ([request, response].some(propertie => !isObject(propertie))) return false;
+    const isValidRequest = typeof request.filter === 'string';
     const isValidResponse =
       typeof response === 'object' &&
       typeof response.total === 'string' &&
@@ -38,7 +39,7 @@ const isFetchmappings = (value: unknown): value is MgInputCombobox['fetchmapping
       typeof response.itemValue === 'string';
     return isValidRequest && isValidResponse;
   } else {
-    return !isValidRoot;
+    return isValidRoot;
   }
 };
 
@@ -55,12 +56,12 @@ const mapUrl = (newValue: string, oldValue: string): string => {
   }
 
   // build new URL
-  const params = newValue.split('?').pop();
+  const params = newValue.includes('?') && newValue.split('?').pop();
   if (params) {
     const { origin, pathname } = new URL(oldValue);
     return `${origin}${pathname}?${params}`;
   } else {
-    throw new Error("Cannot parse 'newValue' url");
+    return newValue;
   }
 };
 
@@ -105,7 +106,7 @@ export class MgInputCombobox {
    */
   @Prop({ mutable: true, reflect: true }) value: string | ItemType;
   @Watch('value')
-  watchValue(newValue: string): void {
+  watchValue(newValue: MgInputCombobox['value']): void {
     this.filter = this.getValueTitle();
     this.valueChange.emit(newValue);
   }
@@ -116,7 +117,10 @@ export class MgInputCombobox {
   @Prop() items: (string | ItemType)[];
   @Watch('items')
   watchItems(newValue: MgInputCombobox['items']) {
-    if (this.fetchurl && newValue) {
+    if (this.fetchurl && !newValue) {
+      // skip newValue check
+      return;
+    } else if (this.fetchurl && newValue) {
       throw new Error(`<mg-input-combobox> prop "items" values cannot be use with "fetchurl" prop defined. Passed value: ${toString(newValue)}.`);
     }
     // Empty options
@@ -275,7 +279,7 @@ export class MgInputCombobox {
   @Prop() fetchurl?: string | URL;
   @Watch('fetchurl')
   watchFetchUrl(newValue: MgInputCombobox['fetchurl']): void {
-    if (typeof newValue !== 'string' || !URL.canParse(newValue)) {
+    if (newValue && !URL.canParse(newValue)) {
       throw new Error(`<mg-input-combobox> prop "fetchurl" value must be URL or string. Passed value: ${toString(newValue)}.`);
     }
   }
@@ -295,13 +299,10 @@ export class MgInputCombobox {
   @Prop() fetchoptions?: RequestInit;
   @Watch('fetchoptions')
   watchFetchOptions(newValue: MgInputCombobox['fetchoptions']): void {
-    if (this.fetchurl && newValue) {
-      try {
-        // test if newValue is a valid RequestInit from the Request constuctor
-        new Request(this.fetchurl, newValue);
-      } catch {
-        throw new Error(`<mg-input-combobox> prop "fetchmappings" value must be RequestInit. Passed value: ${toString(newValue)}.`);
-      }
+    if (this.fetchurl && newValue && !isObject(newValue)) {
+      throw new Error(`<mg-input-combobox> prop "fetchoptions" value must be a valid RequestInit. Passed value: ${toString(newValue)}.`);
+    } else {
+      new Request(this.fetchurl, newValue);
     }
   }
 
@@ -382,6 +383,7 @@ export class MgInputCombobox {
     if (newValue) {
       this.classCollection.add(this.classFocus);
       this.input.focus();
+      this.scrollToIndex(0);
     } else {
       // remove visual focus
       this.option = null;
@@ -415,6 +417,14 @@ export class MgInputCombobox {
    * Emited event when checking validity
    */
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputComboboxElement['valid']>;
+
+  /**
+   * Public method to play input focus
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    this.input.focus();
+  }
 
   /**
    * Display input error if it exists.
@@ -530,8 +540,13 @@ export class MgInputCombobox {
   private handleFilterFocus = (): void => {
     // ensure visual focus is always clear on focus
     this.option = null;
-    // scroll after option reset
-    if (!this.popoverDisplay) this.scrollToIndex(0);
+  };
+
+  /**
+   * Handle load-more <mg-button> `click`
+   */
+  private handleLoadMoreButton = (): void => {
+    this.loadingWrapper({ name: 'load-more' });
   };
 
   /**
@@ -561,7 +576,10 @@ export class MgInputCombobox {
       case Keys.UP:
       case Keys.ARROWUP:
         guard = true;
-        if (this.isLoading || !this.page.total) break;
+        if (this.isLoading || !this.page.total) {
+          this.popoverDisplay = true;
+          break;
+        }
 
         if (Boolean(event.altKey) && [Keys.DOWN, Keys.ARROWDOWN].includes(event.key)) {
           // Opens the popover without moving focus or changing selection.
@@ -614,7 +632,9 @@ export class MgInputCombobox {
           // Moves visual focus to the textbox and places the editing cursor at the end of the field.
           index = this.filter.length;
         }
-        if (index) this.input.setSelectionRange(index, index);
+        if (typeof index === 'number') {
+          this.input.setSelectionRange(index, index);
+        }
         break;
 
       case Keys.ESC:
@@ -646,18 +666,11 @@ export class MgInputCombobox {
   };
 
   /**
-   * Handle load-more <mg-button> `click`
-   */
-  private handleLoadMoreButton = (): void => {
-    this.loadingWrapper({ name: 'load-more' });
-  };
-
-  /**
    * Scroll to next option from cursor
    * @param index - targeted option index to scroll into
    */
-  private scrollToIndex = (index: number = 0): void => {
-    this.element.shadowRoot.querySelector(`li:nth-of-type(${index + this.page.baseIndex})`)?.scrollIntoView();
+  private scrollToIndex = (index: number): void => {
+    this.element.shadowRoot.querySelector(`li:nth-of-type(${(index || 0) + this.page.baseIndex})`)?.scrollIntoView();
   };
 
   /**
@@ -665,10 +678,10 @@ export class MgInputCombobox {
    * @param newValue - slected option item
    */
   private setValue(newValue: MgInputCombobox['option'] | null): void {
-    if (isItem(newValue)) {
-      this.value = allItemsAreString(this.options.items) ? newValue.title : { ...newValue };
+    if (!isItem(newValue)) {
+      this.value = '';
     } else {
-      this.value = newValue;
+      this.value = allItemsAreString(this.items || this.options.items) ? newValue.title : { ...newValue };
     }
   }
 
@@ -679,7 +692,7 @@ export class MgInputCombobox {
   private getValueTitle = (): ItemType['title'] => {
     if (this.value && isItem(this.value)) return this.value.title;
     else if (typeof this.value === 'string') return this.value;
-    else return null;
+    else return '';
   };
 
   /**
@@ -722,7 +735,7 @@ export class MgInputCombobox {
    * Get filtered options from `filter` input value
    * @returns filtered options
    */
-  private optionsFilter = (option): boolean => (this.input?.value ? option.title.toLocaleLowerCase().includes((this.filter || this.getValueTitle())?.toLocaleLowerCase()) : true);
+  private optionsFilter = (option): boolean => (this.filter === '' ? true : option.title.toLocaleLowerCase().includes(this.filter.toLocaleLowerCase()));
 
   /**
    * Loading wrapper with a given action
@@ -736,14 +749,14 @@ export class MgInputCombobox {
     let promise;
     // when action require a loadMore we fetch the API else we report action to next tick
     // Set "load more" if action match OR if next item not available in the current page
-    if (action.name === 'scroll' && !this.fetchurl) {
-      promise = nextTick;
-    } else if (
+    if (
       action.name === 'load-more' ||
       (action.cursor === Cursor.NEXT &&
         this.page.items.findIndex(option => option.value.toString() === this.option.value.toString()) + this.page.baseIndex >= this.page.items.length)
     ) {
       promise = this.goToNextPage;
+    } else if (action.name === 'scroll' && !this.fetchurl) {
+      promise = nextTick;
     } else {
       promise = this.updatePage;
     }
@@ -767,7 +780,7 @@ export class MgInputCombobox {
       })
       .finally(() => {
         // reset loading after next render
-        setTimeout(() => {
+        requestAnimationFrame(() => {
           this.isLoading = false;
         });
       });
@@ -807,6 +820,7 @@ export class MgInputCombobox {
   private updatePage = async (): Promise<void> => {
     if (this.fetchurl) {
       return this.getOptions().then(page => {
+        if (!page) return;
         this.options = new Paginate(page.items, { total: page.total, next: page.next });
         this.page = this.options.getPage();
       });
@@ -825,6 +839,7 @@ export class MgInputCombobox {
 
     try {
       const response = await fetch(updateUrl, this.fetchoptions).then(response => response.json());
+      if (!response) return null;
       const items = getObjectValueFromKey<Response, ItemType[]>(response, this.fetchmappings.response.items).map(
         (item): ItemType => ({
           title: getObjectValueFromKey<unknown, ItemType['title']>(item, this.fetchmappings.response.itemTitle),
@@ -833,7 +848,7 @@ export class MgInputCombobox {
       );
       const total = getObjectValueFromKey<Response, number>(response, this.fetchmappings.response.total);
       const next = mapUrl(getObjectValueFromKey<Response, string>(response, this.fetchmappings.response.next), this.fetchurl.toString());
-      return { items, total, next, top: this.page?.top };
+      return { items, total, next, top: this.page.top };
     } catch {}
   };
 
@@ -850,14 +865,15 @@ export class MgInputCombobox {
     this.messages = initLocales(this.element).messages;
     // Validate
     this.watchIdentifier(this.identifier);
+    this.watchItems(this.items);
     if (this.fetchurl) {
       this.watchFetchUrl(this.fetchurl);
       this.watchFetchOptions(this.fetchoptions);
       this.watchFetchMappings(this.fetchmappings);
       this.loadingWrapper({ name: 'load-data' });
-    } else {
-      this.watchItems(this.items);
     }
+    this.watchValue(this.value);
+    this.watchOptions(this.options);
     this.watchMgWidth(this.mgWidth);
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
@@ -941,7 +957,7 @@ export class MgInputCombobox {
                 aria-expanded={this.popoverDisplay.toString()}
                 aria-controls={listId}
                 aria-invalid={(this.invalid === true).toString()}
-                aria-activedescendant={this.option?.value ? this.option?.value : typeof this.value === 'string' ? this.value : this.value?.value}
+                aria-activedescendant={this.option?.value ? this.option.value : typeof this.value === 'string' ? this.value : this.value?.value}
                 onInput={this.handleFilterInput}
                 onBlur={this.handleFilterBlur}
                 onFocus={this.handleFilterFocus}
