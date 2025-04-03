@@ -34,7 +34,7 @@ export const MgMenuItem = {
   args: {
     // Props
     'identifier': 'identifier',
-    'href': '',
+    'href': undefined,
     'target': undefined,
     'status': undefined,
     'expanded': false,
