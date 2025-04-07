@@ -565,8 +565,6 @@ export class MgInputCombobox {
         guard = event.key === Keys.ENTER;
         // Sets the value to the content of the focused option in the listbox.
         if (this.popoverDisplay) this.setValue(this.page.total > 0 ? this.option : null);
-        // Sets visual focus on the textbox.
-        this.option = null;
         // Closes the popover.
         this.popoverDisplay = false;
         break;
@@ -576,7 +574,7 @@ export class MgInputCombobox {
       case Keys.UP:
       case Keys.ARROWUP:
         guard = true;
-        if (this.isLoading || this.page.total > 0) {
+        if (this.isLoading || !(this.page.total > 0)) {
           this.popoverDisplay = true;
           break;
         }
@@ -589,7 +587,7 @@ export class MgInputCombobox {
 
         // define cursor
         let cursor: CursorType;
-        const isNavigationStart = this.popoverDisplay && Boolean(this.option);
+        const isNavigationStart = this.popoverDisplay && isItem(this.option);
         if ([Keys.DOWN, Keys.ARROWDOWN].includes(event.key)) {
           // If the filter is not empty and the popover is displayed, moves visual focus to the first suggested value.
           // If the filter is empty and the popover is not displayed, opens the popover and moves visual focus to the first option.
@@ -618,7 +616,7 @@ export class MgInputCombobox {
       case Keys.ARROWRIGHT:
       case Keys.END:
         // skip process if visual focus is not in popover
-        if (!Boolean(this.option)) break;
+        if (!isItem(this.option)) break;
         guard = true;
 
         // Remove visual focus from popover options

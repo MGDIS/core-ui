@@ -3546,6 +3546,349 @@ exports[`mg-input-combobox input errors validity, case next state is readonly va
 </mg-input-combobox>
 `;
 
+exports[`mg-input-combobox input events Should handle load-more with button and display mg-loader 1`] = `
+<mg-input-combobox data-mg-popover-guard="identifier-popover">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--width-full mg-u-is-focused">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-popover arrow-hide="" data-fallback-placement="bottom-end">
+        <template shadowrootmode="open">
+          <slot></slot>
+          <slot name="content"></slot>
+        </template>
+        <div aria-controls="identifier-popover" aria-expanded="false" class="mg-c-input__input-group-container">
+          <mg-icon>
+            <template shadowrootmode="open">
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--magnifying-glass mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M2 7a5 5 0 1 1 8.872 3.164l3.127 3.128-.707.707-3.128-3.128A5 5 0 0 1 2 7m5 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </template>
+          </mg-icon>
+          <input aria-autocomplete="list" aria-controls="identifier-list" aria-expanded="true" aria-invalid="false" autocomplete="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" role="combobox" type="text" value="">
+          <mg-button aria-disabled="false" aria-label="Dc Comics" is-icon="" role="button" tabindex="-1">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--icon mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon>
+              <template shadowrootmode="open">
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-up mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m8 4.5-6 6 .708.707L8 5.916l5.293 5.293L14 10.5z" fill="currentColor"></path>
+                </svg>
+              </template>
+            </mg-icon>
+          </mg-button>
+        </div>
+        <mg-popover-content data-arrow-hide data-placement="bottom-start" data-show id="identifier-popover" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+          <template shadowrootmode="open">
+            <mg-card class="mg-c-popover-content">
+              <div class="mg-c-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </template>
+          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="Dc Comics" aria-setsize="25" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
+                1
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="2" role="option">
+                2
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="3" role="option">
+                3
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="4" role="option">
+                4
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="5" role="option">
+                5
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="6" role="option">
+                6
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="7" role="option">
+                7
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="8" role="option">
+                8
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="9" role="option">
+                9
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="10" role="option">
+                10
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
+                1
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="2" role="option">
+                2
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="3" role="option">
+                3
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="4" role="option">
+                4
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="5" role="option">
+                5
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="6" role="option">
+                6
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="7" role="option">
+                7
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="8" role="option">
+                8
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="9" role="option">
+                9
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="10" role="option">
+                10
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="11" role="option">
+                11
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="12" role="option">
+                12
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="13" role="option">
+                13
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="14" role="option">
+                14
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="15" role="option">
+                15
+              </li>
+            </ul>
+            <mg-loader class="mg-u-visually-hidden" message="Search..."></mg-loader>
+            <mg-button aria-controls="identifier-list" aria-disabled="true" class="mg-c-input__load-more" full-width="" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--disabled mg-c-button--full-width mg-c-button--loading mg-c-button--medium mg-c-button--secondary">
+                  <mg-icon>
+                    <template shadowrootmode="open">
+                      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--loader mg-c-icon--size-medium mg-c-icon--spin" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.657 8A5.657 5.657 0 1 1 2.343 8a5.657 5.657 0 0 1 11.314 0M3.475 8a4.526 4.526 0 1 0 9.05 0 4.526 4.526 0 0 0-9.05 0" fill="currentColor" fill-opacity=".2"></path>
+                        <path d="M2.343 8A5.657 5.657 0 0 1 8 2.343v1.132A4.525 4.525 0 0 0 3.475 8z" fill="currentColor"></path>
+                      </svg>
+                    </template>
+                  </mg-icon>
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon>
+                <template shadowrootmode="open">
+                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+                  </svg>
+                </template>
+              </mg-icon>
+              Load more
+            </mg-button>
+          </div>
+        </mg-popover-content>
+      </mg-popover>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-combobox>
+`;
+
+exports[`mg-input-combobox input events Should handle load-more with button and display mg-loader 2`] = `
+<mg-input-combobox data-mg-popover-guard="identifier-popover">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--width-full mg-u-is-focused">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-popover arrow-hide="" data-fallback-placement="bottom-end">
+        <template shadowrootmode="open">
+          <slot></slot>
+          <slot name="content"></slot>
+        </template>
+        <div aria-controls="identifier-popover" aria-expanded="false" class="mg-c-input__input-group-container">
+          <mg-icon>
+            <template shadowrootmode="open">
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--magnifying-glass mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M2 7a5 5 0 1 1 8.872 3.164l3.127 3.128-.707.707-3.128-3.128A5 5 0 0 1 2 7m5 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </template>
+          </mg-icon>
+          <input aria-autocomplete="list" aria-controls="identifier-list" aria-expanded="true" aria-invalid="false" autocomplete="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" role="combobox" type="text" value="">
+          <mg-button aria-disabled="false" aria-label="Dc Comics" is-icon="" role="button" tabindex="-1">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--icon mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon>
+              <template shadowrootmode="open">
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-up mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m8 4.5-6 6 .708.707L8 5.916l5.293 5.293L14 10.5z" fill="currentColor"></path>
+                </svg>
+              </template>
+            </mg-icon>
+          </mg-button>
+        </div>
+        <mg-popover-content data-arrow-hide data-placement="bottom-start" data-show id="identifier-popover" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+          <template shadowrootmode="open">
+            <mg-card class="mg-c-popover-content">
+              <div class="mg-c-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </template>
+          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="Dc Comics" aria-setsize="25" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
+                1
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="2" role="option">
+                2
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="3" role="option">
+                3
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="4" role="option">
+                4
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="5" role="option">
+                5
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="6" role="option">
+                6
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="7" role="option">
+                7
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="8" role="option">
+                8
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="9" role="option">
+                9
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="10" role="option">
+                10
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
+                1
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="2" role="option">
+                2
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="3" role="option">
+                3
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="4" role="option">
+                4
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="5" role="option">
+                5
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="6" role="option">
+                6
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="7" role="option">
+                7
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="8" role="option">
+                8
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="9" role="option">
+                9
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="10" role="option">
+                10
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="11" role="option">
+                11
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="12" role="option">
+                12
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="13" role="option">
+                13
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="14" role="option">
+                14
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="15" role="option">
+                15
+              </li>
+            </ul>
+            <mg-button aria-controls="identifier-list" aria-disabled="false" class="mg-c-input__load-more" full-width="" role="button" tabindex="0">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--full-width mg-c-button--medium mg-c-button--secondary">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon>
+                <template shadowrootmode="open">
+                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+                  </svg>
+                </template>
+              </mg-icon>
+              Load more
+            </mg-button>
+          </div>
+        </mg-popover-content>
+      </mg-popover>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-combobox>
+`;
+
 exports[`mg-input-combobox input events keyboard Should handle input "ArrowDown" keyboard key without items 1`] = `
 <mg-input-combobox data-mg-popover-guard="identifier-popover">
   <template shadowrootmode="open">

@@ -898,6 +898,43 @@ describe('mg-input-combobox', () => {
       }
     });
 
+    test('Should handle load-more with button and display mg-loader', async () => {
+      const page = await getPage(
+        { ...baseProps, items: undefined, fetchurl, fetchmappings },
+        { results: initArray(15).map(item => ({ title: item, value: item })), total: 25, next: '/next' },
+      );
+      const element = page.doc.querySelector('mg-input-combobox');
+      const button = element.shadowRoot.querySelector('mg-button:last-of-type');
+      const getOptions = () => Array.from(element.shadowRoot.querySelectorAll('li'));
+      expect(getOptions().length).toEqual(10);
+
+      // define spys
+      const spyLoadingWrapper = jest.spyOn(page.rootInstance, 'loadingWrapper');
+      setUpRequestAnimationFrameMock(() => {});
+
+      // display options
+      button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+
+      // load more items
+      const loadMoreButton = element.shadowRoot.querySelector('.mg-c-input__load-more');
+
+      loadMoreButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+      // snapshot with loader
+      expect(spyLoadingWrapper).toHaveBeenCalledWith(expect.objectContaining({ name: 'load-more' }));
+      expect(element.shadowRoot.querySelector('mg-loader')).not.toEqual(null);
+      expect(page.root).toMatchSnapshot();
+
+      // flush promise
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
+
+      // Verify initial value is set and popover to be displaied
+      expect(element.shadowRoot.querySelector('mg-loader')).toEqual(null);
+      expect(page.root).toMatchSnapshot();
+    });
+
     describe('keyboard', () => {
       test.each(Object.values(Keys))('Should handle input "%s" keyboard key, prevent action with ctrlKey', async key => {
         const page = await getPage({ ...baseProps, items: initArray(15) });
