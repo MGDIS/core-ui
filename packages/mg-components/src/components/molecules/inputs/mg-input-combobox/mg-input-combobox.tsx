@@ -849,7 +849,7 @@ export class MgInputCombobox {
       const total = getObjectValueFromKey<Response, number>(response, this.fetchmappings.response.total);
       const next = mapUrl(getObjectValueFromKey<Response, string>(response, this.fetchmappings.response.next), this.fetchurl.toString());
       return { items, total, next, top: this.page.top };
-    } catch { }
+    } catch {}
   };
 
   /*************
