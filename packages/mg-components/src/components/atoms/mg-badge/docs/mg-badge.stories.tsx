@@ -20,7 +20,7 @@ export const MgBadge = {
   args: {
     value: '99',
     label: 'unread messages',
-    variant: variants[0],
+    variant: undefined,
     outline: false,
   },
 };

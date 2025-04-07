@@ -39,6 +39,8 @@ stages:
       - !reference [.changes, img]
       - !reference [.changes, stencil-helpers]
       - !reference [.changes, styles]
+      - !reference [.changes, linting-stencil]
+      - !reference [.changes, playwright-helpers]
   notification-center:
     changes:
       - !reference [.changes, notification-center]
@@ -68,6 +70,8 @@ stages:
       - !reference [.changes, stencil-helpers]
       - !reference [.changes, notification-center]
       - !reference [.changes, notification-center:app]
+      - !reference [.changes, linting-stencil]
+      - !reference [.changes, playwright-helpers]
   doc:
     changes:
       - !reference [.changes, stencil-helpers]
@@ -101,6 +105,7 @@ stages:
 .install:dependencies:
   before_script:
     - corepack enable
+    - npm i -g corepack@latest # https://github.com/pnpm/pnpm/issues/9029
     - pnpm i
 
 ###########
@@ -380,14 +385,19 @@ storybook-mr:
 
 chromatic:publish:
   stage: mg-components
+  variables:
+    BRANCH_NAME: '$CI_DEFAULT_BRANCH'
   extends:
     - .install:dependencies
   rules:
-    - if: ($CI_COMMIT_MESSAGE !~ /^Merge branch \'renovate\// && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH) || $CI_COMMIT_TAG
+    - if: ($CI_COMMIT_MESSAGE !~ /^Merge branch \'renovate\// && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
+      variables:
+        BRANCH_NAME: 'next'
+    - if: $CI_COMMIT_TAG
   script:
     - !reference [.mg-components:build, script]
     - cd packages/mg-components
-    - pnpm dlx chromatic --only-changed --project-token=$CHROMATIC_PROJECT_TOKEN --branch-name $CI_DEFAULT_BRANCH --build-script-name storybook:build
+    - pnpm dlx chromatic --only-changed --project-token=$CHROMATIC_PROJECT_TOKEN --branch-name $BRANCH_NAME --build-script-name storybook:build
 
 mg-components:npmjs:
   extends:

@@ -98,7 +98,7 @@ When we enter in an input field with an error its state is checked everytime the
 | `identifier` _(required)_ | `identifier`       | Identifier is used for the element ID (id is a reserved prop in Stencil.js) | `string`             | `undefined` |
 | `label` _(required)_      | `label`            | Define input label                                                          | `string`             | `undefined` |
 | `labelHide`               | `label-hide`       | Define if label is visible                                                  | `boolean`            | `false`     |
-| `labelOnTop`              | `label-on-top`     | Define if label is displayed on top                                         | `boolean`            | `undefined` |
+| `labelOnTop`              | `label-on-top`     | Define if label is displayed on top                                         | `boolean`            | `false`     |
 | `required`                | `required`         | Define if input is required                                                 | `boolean`            | `false`     |
 | `tooltip`                 | `tooltip`          | Add a tooltip message next to the input                                     | `string`             | `undefined` |
 | `tooltipPosition`         | `tooltip-position` | Define tooltip position                                                     | `"input" \| "label"` | `'input'`   |
@@ -106,12 +106,9 @@ When we enter in an input field with an error its state is checked everytime the
 
 ## Slots
 
-| Slot          | Description       |
-| ------------- | ----------------- |
-|               | Input content     |
-| `"error"`     | error content     |
-| `"help-text"` | Help text content |
-| `"label"`     | Label content     |
+| Slot | Description   |
+| ---- | ------------- |
+|      | Input content |
 
 
 ## CSS Custom Properties

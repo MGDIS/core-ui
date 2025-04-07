@@ -1,8 +1,8 @@
 import { h } from '@stencil/core/internal';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgItemMore } from '../components/molecules/internals/mg-item-more/mg-item-more';
-import { MgMenuItem } from '../components/molecules/menu/mg-menu-item/mg-menu-item';
-import { MgMenu } from '../components/molecules/menu/mg-menu/mg-menu';
+import { MgMenuItem } from '../components/molecules/menus/mg-menu-item/mg-menu-item';
+import { MgMenu } from '../components/molecules/menus/mg-menu/mg-menu';
 import { OverflowBehavior } from './behaviors.utils';
 import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
 

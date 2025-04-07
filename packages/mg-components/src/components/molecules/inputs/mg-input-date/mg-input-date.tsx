@@ -1,6 +1,6 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
 import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern, toString } from '@mgdis/stencil-helpers';
-import { type InputDateError } from './mg-input-date.conf';
+import { type InputDateError, DEFAULT_MAX_DATE } from './mg-input-date.conf';
 import { type EventType, classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
@@ -76,7 +76,7 @@ export class MgInputDate {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop?: boolean;
+  @Prop() labelOnTop = false;
 
   /**
    * Define if label is visible
@@ -108,7 +108,7 @@ export class MgInputDate {
    * Define input maximum date
    * format: yyyy-mm-dd
    */
-  @Prop() max?: string = '9999-12-31';
+  @Prop() max?: string = '9999-12-31'; // Hardcoded value matching DEFAULT_MAX_DATE for documentation
   @Watch('min')
   @Watch('max')
   validateMinMax(newValue: string): void {
@@ -262,11 +262,41 @@ export class MgInputDate {
    * @returns formated pattern help text. Ex: Format attendu : jj/mm/aaaa (ex : 20/12/2020)
    */
   private formatHelpText = (helpText: string): string => {
-    const defaultHelpTextVariable = '{defaultHelpText}';
-    let text = isValidString(helpText) ? helpText : this.messages.input.date.helpText;
-    if (text.includes(defaultHelpTextVariable)) text = text.replace(defaultHelpTextVariable, this.formatHelpText(this.messages.input.date.helpText));
+    // If the component is in readonly mode, return directly because the message will not be rendered
+    if (this.readonly) {
+      return undefined;
+    }
 
-    return text.replace('{pattern}', this.renderPattern()).replace('{date}', localeDate(dateToString(new Date('2023-12-24')), this.systemLocale));
+    const defaultHelpTextVariable = '{defaultHelpText}';
+
+    // If a custom helpText is provided, store it but don't return it directly
+    let text = isValidString(helpText) ? helpText : this.messages.input.date.helpText.expectedFormat;
+
+    // Handle defaultHelpText
+    if (text.includes(defaultHelpTextVariable)) {
+      text = text.replace(defaultHelpTextVariable, this.formatHelpText(this.messages.input.date.helpText.expectedFormat));
+    }
+
+    // Replace pattern and date variables
+    text = text.replace('{pattern}', this.renderPattern()).replace('{date}', localeDate(dateToString(new Date('2025-12-24')), this.systemLocale));
+
+    // Add additional message for min/max if necessary
+    let rangeMessage: string;
+
+    if (this.min?.length > 0 && this.max !== DEFAULT_MAX_DATE) {
+      rangeMessage = this.messages.input.date.helpText.minMax.replace('{min}', localeDate(this.min, this.systemLocale)).replace('{max}', localeDate(this.max, this.systemLocale));
+    } else if (this.min?.length > 0) {
+      rangeMessage = this.messages.input.date.helpText.min.replace('{min}', localeDate(this.min, this.systemLocale));
+    } else if (this.max !== DEFAULT_MAX_DATE) {
+      rangeMessage = this.messages.input.date.helpText.max.replace('{max}', localeDate(this.max, this.systemLocale));
+    }
+
+    // Combine custom helpText with range message if both exist
+    if (text !== undefined && rangeMessage !== undefined) {
+      return `${text}<br>${rangeMessage}`;
+    }
+
+    return text;
   };
 
   /**
@@ -332,30 +362,32 @@ export class MgInputDate {
    * @returns error code
    */
   private getInputError = (): null | InputDateError => {
-    let inputError: InputDateError = null;
-
     // bad input or pattern
     if (this.input.validity.badInput || (this.value && !this.isValidPattern(this.value))) {
-      inputError = 'badInput';
-    }
-    // required
-    else if (this.input.validity.valueMissing) {
-      inputError = 'required';
-    }
-    // min & max
-    else if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max !== '9999-12-31') {
-      inputError = 'minMax';
-    }
-    // min
-    else if (this.input.validity.rangeUnderflow) {
-      inputError = 'min';
-    }
-    // max
-    else if (this.input.validity.rangeOverflow) {
-      inputError = 'max';
+      return 'badInput';
     }
 
-    return inputError;
+    // required
+    if (this.input.validity.valueMissing) {
+      return 'required';
+    }
+
+    // min & max
+    if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max !== DEFAULT_MAX_DATE) {
+      return 'minMax';
+    }
+
+    // min
+    if (this.input.validity.rangeUnderflow) {
+      return 'min';
+    }
+
+    // max
+    if (this.input.validity.rangeOverflow) {
+      return 'max';
+    }
+
+    return null;
   };
 
   /**
@@ -376,14 +408,16 @@ export class MgInputDate {
       }
       // min, max & minMax
       else if (['min', 'max', 'minMax'].includes(inputError)) {
-        this.errorMessage = this.messages.errors.date[inputError]
+        this.errorMessage = this.messages.input.date.helpText[inputError]
           .replace('{min}', localeDate(this.min, this.systemLocale))
           .replace('{max}', localeDate(this.max, this.systemLocale));
       }
       // wrong date format
       // element.validity.badInput is default error message
       else {
-        this.errorMessage = this.messages.errors.date.badInput.replace('{pattern}', this.renderPattern());
+        this.errorMessage = this.messages.input.date.error.badInput
+          .replace('{pattern}', this.renderPattern())
+          .replace('{date}', localeDate(dateToString(new Date('2025-12-24')), this.systemLocale));
       }
     }
   };

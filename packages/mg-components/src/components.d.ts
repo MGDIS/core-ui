@@ -24,14 +24,15 @@ import { IconType as IconType1 } from "./components";
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 import { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
 import { Direction } from "./types";
-import { ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
-import { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+import { ItemMoreType, MenuSizeType } from "./components/molecules/menus/mg-menu/mg-menu.conf";
+import { MgMenuStatusType, TargetType } from "./components/molecules/menus/mg-menu-item/mg-menu-item.conf";
 import { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 import { PopoverPlacementType } from "./components/molecules/mg-popover/mg-popover.conf";
 import { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
+import { ColumnsType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
 import { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 import { TooltipPlacementType } from "./components/atoms/mg-tooltip/mg-tooltip.conf";
@@ -54,14 +55,15 @@ export { IconType as IconType1 } from "./components";
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 export { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
 export { Direction } from "./types";
-export { ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
-export { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+export { ItemMoreType, MenuSizeType } from "./components/molecules/menus/mg-menu/mg-menu.conf";
+export { MgMenuStatusType, TargetType } from "./components/molecules/menus/mg-menu-item/mg-menu-item.conf";
 export { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 export { PopoverPlacementType } from "./components/molecules/mg-popover/mg-popover.conf";
 export { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 export { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
+export { ColumnsType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
 export { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 export { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export { TooltipPlacementType } from "./components/atoms/mg-tooltip/mg-tooltip.conf";
@@ -74,7 +76,7 @@ export namespace Components {
         /**
           * Define if chevron is display
          */
-        "displayChevron"?: boolean;
+        "displayChevron": boolean;
         /**
           * Define displayed icon
          */
@@ -218,7 +220,7 @@ export namespace Components {
         /**
           * Define if slotted mg-component's label are displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input name If not set the value equals the identifier
          */
@@ -300,7 +302,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Define if input is required
          */
@@ -326,7 +328,7 @@ export namespace Components {
         /**
           * Display selected values list in "multi" type This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.
          */
-        "displaySelectedValues"?: boolean;
+        "displaySelectedValues": boolean;
         /**
           * Overwrite default "edit" button message
          */
@@ -358,7 +360,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Define input name If not set the value equals the identifier
          */
@@ -425,7 +427,7 @@ export namespace Components {
         /**
           * Define if mg-input-checkbox-list is disabled
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * Define mg-input-checkbox input invalid
          */
@@ -441,7 +443,7 @@ export namespace Components {
         /**
           * Define if mg-input-checkbox-list is readonly
          */
-        "readonly"?: boolean;
+        "readonly": boolean;
     }
     interface MgInputCombobox {
         /**
@@ -459,8 +461,8 @@ export namespace Components {
         "fetchmappings"?: { request: RequestMappingType; response: ResponsMappingType };
         /**
           * Define fetch options object Require `fetchurl` prop to be defined otherwith it will be ignored if defined
-          * @description https://developer.mozilla.org/en-US/docs/Web/API/RequestInit
-          * @example ``` {   headers: {      authorization: 'my-token'   }, }
+          * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/RequestInit}
+          * @example JSON headers: ```json { "headers": { "authorization": "my-token" } }
          */
         "fetchoptions"?: RequestInit;
         /**
@@ -584,7 +586,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Define input maximum date format: yyyy-mm-dd
          */
@@ -680,7 +682,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Maximum value
          */
@@ -780,11 +782,11 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input max length
          */
-        "maxlength": any;
+        "maxlength"?: number;
         /**
           * Define input width
          */
@@ -954,7 +956,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Editor modules configuration
          */
@@ -1046,7 +1048,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Define input width
          */
@@ -1146,7 +1148,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input max length
          */
@@ -1250,7 +1252,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input max length
          */
@@ -1372,7 +1374,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input name If not set the value equals the identifier
          */
@@ -1426,7 +1428,7 @@ export namespace Components {
         /**
           * Hide message
          */
-        "messageHide"?: boolean;
+        "messageHide": boolean;
     }
     interface MgMenu {
         /**
@@ -1508,11 +1510,11 @@ export namespace Components {
         /**
           * Hide navigation label
          */
-        "hideNavigationLabels"?: boolean;
+        "hideNavigationLabels": boolean;
         /**
           * Hide select input
          */
-        "hidePageCount"?: boolean;
+        "hidePageCount": boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
@@ -1530,7 +1532,7 @@ export namespace Components {
         /**
           * Disable possibility to toggle expand
          */
-        "expandToggleDisabled"?: boolean;
+        "expandToggleDisabled": boolean;
         /**
           * Define expand toggle button display
          */
@@ -1624,6 +1626,20 @@ export namespace Components {
          */
         "links": SkipLink[];
     }
+    interface MgTable {
+        /**
+          * Define column properties
+         */
+        "columns": ColumnsType;
+        /**
+          * Define if table fits its parent element
+         */
+        "fullWidth": boolean;
+        /**
+          * Define table size
+         */
+        "size": TableSizeType;
+    }
     interface MgTabs {
         /**
           * Active tab number
@@ -1650,11 +1666,11 @@ export namespace Components {
         /**
           * Define if tag is using outline style
          */
-        "outline"?: boolean;
+        "outline": boolean;
         /**
           * Define if tag is using soft style
          */
-        "soft"?: boolean;
+        "soft": boolean;
         /**
           * Define tag variant
          */
@@ -2285,6 +2301,12 @@ declare global {
         prototype: HTMLMgSkipLinksElement;
         new (): HTMLMgSkipLinksElement;
     };
+    interface HTMLMgTableElement extends Components.MgTable, HTMLStencilElement {
+    }
+    var HTMLMgTableElement: {
+        prototype: HTMLMgTableElement;
+        new (): HTMLMgTableElement;
+    };
     interface HTMLMgTabsElementEventMap {
         "active-tab-change": HTMLMgTabsElement['activeTab'];
     }
@@ -2358,6 +2380,7 @@ declare global {
         "mg-popover-content": HTMLMgPopoverContentElement;
         "mg-progress": HTMLMgProgressElement;
         "mg-skip-links": HTMLMgSkipLinksElement;
+        "mg-table": HTMLMgTableElement;
         "mg-tabs": HTMLMgTabsElement;
         "mg-tag": HTMLMgTagElement;
         "mg-tooltip": HTMLMgTooltipElement;
@@ -2772,8 +2795,8 @@ declare namespace LocalJSX {
         "fetchmappings"?: { request: RequestMappingType; response: ResponsMappingType };
         /**
           * Define fetch options object Require `fetchurl` prop to be defined otherwith it will be ignored if defined
-          * @description https://developer.mozilla.org/en-US/docs/Web/API/RequestInit
-          * @example ``` {   headers: {      authorization: 'my-token'   }, }
+          * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/RequestInit}
+          * @example JSON headers: ```json { "headers": { "authorization": "my-token" } }
          */
         "fetchoptions"?: RequestInit;
         /**
@@ -3083,7 +3106,7 @@ declare namespace LocalJSX {
         /**
           * Input max length
          */
-        "maxlength"?: any;
+        "maxlength"?: number;
         /**
           * Define input width
          */
@@ -3923,6 +3946,20 @@ declare namespace LocalJSX {
          */
         "onGo-to-anchor"?: (event: MgSkipLinksCustomEvent<string>) => void;
     }
+    interface MgTable {
+        /**
+          * Define column properties
+         */
+        "columns"?: ColumnsType;
+        /**
+          * Define if table fits its parent element
+         */
+        "fullWidth"?: boolean;
+        /**
+          * Define table size
+         */
+        "size"?: TableSizeType;
+    }
     interface MgTabs {
         /**
           * Active tab number
@@ -4029,6 +4066,7 @@ declare namespace LocalJSX {
         "mg-popover-content": MgPopoverContent;
         "mg-progress": MgProgress;
         "mg-skip-links": MgSkipLinks;
+        "mg-table": MgTable;
         "mg-tabs": MgTabs;
         "mg-tag": MgTag;
         "mg-tooltip": MgTooltip;
@@ -4079,6 +4117,7 @@ declare module "@stencil/core" {
             "mg-popover-content": LocalJSX.MgPopoverContent & JSXBase.HTMLAttributes<HTMLMgPopoverContentElement>;
             "mg-progress": LocalJSX.MgProgress & JSXBase.HTMLAttributes<HTMLMgProgressElement>;
             "mg-skip-links": LocalJSX.MgSkipLinks & JSXBase.HTMLAttributes<HTMLMgSkipLinksElement>;
+            "mg-table": LocalJSX.MgTable & JSXBase.HTMLAttributes<HTMLMgTableElement>;
             "mg-tabs": LocalJSX.MgTabs & JSXBase.HTMLAttributes<HTMLMgTabsElement>;
             "mg-tag": LocalJSX.MgTag & JSXBase.HTMLAttributes<HTMLMgTagElement>;
             "mg-tooltip": LocalJSX.MgTooltip & JSXBase.HTMLAttributes<HTMLMgTooltipElement>;

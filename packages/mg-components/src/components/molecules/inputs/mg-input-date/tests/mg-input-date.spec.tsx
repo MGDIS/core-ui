@@ -130,10 +130,12 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => true);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: false,
         badInput: false,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     jest.spyOn(page.rootInstance.valueChange, 'emit');
@@ -164,10 +166,12 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => false);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: true,
         badInput: true,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
@@ -187,10 +191,12 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => true);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: false,
         badInput: false,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     jest.spyOn(page.rootInstance.valueChange, 'emit');
@@ -220,10 +226,12 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => true);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: false,
         badInput: false,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     const inputValidSpy = jest.spyOn(page.rootInstance.inputValid, 'emit');
@@ -256,10 +264,12 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => true);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: false,
         badInput: false,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
@@ -295,10 +305,12 @@ describe('mg-input-date', () => {
       //mock validity
       input.checkValidity = jest.fn(() => validity);
       Object.defineProperty(input, 'validity', {
-        get: jest.fn(() => ({
+        get: () => ({
           valueMissing,
           badInput,
-        })),
+          rangeUnderflow: rangeUnderflow(input),
+          rangeOverflow: rangeOverflow(input),
+        }),
       });
 
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
@@ -310,7 +322,9 @@ describe('mg-input-date', () => {
         expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
       } else if (badInput) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.errors.date.badInput.replace('{pattern}', '<span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span>'),
+          messages.input.date.error.badInput
+            .replace('{pattern}', '<span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span>')
+            .replace('{date}', '12/24/2025'),
         );
       }
       expect(page.rootInstance.valid).toEqual(validity);
@@ -355,10 +369,10 @@ describe('mg-input-date', () => {
       //mock validity
       input.checkValidity = jest.fn(() => checkValidityFromRange(input));
       Object.defineProperty(input, 'validity', {
-        get: jest.fn(() => ({
+        get: () => ({
           rangeUnderflow: rangeUnderflow(input),
           rangeOverflow: rangeOverflow(input),
-        })),
+        }),
       });
 
       jest.runOnlyPendingTimers();
@@ -389,6 +403,60 @@ describe('mg-input-date', () => {
     });
   });
 
+  test.each([
+    {
+      args: { readonly: true },
+      expected: undefined,
+    },
+    {
+      args: { helpText: undefined },
+      expected: 'Expected format: <span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span> (ex: 12/24/2025)',
+    },
+    {
+      args: { min: '2023-01-01' },
+      expected:
+        'Expected format: <span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span> (ex: 12/24/2025)<br>The date must be after 1/1/2023',
+    },
+    {
+      args: { max: '2026-12-31' },
+      expected:
+        'Expected format: <span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span> (ex: 12/24/2025)<br>The date must be before 12/31/2026',
+    },
+    {
+      args: { min: '2023-01-01', max: '2026-12-31' },
+      expected:
+        'Expected format: <span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span> (ex: 12/24/2025)<br>The date must be between 1/1/2023 and 12/31/2026',
+    },
+    {
+      args: { helpText: 'Custom help text', min: '2023-01-01' },
+      expected: 'Custom help text<br>The date must be after 1/1/2023',
+    },
+    {
+      args: { helpText: 'Custom help text', max: '2026-12-31' },
+      expected: 'Custom help text<br>The date must be before 12/31/2026',
+    },
+    {
+      args: { helpText: 'Custom help text', min: '2023-01-01', max: '2026-12-31' },
+      expected: 'Custom help text<br>The date must be between 1/1/2023 and 12/31/2026',
+    },
+    {
+      args: { helpText: "Texte d'aide personnalisé", min: '2023-01-01', max: '2026-12-31', lang: 'fr' },
+      expected: "Texte d'aide personnalisé<br>La date doit être comprise entre le 1/1/2023 et le 12/31/2026",
+    },
+  ])('Should format help text with args: $args', async ({ args, expected }) => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', ...args });
+    const element = page.doc.querySelector('mg-input-date');
+
+    // Verify the formatted help text
+    const helpText = element.shadowRoot.querySelector('[slot="help-text"]');
+
+    if (expected === undefined) {
+      expect(helpText).toBeNull();
+    } else {
+      expect(helpText.innerHTML.replace(/\s+/g, ' ')).toBe(expected.replace(/\s+/g, ' '));
+    }
+  });
+
   test.each([2020, '2021', '31-12-2022', '2022-02-24T08:01:44.460Z'])('Should display error with invalid value, case value="%s"', async value => {
     const page = await getPage({ label: 'label', identifier: 'identifier' });
 
@@ -398,10 +466,10 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => checkValidityFromRange(input));
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         rangeUnderflow: rangeUnderflow(input),
         rangeOverflow: rangeOverflow(input),
-      })),
+      }),
     });
 
     jest.runOnlyPendingTimers();
@@ -434,10 +502,10 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => checkValidityFromRange(input));
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         rangeUnderflow: rangeUnderflow(input),
         rangeOverflow: rangeOverflow(input),
-      })),
+      }),
     });
 
     jest.runOnlyPendingTimers();
@@ -446,13 +514,17 @@ describe('mg-input-date', () => {
     await page.waitForChanges();
 
     if (args.min !== undefined && args.max === undefined) {
-      expect(page.rootInstance.errorMessage).toEqual(messages.errors.date.min.replace('{min}', localeDate(date.middle, 'en')));
+      expect(page.rootInstance.errorMessage).toEqual(messages.input.date.helpText.min.replace('{min}', localeDate(date.middle, 'en')));
     } else if (args.min === undefined && args.max !== undefined) {
-      expect(page.rootInstance.errorMessage).toEqual(messages.errors.date.max.replace('{max}', localeDate(date.middle, 'en')));
+      expect(page.rootInstance.errorMessage).toEqual(messages.input.date.helpText.max.replace('{max}', localeDate(date.middle, 'en')));
     } else if (args.min !== undefined && args.max !== undefined && args.value === date.first) {
-      expect(page.rootInstance.errorMessage).toEqual(messages.errors.date.minMax.replace('{min}', localeDate(date.middle, 'en')).replace('{max}', localeDate(date.last, 'en')));
+      expect(page.rootInstance.errorMessage).toEqual(
+        messages.input.date.helpText.minMax.replace('{min}', localeDate(date.middle, 'en')).replace('{max}', localeDate(date.last, 'en')),
+      );
     } else if (args.min !== undefined && args.max !== undefined && args.value === date.last) {
-      expect(page.rootInstance.errorMessage).toEqual(messages.errors.date.minMax.replace('{min}', localeDate(date.first, 'en')).replace('{max}', localeDate(date.middle, 'en')));
+      expect(page.rootInstance.errorMessage).toEqual(
+        messages.input.date.helpText.minMax.replace('{min}', localeDate(date.first, 'en')).replace('{max}', localeDate(date.middle, 'en')),
+      );
     }
 
     expect(page.rootInstance.valid).toEqual(false);
@@ -489,9 +561,11 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => false);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: true,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     await element.displayError();
@@ -520,7 +594,12 @@ describe('mg-input-date', () => {
 
     //mock validity
     Object.defineProperty(input, 'validity', {
-      get: () => ({}),
+      get: () => ({
+        valueMissing: false,
+        badInput: false,
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     await element.setError(params.valid, params.errorMessage);
@@ -572,9 +651,11 @@ describe('mg-input-date', () => {
     //mock validity
     input.checkValidity = jest.fn(() => false);
     Object.defineProperty(input, 'validity', {
-      get: jest.fn(() => ({
+      get: () => ({
         valueMissing: true,
-      })),
+        rangeUnderflow: false,
+        rangeOverflow: false,
+      }),
     });
 
     await element.displayError();
@@ -596,20 +677,27 @@ describe('mg-input-date', () => {
         .fn()
         .mockReturnValueOnce({
           valueMissing: true,
+          rangeUnderflow: false,
+          rangeOverflow: false,
         })
         .mockReturnValueOnce({
           valueMissing: true,
+          rangeUnderflow: false,
+          rangeOverflow: false,
         })
         .mockReturnValueOnce({
           valueMissing: false,
+          rangeUnderflow: false,
+          rangeOverflow: false,
         })
         .mockReturnValueOnce({
           valueMissing: false,
+          rangeUnderflow: false,
+          rangeOverflow: false,
         }),
     });
 
     await element.displayError();
-
     await page.waitForChanges();
 
     expect(page.rootInstance.hasDisplayedError).toEqual(true);
@@ -620,12 +708,12 @@ describe('mg-input-date', () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.hasDisplayedError).toEqual(true);
-    expect(page.rootInstance.errorMessage).toBeUndefined();
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
 
     expect(page.rootInstance.hasDisplayedError).toEqual(false);
+    expect(page.rootInstance.errorMessage).toBeUndefined();
   });
 
   test('Should remove error on input when required change dynamically', async () => {
@@ -640,15 +728,23 @@ describe('mg-input-date', () => {
         .fn()
         .mockReturnValueOnce({
           valueMissing: true,
+          rangeUnderflow: false,
+          rangeOverflow: false,
         })
         .mockReturnValueOnce({
           valueMissing: true,
+          rangeUnderflow: false,
+          rangeOverflow: false,
         })
         .mockReturnValueOnce({
           valueMissing: false,
+          rangeUnderflow: false,
+          rangeOverflow: false,
         })
         .mockReturnValueOnce({
           valueMissing: false,
+          rangeUnderflow: false,
+          rangeOverflow: false,
         }),
     });
 
@@ -709,9 +805,11 @@ describe('mg-input-date', () => {
       // Mock validity
       input.checkValidity = jest.fn(() => false);
       Object.defineProperty(input, 'validity', {
-        get: jest.fn(() => ({
+        get: () => ({
           valueMissing: true,
-        })),
+          rangeUnderflow: false,
+          rangeOverflow: false,
+        }),
       });
 
       // Set error message

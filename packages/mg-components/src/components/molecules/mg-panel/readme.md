@@ -42,17 +42,17 @@ class MyComponent {
 
 ## Properties
 
-| Property                   | Attribute                     | Description                                                                                                 | Type                | Default                   |
-| -------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------- | ------------------------- |
-| `expandToggleDisabled`     | `expand-toggle-disabled`      | Disable possibility to toggle expand                                                                        | `boolean`           | `undefined`               |
-| `expandToggleDisplay`      | `expand-toggle-display`       | Define expand toggle button display                                                                         | `"icon" \| "text"`  | `expandToggleDisplays[0]` |
-| `expanded`                 | `expanded`                    | Panel is opened                                                                                             | `boolean`           | `false`                   |
-| `identifier`               | `identifier`                  | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`            | `createID('mg-panel')`    |
-| `panelTitle` _(required)_  | `panel-title`                 | Panel title                                                                                                 | `string`            | `undefined`               |
-| `titleEditable`            | `title-editable`              | Define if panel title is editable                                                                           | `boolean`           | `false`                   |
-| `titlePattern`             | `title-pattern`               | Panel title pattern                                                                                         | `string`            | `undefined`               |
-| `titlePatternErrorMessage` | `title-pattern-error-message` | Panel title pattern error message                                                                           | `string`            | `undefined`               |
-| `titlePosition`            | `title-position`              | Define title position                                                                                       | `"left" \| "right"` | `titlePositions[0]`       |
+| Property                   | Attribute                     | Description                                                                                                 | Type                | Default                |
+| -------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------- | ---------------------- |
+| `expandToggleDisabled`     | `expand-toggle-disabled`      | Disable possibility to toggle expand                                                                        | `boolean`           | `false`                |
+| `expandToggleDisplay`      | `expand-toggle-display`       | Define expand toggle button display                                                                         | `"icon" \| "text"`  | `'text'`               |
+| `expanded`                 | `expanded`                    | Panel is opened                                                                                             | `boolean`           | `false`                |
+| `identifier`               | `identifier`                  | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`            | `createID('mg-panel')` |
+| `panelTitle` _(required)_  | `panel-title`                 | Panel title                                                                                                 | `string`            | `undefined`            |
+| `titleEditable`            | `title-editable`              | Define if panel title is editable                                                                           | `boolean`           | `false`                |
+| `titlePattern`             | `title-pattern`               | Panel title pattern                                                                                         | `string`            | `undefined`            |
+| `titlePatternErrorMessage` | `title-pattern-error-message` | Panel title pattern error message                                                                           | `string`            | `undefined`            |
+| `titlePosition`            | `title-position`              | Define title position                                                                                       | `"left" \| "right"` | `'left'`               |
 
 
 ## Events

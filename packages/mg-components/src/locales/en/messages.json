@@ -1,17 +1,6 @@
 {
   "errors": {
-    "required": "This field is required.",
-    "date": {
-      "badInput": "The date format must be {pattern}",
-      "min": "The date cannot be earlier than {min}",
-      "max": "The date cannot be later than {max}",
-      "minMax": "The date must be between {min} and {max}"
-    },
-    "numeric": {
-      "min": "The value cannot be less than {min}",
-      "max": "The value cannot be greater than {max}",
-      "minMax": "The value must be between {min} and {max}"
-    }
+    "required": "This field is required."
   },
   "nbCharLeft": "{counter} characters left.",
   "input": {
@@ -32,24 +21,39 @@
       "sections": {
         "selected": {
           "title": "Selected",
-          "titlePlurial": "Selected",
+          "titlePlural": "Selected",
           "action": "Unselect all",
           "tooltip": "Unselect all current search results"
         },
         "notSelected": {
           "title": "Not selected",
-          "titlePlurial": "Not selected",
+          "titlePlural": "Not selected",
           "action": "Select all",
           "tooltip": "Select all current search results"
         }
       }
     },
     "date": {
-      "helpText": "Expected format: {pattern} (ex: {date})",
       "pattern": {
         "dd": "dd",
         "mm": "mm",
         "yyyy": "yyyy"
+      },
+      "helpText": {
+        "expectedFormat": "Expected format: {pattern} (ex: {date})",
+        "min": "The date must be after {min}",
+        "max": "The date must be before {max}",
+        "minMax": "The date must be between {min} and {max}"
+      },
+      "error": {
+        "badInput": "The date is inexistent or incorrect, the expected format is {pattern} (ex: {date})"
+      }
+    },
+    "numeric": {
+      "helpText": {
+        "min": "The value must be greater than {min}",
+        "max": "The value must be less than {max}",
+        "minMax": "The value must be between {min} and {max}"
       }
     },
     "password": {
@@ -61,6 +65,20 @@
       "notAvailable": "No elements available",
       "loadMore": "Load more",
       "search": "Search..."
+    },
+    "text": {
+      "helpText": {
+        "email": "Expected format: name@example.com",
+        "emails": "Expected format: first@example.com, second@example.com",
+        "url": "Expected format: https://example.com"
+      },
+      "errors": {
+        "typeMismatch": {
+          "email": "The value is incorrect, the expected format is name@example.com",
+          "emails": "The value is incorrect, the expected format is first@example.com, second@example.com",
+          "url": "The value is incorrect, the expected format is https://example.com"
+        }
+      }
     }
   },
   "form": {
@@ -108,6 +126,9 @@
     "label": "Actions"
   },
   "loader": {
-    "inProgess": "Loading in progress…"
+    "inProgress": "Loading in progress…"
+  },
+  "table": {
+    "sortableCaption": "(column headers with buttons are sortable)"
   }
 }

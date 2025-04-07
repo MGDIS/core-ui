@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { createID } from '@mgdis/stencil-helpers';
 import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
-import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
+import { Status } from '../../menus/mg-menu-item/mg-menu-item.conf';
 import type { MgActionMore } from '../mg-action-more';
 import type { MgButton } from '../../../atoms/mg-button/mg-button';
 

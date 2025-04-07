@@ -2,12 +2,12 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { forcePopoverId } from '../../../../utils/unit.test.utils';
 import { setupMutationObserverMock, setupResizeObserverMock, toString } from '@mgdis/stencil-helpers';
-import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
+import { Status } from '../../menus/mg-menu-item/mg-menu-item.conf';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
 import { MgPopover } from '../../mg-popover/mg-popover';
 import { MgActionMore } from '../mg-action-more';
-import { MgMenu } from '../../menu/mg-menu/mg-menu';
-import { MgMenuItem } from '../../menu/mg-menu-item/mg-menu-item';
+import { MgMenu } from '../../menus/mg-menu/mg-menu';
+import { MgMenuItem } from '../../menus/mg-menu-item/mg-menu-item';
 import { MgPopoverContent } from '../../mg-popover/mg-popover-content/mg-popover-content';
 
 const getPage = async args => {

@@ -36,7 +36,7 @@ export class MgLoader {
   /**
    * Hide message
    */
-  @Prop() messageHide?: boolean;
+  @Prop() messageHide = false;
 
   /*************
    * Lifecycle *
@@ -61,7 +61,7 @@ export class MgLoader {
     return (
       <div class="mg-c-loader" aria-live="polite">
         <mg-icon icon="loader" spin></mg-icon>
-        <span class={{ 'mg-u-visually-hidden': this.messageHide }}>{this.message || this.messages.loader.inProgess}</span>
+        <span class={{ 'mg-u-visually-hidden': this.messageHide }}>{this.message || this.messages.loader.inProgress}</span>
       </div>
     );
   }

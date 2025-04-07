@@ -34,3 +34,6 @@ export type ExtendedPlacement = Placement | (typeof placements)[number];
  * @returns truthy if placement is valid
  */
 export const isFloatingUIPlacement = (placement): placement is Placement => placements.filter(p => !p.includes('auto')).includes(placement);
+
+// Alignments constants
+export const alignments = ['start', null, 'end'] as const;

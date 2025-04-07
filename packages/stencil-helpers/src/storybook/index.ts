@@ -2,6 +2,7 @@ import { renderVdom } from '@stencil/core/internal/client';
 import type { VNode } from '@stencil/core';
 import { ArgsType } from './index.conf';
 import { JsonDocs, JsonDocsComponent, JsonDocsProp } from '@stencil/core/internal';
+import { prettify } from 'htmlfy';
 
 /**
  * Render attribute on the given element
@@ -11,9 +12,10 @@ import { JsonDocs, JsonDocsComponent, JsonDocsProp } from '@stencil/core/interna
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const renderAttribute = (element: HTMLElement, name: string, value: any): void => {
-  if ([null, undefined, '', false].includes(value) || ['innerHTML', 'style'].includes(name)) return;
-
-  element.setAttribute(name, !['object', 'function'].includes(typeof value) ? value : `/!\\ Object props are not rendered in the code example`);
+  if ([null, undefined, '', false].includes(value) || ['innerHTML', 'style', ''].includes(name)) {
+    return;
+  }
+  element.setAttribute(name, !['object', 'function'].includes(typeof value) ? value : `⚠️ Property must be set through a script or a framework-specific syntax.`);
 };
 
 /**
@@ -50,20 +52,21 @@ const renderElement = (parentNode: HTMLElement, tagName: VNode['$tag$'], attribu
  * Filter default argument on component argument to prevent them to be rendered
  * @param args - all possible args with custom values
  * @param defaultValues - component default args values
+ * @param slots - slots
  * @returns filtres args
  * @example
  * ```ts
  * import { filterArgs } from '@mgdis/stencil-helpers';
- * const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs(args, { variant: variants[0] })}></mg-badge>;
+ * const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs(args, { variant: 'info' }, ['actions'])}></mg-badge>;
  * ```
  */
-export const filterArgs = <T>(args: T, defaultValues?: Partial<T>): T => {
+export const filterArgs = <T>(args: T, defaultValues?: Partial<T>, slots: string[] = []): T => {
   const filteredArgs = {} as { [key: string]: unknown };
   if (typeof args !== 'object') {
     throw new Error("filterArgs - args isn't an object.");
   }
   for (const k in args) {
-    if (!k.startsWith('slot')) {
+    if (!slots.includes(k)) {
       const arg = args[k];
       // Change camelCase k to kebab-case
       const key = k.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
@@ -123,9 +126,9 @@ export const stencilWrapper = (storyFn: (ctx: any) => void, context: ArgsType): 
  *
  * export const parameters: Preview['parameters'] = {
  *   docs: {
- *     extractArgTypes,
- *     extractComponentDescription,
- *     transformSource: (_, ctx) => getStoryHTML(ctx.originalStoryFn(ctx.args)),
+ *     source: {
+ *       transform: (_, ctx) => getStoryHTML(ctx.originalStoryFn(ctx.args)),
+ *     }
  *   },
  * };
  * ```
@@ -135,7 +138,7 @@ export const getStoryHTML = ({ $tag$, $attrs$, $children$, $text$ }: VNode): str
 
   renderElement(host, $tag$, $attrs$, $children$, $text$);
 
-  return host.innerHTML;
+  return prettify(host.innerHTML, { tag_wrap: true }).replace(/="true"/g, '');
 };
 
 /**
@@ -306,6 +309,7 @@ export class StorybookPreview {
     // Extract component dependencies
     const componentDependencies = componentData?.dependencies.reduce((acc, dependency) => {
       const dependencyData = this.#getComponentData(dependency);
+      if (!dependencyData) return acc; // Prevents from adding internal dependency
       return {
         ...acc,
         [dependency]: {
@@ -322,6 +326,7 @@ export class StorybookPreview {
     // Extract dependents components
     const componentDependents = componentData?.dependents.reduce((acc, dependent) => {
       const dependentData = this.#getComponentData(dependent);
+      if (!dependentData) return acc; // Prevents from adding internal dependent
       return {
         ...acc,
         [dependent]: {

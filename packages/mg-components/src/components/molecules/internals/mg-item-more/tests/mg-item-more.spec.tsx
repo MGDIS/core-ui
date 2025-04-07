@@ -3,8 +3,8 @@ import { newSpecPage } from '@stencil/core/testing';
 import { setupMutationObserverMock, setupResizeObserverMock, toString } from '@mgdis/stencil-helpers';
 import { MgItemMore } from '../mg-item-more';
 import { forcePopoverId, mockWindowFrames } from '../../../../../utils/unit.test.utils';
-import { MgMenu } from '../../../menu/mg-menu/mg-menu';
-import { MgMenuItem } from '../../../menu/mg-menu-item/mg-menu-item';
+import { MgMenu } from '../../../menus/mg-menu/mg-menu';
+import { MgMenuItem } from '../../../menus/mg-menu-item/mg-menu-item';
 import { MgPopover } from '../../../mg-popover/mg-popover';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 

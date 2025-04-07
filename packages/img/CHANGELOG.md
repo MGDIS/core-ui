@@ -1,5 +1,21 @@
 # @mgdis/img
 
+## 2.4.0
+
+### Minor Changes
+
+- c412c78: Add MGDIS logo
+
+### Patch Changes
+
+- 0d14289: Update dependencies
+
+## 2.3.0
+
+### Minor Changes
+
+- bb4982f: Add icons and illustrations
+
 ## 2.2.0
 
 ### Minor Changes

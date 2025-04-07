@@ -33,7 +33,7 @@ export class MgButton {
   /**
    * Define button variant
    */
-  @Prop({ mutable: true }) variant: VariantType = variants[0]; // Primary
+  @Prop({ mutable: true }) variant: VariantType = 'primary';
   @Watch('variant')
   validateVariant(newValue: VariantType, oldValue?: VariantType): void {
     // validate new value
@@ -66,7 +66,7 @@ export class MgButton {
   /**
    * Define button size
    */
-  @Prop() size: SizeType = sizes[0]; // medium
+  @Prop() size: SizeType = 'medium';
   @Watch('size')
   validateSize(newValue: MgButton['size'], oldValue?: MgButton['size']): void {
     // validate new value
@@ -132,7 +132,13 @@ export class MgButton {
    */
   @Prop() isIcon = false;
   @Watch('isIcon')
-  watchIsIcon(): void {
+  watchIsIcon(newValue: boolean): void {
+    if (newValue) {
+      this.classCollection.add(`mg-c-button--icon`);
+      if (!isValidString(this.label)) {
+        throw new Error(`<mg-button> prop "label" is mandatory when prop "isIcon" is set to true.`);
+      }
+    }
     this.setIconSize();
   }
 
@@ -210,7 +216,7 @@ export class MgButton {
    */
   private setIconSize = (): void => {
     if (this.size === 'medium') {
-      this.element.querySelector('mg-icon')?.removeAttribute('size');
+      this.element.querySelector('mg-icon[size]')?.removeAttribute('size');
     } else if (this.isIcon) {
       this.element.querySelector('mg-icon')?.setAttribute('size', this.size);
     }
@@ -223,13 +229,8 @@ export class MgButton {
     this.validateVariant(this.variant);
     this.validateFullWidth(this.fullWidth);
     this.validateSize(this.size);
-    this.watchIsIcon();
-    if (this.isIcon) {
-      this.classCollection.add(`mg-c-button--icon`);
-      if (!isValidString(this.label)) {
-        throw new Error(`<mg-button> prop "label" is mandatory when prop "isIcon" is set to true.`);
-      }
-    }
+    this.watchIsIcon(this.isIcon);
+
     // Store the onclick fn
     this.onClickElementFn = this.element.onclick;
     this.disabledHandler(this.disabled);

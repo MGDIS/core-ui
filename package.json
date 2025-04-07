@@ -1,7 +1,7 @@
 {
   "name": "core-ui",
   "license": "BSD-3-Clause",
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@9.15.9",
   "engineStrict": true,
   "engines": {
     "pnpm": "9.x",
@@ -34,7 +34,7 @@
     "build:apps": "turbo build --filter='./apps/*' --force",
     "build:configs": "turbo build --filter='./configs/*' --force",
     "build:packages": "turbo build --filter='./packages/*' --force",
-    "doc": "turbo doc",
+    "doc": "pnpm -r doc",
     "change": "changeset",
     "change:empty": "changeset --empty",
     "release": "./scripts/release.sh",
@@ -71,9 +71,9 @@
     "codename": "0.0.6",
     "eslint": "8.57.1",
     "husky": "9.1.7",
-    "lint-staged": "15.4.3",
-    "prettier": "3.5.2",
-    "stylelint": "16.14.1",
-    "turbo": "2.4.4"
+    "lint-staged": "15.5.0",
+    "prettier": "3.5.3",
+    "stylelint": "16.17.0",
+    "turbo": "2.5.0"
   }
 }

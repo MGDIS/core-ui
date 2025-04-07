@@ -7,8 +7,6 @@ const expectedNotifications = (page: Page | FrameLocator, expected: number): Pro
 
 const testPage = async (page: Page, file: string, title: RegExp, frame?: FrameLocator, frameTitle?: string): Promise<void> => {
   await page.goto(`http://localhost:3210/${file}`);
-  // wait mg-component loaded
-  await page.locator('html.hydrated').waitFor();
   // wait notification-center loaded
   await page.locator('#mg-notification-center').waitFor();
 

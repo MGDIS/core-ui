@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.5
+
+### Patch Changes
+
+- 8e9e1b3: Update dependencies
+
 ## 4.1.4
 
 ### Patch Changes
@@ -109,9 +115,6 @@
   The modules included in core are not affected by this change. We are just changing the internals of core.
 
   In any case, if you have problems, don't hesitate to create an issue
-
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## 3.10.0
 

@@ -1,5 +1,47 @@
 # angularjs
 
+## 0.2.8
+
+### Patch Changes
+
+- 0d14289: Update dependencies
+- Updated dependencies [c412c78]
+- Updated dependencies [b38953a]
+- Updated dependencies [0d14289]
+- Updated dependencies [90f7959]
+- Updated dependencies [c412c78]
+  - @mgdis/mg-components@6.9.0
+  - @mgdis/mg-components-helpers@4.1.16
+  - @mgdis/notification-center@1.2.8
+  - @mgdis/styles@2.4.1
+
+## 0.2.7
+
+### Patch Changes
+
+- 8e9e1b3: Update dependencies
+- Updated dependencies [d674c7d]
+- Updated dependencies [96f9cf2]
+- Updated dependencies [7846cf7]
+- Updated dependencies [8e9e1b3]
+- Updated dependencies [4697869]
+- Updated dependencies [90afca8]
+  - @mgdis/mg-components@6.8.0
+  - @mgdis/styles@2.4.0
+  - @mgdis/mg-components-helpers@4.1.15
+  - @mgdis/notification-center@1.2.7
+
+## 0.2.6
+
+### Patch Changes
+
+- Updated dependencies [6c1a18c]
+- Updated dependencies [b0b26d5]
+- Updated dependencies [bb4982f]
+  - @mgdis/mg-components@6.7.0
+  - @mgdis/notification-center@1.2.6
+  - @mgdis/styles@2.3.1
+
 ## 0.2.5
 
 ### Patch Changes

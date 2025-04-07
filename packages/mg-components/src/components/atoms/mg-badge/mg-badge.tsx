@@ -45,7 +45,7 @@ export class MgBadge {
   /**
    * Define badge variant
    */
-  @Prop() variant?: BadgeVariantType = variants[0]; // info
+  @Prop() variant?: BadgeVariantType = 'info';
   @Watch('variant')
   validateVariant(newValue: MgBadge['variant'], oldValue?: MgBadge['variant']): void {
     if (!variants.includes(newValue)) {
@@ -61,7 +61,7 @@ export class MgBadge {
   /**
    * Define if button is using outline style
    */
-  @Prop() outline?: boolean;
+  @Prop() outline?: boolean = false;
   @Watch('outline')
   validateOutline(newValue: MgBadge['outline']): void {
     if (newValue) this.classCollection.add(this.classOutline);

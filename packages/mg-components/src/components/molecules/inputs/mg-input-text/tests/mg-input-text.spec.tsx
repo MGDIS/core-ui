@@ -8,6 +8,7 @@ import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
 import { setUpRequestAnimationFrameMock, toString } from '@mgdis/stencil-helpers';
+import { helpTextTypes, textTypes } from '../mg-input-text.conf';
 
 const getPage = (args, content?) => {
   const page = newSpecPage({
@@ -152,6 +153,15 @@ describe('mg-input-text', () => {
     }
   });
 
+  test.each(['', ' ', 'blu'])('Should not render with invalid type property: %s', async type => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'blu', type });
+    } catch (err) {
+      expect(err.message).toEqual(`<mg-input-text> prop "type" must be one of the following values: ${textTypes.join(', ')}. Passed value: ${type}.`);
+    }
+  });
+
   test.each(['', ' ', null, undefined])('Should throw an error when patternErrorMessage is used with invalid pattern: %s', async pattern => {
     expect.assertions(1);
     try {
@@ -161,6 +171,11 @@ describe('mg-input-text', () => {
         `<mg-input-text> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='${pattern}'" and "patternErrorMessage='pattern error message'".`,
       );
     }
+  });
+
+  test.each(helpTextTypes)('Should not throw an error when patternErrorMessage is not defined with pattern and type %s', async type => {
+    const page = await getPage({ identifier: 'identifier', label: 'blu', pattern: 'blu', type });
+    expect(page.root).toMatchSnapshot();
   });
 
   test.each(['Blu', 'Bla', 'Bli', 'Blo'])('Should trigger events, case title: %s', async inputValue => {
@@ -389,6 +404,9 @@ describe('mg-input-text', () => {
           valueMissing: true,
         })
         .mockReturnValueOnce({
+          valueMissing: true,
+        })
+        .mockReturnValueOnce({
           valueMissing: false,
         })
         .mockReturnValueOnce({
@@ -427,6 +445,9 @@ describe('mg-input-text', () => {
     Object.defineProperty(input, 'validity', {
       get: jest
         .fn()
+        .mockReturnValueOnce({
+          valueMissing: true,
+        })
         .mockReturnValueOnce({
           valueMissing: true,
         })
@@ -547,6 +568,67 @@ describe('mg-input-text', () => {
 
       // Verify value remains unchanged
       expect(element.value).toEqual(initialValue);
+    });
+  });
+
+  describe('types with helptext', () => {
+    test.each(helpTextTypes)('Should render with type: %s', async type => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', type });
+
+      // Snapshot with help text
+      expect(page.root).toMatchSnapshot();
+
+      const element = page.doc.querySelector('mg-input-text');
+      const input = element.shadowRoot.querySelector('input');
+
+      //mock validity
+      input.checkValidity = jest.fn(() => false);
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          typeMismatch: true,
+        })),
+      });
+
+      // Enter invalid value
+      input.value = 'blu';
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      // Snapshot with error message
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should display patternMismatch mesage with type and pattern', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        type: 'email',
+        pattern:
+          /^[a-zA-Z0-9!#$%&'*+\/=?^_`\{\|\}~\-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`\{\|\}~\-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-]*[a-zA-Z0-9])?$/
+            .source, // From https://gitlab.mgdis.fr/core/core-back/core/-/blob/master/packages/validators/src/email/email.ts#L10
+      });
+
+      // Snapshot with help text
+      expect(page.root).toMatchSnapshot();
+
+      const element = page.doc.querySelector('mg-input-text');
+      const input = element.shadowRoot.querySelector('input');
+
+      //mock validity
+      input.checkValidity = jest.fn(() => false);
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          patternMismatch: true,
+        })),
+      });
+
+      // Enter invalid value
+      input.value = 'blu@blo';
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      // Snapshot with error message
+      expect(page.root).toMatchSnapshot();
     });
   });
 });

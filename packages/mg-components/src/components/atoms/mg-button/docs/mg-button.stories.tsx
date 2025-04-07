@@ -16,21 +16,24 @@ export default {
  * @returns HTMLElement
  */
 const Template = (args: MgButtonType & { slot: string }): HTMLElement => (
-  <mg-button {...filterArgs(args, { variant: variants[0], size: sizes[0] })} innerHTML={args.slot}></mg-button>
+  <mg-button {...filterArgs(args, { variant: variants[0], size: sizes[0] }, [''])} innerHTML={args['']}></mg-button>
 );
 
 export const MgButton = {
   render: Template,
   args: {
-    slot: 'Text button',
-    variant: variants[0],
-    size: sizes[0],
-    label: 'Explicit aria label',
-    disabled: false,
-    disableOnClick: false,
-    isIcon: false,
-    type: undefined,
-    fullWidth: undefined,
+    // Props
+    'variant': undefined,
+    'label': 'Explicit aria label',
+    'type': undefined,
+    'size': undefined,
+    'fullWidth': false,
+    'form': '',
+    'disabled': false,
+    'isIcon': false,
+    'disableOnClick': false,
+    // Slot
+    '': 'Text button',
   },
 };
 
@@ -38,8 +41,8 @@ export const IsIcon = {
   render: Template,
   args: {
     ...MgButton.args,
-    isIcon: true,
-    slot: `<mg-icon icon="${iconList[0]}"></mg-icon>`,
+    'isIcon': true,
+    '': `<mg-icon icon="${iconList[0]}"></mg-icon>`,
   },
 };
 

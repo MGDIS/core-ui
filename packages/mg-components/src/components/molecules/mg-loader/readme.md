@@ -8,7 +8,7 @@
 | Property      | Attribute      | Description             | Type      | Default     |
 | ------------- | -------------- | ----------------------- | --------- | ----------- |
 | `message`     | `message`      | Override loader message | `string`  | `undefined` |
-| `messageHide` | `message-hide` | Hide message            | `boolean` | `undefined` |
+| `messageHide` | `message-hide` | Hide message            | `boolean` | `false`     |
 
 
 ## Dependencies

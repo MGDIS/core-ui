@@ -1,38 +1,11 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgInputToggle as MgInputToggleType } from '../mg-input-toggle';
-import { ToggleValue } from '../mg-input-toggle.conf';
 
 export default {
   component: 'mg-input-toggle',
   title: 'Molecules/Inputs/mg-input-toggle',
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
-};
-
-const args = {
-  // Global
-  value: null,
-  items: [
-    { title: 'non', value: false },
-    { title: 'oui', value: true },
-  ],
-  identifier: 'identifier',
-  name: 'input-name',
-  // Label
-  label: 'Label',
-  labelOnTop: false,
-  labelHide: false,
-  // toggle
-  isIcon: false,
-  isOnOff: false,
-  // Input
-  disabled: false,
-  readonly: false,
-  // Tooltip
-  tooltip: 'This is a tooltip',
-  tooltipPosition: undefined,
-  // Help Text
-  helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
 };
 
 /**
@@ -41,39 +14,53 @@ const args = {
  * @returns HTMLElement
  */
 const Template = (args: MgInputToggleType): HTMLMgInputToggleElement => (
-  <mg-input-toggle {...filterArgs(args)}>
-    <span slot="item-1">{(args.items[0] as ToggleValue).title}</span>
-    <span slot="item-2">{(args.items[1] as ToggleValue).title}</span>
-  </mg-input-toggle>
+  <mg-input-toggle
+    {...filterArgs(
+      args,
+      {
+        tooltipPosition: 'input',
+      },
+      ['item-1', 'item-2'],
+    )}
+    innerHTML={`${args['item-1']}${args['item-2']}`}
+  ></mg-input-toggle>
 );
 
 export const MgInputToggle = {
   render: Template,
-  args: { ...args },
+  args: {
+    // Props
+    'value': null,
+    'items': [
+      { title: 'non', value: false },
+      { title: 'oui', value: true },
+    ],
+    'identifier': 'identifier',
+    'name': 'input-name',
+    'label': 'Label',
+    'labelOnTop': false,
+    'labelHide': false,
+    'isOnOff': false,
+    'isIcon': false,
+    'readonly': false,
+    'disabled': false,
+    'tooltip': 'This is a tooltip',
+    'tooltipPosition': undefined,
+    'helpText': 'Help text with html <b>bold</b>, <em>italic</em>.',
+    // Slots
+    'item-1': `<span slot="item-1">non</span>`,
+    'item-2': `<span slot="item-2">oui</span>`,
+  },
 };
 
-/**
- * Template
- * @param args - component arguments
- * @returns HTMLElement
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TemplateIcon = (args: MgInputToggleType): HTMLMgInputToggleElement => (
-  <mg-input-toggle {...filterArgs(args)}>
-    <span slot="item-1">
-      <mg-icon icon="cross"></mg-icon>
-    </span>
-    <span slot="item-2">
-      <mg-icon icon="check"></mg-icon>
-    </span>
-  </mg-input-toggle>
-);
-
 export const MgInputToggleWithIcon = {
-  render: TemplateIcon,
+  render: Template,
   args: {
-    ...args,
-    isIcon: true,
-    isOnOff: true,
+    ...MgInputToggle.args,
+    'isIcon': true,
+    'isOnOff': true,
+    // Slots
+    'item-1': `<mg-icon slot="item-1" icon="cross"></mg-icon>`,
+    'item-2': `<mg-icon slot="item-2" icon="check"></mg-icon>`,
   },
 };

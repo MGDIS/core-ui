@@ -54,7 +54,7 @@ export class MgAlert {
   /**
    * Define variant
    */
-  @Prop() variant?: VariantType;
+  @Prop() variant?: VariantType = 'info';
   @Watch('variant')
   watchVariant(newValue: MgAlert['variant']): void {
     if (newValue && !variants.includes(newValue)) {
@@ -65,7 +65,7 @@ export class MgAlert {
   /**
    * Define variant style
    */
-  @Prop() variantStyle?: VariantStyleType;
+  @Prop() variantStyle?: VariantStyleType = 'bar-left';
   @Watch('variantStyle')
   watchVariantStyle(newValue: MgAlert['variantStyle']): void {
     if (newValue && !variantStyles.includes(newValue)) {

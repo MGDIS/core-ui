@@ -15,57 +15,37 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgTooltipType): HTMLElement => (
-  <mg-tooltip {...filterArgs(args, { placement: 'bottom' })}>
-    <mg-icon icon="info-circle"></mg-icon>
-  </mg-tooltip>
-);
+const Template = (args: MgTooltipType): HTMLElement => <mg-tooltip {...filterArgs(args, { placement: 'bottom' }, [''])} innerHTML={args['']}></mg-tooltip>;
 
 export const MgTooltip = {
   render: Template,
   args: {
-    identifier: 'identifier',
-    message: 'This is a tooltip message',
-    placement: undefined,
-    display: false,
-    disabled: false,
+    // Props
+    'identifier': 'identifier',
+    'message': 'This is a tooltip message',
+    'placement': undefined,
+    'display': false,
+    'disabled': false,
+    // Slot
+    '': '<mg-icon icon="info-circle"></mg-icon>',
   },
 };
-
-/**
- * Template
- * @param args - component arguments
- * @returns HTMLElement
- */
-const TemplateButton = (args: MgTooltipType): HTMLElement => (
-  <mg-tooltip {...filterArgs(args, { placement: 'bottom' })}>
-    <mg-button>Action</mg-button>
-  </mg-tooltip>
-);
 
 export const MgTooltipOnButton = {
-  render: TemplateButton,
-
+  render: Template,
   args: {
     ...MgTooltip.args,
+    // Slot
+    '': `<mg-button>Action</mg-button>`,
   },
 };
 
-/**
- * Template
- * @param args - component arguments
- * @returns HTMLElement
- */
-const TemplateSpan = (args: MgTooltipType): HTMLElement => (
-  <mg-tooltip {...filterArgs(args, { placement: 'bottom' })}>
-    <span>any text</span>
-  </mg-tooltip>
-);
-
 export const MgTooltipOnSpan = {
-  render: TemplateSpan,
+  render: Template,
 
   args: {
     ...MgTooltip.args,
+    // Slot
+    '': `<span>any text</span>`,
   },
 };

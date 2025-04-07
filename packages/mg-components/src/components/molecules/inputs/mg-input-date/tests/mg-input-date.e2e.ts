@@ -110,6 +110,27 @@ test.describe('mg-input-date', () => {
     });
   });
 
+  test(`Should render error when leaving input with non existing date date`, async ({ page }) => {
+    await page.setContent(createHTML({ ...baseProps }));
+    await page.locator('mg-input-date.hydrated').waitFor();
+
+    await page.keyboard.down('Tab'); // Enter input: day
+
+    await page.keyboard.down('0');
+    await page.keyboard.down('2');
+    await page.keyboard.down('3');
+    await page.keyboard.down('0');
+    await page.keyboard.down('2');
+    await page.keyboard.down('0');
+    await page.keyboard.down('2');
+    await page.keyboard.down('5');
+
+    await page.keyboard.down('Tab'); // calendar
+    await page.keyboard.down('Tab'); // exit tooltip
+
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
+
   [false, true].forEach(labelOnTop => {
     test(`Ensure component fit in width 200px, label-on-top="${labelOnTop}"`, async ({ page }) => {
       await page.setContent(createHTML({ ...baseProps, labelOnTop }));
