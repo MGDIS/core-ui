@@ -358,8 +358,8 @@ importers:
         version: 1.2.0
     devDependencies:
       '@html-eslint/parser':
-        specifier: 0.37.0
-        version: 0.37.0
+        specifier: 0.38.0
+        version: 0.38.0
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -452,8 +452,8 @@ importers:
         specifier: 0.37.0
         version: 0.37.0
       '@html-eslint/parser':
-        specifier: 0.37.0
-        version: 0.37.0
+        specifier: 0.38.0
+        version: 0.38.0
       '@mgdis/eslint-plugin-html':
         specifier: workspace:*
         version: link:../eslint-plugin-html
@@ -1484,14 +1484,17 @@ packages:
   '@html-eslint/eslint-plugin@0.37.0':
     resolution: {integrity: sha512-sSVZoxLGfmZMUclv0foJ43ZKu4qX5cH+9AX+ToELxg1RIfcjbEF71MA7ssoG7YlZzv0jQSDY2izyRjrfQGnWWg==}
 
-  '@html-eslint/parser@0.37.0':
-    resolution: {integrity: sha512-shrBuyEsa8iilhRrUlArULkleVlsNZVPXVulejmq7DkxNj1bQyYVFRYHIkhg5GkbPZT6wrUeA2SLOJ2xanpYIA==}
+  '@html-eslint/parser@0.38.0':
+    resolution: {integrity: sha512-w2Ixk0qFc+LX3TDuod+hzORU6DOpj9VjiRP2PwNbzn1HIC7mjIlZCTYUqw3xtPFDKgtXekM7/N4eLSYa/NeV9Q==}
 
   '@html-eslint/template-parser@0.37.0':
     resolution: {integrity: sha512-L6pHkKVwReacWTpSux1RFaYWOAd8JoPC88MfVIjHLVoEf8s0SnnDXKLcR30KuQnMjYRQpXp2GmPaZxZeZjtKTw==}
 
   '@html-eslint/template-syntax-parser@0.37.0':
     resolution: {integrity: sha512-xL/OVGJOJQ8G3akZFlQeADPMX9OTVrUwMaAGrwIewf4k7lxnpz8sDaFgpkA5X7AYzmhIeENrhaB/pIbC0KaSyQ==}
+
+  '@html-eslint/template-syntax-parser@0.38.0':
+    resolution: {integrity: sha512-+jep+btQkHLbg3WEL2NnqJZWP+pFKemVw2nvuU+Ag327gRI1Fv1N4lluSgWY9lguTn5QhuWzuTYUy51vu9qDmg==}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -8373,9 +8376,9 @@ snapshots:
       '@html-eslint/template-parser': 0.37.0
       '@html-eslint/template-syntax-parser': 0.37.0
 
-  '@html-eslint/parser@0.37.0':
+  '@html-eslint/parser@0.38.0':
     dependencies:
-      '@html-eslint/template-syntax-parser': 0.37.0
+      '@html-eslint/template-syntax-parser': 0.38.0
       es-html-parser: 0.1.1
 
   '@html-eslint/template-parser@0.37.0':
@@ -8383,6 +8386,8 @@ snapshots:
       es-html-parser: 0.1.1
 
   '@html-eslint/template-syntax-parser@0.37.0': {}
+
+  '@html-eslint/template-syntax-parser@0.38.0': {}
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
