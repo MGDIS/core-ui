@@ -704,7 +704,7 @@ describe('mg-input-combobox', () => {
       // On blur the hasDisplayedError status change
       if (props.items && typeof props.items[0] === 'string') {
         expect(page.rootInstance.value).toEqual('joker');
-      } else if (props.fetchurl) {
+      } else if (Boolean(props.fetchurl)) {
         expect(page.rootInstance.value).toEqual({ title: 'batman', value: '1' });
       } else {
         expect(page.rootInstance.value).toEqual({ title: 'joker', value: '3' });

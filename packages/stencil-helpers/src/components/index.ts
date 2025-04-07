@@ -214,7 +214,7 @@ export const isObject = <T>(object: unknown): object is T => typeof object === '
 /**
  * Get object value from key
  * @param object - object to query
- * @param path - path of the property to get. Nested keys are allowed with `.` separators (eg: 'key0.key1.key2' => object[key0][key1][key2])
+ * @param path - path of the property to get. Nested keys are allowed with `.` separators (eg: 'key0.key1.key2' = object[key0][key1][key2])
  * @param defaultValue - The value returned for `undefined` resolved values
  * @returns object value
  */
