@@ -205,7 +205,7 @@ export const nextTick = async (callback?: () => void): Promise<void> => {
 };
 
 /**
- * Check if obect is object typ
+ * Check if a value is of object type.
  * @param object - to validate
  * @returns truthy if is valid object format
  */
