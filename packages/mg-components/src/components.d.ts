@@ -502,7 +502,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Define input width
          */

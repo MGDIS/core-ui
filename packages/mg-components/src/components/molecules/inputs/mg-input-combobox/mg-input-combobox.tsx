@@ -78,6 +78,7 @@ export class MgInputCombobox {
 
   // Classes
   private readonly classFocus = 'mg-u-is-focused';
+  private readonly classAppend = 'mg-c-input--input-append';
 
   // HTML selector
   private input: HTMLInputElement;
@@ -108,6 +109,11 @@ export class MgInputCombobox {
   @Prop({ mutable: true, reflect: true }) value: string | Option;
   @Watch('value')
   watchValue(newValue: MgInputCombobox['value']): void {
+    if (newValue && !this.disabled) {
+      this.classCollection.add(this.classAppend);
+    } else {
+      this.classCollection.delete(this.classAppend);
+    }
     this.filter = this.getValueTitle();
     this.valueChange.emit(newValue);
   }
@@ -226,8 +232,12 @@ export class MgInputCombobox {
 
   @Watch('disabled')
   watchDisabled(newValue: MgInputCombobox['disabled']): void {
-    if (newValue) this.classCollection.add(classDisabled);
-    else this.classCollection.delete(classDisabled);
+    if (newValue) {
+      this.classCollection.add(classDisabled);
+      this.classCollection.delete(this.classAppend);
+    } else {
+      this.classCollection.delete(classDisabled);
+    }
   }
 
   /**
@@ -260,16 +270,6 @@ export class MgInputCombobox {
    * Add a help text under the input, usually expected data format and example
    */
   @Prop() helpText?: string;
-
-  /**
-   * Define input valid state
-   */
-  @Prop({ mutable: true }) valid: boolean;
-
-  /**
-   * Define input invalid state
-   */
-  @Prop({ mutable: true }) invalid: boolean;
 
   /**
    * Define API url to fetch
@@ -340,6 +340,16 @@ export class MgInputCombobox {
       );
     }
   }
+
+  /**
+   * Define input valid state
+   */
+  @Prop({ mutable: true }) valid: boolean;
+
+  /**
+   * Define input invalid state
+   */
+  @Prop({ mutable: true }) invalid: boolean;
 
   /**
    * Define if items are loading
@@ -904,10 +914,6 @@ export class MgInputCombobox {
   render(): HTMLElement {
     const listId = `${this.identifier}-list`;
     const readonlyValue = this.getValueTitle();
-    const withResetButton = this.value && !this.disabled;
-
-    let classes = this.classCollection.classes;
-    if (withResetButton) classes = [...this.classCollection.classes, 'mg-c-input--input-append'];
 
     let popoverContent: 'list' | 'notfound' | 'notavailable';
     if (this.page?.items.length > 0) popoverContent = 'list';
@@ -918,7 +924,7 @@ export class MgInputCombobox {
       <mg-input
         label={this.label}
         identifier={this.identifier}
-        class={classes.join(' ')}
+        class={this.classCollection.classes.join(' ')}
         ariaDescribedbyIDs={popoverContent && popoverContent !== 'list' ? [popoverContent] : []}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
@@ -969,7 +975,7 @@ export class MgInputCombobox {
                   if (el !== null) this.input = el;
                 }}
               />
-              {withResetButton && (
+              {this.value && !this.disabled && (
                 <mg-button
                   class="mg-c-input__box-append"
                   variant="flat"
