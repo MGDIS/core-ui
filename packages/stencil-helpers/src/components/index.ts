@@ -207,7 +207,7 @@ export const nextTick = async (callback?: () => void): Promise<void> => {
 /**
  * Check if a value is of object type.
  * @param object - The value to validate.
- * @returns truthy if is valid object format
+ * @returns `true` if the value is a valid object (non-null and not an array), otherwise `false`.
  */
 export const isObject = <T>(object: unknown): object is T => typeof object === 'object' && !Array.isArray(object) && object !== null;
 
