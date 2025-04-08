@@ -6,7 +6,6 @@ import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
 import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
-// import { tooltipPositions } from '../../mg-input/mg-input.conf';
 import { Cursor, setUpRequestAnimationFrameMock, setupResizeObserverMock, toString } from '@mgdis/stencil-helpers';
 import { MgPopover } from '../../../mg-popover/mg-popover';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
@@ -323,7 +322,9 @@ describe('mg-input-combobox', () => {
       expect(page.rootInstance.hasDisplayedError).toEqual(false);
       expect(page.rootInstance.errorMessage).toBeUndefined();
     });
+  });
 
+  describe('Locales', () => {
     test.each(['fr', 'xx'])('display error message with locale: %s', async lang => {
       const page = await getPage({ ...baseProps, required: true, lang });
       const element = page.doc.querySelector('mg-input-combobox');
@@ -340,6 +341,11 @@ describe('mg-input-combobox', () => {
       await element.displayError();
 
       await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+    test.each(['fr', 'xx'])('display load-more message with locale: %s', async lang => {
+      const page = await getPage({ ...baseProps, items: initArray(20), lang });
 
       expect(page.root).toMatchSnapshot();
     });
@@ -390,7 +396,7 @@ describe('mg-input-combobox', () => {
       try {
         await getPage({ ...baseProps, items });
       } catch (err) {
-        expect(err.message).toEqual(`<mg-input-combobox> prop "items" values must be the same type, string or ItemType. Passed value: ${toString(items)}.`);
+        expect(err.message).toEqual(`<mg-input-combobox> prop "items" values must be the same type, string or Option. Passed value: ${toString(items)}.`);
       }
     });
 
@@ -482,7 +488,7 @@ describe('mg-input-combobox', () => {
         await getPage({ ...baseProps, items: undefined, fetchurl, fetchmappings });
       } catch (err) {
         expect(err.message).toEqual(
-          `<mg-input-combobox> prop "fetchmappings" value must be { request: RequestMappingType, response: ResponsMappingType }. Passed value: ${toString(fetchmappings)}.`,
+          `<mg-input-combobox> prop "fetchmappings" value must be { request: RequestMappingType, response: ResponseMappingType }. Passed value: ${toString(fetchmappings)}.`,
         );
       }
     });

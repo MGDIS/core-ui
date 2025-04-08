@@ -21,24 +21,25 @@ const Template = (args: MgInputComboboxType): HTMLMgInputComboboxElement => <mg-
 export const MgInputComboboxStringItems = {
   render: Template,
   args: {
-    // Global
     value: '',
     items: ['Batman', 'Robin', 'Joker'],
     itemsLabel: 'DC Comics',
     identifier: 'identifier',
     name: 'input-name',
-    // Label
     label: 'Label',
     labelOnTop: false,
-    // Input
+    labelHide: false,
     placeholder: 'placeholder',
     required: true,
+    readonly: false,
+    disabled: false,
     mgWidth: 'full',
-    // Tooltip
     tooltip: 'This is a tooltip',
     tooltipPosition: undefined,
-    // Help Text
     helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
+    fetchurl: undefined,
+    fetchoptions: undefined,
+    fetchmappings: undefined,
   },
 };
 

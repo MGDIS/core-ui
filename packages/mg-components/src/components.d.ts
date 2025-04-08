@@ -14,7 +14,8 @@ import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from ".
 import { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-import { ItemType, RequestMappingType, ResponsMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
+import { Direction, Option } from "./types";
+import { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
@@ -23,7 +24,6 @@ import { OptionType, TextType } from "./components/molecules/inputs/mg-input-tex
 import { IconType as IconType1 } from "./components";
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 import { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
-import { Direction } from "./types";
 import { ItemMoreType, MenuSizeType } from "./components/molecules/menus/mg-menu/mg-menu.conf";
 import { MgMenuStatusType, TargetType } from "./components/molecules/menus/mg-menu-item/mg-menu-item.conf";
 import { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
@@ -45,7 +45,8 @@ export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from ".
 export { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-export { ItemType, RequestMappingType, ResponsMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
+export { Direction, Option } from "./types";
+export { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
@@ -54,7 +55,6 @@ export { OptionType, TextType } from "./components/molecules/inputs/mg-input-tex
 export { IconType as IconType1 } from "./components";
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 export { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
-export { Direction } from "./types";
 export { ItemMoreType, MenuSizeType } from "./components/molecules/menus/mg-menu/mg-menu.conf";
 export { MgMenuStatusType, TargetType } from "./components/molecules/menus/mg-menu-item/mg-menu-item.conf";
 export { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
@@ -458,7 +458,7 @@ export namespace Components {
           * Define fetch request mappings. Required with `fetchurl`
           * @example ``` {  request: {     filter: 'name', // `filter` key   },   response: {     total: 'body.data.total', // response object mapping to get `total` value     items: 'body.data.results' // response object mapping to get `items` value     next: 'body.next' // response object mapping to get `next` items     itemTitle: 'name', // item property to map on item['title']     itemValue: 'href', // item property to map on item['value']   } } ```
          */
-        "fetchmappings"?: { request: RequestMappingType; response: ResponsMappingType };
+        "fetchmappings"?: { request: RequestMappingType; response: ResponseMappingType };
         /**
           * Define fetch options object Require `fetchurl` prop to be defined otherwith it will be ignored if defined
           * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/RequestInit}
@@ -485,7 +485,7 @@ export namespace Components {
         /**
           * Define components items
          */
-        "items": (string | ItemType)[];
+        "items": (string | Option)[];
         /**
           * Define items label Include short description. Required for accessibility.
           * @example ``` Countries ```
@@ -552,7 +552,7 @@ export namespace Components {
         /**
           * Define component value
          */
-        "value": string | ItemType;
+        "value": string | Option;
     }
     interface MgInputDate {
         /**
@@ -2792,7 +2792,7 @@ declare namespace LocalJSX {
           * Define fetch request mappings. Required with `fetchurl`
           * @example ``` {  request: {     filter: 'name', // `filter` key   },   response: {     total: 'body.data.total', // response object mapping to get `total` value     items: 'body.data.results' // response object mapping to get `items` value     next: 'body.next' // response object mapping to get `next` items     itemTitle: 'name', // item property to map on item['title']     itemValue: 'href', // item property to map on item['value']   } } ```
          */
-        "fetchmappings"?: { request: RequestMappingType; response: ResponsMappingType };
+        "fetchmappings"?: { request: RequestMappingType; response: ResponseMappingType };
         /**
           * Define fetch options object Require `fetchurl` prop to be defined otherwith it will be ignored if defined
           * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/RequestInit}
@@ -2819,7 +2819,7 @@ declare namespace LocalJSX {
         /**
           * Define components items
          */
-        "items"?: (string | ItemType)[];
+        "items"?: (string | Option)[];
         /**
           * Define items label Include short description. Required for accessibility.
           * @example ``` Countries ```
@@ -2888,7 +2888,7 @@ declare namespace LocalJSX {
         /**
           * Define component value
          */
-        "value"?: string | ItemType;
+        "value"?: string | Option;
     }
     interface MgInputDate {
         /**

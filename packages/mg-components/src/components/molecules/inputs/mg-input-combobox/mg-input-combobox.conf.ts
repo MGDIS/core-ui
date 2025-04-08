@@ -1,10 +1,4 @@
 import type { CursorType } from '@mgdis/stencil-helpers';
-import type { Option } from '../../../../types';
-
-/**
- * Item type
- */
-export type ItemType = Option;
 
 /**
  * Define action type

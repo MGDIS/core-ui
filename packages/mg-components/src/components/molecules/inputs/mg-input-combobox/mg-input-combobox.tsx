@@ -1,7 +1,8 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { allItemsAreString, ClassList, getObjectValueFromKey, isValidString, nextTick, Page, Paginate, Cursor, type CursorType, toString, isObject } from '@mgdis/stencil-helpers';
-import { type ActionType, type ItemType, type RequestMappingType, type ResponsMappingType } from './mg-input-combobox.conf';
+import { type ActionType, type RequestMappingType, type ResponseMappingType } from './mg-input-combobox.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
+import type { Option } from '../../../../types';
 import { initLocales } from '../../../../locales';
 import { Keys } from '../../../../utils/events.utils';
 
@@ -10,14 +11,14 @@ import { Keys } from '../../../../utils/events.utils';
  * @param item - object to check
  * @returns True if object is an item
  */
-const isItem = (item: unknown): item is ItemType => item && typeof item === 'object' && typeof (item as ItemType).title === 'string' && (item as ItemType).value !== undefined;
+const isItem = (item: unknown): item is Option => item && typeof item === 'object' && typeof (item as Option).title === 'string' && (item as Option).value !== undefined;
 
 /**
  * Check if objects are items
  * @param items - items to check
  * @returns True if objects are items
  */
-const isItems = (items: unknown[]): items is ItemType[] => Array.isArray(items) && items.every(isItem);
+const isItems = (items: unknown[]): items is Option[] => Array.isArray(items) && items.every(isItem);
 
 /**
  * Check if object is valid combobox fetchmappings
@@ -90,7 +91,7 @@ export class MgInputCombobox {
 
   private handlerInProgress: EventType;
 
-  private page: Page<ItemType>;
+  private page: Page<Option>;
 
   /**************
    * Decorators *
@@ -104,7 +105,7 @@ export class MgInputCombobox {
   /**
    * Define component value
    */
-  @Prop({ mutable: true, reflect: true }) value: string | ItemType;
+  @Prop({ mutable: true, reflect: true }) value: string | Option;
   @Watch('value')
   watchValue(newValue: MgInputCombobox['value']): void {
     this.filter = this.getValueTitle();
@@ -114,7 +115,7 @@ export class MgInputCombobox {
   /**
    * Define components items
    */
-  @Prop() items: (string | ItemType)[];
+  @Prop() items: (string | Option)[];
   @Watch('items')
   watchItems(newValue: MgInputCombobox['items']) {
     if (Boolean(this.fetchurl) && !Boolean(newValue)) {
@@ -135,7 +136,7 @@ export class MgInputCombobox {
     else if (isItems(newValue)) {
       this.options = new Paginate(newValue);
     } else {
-      throw new Error(`<mg-input-combobox> prop "items" values must be the same type, string or ItemType. Passed value: ${toString(newValue)}.`);
+      throw new Error(`<mg-input-combobox> prop "items" values must be the same type, string or Option. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -325,13 +326,15 @@ export class MgInputCombobox {
    * }
    * ```
    */
-  @Prop() fetchmappings?: { request: RequestMappingType; response: ResponsMappingType };
+  @Prop() fetchmappings?: { request: RequestMappingType; response: ResponseMappingType };
   @Watch('fetchmappings')
   watchFetchMappings(newValue: MgInputCombobox['fetchmappings']): void {
     if (Boolean(this.fetchurl) && !Boolean(newValue)) {
       throw new Error(`<mg-input-combobox> prop "fetchmappings" is required with "fetchurl" prop.`);
     } else if (Boolean(newValue) && !isFetchmappings(newValue)) {
-      throw new Error(`<mg-input-combobox> prop "fetchmappings" value must be { request: RequestMappingType, response: ResponsMappingType }. Passed value: ${toString(newValue)}.`);
+      throw new Error(
+        `<mg-input-combobox> prop "fetchmappings" value must be { request: RequestMappingType, response: ResponseMappingType }. Passed value: ${toString(newValue)}.`,
+      );
     }
   }
 
@@ -343,16 +346,16 @@ export class MgInputCombobox {
   /**
    * Formated items for display
    */
-  @State() options: Paginate<ItemType> = new Paginate([]);
+  @State() options: Paginate<Option> = new Paginate([]);
   @Watch('options')
-  watchOptions(newValue: Paginate<ItemType>): void {
+  watchOptions(newValue: Paginate<Option>): void {
     this.page = newValue.getPage(0, Boolean(this.filter) ? this.optionsFilter : undefined);
   }
 
   /**
    * Active option
    */
-  @State() option: ItemType;
+  @State() option: Option;
 
   /**
    * Option filter
@@ -687,7 +690,7 @@ export class MgInputCombobox {
    * get value prop title
    * @returns value title
    */
-  private getValueTitle = (): ItemType['title'] => {
+  private getValueTitle = (): Option['title'] => {
     if (this.value && isItem(this.value)) return this.value.title;
     else if (typeof this.value === 'string') return this.value;
     else return '';
@@ -831,17 +834,17 @@ export class MgInputCombobox {
    * @param url - to fetch
    * @returns new page from url
    */
-  private getOptions = async (url = this.fetchurl): Promise<Pick<Page<ItemType>, 'items' | 'top'> & Partial<Page<ItemType>>> => {
+  private getOptions = async (url = this.fetchurl): Promise<Pick<Page<Option>, 'items' | 'top'> & Partial<Page<Option>>> => {
     // add text filter
     const updateUrl = (typeof url === 'string' ? url : url.toString()).replaceAll(this.fetchmappings.request.filter, encodeURIComponent(this.filter));
 
     try {
       const response = await fetch(updateUrl, this.fetchoptions).then(response => response.json());
       if (!response) return null;
-      const items = getObjectValueFromKey<Response, ItemType[]>(response, this.fetchmappings.response.items).map(
-        (item): ItemType => ({
-          title: getObjectValueFromKey<unknown, ItemType['title']>(item, this.fetchmappings.response.itemTitle),
-          value: getObjectValueFromKey<unknown, ItemType['value']>(item, this.fetchmappings.response.itemValue),
+      const items = getObjectValueFromKey<Response, Option[]>(response, this.fetchmappings.response.items).map(
+        (item): Option => ({
+          title: getObjectValueFromKey<unknown, Option['title']>(item, this.fetchmappings.response.itemTitle),
+          value: getObjectValueFromKey<unknown, Option['value']>(item, this.fetchmappings.response.itemValue),
         }),
       );
       const total = getObjectValueFromKey<Response, number>(response, this.fetchmappings.response.total);
@@ -950,7 +953,7 @@ export class MgInputCombobox {
                 title={this.placeholder}
                 disabled={this.disabled}
                 required={this.required}
-                autoComplete={'false'}
+                autocomplete="off"
                 aria-autocomplete="list"
                 aria-expanded={this.popoverDisplay.toString()}
                 aria-controls={listId}
