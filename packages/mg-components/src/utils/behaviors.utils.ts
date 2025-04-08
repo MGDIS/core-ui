@@ -11,8 +11,8 @@ export class OverflowBehavior {
     private itemMoreElement: HTMLElement,
     private itemMoreContainerElement: HTMLElement,
   ) {
-    if (!this.parentElement || !this.itemMoreElement || !this.itemMoreContainerElement) {
-      throw new Error('OverflowBehavior - all construtor params are required');
+    if (this.parentElement === null || this.itemMoreElement === null || this.itemMoreContainerElement === null) {
+      throw new Error('OverflowBehavior - all constructor params are required');
     }
 
     const items = Array.from(this.parentElement.children) as HTMLElement[];
@@ -29,7 +29,7 @@ export class OverflowBehavior {
 
       items.forEach((item, index) => {
         accWidth += item.offsetWidth;
-        if (index) this.toggleItem(item, this.isOverflowElement(accWidth, item));
+        if (index > 0) this.toggleItem(item, this.isOverflowElement(accWidth, item));
       });
     });
     this._resizeObserver.observe(this.parentElement);

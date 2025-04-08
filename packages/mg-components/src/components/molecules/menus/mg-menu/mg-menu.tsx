@@ -118,7 +118,7 @@ export class MgMenu {
   private getMenuItems = (menu = this.element): HTMLMgMenuItemElement[] => {
     const menuItems = Array.from(menu.children).filter(child => child.nodeName === 'MG-MENU-ITEM') as HTMLMgMenuItemElement[];
     const itemMoreMenuItem = menu.querySelector('mg-item-more')?.shadowRoot?.querySelector('mg-menu-item');
-    if (itemMoreMenuItem) {
+    if (itemMoreMenuItem !== null && itemMoreMenuItem !== undefined) {
       menuItems.push(itemMoreMenuItem);
     }
     return menuItems;
