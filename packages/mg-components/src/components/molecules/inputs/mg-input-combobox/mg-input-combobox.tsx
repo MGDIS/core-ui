@@ -1026,8 +1026,8 @@ export class MgInputCombobox {
                     class="mg-c-input__load-more"
                     tabIndex={-1}
                     disabled={this.isLoading}
-                    fullWidth
-                    disableOnClick
+                    full-width
+                    disable-on-click
                     onClick={this.handleLoadMoreButton}
                     aria-controls={listId}
                   >
