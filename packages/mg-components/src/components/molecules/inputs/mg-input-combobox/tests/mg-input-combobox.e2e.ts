@@ -179,6 +179,31 @@ test.describe('mg-input-combobox', () => {
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
+
+    test(`Should render with load-more ${renderAttributes(args)}`, async ({ page }) => {
+      const componentsProps = {
+        ...baseArgs,
+        ...args,
+        items: initArray(25),
+      };
+      const html = createHTML(componentsProps);
+      await page.setContent(html);
+      await page.addScriptTag({ content: renderProperties(componentsProps, `[identifier="${componentsProps.identifier}"]`) });
+
+      // Open popover on focus
+      await page.locator('input').click();
+
+      // Scroll to bottom to show "load-more"
+      const section = page.locator('.mg-c-input__popover-container');
+      await section.evaluate(element => {
+        element.scrollTo({
+          top: element.scrollHeight,
+          behavior: 'instant',
+        });
+      });
+
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
+    });
   });
 
   test.describe('Responsive', () => {

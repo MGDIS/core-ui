@@ -29,7 +29,7 @@ const isFetchmappings = (value: unknown): value is MgInputCombobox['fetchmapping
   const isValidRoot = isObject<Record<string, unknown>>(value) && Object.hasOwn(value, 'request') && Object.hasOwn(value, 'response');
   if (isValidRoot) {
     const { request, response } = value as MgInputCombobox['fetchmappings'];
-    if ([request, response].some(propertie => !isObject(propertie))) return false;
+    if ([request, response].some(property => !isObject(property))) return false;
     const isValidRequest = typeof request.filter === 'string';
     const isValidResponse =
       typeof response === 'object' &&
@@ -760,7 +760,7 @@ export class MgInputCombobox {
     let promise;
     let index: number;
 
-    if (this.option) {
+    if (Boolean(this.option)) {
       index = this.page.items.findIndex(option => option.value.toString() === this.option.value.toString());
     }
     // when action require a loadMore we fetch the API else we report action to next tick

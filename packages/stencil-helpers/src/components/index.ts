@@ -190,9 +190,9 @@ export const isValidNumber = (value: unknown): value is number => typeof value =
 export const cleanString = (text: string): string =>
   typeof text === 'string'
     ? text
-      .toLocaleLowerCase()
-      .normalize('NFD')
-      .replaceAll(/[\u0300-\u036f]/g, '')
+        .toLocaleLowerCase()
+        .normalize('NFD')
+        .replaceAll(/[\u0300-\u036f]/g, '')
     : text;
 
 /**
@@ -257,7 +257,7 @@ const DEFAULT_TOP = 10;
 
 /**
  * Define a valid Page object and navigate throw page items with cursor.
- * Page object entries follow the REST API page standard.
+ * Page object entries follow the REST API page practices.
  */
 export class Page<T> {
   /**
