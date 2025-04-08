@@ -190,9 +190,9 @@ export const isValidNumber = (value: unknown): value is number => typeof value =
 export const cleanString = (text: string): string =>
   typeof text === 'string'
     ? text
-        .toLocaleLowerCase()
-        .normalize('NFD')
-        .replaceAll(/[\u0300-\u036f]/g, '')
+      .toLocaleLowerCase()
+      .normalize('NFD')
+      .replaceAll(/[\u0300-\u036f]/g, '')
     : text;
 
 /**
@@ -255,6 +255,10 @@ export const Cursor: Record<string, CursorType> = {
 
 const DEFAULT_TOP = 10;
 
+/**
+ * Define a valid Page object and navigate throw page items with cursor.
+ * Page object entries follow the REST API page standard.
+ */
 export class Page<T> {
   /**
    * Define items
@@ -321,6 +325,10 @@ export class Page<T> {
   };
 }
 
+/**
+ * Paginate an items array to navigate into with pages.
+ * It follow REST standard and allow to navigate in items array with a similar format.
+ */
 export class Paginate<T> {
   /**
    * Define paginated items
@@ -328,15 +336,15 @@ export class Paginate<T> {
   public items: Page<T>['items'] = [];
 
   /* Privates */
-  private _top: Page<T>['top'] = DEFAULT_TOP;
-  private _next?: Page<T>['next'];
-  private _total?: Page<T>['total'];
+  #top: Page<T>['top'] = DEFAULT_TOP;
+  #next?: Page<T>['next'];
+  #total?: Page<T>['total'];
 
   constructor(items: Page<T>['items'], options?: { step?: number; top?: Page<T>['top']; total?: Page<T>['total']; next?: Page<T>['next'] }) {
     if (Array.isArray(items)) this.items = items;
-    if (options && (['string', 'function'].includes(typeof options.next) || (isObject<URL>(options.next) && URL.canParse(options.next)))) this._next = options.next;
-    if (typeof options?.top === 'number') this._top = options.top;
-    if (typeof options?.total === 'number') this._total = options.total;
+    if (options && (['string', 'function'].includes(typeof options.next) || (isObject<URL>(options.next) && URL.canParse(options.next)))) this.#next = options.next;
+    if (typeof options?.top === 'number') this.#top = options.top;
+    if (typeof options?.total === 'number') this.#total = options.total;
   }
 
   /**
@@ -348,13 +356,13 @@ export class Paginate<T> {
   public getPage: IGetPage<T> = (offset = 0, filter) => {
     const items = typeof filter === 'function' ? this.items.filter(filter) : this.items;
     let next;
-    if (this._next) next = this._next;
-    else if (items.length > offset + this._top) next = () => this.getPage(offset + this._top, filter);
+    if (this.#next) next = this.#next;
+    else if (items.length > offset + this.#top) next = () => this.getPage(offset + this.#top, filter);
 
     return new Page({
-      items: items.slice(offset, offset + this._top),
-      total: this._total,
-      top: this._top,
+      items: items.slice(offset, offset + this.#top),
+      total: this.#total,
+      top: this.#top,
       next,
     });
   };
