@@ -130,11 +130,14 @@ export class MgInputCombobox {
     }
     // String array
     else if (allItemsAreString(newValue)) {
-      this.options = new Paginate(newValue.map(item => ({ title: item, value: item })));
+      this.options = new Paginate(
+        newValue.map(item => ({ title: item, value: item })),
+        { total: newValue.length },
+      );
     }
     // Object array
     else if (isItems(newValue)) {
-      this.options = new Paginate(newValue);
+      this.options = new Paginate(newValue, { total: newValue.length });
     } else {
       throw new Error(`<mg-input-combobox> prop "items" values must be the same type, string or Option. Passed value: ${toString(newValue)}.`);
     }
@@ -744,18 +747,25 @@ export class MgInputCombobox {
    */
   private loadingWrapper = (action: ActionType): void => {
     let promise;
+    let index: number;
+
+    if (this.option) {
+      index = this.page.items.findIndex(option => option.value.toString() === this.option.value.toString());
+    }
     // when action require a loadMore we fetch the API else we report action to next tick
     // Set "load more" if action match OR if next item not available in the current page
     if (
       action.name === 'load-more' ||
       (action.cursor === Cursor.NEXT &&
-        this.page.items.findIndex(option => option.value.toString() === this.option.value.toString()) + this.page.baseIndex >= this.page.items.length)
+        this.page.items.length <= this.page.total &&
+        index + this.page.baseIndex === this.page.items.length &&
+        index + this.page.baseIndex < this.page.total)
     ) {
       // wait for new element render and update scroll position
       // set component loading
       this.isLoading = true;
       promise = this.goToNextPage;
-    } else if (action.name === 'scroll' && !Boolean(this.fetchurl)) {
+    } else if (action.name === 'scroll') {
       promise = nextTick;
     } else {
       promise = this.updatePage;
@@ -763,19 +773,20 @@ export class MgInputCombobox {
 
     promise()
       .then(() => {
-        let index: number;
         // parse full items list from options
         const options = this.options.items.filter(this.optionsFilter);
         if (action.name === 'scroll') {
           // update visual focus for keyboard nagivation
           index = this.page.getIndexFromCursor(action.cursor, this.option);
-          // update scroll position
-          this.option = options[index];
         } else {
           // update next index for nagivation
           index = this.page.getIndexFromCursor(Cursor.LAST) - this.page.top;
         }
 
+        // update visual focus
+        this.option = options[index];
+
+        // update scroll position
         this.scrollToIndex(index);
       })
       .finally(() => {
@@ -795,10 +806,10 @@ export class MgInputCombobox {
     if (Boolean(this.fetchurl)) {
       return this.getOptions(typeof this.page.next === 'string' ? this.page.next : undefined).then(nextPage => {
         if (!Boolean(nextPage)) return;
-        this.page = new Page({
-          ...nextPage,
-          items: [...this.page.items, ...nextPage.items],
-        });
+        // merge items from current page and next page
+        const items = [...this.page.items, ...nextPage.items];
+        // create new options pagination withe merged items
+        this.options = new Paginate(items, { total: nextPage.total, next: nextPage.next, top: items.length });
       });
     } else {
       return nextTick(() => {
@@ -821,8 +832,8 @@ export class MgInputCombobox {
     if (Boolean(this.fetchurl)) {
       return this.getOptions().then(page => {
         if (!Boolean(page)) return;
-        this.options = new Paginate(page.items, { total: page.total, next: page.next });
-        this.page = this.options.getPage();
+        // reset current options pagination from API response
+        this.options = new Paginate(page.items, { total: page.total, next: page.next, top: page.top });
       });
     } else {
       this.page = this.options.getPage(0, this.optionsFilter);
@@ -847,9 +858,9 @@ export class MgInputCombobox {
           value: getObjectValueFromKey<unknown, Option['value']>(item, this.fetchmappings.response.itemValue),
         }),
       );
-      const total = getObjectValueFromKey<Response, number>(response, this.fetchmappings.response.total);
+      const total = Number(getObjectValueFromKey<Response, number>(response, this.fetchmappings.response.total, 0));
       const next = mapUrl(getObjectValueFromKey<Response, string>(response, this.fetchmappings.response.next), this.fetchurl.toString());
-      return { items, total, next, top: this.page.top };
+      return { items, total, next, top: items.length };
     } catch {}
   };
 
@@ -884,15 +895,6 @@ export class MgInputCombobox {
     return setTimeout(() => {
       this.checkValidity();
     }, 0);
-  }
-
-  /**
-   * Add event listener
-   */
-  componentDidLoad(): void {
-    this.element.shadowRoot.addEventListener('focusin', (event: FocusEvent & { target: HTMLElement }) => {
-      if (event.target.closest('mg-popover') !== null) this.popoverDisplay = false;
-    });
   }
 
   /**

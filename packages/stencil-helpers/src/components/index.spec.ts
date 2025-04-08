@@ -255,6 +255,12 @@ describe('components.utils', () => {
         result: undefined,
       },
       {
+        object: { batman: 'hero' },
+        key: { filter: 'batman.test' },
+        defaultValue: 0,
+        result: 0,
+      },
+      {
         object: 'batman',
         key: 'batman',
         result: undefined,
@@ -354,6 +360,10 @@ describe('components.utils', () => {
         {
           items: initArray(34),
           options: { next: '/next/page' },
+        },
+        {
+          items: initArray(34),
+          options: { next: new URL('http://url.fr/next/page') },
         },
       ])('Shoud get paginated page from instance %s', ({ items, options }) => {
         const res = new Paginate(items as unknown[], options);

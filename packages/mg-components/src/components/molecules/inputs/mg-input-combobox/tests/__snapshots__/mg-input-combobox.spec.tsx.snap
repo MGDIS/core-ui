@@ -967,7 +967,7 @@ exports[`mg-input-combobox Locales display load-more message with locale: fr 1`]
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="20" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -1089,7 +1089,7 @@ exports[`mg-input-combobox Locales display load-more message with locale: xx 1`]
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="20" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -1393,7 +1393,7 @@ exports[`mg-input-combobox Should render with args {
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="1" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" id="batman" role="option">
                 batman
                 <mg-icon>
@@ -1773,7 +1773,7 @@ exports[`mg-input-combobox Should render with args { items: [Array] }: 1`] = `
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="30" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -1996,7 +1996,7 @@ exports[`mg-input-combobox Should render with args { items: [Array], value: 'jok
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="1" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" id="joker" role="option">
                 joker
                 <mg-icon>
@@ -2098,7 +2098,7 @@ exports[`mg-input-combobox Should render with args { items: [Array], value: [Obj
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="1" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" id="2" role="option">
                 robin
                 <mg-icon>
@@ -2512,7 +2512,7 @@ exports[`mg-input-combobox Should render with args { required: true, value: 'bat
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="1" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" id="batman" role="option">
                 batman
                 <mg-icon>
@@ -3847,7 +3847,7 @@ exports[`mg-input-combobox input events Should handle load-more with button and 
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="25" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -3877,6 +3877,21 @@ exports[`mg-input-combobox input events Should handle load-more with button and 
               </li>
               <li aria-selected="false" class="mg-c-input__input-list-item" id="10" role="option">
                 10
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="11" role="option">
+                11
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="12" role="option">
+                12
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="13" role="option">
+                13
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="14" role="option">
+                14
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="15" role="option">
+                15
               </li>
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
@@ -4023,7 +4038,7 @@ exports[`mg-input-combobox input events Should handle load-more with button and 
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="25" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -4053,6 +4068,21 @@ exports[`mg-input-combobox input events Should handle load-more with button and 
               </li>
               <li aria-selected="false" class="mg-c-input__input-list-item" id="10" role="option">
                 10
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="11" role="option">
+                11
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="12" role="option">
+                12
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="13" role="option">
+                13
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="14" role="option">
+                14
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="15" role="option">
+                15
               </li>
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
@@ -4342,7 +4372,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowDown"
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -4464,7 +4494,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowDown"
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -4586,7 +4616,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowDown"
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -4708,7 +4738,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -4830,7 +4860,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -5028,7 +5058,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -5150,7 +5180,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -5272,7 +5302,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -5394,7 +5424,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -5516,7 +5546,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -5714,7 +5744,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -5836,7 +5866,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -5958,7 +5988,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -6232,7 +6262,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowUp" k
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -6354,7 +6384,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowUp" k
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -6476,7 +6506,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowUp" k
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -6598,7 +6628,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "DOWN" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="5" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item mg-c-input__input-list-item--focus-visible" id="1" role="option">
                 1
               </li>
@@ -6718,7 +6748,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Down" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -6840,7 +6870,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Down" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -6962,7 +6992,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Down" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -7084,7 +7114,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -7206,7 +7236,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -7404,7 +7434,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -7526,7 +7556,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -7648,7 +7678,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -7787,7 +7817,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="7" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" id="1" role="option">
                 1
                 <mg-icon>
@@ -7907,7 +7937,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="7" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" id="1" role="option">
                 1
                 <mg-icon>
@@ -8162,7 +8192,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -8284,7 +8314,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -8406,7 +8436,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -8528,7 +8558,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -8650,7 +8680,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -8772,7 +8802,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -8894,7 +8924,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -9016,7 +9046,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -9138,7 +9168,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -9260,7 +9290,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -9382,7 +9412,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -9504,7 +9534,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -9626,7 +9656,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -9748,7 +9778,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -9870,7 +9900,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -10068,7 +10098,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -10190,7 +10220,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -10312,7 +10342,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -10434,7 +10464,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -10556,7 +10586,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -10754,7 +10784,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -10876,7 +10906,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -10998,7 +11028,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -11120,7 +11150,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "NumpadEnte
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -11242,7 +11272,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "NumpadEnte
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -11364,7 +11394,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "NumpadEnte
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -11486,7 +11516,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -11608,7 +11638,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -11806,7 +11836,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -11928,7 +11958,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -12050,7 +12080,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -12172,7 +12202,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Space" key
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -12294,7 +12324,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Space" key
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -12416,7 +12446,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Space" key
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -12555,7 +12585,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="7" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" id="1" role="option">
                 1
                 <mg-icon>
@@ -12675,7 +12705,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="7" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" id="1" role="option">
                 1
                 <mg-icon>
@@ -12930,7 +12960,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -13052,7 +13082,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -13174,7 +13204,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -13448,7 +13478,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Up" keyboa
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -13570,7 +13600,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Up" keyboa
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -13692,7 +13722,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Up" keyboa
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -13831,7 +13861,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "h" keyboar
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="7" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" id="1" role="option">
                 1
                 <mg-icon>
@@ -13951,7 +13981,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "h" keyboar
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="7" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" id="1" role="option">
                 1
                 <mg-icon>
@@ -14206,7 +14236,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item mg-c-input__input-list-item--focus-visible" id="1" role="option">
                 1
               </li>
@@ -14328,7 +14358,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item mg-c-input__input-list-item--focus-visible" id="1" role="option">
                 1
               </li>
@@ -14450,7 +14480,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -14572,7 +14602,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -14694,7 +14724,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -14816,7 +14846,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -14938,7 +14968,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -15060,7 +15090,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -15182,7 +15212,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -15304,7 +15334,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -15426,7 +15456,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -15548,7 +15578,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -15670,7 +15700,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -15792,7 +15822,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -15914,7 +15944,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>
@@ -16036,7 +16066,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
           </template>
           <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
           <div class="mg-c-input__popover-container" slot="content">
-            <ul aria-label="Dc Comics" aria-setsize="10" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+            <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
                 1
               </li>

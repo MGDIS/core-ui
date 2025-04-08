@@ -271,7 +271,7 @@ export class Page<T> {
   /**
    * Define next
    */
-  public next?: IGetPage<T> | string;
+  public next?: IGetPage<T> | string | URL;
   /**
    * Define base index
    */
@@ -334,7 +334,7 @@ export class Paginate<T> {
 
   constructor(items: Page<T>['items'], options?: { step?: number; top?: Page<T>['top']; total?: Page<T>['total']; next?: Page<T>['next'] }) {
     if (Array.isArray(items)) this.items = items;
-    if (options && ['string', 'function'].includes(typeof options.next)) this._next = options.next;
+    if (options && (['string', 'function'].includes(typeof options.next) || (isObject<URL>(options.next) && URL.canParse(options.next)))) this._next = options.next;
     if (typeof options?.top === 'number') this._top = options.top;
     if (typeof options?.total === 'number') this._total = options.total;
   }

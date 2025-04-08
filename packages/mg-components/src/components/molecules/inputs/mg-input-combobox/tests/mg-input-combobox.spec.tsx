@@ -33,7 +33,7 @@ const initFetchSpy = (overrides = {}) =>
             : {
                 data: {
                   results: objectItems,
-                  total: objectItems.length,
+                  count: objectItems.length,
                   ...overrides,
                 },
               },
@@ -710,8 +710,6 @@ describe('mg-input-combobox', () => {
       // On blur the hasDisplayedError status change
       if (props.items && typeof props.items[0] === 'string') {
         expect(page.rootInstance.value).toEqual('joker');
-      } else if (Boolean(props.fetchurl)) {
-        expect(page.rootInstance.value).toEqual({ title: 'batman', value: '1' });
       } else {
         expect(page.rootInstance.value).toEqual({ title: 'joker', value: '3' });
       }
@@ -863,6 +861,7 @@ describe('mg-input-combobox', () => {
     test.each([
       null,
       { results: initArray(15).map(item => ({ title: item, value: item })), total: 15 },
+      { results: initArray(15).map(item => ({ title: item, value: item })), total: 25, next: new URL(`${fetchurl}/next?param=value`) },
       { results: initArray(15).map(item => ({ title: item, value: item })), total: 25, next: '/next' },
       { results: initArray(15).map(item => ({ title: item, value: item })), total: 25, next: '/error' },
       { results: initArray(15).map(item => ({ title: item, value: item })), total: 25, next: '/next?param=value' },
@@ -875,7 +874,7 @@ describe('mg-input-combobox', () => {
 
       // define spys
       const spyLoadingWrapper = jest.spyOn(page.rootInstance, 'loadingWrapper');
-      expect(getOptions().length).toEqual(overrides ? 10 : 0);
+      expect(getOptions().length).toEqual(overrides ? 15 : 0);
 
       // display options
       button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
@@ -888,8 +887,11 @@ describe('mg-input-combobox', () => {
         expect(loadMoreButton).toBeNull();
         expect(spyLoadingWrapper).not.toHaveBeenCalled();
         expect(getOptions().length).toEqual(0);
+      } else if (overrides.total === 15) {
+        expect(loadMoreButton).toEqual(null);
       } else {
-        if (overrides.next === '/error') {
+        const isError = typeof overrides.next === 'string' && overrides.next === '/error';
+        if (isError) {
           jest.spyOn(global, 'fetch').mockResolvedValue(
             Promise.resolve({
               json: () => Promise.resolve(null),
@@ -900,7 +902,7 @@ describe('mg-input-combobox', () => {
         await page.waitForChanges();
         // Verify initial value is set and popover to be displaied
         expect(spyLoadingWrapper).toHaveBeenCalledWith(expect.objectContaining({ name: 'load-more' }));
-        expect(getOptions().length).toEqual(overrides.next === '/error' ? 10 : 25);
+        expect(getOptions().length).toEqual(isError ? 15 : 30);
       }
     });
 
@@ -912,7 +914,7 @@ describe('mg-input-combobox', () => {
       const element = page.doc.querySelector('mg-input-combobox');
       const button = element.shadowRoot.querySelector('mg-button:last-of-type');
       const getOptions = () => Array.from(element.shadowRoot.querySelectorAll('li'));
-      expect(getOptions().length).toEqual(10);
+      expect(getOptions().length).toEqual(15);
 
       // define spys
       const spyLoadingWrapper = jest.spyOn(page.rootInstance, 'loadingWrapper');
