@@ -37,12 +37,12 @@
 
 ## Events
 
-| Event           | Description                             | Type                   |
-| --------------- | --------------------------------------- | ---------------------- |
-| `filter-change` | Emited event when filter change         | `CustomEvent<string>`  |
-| `input-valid`   | Emited event when checking validity     | `CustomEvent<boolean>` |
-| `load-more`     | Emited event when `load-more` is called | `CustomEvent<void>`    |
-| `value-change`  | Emited event when value change          | `CustomEvent<any>`     |
+| Event           | Description                             | Type                                                        |
+| --------------- | --------------------------------------- | ----------------------------------------------------------- |
+| `filter-change` | Emited event when filter change         | `CustomEvent<string>`                                       |
+| `input-valid`   | Emited event when checking validity     | `CustomEvent<boolean>`                                      |
+| `load-more`     | Emited event when `load-more` is called | `CustomEvent<void>`                                         |
+| `value-change`  | Emited event when value change          | `CustomEvent<string \| { title: string; value: unknown; }>` |
 
 
 ## Methods

@@ -331,7 +331,7 @@ test.describe('mg-input-combobox', () => {
       });
     });
     test.describe('Keyboard', () => {
-      test(`Should navigate throw input values with keyboard`, async ({ page }) => {
+      test(`Should navigate throw input values with keyboard down`, async ({ page }) => {
         const componentsProps = {
           ...baseArgs,
           items: initArray(25),
@@ -391,7 +391,6 @@ test.describe('mg-input-combobox', () => {
 
         // repeat on next 9th elements to get focus on "5" value
         await page.keyboard.down(Keys.ARROWDOWN);
-        await page.locator('li:nth-of-type(22).mg-c-input__input-list-item--focus-visible').waitFor();
         await page.keyboard.down(Keys.ARROWDOWN);
         await page.keyboard.down(Keys.ARROWDOWN);
         await page.keyboard.down(Keys.ARROWDOWN);
@@ -404,16 +403,41 @@ test.describe('mg-input-combobox', () => {
         await page.locator('li:nth-of-type(5).mg-c-input__input-list-item--focus-visible').waitFor();
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
-        // take focus on "25" value with back navigation
-        await page.keyboard.down(Keys.ARROWUP);
-        await page.keyboard.down(Keys.ARROWUP);
-        await page.keyboard.down(Keys.ARROWUP);
-        await page.keyboard.down(Keys.ARROWUP);
-        await page.keyboard.down(Keys.ARROWUP);
-        await page.locator('li:last-of-type.mg-c-input__input-list-item--focus-visible').waitFor();
+        // select "5" value and popover closed
+        await page.keyboard.down('Enter');
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+      test(`Should navigate throw input values with keyboard up`, async ({ page }) => {
+        const componentsProps = {
+          ...baseArgs,
+          items: initArray(25),
+        };
+        const html = createHTML(componentsProps);
+        await page.setContent(html);
+        await page.addScriptTag({ content: renderProperties(componentsProps, `[identifier="${componentsProps.identifier}"]`) });
+
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        // Take input focus, popover stay closed
+        await page.keyboard.down('Tab');
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        // Open popover and take visual focus on first element
+        await page.keyboard.down(Keys.ARROWDOWN);
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
-        // select "25" value and popover closed
+        // take focus on "5" value with back navigation
+        await page.keyboard.down(Keys.ARROWUP);
+        await page.keyboard.down(Keys.ARROWUP);
+        await page.keyboard.down(Keys.ARROWUP);
+        await page.keyboard.down(Keys.ARROWUP);
+        await page.keyboard.down(Keys.ARROWUP);
+        await page.keyboard.down(Keys.ARROWUP);
+        await page.locator('li:nth-of-type(5).mg-c-input__input-list-item--focus-visible').waitFor();
+        await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
+
+        // select "5" value and popover closed
         await page.keyboard.down('Enter');
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
