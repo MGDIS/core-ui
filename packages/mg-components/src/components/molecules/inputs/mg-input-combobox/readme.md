@@ -1,9 +1,8 @@
 
 ## Ressources
 
-
-- [Combox role - Accessibility | MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/combobox_role)
-- [Combox pattern example | WAI | W3C](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/)
+- [Combobox role - Accessibility | MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/combobox_role)
+- [Combobox pattern example | WAI | W3C](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/)
 
 <!-- Auto Generated Below -->
 
