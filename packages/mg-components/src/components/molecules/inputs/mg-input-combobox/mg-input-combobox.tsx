@@ -299,6 +299,7 @@ export class MgInputCombobox {
    *      "authorization": "my-token"
    *   }
    * }
+   * ```
    */
   @Prop() fetchoptions?: RequestInit;
   @Watch('fetchoptions')
