@@ -17,6 +17,22 @@ This is used to prevent 'double click' by disabling the button immediately after
 
 To reset the button to its initial state after the process has completed, set the `disabled` prop to `false`.
 
+#### Example
+
+```
+<mg-button disable-on-click @click="handleClick">Submit</mg-button>
+
+<script>
+  async function handleClick({ target }: { target: MgButton }) {
+    // The click on the button has set the `disabled` prop to true
+    // Execute an asynchronous script
+    await doStuff();
+    // Reset `disabled` to false after completion
+    target.disabled = false;
+  }
+</script>
+```
+
 <!-- Auto Generated Below -->
 
 
