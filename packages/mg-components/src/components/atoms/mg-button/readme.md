@@ -17,9 +17,9 @@ This is used to prevent 'double click' by disabling the button immediately after
 
 To reset the button to its initial state after the process has completed, set the `disabled` prop to `false`.
 
-#### Example
+#### Basic example
 
-```
+```vue
 <mg-button disable-on-click @click="handleClick">Submit</mg-button>
 
 <script>
@@ -29,6 +29,34 @@ To reset the button to its initial state after the process has completed, set th
     await doStuff();
     // Reset `disabled` to false after completion
     target.disabled = false;
+  }
+</script>
+```
+
+#### Example with business rules
+
+In cases where the disabled status is also managed by business rules, you can do something like:
+
+```vue
+<mg-button
+  disable-on-click
+  :disabled="isDisabled"
+  @click="handleClick"
+>Submit</mg-button>
+
+<script>
+  const isDisabled = computed(() => {
+    return firstDisabledParam || secondDisabledParam;
+  });
+
+  async function handleClick({ target }) {
+    // The click on the button has set the `disabled` prop to true
+    // Execute an asynchronous script
+    await doStuff();
+    // Set disabled to false to remove the loader
+    target.disabled = false;
+    // Reset the loader with the computed property
+    target.disabled = isDisabled;
   }
 </script>
 ```
