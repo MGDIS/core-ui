@@ -7,6 +7,7 @@ export default {
   component: 'mg-input-combobox',
   title: 'Molecules/Inputs/mg-input-combobox',
   parameters: { actions: { handles: ['value-change', 'input-valid', 'filter-change', 'load-more'] } },
+  tags: ['beta'],
 };
 
 const getOptionsItems = (length: number): ItemType[] => new Array(length).fill(() => '').map((_, index) => ({ title: `title ${index + 1}`, value: `/${index + 1}` }));

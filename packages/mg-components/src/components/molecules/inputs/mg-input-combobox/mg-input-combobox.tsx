@@ -78,10 +78,10 @@ export class MgInputCombobox {
 
   // Classes
   private readonly classFocus = 'mg-u-is-focused';
-  private readonly classAppend = 'mg-c-input--input-append';
 
   // HTML selector
   private input: HTMLInputElement;
+  private loadMoreElement: HTMLMgButtonElement;
   private popoverId: string;
 
   // Locales
@@ -91,6 +91,7 @@ export class MgInputCombobox {
   private hasDisplayedError = false;
 
   private handlerInProgress: EventType;
+  private loadingAction: ActionType['name'];
 
   private page: Page<Option>;
 
@@ -109,11 +110,6 @@ export class MgInputCombobox {
   @Prop({ mutable: true, reflect: true }) value: string | Option;
   @Watch('value')
   watchValue(newValue: MgInputCombobox['value']): void {
-    if (newValue && !this.disabled) {
-      this.classCollection.add(this.classAppend);
-    } else {
-      this.classCollection.delete(this.classAppend);
-    }
     this.filter = this.getValueTitle();
     this.valueChange.emit(newValue);
   }
@@ -234,7 +230,6 @@ export class MgInputCombobox {
   watchDisabled(newValue: MgInputCombobox['disabled']): void {
     if (newValue) {
       this.classCollection.add(classDisabled);
-      this.classCollection.delete(this.classAppend);
     } else {
       this.classCollection.delete(classDisabled);
     }
@@ -384,7 +379,7 @@ export class MgInputCombobox {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-c-input--combobox', 'mg-c-input--has-icon']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--combobox', 'mg-c-input--has-icon', 'mg-c-input--input-append']);
 
   /**
    * Error message to display
@@ -555,15 +550,19 @@ export class MgInputCombobox {
    * Handle `focus` event
    */
   private handleFilterFocus = (): void => {
-    // ensure visual focus is always clear on focus
-    this.option = null;
+    // ensure visual focus is always clear on focus when component isn't in loading state
+    if (!this.isLoading) {
+      this.option = null;
+    }
   };
 
   /**
    * Handle load-more <mg-button> `click`
    */
   private handleLoadMoreButton = (): void => {
-    this.loadingWrapper({ name: 'load-more' });
+    this.loadingWrapper({ name: 'load-more', cursor: Cursor.NEXT }).then(() => {
+      this.input.focus();
+    });
   };
 
   /**
@@ -580,8 +579,9 @@ export class MgInputCombobox {
       case Keys.TAB:
       case Keys.ENTER:
         guard = event.key === Keys.ENTER;
+        const option = this.option || this.options.items.find(this.isCurrentOption);
         // Sets the value to the content of the focused option in the listbox.
-        if (this.popoverDisplay) this.setValue(this.page.total > 0 ? this.option : null);
+        if (this.popoverDisplay) this.setValue(this.page.total > 0 ? option : null);
         // Closes the popover.
         this.popoverDisplay = false;
         break;
@@ -689,6 +689,13 @@ export class MgInputCombobox {
   };
 
   /**
+   * Is option the current value
+   * @param option - option to match with
+   * @returns true if option is the current value
+   */
+  private isCurrentOption = (option: Option) => (isItem(this.value) ? this.value.value : this.value) === option.value;
+
+  /**
    * Set value prop
    * @param newValue - slected option item
    */
@@ -755,46 +762,54 @@ export class MgInputCombobox {
   /**
    * Loading wrapper with a given action
    * @param action - wrapped loading action
+   * @returns promisified action
    */
-  private loadingWrapper = (action: ActionType): void => {
+  private loadingWrapper = (action: ActionType): Promise<void> => {
     let promise;
     let index: number;
 
-    if (Boolean(this.option)) {
+    // cache initial loading action if not defined
+    if (!Boolean(this.loadingAction)) {
+      this.loadingAction = action.name;
+    }
+
+    // update index
+    if (Boolean(this.option) && this.loadingAction !== 'load-more') {
       index = this.page.items.findIndex(option => option.value.toString() === this.option.value.toString());
+    } else if (this.loadingAction === 'load-more') {
+      index = this.page.items.length - this.page.baseIndex;
     }
     // when action require a loadMore we fetch the API else we report action to next tick
     // Set "load more" if action match OR if next item not available in the current page
-    if (
-      action.name === 'load-more' ||
-      (action.cursor === Cursor.NEXT &&
-        this.page.items.length <= this.page.total &&
-        index + this.page.baseIndex === this.page.items.length &&
-        index + this.page.baseIndex < this.page.total)
-    ) {
+    if (action.name === 'load-more') {
       // wait for new element render and update scroll position
       // set component loading
       this.isLoading = true;
       promise = this.goToNextPage;
+    } else if (
+      action.cursor === Cursor.NEXT &&
+      this.page.items.length <= this.page.total &&
+      index + this.page.baseIndex === this.page.items.length &&
+      index + this.page.baseIndex < this.page.total
+    ) {
+      // trigger load-more from button to benefit from `disabled-on-click`
+      this.loadMoreElement.click();
+      return;
     } else if (action.name === 'scroll') {
       promise = nextTick;
     } else {
       promise = this.updatePage;
     }
 
-    promise()
+    return promise()
       .then(() => {
         // parse full items list from options
         const options = this.options.items.filter(this.optionsFilter);
-        if (action.name === 'scroll') {
-          // update visual focus for keyboard nagivation
-          index = this.page.getIndexFromCursor(action.cursor, this.option);
-        } else {
-          // update next index for nagivation
-          index = this.page.getIndexFromCursor(Cursor.LAST) - this.page.top;
-        }
 
         // update visual focus
+        if (action.name !== 'load-data') {
+          index = this.page.getIndexFromCursor(action.cursor, this.loadingAction === 'load-more' && index >= 0 ? options[index] : this.option);
+        }
         this.option = options[index];
 
         // update scroll position
@@ -804,6 +819,7 @@ export class MgInputCombobox {
         // reset loading after next render
         requestAnimationFrame(() => {
           this.isLoading = false;
+          this.loadingAction = undefined;
         });
       });
   };
@@ -915,6 +931,7 @@ export class MgInputCombobox {
   render(): HTMLElement {
     const listId = `${this.identifier}-list`;
     const readonlyValue = this.getValueTitle();
+    const withResetButton = this.value && !this.disabled;
 
     let popoverContent: 'list' | 'notfound' | 'notavailable';
     if (this.page?.items.length > 0) popoverContent = 'list';
@@ -944,7 +961,8 @@ export class MgInputCombobox {
             display={this.popoverDisplay}
             arrow-hide
             style={{
-              '--mg-c-input-list-width': this.input?.offsetWidth && this.mgWidth === 'full' ? `${this.input.offsetWidth}px` : undefined,
+              '--mg-c-input-list-width': Boolean(this.input?.offsetWidth) ? `${this.input.offsetWidth}px` : undefined,
+              '--mg-c-input-append-x': withResetButton ? '2' : '1',
             }}
             data-fallback-placement="bottom-end"
             onDisplay-change={this.handlePopoverDisplay}
@@ -976,20 +994,20 @@ export class MgInputCombobox {
                   if (el !== null) this.input = el;
                 }}
               />
-              {this.value && !this.disabled && (
+              {withResetButton && (
                 <mg-button
-                  class="mg-c-input__box-append"
+                  class="mg-c-input__box-append mg-c-input__reset"
                   variant="flat"
                   is-icon
                   label={this.messages.general.reset}
-                  aria-expanded={this.popoverDisplay.toString()}
-                  aria-controls={listId}
+                  aria-controls={this.identifier}
+                  tabindex="-1"
                   onClick={this.handleResetButton}
                 >
                   <mg-icon icon="cross"></mg-icon>
                 </mg-button>
               )}
-              <mg-button variant="secondary" is-icon label={this.itemsLabel} tabindex="-1" disabled={this.disabled}>
+              <mg-button class="mg-c-input__box-append" variant="flat" is-icon label={this.itemsLabel} tabindex="-1" disabled={this.disabled}>
                 <mg-icon icon={`chevron-${this.popoverDisplay ? 'up' : 'down'}`}></mg-icon>
               </mg-button>
             </div>
@@ -998,7 +1016,6 @@ export class MgInputCombobox {
                 // eslint-disable-next-line jsx-a11y/role-supports-aria-props
                 <ul key="list" class="mg-c-input__input-list" role="listbox" id={listId} aria-label={this.itemsLabel} aria-setsize={this.page.total}>
                   {this.page.items.map(option => {
-                    const isSelected = (isItem(this.value) ? this.value.value : this.value) === option.value;
                     return (
                       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                       <li
@@ -1006,15 +1023,15 @@ export class MgInputCombobox {
                         class={{
                           'mg-c-input__input-list-item': true,
                           'mg-c-input__input-list-item--focus-visible': this.option === option,
-                          'mg-c-input__input-list-item--selected': isSelected,
+                          'mg-c-input__input-list-item--selected': this.isCurrentOption(option),
                         }}
                         key={option.title}
                         id={option.value.toString()}
-                        aria-selected={isSelected.toString()}
+                        aria-selected={this.isCurrentOption(option).toString()}
                         onClick={this.handleOptionClick}
                       >
                         {option.title}
-                        {isSelected && <mg-icon icon="check"></mg-icon>}
+                        {this.isCurrentOption(option) && <mg-icon icon="check"></mg-icon>}
                       </li>
                     );
                   })}
@@ -1023,7 +1040,7 @@ export class MgInputCombobox {
                 this.page.next && (
                   <mg-button
                     key="load-more"
-                    variant="secondary"
+                    variant="flat"
                     class="mg-c-input__load-more"
                     tabIndex={-1}
                     disabled={this.isLoading}
@@ -1031,6 +1048,9 @@ export class MgInputCombobox {
                     disable-on-click
                     onClick={this.handleLoadMoreButton}
                     aria-controls={listId}
+                    ref={(el: HTMLMgButtonElement) => {
+                      if (el !== null) this.loadMoreElement = el;
+                    }}
                   >
                     <mg-icon icon="chevron-down"></mg-icon>
                     {this.messages.input.combobox.loadMore}

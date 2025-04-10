@@ -110,9 +110,11 @@ test.describe('mg-input-combobox', () => {
 
   [16, 4, 2].forEach(mgWidth => {
     test(`with mgWidth ${mgWidth} with tooltip`, async ({ page }) => {
+      const value = 'M'.repeat(mgWidth);
       const componentsProps = {
         ...baseArgs,
-        value: 'M'.repeat(mgWidth),
+        items: [...items, value],
+        value,
         mgWidth,
         maxlength: mgWidth,
         tooltip: 'Tooltip message',
@@ -128,6 +130,17 @@ test.describe('mg-input-combobox', () => {
       await page.focus('mg-input-combobox input');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Open popover on focus
+      await page.locator('input + mg-button + mg-button').click();
+
+      let width = 350;
+      if (mgWidth === 2) {
+        width = 190;
+      } else if (mgWidth === 4) {
+        width = 215;
+      }
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width, height: 75 } });
     });
   });
 
@@ -310,13 +323,19 @@ test.describe('mg-input-combobox', () => {
         // Open popover on focus
         await page.locator('input').click();
 
-        // input with 10 elements in popover
+        // popover opened with 10 elements
+        // 1 to 10 visible
+        // visual focus on 1st
+        // load-more displaied
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
         // Load more elements
         await page.getByText('Load more').click();
 
-        // input with 20 elements in popover, 11th should be entirely visible and load-more not visible
+        // popover opened with 20 elements
+        // 1 to 11 visible (1 partialy)
+        // visual focus on 11th
+        // load-more hidden hidden in overflow
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
         // Scroll to bottom
@@ -328,13 +347,19 @@ test.describe('mg-input-combobox', () => {
           });
         });
 
-        // view all 10th next elements and next load-more button
+        // popover opened with 20 elements
+        // 11 to 20 visible (11 partialy)
+        // visual focus on 11th
+        // load-more visible
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
         // Load more elements
         await page.getByText('Load more').click();
 
-        // input with 25 elements in popover, 21th should be entirely visible and load-more not displaied
+        // popover opened with 25 elements
+        // 11 to 21 visible
+        // visual focus on 21th
+        // load-more not displaied
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
         // Scroll to bottom
@@ -345,7 +370,11 @@ test.describe('mg-input-combobox', () => {
           });
         });
 
-        // view all 10th next elements and next load-more button
+        // popover opened with 25 elements
+        // 15 to 25 visible
+        // visual focus on 21th
+        // hover state on 25th
+        // load-more not displaied
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
         // Load more elements

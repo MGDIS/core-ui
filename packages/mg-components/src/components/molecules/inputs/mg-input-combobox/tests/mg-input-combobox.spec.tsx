@@ -778,9 +778,42 @@ describe('mg-input-combobox', () => {
       await page.waitForChanges();
 
       expect(popover.display).toEqual(false);
+      expect(input.value).toEqual('joker');
 
       // Call input focus
       input.dispatchEvent(new KeyboardEvent('keydown', { key: Keys.DOWN }));
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
+
+      // Verify initial value is set and popover to be displaied
+      expect(popover.display).toEqual(true);
+
+      // Call input blur
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: Keys.ENTER }));
+      await page.waitForChanges();
+
+      // Verify popover to be hidden
+      expect(popover.display).toEqual(false);
+      expect(input.value).toEqual('joker');
+
+      // Call input focus
+      input.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
+
+      // Verify initial value is set and popover to be displaied
+      expect(popover.display).toEqual(true);
+
+      // Call input blur
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: Keys.ENTER }));
+      await page.waitForChanges();
+
+      // Verify popover to be hidden
+      expect(popover.display).toEqual(false);
+      expect(input.value).toEqual('joker');
+
+      // Call input focus
+      input.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
@@ -793,6 +826,7 @@ describe('mg-input-combobox', () => {
 
       // Verify popover to be hidden
       expect(popover.display).toEqual(true);
+      expect(input.value).toEqual('joker');
     });
     test('Should handle popover display', async () => {
       const page = await getPage({ ...baseProps, value: 'joker' });
@@ -838,11 +872,13 @@ describe('mg-input-combobox', () => {
     test('Should handle load-more button', async () => {
       const page = await getPage({ ...baseProps, items: initArray(15) });
       const element = page.doc.querySelector('mg-input-combobox');
+      const input = element.shadowRoot.querySelector('input');
       const button = element.shadowRoot.querySelector('mg-button:last-of-type');
       const getOptions = () => Array.from(element.shadowRoot.querySelectorAll('li'));
 
       // define spys
       const spyLoadingWrapper = jest.spyOn(page.rootInstance, 'loadingWrapper');
+      const spyInputFocus = jest.spyOn(input, 'focus');
       expect(getOptions().length).toEqual(10);
 
       // display options
@@ -855,6 +891,7 @@ describe('mg-input-combobox', () => {
 
       // Verify initial value is set and popover to be displaied
       expect(spyLoadingWrapper).toHaveBeenCalledWith(expect.objectContaining({ name: 'load-more' }));
+      expect(spyInputFocus).toHaveBeenCalled();
       expect(getOptions().length).toEqual(element.items.length);
     });
 
@@ -1060,7 +1097,7 @@ describe('mg-input-combobox', () => {
         }
         expect(page.root).toMatchSnapshot();
       });
-      test('Should handle input "DOWN" keyboard key and trigger load more items', async () => {
+      test('Should handle input "DOWN" keyboard key and trigger load-more items', async () => {
         const key = Keys.DOWN;
         const page = await getPage({ ...baseProps, items: initArray(15) });
         const element = page.doc.querySelector('mg-input-combobox');
@@ -1068,7 +1105,8 @@ describe('mg-input-combobox', () => {
         const getOptions = () => Array.from(element.shadowRoot.querySelectorAll('li'));
         expect(getOptions().length).toEqual(10);
 
-        const spy = jest.spyOn(page.rootInstance, 'loadingWrapper');
+        const spyLoadingWrapper = jest.spyOn(page.rootInstance, 'loadingWrapper');
+        const spyInputFocus = jest.spyOn(input, 'focus');
 
         // open popover
         input.dispatchEvent(new KeyboardEvent('keydown', { key }));
@@ -1086,7 +1124,9 @@ describe('mg-input-combobox', () => {
           await page.waitForChanges();
         }
 
-        expect(spy).toHaveBeenCalledWith(expect.objectContaining({ name: 'scroll', cursor: Cursor.NEXT }));
+        expect(spyLoadingWrapper).toHaveBeenCalledWith(expect.objectContaining({ name: 'scroll', cursor: Cursor.NEXT }));
+        expect(spyLoadingWrapper).toHaveBeenCalledWith(expect.objectContaining({ name: 'load-more', cursor: Cursor.NEXT }));
+        expect(spyInputFocus).toHaveBeenCalled();
         expect(getOptions().length).toEqual(element.items.length);
         expect(page.root).toMatchSnapshot();
       });
