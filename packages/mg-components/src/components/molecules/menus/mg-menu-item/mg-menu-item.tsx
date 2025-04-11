@@ -187,7 +187,7 @@ export class MgMenuItem {
   // eslint-disable-next-line @stencil-community/no-unused-watch
   @Watch('data-has-focus')
   watchDataHasFocus(newValue: string): void {
-    if (!newValue) this.updateExpanded(Boolean(newValue));
+    if (!isValidString(newValue)) this.updateExpanded(Boolean(newValue));
   }
 
   /***********
@@ -343,7 +343,7 @@ export class MgMenuItem {
     // when item is the last clickable item we close the parent popover
     if (!this.isInteractiveItem()) {
       const closePopover = (element: HTMLMgMenuItemElement): void => {
-        if (!element) return;
+        if (element === null) return;
         else if (element !== this.element && element.expanded && element.shadowRoot.querySelector('mg-popover') !== null) {
           element.expanded = false;
         } else {

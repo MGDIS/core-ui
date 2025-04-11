@@ -8,13 +8,58 @@ For a button that launches a potentially long process, it should be disabled and
 
 A button with an `undefined` `type` in a form will natively have a [submit type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Button#attributes) and trigger form submission. For non-submission buttons, explicitly set the `type` attribute to "button".
 
-## Attribute combination: `disable-on-click` and `disabled`
+## `disable-on-click`
 
-When a click is triggered, the component sets the `disabled` prop to `true`.
+When a click is triggered on a button with the `disable-on-click` property, the component will display a loader and set the `disabled` prop to `true`.  
+This is used to prevent 'double click' by disabling the button immediately after it is clicked, such as when a form is submitted or an action is initiated.
 
-To benefit from a reactive `disabled` prop, you need to handle the `disabled-change` event.
+### Resetting the button
 
-To reset the loader after the process has completed, set the `disabled` prop asynchronously.
+To reset the button to its initial state after the process has completed, set the `disabled` prop to `false`.
+
+#### Basic example
+
+```vue
+<mg-button disable-on-click @click="handleClick">Submit</mg-button>
+
+<script>
+  async function handleClick({ target }: { target: MgButton }) {
+    // The click on the button has set the `disabled` prop to true
+    // Execute an asynchronous script
+    await doStuff();
+    // Reset `disabled` to false after completion
+    target.disabled = false;
+  }
+</script>
+```
+
+#### Example with business rules
+
+In cases where the disabled status is also managed by business rules, you can do something like:
+
+```vue
+<mg-button
+  disable-on-click
+  :disabled="isDisabled"
+  @click="handleClick"
+>Submit</mg-button>
+
+<script>
+  const isDisabled = computed(() => {
+    return firstDisabledParam || secondDisabledParam;
+  });
+
+  async function handleClick({ target }) {
+    // The click on the button has set the `disabled` prop to true
+    // Execute an asynchronous script
+    await doStuff();
+    // Set disabled to false to remove the loader
+    target.disabled = false;
+    // Reset the loader with the computed property
+    target.disabled = isDisabled;
+  }
+</script>
+```
 
 <!-- Auto Generated Below -->
 
