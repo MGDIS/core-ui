@@ -1,5 +1,5 @@
 import { Placement } from '@floating-ui/dom';
-import { isFloatingUIPlacement, getTranslation, sides } from './floating-ui.utils';
+import { isFloatingUIPlacement, getTranslation, sides, numberToPx } from './floating-ui.utils';
 
 describe('floating-ui.utils', () => {
   describe('isFloatingUIPlacement', () => {
@@ -34,10 +34,22 @@ describe('floating-ui.utils', () => {
       expect(getTranslation(10.5, 20.5)).toBe('translate(11px,21px)');
     });
 
-    test('Should handle NaN values gracefully', () => {
-      expect(getTranslation(NaN, 10)).toBe('translateY(10px)');
-      expect(getTranslation(10, NaN)).toBe('translateX(10px)');
-      expect(getTranslation(NaN, NaN)).toBe('');
+    test.each([NaN, undefined, null, 'blu'])('Should handle NaN values gracefully', (NaNvalue: number) => {
+      expect(getTranslation(NaNvalue, 10)).toBe('translateY(10px)');
+      expect(getTranslation(10, NaNvalue)).toBe('translateX(10px)');
+      expect(getTranslation(NaNvalue, NaNvalue)).toBe('');
+    });
+  });
+
+  describe('numberToPx', () => {
+    test('Should return a string with "px" for valid numbers', () => {
+      expect(numberToPx(10)).toBe('10px');
+      expect(numberToPx(0)).toBe('0px');
+      expect(numberToPx(-10)).toBe('-10px');
+    });
+
+    test.each([NaN, undefined, null, 'blu'])('Should return an empty string for NaN value: %s', (value: number) => {
+      expect(numberToPx(value)).toBe('');
     });
   });
 });
