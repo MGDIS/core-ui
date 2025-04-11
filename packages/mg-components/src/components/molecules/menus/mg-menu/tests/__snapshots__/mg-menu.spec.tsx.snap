@@ -1210,7 +1210,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow" style="left: 0; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -2458,7 +2458,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow" style="left: 0; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>

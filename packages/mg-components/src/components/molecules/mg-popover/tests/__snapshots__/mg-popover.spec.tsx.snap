@@ -78,7 +78,7 @@ exports[`mg-popover Should close mg-popover when click on element with "popovert
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-floating-arrow slot="arrow" style="left: 0px; top: 1px;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0; top: 1px;"></div>
     <div slot="content">
       <mg-button popovertargetaction="hide" role="button" tabindex="0">
         <template shadowrootmode="open">
@@ -125,7 +125,7 @@ exports[`mg-popover Should close mg-popover when click on element with "popovert
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-floating-arrow slot="arrow" style="left: 0px; top: 1px;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0; top: 1px;"></div>
     <div slot="content">
       <mg-button popovertargetaction="hide" role="button" tabindex="0">
         <template shadowrootmode="open">
@@ -173,7 +173,7 @@ exports[`mg-popover Should manage disconnectedCallback hook without updatePopove
         </mg-card>
         <slot name="arrow"></slot>
       </template>
-      <div data-floating-arrow slot="arrow" style="left: 0px; top: 1px;"></div>
+      <div data-floating-arrow slot="arrow" style="left: 0; top: 1px;"></div>
       <h2 slot="title">
         Blu bli blo bla
       </h2>
@@ -302,7 +302,7 @@ exports[`mg-popover Should render with element 3`] = `
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-floating-arrow slot="arrow" style="left: 0px; top: 1px;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0; top: 1px;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -396,7 +396,7 @@ exports[`mg-popover Should render with element 5`] = `
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-floating-arrow slot="arrow" style="left: 0px; top: 1px;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0; top: 1px;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -626,7 +626,7 @@ exports[`mg-popover Should update Floating UI instance when slot updates 1`] = `
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-floating-arrow slot="arrow" style="left: 0px; top: 1px;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0; top: 1px;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -668,7 +668,7 @@ exports[`mg-popover Should update Floating UI instance when slot updates 2`] = `
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-floating-arrow slot="arrow" style="left: 0px; top: 1px;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0; top: 1px;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>
@@ -752,7 +752,7 @@ exports[`mg-popover Should update mg-popover-content id when identifier is updat
       </mg-card>
       <slot name="arrow"></slot>
     </template>
-    <div data-floating-arrow slot="arrow" style="left: 0px; top: 1px;"></div>
+    <div data-floating-arrow slot="arrow" style="left: 0; top: 1px;"></div>
     <h2 slot="title">
       Blu bli blo bla
     </h2>

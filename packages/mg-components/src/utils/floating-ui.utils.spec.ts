@@ -44,8 +44,11 @@ describe('floating-ui.utils', () => {
   describe('numberToPx', () => {
     test('Should return a string with "px" for valid numbers', () => {
       expect(numberToPx(10)).toBe('10px');
-      expect(numberToPx(0)).toBe('0px');
       expect(numberToPx(-10)).toBe('-10px');
+    });
+
+    test('Should return 0 without "px"', () => {
+      expect(numberToPx(0)).toBe('0');
     });
 
     test.each([NaN, undefined, null, 'blu'])('Should return an empty string for NaN value: %s', (value: number) => {

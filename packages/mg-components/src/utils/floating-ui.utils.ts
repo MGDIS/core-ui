@@ -74,4 +74,9 @@ export const getTranslation = (x: number, y: number): string => {
 // Due to this, either x or y will be undefined, depending on the side of placement.
 // The above code uses `isNaN` to check for null and undefined simultaneously.
 // Don't remove `isNaN`, because either value can be falsy (0), causing a bug!
-export const numberToPx = (number: number): string => (number !== null && !isNaN(number) ? `${number}px` : '');
+export const numberToPx = (number: number): string => {
+  if (number !== null && !isNaN(number)) {
+    if (number === 0) return '0';
+    else return `${number}px`;
+  } else return '';
+};
