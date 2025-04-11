@@ -1,7 +1,7 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
 import { createID, focusableElements, getWindows, isValideID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { computePosition, autoUpdate, flip, shift, limitShift, offset, arrow, type Strategy, type Placement } from '@floating-ui/dom';
-import { type GuardType, Guard, type TooltipPlacementType, isFloatingUIPlacement, getTranslation } from './mg-tooltip.conf';
+import { type GuardType, Guard, type TooltipPlacementType, isFloatingUIPlacement, getTranslation, numberToPx } from './mg-tooltip.conf';
 
 /**
  * HTMLMgButtonElement type guard
@@ -25,7 +25,7 @@ export class MgTooltip {
 
   private mgTooltipContent: HTMLMgTooltipContentElement;
   private tooltipedElement: HTMLElement;
-  private arrowEelement: HTMLElement;
+  private arrowElement: HTMLElement;
   private windows: Window[];
   private hasCustomTabIndex: boolean;
   private tooltipStrategy: Strategy;
@@ -237,7 +237,7 @@ export class MgTooltip {
           shift({
             limiter: limitShift(),
           }),
-          arrow({ element: this.arrowEelement }),
+          arrow({ element: this.arrowElement }),
         ],
       });
 
@@ -257,14 +257,7 @@ export class MgTooltip {
         left: 'right',
       }[placement.split('-')[0]];
 
-      // https://floating-ui.com/docs/arrow
-      // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined.
-      // Due to this, either x or y will be undefined, depending on the side of placement.
-      // The above code uses `isNaN` to check for null and undefined simultaneously.
-      // Don’t remove `isNaN`, because either value can be falsy (0), causing a bug!
-      const numberToPx = (number: number): string => (!isNaN(number) ? `${number}px` : '');
-
-      Object.assign(this.arrowEelement.style, {
+      Object.assign(this.arrowElement.style, {
         left: numberToPx(arrowX),
         top: numberToPx(arrowY),
         [staticSide]: '-4px',
@@ -417,7 +410,7 @@ export class MgTooltip {
     this.setTooltipedElement(interactiveElement || slotElement);
 
     // Set arrow element
-    this.arrowEelement = this.mgTooltipContent.querySelector('[data-floating-arrow]');
+    this.arrowElement = this.mgTooltipContent.querySelector('[data-floating-arrow]');
 
     // Check if slotted element is a disabled mg-button
     // In this case we wrap the mg-button into a div to enable the tooltip

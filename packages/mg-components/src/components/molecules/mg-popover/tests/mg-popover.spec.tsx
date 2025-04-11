@@ -24,19 +24,22 @@ const getPage = (args, slot, parent?: boolean) => {
 };
 
 describe('mg-popover', () => {
-  let fireRo;
+  let fireRo = [];
   beforeEach(() => {
     jest.useFakeTimers({ legacyFakeTimers: true });
     setupResizeObserverMock({
       observe: function () {
-        fireRo = this.cb;
+        fireRo.push(this.cb);
       },
       disconnect: function () {
         return null;
       },
     });
   });
-  afterEach(() => jest.clearAllTimers());
+  afterEach(() => {
+    jest.clearAllTimers();
+    fireRo = [];
+  });
 
   test.each([
     { identifier: 'identifier' },
@@ -204,9 +207,10 @@ describe('mg-popover', () => {
     ]);
     expect(page.root).toMatchSnapshot();
 
-    const spy = jest.spyOn(page.rootInstance, 'floatingUICleanup');
+    const spy = jest.spyOn(page.rootInstance, 'updatePopover');
 
-    fireRo([]);
+    fireRo[0]([]);
+    await page.waitForChanges();
 
     expect(spy).toHaveBeenCalled();
     expect(page.root).toMatchSnapshot();
@@ -312,5 +316,27 @@ describe('mg-popover', () => {
     // The defined fallbackPlacements + the basic sides
     const expectedFallbacks = ['right-start', 'right-end', 'top', 'right', 'bottom', 'left'];
     expect(fallbacks).toEqual(expectedFallbacks);
+  });
+
+  test('Should manage disconnectedCallback hook without updatePopover', async () => {
+    const page = await getPage({ identifier: 'identifier', display: true }, [
+      <h2 slot="title">Blu bli blo bla</h2>,
+      <p slot="content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>,
+      <mg-button>mg-button</mg-button>,
+    ]);
+
+    expect(page.body).toMatchSnapshot();
+
+    delete page.rootInstance.updatePopover;
+
+    page.doc.querySelector('mg-popover').remove();
+
+    await page.waitForChanges();
+
+    expect(page.body).toMatchSnapshot();
   });
 });

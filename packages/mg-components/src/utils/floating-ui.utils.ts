@@ -68,3 +68,10 @@ export const getTranslation = (x: number, y: number): string => {
   // Both axes need translation
   return `translate(${tooltipX}px,${tooltipY}px)`;
 };
+
+// https://floating-ui.com/docs/arrow
+// Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined.
+// Due to this, either x or y will be undefined, depending on the side of placement.
+// The above code uses `isNaN` to check for null and undefined simultaneously.
+// Don't remove `isNaN`, because either value can be falsy (0), causing a bug!
+export const numberToPx = (number: number): string => (!isNaN(number) ? `${number}px` : '');

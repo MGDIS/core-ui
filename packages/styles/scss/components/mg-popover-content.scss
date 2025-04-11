@@ -5,8 +5,10 @@ $border-arrow-head: var(--mg-b-size-8) solid var(--mg-c-popover-color-background
 $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
 
 :host {
-  position: relative;
+  position: fixed;
   z-index: 2000;
+  top: 0;
+  left: 0;
   display: none;
   padding: var(--mg-b-size-8);
   color: var(--mg-c-popover-color-text);
