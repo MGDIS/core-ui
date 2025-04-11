@@ -27,6 +27,13 @@ import {
   StorybookPreview,
   webTypesGenerator,
   vsCodeGenerator,
+  isValideID,
+  isValidNumber,
+  isObject,
+  getObjectValueFromKey,
+  Paginate,
+  Page,
+  Cursor,
 } from '.';
 
 describe('stencil-helpers', () => {
@@ -43,6 +50,14 @@ describe('stencil-helpers', () => {
       expect(toString).toBeDefined();
       expect(cleanString).toBeDefined();
       expect(nextTick).toBeDefined();
+      expect(toString).toBeDefined();
+      expect(isValideID).toBeDefined();
+      expect(isValidNumber).toBeDefined();
+      expect(isObject).toBeDefined();
+      expect(getObjectValueFromKey).toBeDefined();
+      expect(Paginate).toBeDefined();
+      expect(Page).toBeDefined();
+      expect(Cursor).toBeDefined();
     });
   });
 

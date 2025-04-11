@@ -18,12 +18,14 @@ import { MgInputTitle } from '../../../atoms/internals/mg-input-title/mg-input-t
 import { requiredMessageStatus, roles } from '../mg-form.conf';
 import { MgInput } from '../../inputs/mg-input/mg-input';
 import { MgInputRichTextEditor } from '../../inputs/mg-input-rich-text-editor/mg-input-rich-text-editor';
+import { MgInputCombobox } from '../../inputs/mg-input-combobox/mg-input-combobox';
 
 const getPage = async (args, content?) => {
   const page = await newSpecPage({
     components: [
       MgForm,
       MgInputCheckbox,
+      MgInputCombobox,
       MgInputDate,
       MgInputNumeric,
       MgInputPassword,
@@ -57,6 +59,7 @@ const getSlottedContent = () => [
       { title: 'non', value: false },
     ]}
   ></mg-input-checkbox>,
+  <mg-input-combobox identifier="mg-input-select" label="mg-input-select label" itemsLabel="tests" items={['blu', 'bli', 'bla', 'blo']}></mg-input-combobox>,
   <mg-input-date identifier="mg-input-date" label="mg-input-date label"></mg-input-date>,
   <mg-input-numeric identifier="mg-input-numeric" label="mg-input-numeric label"></mg-input-numeric>,
   <mg-input-password identifier="mg-input-password" label="mg-input-password label"></mg-input-password>,

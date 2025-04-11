@@ -1,6 +1,7 @@
 import { Component, Element, h, Prop, State, Watch, Host, EventEmitter, Event } from '@stencil/core';
 import { variants, VariantType, ButtonType, SizeType, sizes } from './mg-button.conf';
 import { ClassList, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
+import { Keys } from '../../../utils/events.utils';
 
 /**
  * @slot - Button content
@@ -193,7 +194,7 @@ export class MgButton {
   private handleKeydown = (event: KeyboardEvent): void => {
     if (!this.disabled && event.key === ' ') {
       event.preventDefault();
-    } else if (!this.disabled && ['Enter', 'NumpadEnter', 'Space'].includes(event.key)) {
+    } else if (!this.disabled && [Keys.ENTER, Keys.NUMPADENTER, Keys.SPACE].includes(event.key)) {
       event.preventDefault();
       this.element.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     }

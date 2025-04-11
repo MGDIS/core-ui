@@ -24,11 +24,12 @@
     "test:e2e:docker": "./scripts/run-e2e.sh",
     "test:watch": "turbo test:watch",
     "coverage": "turbo coverage --force --filter='./packages/*'",
-    "lint": "pnpm lint:eslint && pnpm lint:prettier && pnpm lint:styles",
-    "lint:eslint": "pnpm -C packages/linting-stencil build:config && eslint '**/*.{js,ts,mjs,mts,cjs,tsx,vue}' --ignore-path .gitignore",
+    "lint": "pnpm lint:prepare && pnpm lint:eslint && pnpm lint:prettier && pnpm lint:styles",
+    "lint:prepare": "pnpm build --filter=@mgdis/linting-stencil && pnpm build:configs",
+    "lint:eslint": "eslint '**/*.{js,ts,mjs,mts,cjs,tsx,vue}' --ignore-path .gitignore",
     "lint:prettier": "prettier --check .",
     "lint:styles": "stylelint '**/*.{scss,css}' --ignore-path .gitignore",
-    "lint:fix": "pnpm lint:eslint --fix && pnpm lint:prettier --write && pnpm lint:styles --fix",
+    "lint:fix": "pnpm lint:prepare && pnpm lint:eslint --fix && pnpm lint:prettier --write && pnpm lint:styles --fix",
     "build": "turbo build --force",
     "build:apps": "turbo build --filter='./apps/*' --force",
     "build:configs": "turbo build --filter='./configs/*' --force",
@@ -59,7 +60,7 @@
   "lint-staged": {
     "*.{js,ts,mjs,mts,cjs,tsx,vue}": "pnpm lint:eslint",
     "*.{json,yaml,yml,md,mdx,html}": "pnpm lint:prettier",
-    "*.scss": "pnpm lint:styles"
+    "*.{scss,css}": "pnpm lint:styles"
   },
   "devDependencies": {
     "@changesets/cli": "2.28.1",

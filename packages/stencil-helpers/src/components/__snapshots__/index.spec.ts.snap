@@ -1,0 +1,313 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`components.utils > Page > Should create Page instance 1`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "batman",
+    "robin",
+    "joker",
+    "bane",
+    "harley quinn",
+    "dante",
+  ],
+  "next": undefined,
+  "top": 10,
+  "total": 6,
+}
+`;
+
+exports[`components.utils > Page > Should create Page instance 2`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    {
+      "title": "batman",
+      "value": 0,
+    },
+    {
+      "title": "robin",
+      "value": 1,
+    },
+    {
+      "title": "joker",
+      "value": 2,
+    },
+    {
+      "title": "bane",
+      "value": 3,
+    },
+    {
+      "title": "harley quinn",
+      "value": 4,
+    },
+    {
+      "title": "dante",
+      "value": 5,
+    },
+  ],
+  "next": undefined,
+  "top": 10,
+  "total": 6,
+}
+`;
+
+exports[`components.utils > Page > Should create Page instance 3`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "batman",
+    "robin",
+    "joker",
+    "bane",
+    "harley quinn",
+    "dante",
+  ],
+  "next": undefined,
+  "top": 10,
+  "total": 100,
+}
+`;
+
+exports[`components.utils > Page > Should create Page instance 4`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "batman",
+    "robin",
+    "joker",
+    "bane",
+    "harley quinn",
+    "dante",
+  ],
+  "next": undefined,
+  "top": 10,
+  "total": 6,
+}
+`;
+
+exports[`components.utils > Page > Should create Page instance 5`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "batman",
+    "robin",
+    "joker",
+    "bane",
+    "harley quinn",
+    "dante",
+  ],
+  "next": "/next/url",
+  "top": 10,
+  "total": 6,
+}
+`;
+
+exports[`components.utils > Paginate > getPage() > Shoud get paginated page from instance { items: [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34' ], options: { next: '/next/page' } } 1`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+  ],
+  "next": "/next/page",
+  "top": 10,
+  "total": 10,
+}
+`;
+
+exports[`components.utils > Paginate > getPage() > Shoud get paginated page from instance { items: [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34' ], options: { next: URL{ [Symbol(impl)]: URLImpl{ _url: { scheme: 'http', username: '', password: '', host: 'url.fr', port: null, path: [ 'next', 'page' ], query: null, fragment: null }, _query: URLSearchParamsImpl{ _list: [], _url: URLImpl[Circular], [Symbol(wrapper)]: URLSearchParams{ [Symbol(impl)]: URLSearchParamsImpl[Circular] } }, [Symbol(wrapper)]: URL[Circular] } } } } 1`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+  ],
+  "next": "http://url.fr/next/page",
+  "top": 10,
+  "total": 10,
+}
+`;
+
+exports[`components.utils > Paginate > getPage() > Shoud get paginated page from instance { items: [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34' ], options: { top: 5 } } 1`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+  ],
+  "next": [Function],
+  "top": 5,
+  "total": 5,
+}
+`;
+
+exports[`components.utils > Paginate > getPage() > Shoud get paginated page from instance { items: [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34' ], options: { total: 105 } } 1`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+  ],
+  "next": [Function],
+  "top": 10,
+  "total": 105,
+}
+`;
+
+exports[`components.utils > Paginate > getPage() > Shoud get paginated page from instance { items: [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34' ], options: undefined } 1`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+  ],
+  "next": [Function],
+  "top": 10,
+  "total": 10,
+}
+`;
+
+exports[`components.utils > Paginate > getPage() > Shoud get paginated page from instance { items: [ 'batman', 'robin', 'joker', 'bane', 'harley quinn', 'dante' ], options: undefined } 1`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "batman",
+    "robin",
+    "joker",
+    "bane",
+    "harley quinn",
+    "dante",
+  ],
+  "next": undefined,
+  "top": 10,
+  "total": 6,
+}
+`;
+
+exports[`components.utils > Paginate > getPage() > Shoud get paginated page from instance { items: [], options: undefined } 1`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [],
+  "next": undefined,
+  "top": 10,
+  "total": 0,
+}
+`;
+
+exports[`components.utils > Paginate > getPage() > Shoud get paginated page from instance { items: {}, options: undefined } 1`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [],
+  "next": undefined,
+  "top": 10,
+  "total": 0,
+}
+`;
+
+exports[`components.utils > Paginate > getPage() > Should filter paginated page from instance 1`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "batman",
+    "bane",
+    "dante",
+  ],
+  "next": undefined,
+  "top": 10,
+  "total": 3,
+}
+`;
+
+exports[`components.utils > Paginate > getPage() > Should get next() page from instance 1`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+  ],
+  "next": [Function],
+  "top": 10,
+  "total": 10,
+}
+`;
+
+exports[`components.utils > Paginate > getPage() > Should get next() page from instance 2`] = `
+Page {
+  "baseIndex": 1,
+  "getIndexFromCursor": [Function],
+  "items": [
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+  ],
+  "next": undefined,
+  "top": 10,
+  "total": 10,
+}
+`;

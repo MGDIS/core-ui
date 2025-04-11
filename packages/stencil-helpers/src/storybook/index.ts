@@ -138,7 +138,10 @@ export const getStoryHTML = ({ $tag$, $attrs$, $children$, $text$ }: VNode): str
 
   renderElement(host, $tag$, $attrs$, $children$, $text$);
 
-  return prettify(host.innerHTML, { tag_wrap: true }).replace(/="true"/g, '');
+  return prettify(host.innerHTML, {
+    tag_wrap: true,
+    content_wrap: 120,
+  }).replace(/="true"/g, '');
 };
 
 /**
