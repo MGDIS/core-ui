@@ -28,7 +28,12 @@ export const parameters: Preview['parameters'] = {
   },
   options: {
     storySort: {
-      order: ['Atoms', 'Molecules', 'Style'],
+      order: [
+        'Intro', // Does not affect order but set it as home page
+        'Atoms',
+        'Molecules',
+        'Style',
+      ],
     },
   },
 };

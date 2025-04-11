@@ -30,7 +30,7 @@ interface ITemplate<ArgsType, ElementType> {
 const MenuTemplate: ITemplate<MenuArgs, HTMLMgMenuElement> = (args, slots) => <mg-menu {...args}>{slots}</mg-menu>;
 
 const MenuItemTemplate: ITemplate<MenuItemArgs, HTMLMgMenuItemElement> = (args, slots) => (
-  <mg-menu-item {...args} identifier={!args.identifier ? 'identifier' : args.identifier} data-overflow-more={args.overflow}>
+  <mg-menu-item {...args} identifier={args.identifier === undefined ? 'identifier' : args.identifier} data-overflow-more={args.overflow}>
     {slots}
     {args.label && <span slot="label">{args.label}</span>}
     {args.metadata && <span slot="metadata">my metadata</span>}
@@ -388,7 +388,7 @@ describe('mg-menu-item', () => {
       const element =
         page.doc.querySelector('mg-menu-item mg-menu-item mg-menu-item') || page.doc.querySelector('mg-menu-item mg-menu-item') || page.doc.querySelector('mg-menu-item');
 
-      if (element) {
+      if (element !== null) {
         element.shadowRoot.querySelector('a,button').dispatchEvent(new MouseEvent('click', { bubbles: true }));
         await page.waitForChanges();
 
@@ -405,13 +405,12 @@ describe('mg-menu-item', () => {
           .shadowRoot.querySelector('a,button')
           .dispatchEvent(new MouseEvent('click', { bubbles: true }));
         await page.waitForChanges();
-        expect(page.root).toMatchSnapshot();
       }
-
-      const element = page.doc.querySelector('[title="level 2"]:not([href="#"])')?.closest('mg-menu-item');
       expect(page.root).toMatchSnapshot();
 
-      if (element) {
+      const element = page.doc.querySelector('[title="level 2"]:not([href="#"])')?.closest('mg-menu-item');
+
+      if (element !== undefined) {
         element.shadowRoot.querySelector('a,button').dispatchEvent(new MouseEvent('click', { bubbles: true }));
         await page.waitForChanges();
 
