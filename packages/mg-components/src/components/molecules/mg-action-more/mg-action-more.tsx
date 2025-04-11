@@ -208,7 +208,7 @@ export class MgActionMore {
               <mg-menu direction={directions.VERTICAL} label={this.messages.label}>
                 {this.items.map(item =>
                   isMgActionMoreDivider(item) ? (
-                    <mg-divider class="mg-c-action-more__divider" key="divider"></mg-divider>
+                    <mg-divider class="mg-c-action-more__divider" key="divider" full-width></mg-divider>
                   ) : (
                     <mg-menu-item
                       key={item.label}
