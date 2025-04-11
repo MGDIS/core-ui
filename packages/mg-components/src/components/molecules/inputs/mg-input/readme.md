@@ -130,6 +130,7 @@ When we enter in an input field with an error its state is checked everytime the
 ### Used by
 
  - [mg-input-checkbox](../mg-input-checkbox)
+ - [mg-input-combobox](../mg-input-combobox)
  - [mg-input-date](../mg-input-date)
  - [mg-input-numeric](../mg-input-numeric)
  - [mg-input-password](../mg-input-password)
@@ -154,6 +155,7 @@ graph TD;
   mg-input --> mg-input-title
   mg-tooltip --> mg-tooltip-content
   mg-input-checkbox --> mg-input
+  mg-input-combobox --> mg-input
   mg-input-date --> mg-input
   mg-input-numeric --> mg-input
   mg-input-password --> mg-input
