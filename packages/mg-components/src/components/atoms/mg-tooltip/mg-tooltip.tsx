@@ -1,7 +1,7 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
 import { createID, focusableElements, getWindows, isValideID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { computePosition, autoUpdate, flip, shift, limitShift, offset, arrow, type Strategy, type Placement } from '@floating-ui/dom';
-import { type GuardType, Guard, type TooltipPlacementType, isFloatingUIPlacement, getTranslation, numberToPx } from './mg-tooltip.conf';
+import { type GuardType, Guard, type TooltipPlacementType, isFloatingUIPlacement, getTransformation, numberToPx } from './mg-tooltip.conf';
 
 /**
  * HTMLMgButtonElement type guard
@@ -244,7 +244,7 @@ export class MgTooltip {
       // Positioning
       Object.assign(this.mgTooltipContent.style, {
         position: this.tooltipStrategy,
-        transform: getTranslation(x, y),
+        transform: getTransformation(x, y),
       });
 
       // Arrow positioning

@@ -54,7 +54,7 @@ const roundByDPR = (value: number) => {
  * @param y - y-axis value
  * @returns translation string
  */
-export const getTranslation = (x: number, y: number): string => {
+export const getTransformation = (x: number, y: number): string => {
   const tooltipX = isNaN(x) ? 0 : roundByDPR(x);
   const tooltipY = isNaN(y) ? 0 : roundByDPR(y);
 

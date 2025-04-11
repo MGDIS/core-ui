@@ -1,5 +1,5 @@
 import { Placement } from '@floating-ui/dom';
-import { isFloatingUIPlacement, getTranslation, sides, numberToPx } from './floating-ui.utils';
+import { isFloatingUIPlacement, getTransformation, sides, numberToPx } from './floating-ui.utils';
 
 describe('floating-ui.utils', () => {
   describe('isFloatingUIPlacement', () => {
@@ -12,32 +12,32 @@ describe('floating-ui.utils', () => {
     });
   });
 
-  describe('getTranslation', () => {
+  describe('getTransformation', () => {
     test('Should return an empty string when no translation is needed', () => {
-      expect(getTranslation(0, 0)).toBe('');
+      expect(getTransformation(0, 0)).toBe('');
     });
 
     test('Should return translateX when only x-axis translation is needed', () => {
-      expect(getTranslation(10, 0)).toBe('translateX(10px)');
+      expect(getTransformation(10, 0)).toBe('translateX(10px)');
     });
 
     test('Should return translateY when only y-axis translation is needed', () => {
-      expect(getTranslation(0, 20)).toBe('translateY(20px)');
+      expect(getTransformation(0, 20)).toBe('translateY(20px)');
     });
 
     test('Should return translate for both axes when translation is needed', () => {
-      expect(getTranslation(15, 25)).toBe('translate(15px,25px)');
+      expect(getTransformation(15, 25)).toBe('translate(15px,25px)');
     });
 
     test('Should manage case when window.devicePixelRatio is undefined', () => {
       window.devicePixelRatio = undefined;
-      expect(getTranslation(10.5, 20.5)).toBe('translate(11px,21px)');
+      expect(getTransformation(10.5, 20.5)).toBe('translate(11px,21px)');
     });
 
     test.each([NaN, undefined, null, 'blu'])('Should handle NaN values gracefully', (NaNvalue: number) => {
-      expect(getTranslation(NaNvalue, 10)).toBe('translateY(10px)');
-      expect(getTranslation(10, NaNvalue)).toBe('translateX(10px)');
-      expect(getTranslation(NaNvalue, NaNvalue)).toBe('');
+      expect(getTransformation(NaNvalue, 10)).toBe('translateY(10px)');
+      expect(getTransformation(10, NaNvalue)).toBe('translateX(10px)');
+      expect(getTransformation(NaNvalue, NaNvalue)).toBe('');
     });
   });
 

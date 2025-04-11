@@ -1,7 +1,7 @@
 import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event } from '@stencil/core';
 import { createID, getWindows, isValideID, toString } from '@mgdis/stencil-helpers';
 import { computePosition, autoUpdate, flip, shift, limitShift, offset, arrow, type Placement } from '@floating-ui/dom';
-import { isFloatingUIPlacement, type PopoverPlacementType, sides, alignments, getTranslation, numberToPx } from './mg-popover.conf';
+import { isFloatingUIPlacement, type PopoverPlacementType, sides, alignments, getTransformation, numberToPx } from './mg-popover.conf';
 
 /**
  * @slot - Element that will display the popover
@@ -246,7 +246,7 @@ export class MgPopover {
       });
 
       Object.assign(this.mgPopover.style, {
-        transform: getTranslation(x, y),
+        transform: getTransformation(x, y),
       });
 
       // Arrow positioning
