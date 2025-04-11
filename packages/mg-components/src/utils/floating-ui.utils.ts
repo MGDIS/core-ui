@@ -28,6 +28,9 @@ export const placements = [
  */
 export type ExtendedPlacement = Placement | (typeof placements)[number];
 
+// Alignments constants
+export const alignments = ['start', null, 'end'] as const;
+
 /**
  * FloatingUI Placement type guard
  * @param placement - value to check
@@ -35,5 +38,33 @@ export type ExtendedPlacement = Placement | (typeof placements)[number];
  */
 export const isFloatingUIPlacement = (placement): placement is Placement => placements.filter(p => !p.includes('auto')).includes(placement);
 
-// Alignments constants
-export const alignments = ['start', null, 'end'] as const;
+/**
+ * Round value by device pixel ratio
+ * @param value - value to round
+ * @returns rounded value
+ */
+const roundByDPR = (value: number) => {
+  const dpr = window.devicePixelRatio || 1;
+  return Math.round(value * dpr) / dpr;
+};
+
+/**
+ * Get translation for tooltip
+ * @param x - x-axis value
+ * @param y - y-axis value
+ * @returns translation string
+ */
+export const getTranslation = (x: number, y: number): string => {
+  const tooltipX = isNaN(x) ? 0 : roundByDPR(x);
+  const tooltipY = isNaN(y) ? 0 : roundByDPR(y);
+
+  // No translation needed
+  if (tooltipX === 0 && tooltipY === 0) return '';
+
+  // Only one axis needs translation
+  if (tooltipX === 0) return `translateY(${tooltipY}px)`;
+  if (tooltipY === 0) return `translateX(${tooltipX}px)`;
+
+  // Both axes need translation
+  return `translate(${tooltipX}px,${tooltipY}px)`;
+};

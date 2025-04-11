@@ -195,6 +195,31 @@ exports[`mg-tooltip Should manage disconnectedCallback hook 1`] = `
 
 exports[`mg-tooltip Should manage disconnectedCallback hook 2`] = `<body></body>`;
 
+exports[`mg-tooltip Should manage disconnectedCallback hook without updateTooltip 1`] = `
+<body>
+  <mg-tooltip>
+    <template shadowrootmode="open">
+      <slot></slot>
+      <slot name="content"></slot>
+    </template>
+    <span aria-describedby="identifier" role="button" tabindex="0">
+      span
+    </span>
+    <mg-tooltip-content id="identifier" role="tooltip" slot="content">
+      <template shadowrootmode="open">
+        <span class="mg-tooltip-content__message">
+          My tooltip message
+        </span>
+        <slot name="arrow"></slot>
+      </template>
+      <div data-floating-arrow slot="arrow"></div>
+    </mg-tooltip-content>
+  </mg-tooltip>
+</body>
+`;
+
+exports[`mg-tooltip Should manage disconnectedCallback hook without updateTooltip 2`] = `<body></body>`;
+
 exports[`mg-tooltip Should manage disconnectedCallback hook without window context 1`] = `
 <body>
   <mg-tooltip>

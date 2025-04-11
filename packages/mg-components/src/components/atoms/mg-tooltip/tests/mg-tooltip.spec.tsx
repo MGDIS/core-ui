@@ -502,4 +502,18 @@ describe('mg-tooltip', () => {
 
     expect(page.body).toMatchSnapshot();
   });
+
+  test('Should manage disconnectedCallback hook without updateTooltip', async () => {
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <span>span</span>);
+
+    expect(page.body).toMatchSnapshot();
+
+    delete page.rootInstance.updateTooltip;
+
+    page.doc.querySelector('mg-tooltip').remove();
+
+    await page.waitForChanges();
+
+    expect(page.body).toMatchSnapshot();
+  });
 });

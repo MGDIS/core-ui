@@ -1,7 +1,7 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
 import { createID, focusableElements, getWindows, isValideID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { computePosition, autoUpdate, flip, shift, limitShift, offset, arrow, type Strategy, type Placement } from '@floating-ui/dom';
-import { type GuardType, Guard, type TooltipPlacementType, isFloatingUIPlacement } from './mg-tooltip.conf';
+import { type GuardType, Guard, type TooltipPlacementType, isFloatingUIPlacement, getTranslation } from './mg-tooltip.conf';
 
 /**
  * HTMLMgButtonElement type guard
@@ -73,7 +73,7 @@ export class MgTooltip {
    */
   @Prop({ mutable: true }) placement: TooltipPlacementType = 'bottom';
   @Watch('placement')
-  watchPlacement(newValue: MgTooltip['placement']): void {
+  watchPlacement(newValue: TooltipPlacementType): void {
     if (!isFloatingUIPlacement(newValue)) this.placement = 'bottom';
   }
 
@@ -221,72 +221,57 @@ export class MgTooltip {
     }
   };
 
-  private updateTooltip = () => {
-    autoUpdate(
-      this.tooltipedElement,
-      this.mgTooltipContent,
-      async () => {
-        // Placement
-        const { x, y, placement, middlewareData } = await computePosition(this.tooltipedElement, this.mgTooltipContent, {
-          placement: this.placement as Placement,
-          strategy: this.tooltipStrategy,
-          middleware: [
-            offset(8),
-            flip(),
-            shift({
-              limiter: limitShift(),
-            }),
-            arrow({ element: this.arrowEelement }),
-          ],
-        });
+  /**
+   * Update tooltip position
+   * @returns autoUpdate function
+   */
+  private updateTooltip = () =>
+    autoUpdate(this.tooltipedElement, this.mgTooltipContent, async () => {
+      // Placement
+      const { x, y, placement, middlewareData } = await computePosition(this.tooltipedElement, this.mgTooltipContent, {
+        placement: this.placement as Placement,
+        strategy: this.tooltipStrategy,
+        middleware: [
+          offset(8),
+          flip(),
+          shift({
+            limiter: limitShift(),
+          }),
+          arrow({ element: this.arrowEelement }),
+        ],
+      });
 
-        // Positioning
-        const roundByDPR = (value: number) => {
-          const dpr = window.devicePixelRatio || 1;
-          return Math.round(value * dpr) / dpr;
-        };
+      // Positioning
+      Object.assign(this.mgTooltipContent.style, {
+        position: this.tooltipStrategy,
+        transform: getTranslation(x, y),
+      });
 
-        const transforms: string[] = [];
-        const tooltipX = isNaN(x) ? 0 : roundByDPR(x);
-        const tooltipY = isNaN(y) ? 0 : roundByDPR(y);
-        if (tooltipX !== 0) transforms.push(`translateX(${tooltipX}px)`);
-        if (tooltipY !== 0) transforms.push(`translateY(${tooltipY}px)`);
+      // Arrow positioning
+      const { x: arrowX, y: arrowY } = middlewareData.arrow;
 
-        Object.assign(this.mgTooltipContent.style, {
-          position: this.tooltipStrategy,
-          transform: transforms.join(' '),
-        });
+      const staticSide = {
+        top: 'bottom',
+        right: 'left',
+        bottom: 'top',
+        left: 'right',
+      }[placement.split('-')[0]];
 
-        // Arrow positioning
-        const { x: arrowX, y: arrowY } = middlewareData.arrow;
+      // https://floating-ui.com/docs/arrow
+      // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined.
+      // Due to this, either x or y will be undefined, depending on the side of placement.
+      // The above code uses `isNaN` to check for null and undefined simultaneously.
+      // Don’t remove `isNaN`, because either value can be falsy (0), causing a bug!
+      const numberToPx = (number: number): string => (!isNaN(number) ? `${number}px` : '');
 
-        const staticSide = {
-          top: 'bottom',
-          right: 'left',
-          bottom: 'top',
-          left: 'right',
-        }[placement.split('-')[0]];
+      Object.assign(this.arrowEelement.style, {
+        left: numberToPx(arrowX),
+        top: numberToPx(arrowY),
+        [staticSide]: '-4px',
+      });
 
-        // https://floating-ui.com/docs/arrow
-        // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined.
-        // Due to this, either x or y will be undefined, depending on the side of placement.
-        // The above code uses `isNaN` to check for null and undefined simultaneously.
-        // Don’t remove `isNaN`, because either value can be falsy (0), causing a bug!
-        const numberToPx = (number: number): string => (!isNaN(number) ? `${number}px` : '');
-
-        Object.assign(this.arrowEelement.style, {
-          left: numberToPx(arrowX),
-          top: numberToPx(arrowY),
-          [staticSide]: '-4px',
-        });
-
-        this.mgTooltipContent.setAttribute('data-placement', placement);
-      },
-      {
-        layoutShift: false,
-      },
-    );
-  };
+      this.mgTooltipContent.setAttribute('data-placement', placement);
+    });
 
   /**
    * Define selected element to become tooltip selector and init listeners
