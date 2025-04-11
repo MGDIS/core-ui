@@ -390,12 +390,12 @@ export class MgInputNumeric {
    * Handle input event
    */
   private handleInput = (): void => {
+    this.value = this.input.value;
     // Check validity
     this.checkValidity();
     if (this.hasDisplayedError) {
       this.setErrorMessage();
     }
-    this.value = this.input.value;
   };
 
   /**
