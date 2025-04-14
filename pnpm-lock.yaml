@@ -841,8 +841,8 @@ importers:
         specifier: 3.1.1
         version: 3.1.1(vitest@3.1.1(@types/node@22.14.1)(jsdom@26.0.0)(msw@2.7.3(@types/node@22.14.1)(typescript@5.8.3))(sass-embedded@1.86.2)(sass@1.86.3)(yaml@2.7.1))
       htmlfy:
-        specifier: 0.6.7
-        version: 0.6.7
+        specifier: 0.7.0
+        version: 0.7.0
       typedoc:
         specifier: 0.28.2
         version: 0.28.2(typescript@5.8.3)
@@ -5027,8 +5027,8 @@ packages:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
     engines: {node: '>=8'}
 
-  htmlfy@0.6.7:
-    resolution: {integrity: sha512-r8hRd+oIM10lufovN+zr3VKPTYEIvIwqXGucidh2XQufmiw6sbUXFUFjWlfjo3AnefIDTyzykVzQ8IUVuT1peQ==}
+  htmlfy@0.7.0:
+    resolution: {integrity: sha512-M7dbw0u7TJR37tmp7ovUjSFsgO/7s4kPlDp1l36MKPhV/zGXqDnzdFUe9vva41JjbGk6Gznjq/wT2z/lc4Mkjg==}
 
   htmlparser2@3.10.1:
     resolution: {integrity: sha512-IgieNijUMbkDovyoKObU1DUhm1iwNYE/fuifEoEHfd1oZKZDaONBSkal7Y01shxsM49R4XaMdGez3WnF9UfiCQ==}
@@ -7370,10 +7370,6 @@ packages:
   type-fest@2.19.0:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
-
-  type-fest@4.39.0:
-    resolution: {integrity: sha512-w2IGJU1tIgcrepg9ZJ82d8UmItNQtOFJG0HCUE3SzMokKkTsruVDALl2fAdiEzJlfduoU+VyXJWIIUZ+6jV+nw==}
-    engines: {node: '>=16'}
 
   type-fest@4.39.1:
     resolution: {integrity: sha512-uW9qzd66uyHYxwyVBYiwS4Oi0qZyUqwjU+Oevr6ZogYiXt99EOYtwvzMSLw1c3lYo2HzJsep/NB23iEVEgjG/w==}
@@ -12268,7 +12264,7 @@ snapshots:
 
   html-tags@3.3.1: {}
 
-  htmlfy@0.6.7: {}
+  htmlfy@0.7.0: {}
 
   htmlparser2@3.10.1:
     dependencies:
@@ -13498,7 +13494,7 @@ snapshots:
       path-to-regexp: 6.3.0
       picocolors: 1.1.1
       strict-event-emitter: 0.5.1
-      type-fest: 4.39.0
+      type-fest: 4.39.1
       yargs: 17.7.2
     optionalDependencies:
       typescript: 5.8.3
@@ -14948,9 +14944,6 @@ snapshots:
   type-fest@0.21.3: {}
 
   type-fest@2.19.0: {}
-
-  type-fest@4.39.0:
-    optional: true
 
   type-fest@4.39.1: {}
 
