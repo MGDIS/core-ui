@@ -1,6 +1,9 @@
 :host {
   z-index: 1000;
+  top: 0;
+  left: 0;
   display: none;
+  width: max-content;
   max-width: var(--mg-b-size-floating-element-max-width);
   box-sizing: border-box;
   padding: var(--mg-b-size-4) var(--mg-b-size-8);
@@ -18,6 +21,7 @@
 }
 
 ::slotted([slot='arrow']) {
+  position: absolute;
   visibility: hidden;
 
   &::before {

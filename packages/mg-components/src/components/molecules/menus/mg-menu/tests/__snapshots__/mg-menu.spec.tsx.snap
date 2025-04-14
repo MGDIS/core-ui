@@ -24,7 +24,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -34,7 +34,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -153,7 +153,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_5" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_5" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -163,7 +163,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -229,7 +229,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -239,7 +239,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -358,7 +358,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_5" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_5" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -368,7 +368,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -767,7 +767,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "itemmore" prop 
             </div>
           </div>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -777,7 +777,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "itemmore" prop 
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -807,7 +807,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "itemmore" prop 
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_1" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_1" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -817,7 +817,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "itemmore" prop 
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -876,7 +876,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "itemmore" prop 
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-item-more-popover" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide id="mg-item-more-popover" slot="content">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -886,7 +886,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "itemmore" prop 
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -929,7 +929,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             </div>
           </div>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -939,7 +939,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -969,7 +969,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_1" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_1" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -979,7 +979,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1038,7 +1038,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide id="mg-popover-test_more-item" slot="content">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -1048,7 +1048,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -1091,7 +1091,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             </div>
           </div>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1101,7 +1101,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1131,7 +1131,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_1" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_1" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1141,7 +1141,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1200,7 +1200,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-placement="bottom-start" data-show id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" data-show id="mg-popover-test_more-item" slot="content">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -1210,7 +1210,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow" style="left: 0; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -1253,7 +1253,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             </div>
           </div>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1263,7 +1263,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1293,7 +1293,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_1" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_1" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1303,7 +1303,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1362,7 +1362,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide id="mg-popover-test_more-item" slot="content">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -1372,7 +1372,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -1415,7 +1415,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             </div>
           </div>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1425,7 +1425,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1455,7 +1455,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_1" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_1" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1465,7 +1465,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1524,7 +1524,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide id="mg-popover-test_more-item" slot="content">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -1534,7 +1534,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "mg-item-more" e
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -1580,7 +1580,7 @@ exports[`mg-menu mg-item-more, with submenu false should update "itemmore" child
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_1" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_1" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1590,7 +1590,7 @@ exports[`mg-menu mg-item-more, with submenu false should update "itemmore" child
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1649,7 +1649,7 @@ exports[`mg-menu mg-item-more, with submenu false should update "itemmore" child
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-item-more-popover" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide id="mg-item-more-popover" slot="content">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -1659,7 +1659,7 @@ exports[`mg-menu mg-item-more, with submenu false should update "itemmore" child
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -1690,7 +1690,7 @@ exports[`mg-menu mg-item-more, with submenu false should update "itemmore" child
                     </div>
                   </div>
                 </button>
-                <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+                <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
                   <template shadowrootmode="open">
                     <mg-card class="mg-c-popover-content">
                       <div class="mg-c-popover-content__title">
@@ -1700,7 +1700,7 @@ exports[`mg-menu mg-item-more, with submenu false should update "itemmore" child
                     </mg-card>
                     <slot name="arrow"></slot>
                   </template>
-                  <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+                  <div data-floating-arrow slot="arrow"></div>
                   <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                     <slot></slot>
                   </div>
@@ -1742,7 +1742,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "itemmore" prop u
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1752,7 +1752,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "itemmore" prop u
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1871,7 +1871,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "itemmore" prop u
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_5" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_5" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1881,7 +1881,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "itemmore" prop u
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1940,7 +1940,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "itemmore" prop u
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-item-more-popover" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide id="mg-item-more-popover" slot="content">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -1950,7 +1950,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "itemmore" prop u
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -1996,7 +1996,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2006,7 +2006,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2125,7 +2125,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_5" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_5" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2135,7 +2135,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2194,7 +2194,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide id="mg-popover-test_more-item" slot="content">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -2204,7 +2204,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -2250,7 +2250,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2260,7 +2260,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2379,7 +2379,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_5" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_5" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2389,7 +2389,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2448,7 +2448,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-placement="bottom-start" data-show id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide data-placement="bottom-start" data-show id="mg-popover-test_more-item" slot="content">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -2458,7 +2458,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow" style="left: 0; top: 1px;"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -2504,7 +2504,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2514,7 +2514,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2633,7 +2633,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_5" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_5" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2643,7 +2643,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2702,7 +2702,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide id="mg-popover-test_more-item" slot="content">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -2712,7 +2712,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -2758,7 +2758,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2768,7 +2768,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2887,7 +2887,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_5" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_5" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2897,7 +2897,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2956,7 +2956,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_more-item" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide id="mg-popover-test_more-item" slot="content">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -2966,7 +2966,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "mg-item-more" ev
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -3012,7 +3012,7 @@ exports[`mg-menu mg-item-more, with submenu true should update "itemmore" childr
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_5" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_5" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -3022,7 +3022,7 @@ exports[`mg-menu mg-item-more, with submenu true should update "itemmore" childr
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -3081,7 +3081,7 @@ exports[`mg-menu mg-item-more, with submenu true should update "itemmore" childr
                 <mg-icon icon="chevron-down"></mg-icon>
               </span>
             </button>
-            <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-item-more-popover" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+            <mg-popover-content data-arrow-hide id="mg-item-more-popover" slot="content">
               <template shadowrootmode="open">
                 <mg-card class="mg-c-popover-content">
                   <div class="mg-c-popover-content__title">
@@ -3091,7 +3091,7 @@ exports[`mg-menu mg-item-more, with submenu true should update "itemmore" childr
                 </mg-card>
                 <slot name="arrow"></slot>
               </template>
-              <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+              <div data-floating-arrow slot="arrow"></div>
               <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
@@ -3125,7 +3125,7 @@ exports[`mg-menu mg-item-more, with submenu true should update "itemmore" childr
                     <mg-icon icon="chevron-down"></mg-icon>
                   </span>
                 </button>
-                <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+                <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
                   <template shadowrootmode="open">
                     <mg-card class="mg-c-popover-content">
                       <div class="mg-c-popover-content__title">
@@ -3135,7 +3135,7 @@ exports[`mg-menu mg-item-more, with submenu true should update "itemmore" childr
                     </mg-card>
                     <slot name="arrow"></slot>
                   </template>
-                  <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+                  <div data-floating-arrow slot="arrow"></div>
                   <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                     <slot></slot>
                   </div>
@@ -3266,7 +3266,7 @@ exports[`mg-menu render with args { direction: 'horizontal' } 1`] = `
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -3276,7 +3276,7 @@ exports[`mg-menu render with args { direction: 'horizontal' } 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -3395,7 +3395,7 @@ exports[`mg-menu render with args { direction: 'horizontal' } 1`] = `
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_5" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_5" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -3405,7 +3405,7 @@ exports[`mg-menu render with args { direction: 'horizontal' } 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -3639,7 +3639,7 @@ exports[`mg-menu render with args { itemmore: [Object] } 1`] = `
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -3649,7 +3649,7 @@ exports[`mg-menu render with args { itemmore: [Object] } 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -3768,7 +3768,7 @@ exports[`mg-menu render with args { itemmore: [Object] } 1`] = `
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_5" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_5" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -3778,7 +3778,7 @@ exports[`mg-menu render with args { itemmore: [Object] } 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -3844,7 +3844,7 @@ exports[`mg-menu render with args {} 1`] = `
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_0" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -3854,7 +3854,7 @@ exports[`mg-menu render with args {} 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -3973,7 +3973,7 @@ exports[`mg-menu render with args {} 1`] = `
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </button>
-        <mg-popover-content data-arrow-hide data-placement="bottom-start" id="mg-popover-test_5" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-arrow-hide id="mg-popover-test_5" slot="content">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -3983,7 +3983,7 @@ exports[`mg-menu render with args {} 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-floating-arrow slot="arrow"></div>
           <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>

@@ -1,7 +1,7 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
 import { createID, focusableElements, getWindows, isValideID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
 import { computePosition, autoUpdate, flip, shift, limitShift, offset, arrow, type Strategy, type Placement } from '@floating-ui/dom';
-import { type GuardType, Guard, type TooltipPlacementType, isFloatingUIPlacement } from './mg-tooltip.conf';
+import { type GuardType, Guard, type TooltipPlacementType, isFloatingUIPlacement, getTransformation, numberToPx } from './mg-tooltip.conf';
 
 /**
  * HTMLMgButtonElement type guard
@@ -23,11 +23,12 @@ export class MgTooltip {
    * Internal *
    ************/
 
-  private floatingUICleanup: ReturnType<typeof autoUpdate>;
   private mgTooltipContent: HTMLMgTooltipContentElement;
   private tooltipedElement: HTMLElement;
+  private arrowElement: HTMLElement;
   private windows: Window[];
   private hasCustomTabIndex: boolean;
+  private tooltipStrategy: Strategy;
 
   // tooltip actions guards
   private guard: GuardType;
@@ -72,7 +73,7 @@ export class MgTooltip {
    */
   @Prop({ mutable: true }) placement: TooltipPlacementType = 'bottom';
   @Watch('placement')
-  watchPlacement(newValue): void {
+  watchPlacement(newValue: TooltipPlacementType): void {
     if (!isFloatingUIPlacement(newValue)) this.placement = 'bottom';
   }
 
@@ -114,6 +115,7 @@ export class MgTooltip {
         localWindow.addEventListener('keydown', this.handlePressEscape, false);
       });
     });
+    this.updateTooltip();
   };
 
   /**
@@ -154,7 +156,9 @@ export class MgTooltip {
    * @param condition - additionnal condition to apply display prop newValue
    */
   private setDisplay = (newValue: MgTooltip['display'], condition = true): void => {
-    if (!this.disabled && condition) this.display = newValue;
+    if (!this.disabled && condition && this.display !== newValue) {
+      this.display = newValue;
+    }
   };
 
   /**
@@ -218,57 +222,49 @@ export class MgTooltip {
   };
 
   /**
-   * Set Floating UI instance
-   * @param strategy - Floating UI strategy to apply on instance
+   * Update tooltip position
+   * @returns autoUpdate function
    */
-  private setFloatingUI = (strategy: Strategy): void => {
-    // Initial styles configuration
-    Object.assign(this.mgTooltipContent.style, {
-      position: strategy,
-      top: '0',
-      left: '0',
-      transform: 'translate(0, 0)',
-    });
-
-    // Create Floating UI instance with autoUpdate
-    this.floatingUICleanup = autoUpdate(this.tooltipedElement, this.mgTooltipContent, () => {
-      computePosition(this.tooltipedElement, this.mgTooltipContent, {
+  private updateTooltip = () =>
+    autoUpdate(this.tooltipedElement, this.mgTooltipContent, async () => {
+      // Placement
+      const { x, y, placement, middlewareData } = await computePosition(this.tooltipedElement, this.mgTooltipContent, {
         placement: this.placement as Placement,
-        strategy,
-        middleware: [offset(8), flip(), shift({ limiter: limitShift() }), arrow({ element: this.mgTooltipContent.querySelector('[data-floating-arrow]') })],
-      }).then(({ x, y, placement, middlewareData }) => {
-        Object.assign(this.mgTooltipContent.style, {
-          transform: !isNaN(x) && !isNaN(y) ? `translate(${x}px, ${y}px)` : undefined,
-        });
-
-        // Update arrow style
-        const { x: arrowX, y: arrowY } = middlewareData.arrow;
-        const staticSide = {
-          top: 'bottom',
-          right: 'left',
-          bottom: 'top',
-          left: 'right',
-        }[placement.split('-')[0]];
-
-        const arrowElement: HTMLElement = this.mgTooltipContent.querySelector('[data-floating-arrow]');
-        // https://floating-ui.com/docs/arrow
-        // Unlike the floating element, which has both coordinates defined at all times, the arrow only has one defined.
-        // Due to this, either x or y will be undefined, depending on the side of placement.
-        // The above code uses `isNaN` to check for null and undefined simultaneously.
-        // Don’t remove `isNaN`, because either value can be falsy (0), causing a bug!
-        const numberToPx = (number: number): string => (!isNaN(number) ? `${number}px` : '');
-
-        Object.assign(arrowElement.style, {
-          left: numberToPx(arrowX),
-          top: numberToPx(arrowY),
-          [staticSide]: '-4px',
-          position: 'absolute',
-        });
-
-        this.mgTooltipContent.setAttribute('data-placement', placement);
+        strategy: this.tooltipStrategy,
+        middleware: [
+          offset(8),
+          flip(),
+          shift({
+            limiter: limitShift(),
+          }),
+          arrow({ element: this.arrowElement }),
+        ],
       });
+
+      // Positioning
+      Object.assign(this.mgTooltipContent.style, {
+        position: this.tooltipStrategy,
+        transform: getTransformation(x, y),
+      });
+
+      // Arrow positioning
+      const { x: arrowX, y: arrowY } = middlewareData.arrow;
+
+      const staticSide = {
+        top: 'bottom',
+        right: 'left',
+        bottom: 'top',
+        left: 'right',
+      }[placement.split('-')[0]];
+
+      Object.assign(this.arrowElement.style, {
+        left: numberToPx(arrowX),
+        top: numberToPx(arrowY),
+        [staticSide]: '-4px',
+      });
+
+      this.mgTooltipContent.setAttribute('data-placement', placement);
     });
-  };
 
   /**
    * Define selected element to become tooltip selector and init listeners
@@ -317,10 +313,8 @@ export class MgTooltip {
       // set guard when one of mutations is for a disabled with disabled-on-click
       if (mutationList.some((mutation: MutationRecord & { target: HTMLMgButtonElement }) => mutation.target.disabled && mutation.target.disableOnClick)) {
         this.guard = Guard.DISABLE_ON_CLICK;
+        return;
       }
-
-      // when the disabled-on-click guard is running we stop process
-      if (this.guard === Guard.DISABLE_ON_CLICK) return;
 
       // update button wrapper
       this.setMgButtonWrapper(mgButton);
@@ -330,8 +324,7 @@ export class MgTooltip {
       this.resetGuard();
 
       // update Floating UI instance
-      this.floatingUICleanup();
-      this.setFloatingUI(this.element.closest('mg-popover') !== null ? 'absolute' : 'fixed');
+      this.updateTooltip();
     }).observe(mgButton, { attributes: true });
   };
 
@@ -397,6 +390,9 @@ export class MgTooltip {
     this.watchDisabled(this.disabled);
     this.watchMessage(this.message);
     this.watchIdentifier(this.identifier);
+
+    // define if the tooltip is inside a popover
+    this.tooltipStrategy = this.element.closest('mg-popover') !== null ? 'absolute' : 'fixed';
   }
 
   /**
@@ -412,6 +408,9 @@ export class MgTooltip {
     const interactiveElement: HTMLElement = slotElement.matches(focusableElements) ? slotElement : slotElement.shadowRoot?.querySelector(focusableElements);
 
     this.setTooltipedElement(interactiveElement || slotElement);
+
+    // Set arrow element
+    this.arrowElement = this.mgTooltipContent.querySelector('[data-floating-arrow]');
 
     // Check if slotted element is a disabled mg-button
     // In this case we wrap the mg-button into a div to enable the tooltip
@@ -431,9 +430,6 @@ export class MgTooltip {
     // apply a11y aria
     this.setAriaDescribedby(slotElement);
 
-    // set Tooltip
-    this.setFloatingUI(this.element.closest('mg-popover') !== null ? 'absolute' : 'fixed');
-
     // add document keyboard handler
     document.addEventListener('keydown', this.handlePressEscape);
 
@@ -445,8 +441,7 @@ export class MgTooltip {
    * update popper position after props change on component did update hook to benefit from render ended
    */
   componentDidUpdate(): void {
-    this.floatingUICleanup();
-    this.setFloatingUI(this.element.closest('mg-popover') !== null ? 'absolute' : 'fixed');
+    this.updateTooltip();
   }
 
   /**
@@ -458,8 +453,7 @@ export class MgTooltip {
       localWindow.removeEventListener('click', this.handleClickOutside, false);
       localWindow.removeEventListener('keydown', this.handlePressEscape, false);
     });
-    // cleanup Floating UI
-    this.floatingUICleanup();
+    this.updateTooltip?.();
   }
 
   /**
