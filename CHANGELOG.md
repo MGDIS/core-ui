@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2025-04-15-10-59_Fat-Fuzzy-Wuzzy-Brown-Ferret)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2025-04-03-15-33_Faint-Forest-Green-Falcon)
 
 ### Packages released

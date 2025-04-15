@@ -1,5 +1,29 @@
 # @mgdis/mg-components
 
+## 6.10.0
+
+### Minor Changes
+
+- 09d02e3: [**`<mg-input-combobox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-combobox--docs) new component
+
+### Patch Changes
+
+- ef89eb4: Update dependencies
+- f750498: Improve doc and remove lint warnings
+- e1d2b09: [#542](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/542) mg-details: restrict click area on `<summary>` element
+- 05aa7b6: [#550](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/550) mg-input-rich-text-editor: Error on build
+- a010412: [#551](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/551) mg-input-numeric: Allow invalid value without triggering form error state
+- bf3215f: [#549](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/549) Lag caused by mg-tooltip since version 6.5.0
+- 1ff1809: [**`<mg-action-more>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-action-more--docs) set fullwidth on `<mg-divider>`
+- Updated dependencies [ef89eb4]
+- Updated dependencies [f750498]
+- Updated dependencies [e1d2b09]
+- Updated dependencies [09d02e3]
+- Updated dependencies [bf3215f]
+  - @mgdis/img@2.4.1
+  - @mgdis/stencil-helpers@3.1.0
+  - @mgdis/styles@2.5.0
+
 ## 6.9.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @mgdis/styles
 
+## 2.5.0
+
+### Minor Changes
+
+- 09d02e3: [**`<mg-input-combobox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-combobox--docs) new component
+
+### Patch Changes
+
+- e1d2b09: [#542](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/542) mg-details: restrict click area on `<summary>` element
+- bf3215f: [#549](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/549) Lag caused by mg-tooltip since version 6.5.0
+
 ## 2.4.1
 
 ### Patch Changes
