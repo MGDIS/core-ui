@@ -35,7 +35,7 @@ import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.con
 import { ColumnsType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
 import { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
-import { TooltipPlacementType } from "./components/atoms/mg-tooltip/mg-tooltip.conf";
+import { Placement } from "@popperjs/core";
 export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
@@ -66,7 +66,7 @@ export { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.con
 export { ColumnsType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
 export { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 export { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
-export { TooltipPlacementType } from "./components/atoms/mg-tooltip/mg-tooltip.conf";
+export { Placement } from "@popperjs/core";
 export namespace Components {
     interface MgActionMore {
         /**
@@ -1696,7 +1696,7 @@ export namespace Components {
         /**
           * Tooltip placement
          */
-        "placement": TooltipPlacementType;
+        "placement": Placement;
     }
     interface MgTooltipContent {
         /**
@@ -4020,7 +4020,7 @@ declare namespace LocalJSX {
         /**
           * Tooltip placement
          */
-        "placement"?: TooltipPlacementType;
+        "placement"?: Placement;
     }
     interface MgTooltipContent {
         /**
