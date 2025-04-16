@@ -1,7 +1,6 @@
 import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event } from '@stencil/core';
 import { createID, getWindows, isValideID, toString } from '@mgdis/stencil-helpers';
-import { computePosition, autoUpdate, flip, shift, limitShift, offset, arrow, type Placement } from '@floating-ui/dom';
-import { isFloatingUIPlacement, type PopoverPlacementType, sides, alignments, getTransformation, numberToPx } from './mg-popover.conf';
+import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 
 /**
  * @slot - Element that will display the popover
@@ -18,11 +17,11 @@ export class MgPopover {
    * Internal *
    ************/
 
+  private popper: PopperInstance;
   private mgPopover: HTMLElement;
   private mgPopoverContent: HTMLMgPopoverContentElement;
   private windows: Window[];
   private interactiveElement: HTMLElement;
-  private arrowElement: HTMLElement;
 
   /**************
    * Decorators *
@@ -50,11 +49,7 @@ export class MgPopover {
   /**
    * Popover placement
    */
-  @Prop({ mutable: true }) placement: PopoverPlacementType = 'bottom';
-  @Watch('placement')
-  watchPlacement(newValue): void {
-    if (!isFloatingUIPlacement(newValue)) this.placement = 'bottom';
-  }
+  @Prop() placement: Placement = 'bottom';
 
   /**
    * Hide popover arrow
@@ -122,12 +117,13 @@ export class MgPopover {
     this.mgPopover.dataset.show = '';
     // Update aria-expanded
     this.interactiveElement.setAttribute('aria-expanded', 'true');
+    // Enable the event listeners
+    this.setPopperListeners(true);
     // hide when click outside
     // setTimeout is used to prevent event to trigger after creation
     setTimeout(() => {
       this.manageClickOutsideListeners('addEventListener');
     });
-    this.updatePopover();
   };
 
   /**
@@ -138,8 +134,21 @@ export class MgPopover {
     this.mgPopover.removeAttribute('data-show');
     // Update aria-expanded
     this.interactiveElement.setAttribute('aria-expanded', 'false');
+    // Disable the event listeners
+    this.setPopperListeners(false);
     // Remove event listener
     this.manageClickOutsideListeners('removeEventListener');
+  };
+
+  /**
+   * Set popper listeners
+   * @param newValue - if true enable popper listners
+   */
+  private setPopperListeners = (newValue: boolean): void => {
+    this.popper.setOptions(options => ({
+      ...options,
+      modifiers: [...options.modifiers, { name: 'eventListeners', enabled: newValue }],
+    }));
   };
 
   /**
@@ -181,7 +190,7 @@ export class MgPopover {
 
       const arrow = document.createElement('div');
       arrow.setAttribute('slot', 'arrow');
-      arrow.dataset.floatingArrow = '';
+      arrow.dataset.popperArrow = '';
       this.mgPopoverContent.appendChild(arrow);
 
       // insert elements in DOM
@@ -196,80 +205,6 @@ export class MgPopover {
     }
   };
 
-  /**
-   * Get alternative placements ordered by proximity to initial placement
-   * First check fallbackPlacement attribute, then generate alternatives:
-   * 1. Same side with different alignments (start, center, end)
-   * 2. Other sides in order
-   * @param placement - initial placement
-   * @returns array of alternative placements
-   */
-  private getClosestPlacements = (placement: PopoverPlacementType): Placement[] => {
-    // First check if fallbackPlacement attribute is defined
-    const fallbackPlacements = (this.element.dataset.fallbackPlacement || '')
-      .split(',')
-      .map(t => t.trim())
-      .filter(isFloatingUIPlacement);
-    if (fallbackPlacements.length > 0) return Array.from(new Set([...fallbackPlacements, ...sides]).values()).filter(isFloatingUIPlacement);
-
-    // Extract side from placement (e.g. "top" from "top-start")
-    const [side] = placement.split('-');
-
-    // Generate placements for same side with different alignments
-    const currentSidePlacements = alignments.map(alignment => (alignment !== null ? `${side}-${alignment}` : side));
-
-    // Return unique placements: current side variants first, then other sides
-    return Array.from(new Set([...currentSidePlacements, ...sides.filter(otherSide => otherSide !== side)])).filter(isFloatingUIPlacement);
-  };
-
-  /**
-   * Update popover position
-   * @returns autoUpdate function
-   */
-  private updatePopover = () =>
-    autoUpdate(this.interactiveElement, this.mgPopover, async () => {
-      const { x, y, placement, middlewareData } = await computePosition(this.interactiveElement, this.mgPopover, {
-        placement: this.placement as Placement,
-        strategy: 'fixed',
-        middleware: [
-          offset(0),
-          flip({
-            fallbackPlacements: this.getClosestPlacements(this.placement),
-          }),
-          shift({
-            limiter: limitShift(),
-          }),
-          arrow({
-            element: this.arrowElement,
-          }),
-        ],
-      });
-
-      Object.assign(this.mgPopover.style, {
-        transform: getTransformation(x, y),
-      });
-
-      // Arrow positioning
-      if (this.arrowElement !== null) {
-        const { x: arrowX, y: arrowY } = middlewareData.arrow;
-
-        const staticSide = {
-          top: 'bottom',
-          right: 'left',
-          bottom: 'top',
-          left: 'right',
-        }[placement.split('-')[0]];
-
-        Object.assign(this.arrowElement.style, {
-          left: numberToPx(arrowX),
-          top: numberToPx(arrowY),
-          [staticSide]: '1px',
-        });
-
-        this.mgPopover.setAttribute('data-placement', placement);
-      }
-    });
-
   /*************
    * Lifecycle *
    *************/
@@ -278,7 +213,7 @@ export class MgPopover {
    * update popper position after props change on component did update hook to benefit from render ended
    */
   componentDidUpdate(): void {
-    this.updatePopover();
+    this.popper.update();
   }
 
   /**
@@ -292,7 +227,6 @@ export class MgPopover {
     this.validateCloseButton(this.closeButton);
     this.validateIdentifier(this.identifier);
     this.validateArrowHide(this.arrowHide);
-    this.watchPlacement(this.placement);
   }
 
   /**
@@ -302,20 +236,40 @@ export class MgPopover {
     // Get popover content
     this.mgPopover = this.element.querySelector(`#${this.identifier}`);
 
-    // Get arrow element
-    this.arrowElement = this.mgPopover.querySelector('[data-floating-arrow]');
-
-    // Get interactive element (first element without slot attribute)
+    //Get interactive element (first element without slot attribute)
     this.interactiveElement = this.element.querySelector(':not([slot])');
-
     // Add aria attributes
     this.interactiveElement.setAttribute('aria-controls', this.identifier);
     this.interactiveElement.setAttribute('aria-expanded', `${this.display}`);
+    const fallbackPlacements = [];
+    if (this.element.dataset.fallbackPlacement !== undefined) {
+      fallbackPlacements.push(this.element.dataset.fallbackPlacement);
+    }
 
-    // Add resize observer
-    [this.interactiveElement, this.mgPopoverContent].forEach(element => {
+    // Create popperjs popover
+    this.popper = createPopper(this.interactiveElement, this.mgPopover, {
+      placement: this.placement,
+      strategy: 'fixed',
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 0],
+          },
+        },
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: [...fallbackPlacements, 'auto'],
+          },
+        },
+      ],
+    });
+
+    // add resize observer
+    [this.interactiveElement, this.element.querySelector('mg-popover-content')].forEach(element => {
       new ResizeObserver(() => {
-        this.updatePopover();
+        this.popper.update();
       }).observe(element);
     });
 
@@ -341,14 +295,6 @@ export class MgPopover {
     });
 
     this.handleDisplay(this.display);
-  }
-
-  /**
-   * Cleanup when component is disconnected
-   */
-  disconnectedCallback(): void {
-    // Cleanup Floating UI instance
-    this.updatePopover?.();
   }
 
   /**
