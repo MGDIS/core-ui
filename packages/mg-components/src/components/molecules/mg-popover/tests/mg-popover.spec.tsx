@@ -24,22 +24,19 @@ const getPage = (args, slot, parent?: boolean) => {
 };
 
 describe('mg-popover', () => {
-  let fireRo = [];
+  let fireRo;
   beforeEach(() => {
     jest.useFakeTimers({ legacyFakeTimers: true });
     setupResizeObserverMock({
       observe: function () {
-        fireRo.push(this.cb);
+        fireRo = this.cb;
       },
       disconnect: function () {
         return null;
       },
     });
   });
-  afterEach(() => {
-    jest.clearAllTimers();
-    fireRo = [];
-  });
+  afterEach(() => jest.clearAllTimers());
 
   test.each([
     { identifier: 'identifier' },
@@ -62,23 +59,6 @@ describe('mg-popover', () => {
       <mg-button>mg-button</mg-button>,
     ]);
     expect(root).toMatchSnapshot();
-  });
-
-  test.each(['auto', 'auto-end', 'auto-start', 'batman'])('Should update placement', async placement => {
-    const args = { identifier: 'identifier', placement };
-    const { doc } = await getPage(args, [
-      <h2 slot="title">Blu bli blo bla</h2>,
-      <p slot="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>,
-      <mg-button>mg-button</mg-button>,
-    ]);
-
-    const mgTooltip = doc.querySelector('mg-popover');
-
-    expect(mgTooltip.placement).toEqual('bottom');
   });
 
   test.each([
@@ -195,7 +175,7 @@ describe('mg-popover', () => {
     }
   });
 
-  test('Should update Floating UI instance when slot updates', async () => {
+  test('Should update popper instance when slot %s update', async () => {
     const page = await getPage({ identifier: 'identifier', display: true }, [
       <h2 slot="title">Blu bli blo bla</h2>,
       <p slot="content">
@@ -207,10 +187,9 @@ describe('mg-popover', () => {
     ]);
     expect(page.root).toMatchSnapshot();
 
-    const spy = jest.spyOn(page.rootInstance, 'updatePopover');
+    const spy = jest.spyOn(page.rootInstance.popper, 'update');
 
-    fireRo[0]([]);
-    await page.waitForChanges();
+    fireRo([]);
 
     expect(spy).toHaveBeenCalled();
     expect(page.root).toMatchSnapshot();
@@ -259,84 +238,5 @@ describe('mg-popover', () => {
 
     expect(popover).not.toHaveAttribute('data-show');
     expect(page.root).toMatchSnapshot();
-  });
-
-  test.each([
-    {
-      initialPlacement: 'bottom',
-      expectedFallbacks: ['bottom-start', 'bottom', 'bottom-end', 'top', 'right', 'left'],
-    },
-    {
-      initialPlacement: 'bottom-start',
-      expectedFallbacks: ['bottom-start', 'bottom', 'bottom-end', 'top', 'right', 'left'],
-    },
-    {
-      initialPlacement: 'right',
-      expectedFallbacks: ['right-start', 'right', 'right-end', 'top', 'bottom', 'left'],
-    },
-    {
-      initialPlacement: 'left',
-      expectedFallbacks: ['left-start', 'left', 'left-end', 'top', 'right', 'bottom'],
-    },
-  ])('Should generate closest fallback placements for $initialPlacement', async ({ initialPlacement, expectedFallbacks }) => {
-    const page = await getPage({ identifier: 'identifier', placement: initialPlacement, display: true }, [
-      <h2 slot="title">Blu bli blo bla</h2>,
-      <p slot="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>,
-    ]);
-
-    const fallbacks = page.rootInstance.getClosestPlacements(initialPlacement);
-
-    expect(fallbacks).toEqual(expectedFallbacks);
-  });
-
-  test('Should include sides in fallback placements when using data-fallback-placement', async () => {
-    const page = await getPage(
-      {
-        identifier: 'identifier',
-        placement: 'bottom',
-        display: true,
-        fallbackPlacement: 'right-start,right-end',
-      },
-      [
-        <h2 slot="title">Blu bli blo bla</h2>,
-        <p slot="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>,
-      ],
-    );
-
-    const fallbacks = page.rootInstance.getClosestPlacements('bottom');
-
-    // The defined fallbackPlacements + the basic sides
-    const expectedFallbacks = ['right-start', 'right-end', 'top', 'right', 'bottom', 'left'];
-    expect(fallbacks).toEqual(expectedFallbacks);
-  });
-
-  test('Should manage disconnectedCallback hook without updatePopover', async () => {
-    const page = await getPage({ identifier: 'identifier', display: true }, [
-      <h2 slot="title">Blu bli blo bla</h2>,
-      <p slot="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>,
-      <mg-button>mg-button</mg-button>,
-    ]);
-
-    expect(page.body).toMatchSnapshot();
-
-    delete page.rootInstance.updatePopover;
-
-    page.doc.querySelector('mg-popover').remove();
-
-    await page.waitForChanges();
-
-    expect(page.body).toMatchSnapshot();
   });
 });
