@@ -1,6 +1,3 @@
-import { type ExtendedPlacement, placements } from '../../../utils/floating-ui.utils';
-export * from '../../../utils/floating-ui.utils';
-
 export type GuardType = 'focus' | 'hoverTooltip' | 'hoverTooltiped' | 'disableOnClick';
 
 export const Guard: Record<string, GuardType> = {
@@ -9,8 +6,3 @@ export const Guard: Record<string, GuardType> = {
   HOVER_TOOLTIPED_ELEMENT: 'hoverTooltiped',
   DISABLE_ON_CLICK: 'disableOnClick',
 };
-
-/**
- * Placement type from placements
- */
-export type TooltipPlacementType = ExtendedPlacement & (typeof placements)[number];
