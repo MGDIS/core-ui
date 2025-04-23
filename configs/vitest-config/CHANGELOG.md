@@ -1,5 +1,11 @@
 # vitest-config
 
+## 1.0.5
+
+### Patch Changes
+
+- de8f8bc: Update dependencies
+
 ## 1.0.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.18
+
+### Patch Changes
+
+- de8f8bc: Update dependencies
+
 ## 4.1.17
 
 ### Patch Changes

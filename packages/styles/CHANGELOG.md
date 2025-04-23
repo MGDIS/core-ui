@@ -1,5 +1,12 @@
 # @mgdis/styles
 
+## 2.5.1
+
+### Patch Changes
+
+- dc041e9: [#549](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/549) Lag caused by mg-tooltip since version 6.5.0
+- de8f8bc: Update dependencies
+
 ## 2.5.0
 
 ### Minor Changes

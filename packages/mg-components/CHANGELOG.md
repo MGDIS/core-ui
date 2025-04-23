@@ -1,5 +1,16 @@
 # @mgdis/mg-components
 
+## 6.10.1
+
+### Patch Changes
+
+- dc041e9: [#549](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/549) Lag caused by mg-tooltip since version 6.5.0
+- de8f8bc: Update dependencies
+- Updated dependencies [dc041e9]
+- Updated dependencies [de8f8bc]
+  - @mgdis/styles@2.5.1
+  - @mgdis/stencil-helpers@3.1.1
+
 ## 6.10.0
 
 ### Minor Changes
