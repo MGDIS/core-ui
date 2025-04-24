@@ -449,8 +449,8 @@ importers:
         specifier: 7.27.0
         version: 7.27.0(@babel/core@7.26.10)(eslint@8.57.1)
       '@html-eslint/eslint-plugin':
-        specifier: 0.38.1
-        version: 0.38.1
+        specifier: 0.39.0
+        version: 0.39.0
       '@html-eslint/parser':
         specifier: 0.39.0
         version: 0.39.0
@@ -1472,17 +1472,14 @@ packages:
   '@gerrit0/mini-shiki@3.2.3':
     resolution: {integrity: sha512-yemSYr0Oiqk5NAQRfbD5DKUTlThiZw1MxTMx/YpQTg6m4QRJDtV2JTYSuNevgx1ayy/O7x+uwDjh3IgECGFY/Q==}
 
-  '@html-eslint/eslint-plugin@0.38.1':
-    resolution: {integrity: sha512-o2i9TtcaBl6tJpR8LYxj9OsVe5x10/PJWk66Cgg64hJKhGsITos+ALgaCxSxhnDL+cHXC+FnSoR/xf2zVTzcOQ==}
+  '@html-eslint/eslint-plugin@0.39.0':
+    resolution: {integrity: sha512-+VdSayjBCE/0cdqJu6YyVAVsduaegevPzWH9hGcKWRJEGu4fKVSRkiecVpznDtMCU8rVJNG8Yif0y+WI0UicNQ==}
 
   '@html-eslint/parser@0.39.0':
     resolution: {integrity: sha512-dM4M/uhT+UWAVKO3Lg2ay46ZlCDzig1eVNxF91DxBpXMsH2esGAVNcDSspebyIebCxtK4gGoM3Ebxb/yNLmA1g==}
 
-  '@html-eslint/template-parser@0.38.0':
-    resolution: {integrity: sha512-Soa3XqkVa9/kEsOHAzcKbHlFfC+9aPwZJzkPm0FVEfNj7ROkK12OfVx6u7JExkNfIeQCLH+u2EnReHDYSj1E8g==}
-
-  '@html-eslint/template-syntax-parser@0.38.0':
-    resolution: {integrity: sha512-+jep+btQkHLbg3WEL2NnqJZWP+pFKemVw2nvuU+Ag327gRI1Fv1N4lluSgWY9lguTn5QhuWzuTYUy51vu9qDmg==}
+  '@html-eslint/template-parser@0.39.0':
+    resolution: {integrity: sha512-OhltZNKZWO1y18Zb4qfSRuGmXmhnQgmgXGBniob03OOL26zUnsnrG2E3+fn3IUk4zu3KqqrfWNnllXgB/kaZ4Q==}
 
   '@html-eslint/template-syntax-parser@0.39.0':
     resolution: {integrity: sha512-3hE0AfpdZhJ6jBPxozvPD/5My9HM5YYf56PRrL+Tvk5p4NnRpqlm2claED75T2ne26zDiPk0pJ9oOo8huxR07Q==}
@@ -8354,21 +8351,19 @@ snapshots:
       '@shikijs/types': 3.2.2
       '@shikijs/vscode-textmate': 10.0.2
 
-  '@html-eslint/eslint-plugin@0.38.1':
+  '@html-eslint/eslint-plugin@0.39.0':
     dependencies:
-      '@html-eslint/template-parser': 0.38.0
-      '@html-eslint/template-syntax-parser': 0.38.0
+      '@html-eslint/template-parser': 0.39.0
+      '@html-eslint/template-syntax-parser': 0.39.0
 
   '@html-eslint/parser@0.39.0':
     dependencies:
       '@html-eslint/template-syntax-parser': 0.39.0
       es-html-parser: 0.1.1
 
-  '@html-eslint/template-parser@0.38.0':
+  '@html-eslint/template-parser@0.39.0':
     dependencies:
       es-html-parser: 0.1.1
-
-  '@html-eslint/template-syntax-parser@0.38.0': {}
 
   '@html-eslint/template-syntax-parser@0.39.0': {}
 
