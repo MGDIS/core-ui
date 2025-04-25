@@ -3893,7 +3893,7 @@ exports[`mg-input-combobox input events Should handle load-more with button and 
               <li aria-selected="false" class="mg-c-input__input-list-item" id="15" role="option">
                 15
               </li>
-              <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
+              <li aria-selected="false" class="mg-c-input__input-list-item mg-c-input__input-list-item--focus-visible" id="1" role="option">
                 1
               </li>
               <li aria-selected="false" class="mg-c-input__input-list-item" id="2" role="option">
@@ -4084,7 +4084,7 @@ exports[`mg-input-combobox input events Should handle load-more with button and 
               <li aria-selected="false" class="mg-c-input__input-list-item" id="15" role="option">
                 15
               </li>
-              <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
+              <li aria-selected="false" class="mg-c-input__input-list-item mg-c-input__input-list-item--focus-visible" id="1" role="option">
                 1
               </li>
               <li aria-selected="false" class="mg-c-input__input-list-item" id="2" role="option">
@@ -4161,6 +4161,28 @@ exports[`mg-input-combobox input events Should handle load-more with button and 
     </mg-input>
   </template>
 </mg-input-combobox>
+`;
+
+exports[`mg-input-combobox input events Should handle option click, case props {
+  items: undefined,
+  fetchurl: 'http://url.fr?filter={q}',
+  fetchmappings: [Object]
+} 1`] = `
+{
+  "data": {
+    "title": "joker",
+    "value": "3",
+  },
+  "title": "joker",
+  "value": "3",
+}
+`;
+
+exports[`mg-input-combobox input events Should handle option click, case props { items: [Array] } 1`] = `
+{
+  "title": "joker",
+  "value": "3",
+}
 `;
 
 exports[`mg-input-combobox input events keyboard Should handle input "ArrowDown" keyboard key without items 1`] = `

@@ -31,17 +31,18 @@
 | `tooltip`                 | `tooltip`          | Add a tooltip message next to the input                                                                                                                   | `string`                                                          | `undefined`       |
 | `tooltipPosition`         | `tooltip-position` | Define tooltip position                                                                                                                                   | `"input" \| "label"`                                              | `'input'`         |
 | `valid`                   | `valid`            | Define input valid state                                                                                                                                  | `boolean`                                                         | `undefined`       |
-| `value`                   | `value`            | Define component value                                                                                                                                    | `string \| { title: string; value: unknown; }`                    | `undefined`       |
+| `value`                   | `value`            | Define component value                                                                                                                                    | `Option & { data?: unknown; } \| string`                          | `undefined`       |
 
 
 ## Events
 
-| Event           | Description                             | Type                                                        |
-| --------------- | --------------------------------------- | ----------------------------------------------------------- |
-| `filter-change` | Emited event when filter change         | `CustomEvent<string>`                                       |
-| `input-valid`   | Emited event when checking validity     | `CustomEvent<boolean>`                                      |
-| `load-more`     | Emited event when `load-more` is called | `CustomEvent<void>`                                         |
-| `value-change`  | Emited event when value change          | `CustomEvent<string \| { title: string; value: unknown; }>` |
+| Event           | Description                                | Type                                                  |
+| --------------- | ------------------------------------------ | ----------------------------------------------------- |
+| `fetch-error`   | Emited event when fetch API throw an error | `CustomEvent<Error>`                                  |
+| `filter-change` | Emited event when filter change            | `CustomEvent<string>`                                 |
+| `input-valid`   | Emited event when checking validity        | `CustomEvent<boolean>`                                |
+| `load-more`     | Emited event when `load-more` is called    | `CustomEvent<void>`                                   |
+| `value-change`  | Emited event when value change             | `CustomEvent<Option & { data?: unknown; } \| string>` |
 
 
 ## Methods
