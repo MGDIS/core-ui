@@ -258,8 +258,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0(eslint@8.57.1)
       eslint-config-turbo:
-        specifier: 2.5.0
-        version: 2.5.0(eslint@8.57.1)(turbo@2.5.1)
+        specifier: 2.5.2
+        version: 2.5.2(eslint@8.57.1)(turbo@2.5.1)
       eslint-plugin-jsdoc:
         specifier: 50.6.10
         version: 50.6.10(eslint@8.57.1)
@@ -4362,8 +4362,8 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
-  eslint-config-turbo@2.5.0:
-    resolution: {integrity: sha512-QJvZBEWDWQx1JyQCr0uwf4aQYhDSAGoHBdx+cPtpPzNEjZw16Ig8BglXxHZBh3I8/fI1U53cLgXwvb28BUZhPA==}
+  eslint-config-turbo@2.5.2:
+    resolution: {integrity: sha512-aZdMUCJE5sC9UHZPOu6GiqCijw0HzlcxTbGZeESMFanYShhxrO6mAZy02zYOYK+y184HnxAngcfmtgDt8cIUxw==}
     peerDependencies:
       eslint: '>6.6.0'
       turbo: '>2.0.0'
@@ -4477,8 +4477,8 @@ packages:
   eslint-plugin-tsdoc@0.4.0:
     resolution: {integrity: sha512-MT/8b4aKLdDClnS8mP3R/JNjg29i0Oyqd/0ym6NnQf+gfKbJJ4ZcSh2Bs1H0YiUMTBwww5JwXGTWot/RwyJ7aQ==}
 
-  eslint-plugin-turbo@2.5.0:
-    resolution: {integrity: sha512-qQk54MrUZv0gnpxV23sccTc+FL3UJ8q7vG7HmXuS2RP8gdjWDwI1CCJTJD8EdRIDjsMxF0xi0AKcMY0CwIlXVg==}
+  eslint-plugin-turbo@2.5.2:
+    resolution: {integrity: sha512-B+vdgOtBuDbRI3sIRayV3HZK1XcwlNuksmJJIgggkXTsNehMEbreJBkIda4qvA/STHnGAl2bUGev0Jx8Rijiwg==}
     peerDependencies:
       eslint: '>6.6.0'
       turbo: '>2.0.0'
@@ -11352,10 +11352,10 @@ snapshots:
     dependencies:
       eslint: 8.57.1
 
-  eslint-config-turbo@2.5.0(eslint@8.57.1)(turbo@2.5.1):
+  eslint-config-turbo@2.5.2(eslint@8.57.1)(turbo@2.5.1):
     dependencies:
       eslint: 8.57.1
-      eslint-plugin-turbo: 2.5.0(eslint@8.57.1)(turbo@2.5.1)
+      eslint-plugin-turbo: 2.5.2(eslint@8.57.1)(turbo@2.5.1)
       turbo: 2.5.1
 
   eslint-import-resolver-node@0.3.9:
@@ -11526,7 +11526,7 @@ snapshots:
       '@microsoft/tsdoc': 0.15.1
       '@microsoft/tsdoc-config': 0.17.1
 
-  eslint-plugin-turbo@2.5.0(eslint@8.57.1)(turbo@2.5.1):
+  eslint-plugin-turbo@2.5.2(eslint@8.57.1)(turbo@2.5.1):
     dependencies:
       dotenv: 16.0.3
       eslint: 8.57.1
