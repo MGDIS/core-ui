@@ -20,4 +20,4 @@ export const toKebabCase = (str: string): string =>
     .replace(/[A-Z]+(?![a-z])|[A-Z]/g, (match, offset) => (offset > 0 ? '-' : '') + match.toLowerCase())
     .replace(/[^a-z0-9-]+/g, '-') // Replace non a-z, 0-9, or hyphen characters with a hyphen
     .replace(/--+/g, '-') // Replace multiple consecutive hyphens with a single hyphen
-    .replace(/^-|-$/g, ''); // Remove leading hyphens or number or trailing hyphens
+    .replace(/(?:^-)|(?:-$)/g, ''); // Remove leading hyphens or number or trailing hyphens
