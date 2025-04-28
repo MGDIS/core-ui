@@ -190,7 +190,7 @@ describe('mg-input-select', () => {
       ],
       selectedOption: 2,
     },
-  ])('Should trigger events for (%s)', async ({ items, selectedOption }) => {
+  ])('Should trigger events for %s', async ({ items, selectedOption }) => {
     const args = { label: 'label', items, identifier: 'identifier', helpText: 'My help text', value: 'blu' };
     const page = await getPage(args);
 
@@ -209,18 +209,24 @@ describe('mg-input-select', () => {
     const inputValidSpy = jest.spyOn(page.rootInstance.inputValid, 'emit');
 
     input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
+
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot(); //Snapshot on focus
 
     input.value = items[selectedOption]?.title || items[selectedOption] || selectedOption;
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+
     await page.waitForChanges();
+    jest.runAllTimers();
+
     const expectedEmitValue = selectedOption !== '' ? (typeof items[selectedOption] === 'object' ? (items[selectedOption] as SelectOption).value : items[selectedOption]) : null;
     expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(expectedEmitValue);
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+
     await page.waitForChanges();
+
     expect(inputValidSpy).toHaveBeenCalledTimes(1);
   });
 
@@ -401,7 +407,9 @@ describe('mg-input-select', () => {
 
     input.value = 'batman';
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+
     await page.waitForChanges();
+    jest.runAllTimers();
 
     expect(page.rootInstance.hasDisplayedError).toEqual(true);
     expect(page.rootInstance.errorMessage).toBeUndefined();
@@ -468,7 +476,7 @@ describe('mg-input-select', () => {
     input.value = 'hello';
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
 
-    await page.waitForChanges();
+    jest.runAllTimers();
 
     expect(element.value).toBe('hello');
     expect(page.rootInstance.inputValid.emit).toHaveBeenCalledWith(false);

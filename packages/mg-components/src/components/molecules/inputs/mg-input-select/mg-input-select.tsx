@@ -408,7 +408,7 @@ export class MgInputSelect {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(!this.isDisabledValue() && (this.readonly || this.disabled || this.input?.checkValidity()));
+    this.setValidity(!this.isDisabledValue() && (this.readonly || this.disabled || this.input.checkValidity()));
   };
 
   /**
