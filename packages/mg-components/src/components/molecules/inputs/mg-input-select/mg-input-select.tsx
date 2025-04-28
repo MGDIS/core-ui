@@ -92,6 +92,12 @@ export class MgInputSelect {
     } else {
       this.readonlyValue = null;
     }
+    setTimeout(() => {
+      this.checkValidity();
+      if (this.hasDisplayedError) {
+        this.setErrorMessage();
+      }
+    }, 0);
     this.valueChange.emit(newValue);
   }
 
@@ -107,7 +113,9 @@ export class MgInputSelect {
     }
     // String array
     else if (allItemsAreString(newValue)) {
-      if (typeof this.value === 'string') this.valueExist = newValue.includes(this.value);
+      if (typeof this.value === 'string') {
+        this.valueExist = newValue.includes(this.value);
+      }
       this.options = newValue.map(item => ({ title: item, value: item }));
     }
     // Object array
@@ -347,14 +355,29 @@ export class MgInputSelect {
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) {
+      this.inputValid.emit(this.valid);
+    }
   }
+
   /**
    * Handle input event
    */
   private handleInput = (): void => {
-    this.updateValue();
-    if (this.hasDisplayedError) this.setErrorMessage();
+    if (this.input.value === '') {
+      this.value = null;
+    } else if (allItemsAreString(this.items) && this.items.includes(this.input.value)) {
+      this.value = this.input.value;
+    } else if (allItemsAreOptions(this.items) && typeof this.input.value === 'string' && this.items.some(this.isInputValue)) {
+      this.value = this.items.find(this.isInputValue).value;
+    } else {
+      // Add the unknown input.value to the options array as a disabled option before setting it as the new value
+      this.options.push({ title: this.input.value, value: this.input.value, disabled: true });
+      this.value = this.input.value;
+    }
+    if (this.hasDisplayedError) {
+      this.setErrorMessage();
+    }
   };
 
   /**
@@ -363,32 +386,6 @@ export class MgInputSelect {
    * @returns truthy if input.value is an item
    */
   private isInputValue = (item: SelectOption): boolean => item.title === this.input?.value;
-
-  /**
-   * value props setter
-   * @param newValue - value to update with
-   */
-  private setValue = (newValue: MgInputSelect['value']): void => {
-    this.checkValidity();
-    this.value = newValue;
-  };
-
-  /**
-   * Update value from input.value
-   */
-  private updateValue = (): void => {
-    if (this.input.value === '') {
-      this.setValue(null);
-    } else if (allItemsAreString(this.items) && this.items.includes(this.input.value)) {
-      this.setValue(this.input.value);
-    } else if (allItemsAreOptions(this.items) && typeof this.input.value === 'string' && this.items.some(this.isInputValue)) {
-      this.setValue(this.items.find(this.isInputValue).value);
-    } else {
-      // before set newValue with push to options[] the unknown input.value with a disable satus
-      this.options.push({ title: this.input.value, value: this.input.value, disabled: true });
-      this.setValue(this.input.value);
-    }
-  };
 
   /**
    * Handle blur event
