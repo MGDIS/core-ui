@@ -92,7 +92,12 @@ export class MgInputSelect {
     } else {
       this.readonlyValue = null;
     }
-    this.checkValidity();
+    setTimeout(() => {
+      this.checkValidity();
+      if (this.hasDisplayedError) {
+        this.setErrorMessage();
+      }
+    }, 0);
     this.valueChange.emit(newValue);
   }
 
@@ -108,7 +113,9 @@ export class MgInputSelect {
     }
     // String array
     else if (allItemsAreString(newValue)) {
-      if (typeof this.value === 'string') this.valueExist = newValue.includes(this.value);
+      if (typeof this.value === 'string') {
+        this.valueExist = newValue.includes(this.value);
+      }
       this.options = newValue.map(item => ({ title: item, value: item }));
     }
     // Object array
@@ -348,7 +355,9 @@ export class MgInputSelect {
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) {
+      this.inputValid.emit(this.valid);
+    }
   }
 
   /**
