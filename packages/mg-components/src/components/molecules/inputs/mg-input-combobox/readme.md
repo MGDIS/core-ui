@@ -1,3 +1,7 @@
+## How to get the full API value ?
+
+When you use the API mode with `fetchurl` prop, you must set the `fetchmappings` prop.
+You will notice that `itemValue` is optional; this allows you to retrieve the full item in the event detail object via `event.detail.value`.
 
 ## Ressources
 
@@ -31,18 +35,18 @@
 | `tooltip`                 | `tooltip`          | Add a tooltip message next to the input                                                                                                                   | `string`                                                          | `undefined`       |
 | `tooltipPosition`         | `tooltip-position` | Define tooltip position                                                                                                                                   | `"input" \| "label"`                                              | `'input'`         |
 | `valid`                   | `valid`            | Define input valid state                                                                                                                                  | `boolean`                                                         | `undefined`       |
-| `value`                   | `value`            | Define component value                                                                                                                                    | `Option & { data?: unknown; } \| string`                          | `undefined`       |
+| `value`                   | `value`            | Define component value                                                                                                                                    | `string \| { title: string; value: unknown; }`                    | `undefined`       |
 
 
 ## Events
 
-| Event           | Description                                | Type                                                  |
-| --------------- | ------------------------------------------ | ----------------------------------------------------- |
-| `fetch-error`   | Emited event when fetch API throw an error | `CustomEvent<Error>`                                  |
-| `filter-change` | Emited event when filter change            | `CustomEvent<string>`                                 |
-| `input-valid`   | Emited event when checking validity        | `CustomEvent<boolean>`                                |
-| `load-more`     | Emited event when `load-more` is called    | `CustomEvent<void>`                                   |
-| `value-change`  | Emited event when value change             | `CustomEvent<Option & { data?: unknown; } \| string>` |
+| Event           | Description                                | Type                                                        |
+| --------------- | ------------------------------------------ | ----------------------------------------------------------- |
+| `fetch-error`   | Emited event when fetch API throw an error | `CustomEvent<Error>`                                        |
+| `filter-change` | Emited event when filter change            | `CustomEvent<string>`                                       |
+| `input-valid`   | Emited event when checking validity        | `CustomEvent<boolean>`                                      |
+| `load-more`     | Emited event when `load-more` is called    | `CustomEvent<void>`                                         |
+| `value-change`  | Emited event when value change             | `CustomEvent<string \| { title: string; value: unknown; }>` |
 
 
 ## Methods

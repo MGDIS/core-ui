@@ -1,5 +1,4 @@
 import type { CursorType } from '@mgdis/stencil-helpers';
-import type { Option } from '../../../../types';
 
 /**
  * Define action type
@@ -14,9 +13,4 @@ export type RequestMappingType = { filter: string };
 /**
  * Define response mapping type
  */
-export type ResponseMappingType = { total: string; items: string; next: string; itemTitle: string; itemValue: string };
-
-/**
- * Define Option with data type
- */
-export type OptionWithData = Option & { data?: unknown };
+export type ResponseMappingType = { total: string; items: string; next: string; itemTitle: string; itemValue?: string };

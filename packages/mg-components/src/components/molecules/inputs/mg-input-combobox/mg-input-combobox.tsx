@@ -1,6 +1,6 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { allItemsAreString, ClassList, getObjectValueFromKey, isValidString, nextTick, Page, Paginate, Cursor, type CursorType, toString, isObject } from '@mgdis/stencil-helpers';
-import { type OptionWithData, type ActionType, type RequestMappingType, type ResponseMappingType } from './mg-input-combobox.conf';
+import { type ActionType, type RequestMappingType, type ResponseMappingType } from './mg-input-combobox.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import type { Option } from '../../../../types';
 import { initLocales } from '../../../../locales';
@@ -36,8 +36,7 @@ const isFetchmappings = (value: unknown): value is MgInputCombobox['fetchmapping
       typeof response.total === 'string' &&
       typeof response.items === 'string' &&
       typeof response.next === 'string' &&
-      typeof response.itemTitle === 'string' &&
-      typeof response.itemValue === 'string';
+      typeof response.itemTitle === 'string';
     return isValidRequest && isValidResponse;
   } else {
     return isValidRoot;
@@ -86,7 +85,7 @@ export class MgInputCombobox {
   /**
    * Define component value
    */
-  @Prop({ mutable: true, reflect: true }) value: string | OptionWithData;
+  @Prop({ mutable: true, reflect: true }) value: string | Option;
   @Watch('value')
   watchValue(newValue: MgInputCombobox['value']): void {
     this.filter = this.getValueTitle();
@@ -483,7 +482,7 @@ export class MgInputCombobox {
    * @param event - option element click event
    */
   private handleOptionClick = (event: MouseEvent & { target: HTMLLIElement }) => {
-    this.setValue(this.options.items.find(option => option.value === event.target.id));
+    this.setValue(this.options.items.find(option => this.formatId(option.value) === event.target.id));
     this.popoverDisplay = false;
   };
 
@@ -694,8 +693,10 @@ export class MgInputCombobox {
   private setValue(newValue: MgInputCombobox['option'] | null): void {
     if (!isItem(newValue)) {
       this.value = '';
+    } else if (allItemsAreString(this.items || this.options.items)) {
+      this.value = newValue.title;
     } else {
-      this.value = allItemsAreString(this.items || this.options.items) ? newValue.title : { ...newValue };
+      this.value = { ...newValue };
     }
   }
 
@@ -876,10 +877,9 @@ export class MgInputCombobox {
       }
       const json = await response.json();
       const items = getObjectValueFromKey<Response, Option[]>(json, this.fetchmappings.response.items).map(
-        (item): OptionWithData => ({
-          data: item,
+        (item): Option => ({
           title: getObjectValueFromKey<unknown, Option['title']>(item, this.fetchmappings.response.itemTitle),
-          value: getObjectValueFromKey<unknown, Option['value']>(item, this.fetchmappings.response.itemValue),
+          value: this.fetchmappings.response.itemValue ? getObjectValueFromKey<unknown, Option['value']>(item, this.fetchmappings.response.itemValue) : item,
         }),
       );
       const total = Number(getObjectValueFromKey<Response, number>(json, this.fetchmappings.response.total, 0));
@@ -887,6 +887,24 @@ export class MgInputCombobox {
       return { items, total, next, top: items.length };
     } catch (error) {
       this.fetchError.emit(error);
+    }
+  };
+
+  /**
+   * Format id from value
+   * @param value - id to transforme
+   * @returns valid id
+   */
+  private formatId = (value: unknown): string => {
+    if (typeof value === 'string') {
+      return value;
+    } else if (isObject(value)) {
+      // TODO integrate helper from https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/555
+      return JSON.stringify(value);
+    } else if (value !== null && value !== undefined) {
+      return String(value);
+    } else {
+      return value;
     }
   };
 
@@ -936,6 +954,15 @@ export class MgInputCombobox {
     else if (this.page?.items.length === 0 && Boolean(this.filter)) popoverContent = 'notfound';
     else if (this.page?.items.length === 0) popoverContent = 'notavailable';
 
+    let activeDescendant;
+    if (Boolean(this.option?.value)) {
+      activeDescendant = this.option.value;
+    } else if (typeof this.value === 'string') {
+      activeDescendant = this.value;
+    } else {
+      activeDescendant = this.value?.value;
+    }
+
     return (
       <mg-input
         label={this.label}
@@ -983,7 +1010,7 @@ export class MgInputCombobox {
                 aria-expanded={this.popoverDisplay.toString()}
                 aria-controls={listId}
                 aria-invalid={(this.invalid === true).toString()}
-                aria-activedescendant={Boolean(this.option?.value) ? this.option.value : typeof this.value === 'string' ? this.value : this.value?.value}
+                aria-activedescendant={this.formatId(activeDescendant)}
                 onInput={this.handleFilterInput}
                 onBlur={this.handleFilterBlur}
                 onFocus={this.handleFilterFocus}
@@ -1020,11 +1047,11 @@ export class MgInputCombobox {
                         role="option"
                         class={{
                           'mg-c-input__input-list-item': true,
-                          'mg-c-input__input-list-item--focus-visible': this.option?.value === option.value,
+                          'mg-c-input__input-list-item--focus-visible': JSON.stringify(this.option?.value) === JSON.stringify(option.value),
                           'mg-c-input__input-list-item--selected': this.isCurrentOption(option),
                         }}
                         key={option.title}
-                        id={option.value.toString()}
+                        id={this.formatId(option.value)}
                         aria-selected={this.isCurrentOption(option).toString()}
                         onClick={this.handleOptionClick}
                       >

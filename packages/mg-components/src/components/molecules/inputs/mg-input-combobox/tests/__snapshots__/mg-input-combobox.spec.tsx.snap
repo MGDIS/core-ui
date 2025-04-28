@@ -1243,6 +1243,94 @@ exports[`mg-input-combobox Should render with args {
 `;
 
 exports[`mg-input-combobox Should render with args {
+  items: undefined,
+  fetchurl: 'http://url.fr?filter={q}',
+  fetchmappings: [Object]
+}: 2`] = `
+<mg-input-combobox data-mg-popover-guard="identifier-popover">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-popover arrow-hide="" data-fallback-placement="bottom-end" style="--mg-c-input-append-x: 1;">
+        <template shadowrootmode="open">
+          <slot></slot>
+          <slot name="content"></slot>
+        </template>
+        <div aria-controls="identifier-popover" aria-expanded="false" class="mg-c-input__input-group-container">
+          <mg-icon>
+            <template shadowrootmode="open">
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--magnifying-glass mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M2 7a5 5 0 1 1 8.872 3.164l3.127 3.128-.707.707-3.128-3.128A5 5 0 0 1 2 7m5 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </template>
+          </mg-icon>
+          <input aria-autocomplete="list" aria-controls="identifier-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" role="combobox" type="text" value="">
+          <mg-button aria-disabled="false" aria-label="Dc Comics" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon>
+              <template shadowrootmode="open">
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+                </svg>
+              </template>
+            </mg-icon>
+          </mg-button>
+        </div>
+        <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom-start" data-popper-reference-hidden id="identifier-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <template shadowrootmode="open">
+            <mg-card class="mg-c-popover-content">
+              <div class="mg-c-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </template>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="{&quot;title&quot;:&quot;batman&quot;,&quot;value&quot;:&quot;1&quot;}" role="option">
+                batman
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="{&quot;title&quot;:&quot;robin&quot;,&quot;value&quot;:&quot;2&quot;}" role="option">
+                robin
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="{&quot;title&quot;:&quot;joker&quot;,&quot;value&quot;:&quot;3&quot;}" role="option">
+                joker
+              </li>
+            </ul>
+          </div>
+        </mg-popover-content>
+      </mg-popover>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-combobox>
+`;
+
+exports[`mg-input-combobox Should render with args {
   readonly: true,
   labelOnTop: true,
   tooltip: 'Tooltip message',
@@ -1839,6 +1927,90 @@ exports[`mg-input-combobox Should render with args { items: [Array] }: 1`] = `
 `;
 
 exports[`mg-input-combobox Should render with args { items: [Array] }: 2`] = `
+<mg-input-combobox data-mg-popover-guard="identifier-popover">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-popover arrow-hide="" data-fallback-placement="bottom-end" style="--mg-c-input-append-x: 1;">
+        <template shadowrootmode="open">
+          <slot></slot>
+          <slot name="content"></slot>
+        </template>
+        <div aria-controls="identifier-popover" aria-expanded="false" class="mg-c-input__input-group-container">
+          <mg-icon>
+            <template shadowrootmode="open">
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--magnifying-glass mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M2 7a5 5 0 1 1 8.872 3.164l3.127 3.128-.707.707-3.128-3.128A5 5 0 0 1 2 7m5 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </template>
+          </mg-icon>
+          <input aria-autocomplete="list" aria-controls="identifier-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" role="combobox" type="text" value="">
+          <mg-button aria-disabled="false" aria-label="Dc Comics" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon>
+              <template shadowrootmode="open">
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-down mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m8 11.708 6-6L13.293 5 8 10.293 2.708 5 2 5.708z" fill="currentColor"></path>
+                </svg>
+              </template>
+            </mg-icon>
+          </mg-button>
+        </div>
+        <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom-start" data-popper-reference-hidden id="identifier-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <template shadowrootmode="open">
+            <mg-card class="mg-c-popover-content">
+              <div class="mg-c-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </template>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="1" role="option">
+                batman
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="2" role="option">
+                robin
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="3" role="option">
+                joker
+              </li>
+            </ul>
+          </div>
+        </mg-popover-content>
+      </mg-popover>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-combobox>
+`;
+
+exports[`mg-input-combobox Should render with args { items: [Array] }: 3`] = `
 <mg-input-combobox data-mg-popover-guard="identifier-popover">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
@@ -4169,12 +4341,22 @@ exports[`mg-input-combobox input events Should handle option click, case props {
   fetchmappings: [Object]
 } 1`] = `
 {
-  "data": {
+  "title": "joker",
+  "value": "3",
+}
+`;
+
+exports[`mg-input-combobox input events Should handle option click, case props {
+  items: undefined,
+  fetchurl: 'http://url.fr?filter={q}',
+  fetchmappings: [Object]
+} 2`] = `
+{
+  "title": "joker",
+  "value": {
     "title": "joker",
     "value": "3",
   },
-  "title": "joker",
-  "value": "3",
 }
 `;
 

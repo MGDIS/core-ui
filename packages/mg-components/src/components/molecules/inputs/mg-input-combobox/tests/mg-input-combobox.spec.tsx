@@ -106,9 +106,17 @@ describe('mg-input-combobox', () => {
       items: objectItems,
     },
     {
+      items: objectItems.map(item => ({ ...item, value: Number(item.value) })),
+    },
+    {
       items: undefined,
       fetchurl,
       fetchmappings,
+    },
+    {
+      items: undefined,
+      fetchurl,
+      fetchmappings: { ...fetchmappings, response: { ...fetchmappings.response, itemValue: undefined } },
     },
     {
       items: undefined,
@@ -469,13 +477,6 @@ describe('mg-input-combobox', () => {
             itemTitle: value,
           },
         },
-        {
-          request: { ...RequestMapping },
-          response: {
-            ...ResponseMapping,
-            itemValue: value,
-          },
-        },
       ]),
     ])('Should not render with invalid "fetchmappings" property', async fetchmappings => {
       expect.assertions(1);
@@ -679,7 +680,12 @@ describe('mg-input-combobox', () => {
   });
 
   describe('input events', () => {
-    test.each([{ items }, { items: objectItems }, { items: undefined, fetchurl, fetchmappings }])('Should handle option click, case props %s', async props => {
+    test.each([
+      { items },
+      { items: objectItems },
+      { items: undefined, fetchurl, fetchmappings },
+      { items: undefined, fetchurl, fetchmappings: { ...fetchmappings, response: { ...fetchmappings.response, itemValue: undefined } } },
+    ])('Should handle option click, case props %s', async props => {
       const page = await getPage({ ...baseProps, ...props });
       const element = page.doc.querySelector('mg-input-combobox');
       const input = element.shadowRoot.querySelector('input');

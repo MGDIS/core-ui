@@ -14,8 +14,8 @@ import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from ".
 import { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-import { OptionWithData, RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 import { Direction, Option } from "./types";
+import { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
@@ -44,8 +44,8 @@ export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from ".
 export { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-export { OptionWithData, RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 export { Direction, Option } from "./types";
+export { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
@@ -550,7 +550,7 @@ export namespace Components {
         /**
           * Define component value
          */
-        "value": string | OptionWithData;
+        "value": string | Option;
     }
     interface MgInputDate {
         /**
@@ -2891,7 +2891,7 @@ declare namespace LocalJSX {
         /**
           * Define component value
          */
-        "value"?: string | OptionWithData;
+        "value"?: string | Option;
     }
     interface MgInputDate {
         /**
