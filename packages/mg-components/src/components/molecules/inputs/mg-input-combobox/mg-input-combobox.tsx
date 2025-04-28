@@ -514,12 +514,13 @@ export class MgInputCombobox {
     if (!this.popoverDisplay) this.popoverDisplay = true;
 
     // update filter with debounce to prevent filter update overload
-    if (this.debounce) return;
-    this.debounce = true;
-    setTimeout(() => {
-      this.filter = this.input.value;
-      this.debounce = false;
-    }, 250);
+    if (!this.debounce) {
+      this.debounce = true;
+      setTimeout(() => {
+        this.filter = this.input.value;
+        this.debounce = false;
+      }, 250);
+    }
   };
 
   /**
