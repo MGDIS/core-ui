@@ -35,6 +35,17 @@ test.describe('mg-details', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
+  ['', '<span slot="summary"></span>', '<span slot="summary">       </span>'].forEach(summarySlot => {
+    test(`Should keep toggle text when window size is under 700px and with empty summary: ${summarySlot}`, async ({ page }) => {
+      const html = createHTML({ ...baseArgs, expanded: true }, summarySlot);
+      await page.setContent(html);
+
+      await page.setViewportSize({ width: 650, height: 100 });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
+
   [0, 5].forEach(space => {
     test(`Should update space (${space}) between summary and details`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, expanded: true });

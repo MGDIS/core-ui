@@ -7,7 +7,7 @@ const getPage = args =>
     components: [MgDetails],
     template: () => (
       <mg-details {...args}>
-        {args.slotSummary ? (
+        {args.slotSummary !== undefined ? (
           args.slotSummary
         ) : (
           <span slot="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
@@ -27,6 +27,11 @@ describe('mg-details', () => {
     { toggleClosed: 'Show details', toggleOpened: 'Hide details', hideSummary: true },
   ])('with args %s', async args => {
     const { root } = await getPage(args);
+    expect(root).toMatchSnapshot();
+  });
+
+  test.each(['', <span slot="summary"></span>, <span slot="summary"> </span>])('with empty summary slot', async slotSummary => {
+    const { root } = await getPage({ toggleClosed: 'Show details', toggleOpened: 'Hide details', slotSummary });
     expect(root).toMatchSnapshot();
   });
 
