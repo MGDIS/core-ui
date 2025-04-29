@@ -17,6 +17,7 @@ import {
   Page,
   Cursor,
   type CursorType,
+  formatID,
 } from './';
 
 const initArray = length => new Array(length).fill('').map((_, key) => (key + 1).toString());
@@ -47,6 +48,25 @@ describe('components.utils', () => {
     test.each(['hello', 'hello-batman', 'hello-batman-in-gotham', 'hello-1'])('Should validate ID : %s', id => {
       const valide = isValideID(id);
       expect(valide).toEqual(true);
+    });
+  });
+
+  describe('formatID', () => {
+    test.each([
+      ['UPPERCASE', 'uppercase'],
+      ['camelCase', 'camel-case'],
+      ['PascalCase', 'pascal-case'],
+      ['text/is/href', 'text-is-href'],
+      [1, '1'],
+      [{ href: 'text/is/href' }, 'href-text-is-href'],
+      [[{ href: 'text/is/href' }], 'href-text-is-href'],
+      [null, undefined],
+      [undefined, undefined],
+      [true, undefined],
+      [false, undefined],
+    ])('Should format value as valid ID : %s', (input, expected) => {
+      const id = formatID(input);
+      expect(id).toEqual(expected);
     });
   });
 

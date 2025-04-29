@@ -1962,6 +1962,7 @@ declare global {
         "filter-change": string;
         "load-more": void;
         "input-valid": HTMLMgInputComboboxElement['valid'];
+        "fetch-error": Error;
     }
     interface HTMLMgInputComboboxElement extends Components.MgInputCombobox, HTMLStencilElement {
         addEventListener<K extends keyof HTMLMgInputComboboxElementEventMap>(type: K, listener: (this: HTMLMgInputComboboxElement, ev: MgInputComboboxCustomEvent<HTMLMgInputComboboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2843,6 +2844,10 @@ declare namespace LocalJSX {
           * Input name If not set the value equals the identifier
          */
         "name"?: string;
+        /**
+          * Emited event when fetch API throw an error
+         */
+        "onFetch-error"?: (event: MgInputComboboxCustomEvent<Error>) => void;
         /**
           * Emited event when filter change
          */

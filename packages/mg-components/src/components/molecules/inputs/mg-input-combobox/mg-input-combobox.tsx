@@ -1,5 +1,18 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
-import { allItemsAreString, ClassList, getObjectValueFromKey, isValidString, nextTick, Page, Paginate, Cursor, type CursorType, toString, isObject } from '@mgdis/stencil-helpers';
+import {
+  allItemsAreString,
+  ClassList,
+  getObjectValueFromKey,
+  isValidString,
+  nextTick,
+  Page,
+  Paginate,
+  Cursor,
+  type CursorType,
+  toString,
+  isObject,
+  formatID,
+} from '@mgdis/stencil-helpers';
 import { type ActionType, type RequestMappingType, type ResponseMappingType } from './mg-input-combobox.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import type { Option } from '../../../../types';
@@ -37,32 +50,10 @@ const isFetchmappings = (value: unknown): value is MgInputCombobox['fetchmapping
       typeof response.items === 'string' &&
       typeof response.next === 'string' &&
       typeof response.itemTitle === 'string' &&
-      typeof response.itemValue === 'string';
+      (typeof response.itemValue === 'string' || response.itemValue === undefined);
     return isValidRequest && isValidResponse;
   } else {
     return isValidRoot;
-  }
-};
-
-/**
- * Map new URL from old url
- * @param newValue - new URL value
- * @param oldValue - previous URL value
- * @returns updated url
- */
-const mapUrl = (newValue: string, oldValue: string): string => {
-  if (!Boolean(newValue)) return;
-  else if (URL.canParse(newValue)) {
-    return newValue;
-  }
-
-  // build new URL
-  const params = newValue.includes('?') && newValue.split('?').pop();
-  if (Boolean(params)) {
-    const { origin, pathname } = new URL(oldValue);
-    return `${origin}${pathname}?${params}`;
-  } else {
-    return newValue;
   }
 };
 
@@ -92,6 +83,7 @@ export class MgInputCombobox {
 
   private handlerInProgress: EventType;
   private loadingAction: ActionType['name'];
+  private debounce: boolean;
 
   private page: Page<Option>;
 
@@ -278,8 +270,8 @@ export class MgInputCombobox {
   @Prop() fetchurl?: string | URL;
   @Watch('fetchurl')
   watchFetchUrl(newValue: MgInputCombobox['fetchurl']): void {
-    if (newValue && !URL.canParse(newValue)) {
-      throw new Error(`<mg-input-combobox> prop "fetchurl" value must be URL or string. Passed value: ${toString(newValue)}.`);
+    if (Boolean(newValue)) {
+      this.loadingWrapper({ name: 'load-data' });
     }
   }
 
@@ -431,6 +423,11 @@ export class MgInputCombobox {
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputComboboxElement['valid']>;
 
   /**
+   * Emited event when fetch API throw an error
+   */
+  @Event({ eventName: 'fetch-error' }) fetchError: EventEmitter<Error>;
+
+  /**
    * Public method to play input focus
    */
   @Method()
@@ -499,7 +496,7 @@ export class MgInputCombobox {
    * @param event - option element click event
    */
   private handleOptionClick = (event: MouseEvent & { target: HTMLLIElement }) => {
-    this.setValue(this.options.items.find(option => option.value === event.target.id));
+    this.setValue(this.options.items.find(option => formatID(option.value) === event.target.id));
     this.popoverDisplay = false;
   };
 
@@ -528,7 +525,15 @@ export class MgInputCombobox {
     this.checkValidity();
     if (this.hasDisplayedError) this.setErrorMessage();
     if (!this.popoverDisplay) this.popoverDisplay = true;
-    this.filter = this.input.value;
+
+    // update filter with debounce to prevent filter update overload
+    if (!this.debounce) {
+      this.debounce = true;
+      setTimeout(() => {
+        this.filter = this.input.value;
+        this.debounce = false;
+      }, 250);
+    }
   };
 
   /**
@@ -702,8 +707,10 @@ export class MgInputCombobox {
   private setValue(newValue: MgInputCombobox['option'] | null): void {
     if (!isItem(newValue)) {
       this.value = '';
+    } else if (allItemsAreString(this.items || this.options.items)) {
+      this.value = newValue.title;
     } else {
-      this.value = allItemsAreString(this.items || this.options.items) ? newValue.title : { ...newValue };
+      this.value = { ...newValue };
     }
   }
 
@@ -877,18 +884,24 @@ export class MgInputCombobox {
     const updateUrl = (typeof url === 'string' ? url : url.toString()).replaceAll(this.fetchmappings.request.filter, encodeURIComponent(this.filter));
 
     try {
-      const response = await fetch(updateUrl, this.fetchoptions).then(response => response.json());
-      if (!response) return null;
-      const items = getObjectValueFromKey<Response, Option[]>(response, this.fetchmappings.response.items).map(
+      const response = await fetch(updateUrl, this.fetchoptions);
+      if (!response.ok) {
+        this.fetchError.emit(new Error(`${response.status} - ${response.statusText}`));
+        return;
+      }
+      const json = await response.json();
+      const items = getObjectValueFromKey<Response, Option[]>(json, this.fetchmappings.response.items).map(
         (item): Option => ({
           title: getObjectValueFromKey<unknown, Option['title']>(item, this.fetchmappings.response.itemTitle),
-          value: getObjectValueFromKey<unknown, Option['value']>(item, this.fetchmappings.response.itemValue),
+          value: this.fetchmappings.response.itemValue ? getObjectValueFromKey<unknown, Option['value']>(item, this.fetchmappings.response.itemValue) : item,
         }),
       );
-      const total = Number(getObjectValueFromKey<Response, number>(response, this.fetchmappings.response.total, 0));
-      const next = mapUrl(getObjectValueFromKey<Response, string>(response, this.fetchmappings.response.next), this.fetchurl.toString());
+      const total = Number(getObjectValueFromKey<Response, number>(json, this.fetchmappings.response.total, 0));
+      const next = getObjectValueFromKey<Response, string>(json, this.fetchmappings.response.next);
       return { items, total, next, top: items.length };
-    } catch {}
+    } catch (error) {
+      this.fetchError.emit(error);
+    }
   };
 
   /*************
@@ -906,7 +919,6 @@ export class MgInputCombobox {
     this.watchIdentifier(this.identifier);
     this.watchItems(this.items);
     if (Boolean(this.fetchurl)) {
-      this.watchFetchUrl(this.fetchurl);
       this.watchFetchOptions(this.fetchoptions);
       this.watchFetchMappings(this.fetchmappings);
       this.loadingWrapper({ name: 'load-data' });
@@ -937,6 +949,15 @@ export class MgInputCombobox {
     if (this.page?.items.length > 0) popoverContent = 'list';
     else if (this.page?.items.length === 0 && Boolean(this.filter)) popoverContent = 'notfound';
     else if (this.page?.items.length === 0) popoverContent = 'notavailable';
+
+    let activeDescendant;
+    if (Boolean(this.option?.value)) {
+      activeDescendant = this.option.value;
+    } else if (typeof this.value === 'string') {
+      activeDescendant = this.value;
+    } else {
+      activeDescendant = this.value?.value;
+    }
 
     return (
       <mg-input
@@ -985,7 +1006,7 @@ export class MgInputCombobox {
                 aria-expanded={this.popoverDisplay.toString()}
                 aria-controls={listId}
                 aria-invalid={(this.invalid === true).toString()}
-                aria-activedescendant={Boolean(this.option?.value) ? this.option.value : typeof this.value === 'string' ? this.value : this.value?.value}
+                aria-activedescendant={formatID(activeDescendant)}
                 onInput={this.handleFilterInput}
                 onBlur={this.handleFilterBlur}
                 onFocus={this.handleFilterFocus}
@@ -1022,11 +1043,11 @@ export class MgInputCombobox {
                         role="option"
                         class={{
                           'mg-c-input__input-list-item': true,
-                          'mg-c-input__input-list-item--focus-visible': this.option === option,
+                          'mg-c-input__input-list-item--focus-visible': JSON.stringify(this.option?.value) === JSON.stringify(option.value),
                           'mg-c-input__input-list-item--selected': this.isCurrentOption(option),
                         }}
                         key={option.title}
-                        id={option.value.toString()}
+                        id={formatID(option.value)}
                         aria-selected={this.isCurrentOption(option).toString()}
                         onClick={this.handleOptionClick}
                       >
