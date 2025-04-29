@@ -13,4 +13,4 @@ export type RequestMappingType = { filter: string };
 /**
  * Define response mapping type
  */
-export type ResponseMappingType = { total: string; items: string; next: string; itemTitle: string; itemValue: string };
+export type ResponseMappingType = { total: string; items: string; next: string; itemTitle: string; itemValue?: string };

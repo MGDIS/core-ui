@@ -98,11 +98,20 @@ prepare_package "packages/playwright-helpers/package.json" '{
   types
 }'
 
+
+# Prepare packages/mg-components-helpers/package.json
+prepare_package "packages/mg-components-helpers/package.json" '{
+  name,
+}'
+
 # Prepare packages/stencil-helpers/package.json
 prepare_package "packages/stencil-helpers/package.json" '{
   name, 
   main,
-  types
+  types,
+  "dependencies": { 
+    "@mgdis/mg-components-helpers": .dependencies."@mgdis/mg-components-helpers",
+  }
 }'
 
 # Create turbo.json

@@ -34,6 +34,7 @@ import {
   Paginate,
   Page,
   Cursor,
+  formatID,
 } from '.';
 
 describe('stencil-helpers', () => {
@@ -41,6 +42,7 @@ describe('stencil-helpers', () => {
     test('import', () => {
       expect(createID).toBeDefined();
       expect(ClassList).toBeDefined();
+      expect(formatID).toBeDefined();
       expect(allItemsAreString).toBeDefined();
       expect(isTagName).toBeDefined();
       expect(focusableElements).toBeDefined();

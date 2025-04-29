@@ -26,6 +26,7 @@ const objectItems = items.map((item, key) => ({
 const initFetchSpy = (overrides = {}) =>
   jest.spyOn(global, 'fetch').mockResolvedValue(
     Promise.resolve({
+      ok: true,
       json: () =>
         Promise.resolve(
           overrides === null
@@ -105,9 +106,17 @@ describe('mg-input-combobox', () => {
       items: objectItems,
     },
     {
+      items: objectItems.map(item => ({ ...item, value: Number(item.value) })),
+    },
+    {
       items: undefined,
       fetchurl,
       fetchmappings,
+    },
+    {
+      items: undefined,
+      fetchurl,
+      fetchmappings: { ...fetchmappings, response: { ...fetchmappings.response, itemValue: undefined } },
     },
     {
       items: undefined,
@@ -263,6 +272,9 @@ describe('mg-input-combobox', () => {
       await page.waitForChanges();
       input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
       await page.waitForChanges();
+      // run debounce
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
 
       // Error message should disapear but we keep the hasDisplayedError status
       expect(page.rootInstance.hasDisplayedError).toEqual(true);
@@ -409,15 +421,6 @@ describe('mg-input-combobox', () => {
       }
     });
 
-    test('Should not render with invalid "fetchurl" property', async () => {
-      expect.assertions(1);
-      try {
-        await getPage({ ...baseProps, items: undefined, fetchurl: 'url', fetchmappings });
-      } catch (err) {
-        expect(err.message).toEqual(`<mg-input-combobox> prop "fetchurl" value must be URL or string. Passed value: ${toString('url')}.`);
-      }
-    });
-
     test('Should not render with undefined "fetchmappings" property', async () => {
       expect.assertions(1);
       try {
@@ -474,6 +477,8 @@ describe('mg-input-combobox', () => {
             itemTitle: value,
           },
         },
+      ]),
+      ...[null, 1, [], {}].flatMap(value => [
         {
           request: { ...RequestMapping },
           response: {
@@ -530,6 +535,10 @@ describe('mg-input-combobox', () => {
         // Simulate input with invalid value
         input.value = 'joker';
         input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+        await page.waitForChanges();
+
+        // run debounce
+        jest.runOnlyPendingTimers();
         await page.waitForChanges();
 
         // click en first item
@@ -680,7 +689,12 @@ describe('mg-input-combobox', () => {
   });
 
   describe('input events', () => {
-    test.each([{ items }, { items: objectItems }, { items: undefined, fetchurl, fetchmappings }])('Should handle option click, case props %s', async props => {
+    test.each([
+      { items },
+      { items: objectItems },
+      { items: undefined, fetchurl, fetchmappings },
+      { items: undefined, fetchurl, fetchmappings: { ...fetchmappings, response: { ...fetchmappings.response, itemValue: undefined } } },
+    ])('Should handle option click, case props %s', async props => {
       const page = await getPage({ ...baseProps, ...props });
       const element = page.doc.querySelector('mg-input-combobox');
       const input = element.shadowRoot.querySelector('input');
@@ -698,6 +712,9 @@ describe('mg-input-combobox', () => {
       input.value = 'jok';
       input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
       await page.waitForChanges();
+      // run debounce
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
 
       // select option
       element.shadowRoot.querySelector('li').dispatchEvent(new MouseEvent('click', { bubbles: true }));
@@ -711,7 +728,7 @@ describe('mg-input-combobox', () => {
       if (props.items && typeof props.items[0] === 'string') {
         expect(page.rootInstance.value).toEqual('joker');
       } else {
-        expect(page.rootInstance.value).toEqual({ title: 'joker', value: '3' });
+        expect(page.rootInstance.value).toMatchSnapshot();
       }
       expect(element.shadowRoot.querySelector('mg-popover').display).toEqual(false);
     });
@@ -759,6 +776,50 @@ describe('mg-input-combobox', () => {
       input.value = 'joke';
       input.dispatchEvent(new MouseEvent('input', { bubbles: true }));
       await page.waitForChanges();
+
+      // run debounce
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
+
+      // Verify initial value is set and popover to be displaied
+      expect(element.value).toEqual('joker');
+      expect(popover.display).toEqual(true);
+    });
+    test('Should handle filter input with debounce', async () => {
+      const page = await getPage({ ...baseProps, value: 'joker' });
+      const element = page.doc.querySelector('mg-input-combobox');
+      const input = element.shadowRoot.querySelector('input');
+      const popover = element.shadowRoot.querySelector('mg-popover');
+      const spy = jest.spyOn(page.rootInstance, 'loadingWrapper');
+      // test intial loadingWrapper call times
+      expect(spy).toHaveBeenCalledTimes(0);
+
+      // popover initialize with false
+      expect(popover.display).toEqual(false);
+
+      // Call input event
+      input.value = 'j';
+      input.dispatchEvent(new MouseEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+      // test debounce prevent loading before it ending
+      expect(spy).toHaveBeenCalledTimes(1);
+
+      input.value = 'jo';
+      input.dispatchEvent(new MouseEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+      input.value = 'jok';
+      input.dispatchEvent(new MouseEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+      input.value = 'joke';
+      input.dispatchEvent(new MouseEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+
+      // run debounce
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
+
+      // test loading was run after debounce
+      expect(spy).toHaveBeenCalledTimes(2);
 
       // Verify initial value is set and popover to be displaied
       expect(element.value).toEqual('joker');
@@ -841,7 +902,7 @@ describe('mg-input-combobox', () => {
       expect(popover.display).toEqual(value === undefined);
       expect(spyScrollToIndex).toHaveBeenCalled();
     });
-    test('Should handle filter input', async () => {
+    test('Should handle filter input with not found value', async () => {
       const page = await getPage({ ...baseProps, items, value: items[2] });
       const element = page.doc.querySelector('mg-input-combobox');
       const input = element.shadowRoot.querySelector('input');
@@ -856,6 +917,9 @@ describe('mg-input-combobox', () => {
       input.value = '';
       input.dispatchEvent(new MouseEvent('input', { bubbles: true }));
       await page.waitForChanges();
+      // run debounce
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
 
       expect(getOptions().length).toEqual(element.items.length);
       expect(element.value).toEqual('joker');
@@ -864,6 +928,9 @@ describe('mg-input-combobox', () => {
       // Call input event
       input.value = 'hello';
       input.dispatchEvent(new MouseEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+      // run debounce
+      jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
       expect(getOptions().length).toEqual(0);
@@ -908,6 +975,7 @@ describe('mg-input-combobox', () => {
       const element = page.doc.querySelector('mg-input-combobox');
       const button = element.shadowRoot.querySelector('mg-button:last-of-type');
       const getOptions = () => Array.from(element.shadowRoot.querySelectorAll('li'));
+      const spy = jest.spyOn(page.rootInstance.fetchError, 'emit');
 
       // define spys
       const spyLoadingWrapper = jest.spyOn(page.rootInstance, 'loadingWrapper');
@@ -928,19 +996,39 @@ describe('mg-input-combobox', () => {
         expect(loadMoreButton).toEqual(null);
       } else {
         const isError = typeof overrides.next === 'string' && overrides.next === '/error';
+        const status = 404;
+        const statusText = 'not found';
         if (isError) {
           jest.spyOn(global, 'fetch').mockResolvedValue(
             Promise.resolve({
-              json: () => Promise.resolve(null),
+              ok: false,
+              status,
+              statusText,
             } as Response),
           );
         }
         loadMoreButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
         await page.waitForChanges();
+        if (isError) {
+          expect(spy).toHaveBeenCalledWith(expect.objectContaining({ message: `${status} - ${statusText}` }));
+        }
         // Verify initial value is set and popover to be displaied
         expect(spyLoadingWrapper).toHaveBeenCalledWith(expect.objectContaining({ name: 'load-more' }));
         expect(getOptions().length).toEqual(isError ? 15 : 30);
       }
+    });
+
+    test('Should emit error when fetch API throw an error', async () => {
+      const error = { message: "can't parse URL" };
+      const page = await getPage({ ...baseProps, items: undefined, fetchurl, fetchmappings });
+      const element = page.doc.querySelector('mg-input-combobox');
+      const spy = jest.spyOn(page.rootInstance.fetchError, 'emit');
+
+      jest.spyOn(global, 'fetch').mockRejectedValue(error);
+      element.fetchurl = 'error';
+      await page.waitForChanges();
+
+      expect(spy).toHaveBeenCalledWith(error);
     });
 
     test('Should handle load-more with button and display mg-loader', async () => {
@@ -1086,6 +1174,9 @@ describe('mg-input-combobox', () => {
 
         input.value = 'hello';
         input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+        await page.waitForChanges();
+        // run debounce
+        jest.runOnlyPendingTimers();
         await page.waitForChanges();
 
         // navigate throw input chars

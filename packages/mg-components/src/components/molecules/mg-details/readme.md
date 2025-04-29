@@ -1,4 +1,6 @@
+## Responsive
 
+Under 700px, the text of the summary "button" is hidden, unless the summary slot is empty.
 
 ## 💥 Troubleshooting
 

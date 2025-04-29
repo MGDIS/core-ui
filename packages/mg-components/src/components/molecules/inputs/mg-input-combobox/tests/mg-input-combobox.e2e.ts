@@ -44,6 +44,8 @@ test.describe('mg-input-combobox', () => {
 
       const height = componentsProps.labelOnTop ? 100 : 80;
 
+      // wait for debounce
+      await page.locator('.mg-c-input__input-list-item').first().getByText('Joker').waitFor();
       await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height } });
 
       // empty list
@@ -52,6 +54,8 @@ test.describe('mg-input-combobox', () => {
       await input.press('KeyK');
       await input.press('KeyK');
 
+      // wait for debounce
+      await page.locator('.mg-c-input__popover-info').first().getByText('No elements match your input').waitFor();
       await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height } });
     });
   });
@@ -520,11 +524,15 @@ test.describe('mg-input-combobox', () => {
 
         // Filter options
         await page.keyboard.down('Digit2');
+        // wait for debounce
+        await page.locator('.mg-c-input__input-list-item').first().getByText('2').waitFor();
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
         // move focus in input before value end set to input to "12"
         await page.keyboard.down(Keys.ARROWLEFT);
         await page.keyboard.down('Digit1');
+        // wait for debounce
+        await page.locator('.mg-c-input__input-list-item').first().getByText('12').waitFor();
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
         // Open popover and take visual focus on first element
@@ -535,6 +543,8 @@ test.describe('mg-input-combobox', () => {
         await page.keyboard.down(Keys.ARROWRIGHT);
         await page.keyboard.down('Delete');
         await page.keyboard.down('Digit3');
+        // wait for debounce
+        await page.locator('.mg-c-input__input-list-item').first().getByText('13').waitFor();
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
         // Open popover and take visual focus on first element
@@ -568,6 +578,7 @@ test.describe('mg-input-combobox', () => {
 
         // Filter options
         await page.keyboard.down('Digit2');
+        await page.locator('.mg-c-input__input-list-item').first().getByText('2').waitFor();
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
         // select "2" value and popover closed
