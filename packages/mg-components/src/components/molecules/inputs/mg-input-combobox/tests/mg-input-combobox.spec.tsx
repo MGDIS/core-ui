@@ -478,6 +478,15 @@ describe('mg-input-combobox', () => {
           },
         },
       ]),
+      ...[null, 1, [], {}].flatMap(value => [
+        {
+          request: { ...RequestMapping },
+          response: {
+            ...ResponseMapping,
+            itemValue: value,
+          },
+        },
+      ]),
     ])('Should not render with invalid "fetchmappings" property', async fetchmappings => {
       expect.assertions(1);
       try {

@@ -49,7 +49,8 @@ const isFetchmappings = (value: unknown): value is MgInputCombobox['fetchmapping
       typeof response.total === 'string' &&
       typeof response.items === 'string' &&
       typeof response.next === 'string' &&
-      typeof response.itemTitle === 'string';
+      typeof response.itemTitle === 'string' &&
+      (typeof response.itemValue === 'string' || response.itemValue === undefined);
     return isValidRequest && isValidResponse;
   } else {
     return isValidRoot;
