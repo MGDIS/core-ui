@@ -43,4 +43,4 @@ const setTypes = ({ path }) => ({
   plugins: [dts()],
 });
 
-export default ['angular', 'vue'].flatMap(path => [setEsModule({ path }), setCommonJs({ path }), setUMD({ path }), setTypes({ path })]);
+export default ['angular', 'vue', 'utils'].flatMap(path => [setEsModule({ path }), setCommonJs({ path }), setUMD({ path }), setTypes({ path })]);
