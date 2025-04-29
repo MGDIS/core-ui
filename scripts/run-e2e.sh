@@ -98,12 +98,10 @@ prepare_package "packages/playwright-helpers/package.json" '{
   types
 }'
 
-# Prepare packages/stencil-helpers/package.json
+
+# Prepare packages/mg-components-helpers/package.json
 prepare_package "packages/mg-components-helpers/package.json" '{
-  name, 
-  exports,
-  devDependencies,
-  dependencies
+  name,
 }'
 
 # Prepare packages/stencil-helpers/package.json
