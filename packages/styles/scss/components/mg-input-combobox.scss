@@ -11,8 +11,8 @@
 @mixin input-width($input-size) {
   .mg-c-input__box {
     width: calc(
-      var(--mg-b-size-16) + var(--mg-b-size-8) * 2 + #{$input-size} + (var(--mg-b-size-min-height) * 2) + var(--mg-b-size-4)
-    ); // glass icon + icon spacing + input width + reset button size + toggle popover button size + additional spacing
+      var(--mg-b-size-16) + var(--mg-b-size-8) * 2 + #{$input-size} + var(--mg-b-size-min-height) + var(--mg-b-size-4)
+    ); // glass icon + icon spacing + input width + button size + additional spacing
   }
 }
 
@@ -48,10 +48,6 @@
 
     &__load-more {
       padding: 0 var(--mg-b-size-8) var(--mg-b-size-4);
-    }
-
-    &__reset {
-      padding-right: var(--mg-b-size-min-height); // popover button size
     }
 
     &__input-list {
@@ -112,7 +108,7 @@
 
   /* input append variant */
   &.mg-c-input--input-append .mg-c-input__box {
-    padding-right: calc(var(--mg-b-size-min-height) * var(--mg-c-input-append-x) + var(--mg-b-size-4)); // reset button size + reset button padding
+    padding-right: calc(var(--mg-b-size-min-height) + var(--mg-b-size-4)); // button size + button padding
 
     &-append {
       position: absolute;

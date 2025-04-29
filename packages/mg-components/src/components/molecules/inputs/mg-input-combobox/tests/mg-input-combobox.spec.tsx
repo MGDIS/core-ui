@@ -828,8 +828,8 @@ describe('mg-input-combobox', () => {
       expect(popover.display).toEqual(true);
       expect(input.value).toEqual('joker');
     });
-    test('Should handle popover display', async () => {
-      const page = await getPage({ ...baseProps, value: 'joker' });
+    test.each([undefined, 'joker', 'hello'])('Should handle popover display, case value %s', async value => {
+      const page = await getPage({ ...baseProps, value });
       const element = page.doc.querySelector('mg-input-combobox');
       const button = element.shadowRoot.querySelector('mg-button:last-of-type');
       const popover = element.shadowRoot.querySelector('mg-popover');
@@ -838,7 +838,7 @@ describe('mg-input-combobox', () => {
       button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
-      expect(popover.display).toEqual(true);
+      expect(popover.display).toEqual(value === undefined);
       expect(spyScrollToIndex).toHaveBeenCalled();
     });
     test('Should handle filter input', async () => {

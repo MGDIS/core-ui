@@ -131,8 +131,10 @@ test.describe('mg-input-combobox', () => {
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      // Open popover on focus
-      await page.locator('input + mg-button + mg-button').click();
+      // Reset value
+      await page.locator('input + mg-button').click();
+      // Open popover
+      await page.locator('input + mg-button').click();
 
       let width = 350;
       if (mgWidth === 2) {
