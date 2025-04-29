@@ -1,5 +1,18 @@
 # Changelog
 
+## Release (2025-04-29-17-29_Damaged-Desert-Sand-Dunlin)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+- [sanitize-html changelog](packages/sanitize-html/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2025-04-23-07-55_Curious-Copper-Chinchilla)
 
 ### Packages released

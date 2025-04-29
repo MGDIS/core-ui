@@ -1,5 +1,12 @@
 # @mgdis/styles
 
+## 2.6.0
+
+### Minor Changes
+
+- a3201f0: [**`<mg-details>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-details--docs) manage empty summary on responsive
+- 5055b10: [**`<mg-input-combobox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-combobox--docs) update buttons visibility ux
+
 ## 2.5.1
 
 ### Patch Changes

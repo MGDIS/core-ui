@@ -1,5 +1,26 @@
 # @mgdis/mg-components
 
+## 6.11.0
+
+### Minor Changes
+
+- a3201f0: [**`<mg-details>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-details--docs) manage empty summary on responsive
+- 5055b10: [**`<mg-input-combobox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-combobox--docs) update buttons visibility ux
+
+### Patch Changes
+
+- 0436bf4: [#553](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/553) mg-input-combobox: fetch optimizations - url, errors, debounce, datas
+- 3eed511: [#554](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/554) mg-input-select: check Validity with the new value (and not the old one)
+- 8c91c21: create `formatID` utils
+- 264048d: Update dependencies
+- Updated dependencies [8c91c21]
+- Updated dependencies [a3201f0]
+- Updated dependencies [264048d]
+- Updated dependencies [5055b10]
+  - @mgdis/stencil-helpers@3.2.0
+  - @mgdis/styles@2.6.0
+  - @mgdis/img@2.4.2
+
 ## 6.10.1
 
 ### Patch Changes

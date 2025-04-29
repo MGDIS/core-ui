@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.2.0
+
+### Minor Changes
+
+- b1fe770: Add toKebabCase method
+
+### Patch Changes
+
+- 8c91c21: create `formatID` utils
+
 ## 4.1.18
 
 ### Patch Changes

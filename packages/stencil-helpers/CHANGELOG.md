@@ -1,5 +1,18 @@
 # @mgdis/stencil-helpers
 
+## 3.2.0
+
+### Minor Changes
+
+- 8c91c21: create `formatID` utils
+
+### Patch Changes
+
+- 264048d: Update dependencies
+- Updated dependencies [8c91c21]
+- Updated dependencies [b1fe770]
+  - @mgdis/mg-components-helpers@4.2.0
+
 ## 3.1.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @mgdis/playwright-helpers
 
+## 1.1.4
+
+### Patch Changes
+
+- 264048d: Update dependencies
+
 ## 1.1.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 2.4.2
+
+### Patch Changes
+
+- 264048d: Update dependencies
+
 ## 2.4.1
 
 ### Patch Changes
