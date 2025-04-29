@@ -1,3 +1,5 @@
+import { toKebabCase } from '@mgdis/mg-components-helpers/utils';
+
 /**
  * Create random ID
  * @param prefix - add prefix to created ID
@@ -23,6 +25,23 @@ export const createID = (prefix = '', length = 10): string => {
  * @returns true if `id` is valid
  */
 export const isValideID = (newValue: unknown): boolean => isValidString(newValue) && /^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/.exec(newValue) !== null;
+
+/**
+ * Format id from value
+ * @param value - id to transforme
+ * @returns valid id
+ */
+export const formatID = (value: unknown): string | undefined => {
+  let id;
+  if (typeof value === 'string') {
+    id = value;
+  } else if (Boolean(value) && (isObject(value) || Array.isArray(value))) {
+    id = JSON.stringify(value);
+  } else if (value !== null && value !== undefined && typeof value !== 'boolean') {
+    id = String(value);
+  }
+  return id ? toKebabCase(id) : id;
+};
 
 /**
  * Class to manage component classlist

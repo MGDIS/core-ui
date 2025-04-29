@@ -37,6 +37,7 @@ stages:
     changes:
       - !reference [.changes, mg-components]
       - !reference [.changes, img]
+      - !reference [.changes, mg-components-helpers]
       - !reference [.changes, stencil-helpers]
       - !reference [.changes, styles]
       - !reference [.changes, linting-stencil]
@@ -52,6 +53,7 @@ stages:
       - !reference [.changes, playwright-helpers]
   stencil-helpers:
     changes:
+      - !reference [.changes, mg-components-helpers]
       - !reference [.changes, stencil-helpers]
   styles:
     changes:
@@ -67,6 +69,7 @@ stages:
       - !reference [.changes, mg-components]
       - !reference [.changes, styles]
       - !reference [.changes, img]
+      - !reference [.changes, mg-components-helpers]
       - !reference [.changes, stencil-helpers]
       - !reference [.changes, notification-center]
       - !reference [.changes, notification-center:app]
@@ -165,6 +168,7 @@ test:doc:
   extends:
     - .install:dependencies
   script:
+    - pnpm build --filter "./packages/**"
     - pnpm doc
 
 playwright:baseimage:
@@ -525,8 +529,8 @@ playwright-helpers:artifact:
 
 .stencil-helpers:
   script:
+    - pnpm build --filter=@mgdis/stencil-helpers
     - cd packages/stencil-helpers
-    - pnpm build
 
 stencil-helpers:artifact:
   stage: artifacts

@@ -21,6 +21,7 @@ describe('toKebabCase', () => {
     ['special#characters!', 'special-characters'],
     ['12345', '12345'],
     ['textWith123Numbers', 'text-with123-numbers'],
+    ['text/is/href', 'text-is-href'],
     ['field-enumeration-list-D_PROC_POLE_REMU_NATIONALITE', 'field-enumeration-list-d-proc-pole-remu-nationalite'],
   ])('should convert %s to %s', (input, expected) => {
     expect(toKebabCase(input)).toBe(expected);

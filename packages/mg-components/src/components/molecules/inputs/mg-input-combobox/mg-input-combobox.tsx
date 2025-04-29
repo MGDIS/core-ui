@@ -1,5 +1,18 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
-import { allItemsAreString, ClassList, getObjectValueFromKey, isValidString, nextTick, Page, Paginate, Cursor, type CursorType, toString, isObject } from '@mgdis/stencil-helpers';
+import {
+  allItemsAreString,
+  ClassList,
+  getObjectValueFromKey,
+  isValidString,
+  nextTick,
+  Page,
+  Paginate,
+  Cursor,
+  type CursorType,
+  toString,
+  isObject,
+  formatID,
+} from '@mgdis/stencil-helpers';
 import { type ActionType, type RequestMappingType, type ResponseMappingType } from './mg-input-combobox.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import type { Option } from '../../../../types';
@@ -482,7 +495,7 @@ export class MgInputCombobox {
    * @param event - option element click event
    */
   private handleOptionClick = (event: MouseEvent & { target: HTMLLIElement }) => {
-    this.setValue(this.options.items.find(option => this.formatId(option.value) === event.target.id));
+    this.setValue(this.options.items.find(option => formatID(option.value) === event.target.id));
     this.popoverDisplay = false;
   };
 
@@ -890,24 +903,6 @@ export class MgInputCombobox {
     }
   };
 
-  /**
-   * Format id from value
-   * @param value - id to transforme
-   * @returns valid id
-   */
-  private formatId = (value: unknown): string => {
-    if (typeof value === 'string') {
-      return value;
-    } else if (isObject(value)) {
-      // TODO integrate helper from https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/555
-      return JSON.stringify(value);
-    } else if (value !== null && value !== undefined) {
-      return String(value);
-    } else {
-      return value;
-    }
-  };
-
   /*************
    * Lifecycle *
    *************/
@@ -1010,7 +1005,7 @@ export class MgInputCombobox {
                 aria-expanded={this.popoverDisplay.toString()}
                 aria-controls={listId}
                 aria-invalid={(this.invalid === true).toString()}
-                aria-activedescendant={this.formatId(activeDescendant)}
+                aria-activedescendant={formatID(activeDescendant)}
                 onInput={this.handleFilterInput}
                 onBlur={this.handleFilterBlur}
                 onFocus={this.handleFilterFocus}
@@ -1051,7 +1046,7 @@ export class MgInputCombobox {
                           'mg-c-input__input-list-item--selected': this.isCurrentOption(option),
                         }}
                         key={option.title}
-                        id={this.formatId(option.value)}
+                        id={formatID(option.value)}
                         aria-selected={this.isCurrentOption(option).toString()}
                         onClick={this.handleOptionClick}
                       >
