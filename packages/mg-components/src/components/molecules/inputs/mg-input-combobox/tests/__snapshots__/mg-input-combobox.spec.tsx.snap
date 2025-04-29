@@ -2891,7 +2891,7 @@ exports[`mg-input-combobox Should update disabled props 1`] = `
             </template>
           </mg-icon>
           <input aria-autocomplete="list" aria-controls="identifier-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" role="combobox" type="text" value="">
-          <mg-button aria-disabled="false" aria-label="Dc Comics" class="mg-c-input__box-append" is-icon="" role="button" tabindex="0">
+          <mg-button aria-disabled="false" aria-label="Dc Comics" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                 <div class="mg-c-button__content">
@@ -3569,7 +3569,7 @@ exports[`mg-input-combobox input errors validity, case next state is disabled va
             </template>
           </mg-icon>
           <input aria-autocomplete="list" aria-controls="identifier-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" name="identifier" role="combobox" type="text" value="">
-          <mg-button aria-disabled="true" aria-label="Dc Comics" class="mg-c-input__box-append" is-icon="" role="button" tabindex="0">
+          <mg-button aria-disabled="true" aria-label="Dc Comics" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                 <div class="mg-c-button__content">

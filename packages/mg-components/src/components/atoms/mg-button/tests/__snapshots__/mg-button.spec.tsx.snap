@@ -312,6 +312,58 @@ exports[`mg-button Should render an success button isIcon true 1`] = `
 </mg-button>
 `;
 
+exports[`mg-button Should render tabindex attribute 1`] = `
+<mg-button aria-label="label" role="button" tabindex="0">
+  <template shadowrootmode="open">
+    <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+      <div class="mg-c-button__content">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  Text button
+</mg-button>
+`;
+
+exports[`mg-button Should render tabindex attribute 2`] = `
+<mg-button aria-label="label" role="button" tabindex="-1">
+  <template shadowrootmode="open">
+    <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+      <div class="mg-c-button__content">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  Text button
+</mg-button>
+`;
+
+exports[`mg-button Should render tabindex attribute 3`] = `
+<mg-button aria-label="label" role="button" tabindex="0">
+  <template shadowrootmode="open">
+    <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+      <div class="mg-c-button__content">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  Text button
+</mg-button>
+`;
+
+exports[`mg-button Should render tabindex attribute 4`] = `
+<mg-button aria-label="label" role="button" tabindex="1">
+  <template shadowrootmode="open">
+    <div class="mg-c-button mg-c-button--medium mg-c-button--primary">
+      <div class="mg-c-button__content">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  Text button
+</mg-button>
+`;
+
 exports[`mg-button Should update button on size to large with icon: false 1`] = `
 <mg-button aria-label="label" role="button" tabindex="0">
   <template shadowrootmode="open">

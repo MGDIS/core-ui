@@ -259,7 +259,7 @@ export class MgButton {
     return (
       <Host
         role="button"
-        tabIndex={0}
+        tabIndex={this.element.getAttribute('tabindex') || 0}
         type={this.type}
         form={this.form}
         full-width={this.fullWidth}
