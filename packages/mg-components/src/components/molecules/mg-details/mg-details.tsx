@@ -86,11 +86,7 @@ export class MgDetails {
 
     // Check if summary slot is empty
     const summarySlot = this.element.querySelector('[slot="summary"]');
-    if (summarySlot === null) {
-      this.isEmptySummary = true;
-    } else {
-      this.isEmptySummary = summarySlot.textContent.trim().length === 0;
-    }
+    this.isEmptySummary = summarySlot === null || !isValidString(summarySlot.textContent);
 
     // Add event listener to prevent default action on summary click
     this.element.addEventListener('click', (event: MouseEvent & { target: HTMLElement }) => {
