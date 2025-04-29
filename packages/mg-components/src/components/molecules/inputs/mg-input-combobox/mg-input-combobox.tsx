@@ -983,7 +983,6 @@ export class MgInputCombobox {
             arrow-hide
             style={{
               '--mg-c-input-list-width': Boolean(this.input?.offsetWidth) ? `${this.input.offsetWidth}px` : undefined,
-              '--mg-c-input-append-x': withResetButton ? '2' : '1',
             }}
             data-fallback-placement="bottom-end"
             onDisplay-change={this.handlePopoverDisplay}
@@ -1015,7 +1014,7 @@ export class MgInputCombobox {
                   if (el !== null) this.input = el;
                 }}
               />
-              {withResetButton && (
+              {withResetButton ? (
                 <mg-button
                   class="mg-c-input__box-append mg-c-input__reset"
                   variant="flat"
@@ -1027,10 +1026,11 @@ export class MgInputCombobox {
                 >
                   <mg-icon icon="cross"></mg-icon>
                 </mg-button>
+              ) : (
+                <mg-button class="mg-c-input__box-append" variant="flat" is-icon label={this.itemsLabel} tabindex="-1" disabled={this.disabled}>
+                  <mg-icon icon={`chevron-${this.popoverDisplay ? 'up' : 'down'}`}></mg-icon>
+                </mg-button>
               )}
-              <mg-button class="mg-c-input__box-append" variant="flat" is-icon label={this.itemsLabel} tabindex="-1" disabled={this.disabled}>
-                <mg-icon icon={`chevron-${this.popoverDisplay ? 'up' : 'down'}`}></mg-icon>
-              </mg-button>
             </div>
             <div slot="content" class="mg-c-input__popover-container">
               {popoverContent === 'list' && [

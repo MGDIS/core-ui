@@ -79,6 +79,17 @@ describe('mg-button', () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  test.each([
+    {}, // default 0
+    { tabindex: '-1' }, // html attribute
+    { tabindex: '0' }, // html attribute
+    { tabindex: '1' }, // html attribute
+  ])('Should render tabindex attribute', async attribute => {
+    const page = await getPage({ label: 'label', ...attribute });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   test('Should update button on size to large with svg: %s', async () => {
     const page = await getPage({ label: 'label', isIcon: true }, <svg></svg>);
     const element = page.doc.querySelector('mg-button');

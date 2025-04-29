@@ -135,8 +135,10 @@ test.describe('mg-input-combobox', () => {
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      // Open popover on focus
-      await page.locator('input + mg-button + mg-button').click();
+      // Reset value
+      await page.locator('input + mg-button').click();
+      // Open popover
+      await page.locator('input + mg-button').click();
 
       let width = 350;
       if (mgWidth === 2) {
@@ -576,6 +578,7 @@ test.describe('mg-input-combobox', () => {
 
         // Filter options
         await page.keyboard.down('Digit2');
+        await page.locator('.mg-c-input__input-list-item').first().getByText('2').waitFor();
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
         // select "2" value and popover closed
