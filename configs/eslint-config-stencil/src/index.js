@@ -8,7 +8,6 @@ module.exports = {
   rules: {
     ...eslintrc.rules,
     '@stencil-community/strict-boolean-conditions': 'error',
-    '@stencil-community/ban-exported-const-enums': 'warn',
     'jsx-a11y/no-redundant-roles': 'off',
   },
 };
