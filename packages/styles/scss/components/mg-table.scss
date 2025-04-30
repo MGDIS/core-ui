@@ -8,12 +8,12 @@
   --mg-c-table-header-cell-height: calc(var(--mg-b-size-min-height) + 2 * var(--mg-b-size-8));
 
   overflow: hidden;
-  border: none;
-  border-radius: var(--mg-b-size-8);
+  border: var(--mg-b-size-border) solid var(--mg-b-color-neutral-30);
+  border-radius: var(--mg-b-size-12);
   background: var(--mg-b-color-light);
-  border-collapse: separate;
   border-spacing: 0;
   color: var(--mg-b-color-dark);
+  font-size: var(--mg-b-font-size-small);
 
   td,
   th {
@@ -23,20 +23,34 @@
     text-align: start;
   }
 
+  thead {
+    height: var(--mg-c-table-header-cell-height);
+  }
+
+  thead,
+  tfoot {
+    background-color: var(--mg-b-color-neutral-10);
+  }
+
   // Font weight for headers
   thead td,
+  tfoot td,
   th {
     font-weight: 600;
   }
 
-  thead {
-    height: var(--mg-c-table-header-cell-height);
-    background-color: var(--mg-b-color-app);
-    color: var(--mg-b-color-light);
+  tr {
+    th,
+    td {
+      border-block-end: var(--mg-b-size-border) solid var(--mg-b-color-neutral-30);
+    }
   }
 
-  :not(thead) tr:nth-child(even) {
-    background: color-mix(in srgb, var(--mg-b-color-app), transparent 80%);
+  tfoot tr:last-of-type {
+    th,
+    td {
+      border-block-end: none;
+    }
   }
 
   /**
@@ -72,6 +86,7 @@
   /**
   * Sort
   */
+  /* stylelint-disable no-descending-specificity -- keeping this down the file */
   thead td,
   thead th {
     position: relative;
@@ -104,7 +119,7 @@
     &:has(.mg-c-table__sort-button):hover,
     &[aria-sort='descending'],
     &[aria-sort='ascending'] {
-      background-color: color-mix(in srgb, var(--mg-b-color-app), black 10%);
+      background-color: var(--mg-b-color-neutral-20);
     }
   }
 }
