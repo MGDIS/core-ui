@@ -95,13 +95,19 @@ prepare_package "apps/notification-center/package.json" '{
 prepare_package "packages/playwright-helpers/package.json" '{
   name, 
   main,
-  types
+  types,
+  "dependencies": { 
+    "@mgdis/core-ui-helpers": .dependencies."@mgdis/core-ui-helpers",
+  }
 }'
 
 
 # Prepare packages/mg-components-helpers/package.json
 prepare_package "packages/mg-components-helpers/package.json" '{
   name,
+  "dependencies": { 
+    "@mgdis/core-ui-helpers": .dependencies."@mgdis/core-ui-helpers",
+  }
 }'
 
 # Prepare packages/stencil-helpers/package.json
@@ -110,7 +116,7 @@ prepare_package "packages/stencil-helpers/package.json" '{
   main,
   types,
   "dependencies": { 
-    "@mgdis/mg-components-helpers": .dependencies."@mgdis/mg-components-helpers",
+    "@mgdis/core-ui-helpers": .dependencies."@mgdis/core-ui-helpers",
   }
 }'
 

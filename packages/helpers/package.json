@@ -1,0 +1,69 @@
+{
+  "name": "@mgdis/core-ui-helpers",
+  "version": "0.0.0",
+  "license": "ISC",
+  "scripts": {
+    "build": "rollup -c ./rollup.config.mjs",
+    "doc": "typedoc",
+    "test": "TZ=UTC vitest",
+    "coverage": "TZ=UTC vitest run --coverage"
+  },
+  "dependencies": {
+    "@stencil/core": "4.28.2",
+    "lodash": "4.17.21",
+    "vue": "npm:vue@2.7.16",
+    "vue-template-compiler": "2.7.16"
+  },
+  "devDependencies": {
+    "@core-ui/tsconfig": "workspace:*",
+    "@core-ui/typedoc-config": "workspace:*",
+    "@core-ui/vitest-config": "workspace:*",
+    "@rollup/plugin-commonjs": "28.0.3",
+    "@rollup/plugin-node-resolve": "16.0.1",
+    "@rollup/plugin-typescript": "12.1.2",
+    "@types/lodash": "4.17.16",
+    "@types/node": "22.15.3",
+    "@vitest/coverage-istanbul": "3.1.2",
+    "@vue/test-utils": "npm:@vue/test-utils@1.3.6",
+    "htmlfy": "0.7.2",
+    "rollup": "4.40.1",
+    "rollup-plugin-dts": "6.2.1",
+    "tslib": "^2.8.1",
+    "typedoc": "0.28.3",
+    "typedoc-plugin-markdown": "4.6.3",
+    "vitest": "3.1.2",
+    "vue-jest": "3.0.7"
+  },
+  "exports": {
+    "./angular": {
+      "types": "./dist/angular/types.d.ts",
+      "import": "./dist/angular/index.js",
+      "require": "./dist/angular/index.cjs"
+    },
+    "./playwright": {
+      "types": "./dist/playwright/types.d.ts",
+      "import": "./dist/playwright/index.js",
+      "require": "./dist/playwright/index.cjs"
+    },
+    "./stencil": {
+      "types": "./dist/stencil/types.d.ts",
+      "import": "./dist/stencil/index.js",
+      "require": "./dist/stencil/index.cjs"
+    },
+    "./storybook": {
+      "types": "./dist/storybook/types.d.ts",
+      "import": "./dist/storybook/index.js",
+      "require": "./dist/storybook/index.cjs"
+    },
+    "./utils": {
+      "types": "./dist/utils/types.d.ts",
+      "import": "./dist/utils/index.js",
+      "require": "./dist/utils/index.cjs"
+    },
+    "./vue": {
+      "types": "./dist/vue/types.d.ts",
+      "import": "./dist/vue/index.js",
+      "require": "./dist/vue/index.cjs"
+    }
+  }
+}

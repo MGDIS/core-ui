@@ -1,0 +1,329 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`storybook > StorybookPreview > extractArgTypes > Should extract arg types 1`] = `
+{
+  "": {
+    "description": "",
+    "name": "default",
+    "table": {
+      "category": "slots",
+      "type": {
+        "summary": undefined,
+      },
+    },
+  },
+  "--custom-property": {
+    "description": "Custom property documentation",
+    "name": "--custom-property",
+    "table": {
+      "category": "custom properties",
+      "type": {
+        "summary": undefined,
+      },
+    },
+  },
+  "arraytypes": {
+    "control": {
+      "type": "object",
+    },
+    "description": "docs",
+    "name": "arraytypes",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "number[] | string[]",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "attr": {
+    "control": {
+      "type": "text",
+    },
+    "description": "docs",
+    "name": "attr",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "string",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "boolean": {
+    "control": {
+      "type": "boolean",
+    },
+    "description": "docs",
+    "name": "boolean",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "boolean",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "event": {
+    "description": "docs",
+    "name": "event",
+    "table": {
+      "category": "events",
+      "type": {
+        "summary": "boolean",
+      },
+    },
+  },
+  "method": {
+    "description": "docs",
+    "name": "method",
+    "table": {
+      "category": "methods",
+      "type": {
+        "summary": "",
+      },
+    },
+  },
+  "multionetype": {
+    "control": {
+      "type": "object",
+    },
+    "description": "docs",
+    "name": "multionetype",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "(string | number)[]",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "multitype": {
+    "control": {
+      "type": "select",
+    },
+    "description": "docs",
+    "name": "multitype",
+    "options": [
+      undefined,
+      "blu",
+      "bli",
+    ],
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": ""blu" | "bli"",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "multitypewithstring": {
+    "control": {
+      "type": "text",
+    },
+    "description": "docs",
+    "name": "multitypewithstring",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "number | string",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "my-second-comp": {
+    "description": "<a href="./?path=/docs/undefined">View Component Documentation</a>",
+    "name": "my-second-comp",
+    "table": {
+      "category": "depends on",
+      "type": {
+        "summary": undefined,
+      },
+    },
+  },
+  "number": {
+    "control": {
+      "type": "number",
+    },
+    "description": "docs",
+    "name": "number",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "number",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "objecttype": {
+    "control": {
+      "type": "object",
+    },
+    "description": "docs",
+    "name": "objecttype",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "{ type: string, value: "blu" | "bli" }",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "prop": {
+    "control": {
+      "type": "text",
+    },
+    "description": "docs",
+    "name": "prop",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "string",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "title": {
+    "description": "",
+    "name": "title",
+    "table": {
+      "category": "slots",
+      "type": {
+        "summary": undefined,
+      },
+    },
+  },
+}
+`;
+
+exports[`storybook > StorybookPreview > extractArgTypes > Should extract arg types 2`] = `
+{
+  "my-comp": {
+    "description": "<a href="./?path=/docs/atoms-my-comp--docs">View Component Documentation</a>",
+    "name": "my-comp",
+    "table": {
+      "category": "used by",
+      "type": {
+        "summary": undefined,
+      },
+    },
+  },
+}
+`;
+
+exports[`storybook > StorybookPreview > extractComponentDescription > Should extract component description 1`] = `""`;
+
+exports[`storybook > getStoryHTML > Should render story code exemple 1`] = `""`;
+
+exports[`storybook > getStoryHTML > Should render story code exemple 2`] = `""`;
+
+exports[`storybook > getStoryHTML > Should render story code exemple 3`] = `""`;
+
+exports[`storybook > getStoryHTML > Should render story code exemple 4`] = `"<mg-batman></mg-batman>"`;
+
+exports[`storybook > getStoryHTML > Should render story code exemple 5`] = `"<mg-batman></mg-batman>"`;
+
+exports[`storybook > getStoryHTML > Should render story code exemple 6`] = `
+"<mg-batman
+  boolean
+  text="hello"
+  object="⚠️ Property must be set through a script or a framework-specific syntax."
+  array="⚠️ Property must be set through a script or a framework-specific syntax."
+  function="⚠️ Property must be set through a script or a framework-specific syntax."
+></mg-batman>"
+`;
+
+exports[`storybook > getStoryHTML > Should render story code exemple 7`] = `"<mg-batman>joker is behind you</mg-batman>"`;
+
+exports[`storybook > getStoryHTML > Should render story code exemple 8`] = `
+"<mg-batman
+  boolean
+  text="hello"
+  object="⚠️ Property must be set through a script or a framework-specific syntax."
+>
+  <baby-batman></baby-batman>
+</mg-batman>"
+`;
+
+exports[`storybook > getStoryHTML > Should render story code exemple 9`] = `"joker is behind you"`;
+
+exports[`storybook > getStoryHTML > Should render story code exemple 10`] = `
+"<mg-batman
+  boolean
+  text="hello"
+  object="⚠️ Property must be set through a script or a framework-specific syntax."
+>joker is behind you</mg-batman>"
+`;
+
+exports[`storybook > getStoryHTML > Should render story code exemple 11`] = `
+"<mg-batman
+  boolean
+  text="hello"
+  object="⚠️ Property must be set through a script or a framework-specific syntax."
+>
+  <baby-batman>joker is behind you</baby-batman>
+</mg-batman>"
+`;
+
+exports[`storybook > getStoryHTML > Should render story code exemple 12`] = `
+"<blu-blu
+  boolean
+  text="hello"
+  blu="blu bli bla blo"
+  number="42"
+  html-content="Help text with html <b>bold</b>, <em>italic</em>."
+></blu-blu>"
+`;

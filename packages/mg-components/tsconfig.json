@@ -12,7 +12,11 @@
     "noUnusedParameters": true,
     "jsx": "react",
     "jsxFactory": "h",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@mgdis/core-ui-helpers/*": ["../helpers/src/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules"]

@@ -407,6 +407,76 @@ importers:
         specifier: 9.4.3
         version: 9.4.3(eslint@8.57.1)
 
+  packages/helpers:
+    dependencies:
+      '@stencil/core':
+        specifier: 4.28.2
+        version: 4.28.2
+      lodash:
+        specifier: 4.17.21
+        version: 4.17.21
+      vue:
+        specifier: npm:vue@2.7.16
+        version: 2.7.16
+      vue-template-compiler:
+        specifier: 2.7.16
+        version: 2.7.16
+    devDependencies:
+      '@core-ui/tsconfig':
+        specifier: workspace:*
+        version: link:../../configs/tsconfig
+      '@core-ui/typedoc-config':
+        specifier: workspace:*
+        version: link:../../configs/typedoc-config
+      '@core-ui/vitest-config':
+        specifier: workspace:*
+        version: link:../../configs/vitest-config
+      '@rollup/plugin-commonjs':
+        specifier: 28.0.3
+        version: 28.0.3(rollup@4.40.1)
+      '@rollup/plugin-node-resolve':
+        specifier: 16.0.1
+        version: 16.0.1(rollup@4.40.1)
+      '@rollup/plugin-typescript':
+        specifier: 12.1.2
+        version: 12.1.2(rollup@4.40.1)(tslib@2.8.1)(typescript@5.8.3)
+      '@types/lodash':
+        specifier: 4.17.16
+        version: 4.17.16
+      '@types/node':
+        specifier: 22.15.3
+        version: 22.15.3
+      '@vitest/coverage-istanbul':
+        specifier: 3.1.2
+        version: 3.1.2(vitest@3.1.2(@types/node@22.15.3)(jsdom@26.1.0)(sass-embedded@1.87.0)(sass@1.87.0)(yaml@2.7.1))
+      '@vue/test-utils':
+        specifier: npm:@vue/test-utils@1.3.6
+        version: 1.3.6(vue-template-compiler@2.7.16)(vue@2.7.16)
+      htmlfy:
+        specifier: 0.7.2
+        version: 0.7.2
+      rollup:
+        specifier: 4.40.1
+        version: 4.40.1
+      rollup-plugin-dts:
+        specifier: 6.2.1
+        version: 6.2.1(rollup@4.40.1)(typescript@5.8.3)
+      tslib:
+        specifier: ^2.8.1
+        version: 2.8.1
+      typedoc:
+        specifier: 0.28.3
+        version: 0.28.3(typescript@5.8.3)
+      typedoc-plugin-markdown:
+        specifier: 4.6.3
+        version: 4.6.3(typedoc@0.28.3(typescript@5.8.3))
+      vitest:
+        specifier: 3.1.2
+        version: 3.1.2(@types/node@22.15.3)(jsdom@26.1.0)(sass-embedded@1.87.0)(sass@1.87.0)(yaml@2.7.1)
+      vue-jest:
+        specifier: 3.0.7
+        version: 3.0.7(babel-core@6.26.3)(vue-template-compiler@2.7.16)(vue@2.7.16)
+
   packages/img:
     devDependencies:
       '@core-ui/tsconfig':
@@ -659,9 +729,9 @@ importers:
 
   packages/mg-components-helpers:
     dependencies:
-      lodash:
-        specifier: 4.17.21
-        version: 4.17.21
+      '@mgdis/core-ui-helpers':
+        specifier: workspace:*
+        version: link:../helpers
     devDependencies:
       '@core-ui/tsconfig':
         specifier: workspace:*
@@ -681,9 +751,6 @@ importers:
       '@rollup/plugin-typescript':
         specifier: 12.1.2
         version: 12.1.2(rollup@4.40.1)(tslib@2.8.1)(typescript@5.8.3)
-      '@types/lodash':
-        specifier: 4.17.16
-        version: 4.17.16
       '@vitest/coverage-istanbul':
         specifier: 3.1.2
         version: 3.1.2(vitest@3.1.2(@types/node@22.15.3)(jsdom@26.1.0)(sass-embedded@1.87.0)(sass@1.87.0)(yaml@2.7.1))
@@ -762,6 +829,10 @@ importers:
         version: 4.5.3(@types/node@22.15.3)(rollup@4.40.1)(typescript@5.8.3)(vite@6.3.4(@types/node@22.15.3)(sass-embedded@1.87.0)(sass@1.87.0)(yaml@2.7.1))
 
   packages/playwright-helpers:
+    dependencies:
+      '@mgdis/core-ui-helpers':
+        specifier: workspace:*
+        version: link:../helpers
     devDependencies:
       '@core-ui/tsconfig':
         specifier: workspace:*
@@ -818,12 +889,9 @@ importers:
 
   packages/stencil-helpers:
     dependencies:
-      '@mgdis/mg-components-helpers':
+      '@mgdis/core-ui-helpers':
         specifier: workspace:*
-        version: link:../mg-components-helpers
-      '@stencil/core':
-        specifier: 4.28.2
-        version: 4.28.2
+        version: link:../helpers
     devDependencies:
       '@core-ui/tsconfig':
         specifier: workspace:*
@@ -834,18 +902,12 @@ importers:
       '@core-ui/vitest-config':
         specifier: workspace:*
         version: link:../../configs/vitest-config
-      '@types/node':
-        specifier: 22.15.3
-        version: 22.15.3
       '@vitest/coverage-istanbul':
         specifier: 3.1.2
         version: 3.1.2(vitest@3.1.2(@types/node@22.15.3)(jsdom@26.1.0)(sass-embedded@1.87.0)(sass@1.87.0)(yaml@2.7.1))
       '@vitest/coverage-v8':
         specifier: 3.1.2
         version: 3.1.2(vitest@3.1.2(@types/node@22.15.3)(jsdom@26.1.0)(sass-embedded@1.87.0)(sass@1.87.0)(yaml@2.7.1))
-      htmlfy:
-        specifier: 0.7.2
-        version: 0.7.2
       typedoc:
         specifier: 0.28.3
         version: 0.28.3(typescript@5.8.3)

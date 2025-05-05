@@ -1,0 +1,253 @@
+{
+  "timestamp": "2024-01-01T00:00:00",
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "4.16.0",
+    "typescriptVersion": "5.4.5"
+  },
+  "components": [
+    {
+      "filePath": "src/components/atoms/my-comp/my-comp.tsx",
+      "encapsulation": "shadow",
+      "tag": "my-comp",
+      "readme": "",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "prop",
+          "type": "string",
+          "mutable": false,
+          "attr": "prop",
+          "reflectToAttr": false,
+          "docs": "docs",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "attr",
+          "type": "string",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "docs",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "blu",
+              "type": "string"
+            },
+            {
+              "value": "bli",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "multionetype",
+          "type": "(string | number)[]",
+          "mutable": false,
+          "attr": "multionetype",
+          "reflectToAttr": false,
+          "docs": "docs",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "number",
+          "type": "number",
+          "mutable": false,
+          "attr": "number",
+          "reflectToAttr": false,
+          "docs": "docs",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "boolean",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "boolean",
+          "reflectToAttr": false,
+          "docs": "docs",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "objecttype",
+          "type": "{ type: string, value: \"blu\" | \"bli\" }",
+          "mutable": false,
+          "attr": "objecttype",
+          "reflectToAttr": false,
+          "docs": "docs",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "multitype",
+          "type": "\"blu\" | \"bli\"",
+          "mutable": false,
+          "attr": "multitype",
+          "reflectToAttr": false,
+          "docs": "docs",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "multitypewithstring",
+          "type": "number | string",
+          "mutable": false,
+          "attr": "multitypewithstring",
+          "reflectToAttr": false,
+          "docs": "docs",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "arraytypes",
+          "type": "number[] | string[]",
+          "mutable": false,
+          "attr": "arraytypes",
+          "reflectToAttr": false,
+          "docs": "docs",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "method",
+          "returns": {
+            "type": "string",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "",
+            "parameters": [],
+            "references": {},
+            "return": "string"
+          },
+          "signature": "",
+          "parameters": [],
+          "docs": "docs",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "event",
+          "detail": "boolean",
+          "bubbles": true,
+          "complexType": {
+            "original": "",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "docs",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "keydown",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [
+        {
+          "name": "--custom-property",
+          "annotation": "prop",
+          "docs": "Custom property documentation"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "docs": ""
+        },
+        {
+          "name": "title",
+          "docs": ""
+        }
+      ],
+      "parts": [],
+      "dependents": ["my-internal-comp"],
+      "dependencies": ["my-second-comp"],
+      "dependencyGraph": {}
+    },
+    {
+      "encapsulation": "shadow",
+      "tag": "my-second-comp",
+      "overview": "overview",
+      "readme": "",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": ["my-comp"],
+      "dependencies": ["my-internal-comp"],
+      "dependencyGraph": {}
+    }
+  ],
+  "typeLibrary": {}
+}

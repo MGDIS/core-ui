@@ -44,7 +44,7 @@ export class MgMenuItem {
   /**
    * Identifier is used to control mg-popover
    */
-  @Prop({ reflect: true }) identifier = createID('mg-menu-item');
+  @Prop({ reflect: true }) identifier: string = createID('mg-menu-item');
   @Watch('identifier')
   watchIdentifier(newValue: MgMenuItem['identifier']): void {
     if (!isValideID(newValue)) {

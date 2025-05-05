@@ -8,6 +8,9 @@
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },
+  "dependencies": {
+    "@mgdis/core-ui-helpers": "workspace:*"
+  },
   "devDependencies": {
     "@core-ui/tsconfig": "workspace:*",
     "@core-ui/typedoc-config": "workspace:*",
@@ -15,7 +18,6 @@
     "@rollup/plugin-commonjs": "28.0.3",
     "@rollup/plugin-node-resolve": "16.0.1",
     "@rollup/plugin-typescript": "12.1.2",
-    "@types/lodash": "4.17.16",
     "@vitest/coverage-istanbul": "3.1.2",
     "@vue/test-utils": "npm:@vue/test-utils@1.3.6",
     "rollup": "4.40.1",
@@ -27,24 +29,21 @@
     "vue-jest": "3.0.7",
     "vue-template-compiler": "2.7.16"
   },
-  "dependencies": {
-    "lodash": "4.17.21"
-  },
   "exports": {
     "./angular": {
+      "types": "./dist/angular/types.d.ts",
       "import": "./dist/angular/index.js",
-      "require": "./dist/angular/index.cjs",
-      "types": "./dist/angular/types.d.ts"
+      "require": "./dist/angular/index.cjs"
     },
     "./utils": {
+      "types": "./dist/utils/types.d.ts",
       "import": "./dist/utils/index.js",
-      "require": "./dist/utils/index.cjs",
-      "types": "./dist/utils/types.d.ts"
+      "require": "./dist/utils/index.cjs"
     },
     "./vue": {
+      "types": "./dist/vue/types.d.ts",
       "import": "./dist/vue/index.js",
-      "require": "./dist/vue/index.cjs",
-      "types": "./dist/vue/types.d.ts"
+      "require": "./dist/vue/index.cjs"
     }
   }
 }
