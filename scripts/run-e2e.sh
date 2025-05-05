@@ -49,12 +49,11 @@ prepare_package "packages/mg-components/package.json" '{
     "test:e2e": .scripts."test:e2e:docker"
   }, 
   "dependencies": { 
-    "@mgdis/stencil-helpers": .dependencies."@mgdis/stencil-helpers",
+    "@mgdis/core-ui-helpers": .dependencies."@mgdis/core-ui-helpers",
     "@stencil/core": .dependencies."@stencil/core",
     "@popperjs/core": .dependencies."@popperjs/core",
     "quill": .dependencies."quill"
-  },
-  "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
+  }
 }'
 
 # Prepare packages/notification-center/package.json
@@ -67,14 +66,14 @@ prepare_package "packages/notification-center/package.json" '{
   "scripts": { 
     "test:e2e": .scripts."test:e2e:docker"
   },
-  "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
+  "devDependencies": { "@mgdis/core-ui-helpers": .devDependencies."@mgdis/core-ui-helpers" }
 }'
 
 # Prepare packages/styles/package.json
 prepare_package "packages/styles/package.json" '{
   name, 
   "scripts": { "test:e2e": .scripts."test:e2e:docker" },
-  "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
+  "devDependencies": { "@mgdis/core-ui-helpers": .devDependencies."@mgdis/core-ui-helpers" }
 }'
 
 # Prepare apps/notification-center/package.json
