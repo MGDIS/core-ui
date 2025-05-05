@@ -1,4 +1,4 @@
-import type { CursorType } from '@mgdis/stencil-helpers';
+import type { CursorType } from '@mgdis/core-ui-helpers/stencil';
 
 /**
  * Define action type

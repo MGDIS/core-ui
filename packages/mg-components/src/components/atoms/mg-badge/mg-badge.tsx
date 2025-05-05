@@ -1,6 +1,6 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
 import { variants, BadgeVariantType } from './mg-badge.conf';
-import { ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/stencil';
 
 @Component({
   tag: 'mg-badge',

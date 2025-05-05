@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, State, EventEmitter, Watch, Event } from '@stencil/core';
-import { createID, ClassList, isValidString, toString, isValideID } from '@mgdis/stencil-helpers';
+import { createID, ClassList, isValidString, toString, isValideID } from '@mgdis/core-ui-helpers/stencil';
 import { initLocales } from '../../../locales';
 import { type ExpandToggleDisplayType, type TitlePositionType, expandToggleDisplays, titlePositions } from './mg-panel.conf';
 

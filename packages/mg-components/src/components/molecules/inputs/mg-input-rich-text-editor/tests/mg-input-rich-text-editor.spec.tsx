@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { newSpecPage, SpecPage } from '@stencil/core/testing';
-import { setupMutationObserverMock, setUpRequestAnimationFrameMock, toString } from '@mgdis/stencil-helpers';
+import { setupMutationObserverMock, setUpRequestAnimationFrameMock, toString } from '@mgdis/core-ui-helpers/stencil';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
 import messages from '../../../../../locales/en/messages.json';
 import { type EditorType } from '../editor';

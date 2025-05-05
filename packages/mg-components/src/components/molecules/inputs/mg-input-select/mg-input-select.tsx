@@ -1,5 +1,5 @@
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
-import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/stencil-helpers';
+import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/core-ui-helpers/stencil';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
 import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';

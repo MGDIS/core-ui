@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '@mgdis/stencil-helpers';
+import { filterArgs } from '@mgdis/core-ui-helpers/storybook';
 import type { MgSkipLinks as MgSkipLinksType } from '../mg-skip-links';
 
 export default {

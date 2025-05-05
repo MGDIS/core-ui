@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgIllustratedMessage } from '../mg-illustrated-message';
 import { directions, sizes } from '../mg-illustrated-message.conf';
-import { toString } from '@mgdis/stencil-helpers';
+import { toString } from '@mgdis/core-ui-helpers/stencil';
 
 const getPage = (
   args,

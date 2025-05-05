@@ -12,7 +12,7 @@ import {
   toString,
   isObject,
   formatID,
-} from '@mgdis/stencil-helpers';
+} from '@mgdis/core-ui-helpers/stencil';
 import { type ActionType, type RequestMappingType, type ResponseMappingType } from './mg-input-combobox.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import type { Option } from '../../../../types';

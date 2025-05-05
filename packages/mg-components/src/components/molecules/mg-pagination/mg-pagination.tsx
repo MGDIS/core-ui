@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, Watch, Event, EventEmitter, Host } from '@stencil/core';
-import { createID, isValideID, toString } from '@mgdis/stencil-helpers';
+import { createID, isValideID, toString } from '@mgdis/core-ui-helpers/stencil';
 import { NavigationAction } from './mg-pagination.conf';
 import { initLocales } from './../../../locales';
 

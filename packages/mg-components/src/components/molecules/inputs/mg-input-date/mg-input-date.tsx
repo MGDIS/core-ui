@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
-import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern, toString } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern, toString } from '@mgdis/core-ui-helpers/stencil';
 import { type InputDateError, DEFAULT_MAX_DATE } from './mg-input-date.conf';
 import { type EventType, classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';

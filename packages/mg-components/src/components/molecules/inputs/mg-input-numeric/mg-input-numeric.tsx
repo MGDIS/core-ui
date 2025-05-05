@@ -1,5 +1,5 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
-import { ClassList, isValidString, localeCurrency, localeNumber, localePercent, localeUnit, toString } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString, localeCurrency, localeNumber, localePercent, localeUnit, toString } from '@mgdis/core-ui-helpers/stencil';
 import { types, type InputNumericError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
 import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales/';

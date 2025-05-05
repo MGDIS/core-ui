@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { renderProperties, renderAttributes } from '@mgdis/playwright-helpers';
+import { renderProperties, renderAttributes } from '@mgdis/core-ui-helpers/playwright';
 import { test } from '../../../../../utils/playwright.fixture';
 import { MgInputToggle } from '../mg-input-toggle';
 import { ToggleValue } from '../mg-input-toggle.conf';

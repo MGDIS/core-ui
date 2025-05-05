@@ -1,4 +1,4 @@
-import { isValidString } from '@mgdis/stencil-helpers';
+import { isValidString } from '@mgdis/core-ui-helpers/stencil';
 import Quill, { type QuillOptions } from 'quill';
 
 export type EditorOptionsType = QuillOptions & {

@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { renderAttributes } from '@mgdis/playwright-helpers';
+import { renderAttributes } from '@mgdis/core-ui-helpers/playwright';
 import { test } from '../../../../../utils/playwright.fixture';
 
 const baseProps = { identifier: 'identifier', label: 'label' };

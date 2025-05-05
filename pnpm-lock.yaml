@@ -617,12 +617,12 @@ importers:
 
   packages/mg-components:
     dependencies:
+      '@mgdis/core-ui-helpers':
+        specifier: workspace:*
+        version: link:../helpers
       '@mgdis/img':
         specifier: workspace:*
         version: link:../img
-      '@mgdis/stencil-helpers':
-        specifier: workspace:*
-        version: link:../stencil-helpers
       '@mgdis/styles':
         specifier: workspace:*
         version: link:../styles
@@ -642,9 +642,6 @@ importers:
       '@mgdis/linting-stencil':
         specifier: workspace:*
         version: link:../linting-stencil
-      '@mgdis/playwright-helpers':
-        specifier: workspace:*
-        version: link:../playwright-helpers
       '@playwright/test':
         specifier: 1.52.0
         version: 1.52.0
@@ -794,12 +791,12 @@ importers:
       '@core-ui/tsconfig':
         specifier: workspace:*
         version: link:../../configs/tsconfig
+      '@mgdis/core-ui-helpers':
+        specifier: workspace:*
+        version: link:../helpers
       '@mgdis/mg-components':
         specifier: workspace:*
         version: link:../mg-components
-      '@mgdis/playwright-helpers':
-        specifier: workspace:*
-        version: link:../playwright-helpers
       '@playwright/test':
         specifier: 1.52.0
         version: 1.52.0
@@ -930,9 +927,9 @@ importers:
         specifier: 3.0.1
         version: 3.0.1
     devDependencies:
-      '@mgdis/playwright-helpers':
+      '@mgdis/core-ui-helpers':
         specifier: workspace:*
-        version: link:../playwright-helpers
+        version: link:../helpers
       '@playwright/test':
         specifier: 1.52.0
         version: 1.52.0

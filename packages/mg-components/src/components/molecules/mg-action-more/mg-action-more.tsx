@@ -1,5 +1,5 @@
 import { Component, h, Element, Prop, Watch, State, Host } from '@stencil/core';
-import { createID, toString } from '@mgdis/stencil-helpers';
+import { createID, toString } from '@mgdis/core-ui-helpers/stencil';
 import { Status } from '../menus/mg-menu-item/mg-menu-item.conf';
 import { directions } from '../menus/mg-menu/mg-menu.conf';
 import { initLocales } from '../../../locales';

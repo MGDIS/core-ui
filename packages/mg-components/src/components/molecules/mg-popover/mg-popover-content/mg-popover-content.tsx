@@ -1,5 +1,5 @@
 import { Component, Element, Host, h, Prop, EventEmitter, Event, State } from '@stencil/core';
-import { isTagName, ClassList } from '@mgdis/stencil-helpers';
+import { isTagName, ClassList } from '@mgdis/core-ui-helpers/stencil';
 import { initLocales } from '../../../../locales';
 
 /**

@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
+import { renderAttributes, renderProperties } from '@mgdis/core-ui-helpers/playwright';
 import { test } from '../../../../../utils/playwright.fixture';
 import { CheckboxType, checkboxTypes } from '../mg-input-checkbox.conf';
 

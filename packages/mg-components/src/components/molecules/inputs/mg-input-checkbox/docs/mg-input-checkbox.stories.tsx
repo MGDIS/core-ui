@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '@mgdis/stencil-helpers';
+import { filterArgs } from '@mgdis/core-ui-helpers/storybook';
 import { checkboxTypes } from '../mg-input-checkbox.conf';
 import type { MgInputCheckbox as MgInputCheckboxType } from '../mg-input-checkbox';
 

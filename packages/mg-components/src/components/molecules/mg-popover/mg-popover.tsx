@@ -1,5 +1,5 @@
 import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event } from '@stencil/core';
-import { createID, getWindows, isValideID, toString } from '@mgdis/stencil-helpers';
+import { createID, getWindows, isValideID, toString } from '@mgdis/core-ui-helpers/stencil';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 
 /**

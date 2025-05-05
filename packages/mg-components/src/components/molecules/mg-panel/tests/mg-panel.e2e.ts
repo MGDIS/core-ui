@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
-import { createID } from '@mgdis/stencil-helpers';
-import { renderAttributes } from '@mgdis/playwright-helpers';
+import { createID } from '@mgdis/core-ui-helpers/stencil';
+import { renderAttributes } from '@mgdis/playwright-helpers/stencil';
 
 const slots = ['default', 'flex'] as const;
 type SlotType = (typeof slots)[number] | string;

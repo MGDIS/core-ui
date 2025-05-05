@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { sizes, variants } from '../mg-button.conf';
 import iconList from '@mgdis/img/dist/icons/index.json';
-import { filterArgs } from '@mgdis/stencil-helpers';
+import { filterArgs } from '@mgdis/core-ui-helpers/storybook';
 import type { MgButton as MgButtonType } from '../mg-button';
 
 export default {

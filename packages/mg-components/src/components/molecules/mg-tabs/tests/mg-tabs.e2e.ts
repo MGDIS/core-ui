@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { sizes } from '../mg-tabs.conf';
-import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
+import { renderAttributes, renderProperties } from '@mgdis/core-ui-helpers/playwright';
 
 const defaultArgs = {
   label: 'label',

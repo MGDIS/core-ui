@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
-import { renderAttributes } from '@mgdis/playwright-helpers';
+import { renderAttributes } from '@mgdis/core-ui-helpers/playwright';
 
 const defaultSummary = '<span slot="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>';
 

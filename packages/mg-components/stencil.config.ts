@@ -1,4 +1,4 @@
-import { webTypesGenerator, vsCodeGenerator, vsCodeCssGenerator } from '@mgdis/stencil-helpers';
+import { webTypesGenerator, vsCodeGenerator, vsCodeCssGenerator } from '@mgdis/core-ui-helpers/stencil';
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { Config } from '@stencil/core';

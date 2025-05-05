@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../../utils/playwright.fixture';
-import { renderAttributes } from '@mgdis/playwright-helpers';
+import { renderAttributes } from '@mgdis/core-ui-helpers/playwright';
 
 const createHTML = props => {
   return `<mg-input-rich-text-editor ${renderAttributes(props)}></mg-input-rich-text-editor>`;

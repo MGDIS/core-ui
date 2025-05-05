@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgProgress } from '../mg-progress';
 import { roles } from '../mg-progress.conf';
-import { toString } from '@mgdis/stencil-helpers';
+import { toString } from '@mgdis/core-ui-helpers/stencil';
 
 const getPage = (args: Pick<MgProgress, 'label'> & Partial<Pick<MgProgress, 'value' | 'min' | 'max' | 'ariaRole'> & { lang: string }>) =>
   newSpecPage({

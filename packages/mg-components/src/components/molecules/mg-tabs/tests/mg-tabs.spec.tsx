@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgTabs } from '../mg-tabs';
 import { sizes, Status } from '../mg-tabs.conf';
-import { toString } from '@mgdis/stencil-helpers';
+import { toString } from '@mgdis/core-ui-helpers/stencil';
 
 const getPage = (args, slots?) =>
   newSpecPage({

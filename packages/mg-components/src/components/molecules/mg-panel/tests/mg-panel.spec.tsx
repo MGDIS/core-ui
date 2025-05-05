@@ -7,7 +7,7 @@ import { MgInputText } from '../../inputs/mg-input-text/mg-input-text';
 import { expandToggleDisplays, titlePositions } from '../mg-panel.conf';
 import { MgInputTitle } from '../../../atoms/internals/mg-input-title/mg-input-title';
 import { MgInput } from '../../inputs/mg-input/mg-input';
-import { setUpRequestAnimationFrameMock } from '@mgdis/stencil-helpers';
+import { setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/stencil';
 
 const getPage = async (args, slot?) => {
   const page = await newSpecPage({
