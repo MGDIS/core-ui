@@ -16,15 +16,15 @@ stages:
 .changes:
   img: 'packages/img/**/*'
   linting-stencil: 'packages/linting-stencil/**/*'
+  linting-styles: 'packages/linting-styles/**/*'
   mg-components: 'packages/mg-components/**/*'
   mg-components-helpers: 'packages/mg-components-helpers/**/*'
   notification-center: 'packages/notification-center/**/*'
   notification-center:app: 'apps/notification-center/**/*'
   playwright-helpers: 'packages/playwright-helpers/**/*'
+  sanitize-html: 'packages/sanitize-html/**/*'
   stencil-helpers: 'packages/stencil-helpers/**/*'
   styles: 'packages/styles/**/*'
-  linting-styles: 'packages/linting-styles/**/*'
-  sanitize-html: 'packages/sanitize-html/**/*'
 
 .rules:changes:
   img:
@@ -33,11 +33,13 @@ stages:
   linting-stencil:
     changes:
       - !reference [.changes, linting-stencil]
+  linting-styles:
+    changes:
+      - !reference [.changes, linting-styles]
   mg-components:
     changes:
       - !reference [.changes, mg-components]
       - !reference [.changes, img]
-      - !reference [.changes, mg-components-helpers]
       - !reference [.changes, stencil-helpers]
       - !reference [.changes, styles]
       - !reference [.changes, linting-stencil]
@@ -47,38 +49,37 @@ stages:
       - !reference [.changes, notification-center]
       - !reference [.changes, notification-center:app]
       - !reference [.changes, mg-components]
-      - !reference [.changes, styles]
+      - !reference [.changes, playwright-helpers]
+      - !reference [.changes, sanitize-html]
   playwright-helpers:
     changes:
       - !reference [.changes, playwright-helpers]
-  stencil-helpers:
-    changes:
-      - !reference [.changes, mg-components-helpers]
-      - !reference [.changes, stencil-helpers]
-  styles:
-    changes:
-      - !reference [.changes, styles]
-  linting-styles:
-    changes:
-      - !reference [.changes, linting-styles]
   sanitize-html:
     changes:
       - !reference [.changes, sanitize-html]
+  stencil-helpers:
+    changes:
+      - !reference [.changes, stencil-helpers]
+      - !reference [.changes, mg-components-helpers]
+  styles:
+    changes:
+      - !reference [.changes, styles]
+      - !reference [.changes, playwright-helpers]
   e2e:
     changes:
       - !reference [.changes, mg-components]
+      - !reference [.changes, notification-center]
       - !reference [.changes, styles]
       - !reference [.changes, img]
-      - !reference [.changes, mg-components-helpers]
       - !reference [.changes, stencil-helpers]
-      - !reference [.changes, notification-center]
-      - !reference [.changes, notification-center:app]
       - !reference [.changes, linting-stencil]
       - !reference [.changes, playwright-helpers]
+      - !reference [.changes, notification-center:app]
+      - !reference [.changes, sanitize-html]
   doc:
     changes:
-      - !reference [.changes, stencil-helpers]
       - !reference [.changes, mg-components-helpers]
+      - !reference [.changes, stencil-helpers]
 
 .rules:if:
   except-tags: $CI_COMMIT_TAG == null && ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_MERGE_REQUEST_ID)
@@ -168,7 +169,7 @@ test:doc:
   extends:
     - .install:dependencies
   script:
-    - pnpm build --filter "./packages/**"
+    - pnpm build:packages
     - pnpm doc
 
 playwright:baseimage:
@@ -332,6 +333,7 @@ doc:artifact:
     - .rules:tags
     - .install:dependencies
   script:
+    - pnpm build --filter=@mgdis/stencil-helpers
     - pnpm doc
     - sh scripts/import-docs.sh
     - curl -u$ARTIFACTORY_USER_LOGIN:$ARTIFACTORY_USER_PASS -T ./core-ui-artifact.tgz "$ARTIFACTORY_URL/core-documentation/core-ui-artifact.tgz"
