@@ -24,7 +24,7 @@ test.describe('mg-table', () => {
 
   tables.forEach((table, index) => {
     test(`Should render w3c table ${index}`, async ({ page }) => {
-      const html = createHTML({}, tableWithHeaderCellsInTheTopRowOnly);
+      const html = createHTML({}, table);
       await page.setContent(html);
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
