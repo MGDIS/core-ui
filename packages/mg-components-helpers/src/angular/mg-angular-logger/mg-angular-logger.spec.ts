@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest';
-import { setMgAngularLogger } from './mg-angular-logger';
+import { setMgAngularLogger } from '.';
 
 const mgError = new Error('<mg-error');
 const standardError = new Error('my error');

@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { toKebabCase } from './to-kebab-case';
+import { toKebabCase } from '.';
 
 describe('toKebabCase', () => {
   test.each([
