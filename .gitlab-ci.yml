@@ -532,7 +532,6 @@ playwright-helpers:artifact:
   script:
     - pnpm build --filter=@mgdis/playwright-helpers
     - cd packages/playwright-helpers
-    - pnpm build
     - !reference [.artifact, script]
   needs:
     - lint
