@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInputDate } from '../mg-input-date';
 import messages from '../../../../../locales/en/messages.json';
-import { localeDate, setUpRequestAnimationFrameMock, toString } from '@mgdis/core-ui-helpers/stencil';
+import { localeDate, setUpRequestAnimationFrameMock, toString } from '@mgdis/core-ui-helpers/dist/stencil';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';

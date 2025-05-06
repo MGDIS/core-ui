@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, Watch } from '@stencil/core';
 import { initLocales } from '../../../../locales';
-import { isValideID, toString } from '@mgdis/core-ui-helpers/stencil';
+import { isValideID, toString } from '@mgdis/core-ui-helpers/dist/stencil';
 
 /**
  * @internal

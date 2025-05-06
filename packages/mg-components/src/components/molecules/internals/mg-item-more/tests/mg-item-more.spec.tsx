@@ -1,6 +1,6 @@
 import { h } from '@stencil/core/internal';
 import { newSpecPage } from '@stencil/core/testing';
-import { setupMutationObserverMock, setupResizeObserverMock, toString } from '@mgdis/core-ui-helpers/stencil';
+import { setupMutationObserverMock, setupResizeObserverMock, toString } from '@mgdis/core-ui-helpers/dist/stencil';
 import { MgItemMore } from '../mg-item-more';
 import { forcePopoverId, mockWindowFrames } from '../../../../../utils/unit.test.utils';
 import { MgMenu } from '../../../menus/mg-menu/mg-menu';

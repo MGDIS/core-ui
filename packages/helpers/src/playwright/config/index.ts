@@ -1,4 +1,6 @@
-export default {
+import { type PlaywrightTestConfig } from '@playwright/test';
+
+const config: PlaywrightTestConfig = {
   testMatch: '*.e2e.ts',
   snapshotPathTemplate: '{testFileDir}/__screenshots__/{arg}-{projectName}{ext}',
   /* Maximum time one test can run for. */
@@ -37,3 +39,5 @@ export default {
     trace: 'on-first-retry',
   },
 };
+
+export default config;

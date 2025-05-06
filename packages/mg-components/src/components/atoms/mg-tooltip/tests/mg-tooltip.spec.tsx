@@ -3,7 +3,7 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MgTooltip } from '../mg-tooltip';
 import { MgButton } from '../../mg-button/mg-button';
 import { MgIcon } from '../../mg-icon/mg-icon';
-import { setupMutationObserverMock } from '@mgdis/core-ui-helpers/stencil';
+import { setupMutationObserverMock } from '@mgdis/core-ui-helpers/dist/stencil';
 import { mockWindowFrames } from '../../../../utils/unit.test.utils';
 import { MgTooltipContent } from '../mg-tooltip-content/mg-tooltip-content';
 

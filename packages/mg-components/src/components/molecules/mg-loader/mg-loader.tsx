@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, Watch } from '@stencil/core';
 import { initLocales } from '../../../locales';
-import { isValidString, toString } from '@mgdis/core-ui-helpers/stencil';
+import { isValidString, toString } from '@mgdis/core-ui-helpers/dist/stencil';
 
 @Component({
   tag: 'mg-loader',

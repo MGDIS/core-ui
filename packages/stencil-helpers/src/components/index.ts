@@ -20,4 +20,4 @@ export {
   Cursor,
   Page,
   Paginate,
-} from '@mgdis/core-ui-helpers/stencil';
+} from '@mgdis/core-ui-helpers/dist/stencil';

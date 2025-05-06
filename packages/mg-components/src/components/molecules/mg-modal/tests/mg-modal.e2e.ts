@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { actions, contents, setPageContent } from './mg-modal.e2e.template';
-import { renderAttributes } from '@mgdis/core-ui-helpers/playwright';
+import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 
 const slotsToTests = actions.flatMap(action => contents.map(content => ({ action, content })));
 

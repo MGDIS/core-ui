@@ -1,1 +1,1 @@
-export { setupMutationObserverMock, setupResizeObserverMock, setupSubmitEventMock, setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/stencil';
+export { setupMutationObserverMock, setupResizeObserverMock, setupSubmitEventMock, setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/dist/stencil';

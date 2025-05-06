@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '@mgdis/core-ui-helpers/storybook';
+import { filterArgs } from '@mgdis/core-ui-helpers/dist/storybook';
 import type { MgForm as MgFormType } from '../mg-form';
 
 export default {

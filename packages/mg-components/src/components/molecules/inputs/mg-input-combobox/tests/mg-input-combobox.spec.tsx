@@ -6,7 +6,7 @@ import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
 import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
-import { Cursor, setUpRequestAnimationFrameMock, setupResizeObserverMock, toString } from '@mgdis/core-ui-helpers/stencil';
+import { Cursor, setUpRequestAnimationFrameMock, setupResizeObserverMock, toString } from '@mgdis/core-ui-helpers/dist/stencil';
 import { MgPopover } from '../../../mg-popover/mg-popover';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 import { mockWindowFrames } from '../../../../../utils/unit.test.utils';

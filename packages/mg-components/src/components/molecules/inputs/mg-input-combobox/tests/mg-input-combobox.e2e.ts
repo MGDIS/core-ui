@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../../utils/playwright.fixture';
-import { renderAttributes, renderProperties } from '@mgdis/core-ui-helpers/playwright';
+import { renderAttributes, renderProperties } from '@mgdis/core-ui-helpers/dist/playwright';
 import { Keys } from '../../../../../utils/events.utils';
 
 const initArray = length => new Array(length).fill('').map((_, key) => (key + 1).toString());

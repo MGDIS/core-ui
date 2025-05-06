@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
-import { createID, focusableElements, getWindows, isValideID, isValidString, nextTick, toString } from '@mgdis/core-ui-helpers/stencil';
+import { createID, focusableElements, getWindows, isValideID, isValidString, nextTick, toString } from '@mgdis/core-ui-helpers/dist/stencil';
 import { Instance as PopperInstance, createPopper, Placement, PositioningStrategy } from '@popperjs/core';
 import { type GuardType, Guard } from './mg-tooltip.conf';
 

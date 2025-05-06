@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, State, Watch } from '@stencil/core';
-import { ClassList, toString } from '@mgdis/core-ui-helpers/stencil';
+import { ClassList, toString } from '@mgdis/core-ui-helpers/dist/stencil';
 import { variants, variantStyles, VariantStyleType, VariantType } from './mg-message.conf';
 import { type MgIcon } from '../../atoms/mg-icon/mg-icon';
 

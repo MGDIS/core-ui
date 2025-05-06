@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '@mgdis/core-ui-helpers/storybook';
+import { filterArgs } from '@mgdis/core-ui-helpers/dist/storybook';
 import type { MgMenuItem as MgMenuItemType } from '../../mg-menu-item/mg-menu-item';
 import type { MgMenu as MgMenuType } from '../mg-menu';
 import { directions } from '../mg-menu.conf';

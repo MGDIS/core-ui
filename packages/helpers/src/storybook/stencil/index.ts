@@ -56,7 +56,7 @@ const renderElement = (parentNode: HTMLElement, tagName: VNode['$tag$'], attribu
  * @returns filtres args
  * @example
  * ```ts
- * import { filterArgs } from '@mgdis/core-ui-helpers/storybook';
+ * import { filterArgs } from '@mgdis/core-ui-helpers/dist/storybook';
  * const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs(args, { variant: 'info' }, ['actions'])}></mg-badge>;
  * ```
  */
@@ -86,7 +86,7 @@ export const filterArgs = <T>(args: T, defaultValues?: Partial<T>, slots: string
  * @example
  * ```ts
  * // .storybook/preview.ts
- * import { stencilWrapper } from '@mgdis/core-ui-helpers/storybook';
+ * import { stencilWrapper } from '@mgdis/core-ui-helpers/dist/storybook';
  * export const decorators: Preview['decorators'] = [stencilWrapper];
  * ```
  */
@@ -122,7 +122,7 @@ export const stencilWrapper = (storyFn: (ctx: any) => void, context: ArgsType): 
  * @example
  * ```ts
  * // .storybook/preview.ts
- * import { getStoryHTML } from '@mgdis/core-ui-helpers/storybook';
+ * import { getStoryHTML } from '@mgdis/core-ui-helpers/dist/storybook';
  *
  * export const parameters: Preview['parameters'] = {
  *   docs: {

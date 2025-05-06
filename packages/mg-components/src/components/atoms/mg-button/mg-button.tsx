@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, State, Watch, Host, EventEmitter, Event } from '@stencil/core';
 import { variants, VariantType, ButtonType, SizeType, sizes } from './mg-button.conf';
-import { ClassList, isValidString, nextTick, toString } from '@mgdis/core-ui-helpers/stencil';
+import { ClassList, isValidString, nextTick, toString } from '@mgdis/core-ui-helpers/dist/stencil';
 import { Keys } from '../../../utils/events.utils';
 
 /**

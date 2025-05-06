@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '@mgdis/core-ui-helpers/storybook';
+import { filterArgs } from '@mgdis/core-ui-helpers/dist/storybook';
 import messages from '../../../../../locales/en/messages.json';
 import type { MgInputSelect as MgInputSelectType } from '../mg-input-select';
 

@@ -38,17 +38,17 @@ Mostly used with ViteJS and Webpack Bundler.
 
 ```js
 // Use in angular project
-import CoreUiHelpers from '@mgdis/core-ui-helpers/angular';
+import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/angular';
 // Use in playwright project
-import CoreUiHelpers from '@mgdis/core-ui-helpers/playwright';
+import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/playwright';
 // Use in Stencil project
-import CoreUiHelpers from '@mgdis/core-ui-helpers/stencil';
+import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/stencil';
 // Use in storybook project
-import CoreUiHelpers from '@mgdis/core-ui-helpers/storybook';
+import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/storybook';
 // Use in javascript project
-import CoreUiHelpers from '@mgdis/core-ui-helpers/utils';
+import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/utils';
 // Use in VUE project
-import CoreUiHelpers from '@mgdis/core-ui-helpers/vue';
+import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/vue';
 ```
 
 **CommonJS**
@@ -57,17 +57,17 @@ Mostly used with bundler wich doesn't support ES Module.
 
 ```js
 // Use in angular project
-const CoreUiHelpers = require('@mgdis/core-ui-helpers/angular');
+const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/angular');
 // Use in playwright project
-const CoreUiHelpers = require('@mgdis/core-ui-helpers/playwright');
+const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/playwright');
 // Use in Stencil project
-const CoreUiHelpers = require('@mgdis/core-ui-helpers/stencil');
+const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/stencil');
 // Use in storybook project
-const CoreUiHelpers = require('@mgdis/core-ui-helpers/storybook');
+const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/storybook');
 // Use in Javascript project
-const CoreUiHelpers = require('@mgdis/core-ui-helpers/utils');
+const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/utils');
 // Use in VUE project
-const CoreUiHelpers = require('@mgdis/core-ui-helpers/vue');
+const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/vue');
 ...
 ```
 

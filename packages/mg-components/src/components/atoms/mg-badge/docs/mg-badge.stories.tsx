@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '@mgdis/core-ui-helpers/storybook';
+import { filterArgs } from '@mgdis/core-ui-helpers/dist/storybook';
 import { variants } from '../mg-badge.conf';
 import type { MgBadge as MgBadgeType } from '../mg-badge';
 

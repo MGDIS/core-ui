@@ -5,7 +5,7 @@ import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
-import { setUpRequestAnimationFrameMock, toString } from '@mgdis/core-ui-helpers/stencil';
+import { setUpRequestAnimationFrameMock, toString } from '@mgdis/core-ui-helpers/dist/stencil';
 
 const getPage = args => {
   const page = newSpecPage({

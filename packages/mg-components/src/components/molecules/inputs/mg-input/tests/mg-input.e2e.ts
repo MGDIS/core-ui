@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { renderProperties, renderAttributes } from '@mgdis/core-ui-helpers/playwright';
+import { renderProperties, renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { test } from '../../../../../utils/playwright.fixture';
 import { MgInput } from '../mg-input';
 import { TooltipPosition, classReadonly } from '../mg-input.conf';

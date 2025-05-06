@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
-import { renderAttributes } from '@mgdis/core-ui-helpers/playwright';
+import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 
 const mgButtonVerticalCenter = 'mg-button{position:fixed;left:50%;transform:translateX(-50%)}';
 

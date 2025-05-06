@@ -4,7 +4,7 @@
  * @returns formated inline attributed. ex: 'status="visible"'
  * @example
  * ```ts
- * import { renderAttributes } from '@mgdis/core-ui-helpers/playwright';
+ * import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
  *
  * const attributes = renderAttributes({ status: 'visible', color: 'red' });
  * console.log(attributes); // Output: 'status="visible" color="red"'
@@ -34,7 +34,7 @@ export const renderAttributes = (args: Record<string, unknown>): string =>
  * @returns stringified properties script
  * @example
  * ```ts
- * import { renderProperties } from '@mgdis/core-ui-helpers/playwright';
+ * import { renderProperties } from '@mgdis/core-ui-helpers/dist/playwright';
  *
  * const propertiesScript = renderProperties({ status: 'visible', color: 'red' }, '.targetElement');
  * console.log(propertiesScript);

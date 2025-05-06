@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { renderAttributes } from '@mgdis/core-ui-helpers/playwright';
+import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { test } from '../../../../../utils/playwright.fixture';
 
 const createHTML = args => `<mg-input-title ${renderAttributes({ ...args })}>${args.isLegend ? 'Legend' : 'Label'}</mg-input-title>`;

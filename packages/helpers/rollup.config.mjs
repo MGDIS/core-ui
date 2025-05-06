@@ -23,40 +23,35 @@ export default async () => {
       return [
         {
           input,
-          // ES module
-          output: {
-            file: getFilePath(FOLDER.output, folder, 'index.js'),
-            format: 'es',
-            sourcemap: true,
-          },
-          plugins: [typescript()],
-        },
-        {
-          input,
-          // CommonJS
-          output: {
-            file: getFilePath(FOLDER.output, folder, 'index.cjs'),
-            format: 'cjs',
-            sourcemap: true,
-          },
-          plugins: [typescript(), nodeResolve(), commonjs()],
-        },
-        {
-          input,
-          // UMD
-          output: {
-            file: getFilePath(FOLDER.output, folder, 'index.umd.js'),
-            format: 'umd',
-            sourcemap: true,
-            name: `${NAME}.${folder}`,
-          },
-          plugins: [typescript(), nodeResolve(), commonjs()],
+          output: [
+            // ES module
+            {
+              file: getFilePath(FOLDER.output, folder, 'index.js'),
+              format: 'es',
+              sourcemap: true,
+            },
+            // CommonJS
+            {
+              file: getFilePath(FOLDER.output, folder, 'index.cjs'),
+              format: 'cjs',
+              sourcemap: true,
+            },
+            // UMD
+            {
+              file: getFilePath(FOLDER.output, folder, 'index.umd.js'),
+              format: 'umd',
+              sourcemap: true,
+              name: `${NAME}.${folder}`,
+            },
+          ],
+          plugins: [nodeResolve(), commonjs(), typescript()],
+          external: ['@playwright/test', 'vue', 'vue-template-compiler'],
         },
         {
           input,
           // types
           output: {
-            file: getFilePath(FOLDER.output, folder, 'types.d.ts'),
+            file: getFilePath(FOLDER.output, folder, 'index.d.ts'),
             format: 'es',
           },
           plugins: [dts()],

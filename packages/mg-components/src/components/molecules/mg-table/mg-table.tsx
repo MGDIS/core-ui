@@ -1,5 +1,5 @@
 import { Component, Element, State, Prop, Watch } from '@stencil/core';
-import { ClassList, toString, createID, isValidString } from '@mgdis/core-ui-helpers/stencil';
+import { ClassList, toString, createID, isValidString } from '@mgdis/core-ui-helpers/dist/stencil';
 import { type TableSizeType, type ColumnsType, type datatypesType, textAlignments, dataTypes, sizes } from './mg-table.conf';
 import { initLocales } from '../../../locales';
 

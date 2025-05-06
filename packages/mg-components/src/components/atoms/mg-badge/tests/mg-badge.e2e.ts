@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
-import { renderAttributes } from '@mgdis/core-ui-helpers/playwright';
+import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { variants } from '../mg-badge.conf';
 
 test.describe('mg-badge', () => {

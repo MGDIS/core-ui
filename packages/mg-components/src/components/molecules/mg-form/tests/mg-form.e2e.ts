@@ -1,4 +1,4 @@
-import { renderAttributes } from '@mgdis/core-ui-helpers/playwright';
+import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { requiredMessageStatus } from '../mg-form.conf';
