@@ -79,6 +79,17 @@ describe('mg-button', () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  test.each([
+    {}, // default 0
+    { tabindex: '-1' }, // html attribute
+    { tabindex: '0' }, // html attribute
+    { tabindex: '1' }, // html attribute
+  ])('Should render tabindex attribute', async attribute => {
+    const page = await getPage({ label: 'label', ...attribute });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   test('Should update button on size to large with svg: %s', async () => {
     const page = await getPage({ label: 'label', isIcon: true }, <svg></svg>);
     const element = page.doc.querySelector('mg-button');
@@ -88,6 +99,12 @@ describe('mg-button', () => {
     // Change size
     element.size = 'large';
     await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test('Should update mg-icon size when button size is on default value', async () => {
+    const page = await getPage({ label: 'default size button' }, <mg-icon icon="user" size="large"></mg-icon>);
 
     expect(page.root).toMatchSnapshot();
   });
@@ -212,6 +229,7 @@ describe('mg-button', () => {
         expect(spy).lastCalledWith(expect.objectContaining({ type: 'click' }));
       }
     });
+
     test.each(['ArrowRight', 'Tab', ' '])('Should NOT trigger click event on keydown', async key => {
       const page = await getPage(props);
       const button = page.doc.querySelector('mg-button');

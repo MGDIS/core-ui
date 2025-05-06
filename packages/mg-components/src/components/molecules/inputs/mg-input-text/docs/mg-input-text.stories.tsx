@@ -13,135 +13,92 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgInputTextType): HTMLElement => {
-  return <mg-input-text {...filterArgs(args)}></mg-input-text>;
-};
-
+const Template = (args: MgInputTextType): HTMLElement => (
+  <mg-input-text
+    {...filterArgs(
+      args,
+      {
+        type: 'text',
+        maxlength: 400,
+        mgWidth: 'full',
+        tooltipPosition: 'input',
+      },
+      ['append-input'],
+    )}
+    innerHTML={args['append-input']}
+  ></mg-input-text>
+);
 export const MgInputText = {
   render: Template,
   args: {
-    // Global
-    value: '',
-    identifier: 'identifier',
-    name: 'input-name',
-    // Label
-    label: 'Label',
-    labelOnTop: false,
-    labelHide: false,
-    // Input
-    placeholder: 'placeholder',
-    maxlength: 400,
-    required: true,
-    disabled: false,
-    readonly: false,
-    pattern: undefined,
-    patternErrorMessage: undefined,
-    mgWidth: 'full',
-    type: 'text',
-    // Tooltip
-    tooltip: 'This is a tooltip',
-    tooltipPosition: undefined,
-    // Nb Char Left
-    characterLeftHide: false,
-    // Help Text
-    helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
+    // Props
+    'value': '',
+    'identifier': 'identifier',
+    'name': 'input-name',
+    'label': 'Label',
+    'labelOnTop': false,
+    'labelHide': false,
+    'type': undefined,
+    'icon': undefined,
+    'placeholder': 'placeholder',
+    'datalistoptions': undefined,
+    'maxlength': undefined,
+    'required': false,
+    'readonly': false,
+    'disabled': false,
+    'mgWidth': undefined,
+    'pattern': undefined,
+    'patternErrorMessage': undefined,
+    'tooltip': 'This is a tooltip',
+    'tooltipPosition': undefined,
+    'characterLeftHide': false,
+    'helpText': 'Help text with html <b>bold</b>, <em>italic</em>.',
+    // Slot
+    'append-input': '',
   },
 };
 
-export const Email = {
+export const Type = {
   render: Template,
   args: {
     ...MgInputText.args,
-    // remove feature to focus on pattern
-    tooltip: '',
-    required: false,
+    type: 'url',
+    // remove extra
+    tooltip: undefined,
+    label: 'Site web',
+    helpText: undefined,
+  },
+};
+
+export const Pattern = {
+  render: Template,
+  args: {
+    ...Type.args,
+    type: 'email',
     label: 'Adresse email',
-    // Add pattern Email rules
-    maxlength: 100,
-    pattern: '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,15}',
-    patternErrorMessage: "L'information saisie est incorrecte (exemple : prenom.nom@exemple.fr)",
-    // Help Text
-    helpText: 'exemple : prenom.nom@exemple.fr',
+    pattern:
+      /^[a-zA-Z0-9!#$%&'*+\/=?^_`\{\|\}~\-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`\{\|\}~\-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-]*[a-zA-Z0-9])?$/
+        .source, // From https://gitlab.mgdis.fr/core/core-back/core/-/blob/master/packages/validators/src/email/email.ts#L10
   },
-};
-
-export const Emails = {
-  render: Template,
-  args: {
-    ...Email.args,
-    label: 'Adresses email',
-    // Add pattern Emails rules
-    maxlength: 200,
-    pattern: '([a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,15}(;)*)+',
-    patternErrorMessage: "L'information saisie est incorrecte (exemple : prenom.nom@exemple.fr;prenom.nom.2@exemple.fr)",
-    // Help Text
-    helpText: 'exemple : prenom.nom@exemple.fr;prenom.nom.2@exemple.fr',
-  },
-};
-
-export const RNA = {
-  render: Template,
-  args: {
-    ...Emails.args,
-    label: 'RNA',
-    // Add pattern RNA rules
-    maxlength: 10,
-    pattern: '(W[0-9]{1}[a-zA-Z0-9]{1}[0-9]{7})',
-    patternErrorMessage: "Le numéro RNA n'est pas valide (exemple: W123456789)",
-    // Help Text
-    helpText: 'exemple : W123456789',
-  },
-};
-
-export const URL = {
-  render: Template,
-  args: {
-    ...Emails.args,
-    label: 'URL',
-    // Add pattern URL rules
-    maxlength: 200,
-    pattern: 'https?://(?:www.)?([-a-zA-Z0-9@:%._+~#=]{2,256}.[a-z]{2,6}\b)*(/[/dw.-]*)*(?:[?])*(.+)*',
-    patternErrorMessage: "Le format du champ n'est pas valide (exemple: https://www.exemple.fr)",
-    // Help Text
-    helpText: 'Exemple: https://www.exemple.fr',
-  },
-};
-
-/**
- * Template
- * @param args - component arguments
- * @returns HTMLElement
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const SearchTemplate = (args: MgInputTextType): HTMLElement => {
-  // return element
-  return (
-    <form role="search">
-      <mg-input-text {...filterArgs(args)}>
-        <mg-button slot="append-input" label="search">
-          <mg-icon icon="magnifying-glass"></mg-icon> Search
-        </mg-button>
-      </mg-input-text>
-    </form>
-  );
 };
 
 export const Search = {
-  render: SearchTemplate,
-
+  render: Template,
   args: {
     ...MgInputText.args,
-    type: 'search',
-    icon: 'magnifying-glass',
+    'type': 'search',
+    'icon': 'magnifying-glass',
+    // Slot
+    'append-input': `<mg-button slot="append-input" label="search">
+        <mg-icon icon="magnifying-glass"></mg-icon>Search
+      </mg-button>`,
   },
 };
 
 export const Datalist = {
   render: Template,
-
   args: {
     ...MgInputText.args,
-    type: 'text',
     icon: 'magnifying-glass',
     datalistoptions: ['agent', 'admin', 'user'],
   },
@@ -151,9 +108,7 @@ export const DatalistOption = {
   render: Template,
 
   args: {
-    ...MgInputText.args,
-    type: 'text',
-    icon: 'magnifying-glass',
+    ...Datalist.args,
     datalistoptions: [
       { title: 'agent', value: '/agent/123' },
       { title: 'admin', value: '/admin/123' },

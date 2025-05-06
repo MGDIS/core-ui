@@ -16,10 +16,10 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
   display: block;
 }
 
-:host([data-placement^='left-start']),
-:host([data-placement^='left-end']),
-:host([data-placement^='right-start']),
-:host([data-placement^='right-end']) {
+:host([data-popper-placement^='left-start']),
+:host([data-popper-placement^='left-end']),
+:host([data-popper-placement^='right-start']),
+:host([data-popper-placement^='right-end']) {
   padding: 0 var(--mg-b-size-8);
 }
 
@@ -46,21 +46,21 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
 /**
 * Arrow hide
 */
-:host([data-placement^='top'][data-arrow-hide]) {
+:host([data-popper-placement^='top'][data-arrow-hide]) {
   padding-bottom: 0;
 }
 
-:host([data-placement^='bottom'][data-arrow-hide]) {
+:host([data-popper-placement^='bottom'][data-arrow-hide]) {
   padding-top: 0;
 }
 
-:host([data-placement$='end'][data-arrow-hide]),
-:host([data-placement^='left'][data-arrow-hide]) {
+:host([data-popper-placement$='end'][data-arrow-hide]),
+:host([data-popper-placement^='left'][data-arrow-hide]) {
   padding-right: 0;
 }
 
-:host([data-placement$='start'][data-arrow-hide]),
-:host([data-placement^='right'][data-arrow-hide]) {
+:host([data-popper-placement$='start'][data-arrow-hide]),
+:host([data-popper-placement^='right'][data-arrow-hide]) {
   padding-left: 0;
 }
 
@@ -91,8 +91,8 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
   /**
   * Arrow position
   */
-  :host([data-placement^='top']) &,
-  :host([data-placement^='bottom']) & {
+  :host([data-popper-placement^='top']) &,
+  :host([data-popper-placement^='bottom']) & {
     height: var(--mg-b-size-8);
 
     &::before {
@@ -102,7 +102,7 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
     }
   }
 
-  :host([data-placement^='top']) & {
+  :host([data-popper-placement^='top']) & {
     bottom: var(--mg-b-size-border);
     filter: drop-shadow(0 0.5rem 0.25rem color-mix(in srgb, var(--mg-b-color-dark), transparent 85%));
 
@@ -111,7 +111,7 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
     }
   }
 
-  :host([data-placement^='bottom']) & {
+  :host([data-popper-placement^='bottom']) & {
     top: var(--mg-b-size-border);
     filter: drop-shadow(0 -0.5rem 0.25rem color-mix(in srgb, var(--mg-b-color-dark), transparent 85%));
 
@@ -120,8 +120,8 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
     }
   }
 
-  :host([data-placement^='left']) &,
-  :host([data-placement^='right']) & {
+  :host([data-popper-placement^='left']) &,
+  :host([data-popper-placement^='right']) & {
     width: var(--mg-b-size-8);
 
     &::before {
@@ -131,7 +131,7 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
     }
   }
 
-  :host([data-placement^='left']) & {
+  :host([data-popper-placement^='left']) & {
     right: var(--mg-b-size-border);
     filter: drop-shadow(0.5rem 0 0.25rem color-mix(in srgb, var(--mg-b-color-dark), transparent 85%));
 
@@ -140,7 +140,7 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
     }
   }
 
-  :host([data-placement^='right']) & {
+  :host([data-popper-placement^='right']) & {
     left: var(--mg-b-size-border);
     filter: drop-shadow(-0.5rem 0 0.25rem color-mix(in srgb, var(--mg-b-color-dark), transparent 85%));
 
@@ -149,10 +149,10 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
     }
   }
 
-  :host([data-placement^='left-start']) &,
-  :host([data-placement^='left-end']) &,
-  :host([data-placement^='right-start']) &,
-  :host([data-placement^='right-end']) & {
+  :host([data-popper-placement^='left-start']) &,
+  :host([data-popper-placement^='left-end']) &,
+  :host([data-popper-placement^='right-start']) &,
+  :host([data-popper-placement^='right-end']) & {
     $height-value: calc(var(--mg-b-size-24) + 2 * var(--mg-c-card-border-radius));
 
     height: $height-value;

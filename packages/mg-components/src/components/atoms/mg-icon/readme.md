@@ -37,16 +37,18 @@
  - [mg-input](../../molecules/inputs/mg-input)
  - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
  - mg-input-checkbox-paginated
+ - [mg-input-combobox](../../molecules/inputs/mg-input-combobox)
  - [mg-input-password](../../molecules/inputs/mg-input-password)
  - [mg-input-text](../../molecules/inputs/mg-input-text)
  - mg-item-more
  - [mg-loader](../../molecules/mg-loader)
- - [mg-menu-item](../../molecules/menu/mg-menu-item)
+ - [mg-menu-item](../../molecules/menus/mg-menu-item)
  - [mg-message](../../molecules/mg-message)
  - [mg-modal](../../molecules/mg-modal)
  - [mg-pagination](../../molecules/mg-pagination)
  - [mg-panel](../../molecules/mg-panel)
  - mg-popover-content
+ - [mg-table](../../molecules/mg-table)
  - [mg-tabs](../../molecules/mg-tabs)
 
 ### Graph
@@ -59,6 +61,7 @@ graph TD;
   mg-input --> mg-icon
   mg-input-checkbox --> mg-icon
   mg-input-checkbox-paginated --> mg-icon
+  mg-input-combobox --> mg-icon
   mg-input-password --> mg-icon
   mg-input-text --> mg-icon
   mg-item-more --> mg-icon
@@ -69,6 +72,7 @@ graph TD;
   mg-pagination --> mg-icon
   mg-panel --> mg-icon
   mg-popover-content --> mg-icon
+  mg-table --> mg-icon
   mg-tabs --> mg-icon
   style mg-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

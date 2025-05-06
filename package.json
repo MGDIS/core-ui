@@ -1,7 +1,7 @@
 {
   "name": "core-ui",
   "license": "BSD-3-Clause",
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@9.15.9",
   "engineStrict": true,
   "engines": {
     "pnpm": "9.x",
@@ -24,16 +24,17 @@
     "test:e2e:docker": "./scripts/run-e2e.sh",
     "test:watch": "turbo test:watch",
     "coverage": "turbo coverage --force --filter='./packages/*'",
-    "lint": "pnpm lint:eslint && pnpm lint:prettier && pnpm lint:styles",
-    "lint:eslint": "pnpm -C packages/linting-stencil build:config && eslint '**/*.{js,ts,mjs,mts,cjs,tsx,vue}' --ignore-path .gitignore",
+    "lint": "pnpm lint:prepare && pnpm lint:eslint && pnpm lint:prettier && pnpm lint:styles",
+    "lint:prepare": "pnpm build --filter=@mgdis/linting-stencil && pnpm build:configs",
+    "lint:eslint": "eslint '**/*.{js,ts,mjs,mts,cjs,tsx,vue}' --ignore-path .gitignore",
     "lint:prettier": "prettier --check .",
     "lint:styles": "stylelint '**/*.{scss,css}' --ignore-path .gitignore",
-    "lint:fix": "pnpm lint:eslint --fix && pnpm lint:prettier --write && pnpm lint:styles --fix",
+    "lint:fix": "pnpm lint:prepare && pnpm lint:eslint --fix && pnpm lint:prettier --write && pnpm lint:styles --fix",
     "build": "turbo build --force",
     "build:apps": "turbo build --filter='./apps/*' --force",
     "build:configs": "turbo build --filter='./configs/*' --force",
     "build:packages": "turbo build --filter='./packages/*' --force",
-    "doc": "turbo doc",
+    "doc": "pnpm -r doc",
     "change": "changeset",
     "change:empty": "changeset --empty",
     "release": "./scripts/release.sh",
@@ -59,20 +60,20 @@
   "lint-staged": {
     "*.{js,ts,mjs,mts,cjs,tsx,vue}": "pnpm lint:eslint",
     "*.{json,yaml,yml,md,mdx,html}": "pnpm lint:prettier",
-    "*.scss": "pnpm lint:styles"
+    "*.{scss,css}": "pnpm lint:styles"
   },
   "devDependencies": {
-    "@changesets/cli": "2.28.1",
+    "@changesets/cli": "2.29.3",
     "@core-ui/eslint-config-custom": "workspace:*",
     "@core-ui/prettier-config": "workspace:*",
-    "@manypkg/cli": "0.23.0",
+    "@manypkg/cli": "0.24.0",
     "@mgdis/linting-styles": "workspace:*",
     "codename": "0.0.6",
     "eslint": "8.57.1",
     "husky": "9.1.7",
-    "lint-staged": "15.4.3",
+    "lint-staged": "15.5.1",
     "prettier": "3.5.3",
-    "stylelint": "16.15.0",
-    "turbo": "2.4.4"
+    "stylelint": "16.19.1",
+    "turbo": "2.5.2"
   }
 }

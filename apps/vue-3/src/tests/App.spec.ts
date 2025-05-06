@@ -11,6 +11,6 @@ describe('App', () => {
     const html = wrapper.html();
     expect(await axe(html)).toHaveNoViolations();
     // Snapshot test
-    expect(html).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });

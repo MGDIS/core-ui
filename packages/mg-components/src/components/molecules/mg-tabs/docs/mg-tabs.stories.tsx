@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
-import { sizes, Status } from '../mg-tabs.conf';
+import { Status } from '../mg-tabs.conf';
 import type { MgTabs as MgTabsType } from '../mg-tabs';
 
 export default {
@@ -15,7 +15,7 @@ export default {
  * @returns HTMLElement
  */
 const Template = (args: MgTabsType): HTMLElement => (
-  <mg-tabs {...filterArgs(args, { size: sizes[0] })}>
+  <mg-tabs {...filterArgs(args, { size: 'medium' })}>
     <div slot="tab_content-1">Content 1</div>
     <div slot="tab_content-2">Content 2</div>
     <div slot="tab_content-3">Content 3</div>
@@ -26,10 +26,11 @@ const Template = (args: MgTabsType): HTMLElement => (
 export const MgTabs = {
   render: Template,
   args: {
-    items: ['Tab 1', 'Tab 2', 'Tab 3', 'Tab 4'],
+    identifier: undefined,
     label: 'Short tabs description. Needed for accessibility',
+    size: undefined,
+    items: ['Tab 1', 'Tab 2', 'Tab 3', 'Tab 4'],
     activeTab: 2,
-    size: sizes[0], // medium
   },
 };
 

@@ -30,7 +30,7 @@ export class MgTag {
   /**
    * Define tag variant
    */
-  @Prop() variant: TagVariantType = variants[0]; // primary
+  @Prop() variant: TagVariantType = 'primary';
   @Watch('variant')
   validateVariant(newValue: MgTag['variant'], oldValue?: MgTag['variant']): void {
     if (!variants.includes(newValue)) {
@@ -46,7 +46,7 @@ export class MgTag {
   /**
    * Define if tag is using outline style
    */
-  @Prop() outline?: boolean;
+  @Prop() outline = false;
   @Watch('outline')
   validateOutline(newValue: MgTag['outline']): void {
     if (newValue) this.classCollection.add(this.classOutline);
@@ -56,7 +56,7 @@ export class MgTag {
   /**
    * Define if tag is using soft style
    */
-  @Prop() soft?: boolean;
+  @Prop() soft = false;
   @Watch('soft')
   validateSoft(newValue: MgTag['soft']): void {
     // usage validation

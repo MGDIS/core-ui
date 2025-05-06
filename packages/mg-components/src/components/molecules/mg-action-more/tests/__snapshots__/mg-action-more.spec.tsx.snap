@@ -19,7 +19,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
           </template>
           <mg-icon icon="ellipsis"></mg-icon>
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -29,7 +29,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -54,7 +54,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -204,7 +204,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
           </template>
           <mg-icon icon="ellipsis"></mg-icon>
         </mg-button>
-        <mg-popover-content data-placement="bottom" data-show id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -214,7 +214,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -239,7 +239,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -389,7 +389,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
           </template>
           <mg-icon icon="ellipsis"></mg-icon>
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -399,7 +399,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -424,7 +424,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -577,7 +577,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -587,7 +587,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -612,7 +612,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -765,7 +765,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </mg-button>
-        <mg-popover-content data-placement="bottom" data-show id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -775,7 +775,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -800,7 +800,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -953,7 +953,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -963,7 +963,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -988,7 +988,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -1138,7 +1138,7 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
           </template>
           <mg-icon icon="ellipsis"></mg-icon>
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1148,7 +1148,7 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -1173,7 +1173,7 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -1323,7 +1323,7 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
           </template>
           dc-comics
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1333,7 +1333,7 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -1358,7 +1358,7 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -1511,7 +1511,7 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1521,7 +1521,7 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -1546,7 +1546,7 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -1700,7 +1700,7 @@ exports[`mg-action-more render Should render with args [object Object] 4`] = `
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1710,7 +1710,7 @@ exports[`mg-action-more render Should render with args [object Object] 4`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -1735,7 +1735,7 @@ exports[`mg-action-more render Should render with args [object Object] 4`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -1886,7 +1886,7 @@ exports[`mg-action-more render Should render with args [object Object] 5`] = `
           <mg-icon icon="ellipsis"></mg-icon>
           Actions
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -1896,7 +1896,7 @@ exports[`mg-action-more render Should render with args [object Object] 5`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -1921,7 +1921,7 @@ exports[`mg-action-more render Should render with args [object Object] 5`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -2071,7 +2071,7 @@ exports[`mg-action-more render Should render with args [object Object] 6`] = `
           </template>
           Actions
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2081,7 +2081,7 @@ exports[`mg-action-more render Should render with args [object Object] 6`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -2106,7 +2106,7 @@ exports[`mg-action-more render Should render with args [object Object] 6`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -2256,7 +2256,7 @@ exports[`mg-action-more render Should render with args [object Object] 7`] = `
           </template>
           Actions
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2266,7 +2266,7 @@ exports[`mg-action-more render Should render with args [object Object] 7`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -2291,7 +2291,7 @@ exports[`mg-action-more render Should render with args [object Object] 7`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -2441,7 +2441,7 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
           </template>
           <mg-icon icon="ellipsis"></mg-icon>
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2451,7 +2451,7 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -2476,7 +2476,7 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -2626,7 +2626,7 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
           </template>
           <mg-icon icon="ellipsis"></mg-icon>
         </mg-button>
-        <mg-popover-content data-placement="bottom" data-show id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2636,7 +2636,7 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -2661,7 +2661,7 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -2811,7 +2811,7 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
           </template>
           dc-comics
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -2821,7 +2821,7 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -2846,7 +2846,7 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -2996,7 +2996,7 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
           </template>
           dc-comics
         </mg-button>
-        <mg-popover-content data-placement="bottom" data-show id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -3006,7 +3006,7 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -3031,7 +3031,7 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -3184,7 +3184,7 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -3194,7 +3194,7 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -3219,7 +3219,7 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -3372,7 +3372,7 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </mg-button>
-        <mg-popover-content data-placement="bottom" data-show id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -3382,7 +3382,7 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -3407,7 +3407,7 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -3561,7 +3561,7 @@ exports[`mg-action-more render Should toggle menu on click 7`] = `
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -3571,7 +3571,7 @@ exports[`mg-action-more render Should toggle menu on click 7`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -3596,7 +3596,7 @@ exports[`mg-action-more render Should toggle menu on click 7`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -3750,7 +3750,7 @@ exports[`mg-action-more render Should toggle menu on click 8`] = `
             <mg-icon icon="chevron-down"></mg-icon>
           </span>
         </mg-button>
-        <mg-popover-content data-placement="bottom" data-show id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -3760,7 +3760,7 @@ exports[`mg-action-more render Should toggle menu on click 8`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -3785,7 +3785,7 @@ exports[`mg-action-more render Should toggle menu on click 8`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -3936,7 +3936,7 @@ exports[`mg-action-more render Should toggle menu on click 9`] = `
           <mg-icon icon="ellipsis"></mg-icon>
           Actions
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -3946,7 +3946,7 @@ exports[`mg-action-more render Should toggle menu on click 9`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -3971,7 +3971,7 @@ exports[`mg-action-more render Should toggle menu on click 9`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -4122,7 +4122,7 @@ exports[`mg-action-more render Should toggle menu on click 10`] = `
           <mg-icon icon="ellipsis"></mg-icon>
           Actions
         </mg-button>
-        <mg-popover-content data-placement="bottom" data-show id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -4132,7 +4132,7 @@ exports[`mg-action-more render Should toggle menu on click 10`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -4157,7 +4157,7 @@ exports[`mg-action-more render Should toggle menu on click 10`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -4307,7 +4307,7 @@ exports[`mg-action-more render Should toggle menu on click 11`] = `
           </template>
           Actions
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -4317,7 +4317,7 @@ exports[`mg-action-more render Should toggle menu on click 11`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -4342,7 +4342,7 @@ exports[`mg-action-more render Should toggle menu on click 11`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -4492,7 +4492,7 @@ exports[`mg-action-more render Should toggle menu on click 12`] = `
           </template>
           Actions
         </mg-button>
-        <mg-popover-content data-placement="bottom" data-show id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -4502,7 +4502,7 @@ exports[`mg-action-more render Should toggle menu on click 12`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -4527,7 +4527,7 @@ exports[`mg-action-more render Should toggle menu on click 12`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -4677,7 +4677,7 @@ exports[`mg-action-more render Should toggle menu on click 13`] = `
           </template>
           Actions
         </mg-button>
-        <mg-popover-content data-placement="bottom" id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -4687,7 +4687,7 @@ exports[`mg-action-more render Should toggle menu on click 13`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -4712,7 +4712,7 @@ exports[`mg-action-more render Should toggle menu on click 13`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">
@@ -4862,7 +4862,7 @@ exports[`mg-action-more render Should toggle menu on click 14`] = `
           </template>
           Actions
         </mg-button>
-        <mg-popover-content data-placement="bottom" data-show id="mg-popover-test_0" slot="content" style="position: fixed; top: 0; left: 0; transform: translate(0px, 0px);">
+        <mg-popover-content data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden data-show id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
           <template shadowrootmode="open">
             <mg-card class="mg-c-popover-content">
               <div class="mg-c-popover-content__title">
@@ -4872,7 +4872,7 @@ exports[`mg-action-more render Should toggle menu on click 14`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-floating-arrow slot="arrow" style="position: absolute; left: 0px; top: 1px;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <template shadowrootmode="open">
@@ -4897,7 +4897,7 @@ exports[`mg-action-more render Should toggle menu on click 14`] = `
                   batman
                 </span>
               </mg-menu-item>
-              <mg-divider class="mg-c-action-more__divider"></mg-divider>
+              <mg-divider class="mg-c-action-more__divider" full-width=""></mg-divider>
               <mg-menu-item data-style-direction="vertical" identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical" hidden="" tabindex="-1">

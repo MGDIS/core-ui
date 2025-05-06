@@ -1,5 +1,40 @@
 # Changelog
 
+## 4.2.0
+
+### Minor Changes
+
+- b1fe770: Add toKebabCase method
+
+### Patch Changes
+
+- 8c91c21: create `formatID` utils
+
+## 4.1.18
+
+### Patch Changes
+
+- de8f8bc: Update dependencies
+
+## 4.1.17
+
+### Patch Changes
+
+- ef89eb4: Update dependencies
+
+## 4.1.16
+
+### Patch Changes
+
+- 0d14289: Update dependencies
+- c412c78: No need of a breaking changes file
+
+## 4.1.15
+
+### Patch Changes
+
+- 8e9e1b3: Update dependencies
+
 ## 4.1.14
 
 ### Patch Changes
@@ -160,9 +195,6 @@
   The modules included in core are not affected by this change. We are just changing the internals of core.
 
   In any case, if you have problems, don't hesitate to create an issue
-
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## 3.10.0
 

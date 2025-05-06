@@ -54,12 +54,12 @@ export class MgInputNumeric {
       // Split number and decimal
       const [integer, decimal = ''] = newValue.replace('-', '').split(/[.,]/);
       // Regex
-      const regex = this.type === 'integer' ? /^-?\d+$/ : /^-?\d+(?:[.,]\d*)?$/;
+      const regex = this.type === 'integer' ? /^(?!-?0\d)-?\d+$/ : /^(?!-?0\d)-?\d+(?:[.,]\d*)?$/;
       // Filter input
       if (this.isValidValue(newValue, regex, integer, decimal)) {
         this.storedValue = newValue;
       } else {
-        newValue = this.handleInvalidValue();
+        newValue = this.storedValue ?? null;
       }
       // Set value and input value
       this.updateValues(newValue);
@@ -85,7 +85,7 @@ export class MgInputNumeric {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop?: boolean;
+  @Prop() labelOnTop = false;
 
   /**
    * Define if label is visible
@@ -358,23 +358,21 @@ export class MgInputNumeric {
   }
 
   /**
-   * Handles invalid input values and returns a corrected value.
-   * @returns The corrected value.
-   */
-  private handleInvalidValue(): string | null {
-    return this.storedValue ?? null;
-  }
-
-  /**
    * Updates the component values based on the validated input value.
    * @param newValue - The validated input value.
    */
   private updateValues(newValue: string | null): void {
     this.value = newValue;
-    if (this.input !== undefined) this.input.value = this.value;
 
-    this.numericValue = !['', null].includes(this.value) ? parseFloat(this.value.replace(',', '.')) : null;
-    this.valueChange.emit(this.numericValue);
+    if (this.input !== undefined) {
+      this.input.value = this.value;
+    }
+
+    this.numericValue = !['', null].includes(this.value) && !isNaN(parseFloat(this.value)) ? parseFloat(this.value.replace(',', '.')) : null;
+
+    if (newValue === null || (newValue === this.storedValue && !Object.is(this.numericValue, -0))) {
+      this.valueChange.emit(this.numericValue);
+    }
 
     this.readonlyValue = this.numericValue !== null ? this.formatValue(this.numericValue) : '';
   }
@@ -392,12 +390,12 @@ export class MgInputNumeric {
    * Handle input event
    */
   private handleInput = (): void => {
+    this.value = this.input.value;
     // Check validity
     this.checkValidity();
     if (this.hasDisplayedError) {
       this.setErrorMessage();
     }
-    this.value = this.input.value;
   };
 
   /**

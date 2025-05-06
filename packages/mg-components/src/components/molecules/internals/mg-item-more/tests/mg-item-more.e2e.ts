@@ -1,8 +1,8 @@
 import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 import { test } from '../../../../../utils/playwright.fixture';
-import { Status } from '../../../menu/mg-menu-item/mg-menu-item.conf';
-import { directions, type MenuSizeType, sizes } from '../../../menu/mg-menu/mg-menu.conf';
+import { Status } from '../../../menus/mg-menu-item/mg-menu-item.conf';
+import { directions, type MenuSizeType, sizes } from '../../../menus/mg-menu/mg-menu.conf';
 
 const verticalFrameSizes = {
   medium: {

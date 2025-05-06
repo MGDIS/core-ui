@@ -20,7 +20,7 @@
 | `items` _(required)_      | --                 | Items are the possible options to select                                    | `ToggleValue[] \| string[]` | `undefined`       |
 | `label` _(required)_      | `label`            | Input label                                                                 | `string`                    | `undefined`       |
 | `labelHide`               | `label-hide`       | Define if label is visible                                                  | `boolean`                   | `false`           |
-| `labelOnTop`              | `label-on-top`     | Define if label is displayed on top                                         | `boolean`                   | `undefined`       |
+| `labelOnTop`              | `label-on-top`     | Define if label is displayed on top                                         | `boolean`                   | `false`           |
 | `name`                    | `name`             | Input name If not set the value equals the identifier                       | `string`                    | `this.identifier` |
 | `readonly`                | `readonly`         | Define if input is readonly                                                 | `boolean`                   | `false`           |
 | `tooltip`                 | `tooltip`          | Add a tooltip message next to the input                                     | `string`                    | `undefined`       |

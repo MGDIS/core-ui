@@ -21,13 +21,13 @@
       "sections": {
         "selected": {
           "title": "Selected",
-          "titlePlurial": "Selected",
+          "titlePlural": "Selected",
           "action": "Unselect all",
           "tooltip": "Unselect all current search results"
         },
         "notSelected": {
           "title": "Not selected",
-          "titlePlurial": "Not selected",
+          "titlePlural": "Not selected",
           "action": "Select all",
           "tooltip": "Select all current search results"
         }
@@ -46,7 +46,7 @@
         "minMax": "The date must be between {min} and {max}"
       },
       "error": {
-        "badInput": "The date is incorrect, the format must be {pattern}"
+        "badInput": "The date is inexistent or incorrect, the expected format is {pattern} (ex: {date})"
       }
     },
     "numeric": {
@@ -59,6 +59,26 @@
     "password": {
       "display": "Display password value",
       "hide": "Hide password value"
+    },
+    "combobox": {
+      "notFound": "No elements match your input",
+      "notAvailable": "No elements available",
+      "loadMore": "Load more",
+      "search": "Search…"
+    },
+    "text": {
+      "helpText": {
+        "email": "Expected format: name@example.com",
+        "emails": "Expected format: first@example.com, second@example.com",
+        "url": "Expected format: https://example.com"
+      },
+      "errors": {
+        "typeMismatch": {
+          "email": "The value is incorrect, the expected format is name@example.com",
+          "emails": "The value is incorrect, the expected format is first@example.com, second@example.com",
+          "url": "The value is incorrect, the expected format is https://example.com"
+        }
+      }
     }
   },
   "form": {
@@ -92,7 +112,8 @@
     "cancel": "Cancel",
     "close": "Close",
     "next": "next",
-    "previous": "previous"
+    "previous": "previous",
+    "reset": "reset"
   },
   "menuItem": {
     "badgeLabel": "Include notification(s)",
@@ -105,6 +126,9 @@
     "label": "Actions"
   },
   "loader": {
-    "inProgess": "Loading in progress…"
+    "inProgress": "Loading in progress…"
+  },
+  "table": {
+    "sortableCaption": "(column headers with buttons are sortable)"
   }
 }

@@ -25,12 +25,12 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   /**
    * Define if mg-input-checkbox-list is readonly
    */
-  @Prop() readonly?: boolean;
+  @Prop() readonly = false;
 
   /**
    * Define if mg-input-checkbox-list is disabled
    */
-  @Prop() disabled?: boolean;
+  @Prop() disabled = false;
 
   /**
    * Define mg-input-checkbox input name
@@ -152,7 +152,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
    */
   render(): HTMLElement {
     const getText = (checkboxes: CheckboxItem[]): HTMLElement => (
-      <em class="mg-c-input__section-header-title-label">{`${this.messages[checkboxes.length > 1 ? 'titlePlurial' : 'title']} (${checkboxes.length})`}</em>
+      <em class="mg-c-input__section-header-title-label">{`${this.messages[checkboxes.length > 1 ? 'titlePlural' : 'title']} (${checkboxes.length})`}</em>
     );
     const [from, to] = this.getFromToIndexes();
     const itemsContainerId = `items-${this.sectionKind}-container`;

@@ -43,6 +43,7 @@ The click on button with ’popovertargetaction="hide"’ will hide a shown popo
 | ----------- | ------------------------------------- |
 |             | Element that will display the popover |
 | `"content"` | popover content                       |
+| `"title"`   | popover title                         |
 
 
 ## CSS Custom Properties
@@ -64,7 +65,8 @@ The click on button with ’popovertargetaction="hide"’ will hide a shown popo
 
  - [mg-action-more](../mg-action-more)
  - [mg-input-checkbox](../inputs/mg-input-checkbox)
- - [mg-menu-item](../menu/mg-menu-item)
+ - [mg-input-combobox](../inputs/mg-input-combobox)
+ - [mg-menu-item](../menus/mg-menu-item)
 
 ### Depends on
 
@@ -80,6 +82,7 @@ graph TD;
   mg-button --> mg-icon
   mg-action-more --> mg-popover
   mg-input-checkbox --> mg-popover
+  mg-input-combobox --> mg-popover
   mg-menu-item --> mg-popover
   style mg-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```

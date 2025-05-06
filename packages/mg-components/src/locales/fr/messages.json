@@ -8,26 +8,26 @@
       "placeholder": "Sélectionnez une valeur"
     },
     "checkbox": {
-      "selectedValues": "{nb} valeurs selectionnées",
-      "selectedValue": "{nb} valeur selectionnée",
+      "selectedValues": "{nb} valeurs sélectionnées",
+      "selectedValue": "{nb} valeur sélectionnée",
       "editButton": "Modifier",
       "selectButton": "Sélectionner des valeurs",
       "showButton": "Voir",
       "label": "Saisissez une valeur",
       "result": "résultat",
       "results": "résultats",
-      "searchResults": "List de résultat(s) de la recherche.",
+      "searchResults": "Liste de résultat(s) de la recherche.",
       "noResult": "Aucun résultat.",
       "sections": {
         "selected": {
           "title": "Sélectionné",
-          "titlePlurial": "Sélectionnés",
+          "titlePlural": "Sélectionnés",
           "action": "Tout désélectionner",
           "tooltip": "Désélectionne tous les résultats de la recherche en cours"
         },
         "notSelected": {
           "title": "Non sélectionné",
-          "titlePlurial": "Non sélectionnés",
+          "titlePlural": "Non sélectionnés",
           "action": "Tout sélectionner",
           "tooltip": "Sélectionne tous les résultats de la recherche en cours"
         }
@@ -46,7 +46,7 @@
         "minMax": "La date doit être comprise entre le {min} et le {max}"
       },
       "error": {
-        "badInput": "La date est incorrecte, le format doit être du type {pattern}"
+        "badInput": "La date est inexistante ou incorrecte, le format attendu est {pattern} (ex&nbsp;: {date})"
       }
     },
     "numeric": {
@@ -59,6 +59,26 @@
     "password": {
       "display": "Afficher le mot de passe",
       "hide": "Masquer le mot de passe"
+    },
+    "combobox": {
+      "notFound": "Aucun élément ne correspondont a votre saisie",
+      "notAvailable": "Aucun élément disponible",
+      "loadMore": "Afficher plus",
+      "search": "Recherche…"
+    },
+    "text": {
+      "helpText": {
+        "email": "Format attendu&nbsp;: nom@exemple.fr",
+        "emails": "Format attendu&nbsp;: premier@exemple.fr, second@exemple.fr",
+        "url": "Format attendu&nbsp;: https://exemple.fr"
+      },
+      "errors": {
+        "typeMismatch": {
+          "email": "La valeur est incorrecte, le format attendu est nom@exemple.fr",
+          "emails": "La valeur est incorrecte, le format attendu est premier@exemple.fr, second@exemple.fr",
+          "url": "La valeur est incorrecte, le format attendu est https://exemple.fr"
+        }
+      }
     }
   },
   "form": {
@@ -92,7 +112,8 @@
     "cancel": "Annuler",
     "close": "Fermer",
     "next": "suivant",
-    "previous": "précédent"
+    "previous": "précédent",
+    "reset": "réinitialiser"
   },
   "menuItem": {
     "badgeLabel": "Notification(s) incluse(s)",
@@ -105,6 +126,9 @@
     "label": "Actions"
   },
   "loader": {
-    "inProgess": "Chargement en cours…"
+    "inProgress": "Chargement en cours…"
+  },
+  "table": {
+    "sortableCaption": "(les en-têtes de colonnes avec des boutons peuvent être triés)"
   }
 }

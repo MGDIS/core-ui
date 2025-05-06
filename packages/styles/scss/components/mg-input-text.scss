@@ -40,25 +40,3 @@
     }
   }
 }
-
-.mg-c-input.mg-c-input--readonly b {
-  min-height: var(--mg-b-font-size);
-  margin-top: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
-}
-
-/**
-* Icon in input
-*/
-.mg-c-input.mg-c-input--has-icon .mg-c-input__with-character-left {
-  & > mg-icon {
-    position: absolute;
-    top: 50%;
-    left: var(--mg-b-size-8);
-    color: var(--mg-c-input-color-icon);
-    transform: translateY(-50%);
-  }
-
-  .mg-c-input__box {
-    padding-left: calc(functions.get-icon-size('medium') + var(--mg-b-size-8) * 2);
-  }
-}

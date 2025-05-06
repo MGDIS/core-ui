@@ -19,30 +19,24 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgInputRadioType): HTMLElement => <mg-input-radio {...filterArgs(args)}></mg-input-radio>;
+const Template = (args: MgInputRadioType): HTMLElement => <mg-input-radio {...filterArgs(args, { tooltipPosition: 'input' })}></mg-input-radio>;
 
 export const MgInputRadio = {
   render: Template,
   args: {
-    // Global
     value: null,
     items: ['ht', 'ttc', 'mixte'],
     identifier: 'identifier',
     name: 'input-name',
-    // Label
     label: 'Option',
     labelOnTop: false,
     labelHide: false,
-    // placement
     inputVerticalList: false,
-    // Input
     required: false,
-    disabled: false,
     readonly: false,
-    // Tooltip
+    disabled: false,
     tooltip: 'This is a tooltip',
     tooltipPosition: undefined,
-    // Help Text
     helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
   },
 };
@@ -51,7 +45,6 @@ export const ItemsWithOptions = {
   render: Template,
   args: {
     ...MgInputRadio.args,
-    required: true,
     items: [
       {
         title: 'HT',

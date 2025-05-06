@@ -17,6 +17,7 @@ export class MgDetails {
 
   // HTML selector
   private details: HTMLDetailsElement;
+  private isEmptySummary: boolean;
 
   /**************
    * Decorators *
@@ -82,8 +83,16 @@ export class MgDetails {
   componentWillLoad(): void {
     this.validateTitles(this.toggleClosed);
     this.validateTitles(this.toggleOpened);
+
+    // Check if summary slot is empty
+    const summarySlot = this.element.querySelector('[slot="summary"]');
+    this.isEmptySummary = summarySlot === null || !isValidString(summarySlot.textContent);
+
+    // Add event listener to prevent default action on summary click
     this.element.addEventListener('click', (event: MouseEvent & { target: HTMLElement }) => {
-      if (event.target.closest('[slot="summary"] mg-button, mg-button[slot="summary"]')) event.preventDefault();
+      if (event.target.closest('[slot="summary"] mg-button, mg-button[slot="summary"]') !== null) {
+        event.preventDefault();
+      }
     });
   }
 
@@ -93,7 +102,12 @@ export class MgDetails {
    */
   render(): HTMLElement {
     return (
-      <details class="mg-c-details" onToggle={this.handleToggle} open={this.expanded} ref={(el: HTMLDetailsElement) => (this.details = el)}>
+      <details
+        class={{ 'mg-c-details': true, 'mg-c-details--empty-summary': this.isEmptySummary }}
+        onToggle={this.handleToggle}
+        open={this.expanded}
+        ref={(el: HTMLDetailsElement) => (this.details = el)}
+      >
         <summary>
           <slot name="summary"></slot>
           <span class="mg-c-details__toggle">

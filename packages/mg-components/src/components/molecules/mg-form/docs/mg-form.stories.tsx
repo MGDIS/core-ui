@@ -12,10 +12,10 @@ const args = {
   identifier: 'identifier',
   name: 'input-name',
   readonly: false,
-  disabled: false,
+  requiredMessage: undefined,
   ariaRole: undefined,
   labelOnTop: false,
-  requiredMessage: undefined,
+  disabled: false,
 };
 
 /**
@@ -49,7 +49,7 @@ const Template = (args: MgFormType): HTMLElement => {
           { title: 'non', value: false },
         ]}
       ></mg-input-checkbox>
-      <mg-input-date {...filterArgs({ required: true })} identifier="mg-input-date" label="mg-input-date label"></mg-input-date>
+      <mg-input-date required identifier="mg-input-date" label="mg-input-date label"></mg-input-date>
       <mg-input-numeric identifier="mg-input-numeric" label="mg-input-numeric label"></mg-input-numeric>
       <mg-input-password identifier="mg-input-password" label="mg-input-password label"></mg-input-password>
       <mg-input-radio identifier="mg-input-radio" label="mg-input-radio label" items={['blu', 'bli', 'bla', 'blo']}></mg-input-radio>
@@ -67,42 +67,43 @@ const Template = (args: MgFormType): HTMLElement => {
         <span slot="item-1">non</span>
         <span slot="item-2">oui</span>
       </mg-input-toggle>
-      <div slot="actions">
-        <mg-button
-          id="can-submit"
-          disabled={canSubmit}
-          ref={e => {
-            submit = e;
-          }}
-        >
-          Submit
-        </mg-button>
-        <mg-button
-          variant="secondary"
-          type="button"
-          // eslint-disable-next-line react/jsx-no-bind
-          onClick={() => {
-            form.displayError();
-          }}
-        >
-          Display errors
-        </mg-button>
-        <mg-button
-          variant="secondary"
-          type="button"
-          // eslint-disable-next-line react/jsx-no-bind
-          onClick={() => {
-            form.reset();
-          }}
-        >
-          Reset form
-        </mg-button>
-      </div>
+      <mg-button
+        slot="actions"
+        id="can-submit"
+        disabled={canSubmit}
+        ref={e => {
+          submit = e;
+        }}
+      >
+        Submit
+      </mg-button>
+      <mg-button
+        slot="actions"
+        variant="secondary"
+        type="button"
+        // eslint-disable-next-line react/jsx-no-bind
+        onClick={() => {
+          form.displayError();
+        }}
+      >
+        Display errors
+      </mg-button>
+      <mg-button
+        slot="actions"
+        variant="secondary"
+        type="button"
+        // eslint-disable-next-line react/jsx-no-bind
+        onClick={() => {
+          form.reset();
+        }}
+      >
+        Reset form
+      </mg-button>
     </mg-form>
   );
 };
 
 export const MgForm = {
   render: Template,
-  args: { ...args },
+  args,
 };

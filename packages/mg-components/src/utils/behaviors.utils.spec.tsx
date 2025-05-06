@@ -1,8 +1,8 @@
 import { h } from '@stencil/core/internal';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgItemMore } from '../components/molecules/internals/mg-item-more/mg-item-more';
-import { MgMenuItem } from '../components/molecules/menu/mg-menu-item/mg-menu-item';
-import { MgMenu } from '../components/molecules/menu/mg-menu/mg-menu';
+import { MgMenuItem } from '../components/molecules/menus/mg-menu-item/mg-menu-item';
+import { MgMenu } from '../components/molecules/menus/mg-menu/mg-menu';
 import { OverflowBehavior } from './behaviors.utils';
 import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
 
@@ -80,7 +80,7 @@ describe('behavior.utils', () => {
       });
     });
 
-    test.each(['parentElement', 'itemMoreElement', 'itemMoreContainerElement'])('Should throw error when missing construtor param %s', async param => {
+    test.each(['parentElement', 'itemMoreElement', 'itemMoreContainerElement'])('Should throw error when missing constructor param %s', async param => {
       expect.assertions(1);
       const page = await newSpecPage({
         components: [],
@@ -93,17 +93,17 @@ describe('behavior.utils', () => {
           </ul>
         ),
       });
-      let itemMoreContainerElement;
-      if (param !== 'itemMoreContainerElement') itemMoreContainerElement = page.doc.querySelector('ul > li > ul') as HTMLElement;
-      let itemMoreElement;
-      if (param !== 'itemMoreElement') itemMoreElement = page.doc.querySelector('ul > li:last-of-type') as HTMLElement;
-      let parentElement;
+      let itemMoreContainerElement: HTMLElement = null;
+      if (param !== 'itemMoreContainerElement') itemMoreContainerElement = page.doc.querySelector('ul > li > ul');
+      let itemMoreElement: HTMLElement = null;
+      if (param !== 'itemMoreElement') itemMoreElement = page.doc.querySelector('ul > li:last-of-type');
+      let parentElement: HTMLElement = null;
       if (param !== 'parentElement') parentElement = page.doc.querySelector('ul');
 
       try {
         new OverflowBehavior(parentElement, itemMoreElement, itemMoreContainerElement);
       } catch (err) {
-        expect(err.message).toEqual(`OverflowBehavior - all construtor params are required`);
+        expect(err.message).toEqual(`OverflowBehavior - all constructor params are required`);
       }
     });
 

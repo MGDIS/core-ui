@@ -8,10 +8,14 @@
 | Property      | Attribute      | Description             | Type      | Default     |
 | ------------- | -------------- | ----------------------- | --------- | ----------- |
 | `message`     | `message`      | Override loader message | `string`  | `undefined` |
-| `messageHide` | `message-hide` | Hide message            | `boolean` | `undefined` |
+| `messageHide` | `message-hide` | Hide message            | `boolean` | `false`     |
 
 
 ## Dependencies
+
+### Used by
+
+ - [mg-input-combobox](../inputs/mg-input-combobox)
 
 ### Depends on
 
@@ -21,6 +25,7 @@
 ```mermaid
 graph TD;
   mg-loader --> mg-icon
+  mg-input-combobox --> mg-loader
   style mg-loader fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

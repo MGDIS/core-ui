@@ -30,5 +30,6 @@ export default defineConfig({
     setupFiles: './vitest.setup.ts',
     exclude: [...configDefaults.exclude, 'e2e/*'],
     root: fileURLToPath(new URL('./', import.meta.url)),
+    snapshotSerializers: ['./node_modules/vue3-snapshot-serializer/index.js'],
   },
 });

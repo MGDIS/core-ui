@@ -91,7 +91,7 @@ export class MgForm {
   /**
    * Define if slotted mg-component's label are displayed on top
    */
-  @Prop() labelOnTop?: boolean;
+  @Prop() labelOnTop = false;
   @Watch('labelOnTop')
   handlelabelOnTop(newValue: MgForm['labelOnTop']) {
     if (newValue) {

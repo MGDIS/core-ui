@@ -40,10 +40,9 @@ If the element is located at the edge of the screen, the tooltip is shifted to a
 
 ## Slots
 
-| Slot        | Description                           |
-| ----------- | ------------------------------------- |
-|             | Element that will display the tooltip |
-| `"content"` | Tooltip content                       |
+| Slot | Description                           |
+| ---- | ------------------------------------- |
+|      | Element that will display the tooltip |
 
 
 ## CSS Custom Properties

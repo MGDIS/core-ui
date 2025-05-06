@@ -1,4 +1,4 @@
-# Style Sheets
+# @mgdis/styles
 
 **This package is, for now, reserved to mg-components.**
 

@@ -18,31 +18,33 @@ export default {
  * @returns HTMLElement
  */
 const Template = (args: MgPopoverType & { slotTitle: string; slotContent: HTMLElement[] }): HTMLElement => (
-  <mg-popover {...filterArgs(args, { placement: 'bottom' })}>
-    <mg-button>Button</mg-button>
-    {args.slotTitle && <h2 slot="title">{args.slotTitle}</h2>}
-    {args.slotContent && <p slot="content">{args.slotContent}</p>}
-  </mg-popover>
+  <mg-popover
+    {...filterArgs(
+      args,
+      {
+        placement: 'bottom',
+      },
+      ['', 'title', 'content'],
+    )}
+    innerHTML={`${args['']}${args['title']}${args['content']}`}
+  ></mg-popover>
 );
 
 export const MgPopover = {
   render: Template,
   args: {
-    slotTitle: `Blu bli blo bla`,
-    slotContent: [
-      <span>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </span>,
-      <div>
-        <mg-button popovertargetaction="hide">close</mg-button>
-      </div>,
-    ],
-    identifier: 'identifier',
-    closeButton: false,
-    disabled: false,
-    display: false,
-    placement: undefined,
+    // Props
+    'identifier': 'identifier',
+    'placement': undefined,
+    'arrowHide': false,
+    'closeButton': false,
+    'display': false,
+    'disabled': false,
+    // Slots
+    '': `<mg-button>Button</mg-button>`,
+    'content': `<p slot="content">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p><mg-button slot="content" popovertargetaction="hide">close</mg-button>`,
+    'title': `<h2 slot="title">Blu bli blo bla</h2>`,
   },
 };

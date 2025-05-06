@@ -13,30 +13,32 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgInputPasswordType): HTMLElement => <mg-input-password {...filterArgs(args)}></mg-input-password>;
+const Template = (args: MgInputPasswordType): HTMLElement => (
+  <mg-input-password
+    {...filterArgs(args, {
+      mgWidth: 'full',
+      tooltipPosition: 'input',
+    })}
+  ></mg-input-password>
+);
 
 export const MgInputPassword = {
   render: Template,
   args: {
-    // Global
     value: '',
     identifier: 'identifier',
     name: 'input-name',
-    // Label
     label: 'Label',
     labelOnTop: false,
     labelHide: false,
-    // Input
     placeholder: 'placeholder',
-    maxlength: 400,
-    required: true,
-    disabled: false,
+    maxlength: undefined,
+    required: false,
     readonly: false,
+    disabled: false,
     mgWidth: 'full',
-    // Tooltip
     tooltip: 'This is a tooltip',
     tooltipPosition: undefined,
-    // Help Text
     helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
   },
 };

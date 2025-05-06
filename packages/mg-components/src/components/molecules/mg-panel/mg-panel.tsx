@@ -77,7 +77,7 @@ export class MgPanel {
   /**
    * Define title position
    */
-  @Prop() titlePosition: TitlePositionType = titlePositions[0];
+  @Prop() titlePosition: TitlePositionType = 'left';
   @Watch('titlePosition')
   validateTitlePosition(newValue: MgPanel['titlePosition']) {
     if (!titlePositions.includes(newValue)) throw new Error(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}. Passed value: ${toString(newValue)}.`);
@@ -95,7 +95,7 @@ export class MgPanel {
   /**
    * Define expand toggle button display
    */
-  @Prop() expandToggleDisplay: ExpandToggleDisplayType = expandToggleDisplays[0];
+  @Prop() expandToggleDisplay: ExpandToggleDisplayType = 'text';
   @Watch('expandToggleDisplay')
   validateExpandToggleDisplay(newValue: MgPanel['expandToggleDisplay']) {
     if (!expandToggleDisplays.includes(newValue))
@@ -106,7 +106,7 @@ export class MgPanel {
   /**
    * Disable possibility to toggle expand
    */
-  @Prop() expandToggleDisabled?: boolean;
+  @Prop() expandToggleDisabled = false;
 
   /**
    * Component classes

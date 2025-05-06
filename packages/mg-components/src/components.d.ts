@@ -14,6 +14,8 @@ import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from ".
 import { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+import { Direction, Option } from "./types";
+import { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
@@ -22,18 +24,17 @@ import { OptionType, TextType } from "./components/molecules/inputs/mg-input-tex
 import { IconType as IconType1 } from "./components";
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 import { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
-import { Direction } from "./types";
-import { ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
-import { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+import { ItemMoreType, MenuSizeType } from "./components/molecules/menus/mg-menu/mg-menu.conf";
+import { MgMenuStatusType, TargetType } from "./components/molecules/menus/mg-menu-item/mg-menu-item.conf";
 import { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
-import { PopoverPlacementType } from "./components/molecules/mg-popover/mg-popover.conf";
+import { Placement } from "@popperjs/core";
 import { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
+import { ColumnsType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
 import { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
-import { TooltipPlacementType } from "./components/atoms/mg-tooltip/mg-tooltip.conf";
 export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
@@ -43,6 +44,8 @@ export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from ".
 export { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+export { Direction, Option } from "./types";
+export { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
@@ -51,18 +54,17 @@ export { OptionType, TextType } from "./components/molecules/inputs/mg-input-tex
 export { IconType as IconType1 } from "./components";
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 export { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
-export { Direction } from "./types";
-export { ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
-export { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+export { ItemMoreType, MenuSizeType } from "./components/molecules/menus/mg-menu/mg-menu.conf";
+export { MgMenuStatusType, TargetType } from "./components/molecules/menus/mg-menu-item/mg-menu-item.conf";
 export { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
-export { PopoverPlacementType } from "./components/molecules/mg-popover/mg-popover.conf";
+export { Placement } from "@popperjs/core";
 export { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 export { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
+export { ColumnsType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
 export { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 export { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
-export { TooltipPlacementType } from "./components/atoms/mg-tooltip/mg-tooltip.conf";
 export namespace Components {
     interface MgActionMore {
         /**
@@ -72,7 +74,7 @@ export namespace Components {
         /**
           * Define if chevron is display
          */
-        "displayChevron"?: boolean;
+        "displayChevron": boolean;
         /**
           * Define displayed icon
          */
@@ -216,7 +218,7 @@ export namespace Components {
         /**
           * Define if slotted mg-component's label are displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input name If not set the value equals the identifier
          */
@@ -298,7 +300,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Define if input is required
          */
@@ -324,7 +326,7 @@ export namespace Components {
         /**
           * Display selected values list in "multi" type This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.
          */
-        "displaySelectedValues"?: boolean;
+        "displaySelectedValues": boolean;
         /**
           * Overwrite default "edit" button message
          */
@@ -356,7 +358,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Define input name If not set the value equals the identifier
          */
@@ -423,7 +425,7 @@ export namespace Components {
         /**
           * Define if mg-input-checkbox-list is disabled
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * Define mg-input-checkbox input invalid
          */
@@ -439,7 +441,116 @@ export namespace Components {
         /**
           * Define if mg-input-checkbox-list is readonly
          */
-        "readonly"?: boolean;
+        "readonly": boolean;
+    }
+    interface MgInputCombobox {
+        /**
+          * Define if input is disabled
+         */
+        "disabled": boolean;
+        /**
+          * Display input error if it exists.
+         */
+        "displayError": () => Promise<void>;
+        /**
+          * Define fetch request mappings. Required with `fetchurl`
+          * @example ``` {  request: {     filter: 'name', // `filter` key   },   response: {     total: 'body.data.total', // response object mapping to get `total` value     items: 'body.data.results' // response object mapping to get `items` value     next: 'body.next' // response object mapping to get `next` items     itemTitle: 'name', // item property to map on item['title']     itemValue: 'href', // item property to map on item['value']   } } ```
+         */
+        "fetchmappings"?: { request: RequestMappingType; response: ResponseMappingType };
+        /**
+          * Define fetch options object Require `fetchurl` prop to be defined otherwith it will be ignored if defined
+          * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/RequestInit}
+          * @example JSON headers: ```json { "headers": { "authorization": "my-token" } } ```
+         */
+        "fetchoptions"?: RequestInit;
+        /**
+          * Define API url to fetch
+          * @example ``` {   url: "http://myapi.com?$select='href,name'&my-custom-param='my-custom-value'", // url to fetch } ```
+         */
+        "fetchurl"?: string | URL;
+        /**
+          * Add a help text under the input, usually expected data format and example
+         */
+        "helpText"?: string;
+        /**
+          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
+         */
+        "identifier": string;
+        /**
+          * Define input invalid state
+         */
+        "invalid": boolean;
+        /**
+          * Define components items
+         */
+        "items": (string | Option)[];
+        /**
+          * Define items label Include short description. Required for accessibility.
+          * @example ``` Countries ```
+         */
+        "itemsLabel": string;
+        /**
+          * Input label
+         */
+        "label": string;
+        /**
+          * Define if label is visible
+         */
+        "labelHide": boolean;
+        /**
+          * Define if label is displayed on top
+         */
+        "labelOnTop": boolean;
+        /**
+          * Define input width
+         */
+        "mgWidth": Width;
+        /**
+          * Input name If not set the value equals the identifier
+         */
+        "name": string;
+        /**
+          * Define input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help combobox.
+         */
+        "placeholder"?: string;
+        /**
+          * Define if input is readonly
+         */
+        "readonly": boolean;
+        /**
+          * Define if input is required
+         */
+        "required": boolean;
+        /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
+          * Set an error and display a custom error message. This method can be used to set the component's error state from its concombobox by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given concombobox. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+          * @param valid - value indicating the validity
+          * @param errorMessage - the error message to display
+         */
+        "setError": (valid: MgInputCombobox["valid"], errorMessage: string) => Promise<void>;
+        /**
+          * Public method to play input focus
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * Add a tooltip message next to the input
+         */
+        "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
+          * Define input valid state
+         */
+        "valid": boolean;
+        /**
+          * Define component value
+         */
+        "value": string | Option;
     }
     interface MgInputDate {
         /**
@@ -473,7 +584,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Define input maximum date format: yyyy-mm-dd
          */
@@ -569,7 +680,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Maximum value
          */
@@ -669,11 +780,11 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input max length
          */
-        "maxlength": any;
+        "maxlength"?: number;
         /**
           * Define input width
          */
@@ -843,7 +954,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Editor modules configuration
          */
@@ -935,7 +1046,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Define input width
          */
@@ -1035,7 +1146,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input max length
          */
@@ -1139,7 +1250,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input max length
          */
@@ -1261,7 +1372,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop"?: boolean;
+        "labelOnTop": boolean;
         /**
           * Input name If not set the value equals the identifier
          */
@@ -1315,7 +1426,7 @@ export namespace Components {
         /**
           * Hide message
          */
-        "messageHide"?: boolean;
+        "messageHide": boolean;
     }
     interface MgMenu {
         /**
@@ -1397,11 +1508,11 @@ export namespace Components {
         /**
           * Hide navigation label
          */
-        "hideNavigationLabels"?: boolean;
+        "hideNavigationLabels": boolean;
         /**
           * Hide select input
          */
-        "hidePageCount"?: boolean;
+        "hidePageCount": boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
@@ -1419,7 +1530,7 @@ export namespace Components {
         /**
           * Disable possibility to toggle expand
          */
-        "expandToggleDisabled"?: boolean;
+        "expandToggleDisabled": boolean;
         /**
           * Define expand toggle button display
          */
@@ -1477,7 +1588,7 @@ export namespace Components {
         /**
           * Popover placement
          */
-        "placement": PopoverPlacementType;
+        "placement": Placement;
     }
     interface MgPopoverContent {
         /**
@@ -1513,6 +1624,20 @@ export namespace Components {
          */
         "links": SkipLink[];
     }
+    interface MgTable {
+        /**
+          * Define column properties
+         */
+        "columns": ColumnsType;
+        /**
+          * Define if table fits its parent element
+         */
+        "fullWidth": boolean;
+        /**
+          * Define table size
+         */
+        "size": TableSizeType;
+    }
     interface MgTabs {
         /**
           * Active tab number
@@ -1539,11 +1664,11 @@ export namespace Components {
         /**
           * Define if tag is using outline style
          */
-        "outline"?: boolean;
+        "outline": boolean;
         /**
           * Define if tag is using soft style
          */
-        "soft"?: boolean;
+        "soft": boolean;
         /**
           * Define tag variant
          */
@@ -1569,7 +1694,7 @@ export namespace Components {
         /**
           * Tooltip placement
          */
-        "placement": TooltipPlacementType;
+        "placement": Placement;
     }
     interface MgTooltipContent {
         /**
@@ -1601,6 +1726,10 @@ export interface MgInputCheckboxCustomEvent<T> extends CustomEvent<T> {
 export interface MgInputCheckboxPaginatedCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgInputCheckboxPaginatedElement;
+}
+export interface MgInputComboboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMgInputComboboxElement;
 }
 export interface MgInputDateCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1827,6 +1956,27 @@ declare global {
     var HTMLMgInputCheckboxPaginatedElement: {
         prototype: HTMLMgInputCheckboxPaginatedElement;
         new (): HTMLMgInputCheckboxPaginatedElement;
+    };
+    interface HTMLMgInputComboboxElementEventMap {
+        "value-change": HTMLMgInputComboboxElement['value'];
+        "filter-change": string;
+        "load-more": void;
+        "input-valid": HTMLMgInputComboboxElement['valid'];
+        "fetch-error": Error;
+    }
+    interface HTMLMgInputComboboxElement extends Components.MgInputCombobox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgInputComboboxElementEventMap>(type: K, listener: (this: HTMLMgInputComboboxElement, ev: MgInputComboboxCustomEvent<HTMLMgInputComboboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgInputComboboxElementEventMap>(type: K, listener: (this: HTMLMgInputComboboxElement, ev: MgInputComboboxCustomEvent<HTMLMgInputComboboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLMgInputComboboxElement: {
+        prototype: HTMLMgInputComboboxElement;
+        new (): HTMLMgInputComboboxElement;
     };
     interface HTMLMgInputDateElementEventMap {
         "value-change": HTMLMgInputDateElement['value'];
@@ -2150,6 +2300,12 @@ declare global {
         prototype: HTMLMgSkipLinksElement;
         new (): HTMLMgSkipLinksElement;
     };
+    interface HTMLMgTableElement extends Components.MgTable, HTMLStencilElement {
+    }
+    var HTMLMgTableElement: {
+        prototype: HTMLMgTableElement;
+        new (): HTMLMgTableElement;
+    };
     interface HTMLMgTabsElementEventMap {
         "active-tab-change": HTMLMgTabsElement['activeTab'];
     }
@@ -2200,6 +2356,7 @@ declare global {
         "mg-input": HTMLMgInputElement;
         "mg-input-checkbox": HTMLMgInputCheckboxElement;
         "mg-input-checkbox-paginated": HTMLMgInputCheckboxPaginatedElement;
+        "mg-input-combobox": HTMLMgInputComboboxElement;
         "mg-input-date": HTMLMgInputDateElement;
         "mg-input-numeric": HTMLMgInputNumericElement;
         "mg-input-password": HTMLMgInputPasswordElement;
@@ -2222,6 +2379,7 @@ declare global {
         "mg-popover-content": HTMLMgPopoverContentElement;
         "mg-progress": HTMLMgProgressElement;
         "mg-skip-links": HTMLMgSkipLinksElement;
+        "mg-table": HTMLMgTableElement;
         "mg-tabs": HTMLMgTabsElement;
         "mg-tag": HTMLMgTagElement;
         "mg-tooltip": HTMLMgTooltipElement;
@@ -2624,6 +2782,117 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
     }
+    interface MgInputCombobox {
+        /**
+          * Define if input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Define fetch request mappings. Required with `fetchurl`
+          * @example ``` {  request: {     filter: 'name', // `filter` key   },   response: {     total: 'body.data.total', // response object mapping to get `total` value     items: 'body.data.results' // response object mapping to get `items` value     next: 'body.next' // response object mapping to get `next` items     itemTitle: 'name', // item property to map on item['title']     itemValue: 'href', // item property to map on item['value']   } } ```
+         */
+        "fetchmappings"?: { request: RequestMappingType; response: ResponseMappingType };
+        /**
+          * Define fetch options object Require `fetchurl` prop to be defined otherwith it will be ignored if defined
+          * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/RequestInit}
+          * @example JSON headers: ```json { "headers": { "authorization": "my-token" } } ```
+         */
+        "fetchoptions"?: RequestInit;
+        /**
+          * Define API url to fetch
+          * @example ``` {   url: "http://myapi.com?$select='href,name'&my-custom-param='my-custom-value'", // url to fetch } ```
+         */
+        "fetchurl"?: string | URL;
+        /**
+          * Add a help text under the input, usually expected data format and example
+         */
+        "helpText"?: string;
+        /**
+          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
+         */
+        "identifier": string;
+        /**
+          * Define input invalid state
+         */
+        "invalid"?: boolean;
+        /**
+          * Define components items
+         */
+        "items"?: (string | Option)[];
+        /**
+          * Define items label Include short description. Required for accessibility.
+          * @example ``` Countries ```
+         */
+        "itemsLabel": string;
+        /**
+          * Input label
+         */
+        "label": string;
+        /**
+          * Define if label is visible
+         */
+        "labelHide"?: boolean;
+        /**
+          * Define if label is displayed on top
+         */
+        "labelOnTop"?: boolean;
+        /**
+          * Define input width
+         */
+        "mgWidth"?: Width;
+        /**
+          * Input name If not set the value equals the identifier
+         */
+        "name"?: string;
+        /**
+          * Emited event when fetch API throw an error
+         */
+        "onFetch-error"?: (event: MgInputComboboxCustomEvent<Error>) => void;
+        /**
+          * Emited event when filter change
+         */
+        "onFilter-change"?: (event: MgInputComboboxCustomEvent<string>) => void;
+        /**
+          * Emited event when checking validity
+         */
+        "onInput-valid"?: (event: MgInputComboboxCustomEvent<HTMLMgInputComboboxElement['valid']>) => void;
+        /**
+          * Emited event when `load-more` is called
+         */
+        "onLoad-more"?: (event: MgInputComboboxCustomEvent<void>) => void;
+        /**
+          * Emited event when value change
+         */
+        "onValue-change"?: (event: MgInputComboboxCustomEvent<HTMLMgInputComboboxElement['value']>) => void;
+        /**
+          * Define input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help combobox.
+         */
+        "placeholder"?: string;
+        /**
+          * Define if input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * Define if input is required
+         */
+        "required"?: boolean;
+        /**
+          * Add a tooltip message next to the input
+         */
+        "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
+        /**
+          * Define input valid state
+         */
+        "valid"?: boolean;
+        /**
+          * Define component value
+         */
+        "value"?: string | Option;
+    }
     interface MgInputDate {
         /**
           * Define if input is disabled
@@ -2840,7 +3109,7 @@ declare namespace LocalJSX {
         /**
           * Input max length
          */
-        "maxlength"?: any;
+        "maxlength"?: number;
         /**
           * Define input width
          */
@@ -3636,7 +3905,7 @@ declare namespace LocalJSX {
         /**
           * Popover placement
          */
-        "placement"?: PopoverPlacementType;
+        "placement"?: Placement;
     }
     interface MgPopoverContent {
         /**
@@ -3679,6 +3948,20 @@ declare namespace LocalJSX {
           * Emited event when link is clicked
          */
         "onGo-to-anchor"?: (event: MgSkipLinksCustomEvent<string>) => void;
+    }
+    interface MgTable {
+        /**
+          * Define column properties
+         */
+        "columns"?: ColumnsType;
+        /**
+          * Define if table fits its parent element
+         */
+        "fullWidth"?: boolean;
+        /**
+          * Define table size
+         */
+        "size"?: TableSizeType;
     }
     interface MgTabs {
         /**
@@ -3740,7 +4023,7 @@ declare namespace LocalJSX {
         /**
           * Tooltip placement
          */
-        "placement"?: TooltipPlacementType;
+        "placement"?: Placement;
     }
     interface MgTooltipContent {
         /**
@@ -3763,6 +4046,7 @@ declare namespace LocalJSX {
         "mg-input": MgInput;
         "mg-input-checkbox": MgInputCheckbox;
         "mg-input-checkbox-paginated": MgInputCheckboxPaginated;
+        "mg-input-combobox": MgInputCombobox;
         "mg-input-date": MgInputDate;
         "mg-input-numeric": MgInputNumeric;
         "mg-input-password": MgInputPassword;
@@ -3785,6 +4069,7 @@ declare namespace LocalJSX {
         "mg-popover-content": MgPopoverContent;
         "mg-progress": MgProgress;
         "mg-skip-links": MgSkipLinks;
+        "mg-table": MgTable;
         "mg-tabs": MgTabs;
         "mg-tag": MgTag;
         "mg-tooltip": MgTooltip;
@@ -3812,6 +4097,7 @@ declare module "@stencil/core" {
              * Internal component use to manage sections instances
              */
             "mg-input-checkbox-paginated": LocalJSX.MgInputCheckboxPaginated & JSXBase.HTMLAttributes<HTMLMgInputCheckboxPaginatedElement>;
+            "mg-input-combobox": LocalJSX.MgInputCombobox & JSXBase.HTMLAttributes<HTMLMgInputComboboxElement>;
             "mg-input-date": LocalJSX.MgInputDate & JSXBase.HTMLAttributes<HTMLMgInputDateElement>;
             "mg-input-numeric": LocalJSX.MgInputNumeric & JSXBase.HTMLAttributes<HTMLMgInputNumericElement>;
             "mg-input-password": LocalJSX.MgInputPassword & JSXBase.HTMLAttributes<HTMLMgInputPasswordElement>;
@@ -3834,6 +4120,7 @@ declare module "@stencil/core" {
             "mg-popover-content": LocalJSX.MgPopoverContent & JSXBase.HTMLAttributes<HTMLMgPopoverContentElement>;
             "mg-progress": LocalJSX.MgProgress & JSXBase.HTMLAttributes<HTMLMgProgressElement>;
             "mg-skip-links": LocalJSX.MgSkipLinks & JSXBase.HTMLAttributes<HTMLMgSkipLinksElement>;
+            "mg-table": LocalJSX.MgTable & JSXBase.HTMLAttributes<HTMLMgTableElement>;
             "mg-tabs": LocalJSX.MgTabs & JSXBase.HTMLAttributes<HTMLMgTabsElement>;
             "mg-tag": LocalJSX.MgTag & JSXBase.HTMLAttributes<HTMLMgTagElement>;
             "mg-tooltip": LocalJSX.MgTooltip & JSXBase.HTMLAttributes<HTMLMgTooltipElement>;

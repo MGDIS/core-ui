@@ -14,23 +14,15 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgIconType & { color: string }): HTMLElement => {
-  const color = args.color;
-  delete args.color;
-  // return element
-  return (
-    <div style={{ color }}>
-      <mg-icon {...filterArgs(args, { size: sizes[1] })}></mg-icon>
-    </div>
-  );
-};
+const Template = (args: MgIconType): MgIconType => <mg-icon {...filterArgs(args, { size: sizes[1] })}></mg-icon>;
 
 export const MgIcon = {
   render: Template,
   args: {
-    color: '',
     icon: iconList[0],
     size: undefined,
+    variant: undefined,
+    variantStyle: undefined,
     spin: false,
   },
 };

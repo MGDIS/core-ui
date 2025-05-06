@@ -1,5 +1,19 @@
 # Changelog
 
+## 3.0.7
+
+### Patch Changes
+
+- Updated dependencies [de8f8bc]
+  - @mgdis/eslint-plugin-vue@4.1.6
+
+## 3.0.6
+
+### Patch Changes
+
+- Updated dependencies [8e9e1b3]
+  - @mgdis/eslint-plugin-vue@4.1.5
+
 ## 3.0.5
 
 ### Patch Changes
@@ -146,6 +160,3 @@
 ### Minor Changes
 
 - b4e2cc07: first version of eslint-config-vue3
-
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.

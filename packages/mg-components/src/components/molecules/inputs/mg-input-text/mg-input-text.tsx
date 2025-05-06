@@ -1,6 +1,6 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { allItemsAreString, ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
-import { OptionType, TextType } from './mg-input-text.conf';
+import { helpTextTypes, type OptionType, type TextType, textTypes } from './mg-input-text.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import { IconType } from '../../../../components';
@@ -96,9 +96,25 @@ export class MgInputText {
   @Prop() label!: string;
 
   /**
+   * Define if label is displayed on top
+   */
+  @Prop() labelOnTop = false;
+
+  /**
+   * Define if label is visible
+   */
+  @Prop() labelHide = false;
+
+  /**
    * Input type
    */
   @Prop() type: TextType = 'text';
+  @Watch('type')
+  validateType(newValue: TextType): void {
+    if (!textTypes.includes(newValue)) {
+      throw new Error(`<mg-input-text> prop "type" must be one of the following values: ${textTypes.join(', ')}. Passed value: ${newValue}.`);
+    }
+  }
 
   /**
    * Input icon
@@ -112,16 +128,6 @@ export class MgInputText {
       this.classCollection.delete(this.classHasIcon);
     }
   }
-
-  /**
-   * Define if label is displayed on top
-   */
-  @Prop() labelOnTop?: boolean;
-
-  /**
-   * Define if label is visible
-   */
-  @Prop() labelHide = false;
 
   /**
    * Input placeholder.
@@ -194,7 +200,6 @@ export class MgInputText {
     widths.forEach(width => {
       this.classCollection.delete(`mg-c-input--width-${width}`);
     });
-
     // apply new width
     if (newValue !== undefined) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
   }
@@ -211,12 +216,8 @@ export class MgInputText {
   @Prop() patternErrorMessage?: string;
   @Watch('pattern')
   @Watch('patternErrorMessage')
-  validatePattern(newValue: string): void {
-    if (newValue !== undefined && !(isValidString(this.pattern) && isValidString(this.patternErrorMessage))) {
-      throw new Error(
-        `<mg-input-text> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='${toString(this.pattern)}'" and "patternErrorMessage='${toString(this.patternErrorMessage)}'".`,
-      );
-    }
+  watchPattern(): void {
+    this.validatePattern();
   }
 
   /**
@@ -237,7 +238,13 @@ export class MgInputText {
   /**
    * Add a help text under the input, usually expected data format and example
    */
-  @Prop() helpText?: string;
+  @Prop({ mutable: true }) helpText?: string;
+  @Watch('helpText')
+  watchHelpText(newValue: string): void {
+    if (!isValidString(newValue) && (helpTextTypes as unknown as string).includes(this.type)) {
+      this.helpText = this.messages.input.text.helpText[this.type];
+    }
+  }
 
   /**
    * Define input valid state
@@ -345,6 +352,20 @@ export class MgInputText {
   }
 
   /**
+   * Validate pattern configuration
+   */
+  private validatePattern = (): void => {
+    if (
+      (this.pattern !== undefined || this.patternErrorMessage !== undefined) && // At least one is defined
+      (!isValidString(this.pattern) || (!(helpTextTypes as unknown as string).includes(this.type) && !isValidString(this.patternErrorMessage))) // Both must be defined
+    ) {
+      throw new Error(
+        `<mg-input-text> props "pattern" and "patternErrorMessage" must be non-empty string and paired. Passed value: "pattern='${this.pattern}'" and "patternErrorMessage='${this.patternErrorMessage}'".`,
+      );
+    }
+  };
+
+  /**
    * Handle input event
    */
   private handleInput = (): void => {
@@ -396,9 +417,13 @@ export class MgInputText {
     if (!this.valid && errorMessage !== undefined) {
       this.errorMessage = errorMessage;
     }
+    // Does not match type (email, emails, tel, url, etc.)
+    else if (!this.valid && this.input.validity.typeMismatch) {
+      this.errorMessage = this.messages.input.text.errors.typeMismatch[this.type];
+    }
     // Does not match pattern
     else if (!this.valid && this.input.validity.patternMismatch) {
-      this.errorMessage = this.patternErrorMessage;
+      this.errorMessage = this.patternErrorMessage ?? this.messages.input.text.errors.typeMismatch[this.type];
     }
     // required
     else if (!this.valid && this.input.validity.valueMissing) {
@@ -447,12 +472,13 @@ export class MgInputText {
     // Validate
     this.validateIcon(this.icon);
     this.validateDatalistoptions(this.datalistoptions);
-    this.validatePattern(this.pattern);
-    this.validatePattern(this.patternErrorMessage);
+    this.watchPattern();
     this.validateAppendSlot();
     this.watchMgWidth(this.mgWidth);
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
+    this.validateType(this.type);
+    this.watchHelpText(this.helpText);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -507,7 +533,8 @@ export class MgInputText {
               >
                 {this.icon !== undefined && <mg-icon icon={this.icon}></mg-icon>}
                 <input
-                  type={this.type}
+                  type={this.type === 'emails' ? 'email' : this.type}
+                  multiple={this.type === 'emails'}
                   class="mg-c-input__box mg-c-input__box--width"
                   value={this.value}
                   id={this.identifier}

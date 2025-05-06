@@ -51,7 +51,7 @@ prepare_package "packages/mg-components/package.json" '{
   "dependencies": { 
     "@mgdis/stencil-helpers": .dependencies."@mgdis/stencil-helpers",
     "@stencil/core": .dependencies."@stencil/core",
-    "@floating-ui/dom": .dependencies."@floating-ui/dom",
+    "@popperjs/core": .dependencies."@popperjs/core",
     "quill": .dependencies."quill"
   },
   "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
@@ -98,11 +98,20 @@ prepare_package "packages/playwright-helpers/package.json" '{
   types
 }'
 
+
+# Prepare packages/mg-components-helpers/package.json
+prepare_package "packages/mg-components-helpers/package.json" '{
+  name,
+}'
+
 # Prepare packages/stencil-helpers/package.json
 prepare_package "packages/stencil-helpers/package.json" '{
   name, 
   main,
-  types
+  types,
+  "dependencies": { 
+    "@mgdis/mg-components-helpers": .dependencies."@mgdis/mg-components-helpers",
+  }
 }'
 
 # Create turbo.json

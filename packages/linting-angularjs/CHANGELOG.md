@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.1.5
+
+### Patch Changes
+
+- 0d14289: Update dependencies
+
+## 4.1.4
+
+### Patch Changes
+
+- 8e9e1b3: Update dependencies
+
 ## 4.1.3
 
 ### Patch Changes
@@ -153,9 +165,6 @@
 
 - Updated dependencies [6607a979]
   - @mgdis/eslint-plugin-html@3.11.0
-
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## 3.10.0
 

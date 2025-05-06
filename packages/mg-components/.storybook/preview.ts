@@ -22,11 +22,18 @@ export const parameters: Preview['parameters'] = {
   docs: {
     extractArgTypes,
     extractComponentDescription,
-    transformSource: (_, ctx) => getStoryHTML(ctx.originalStoryFn(ctx.args)),
+    source: {
+      transform: (_: string, ctx: any) => getStoryHTML(ctx.originalStoryFn(ctx.args)),
+    },
   },
   options: {
     storySort: {
-      order: ['Intro', 'Atoms', 'Molecules', 'Style'],
+      order: [
+        'Intro', // Does not affect order but set it as home page
+        'Atoms',
+        'Molecules',
+        'Style',
+      ],
     },
   },
 };

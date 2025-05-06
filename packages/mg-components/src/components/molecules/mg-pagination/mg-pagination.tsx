@@ -69,12 +69,12 @@ export class MgPagination {
   /**
    * Hide navigation label
    */
-  @Prop() hideNavigationLabels?: boolean;
+  @Prop() hideNavigationLabels = false;
 
   /**
    * Hide select input
    */
-  @Prop() hidePageCount?: boolean;
+  @Prop() hidePageCount = false;
 
   /**
    * Component total pages
@@ -98,7 +98,6 @@ export class MgPagination {
     } else if (newValue > this.totalPages) {
       throw new Error('<mg-pagination> prop "currentPage" can not be greater than total page.');
     }
-
     this.currentPageChange.emit(newValue);
   }
 

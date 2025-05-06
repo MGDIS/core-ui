@@ -122,7 +122,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop?: boolean;
+  @Prop() labelOnTop = false;
 
   /**
    * Define if label is visible
@@ -158,7 +158,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Display selected values list in "multi" type
    * This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.
    */
-  @Prop() displaySelectedValues?: boolean;
+  @Prop() displaySelectedValues = false;
   @Watch('displaySelectedValues')
   watchDisplaySelectedValues(newValue: MgInputCheckbox['displaySelectedValues']): void {
     if (newValue) this.classCollection.add(this.classWithValues);

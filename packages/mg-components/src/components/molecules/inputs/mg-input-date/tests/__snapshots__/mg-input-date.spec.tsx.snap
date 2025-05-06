@@ -32,13 +32,14 @@ exports[`mg-input-date Should display a badInput message on a required field wit
         (ex: 12/24/2025)
       </div>
       <div id="identifier-error" slot="error">
-        The date is incorrect, the format must be
+        The date is inexistent or incorrect, the expected format is
         <span aria-hidden="true">
           mm/dd/yyyy
         </span>
         <span class="mg-u-visually-hidden">
           m m / d d / y y y y
         </span>
+        (ex: 12/24/2025)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
@@ -131,13 +132,14 @@ exports[`mg-input-date Should display error with invalid value, case value="31-1
         (ex: 12/24/2025)
       </div>
       <div id="identifier-error" slot="error">
-        The date is incorrect, the format must be
+        The date is inexistent or incorrect, the expected format is
         <span aria-hidden="true">
           mm/dd/yyyy
         </span>
         <span class="mg-u-visually-hidden">
           m m / d d / y y y y
         </span>
+        (ex: 12/24/2025)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
@@ -225,13 +227,14 @@ exports[`mg-input-date Should display error with invalid value, case value="2020
         (ex: 12/24/2025)
       </div>
       <div id="identifier-error" slot="error">
-        The date is incorrect, the format must be
+        The date is inexistent or incorrect, the expected format is
         <span aria-hidden="true">
           mm/dd/yyyy
         </span>
         <span class="mg-u-visually-hidden">
           m m / d d / y y y y
         </span>
+        (ex: 12/24/2025)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
@@ -319,13 +322,14 @@ exports[`mg-input-date Should display error with invalid value, case value="2021
         (ex: 12/24/2025)
       </div>
       <div id="identifier-error" slot="error">
-        The date is incorrect, the format must be
+        The date is inexistent or incorrect, the expected format is
         <span aria-hidden="true">
           mm/dd/yyyy
         </span>
         <span class="mg-u-visually-hidden">
           m m / d d / y y y y
         </span>
+        (ex: 12/24/2025)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
@@ -413,13 +417,14 @@ exports[`mg-input-date Should display error with invalid value, case value="2022
         (ex: 12/24/2025)
       </div>
       <div id="identifier-error" slot="error">
-        The date is incorrect, the format must be
+        The date is inexistent or incorrect, the expected format is
         <span aria-hidden="true">
           mm/dd/yyyy
         </span>
         <span class="mg-u-visually-hidden">
           m m / d d / y y y y
         </span>
+        (ex: 12/24/2025)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
@@ -548,13 +553,14 @@ exports[`mg-input-date Should override keyboard event even if display error 1`] 
         (ex: 12/24/2025)
       </div>
       <div id="identifier-error" slot="error">
-        The date is incorrect, the format must be
+        The date is inexistent or incorrect, the expected format is
         <span aria-hidden="true">
           mm/dd/yyyy
         </span>
         <span class="mg-u-visually-hidden">
           m m / d d / y y y y
         </span>
+        (ex: 12/24/2025)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->

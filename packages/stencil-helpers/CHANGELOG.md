@@ -1,5 +1,51 @@
 # @mgdis/stencil-helpers
 
+## 3.2.0
+
+### Minor Changes
+
+- 8c91c21: create `formatID` utils
+
+### Patch Changes
+
+- 264048d: Update dependencies
+- Updated dependencies [8c91c21]
+- Updated dependencies [b1fe770]
+  - @mgdis/mg-components-helpers@4.2.0
+
+## 3.1.1
+
+### Patch Changes
+
+- de8f8bc: Update dependencies
+
+## 3.1.0
+
+### Minor Changes
+
+- 09d02e3: [**`<mg-input-combobox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-combobox--docs) new component
+
+### Patch Changes
+
+- f750498: Improve doc and remove lint warnings
+
+## 3.0.0
+
+### Major Changes
+
+- c412c78: Update way to filter args
+
+### Patch Changes
+
+- 0d14289: Update dependencies
+
+## 2.2.6
+
+### Patch Changes
+
+- 96f9cf2: [#547](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/547) - mg-input-numeric: "-0" transformed into "0"
+- 8e9e1b3: Update dependencies
+
 ## 2.2.5
 
 ### Patch Changes
@@ -36,7 +82,7 @@
 ### Minor Changes
 
 - 462e909: [**`<mg-progress>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-progress--docs) add mg-progress component
-- 47b5cf5: [`mg-input-numeric`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-numeric--docs) Add percent and unit format to mg-input-numeric
+- 47b5cf5: [**`<mg-input-numeric>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-numeric--docs) Add percent and unit format to mg-input-numeric
 
 ### Patch Changes
 

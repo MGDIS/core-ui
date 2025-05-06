@@ -60,7 +60,7 @@ export class MgInputPassword {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop?: boolean;
+  @Prop() labelOnTop = false;
 
   /**
    * Define if label is visible
@@ -76,7 +76,7 @@ export class MgInputPassword {
   /**
    * Input max length
    */
-  @Prop() maxlength;
+  @Prop() maxlength?: number;
 
   /**
    * Define if input is required

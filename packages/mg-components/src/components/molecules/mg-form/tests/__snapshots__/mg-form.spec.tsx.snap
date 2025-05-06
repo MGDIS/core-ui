@@ -60,6 +60,73 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-error mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+            <div aria-live="assertive" class="mg-c-input__error">
+              <slot name="error"></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-describedby="mg-input-select-error" aria-expanded="false" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" required="" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <div id="mg-input-select-error" slot="error">
+          This field is required.
+        </div>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
@@ -500,6 +567,30 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--readonly mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="true" required="true" slot="label">
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </span>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
@@ -790,6 +881,67 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" required="" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -1209,6 +1361,67 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" required="" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -1225,7 +1438,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -1236,16 +1449,11 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-date">
             <span class="mg-c-input-title__text">
               mg-input-date label
-            </span>
-            <span class="mg-c-input-title__required">
-              <span class="mg-u-is-asterisk">
-                *
-              </span>
             </span>
           </label>
         </mg-input-title>
@@ -1593,6 +1801,62 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -2031,6 +2295,62 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -2403,6 +2723,67 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" required="" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -2815,6 +3196,67 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" required="" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -2831,7 +3273,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -2842,16 +3284,11 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-date">
             <span class="mg-c-input-title__text">
               mg-input-date label
-            </span>
-            <span class="mg-c-input-title__required">
-              <span class="mg-u-is-asterisk">
-                *
-              </span>
             </span>
           </label>
         </mg-input-title>
@@ -3192,6 +3629,62 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -3616,6 +4109,62 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -3991,6 +4540,67 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" required="" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -4410,6 +5020,67 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" required="" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -4426,7 +5097,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -4437,16 +5108,11 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-date">
             <span class="mg-c-input-title__text">
               mg-input-date label
-            </span>
-            <span class="mg-c-input-title__required">
-              <span class="mg-u-is-asterisk">
-                *
-              </span>
             </span>
           </label>
         </mg-input-title>
@@ -4794,6 +5460,62 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -5221,6 +5943,62 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -5585,6 +6363,62 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -5938,6 +6772,30 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--readonly mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="true" required="false" slot="label">
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </span>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
@@ -6212,6 +7070,62 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--disabled mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" disabled="" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="true" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date mg-c-input--disabled">
@@ -6576,6 +7490,62 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--label-on-top mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
@@ -6928,6 +7898,30 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--readonly mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="true" required="false" slot="label">
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </span>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
@@ -7203,6 +8197,62 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -7567,6 +8617,62 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -7931,6 +9037,62 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -8295,6 +9457,62 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -8659,6 +9877,62 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -9023,6 +10297,62 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date">
@@ -9401,6 +10731,73 @@ exports[`mg-form display error message with locale: fr 1`] = `
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-error mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+            <div aria-live="assertive" class="mg-c-input__error">
+              <slot name="error"></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-describedby="mg-input-select-error" aria-expanded="false" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" required="" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <div id="mg-input-select-error" slot="error">
+          Ce champ est obligatoire.
+        </div>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
@@ -9867,6 +11264,73 @@ exports[`mg-form display error message with locale: xx 1`] = `
       </mg-input>
     </template>
   </mg-input-checkbox>
+  <mg-input-combobox data-mg-popover-guard="mg-input-select-popover">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-error mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+            <div aria-live="assertive" class="mg-c-input__error">
+              <slot name="error"></slot>
+            </div>
+          </div>
+        </template>
+        <mg-popover arrow-hide="" data-fallback-placement="bottom-end" identifier="mg-input-select-popover" placement="bottom-start">
+          <div class="mg-c-input__input-group-container">
+            <mg-icon icon="magnifying-glass"></mg-icon>
+            <input aria-autocomplete="list" aria-controls="mg-input-select-list" aria-describedby="mg-input-select-error" aria-expanded="false" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-select" name="mg-input-select" required="" role="combobox" type="text" value="">
+            <mg-button aria-disabled="false" aria-label="tests" class="mg-c-input__box-append" is-icon="" role="button" tabindex="-1">
+              <template shadowrootmode="open">
+                <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                  <div class="mg-c-button__content">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <mg-icon icon="chevron-down"></mg-icon>
+            </mg-button>
+          </div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="tests" aria-setsize="4" class="mg-c-input__input-list" id="mg-input-select-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blu" role="option">
+                blu
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bli" role="option">
+                bli
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="bla" role="option">
+                bla
+              </li>
+              <li aria-selected="false" class="mg-c-input__input-list-item" id="blo" role="option">
+                blo
+              </li>
+            </ul>
+          </div>
+        </mg-popover>
+        <div id="mg-input-select-error" slot="error">
+          This field is required.
+        </div>
+        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            <span class="mg-c-input-title__text">
+              mg-input-select label
+            </span>
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-combobox>
   <mg-input-date>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">

@@ -1,6 +1,7 @@
 import { Component, Event, EventEmitter, h, Prop, State, Element, Watch } from '@stencil/core';
 import { createID, ClassList, allItemsAreString, isValidString, nextTick, toString, isValideID } from '@mgdis/stencil-helpers';
 import { TabItem, sizes, Status, SizeType } from './mg-tabs.conf';
+import { Keys } from '../../../utils/events.utils';
 
 /**
  * type TabItem validation function
@@ -189,17 +190,17 @@ export class MgTabs {
    */
   private handleKeydown = (event: KeyboardEvent & { target: HTMLElement }): void => {
     const parent = event.target.parentElement;
-    if (['ArrowRight', 'ArrowLeft'].includes(event.key)) {
+    if ([Keys.ARROWLEFT, Keys.ARROWRIGHT].includes(event.key)) {
       this.tabFocus = Number(event.target.dataset.index);
       parent.querySelector(`[data-index="${this.tabFocus}"]`).setAttribute('tabindex', '-1');
 
       // Move right
-      if (event.key === 'ArrowRight') {
+      if (event.key === Keys.ARROWRIGHT) {
         this.tabFocus++;
         // If we're at the end, go to the start
         if (this.tabFocus > this.tabs.length) this.tabFocus = this.startIndex;
         // Move left
-      } else if (event.key === 'ArrowLeft') {
+      } else if (event.key === Keys.ARROWLEFT) {
         this.tabFocus--;
         // If we're at the start, move to the end
         if (this.tabFocus < this.startIndex) this.tabFocus = this.tabs.length;
@@ -214,7 +215,7 @@ export class MgTabs {
         parentButtonElement.setAttribute('tabindex', '0');
         parentButtonElement.focus();
       }
-    } else if (event.key === 'Tab') {
+    } else if (event.key === Keys.TAB) {
       this.resetFocus();
     }
   };

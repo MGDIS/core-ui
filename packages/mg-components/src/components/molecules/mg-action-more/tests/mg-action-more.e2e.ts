@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { createID } from '@mgdis/stencil-helpers';
 import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
-import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
+import { Status } from '../../menus/mg-menu-item/mg-menu-item.conf';
 import type { MgActionMore } from '../mg-action-more';
 import type { MgButton } from '../../../atoms/mg-button/mg-button';
 
@@ -19,7 +19,7 @@ const renderHTML = async (page, args) => {
 
 const mouseEventHandler = () => 'hello batman';
 
-const defaultViewPortSize = { width: 150, height: 270 };
+const defaultViewPortSize = { width: 400, height: 270 };
 
 const items: MgActionMore['items'] = [
   {
@@ -49,7 +49,7 @@ const items: MgActionMore['items'] = [
     href: '#',
   },
   {
-    label: 'robin',
+    label: 'Robin: “Are you sure this is the place?” asked the young vigilante, his eyes shining with impatience.',
     mouseEventHandler,
     icon: { icon: 'user', variant: 'success', variantStyle: 'icon' },
     href: '#',
