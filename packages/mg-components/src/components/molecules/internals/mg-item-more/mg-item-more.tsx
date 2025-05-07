@@ -1,5 +1,5 @@
 import { Component, h, Prop, Element, Host, Watch, State } from '@stencil/core';
-import { toString } from '@mgdis/core-ui-helpers/dist/stencil';
+import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import type { IconType, SizeType, SlotLabelType } from './mg-item-more.conf';
 import type { MessageType } from '../../../../locales/index.conf';
 import { OverflowBehavior } from '../../../../utils/behaviors.utils';

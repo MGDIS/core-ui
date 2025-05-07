@@ -6,7 +6,8 @@ import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
-import { setUpRequestAnimationFrameMock, toString } from '@mgdis/core-ui-helpers/dist/stencil';
+import { setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/dist/tests';
+import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 
 const getPage = async args => {
   const page = await newSpecPage({

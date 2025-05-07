@@ -34,3 +34,38 @@ exports[`e2e > renderProperties > Should render properties, case id selector 2`]
 "
   document.querySelector('div').object={};document.querySelector('div').array=[];document.querySelector('div').fn=() => {\\n    }"
 `;
+
+exports[`utils > renderAttributes > Should render attributes 1`] = `""`;
+
+exports[`utils > renderAttributes > Should render attributes 2`] = `""`;
+
+exports[`utils > renderAttributes > Should render attributes 3`] = `""`;
+
+exports[`utils > renderAttributes > Should render attributes 4`] = `"name="batman""`;
+
+exports[`utils > renderAttributes > Should render attributes 5`] = `"name="<div class='blu'>blu</div>""`;
+
+exports[`utils > renderAttributes > Should render attributes 6`] = `"name="batman" user="bruce" active="true" id="1""`;
+
+exports[`utils > renderAttributes > Should render attributes 7`] = `"empty-string="""`;
+
+exports[`utils > renderProperties > Should not render attributes as properties 1`] = `""`;
+
+exports[`utils > renderProperties > Should not render attributes as properties 2`] = `""`;
+
+exports[`utils > renderProperties > Should not render attributes as properties 3`] = `""`;
+
+exports[`utils > renderProperties > Should not render attributes as properties 4`] = `
+"
+  "
+`;
+
+exports[`utils > renderProperties > Should render properties, case id selector 1`] = `
+"
+  document.querySelector('div').object={};document.querySelector('div').array=[]"
+`;
+
+exports[`utils > renderProperties > Should render properties, case id selector 2`] = `
+"
+  document.querySelector('div').object={};document.querySelector('div').array=[];document.querySelector('div').fn=() => {\\n    }"
+`;

@@ -1,5 +1,6 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
-import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern, toString } from '@mgdis/core-ui-helpers/dist/stencil';
+import { ClassList, isValidString, dateRegExp, dateToString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { localeDate, localeDatePattern } from '@mgdis/core-ui-helpers/dist/locale';
 import { type InputDateError, DEFAULT_MAX_DATE } from './mg-input-date.conf';
 import { type EventType, classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
@@ -459,7 +460,7 @@ export class MgInputDate {
    * @returns translated html pattern
    */
   private renderPattern = (): string => {
-    let patternLocal = getLocaleDatePattern(this.systemLocale);
+    let patternLocal = localeDatePattern(this.systemLocale);
     for (const key in this.messages.input.date.pattern) {
       patternLocal = patternLocal.replace(key, this.messages.input.date.pattern[key]);
     }

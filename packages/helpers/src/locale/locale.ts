@@ -152,7 +152,7 @@ export const localeDate = (date: string | undefined, locale: string, config?: In
  * ```ts
  * import en from './en/messages.json';
  * import fr from './fr/messages.json';
- * import { defineLocales } from '@mgdis/core-ui-helpers/dist/stencil';
+ * import { defineLocales } from '@mgdis/core-ui-helpers/dist/utils';
  *
  * const defaultLocale = 'en';
  * const messages = { en, fr };

@@ -15,9 +15,8 @@ export {
   nextTick,
   isObject,
   getObjectValueFromKey,
-  type IGetPage,
   type CursorType,
   Cursor,
   Page,
   Paginate,
-} from '@mgdis/core-ui-helpers/dist/stencil';
+} from '@mgdis/core-ui-helpers/dist/utils';

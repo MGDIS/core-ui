@@ -1,5 +1,5 @@
 import { Component, Event, h, Prop, EventEmitter, State, Watch, Element, Method } from '@stencil/core';
-import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/core-ui-helpers/dist/stencil';
+import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { ToggleValue } from './mg-input-toggle.conf';
 import { classDisabled, classReadonly, type TooltipPosition } from '../mg-input/mg-input.conf';
 

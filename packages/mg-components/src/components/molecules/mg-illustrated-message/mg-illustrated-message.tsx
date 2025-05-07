@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, State, Watch } from '@stencil/core';
-import { ClassList, isTagName, toString } from '@mgdis/core-ui-helpers/dist/stencil';
+import { ClassList, isTagName, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { directions, type IllustratedMessageDirectionType, type IllustratedMessageSizeType, sizes } from './mg-illustrated-message.conf';
 
 /**

@@ -1,6 +1,6 @@
 import { Component, Prop, Watch, State, Element } from '@stencil/core';
 import { type IconType, sizes, type IconSizeType, variants, type IconVariantType, variantStyles, type IconVariantStyleType } from './mg-icon.conf';
-import { ClassList, toString } from '@mgdis/core-ui-helpers/dist/stencil';
+import { ClassList, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { icons } from '../../../assets/icons';
 
 @Component({

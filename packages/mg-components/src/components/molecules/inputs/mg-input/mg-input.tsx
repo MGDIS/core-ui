@@ -1,5 +1,5 @@
 import { Component, h, Prop, Element, Watch, Host, State } from '@stencil/core';
-import { isValideID, isValidString, toString } from '@mgdis/core-ui-helpers/dist/stencil';
+import { isValideID, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, classDisabled, classVerticalList } from './mg-input.conf';
 
 /**

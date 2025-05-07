@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgTable } from '../mg-table';
 import { sizes } from '../mg-table.conf';
-import { toString } from '@mgdis/core-ui-helpers/dist/stencil';
+import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import messages from '../../../../locales/en/messages.json';
 
 const getPage = (args, caption?) =>

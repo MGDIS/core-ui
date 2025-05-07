@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { ClassList, createID, isValideID, isValidString, nextTick, toString } from '@mgdis/core-ui-helpers/dist/stencil';
+import { ClassList, createID, isValideID, isValidString, nextTick, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { initLocales } from '../../../../locales';
 import { directions, type MenuSizeType } from '../mg-menu/mg-menu.conf';
 import { type MgMenuStatusType, Status, targets, type TargetType } from './mg-menu-item.conf';
