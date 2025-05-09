@@ -1,11 +1,9 @@
 import type { Page } from './components';
 
 /**
- * Define getPage methode interface
+ * Define getPage type
  */
-export interface IGetPage<T> {
-  (offset?: number, filter?: Parameters<Array<T>['filter']>[0]): Page<T>;
-}
+export type IGetPage<T> = (offset?: number, filter?: Parameters<Array<T>['filter']>[0]) => Page<T>;
 
 /**
  * Cursor type

@@ -70,7 +70,7 @@ export class Page<T> {
     if (!Array.isArray(this.items) || !this.items.length) return null;
     const lastIndex = this.items.length - this.baseIndex;
 
-    let newIndex = startIndex;
+    let newIndex;
     let oldIndex = startIndex;
     if (['previous', 'next'].includes(cursor) && oldItem) {
       const findedIndex = this.items.findIndex(item => JSON.stringify(item) === JSON.stringify(oldItem));
@@ -86,6 +86,8 @@ export class Page<T> {
       newIndex = JSON.stringify(this.items[oldIndex]) === JSON.stringify(this.items[startIndex]) ? lastIndex : oldIndex - this.baseIndex;
     } else if (cursor === 'next') {
       newIndex = JSON.stringify(this.items[oldIndex]) === JSON.stringify(this.items[lastIndex]) ? startIndex : oldIndex + this.baseIndex;
+    } else {
+      newIndex = startIndex;
     }
 
     return newIndex;
@@ -120,7 +122,7 @@ export class Paginate<T> {
    * @param filter - filter methode
    * @returns formated page
    */
-  public getPage: IGetPage<T> = (offset = 0, filter) => {
+  public getPage: IGetPage<T> = (offset = 0, filter?) => {
     const items = typeof filter === 'function' ? this.items.filter(filter) : this.items;
     let next;
     if (this.#next) next = this.#next;

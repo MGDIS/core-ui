@@ -1,40 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`e2e > renderAttributes > Should render attributes 1`] = `""`;
-
-exports[`e2e > renderAttributes > Should render attributes 2`] = `""`;
-
-exports[`e2e > renderAttributes > Should render attributes 3`] = `""`;
-
-exports[`e2e > renderAttributes > Should render attributes 4`] = `"name="batman""`;
-
-exports[`e2e > renderAttributes > Should render attributes 5`] = `"name="<div class='blu'>blu</div>""`;
-
-exports[`e2e > renderAttributes > Should render attributes 6`] = `"name="batman" user="bruce" active="true" id="1""`;
-
-exports[`e2e > renderAttributes > Should render attributes 7`] = `"empty-string="""`;
-
-exports[`e2e > renderProperties > Should not render attributes as properties 1`] = `""`;
-
-exports[`e2e > renderProperties > Should not render attributes as properties 2`] = `""`;
-
-exports[`e2e > renderProperties > Should not render attributes as properties 3`] = `""`;
-
-exports[`e2e > renderProperties > Should not render attributes as properties 4`] = `
-"
-  "
-`;
-
-exports[`e2e > renderProperties > Should render properties, case id selector 1`] = `
-"
-  document.querySelector('div').object={};document.querySelector('div').array=[]"
-`;
-
-exports[`e2e > renderProperties > Should render properties, case id selector 2`] = `
-"
-  document.querySelector('div').object={};document.querySelector('div').array=[];document.querySelector('div').fn=() => {\\n    }"
-`;
-
 exports[`utils > renderAttributes > Should render attributes 1`] = `""`;
 
 exports[`utils > renderAttributes > Should render attributes 2`] = `""`;
@@ -48,6 +13,18 @@ exports[`utils > renderAttributes > Should render attributes 5`] = `"name="<div 
 exports[`utils > renderAttributes > Should render attributes 6`] = `"name="batman" user="bruce" active="true" id="1""`;
 
 exports[`utils > renderAttributes > Should render attributes 7`] = `"empty-string="""`;
+
+exports[`utils > renderAttributes > Should render attributes 8`] = `"name="0""`;
+
+exports[`utils > renderAttributes > Should render attributes 9`] = `""`;
+
+exports[`utils > renderAttributes > Should render attributes 10`] = `"name="""`;
+
+exports[`utils > renderAttributes > Should render attributes 11`] = `""`;
+
+exports[`utils > renderAttributes > Should render attributes 12`] = `""`;
+
+exports[`utils > renderAttributes > Should render attributes 13`] = `""`;
 
 exports[`utils > renderProperties > Should not render attributes as properties 1`] = `""`;
 

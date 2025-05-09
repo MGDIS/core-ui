@@ -182,7 +182,7 @@ export const vsCodeGenerator = (jsonDocs: JsonDocs, storybookBaseUrl: string, so
       name: component.tag,
       description: getElementDescription(component),
       attributes: component.props.map(prop => ({
-        name: prop.attr || prop.name,
+        name: prop.attr ?? prop.name,
         description: getAttributeDescription(prop),
         values: getValues(prop),
         references,

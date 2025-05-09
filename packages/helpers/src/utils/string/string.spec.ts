@@ -23,7 +23,7 @@ describe('string', () => {
 
   describe('toString', () => {
     test.each([undefined, null, 1, 'string', '', [undefined], [{ value: null }], {}, ['string'], { hello: 'batman' }])('Should return stringified value, original %s', value => {
-      expect(toString(value)).toEqual(typeof value === 'object' ? JSON.stringify(value) : `${value}`);
+      expect(toString(value)).toEqual(typeof value === 'object' || (Array.isArray(value) && typeof value !== 'string') ? JSON.stringify(value) : `${value}`);
     });
   });
 

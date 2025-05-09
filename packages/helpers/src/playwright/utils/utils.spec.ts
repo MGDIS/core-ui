@@ -11,6 +11,12 @@ describe('utils', () => {
       { name: '<div class="blu">blu</div>' },
       { name: 'batman', user: 'bruce', active: true, id: 1, object: {}, array: [], function: () => {} },
       { emptyString: '' },
+      { name: 0 },
+      { name: false },
+      { name: ' ' },
+      { name: null },
+      { name: undefined },
+      ' ',
     ])('Should render attributes', args => {
       const res = renderAttributes(args as Record<string, unknown>);
       expect(res).toMatchSnapshot();

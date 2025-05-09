@@ -1,3 +1,5 @@
+import { isObject, isValidString } from '../../utils';
+
 /**
  * Render attributes from props objects
  * @param args - argument to render as string. ex: `{status: 'visible'}`
@@ -11,17 +13,13 @@
  * ```
  */
 export const renderAttributes = (args: Record<string, unknown>): string =>
-  (args !== null &&
-    typeof args === 'object' &&
+  (isObject<Record<string, never>>(args) &&
     Object.keys(args)
-      .filter(key => ![null, undefined, false].includes((args as Record<string, never>)[key]) && !['object', 'function'].includes(typeof (args as Record<string, never>)[key]))
+      .filter(key => ![null, undefined, false].includes(args[key]) && !['object', 'function'].includes(typeof args[key]))
       .map(key => {
         const attribute: string = key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-        let attributeValue: string = (args as Record<string, never>)[key] || '';
-        if (typeof attributeValue === 'string') {
-          attributeValue = attributeValue.replace(/"/g, "'");
-        }
-        return `${attribute}="${attributeValue}"`;
+        const value: string = ['number', 'boolean'].includes(typeof args[key]) || isValidString(args[key]) ? String(args[key]).replace(/"/g, "'") : '';
+        return `${attribute}="${value}"`;
       })
       .join(' ')) ||
   '';
@@ -52,10 +50,10 @@ export const renderProperties = (args: Record<string, unknown>, selector: string
   ${
     Object.keys(args)
       .filter(key => ['object', 'function'].includes(typeof (args as Record<string, never>)[key]))
-      .map(
-        key =>
-          `document.${query}('${selector}').${key}=${JSON.stringify((args as Record<string, never>)[key], (_key, val) => (typeof val === 'function' ? `<fn>${val}</fn>` : val))}`,
-      ) // stringify json AND keep function values
+      .map(key => {
+        const value = JSON.stringify((args as Record<string, never>)[key], (_key, val) => (typeof val === 'function' ? `<fn>${val}</fn>` : val));
+        return `document.${query}('${selector}').${key}=${value}`;
+      }) // stringify json AND keep function values
       .join(';') // create string
       .split('"<fn>') // remove fn start decorator
       .join('')
