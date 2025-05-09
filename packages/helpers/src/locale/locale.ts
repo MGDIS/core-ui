@@ -161,6 +161,6 @@ export const localeDate = (date: string | undefined, locale: string, config?: In
  * ```
  */
 export const defineLocales =
-  (messages: ObjectType, defaultLocale: 'fr' | ('en' & string)) =>
+  (messages: ObjectType, defaultLocale: 'fr' | 'en') =>
   (element: HTMLElement): { locale: string; messages: ObjectType } =>
     localeMessages(element, messages, defaultLocale);

@@ -17,7 +17,7 @@ export const isValidString = (value: unknown): value is string => typeof value =
  * @param value - value to stringify
  * @returns stringified value
  */
-export const toString = (value: unknown): string => (typeof value === 'object' ? JSON.stringify(value) : `${value}`);
+export const toString = (value: unknown): string => (typeof value === 'object' ? JSON.stringify(value) : String(value));
 
 /**
  * Cleans string characters by removing special characters and converting to lowercase.

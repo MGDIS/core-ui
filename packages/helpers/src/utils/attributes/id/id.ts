@@ -37,9 +37,9 @@ export const formatID = (value: unknown): string | undefined => {
   let id;
   if (typeof value === 'string') {
     id = value;
-  } else if (Boolean(value) && (isObject(value) || Array.isArray(value))) {
+  } else if (Boolean(value) && typeof value === 'object' && (isObject(value) || Array.isArray(value))) {
     id = JSON.stringify(value);
-  } else if (value !== null && value !== undefined && typeof value !== 'boolean') {
+  } else if (value !== null && value !== undefined && typeof value !== 'boolean' && typeof value !== 'object') {
     id = String(value);
   }
   return id ? toKebabCase(id) : id;

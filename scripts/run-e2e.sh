@@ -119,6 +119,12 @@ prepare_package "packages/stencil-helpers/package.json" '{
   }
 }'
 
+# Prepare packages/helpers/package.json
+prepare_package "packages/helpers/package.json" '{
+  name, 
+  "exports": .exports, 
+}'
+
 # Create turbo.json
 echo '{
   "$schema": "https://turborepo.org/schema.json",
