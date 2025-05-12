@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, Watch, Event, EventEmitter, Host } from '@stencil/core';
-import { createID, isValideID, toString } from '@mgdis/stencil-helpers';
-import { NavigationAction } from './mg-pagination.conf';
+import { createID, isValideID, isValidString, toString } from '@mgdis/stencil-helpers';
+import { NavigationAction, type PaginationMessagesType } from './mg-pagination.conf';
 import { initLocales } from './../../../locales';
 
 /**
@@ -102,6 +102,17 @@ export class MgPagination {
   }
 
   /**
+   * Define pagination messages overrides
+   */
+  @Prop() paginationmessages: PaginationMessagesType;
+  @Watch('paginationmessages')
+  watchPaginationMessages(newValue: MgPagination['paginationmessages']): void {
+    if (Boolean(newValue) && (typeof newValue !== 'object' || !['next', 'previous', 'nextLabel', 'previousLabel'].every(key => isValidString(newValue[key])))) {
+      throw new Error('<mg-pagination> prop "paginationmessages" must be a valid "PaginationMessagesType".');
+    }
+  }
+
+  /**
    * Emmited event when current page change
    */
   @Event({ eventName: 'current-page-change' }) currentPageChange: EventEmitter<number>;
@@ -150,6 +161,7 @@ export class MgPagination {
     this.watchIdentifier(this.identifier);
     this.validateTotalPages(this.totalPages);
     this.validateCurrentPage(this.currentPage);
+    this.watchPaginationMessages(this.paginationmessages);
     // Set default label
     if (this.label === undefined || this.label === '') {
       this.label = this.messages.pagination.label;
@@ -161,20 +173,28 @@ export class MgPagination {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    const navigationActionButton = (disabled: boolean, action: string) => (
-      <mg-button
-        label={this.messages.pagination[`${action}Page`]}
-        // eslint-disable-next-line react/jsx-no-bind
-        onClick={() => this.handleGoToPage(action, disabled)}
-        disabled={disabled}
-        variant="flat"
-        isIcon={this.hideNavigationLabels}
-      >
-        {action === NavigationAction.PREVIOUS && <mg-icon icon="chevron-left"></mg-icon>}
-        {!this.hideNavigationLabels && this.messages.general[action]}
-        {action === NavigationAction.NEXT && <mg-icon icon="chevron-right"></mg-icon>}
-      </mg-button>
-    );
+    const navigationMessages = {
+      next: this.paginationmessages?.next ?? this.messages.general.next,
+      previous: this.paginationmessages?.previous ?? this.messages.general.previous,
+      nextLabel: this.paginationmessages?.nextLabel ?? this.messages.pagination.nextLabel,
+      previousLabel: this.paginationmessages?.previousLabel ?? this.messages.pagination.previousLabel,
+    };
+    const navigationActionButton = (disabled: boolean, action: string) => {
+      return (
+        <mg-button
+          label={navigationMessages[`${action}Label`]}
+          // eslint-disable-next-line react/jsx-no-bind
+          onClick={() => this.handleGoToPage(action, disabled)}
+          disabled={disabled}
+          variant="flat"
+          isIcon={this.hideNavigationLabels}
+        >
+          {action === NavigationAction.PREVIOUS && <mg-icon icon="chevron-left"></mg-icon>}
+          {!this.hideNavigationLabels && navigationMessages[action]}
+          {action === NavigationAction.NEXT && <mg-icon icon="chevron-right"></mg-icon>}
+        </mg-button>
+      );
+    };
 
     return (
       <Host hidden={this.totalPages < 2}>
