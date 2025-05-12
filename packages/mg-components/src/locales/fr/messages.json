@@ -41,8 +41,8 @@
       },
       "helpText": {
         "expectedFormat": "Format attendu&nbsp;: {pattern} (ex&nbsp;: {date})",
-        "min": "La date doit être postérieure au {min}",
-        "max": "La date doit être antérieure au {max}",
+        "min": "La date doit être postérieure ou égale au {min}",
+        "max": "La date doit être antérieure ou égale au {max}",
         "minMax": "La date doit être comprise entre le {min} et le {max}"
       },
       "error": {
@@ -51,8 +51,8 @@
     },
     "numeric": {
       "helpText": {
-        "min": "La valeur doit être supérieure à {min}",
-        "max": "La valeur doit être inférieure à {max}",
+        "min": "La valeur doit être supérieure ou égale à {min}",
+        "max": "La valeur doit être inférieure ou égale à {max}",
         "minMax": "La valeur doit être comprise entre {min} et {max}"
       }
     },

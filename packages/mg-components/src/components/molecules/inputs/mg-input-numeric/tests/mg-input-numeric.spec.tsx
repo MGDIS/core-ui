@@ -840,28 +840,28 @@ describe('mg-input-numeric', () => {
     // Tests with min only
     {
       args: { min: 10 },
-      expected: 'The value must be greater than 10',
+      expected: 'The value must be greater than or equal to 10',
     },
     {
       args: { min: 10, format: 'currency', currency: 'EUR' },
-      expected: 'The value must be greater than 10',
+      expected: 'The value must be greater than or equal to 10',
     },
     {
       args: { min: 10, format: 'percent' },
-      expected: 'The value must be greater than 10',
+      expected: 'The value must be greater than or equal to 10',
     },
     // Tests with max only
     {
       args: { max: 100 },
-      expected: 'The value must be less than 100',
+      expected: 'The value must be less than or equal to 100',
     },
     {
       args: { max: 100, format: 'currency', currency: 'EUR' },
-      expected: 'The value must be less than 100',
+      expected: 'The value must be less than or equal to 100',
     },
     {
       args: { max: 100, format: 'percent' },
-      expected: 'The value must be less than 100',
+      expected: 'The value must be less than or equal to 100',
     },
     // Tests with min and max
     {
