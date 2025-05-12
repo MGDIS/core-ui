@@ -449,8 +449,8 @@ importers:
         specifier: 7.27.1
         version: 7.27.1(@babel/core@7.27.1)(eslint@8.57.1)
       '@html-eslint/eslint-plugin':
-        specifier: 0.40.0
-        version: 0.40.0
+        specifier: 0.40.3
+        version: 0.40.3
       '@html-eslint/parser':
         specifier: 0.39.0
         version: 0.39.0
@@ -1483,11 +1483,14 @@ packages:
   '@gerrit0/mini-shiki@3.3.0':
     resolution: {integrity: sha512-frvArO0+s5Viq68uSod5SieLPVM2cLpXoQ1e07lURwgADXpL/MOypM7jPz9otks0g2DIe2YedDAeVrDyYJZRxA==}
 
-  '@html-eslint/eslint-plugin@0.40.0':
-    resolution: {integrity: sha512-KzrNQpbVbQ621BzW8HiVOiY/JqC72evoZaXh2oYx1SZO6c7CDEb9sDbEyHg0ImdEoi6PghY6myY4qf+il31DzQ==}
+  '@html-eslint/eslint-plugin@0.40.3':
+    resolution: {integrity: sha512-ju0BTpo60/NOqh2VIQzBz2d+cekzmvqJZ2BHFRfg3oDQqWzp8nIrgNiKws0ILfs82su/w4zZBqKtMMQp4WvsvQ==}
 
   '@html-eslint/parser@0.39.0':
     resolution: {integrity: sha512-dM4M/uhT+UWAVKO3Lg2ay46ZlCDzig1eVNxF91DxBpXMsH2esGAVNcDSspebyIebCxtK4gGoM3Ebxb/yNLmA1g==}
+
+  '@html-eslint/parser@0.40.0':
+    resolution: {integrity: sha512-xvySQLPogafK2aTOPBD6V7+4qpr1AnOZXO8zM2z0b4i3BB9ISk5PTWu5+ofOekKxjxUh7Z+QWaoezu1SIi33YA==}
 
   '@html-eslint/template-parser@0.40.0':
     resolution: {integrity: sha512-f1S70T88yRe3zStT0CiDDgRw24Fgi1wgbW74YNUocEVuXvh2snxBEufY46Yg2udGlOz+SnQaygshacW45L+JWw==}
@@ -8381,9 +8384,10 @@ snapshots:
       '@shikijs/types': 3.3.0
       '@shikijs/vscode-textmate': 10.0.2
 
-  '@html-eslint/eslint-plugin@0.40.0':
+  '@html-eslint/eslint-plugin@0.40.3':
     dependencies:
       '@eslint/plugin-kit': 0.2.8
+      '@html-eslint/parser': 0.40.0
       '@html-eslint/template-parser': 0.40.0
       '@html-eslint/template-syntax-parser': 0.40.0
 
@@ -8391,6 +8395,11 @@ snapshots:
     dependencies:
       '@html-eslint/template-syntax-parser': 0.39.0
       es-html-parser: 0.1.1
+
+  '@html-eslint/parser@0.40.0':
+    dependencies:
+      '@html-eslint/template-syntax-parser': 0.40.0
+      es-html-parser: 0.2.0
 
   '@html-eslint/template-parser@0.40.0':
     dependencies:
