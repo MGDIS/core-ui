@@ -1524,9 +1524,9 @@ export namespace Components {
          */
         "label": string;
         /**
-          * Define pagination messages overrides
+          * Define locales messages overrides
          */
-        "paginationmessages": PaginationMessagesType;
+        "messages": PaginationMessagesType;
         /**
           * Component total pages
          */
@@ -3825,13 +3825,13 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
+          * Define locales messages overrides
+         */
+        "messages"?: PaginationMessagesType;
+        /**
           * Emmited event when current page change
          */
         "onCurrent-page-change"?: (event: MgPaginationCustomEvent<number>) => void;
-        /**
-          * Define pagination messages overrides
-         */
-        "paginationmessages"?: PaginationMessagesType;
         /**
           * Component total pages
          */

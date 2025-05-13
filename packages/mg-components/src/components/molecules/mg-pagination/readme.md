@@ -17,7 +17,7 @@ A pagination component should be displayed only when it is useful, for example:
 | `hidePageCount`        | `hide-page-count`        | Hide select input                                                                                           | `boolean`                                                                       | `false`                     |
 | `identifier`           | `identifier`             | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`                                                                        | `createID('mg-pagination')` |
 | `label`                | `label`                  | Panignation label. Is a short description. Customize default value can be usefull to improve accessibility  | `string`                                                                        | `undefined`                 |
-| `paginationmessages`   | --                       | Define pagination messages overrides                                                                        | `{ next: string; previous: string; nextLabel: string; previousLabel: string; }` | `undefined`                 |
+| `messages`             | --                       | Define locales messages overrides                                                                           | `{ next: string; previous: string; nextLabel: string; previousLabel: string; }` | `undefined`                 |
 | `totalPages`           | `total-pages`            | Component total pages                                                                                       | `number`                                                                        | `1`                         |
 
 

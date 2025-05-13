@@ -37,7 +37,7 @@ export class MgPagination {
    ************/
 
   // Locales
-  private messages;
+  private localesMessages;
 
   /**************
    * Decorators *
@@ -102,13 +102,13 @@ export class MgPagination {
   }
 
   /**
-   * Define pagination messages overrides
+   * Define locales messages overrides
    */
-  @Prop() paginationmessages: PaginationMessagesType;
-  @Watch('paginationmessages')
-  watchPaginationMessages(newValue: MgPagination['paginationmessages']): void {
+  @Prop() messages: PaginationMessagesType;
+  @Watch('messages')
+  watchPaginationMessages(newValue: MgPagination['messages']): void {
     if (Boolean(newValue) && (typeof newValue !== 'object' || !['next', 'previous', 'nextLabel', 'previousLabel'].every(key => isValidString(newValue[key])))) {
-      throw new Error('<mg-pagination> prop "paginationmessages" must be a valid "PaginationMessagesType".');
+      throw new Error('<mg-pagination> prop "messages" must be a valid "PaginationMessagesType".');
     }
   }
 
@@ -156,15 +156,15 @@ export class MgPagination {
    */
   componentWillLoad(): void {
     // Get locales
-    this.messages = initLocales(this.element).messages;
+    this.localesMessages = initLocales(this.element).messages;
     // Validate
     this.watchIdentifier(this.identifier);
     this.validateTotalPages(this.totalPages);
     this.validateCurrentPage(this.currentPage);
-    this.watchPaginationMessages(this.paginationmessages);
+    this.watchPaginationMessages(this.messages);
     // Set default label
     if (this.label === undefined || this.label === '') {
-      this.label = this.messages.pagination.label;
+      this.label = this.localesMessages.pagination.label;
     }
   }
 
@@ -174,10 +174,10 @@ export class MgPagination {
    */
   render(): HTMLElement {
     const navigationMessages = {
-      next: this.paginationmessages?.next ?? this.messages.general.next,
-      previous: this.paginationmessages?.previous ?? this.messages.general.previous,
-      nextLabel: this.paginationmessages?.nextLabel ?? this.messages.pagination.nextLabel,
-      previousLabel: this.paginationmessages?.previousLabel ?? this.messages.pagination.previousLabel,
+      next: this.messages?.next ?? this.localesMessages.general.next,
+      previous: this.messages?.previous ?? this.localesMessages.general.previous,
+      nextLabel: this.messages?.nextLabel ?? this.localesMessages.pagination.nextLabel,
+      previousLabel: this.messages?.previousLabel ?? this.localesMessages.pagination.previousLabel,
     };
     const navigationActionButton = (disabled: boolean, action: string) => {
       return (
@@ -205,16 +205,16 @@ export class MgPagination {
               <mg-input-select
                 identifier={`${this.identifier}-select`}
                 items={range(1, this.totalPages).map(page => page.toString())}
-                label={this.messages.pagination.selectPage}
+                label={this.localesMessages.pagination.selectPage}
                 label-hide={true}
                 on-value-change={this.handleSelect}
                 value={this.currentPage.toString()}
                 placeholder-hide
               ></mg-input-select>
               <span class="mg-u-visually-hidden">
-                {this.messages.pagination.page} {this.currentPage}
+                {this.localesMessages.pagination.page} {this.currentPage}
               </span>
-              / {this.totalPages} {this.totalPages > 1 ? this.messages.pagination.pages : this.messages.pagination.page}
+              / {this.totalPages} {this.totalPages > 1 ? this.localesMessages.pagination.pages : this.localesMessages.pagination.page}
             </div>
           )}
           {navigationActionButton(this.currentPage >= this.totalPages, NavigationAction.NEXT)}

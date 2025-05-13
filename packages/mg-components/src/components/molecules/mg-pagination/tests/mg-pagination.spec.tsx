@@ -69,7 +69,7 @@ describe('mg-pagination', () => {
       const page = await getPage({
         totalPages: 2,
         identifier: 'id',
-        paginationmessages: {
+        messages: {
           next: 'after',
           nextLabel: 'Page after',
           previous: 'before',
@@ -145,12 +145,12 @@ describe('mg-pagination', () => {
         nextLabel: 'Page after',
         previous: 'before',
       },
-    ])('Should throw an error, case paginationmessages props invalid: %s', async paginationmessages => {
+    ])('Should throw an error, case messages props invalid: %s', async messages => {
       expect.assertions(1);
       try {
-        await getPage({ totalPages: 1, identifier: 'id', paginationmessages });
+        await getPage({ totalPages: 1, identifier: 'id', messages });
       } catch (err) {
-        expect(err.message).toBe('<mg-pagination> prop "paginationmessages" must be a valid "PaginationMessagesType".');
+        expect(err.message).toBe('<mg-pagination> prop "messages" must be a valid "PaginationMessagesType".');
       }
     });
   });
