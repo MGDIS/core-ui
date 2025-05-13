@@ -39,13 +39,17 @@ Mostly used with ViteJS and Webpack Bundler.
 ```js
 // Use in angular project
 import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/angular';
+// Use of locales in project
+import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/locales';
 // Use in playwright project
 import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/playwright';
 // Use in Stencil project
 import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/stencil';
 // Use in storybook project
 import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/storybook';
-// Use in javascript project
+// Use  of tests in project
+import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/tests';
+// Use of utils in project
 import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/utils';
 // Use in VUE project
 import CoreUiHelpers from '@mgdis/core-ui-helpers/dist/vue';
@@ -58,13 +62,17 @@ Mostly used with bundler wich doesn't support ES Module.
 ```js
 // Use in angular project
 const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/angular');
+// Use of locales in project
+const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/locales');
 // Use in playwright project
 const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/playwright');
 // Use in Stencil project
 const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/stencil');
 // Use in storybook project
 const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/storybook');
-// Use in Javascript project
+// Use of tests in project
+const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/tests');
+// Use of utils in project
 const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/utils');
 // Use in VUE project
 const CoreUiHelpers = require('@mgdis/core-ui-helpers/dist/vue');

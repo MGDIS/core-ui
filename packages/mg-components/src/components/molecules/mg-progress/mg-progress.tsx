@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop, Watch } from '@stencil/core';
-import { isValidNumber, isValidString, toString } from '@mgdis/core-ui-helpers/dist/stencil';
+import { isValidNumber, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { AriaRoleType, roles } from './mg-progress.conf';
 
 @Component({

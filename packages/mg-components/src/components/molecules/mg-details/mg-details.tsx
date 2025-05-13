@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, h, Prop, Watch, Element } from '@stencil/core';
-import { isValidString } from '@mgdis/core-ui-helpers/dist/stencil';
+import { isValidString } from '@mgdis/core-ui-helpers/dist/utils';
 
 /**
  * @slot summary - Summary content

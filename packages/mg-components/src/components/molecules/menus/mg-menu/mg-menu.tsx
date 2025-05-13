@@ -1,7 +1,7 @@
 import { Component, h, Prop, Element, Watch, Host, Listen } from '@stencil/core';
 import { directions, sizes } from './mg-menu.conf';
 import type { MenuSizeType, ItemMoreType } from './mg-menu.conf';
-import { toString } from '@mgdis/core-ui-helpers/dist/stencil';
+import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { Direction } from '../../../../types';
 
 /**

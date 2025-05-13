@@ -1,0 +1,52 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit > setupMutationObserverMock > Should render html 1`] = `
+MockMutationObserver {
+  "cb": {},
+  "disconnect": undefined,
+  "observe": undefined,
+  "takeRecords": undefined,
+}
+`;
+
+exports[`unit > setupMutationObserverMock > Should render html 2`] = `
+MockMutationObserver {
+  "cb": {
+    "disconnect": [MockFunction spy],
+    "observe": [Function],
+    "takeRecords": [Function],
+  },
+  "disconnect": [MockFunction spy],
+  "observe": [Function],
+  "takeRecords": [Function],
+}
+`;
+
+exports[`unit > setupResizeObserverMock > Should render html 1`] = `
+MockResizeObserver {
+  "cb": {},
+  "disconnect": undefined,
+  "observe": undefined,
+  "unobserve": undefined,
+}
+`;
+
+exports[`unit > setupResizeObserverMock > Should render html 2`] = `
+MockResizeObserver {
+  "cb": {
+    "disconnect": [MockFunction spy],
+    "observe": [Function],
+    "unobserve": [Function],
+  },
+  "disconnect": [MockFunction spy],
+  "observe": [Function],
+  "unobserve": undefined,
+}
+`;
+
+exports[`unit > setupSubmitEventMock > Should render html 1`] = `
+SubmitEvent {
+  "detail": undefined,
+  "isTrusted": false,
+}
+`;

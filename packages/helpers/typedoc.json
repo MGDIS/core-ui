@@ -1,5 +1,14 @@
 {
   "extends": ["@core-ui/typedoc-config/base.json"],
   "out": "docs",
-  "entryPoints": ["./src/angular/index.ts", "./src/playwright/index.ts", "./src/stencil/index.ts", "./src/storybook/index.ts", "./src/utils/index.ts", "./src/vue/index.ts"]
+  "entryPoints": [
+    "./src/angular/index.ts",
+    "./src/locale/index.ts",
+    "./src/playwright/index.ts",
+    "./src/stencil/index.ts",
+    "./src/storybook/index.ts",
+    "./src/tests/index.ts",
+    "./src/utils/index.ts",
+    "./src/vue/index.ts"
+  ]
 }

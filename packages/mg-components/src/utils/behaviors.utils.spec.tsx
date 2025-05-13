@@ -4,7 +4,7 @@ import { MgItemMore } from '../components/molecules/internals/mg-item-more/mg-it
 import { MgMenuItem } from '../components/molecules/menus/mg-menu-item/mg-menu-item';
 import { MgMenu } from '../components/molecules/menus/mg-menu/mg-menu';
 import { OverflowBehavior } from './behaviors.utils';
-import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/core-ui-helpers/dist/stencil';
+import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/core-ui-helpers/dist/tests';
 
 const getPage = render =>
   newSpecPage({

@@ -41,8 +41,8 @@ prepare_package "package.json" '{
 prepare_package "packages/mg-components/package.json" '{
   name,
   module: .module, 
-  "types": .types, 
-  "files": .files, 
+  types, 
+  files, 
   "scripts": { 
     prebuild: .scripts.prebuild,
     start: .scripts.start,
@@ -59,10 +59,10 @@ prepare_package "packages/mg-components/package.json" '{
 # Prepare packages/notification-center/package.json
 prepare_package "packages/notification-center/package.json" '{
   name,
-  module: .module, 
-  "types": .types, 
-  "files": .files, 
-  "exports": .exports, 
+  module, 
+  types, 
+  files, 
+  exports, 
   "scripts": { 
     "test:e2e": .scripts."test:e2e:docker"
   },
@@ -117,6 +117,12 @@ prepare_package "packages/stencil-helpers/package.json" '{
   "dependencies": { 
     "@mgdis/core-ui-helpers": .dependencies."@mgdis/core-ui-helpers",
   }
+}'
+
+# Prepare packages/helpers/package.json
+prepare_package "packages/helpers/package.json" '{
+  name, 
+  exports, 
 }'
 
 # Create turbo.json
