@@ -1,5 +1,6 @@
 import { describe, expect, test, vi } from 'vitest';
 import { setMgAngularLogger } from '.';
+import type { ConfigType } from './mg-angular-logger.conf';
 
 const mgError = new Error('<mg-error');
 const standardError = new Error('my error');
@@ -7,7 +8,7 @@ const standardError = new Error('my error');
 describe('mg-angular-logger', () => {
   test('Should hide error when error message start with "<mg-"', () => {
     const spy = vi.spyOn(console, 'error');
-    setMgAngularLogger(mgError);
+    setMgAngularLogger(mgError as unknown as ConfigType);
     console.error(new Error('<mg-'));
 
     expect(spy).not.to.toHaveBeenCalled();

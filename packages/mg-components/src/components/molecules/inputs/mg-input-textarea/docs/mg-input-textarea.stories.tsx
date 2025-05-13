@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '@mgdis/stencil-helpers';
+import { filterArgs } from '@mgdis/core-ui-helpers/dist/storybook';
 import type { MgInputTextarea as MgInputTextareaType } from '../mg-input-textarea';
 
 export default {

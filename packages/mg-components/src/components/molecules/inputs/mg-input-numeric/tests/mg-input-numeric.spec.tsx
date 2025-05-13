@@ -1,6 +1,8 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
-import { localeNumber, localeUnit, setUpRequestAnimationFrameMock, toString } from '@mgdis/stencil-helpers';
+import { localeNumber, localeUnit } from '@mgdis/core-ui-helpers/dist/locale';
+import { setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/dist/tests';
+import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { MgInputNumeric } from '../mg-input-numeric';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';

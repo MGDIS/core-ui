@@ -5,7 +5,7 @@ import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
-import { toString } from '@mgdis/stencil-helpers';
+import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 
 const getPage = (args, customSlots?) =>
   newSpecPage({

@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
-import { renderProperties } from '@mgdis/playwright-helpers';
+import { renderProperties } from '@mgdis/core-ui-helpers/dist/playwright';
 
 test.describe('mg-skip-links', () => {
   test('Should render', async ({ page }) => {

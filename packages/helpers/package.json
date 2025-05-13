@@ -9,6 +9,7 @@
     "coverage": "TZ=UTC vitest run --coverage"
   },
   "dependencies": {
+    "@playwright/test": "1.52.0",
     "@stencil/core": "4.28.2",
     "lodash": "4.17.21",
     "vue": "npm:vue@2.7.16",
@@ -35,33 +36,43 @@
     "vue-jest": "3.0.7"
   },
   "exports": {
-    "./angular": {
-      "types": "./dist/angular/types.d.ts",
+    "./dist/angular": {
+      "types": "./dist/angular/index.d.ts",
       "import": "./dist/angular/index.js",
       "require": "./dist/angular/index.cjs"
     },
-    "./playwright": {
-      "types": "./dist/playwright/types.d.ts",
+    "./dist/locale": {
+      "types": "./dist/locale/index.d.ts",
+      "import": "./dist/locale/index.js",
+      "require": "./dist/locale/index.cjs"
+    },
+    "./dist/playwright": {
+      "types": "./dist/playwright/index.d.ts",
       "import": "./dist/playwright/index.js",
       "require": "./dist/playwright/index.cjs"
     },
-    "./stencil": {
-      "types": "./dist/stencil/types.d.ts",
+    "./dist/stencil": {
+      "types": "./dist/stencil/index.d.ts",
       "import": "./dist/stencil/index.js",
       "require": "./dist/stencil/index.cjs"
     },
-    "./storybook": {
-      "types": "./dist/storybook/types.d.ts",
+    "./dist/storybook": {
+      "types": "./dist/storybook/index.d.ts",
       "import": "./dist/storybook/index.js",
       "require": "./dist/storybook/index.cjs"
     },
-    "./utils": {
-      "types": "./dist/utils/types.d.ts",
+    "./dist/tests": {
+      "types": "./dist/tests/index.d.ts",
+      "import": "./dist/tests/index.js",
+      "require": "./dist/tests/index.cjs"
+    },
+    "./dist/utils": {
+      "types": "./dist/utils/index.d.ts",
       "import": "./dist/utils/index.js",
       "require": "./dist/utils/index.cjs"
     },
-    "./vue": {
-      "types": "./dist/vue/types.d.ts",
+    "./dist/vue": {
+      "types": "./dist/vue/index.d.ts",
       "import": "./dist/vue/index.js",
       "require": "./dist/vue/index.cjs"
     }

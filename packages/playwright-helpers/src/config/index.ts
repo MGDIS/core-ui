@@ -1,3 +1,3 @@
-import { playwrightBaseConfig } from '@mgdis/core-ui-helpers/playwright';
+import { playwrightBaseConfig } from '@mgdis/core-ui-helpers/dist/playwright';
 
 export default playwrightBaseConfig;

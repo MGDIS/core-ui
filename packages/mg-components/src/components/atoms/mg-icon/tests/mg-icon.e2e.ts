@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { renderAttributes } from '@mgdis/playwright-helpers';
+import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { test } from '../../../../utils/playwright.fixture';
 import { sizes, variantStyles, variants } from '../mg-icon.conf';
 import { icons } from '../../../../assets/icons';

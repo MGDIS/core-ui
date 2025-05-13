@@ -3,7 +3,7 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MgPopover } from '../mg-popover';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
 import { mockWindowFrames } from '../../../../utils/unit.test.utils';
-import { setupResizeObserverMock } from '@mgdis/stencil-helpers';
+import { setupResizeObserverMock } from '@mgdis/core-ui-helpers/dist/tests';
 import { MgPopoverContent } from '../mg-popover-content/mg-popover-content';
 import { MgCard } from '../../../atoms/mg-card/mg-card';
 

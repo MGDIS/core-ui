@@ -1,6 +1,6 @@
 import { Component, h, Prop, State, Watch, Element } from '@stencil/core';
 import { TagVariantType, variants } from './mg-tag.conf';
-import { ClassList, isValidString, toString } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 /**
  * @slot - Tag content
  */

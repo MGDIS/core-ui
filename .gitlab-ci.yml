@@ -45,17 +45,14 @@ stages:
       - !reference [.changes, mg-components]
       - !reference [.changes, img]
       - !reference [.changes, helpers]
-      - !reference [.changes, stencil-helpers]
       - !reference [.changes, styles]
       - !reference [.changes, linting-stencil]
-      - !reference [.changes, playwright-helpers]
   notification-center:
     changes:
       - !reference [.changes, notification-center]
       - !reference [.changes, notification-center:app]
       - !reference [.changes, mg-components]
       - !reference [.changes, helpers]
-      - !reference [.changes, playwright-helpers]
       - !reference [.changes, sanitize-html]
   playwright-helpers:
     changes:
@@ -68,12 +65,10 @@ stages:
     changes:
       - !reference [.changes, helpers]
       - !reference [.changes, stencil-helpers]
-      - !reference [.changes, mg-components-helpers]
   styles:
     changes:
       - !reference [.changes, styles]
       - !reference [.changes, helpers]
-      - !reference [.changes, playwright-helpers]
   e2e:
     changes:
       - !reference [.changes, mg-components]
@@ -81,9 +76,7 @@ stages:
       - !reference [.changes, styles]
       - !reference [.changes, img]
       - !reference [.changes, helpers]
-      - !reference [.changes, stencil-helpers]
       - !reference [.changes, linting-stencil]
-      - !reference [.changes, playwright-helpers]
       - !reference [.changes, notification-center:app]
       - !reference [.changes, sanitize-html]
   doc:

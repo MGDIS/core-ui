@@ -7,7 +7,7 @@ import type { ConfigType } from './mg-angular-logger.conf';
  * ```js
  * // main.js
  * import { defineCustomElements } from '@mgdis/mg-components/loader';
- * import { setMgAngularLogger } from '@mgdis/core-ui-helpers/angular';
+ * import { setMgAngularLogger } from '@mgdis/core-ui-helpers/dist/angular';
  *
  * // need to be set before `defineCustomElements` call
  * setMgAngularLogger({level: 'error'});

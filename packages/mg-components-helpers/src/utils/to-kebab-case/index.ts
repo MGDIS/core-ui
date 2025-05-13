@@ -1,1 +1,1 @@
-export { toKebabCase } from '@mgdis/core-ui-helpers/utils';
+export { toKebabCase } from '@mgdis/core-ui-helpers/dist/utils';

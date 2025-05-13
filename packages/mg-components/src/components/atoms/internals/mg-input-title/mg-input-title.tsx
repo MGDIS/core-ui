@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
-import { isValideID, isValidString, toString } from '@mgdis/stencil-helpers';
+import { isValideID, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 
 /**
  * @internal
