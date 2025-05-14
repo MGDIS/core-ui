@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.0.19
+
+### Patch Changes
+
+- b816cca: Update dependencies
+
 ## 1.0.18
 
 ### Patch Changes

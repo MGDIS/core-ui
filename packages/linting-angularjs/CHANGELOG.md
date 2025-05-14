@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.1.6
+
+### Patch Changes
+
+- b816cca: Update dependencies
+- Updated dependencies [3c89e9d]
+- Updated dependencies [b816cca]
+  - @mgdis/eslint-plugin-html@4.0.4
+
 ## 4.1.5
 
 ### Patch Changes

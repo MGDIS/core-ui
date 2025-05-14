@@ -1,5 +1,11 @@
 # tsconfig
 
+## 1.0.8
+
+### Patch Changes
+
+- b816cca: Update dependencies
+
 ## 1.0.7
 
 ### Patch Changes

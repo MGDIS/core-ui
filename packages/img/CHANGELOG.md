@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 2.4.3
+
+### Patch Changes
+
+- b816cca: Update dependencies
+
 ## 2.4.2
 
 ### Patch Changes

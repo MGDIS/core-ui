@@ -1,5 +1,25 @@
 # @mgdis/playwright-helpers
 
+## 1.1.5
+
+### Patch Changes
+
+- 10c6605: ⚠️ This is the final release of this package.
+
+  The package is now **deprecated** and will no longer receive updates or support.
+
+  If you're currently using this package, consider migrating to the recommended alternative : `@mgdis/core-ui-helpers`.
+
+  Thank you for using it!
+
+- 3c89e9d: replace @mgdis/mg-components-helpers @mgdis/playwright-helpers and @mgdis/stencil-helpers dependences by @mgdis/core-ui-helpers
+- 10c6605: Helper package release.
+- b816cca: Update dependencies
+- Updated dependencies [3c89e9d]
+- Updated dependencies [10c6605]
+- Updated dependencies [b816cca]
+  - @mgdis/core-ui-helpers@1.0.0
+
 ## 1.1.4
 
 ### Patch Changes

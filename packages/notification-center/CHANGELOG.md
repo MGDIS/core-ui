@@ -1,5 +1,12 @@
 # @mgdis/notification-center
 
+## 1.2.11
+
+### Patch Changes
+
+- 3c89e9d: replace @mgdis/mg-components-helpers @mgdis/playwright-helpers and @mgdis/stencil-helpers dependences by @mgdis/core-ui-helpers
+  - @mgdis/sanitize-html@1.0.7
+
 ## 1.2.10
 
 ### Patch Changes

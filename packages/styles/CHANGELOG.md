@@ -1,5 +1,17 @@
 # @mgdis/styles
 
+## 2.7.0
+
+### Minor Changes
+
+- 03ddc32: [**`<mg-table>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-table--docs) new style
+- 3a3a131: [**`<mg-tag>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-tag--docs) update style: remove center alignement
+
+### Patch Changes
+
+- 3c89e9d: replace @mgdis/mg-components-helpers @mgdis/playwright-helpers and @mgdis/stencil-helpers dependences by @mgdis/core-ui-helpers
+- b816cca: Update dependencies
+
 ## 2.6.0
 
 ### Minor Changes

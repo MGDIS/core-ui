@@ -1,5 +1,29 @@
 # @mgdis/mg-components
 
+## 6.12.0
+
+### Minor Changes
+
+- 03ddc32: [**`<mg-table>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-table--docs) new style
+- 3a3a131: [**`<mg-tag>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-tag--docs) update style: remove center alignement
+- eba5178: [**`<mg-pagination>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-pagination--docs) add `messages` prop
+
+### Patch Changes
+
+- 3c89e9d: replace @mgdis/mg-components-helpers @mgdis/playwright-helpers and @mgdis/stencil-helpers dependences by @mgdis/core-ui-helpers
+- 10c6605: Helper package release.
+- b816cca: Update dependencies
+- 6057c9e: update stencil lint config
+- 17fb44b: [**`<mg-input-date>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-date--docs) & [**`<mg-input-numeric>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-numeric--docs) update min and max messages
+- Updated dependencies [03ddc32]
+- Updated dependencies [3c89e9d]
+- Updated dependencies [3a3a131]
+- Updated dependencies [10c6605]
+- Updated dependencies [b816cca]
+  - @mgdis/styles@2.7.0
+  - @mgdis/core-ui-helpers@1.0.0
+  - @mgdis/img@2.4.3
+
 ## 6.11.0
 
 ### Minor Changes

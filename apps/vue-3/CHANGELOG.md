@@ -1,5 +1,23 @@
 # vue-3
 
+## 0.0.43
+
+### Patch Changes
+
+- 3c89e9d: replace @mgdis/mg-components-helpers @mgdis/playwright-helpers and @mgdis/stencil-helpers dependences by @mgdis/core-ui-helpers
+- b816cca: Update dependencies
+- Updated dependencies [03ddc32]
+- Updated dependencies [3c89e9d]
+- Updated dependencies [3a3a131]
+- Updated dependencies [eba5178]
+- Updated dependencies [10c6605]
+- Updated dependencies [b816cca]
+- Updated dependencies [6057c9e]
+- Updated dependencies [17fb44b]
+  - @mgdis/mg-components@6.12.0
+  - @mgdis/styles@2.7.0
+  - @mgdis/notification-center@1.2.11
+
 ## 0.0.42
 
 ### Patch Changes

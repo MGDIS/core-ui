@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.7
+
+### Patch Changes
+
+- 3c89e9d: replace @mgdis/mg-components-helpers @mgdis/playwright-helpers and @mgdis/stencil-helpers dependences by @mgdis/core-ui-helpers
+
 ## 4.1.6
 
 ### Patch Changes
