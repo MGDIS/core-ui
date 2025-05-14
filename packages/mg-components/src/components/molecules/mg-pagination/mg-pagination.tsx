@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, Watch, Event, EventEmitter, Host } from '@stencil/core';
-import { createID, isValideID, toString } from '@mgdis/core-ui-helpers/dist/utils';
-import { NavigationAction } from './mg-pagination.conf';
+import { createID, isValideID, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { NavigationAction, type PaginationMessagesType } from './mg-pagination.conf';
 import { initLocales } from './../../../locales';
 
 /**
@@ -37,7 +37,7 @@ export class MgPagination {
    ************/
 
   // Locales
-  private messages;
+  private localesMessages;
 
   /**************
    * Decorators *
@@ -102,6 +102,17 @@ export class MgPagination {
   }
 
   /**
+   * Define locales messages overrides
+   */
+  @Prop() messages: PaginationMessagesType;
+  @Watch('messages')
+  watchPaginationMessages(newValue: MgPagination['messages']): void {
+    if (Boolean(newValue) && (typeof newValue !== 'object' || !['next', 'previous', 'nextLabel', 'previousLabel'].every(key => isValidString(newValue[key])))) {
+      throw new Error('<mg-pagination> prop "messages" must be a valid "PaginationMessagesType".');
+    }
+  }
+
+  /**
    * Emmited event when current page change
    */
   @Event({ eventName: 'current-page-change' }) currentPageChange: EventEmitter<number>;
@@ -145,14 +156,15 @@ export class MgPagination {
    */
   componentWillLoad(): void {
     // Get locales
-    this.messages = initLocales(this.element).messages;
+    this.localesMessages = initLocales(this.element).messages;
     // Validate
     this.watchIdentifier(this.identifier);
     this.validateTotalPages(this.totalPages);
     this.validateCurrentPage(this.currentPage);
+    this.watchPaginationMessages(this.messages);
     // Set default label
     if (this.label === undefined || this.label === '') {
-      this.label = this.messages.pagination.label;
+      this.label = this.localesMessages.pagination.label;
     }
   }
 
@@ -161,20 +173,28 @@ export class MgPagination {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    const navigationActionButton = (disabled: boolean, action: string) => (
-      <mg-button
-        label={this.messages.pagination[`${action}Page`]}
-        // eslint-disable-next-line react/jsx-no-bind
-        onClick={() => this.handleGoToPage(action, disabled)}
-        disabled={disabled}
-        variant="flat"
-        isIcon={this.hideNavigationLabels}
-      >
-        {action === NavigationAction.PREVIOUS && <mg-icon icon="chevron-left"></mg-icon>}
-        {!this.hideNavigationLabels && this.messages.general[action]}
-        {action === NavigationAction.NEXT && <mg-icon icon="chevron-right"></mg-icon>}
-      </mg-button>
-    );
+    const navigationMessages = {
+      next: this.messages?.next ?? this.localesMessages.general.next,
+      previous: this.messages?.previous ?? this.localesMessages.general.previous,
+      nextLabel: this.messages?.nextLabel ?? this.localesMessages.pagination.nextLabel,
+      previousLabel: this.messages?.previousLabel ?? this.localesMessages.pagination.previousLabel,
+    };
+    const navigationActionButton = (disabled: boolean, action: string) => {
+      return (
+        <mg-button
+          label={navigationMessages[`${action}Label`]}
+          // eslint-disable-next-line react/jsx-no-bind
+          onClick={() => this.handleGoToPage(action, disabled)}
+          disabled={disabled}
+          variant="flat"
+          isIcon={this.hideNavigationLabels}
+        >
+          {action === NavigationAction.PREVIOUS && <mg-icon icon="chevron-left"></mg-icon>}
+          {!this.hideNavigationLabels && navigationMessages[action]}
+          {action === NavigationAction.NEXT && <mg-icon icon="chevron-right"></mg-icon>}
+        </mg-button>
+      );
+    };
 
     return (
       <Host hidden={this.totalPages < 2}>
@@ -185,16 +205,16 @@ export class MgPagination {
               <mg-input-select
                 identifier={`${this.identifier}-select`}
                 items={range(1, this.totalPages).map(page => page.toString())}
-                label={this.messages.pagination.selectPage}
+                label={this.localesMessages.pagination.selectPage}
                 label-hide={true}
                 on-value-change={this.handleSelect}
                 value={this.currentPage.toString()}
                 placeholder-hide
               ></mg-input-select>
               <span class="mg-u-visually-hidden">
-                {this.messages.pagination.page} {this.currentPage}
+                {this.localesMessages.pagination.page} {this.currentPage}
               </span>
-              / {this.totalPages} {this.totalPages > 1 ? this.messages.pagination.pages : this.messages.pagination.page}
+              / {this.totalPages} {this.totalPages > 1 ? this.localesMessages.pagination.pages : this.localesMessages.pagination.page}
             </div>
           )}
           {navigationActionButton(this.currentPage >= this.totalPages, NavigationAction.NEXT)}

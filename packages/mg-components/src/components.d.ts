@@ -28,6 +28,7 @@ import { ItemMoreType, MenuSizeType } from "./components/molecules/menus/mg-menu
 import { MgMenuStatusType, TargetType } from "./components/molecules/menus/mg-menu-item/mg-menu-item.conf";
 import { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
+import { PaginationMessagesType } from "./components/molecules/mg-pagination/mg-pagination.conf";
 import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 import { Placement } from "@popperjs/core";
 import { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
@@ -58,6 +59,7 @@ export { ItemMoreType, MenuSizeType } from "./components/molecules/menus/mg-menu
 export { MgMenuStatusType, TargetType } from "./components/molecules/menus/mg-menu-item/mg-menu-item.conf";
 export { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
+export { PaginationMessagesType } from "./components/molecules/mg-pagination/mg-pagination.conf";
 export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 export { Placement } from "@popperjs/core";
 export { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
@@ -1521,6 +1523,10 @@ export namespace Components {
           * Panignation label. Is a short description. Customize default value can be usefull to improve accessibility
          */
         "label": string;
+        /**
+          * Define locales messages overrides
+         */
+        "messages": PaginationMessagesType;
         /**
           * Component total pages
          */
@@ -3818,6 +3824,10 @@ declare namespace LocalJSX {
           * Panignation label. Is a short description. Customize default value can be usefull to improve accessibility
          */
         "label"?: string;
+        /**
+          * Define locales messages overrides
+         */
+        "messages"?: PaginationMessagesType;
         /**
           * Emmited event when current page change
          */

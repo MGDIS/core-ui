@@ -64,6 +64,20 @@ describe('mg-pagination', () => {
       const page = await getPage({ totalPages, identifier: 'id', lang });
       expect(page.root).toMatchSnapshot();
     });
+
+    test('Should override pagination locales', async () => {
+      const page = await getPage({
+        totalPages: 2,
+        identifier: 'id',
+        messages: {
+          next: 'after',
+          nextLabel: 'Page after',
+          previous: 'before',
+          previousLabel: 'Page before',
+        },
+      });
+      expect(page.root).toMatchSnapshot();
+    });
   });
 
   describe('errors', () => {
@@ -99,6 +113,44 @@ describe('mg-pagination', () => {
         await getPage({ currentPage: 2, totalPages: 1 });
       } catch (err) {
         expect(err.message).toBe('<mg-pagination> prop "currentPage" can not be greater than total page.');
+      }
+    });
+    test.each([
+      {},
+      1,
+      ' ',
+      {
+        next: ' ',
+        nextLabel: 'Page after',
+        previous: 'before',
+        previousLabel: 'Page before',
+      },
+      {
+        nextLabel: 'Page after',
+        previous: 'before',
+        previousLabel: 'Page before',
+      },
+      {
+        next: 'after',
+        previous: 'before',
+        previousLabel: 'Page before',
+      },
+      {
+        next: 'after',
+        nextLabel: 'Page after',
+        previousLabel: 'Page before',
+      },
+      {
+        next: 'after',
+        nextLabel: 'Page after',
+        previous: 'before',
+      },
+    ])('Should throw an error, case messages props invalid: %s', async messages => {
+      expect.assertions(1);
+      try {
+        await getPage({ totalPages: 1, identifier: 'id', messages });
+      } catch (err) {
+        expect(err.message).toBe('<mg-pagination> prop "messages" must be a valid "PaginationMessagesType".');
       }
     });
   });

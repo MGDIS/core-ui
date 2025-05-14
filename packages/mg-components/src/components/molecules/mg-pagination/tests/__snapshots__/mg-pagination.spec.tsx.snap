@@ -284,6 +284,87 @@ exports[`mg-pagination Should render Should hide page select 2`] = `
 </mg-pagination>
 `;
 
+exports[`mg-pagination Should render Should override pagination locales 1`] = `
+<mg-pagination current-page="1">
+  <template shadowrootmode="open">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
+      <mg-button aria-disabled="true" aria-label="Page before" role="button" tabindex="0">
+        <template shadowrootmode="open">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--medium">
+            <div class="mg-c-button__content">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-icon>
+          <template shadowrootmode="open">
+            <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-left mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <path d="m4 8 6 6 .708-.708L5.415 8l5.293-5.292L10 2z" fill="currentColor"></path>
+            </svg>
+          </template>
+        </mg-icon>
+        before
+      </mg-button>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <template shadowrootmode="open">
+            <mg-input class="mg-c-input mg-c-input--select">
+              <template shadowrootmode="open">
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
+                </div>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </template>
+              <select aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </template>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
+        / 2 pages
+      </div>
+      <mg-button aria-disabled="false" aria-label="Page after" role="button" tabindex="0">
+        <template shadowrootmode="open">
+          <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
+            <div class="mg-c-button__content">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        after
+        <mg-icon>
+          <template shadowrootmode="open">
+            <svg aria-hidden="true" class="mg-c-icon mg-c-icon--chevron-right mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <path d="m11.708 8-6-6L5 2.708 10.293 8 5 13.293l.708.707z" fill="currentColor"></path>
+            </svg>
+          </template>
+        </mg-icon>
+      </mg-button>
+    </nav>
+  </template>
+</mg-pagination>
+`;
+
 exports[`mg-pagination Should render Should set custom label 1`] = `
 <mg-pagination current-page="1">
   <template shadowrootmode="open">
