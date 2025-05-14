@@ -893,7 +893,7 @@ export class MgInputCombobox {
       const items = getObjectValueFromKey<Response, Option[]>(json, this.fetchmappings.response.items).map(
         (item): Option => ({
           title: getObjectValueFromKey<unknown, Option['title']>(item, this.fetchmappings.response.itemTitle),
-          value: this.fetchmappings.response.itemValue ? getObjectValueFromKey<unknown, Option['value']>(item, this.fetchmappings.response.itemValue) : item,
+          value: this.fetchmappings.response.itemValue !== undefined ? getObjectValueFromKey<unknown, Option['value']>(item, this.fetchmappings.response.itemValue) : item,
         }),
       );
       const total = Number(getObjectValueFromKey<Response, number>(json, this.fetchmappings.response.total, 0));

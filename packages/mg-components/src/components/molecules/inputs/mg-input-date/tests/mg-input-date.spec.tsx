@@ -417,12 +417,12 @@ describe('mg-input-date', () => {
     {
       args: { min: '2023-01-01' },
       expected:
-        'Expected format: <span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span> (ex: 12/24/2025)<br>The date must be after 1/1/2023',
+        'Expected format: <span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span> (ex: 12/24/2025)<br>The date must be after or equal to 1/1/2023',
     },
     {
       args: { max: '2026-12-31' },
       expected:
-        'Expected format: <span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span> (ex: 12/24/2025)<br>The date must be before 12/31/2026',
+        'Expected format: <span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span> (ex: 12/24/2025)<br>The date must be before or equal to 12/31/2026',
     },
     {
       args: { min: '2023-01-01', max: '2026-12-31' },
@@ -431,11 +431,11 @@ describe('mg-input-date', () => {
     },
     {
       args: { helpText: 'Custom help text', min: '2023-01-01' },
-      expected: 'Custom help text<br>The date must be after 1/1/2023',
+      expected: 'Custom help text<br>The date must be after or equal to 1/1/2023',
     },
     {
       args: { helpText: 'Custom help text', max: '2026-12-31' },
-      expected: 'Custom help text<br>The date must be before 12/31/2026',
+      expected: 'Custom help text<br>The date must be before or equal to 12/31/2026',
     },
     {
       args: { helpText: 'Custom help text', min: '2023-01-01', max: '2026-12-31' },
