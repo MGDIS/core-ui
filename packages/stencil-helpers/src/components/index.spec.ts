@@ -18,7 +18,7 @@ import {
   Cursor,
   type CursorType,
   formatID,
-} from './';
+} from '.';
 
 const initArray = length => new Array(length).fill('').map((_, key) => (key + 1).toString());
 

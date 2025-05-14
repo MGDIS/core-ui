@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { variantStyles, variants } from '../mg-alert.conf';
-import { renderAttributes } from '@mgdis/playwright-helpers';
+import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 
 const createHTML = (args, slot = '') => `<mg-alert ${renderAttributes(args)}>${slot}</mg-alert>`;
 

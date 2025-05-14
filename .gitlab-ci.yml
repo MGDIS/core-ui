@@ -14,6 +14,7 @@ stages:
 ##############
 
 .changes:
+  helpers: 'packages/helpers/**/*'
   img: 'packages/img/**/*'
   linting-stencil: 'packages/linting-stencil/**/*'
   linting-styles: 'packages/linting-styles/**/*'
@@ -27,6 +28,9 @@ stages:
   styles: 'packages/styles/**/*'
 
 .rules:changes:
+  helpers:
+    changes:
+      - !reference [.changes, helpers]
   img:
     changes:
       - !reference [.changes, img]
@@ -40,44 +44,44 @@ stages:
     changes:
       - !reference [.changes, mg-components]
       - !reference [.changes, img]
-      - !reference [.changes, stencil-helpers]
+      - !reference [.changes, helpers]
       - !reference [.changes, styles]
       - !reference [.changes, linting-stencil]
-      - !reference [.changes, playwright-helpers]
   notification-center:
     changes:
       - !reference [.changes, notification-center]
       - !reference [.changes, notification-center:app]
       - !reference [.changes, mg-components]
-      - !reference [.changes, playwright-helpers]
+      - !reference [.changes, helpers]
       - !reference [.changes, sanitize-html]
   playwright-helpers:
     changes:
+      - !reference [.changes, helpers]
       - !reference [.changes, playwright-helpers]
   sanitize-html:
     changes:
       - !reference [.changes, sanitize-html]
   stencil-helpers:
     changes:
+      - !reference [.changes, helpers]
       - !reference [.changes, stencil-helpers]
-      - !reference [.changes, mg-components-helpers]
   styles:
     changes:
       - !reference [.changes, styles]
-      - !reference [.changes, playwright-helpers]
+      - !reference [.changes, helpers]
   e2e:
     changes:
       - !reference [.changes, mg-components]
       - !reference [.changes, notification-center]
       - !reference [.changes, styles]
       - !reference [.changes, img]
-      - !reference [.changes, stencil-helpers]
+      - !reference [.changes, helpers]
       - !reference [.changes, linting-stencil]
-      - !reference [.changes, playwright-helpers]
       - !reference [.changes, notification-center:app]
       - !reference [.changes, sanitize-html]
   doc:
     changes:
+      - !reference [.changes, helpers]
       - !reference [.changes, mg-components-helpers]
       - !reference [.changes, stencil-helpers]
 
@@ -519,11 +523,40 @@ playwright-helpers:artifact:
   extends:
     - .install:dependencies
   script:
+    - pnpm build --filter=@mgdis/playwright-helpers
     - cd packages/playwright-helpers
-    - pnpm build
     - !reference [.artifact, script]
   needs:
     - lint
+
+###################
+# core-ui-helpers #
+###################
+
+.helpers:
+  script:
+    - pnpm build --filter=@mgdis/core-ui-helpers
+    - cd packages/helpers
+
+helpers:artifact:
+  stage: artifacts
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, helpers, changes]
+  extends:
+    - .install:dependencies
+  script:
+    - !reference [.helpers, script]
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+helpers:npmjs:
+  extends:
+    - .npmjs
+  script:
+    - !reference [.helpers, script]
+    - pnpm publish --no-git-checks --access public
 
 ###################
 # Stencil helpers #

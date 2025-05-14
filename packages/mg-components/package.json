@@ -47,8 +47,8 @@
     "outputName": "junit.xml"
   },
   "dependencies": {
+    "@mgdis/core-ui-helpers": "workspace:*",
     "@mgdis/img": "workspace:*",
-    "@mgdis/stencil-helpers": "workspace:*",
     "@mgdis/styles": "workspace:*",
     "@popperjs/core": "2.11.8",
     "@stencil/core": "4.28.2",
@@ -57,7 +57,6 @@
   "devDependencies": {
     "@core-ui/jest-config": "workspace:*",
     "@mgdis/linting-stencil": "workspace:*",
-    "@mgdis/playwright-helpers": "workspace:*",
     "@playwright/test": "1.52.0",
     "@storybook/addon-a11y": "8.6.12",
     "@storybook/addon-actions": "8.6.12",

@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
-import { renderAttributes } from '@mgdis/playwright-helpers';
+import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 
 const createHTML = args => `<mg-pagination ${renderAttributes(args)}></mg-pagination>`;
 

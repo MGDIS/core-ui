@@ -1,4 +1,4 @@
-import { renderAttributes } from '@mgdis/playwright-helpers';
+import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { MgModal } from '../mg-modal';
 
 export const contents = ['short', 'long'] as const;

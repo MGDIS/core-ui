@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '@mgdis/stencil-helpers';
+import { filterArgs } from '@mgdis/core-ui-helpers/dist/storybook';
 import type { MgIllustratedMessage as MgIllustratedMessageType } from '../mg-illustrated-message';
 
 export default {

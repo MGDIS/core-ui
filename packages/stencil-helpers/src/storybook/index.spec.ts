@@ -1,8 +1,6 @@
 import { describe, expect, test, vi } from 'vitest';
-import { filterArgs, stencilWrapper, getStoryHTML, StorybookPreview } from './';
-import { VNode } from '@stencil/core';
+import { filterArgs, stencilWrapper, getStoryHTML, StorybookPreview } from '.';
 import jsonDocs from '../../json-doc.test.json';
-import { JsonDocs } from '@stencil/core/internal';
 
 describe('storybook', () => {
   describe('filterArgs', () => {
@@ -94,7 +92,7 @@ describe('storybook', () => {
         $text$: null,
       },
     ])('Should render story code exemple', args => {
-      const res = getStoryHTML(args as unknown as VNode);
+      const res = getStoryHTML(args as unknown as Parameters<typeof getStoryHTML>[0]);
       expect(res).toMatchSnapshot();
     });
   });
@@ -102,7 +100,7 @@ describe('storybook', () => {
   describe('StorybookPreview', () => {
     describe('extractArgTypes', () => {
       test('Should extract arg types', () => {
-        const { extractArgTypes } = new StorybookPreview(jsonDocs as JsonDocs);
+        const { extractArgTypes } = new StorybookPreview(jsonDocs as ConstructorParameters<typeof StorybookPreview>[0]);
         let res = extractArgTypes('my-comp');
         expect(res).toMatchSnapshot();
         res = extractArgTypes('my-second-comp');
@@ -112,7 +110,7 @@ describe('storybook', () => {
 
     describe('extractComponentDescription', () => {
       test('Should extract component description', () => {
-        const { extractComponentDescription } = new StorybookPreview(jsonDocs as JsonDocs);
+        const { extractComponentDescription } = new StorybookPreview(jsonDocs as ConstructorParameters<typeof StorybookPreview>[0]);
         const res = extractComponentDescription('my-comp');
         expect(res).toMatchSnapshot();
       });

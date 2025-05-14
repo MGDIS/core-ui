@@ -1,7 +1,7 @@
 import { Preview } from '@storybook/html';
 import { withActions } from '@storybook/addon-actions/decorator';
 import { JsonDocs } from '@stencil/core/internal';
-import { stencilWrapper, getStoryHTML, StorybookPreview } from '@mgdis/stencil-helpers';
+import { stencilWrapper, getStoryHTML, StorybookPreview } from '@mgdis/core-ui-helpers/dist/storybook';
 import jsonDoc from './components.json';
 
 // import mg-components

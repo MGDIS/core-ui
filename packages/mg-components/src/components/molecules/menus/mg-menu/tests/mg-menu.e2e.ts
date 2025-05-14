@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { renderAttributes } from '@mgdis/playwright-helpers';
+import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { test } from '../../../../../utils/playwright.fixture';
 import { directions, MenuSizeType, sizes } from '../mg-menu.conf';
 import { Direction } from '../../../../../types';

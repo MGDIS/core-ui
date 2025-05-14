@@ -1,4 +1,4 @@
-import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
+import { renderAttributes, renderProperties } from '@mgdis/core-ui-helpers/dist/playwright';
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { tableWithHeaderCellsInTheTopRowOnly, tableSortable, tables, tableWithHeadersSpanningMultipleRowsOrColumns } from './mg-table.e2e.template';

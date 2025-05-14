@@ -1,1 +1,1 @@
-export * from './mg-angular-logger';
+export { setMgAngularLogger } from '@mgdis/core-ui-helpers/dist/angular';

@@ -6,7 +6,7 @@ import { MgIcon } from '../../../atoms/mg-icon/mg-icon';
 import { MgInputSelect } from '../../inputs/mg-input-select/mg-input-select';
 import { MgInput } from '../../inputs/mg-input/mg-input';
 import { MgInputTitle } from '../../../atoms/internals/mg-input-title/mg-input-title';
-import { setUpRequestAnimationFrameMock } from '@mgdis/stencil-helpers';
+import { setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/dist/tests';
 
 const getPage = async args => {
   const page = await newSpecPage({

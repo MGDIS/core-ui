@@ -1,1 +1,1 @@
-export * from './mg-model';
+export { mgModel } from '@mgdis/core-ui-helpers/dist/vue';

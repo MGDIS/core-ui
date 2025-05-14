@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '@mgdis/stencil-helpers';
+import { filterArgs } from '@mgdis/core-ui-helpers/dist/storybook';
 import type { MgInputCombobox as MgInputComboboxType } from '../mg-input-combobox';
 import { type ItemType } from '../mg-input-combobox.conf';
 

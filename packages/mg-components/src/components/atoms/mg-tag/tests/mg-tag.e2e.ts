@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { renderAttributes } from '@mgdis/playwright-helpers';
+import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { test } from '../../../../utils/playwright.fixture';
 import { variants } from '../mg-tag.conf';
 
@@ -30,10 +30,16 @@ test.describe('mg-tag', () => {
     });
   });
 
-  test('Should render a 2 lines tag', async ({ page }) => {
-    await page.setContent(`<mg-tag>Tag with a<br> two lines text</mg-tag>`);
+  [
+    `Tag with a<br> two lines text`,
+    `<mg-icon ${renderAttributes({ icon: 'user', size: 'small' })}></mg-icon> Tag with a<br> two lines text`,
+    `<mg-icon ${renderAttributes({ icon: 'user' })}></mg-icon> Tag with a<br> two lines text`,
+  ].forEach(slot => {
+    test(`Should render a 2 lines tag, slot: ${slot}`, async ({ page }) => {
+      await page.setContent(`<mg-tag>${slot}</mg-tag>`);
 
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
   });
 
   test('Should render a tag in a paragraph', async ({ page }) => {
