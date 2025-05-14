@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../../utils/playwright.fixture';
-import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
+import { renderAttributes, renderProperties } from '@mgdis/core-ui-helpers/dist/playwright';
 import { helpTextTypes } from '../mg-input-text.conf';
 
 const createHTML = props => {

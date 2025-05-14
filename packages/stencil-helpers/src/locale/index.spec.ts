@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { localeCurrency, localeNumber, localeDate, localePercent, localeUnit, defineLocales, dateToString, getLocaleDatePattern } from './';
+import { localeCurrency, localeNumber, localeDate, localePercent, localeUnit, defineLocales, dateToString, getLocaleDatePattern } from '.';
 
 const messagesFr = { lang: 'fr' };
 const messagesEn = { lang: 'en' };

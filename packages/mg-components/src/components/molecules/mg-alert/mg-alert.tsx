@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, forceUpdate } from '@stencil/core';
-import { ClassList, toString } from '@mgdis/stencil-helpers';
+import { ClassList, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { variants, variantStyles, VariantStyleType, VariantType } from './mg-alert.conf';
 import { initLocales } from '../../../locales';
 

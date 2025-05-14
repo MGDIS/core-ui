@@ -1,4 +1,1 @@
-/**
- * Define json object type
- */
-export type ObjectType = Record<string, unknown>;
+export { type ObjectType } from '@mgdis/core-ui-helpers/dist/utils';

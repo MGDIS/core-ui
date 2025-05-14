@@ -1,7 +1,8 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { forcePopoverId } from '../../../../utils/unit.test.utils';
-import { setupMutationObserverMock, setupResizeObserverMock, toString } from '@mgdis/stencil-helpers';
+import { toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/core-ui-helpers/dist/tests';
 import { Status } from '../../menus/mg-menu-item/mg-menu-item.conf';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
 import { MgPopover } from '../../mg-popover/mg-popover';

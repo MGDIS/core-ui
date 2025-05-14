@@ -1,7 +1,8 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { mockWindowFrames } from '../../../../../utils/unit.test.utils';
-import { setUpRequestAnimationFrameMock, setupResizeObserverMock, toString } from '@mgdis/stencil-helpers';
+import { setUpRequestAnimationFrameMock, setupResizeObserverMock } from '@mgdis/core-ui-helpers/dist/tests';
+import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { MgInputCheckbox } from '../mg-input-checkbox';
 import messages from '../../../../../locales/en/messages.json';
 import { CheckboxValue, checkboxTypes } from '../mg-input-checkbox.conf';

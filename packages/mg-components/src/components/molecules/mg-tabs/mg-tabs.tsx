@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, h, Prop, State, Element, Watch } from '@stencil/core';
-import { createID, ClassList, allItemsAreString, isValidString, nextTick, toString, isValideID } from '@mgdis/stencil-helpers';
+import { createID, ClassList, allItemsAreString, isValidString, nextTick, toString, isValideID } from '@mgdis/core-ui-helpers/dist/utils';
 import { TabItem, sizes, Status, SizeType } from './mg-tabs.conf';
 import { Keys } from '../../../utils/events.utils';
 

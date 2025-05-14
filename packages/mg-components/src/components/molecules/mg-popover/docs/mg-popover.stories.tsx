@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '@mgdis/stencil-helpers';
+import { filterArgs } from '@mgdis/core-ui-helpers/dist/storybook';
 import type { MgPopover as MgPopoverType } from '../mg-popover';
 
 export default {

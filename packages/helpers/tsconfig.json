@@ -1,0 +1,17 @@
+{
+  "extends": "@core-ui/tsconfig/base.node.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "incremental": false,
+    "lib": ["dom", "es2021"],
+    "resolveJsonModule": false,
+    "moduleResolution": "Bundler",
+    "module": "ES6"
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.spec.ts"]
+}

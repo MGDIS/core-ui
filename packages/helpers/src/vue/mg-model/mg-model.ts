@@ -18,7 +18,7 @@ const wm = new WeakMap();
  * // src/main.js
  * import Vue from 'vue';
  * import App from './App.vue';
- * import { mgModel } from '@mgdis/mg-components-helpers/vue';
+ * import { mgModel } from '@mgdis/core-ui-helpers/dist/vue';
  *
  * Vue.use(mgModel);
  *

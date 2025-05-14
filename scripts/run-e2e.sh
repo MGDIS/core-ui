@@ -41,40 +41,39 @@ prepare_package "package.json" '{
 prepare_package "packages/mg-components/package.json" '{
   name,
   module: .module, 
-  "types": .types, 
-  "files": .files, 
+  types, 
+  files, 
   "scripts": { 
     prebuild: .scripts.prebuild,
     start: .scripts.start,
     "test:e2e": .scripts."test:e2e:docker"
   }, 
   "dependencies": { 
-    "@mgdis/stencil-helpers": .dependencies."@mgdis/stencil-helpers",
+    "@mgdis/core-ui-helpers": .dependencies."@mgdis/core-ui-helpers",
     "@stencil/core": .dependencies."@stencil/core",
     "@popperjs/core": .dependencies."@popperjs/core",
     "quill": .dependencies."quill"
-  },
-  "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
+  }
 }'
 
 # Prepare packages/notification-center/package.json
 prepare_package "packages/notification-center/package.json" '{
   name,
-  module: .module, 
-  "types": .types, 
-  "files": .files, 
-  "exports": .exports, 
+  module, 
+  types, 
+  files, 
+  exports, 
   "scripts": { 
     "test:e2e": .scripts."test:e2e:docker"
   },
-  "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
+  "devDependencies": { "@mgdis/core-ui-helpers": .devDependencies."@mgdis/core-ui-helpers" }
 }'
 
 # Prepare packages/styles/package.json
 prepare_package "packages/styles/package.json" '{
   name, 
   "scripts": { "test:e2e": .scripts."test:e2e:docker" },
-  "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
+  "devDependencies": { "@mgdis/core-ui-helpers": .devDependencies."@mgdis/core-ui-helpers" }
 }'
 
 # Prepare apps/notification-center/package.json
@@ -95,13 +94,19 @@ prepare_package "apps/notification-center/package.json" '{
 prepare_package "packages/playwright-helpers/package.json" '{
   name, 
   main,
-  types
+  types,
+  "dependencies": { 
+    "@mgdis/core-ui-helpers": .dependencies."@mgdis/core-ui-helpers",
+  }
 }'
 
 
 # Prepare packages/mg-components-helpers/package.json
 prepare_package "packages/mg-components-helpers/package.json" '{
   name,
+  "dependencies": { 
+    "@mgdis/core-ui-helpers": .dependencies."@mgdis/core-ui-helpers",
+  }
 }'
 
 # Prepare packages/stencil-helpers/package.json
@@ -110,8 +115,14 @@ prepare_package "packages/stencil-helpers/package.json" '{
   main,
   types,
   "dependencies": { 
-    "@mgdis/mg-components-helpers": .dependencies."@mgdis/mg-components-helpers",
+    "@mgdis/core-ui-helpers": .dependencies."@mgdis/core-ui-helpers",
   }
+}'
+
+# Prepare packages/helpers/package.json
+prepare_package "packages/helpers/package.json" '{
+  name, 
+  exports, 
 }'
 
 # Create turbo.json

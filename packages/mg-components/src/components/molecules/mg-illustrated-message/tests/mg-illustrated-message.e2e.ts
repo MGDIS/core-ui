@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
-import { renderAttributes } from '@mgdis/playwright-helpers';
+import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { directions, sizes } from '../mg-illustrated-message.conf';
 
 const createHTML = (args, title = '<h2 slot="title">Lorem Ipsum</h2>') => `<mg-illustrated-message ${renderAttributes(args)}>

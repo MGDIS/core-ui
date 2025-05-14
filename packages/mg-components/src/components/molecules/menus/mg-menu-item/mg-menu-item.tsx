@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { ClassList, createID, isValideID, isValidString, nextTick, toString } from '@mgdis/stencil-helpers';
+import { ClassList, createID, isValideID, isValidString, nextTick, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { initLocales } from '../../../../locales';
 import { directions, type MenuSizeType } from '../mg-menu/mg-menu.conf';
 import { type MgMenuStatusType, Status, targets, type TargetType } from './mg-menu-item.conf';
@@ -44,7 +44,7 @@ export class MgMenuItem {
   /**
    * Identifier is used to control mg-popover
    */
-  @Prop({ reflect: true }) identifier = createID('mg-menu-item');
+  @Prop({ reflect: true }) identifier: string = createID('mg-menu-item');
   @Watch('identifier')
   watchIdentifier(newValue: MgMenuItem['identifier']): void {
     if (!isValideID(newValue)) {
