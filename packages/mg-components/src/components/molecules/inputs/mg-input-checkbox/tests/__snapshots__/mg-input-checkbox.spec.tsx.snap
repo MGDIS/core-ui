@@ -2266,6 +2266,492 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
 </mg-input-checkbox>
 `;
 
+exports[`mg-input-checkbox multi search Should not update disabled values on mass action 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--search-mode" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="true" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Edit
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content">
+              <mg-input-text aria-controls="search-results items-list" value="">
+                <template shadowrootmode="open">
+                  <mg-input class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
+                    <template shadowrootmode="open">
+                      <div class="mg-c-input__title mg-u-visually-hidden">
+                        <slot name="label"></slot>
+                      </div>
+                      <div class="mg-c-input__input-container">
+                        <div class="mg-c-input__input">
+                          <slot></slot>
+                        </div>
+                      </div>
+                    </template>
+                    <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 0;">
+                      <mg-icon icon="magnifying-glass"></mg-icon>
+                      <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
+                    </div>
+                    <slot name="append-input"></slot>
+                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                      <!---->
+                      <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                        <span class="mg-c-input-title__text">
+                          Enter a value
+                        </span>
+                      </label>
+                    </mg-input-title>
+                  </mg-input>
+                </template>
+              </mg-input-text>
+              <p class="mg-u-visually-hidden" id="search-results" role="status">
+                21 results
+              </p>
+              <div class="mg-c-input__sections">
+                <mg-input-checkbox-paginated identifier="identifier">
+                  <div class="mg-c-input__section-header">
+                    <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
+                      <template shadowrootmode="open">
+                        <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
+                          <div class="mg-c-button__content">
+                            <slot></slot>
+                          </div>
+                        </div>
+                      </template>
+                      <mg-icon icon="chevron-up"></mg-icon>
+                      <span class="mg-c-input__section-header-title">
+                        <em class="mg-c-input__section-header-title-label">
+                          Selected (2)
+                        </em>
+                      </span>
+                    </mg-button>
+                  </div>
+                  <div class="mg-c-input__section-content" id="items-selected-container">
+                    <ul aria-describedby="search-results" aria-live="polite" class="mg-c-input__input-group-container" id="items-selected" role="list">
+                      <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                        <input aria-invalid="false" checked="" disabled="" id="identifier_0" type="checkbox" value="true">
+                        <label htmlfor="identifier_0">
+                          item 1
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                        <input aria-invalid="false" checked="" disabled="" id="identifier_1" type="checkbox" value="true">
+                        <label htmlfor="identifier_1">
+                          item 2
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </mg-input-checkbox-paginated>
+                <mg-input-checkbox-paginated identifier="identifier">
+                  <div class="mg-c-input__section-header">
+                    <p class="mg-c-input__section-header-title mg-c-input__section-header-title--static">
+                      <em class="mg-c-input__section-header-title-label">
+                        Not selected (19)
+                      </em>
+                    </p>
+                    <mg-tooltip class="mg-c-input__section-header-tootlip" message="Select all current search results">
+                      <mg-button role="button" tabindex="0">
+                        <template shadowrootmode="open">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
+                            <div class="mg-c-button__content">
+                              <slot></slot>
+                            </div>
+                          </div>
+                        </template>
+                        Select all
+                      </mg-button>
+                    </mg-tooltip>
+                    <mg-pagination current-page="1">
+                      <template shadowrootmode="open">
+                        <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-not-selected" role="navigation">
+                          <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
+                            <template shadowrootmode="open">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                                <div class="mg-c-button__content">
+                                  <slot></slot>
+                                </div>
+                              </div>
+                            </template>
+                            <mg-icon icon="chevron-left"></mg-icon>
+                          </mg-button>
+                          <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
+                            <template shadowrootmode="open">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                                <div class="mg-c-button__content">
+                                  <slot></slot>
+                                </div>
+                              </div>
+                            </template>
+                            <mg-icon icon="chevron-right"></mg-icon>
+                          </mg-button>
+                        </nav>
+                      </template>
+                    </mg-pagination>
+                  </div>
+                  <div class="mg-c-input__section-content" id="items-not-selected-container">
+                    <ul aria-describedby="search-results" aria-live="polite" class="mg-c-input__input-group-container" id="items-not-selected" role="list">
+                      <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                        <input aria-invalid="false" disabled="" id="identifier_2" type="checkbox" value="false">
+                        <label htmlfor="identifier_2">
+                          item 3
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                        <input aria-invalid="false" disabled="" id="identifier_3" type="checkbox" value="false">
+                        <label htmlfor="identifier_3">
+                          item 4
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" id="identifier_4" type="checkbox" value="false">
+                        <label htmlfor="identifier_4">
+                          item 5
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" id="identifier_5" type="checkbox" value="false">
+                        <label htmlfor="identifier_5">
+                          item 6
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" id="identifier_6" type="checkbox" value="false">
+                        <label htmlfor="identifier_6">
+                          item 7
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" id="identifier_7" type="checkbox" value="false">
+                        <label htmlfor="identifier_7">
+                          item 8
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" id="identifier_8" type="checkbox" value="false">
+                        <label htmlfor="identifier_8">
+                          item 9
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" id="identifier_9" type="checkbox" value="false">
+                        <label htmlfor="identifier_9">
+                          item 10
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" id="identifier_10" type="checkbox" value="false">
+                        <label htmlfor="identifier_10">
+                          item 11
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" id="identifier_11" type="checkbox" value="false">
+                        <label htmlfor="identifier_11">
+                          item 12
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </mg-input-checkbox-paginated>
+              </div>
+            </div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          2 selected values
+        </b>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox multi search Should not update disabled values on mass action 2`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--search-mode" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="true" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Edit
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content">
+              <mg-input-text aria-controls="search-results items-list" value="">
+                <template shadowrootmode="open">
+                  <mg-input class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
+                    <template shadowrootmode="open">
+                      <div class="mg-c-input__title mg-u-visually-hidden">
+                        <slot name="label"></slot>
+                      </div>
+                      <div class="mg-c-input__input-container">
+                        <div class="mg-c-input__input">
+                          <slot></slot>
+                        </div>
+                      </div>
+                    </template>
+                    <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 0;">
+                      <mg-icon icon="magnifying-glass"></mg-icon>
+                      <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
+                    </div>
+                    <slot name="append-input"></slot>
+                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                      <!---->
+                      <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                        <span class="mg-c-input-title__text">
+                          Enter a value
+                        </span>
+                      </label>
+                    </mg-input-title>
+                  </mg-input>
+                </template>
+              </mg-input-text>
+              <p class="mg-u-visually-hidden" id="search-results" role="status">
+                21 results
+              </p>
+              <div class="mg-c-input__sections">
+                <mg-input-checkbox-paginated identifier="identifier">
+                  <div class="mg-c-input__section-header">
+                    <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
+                      <template shadowrootmode="open">
+                        <div class="mg-c-button mg-c-button--flat mg-c-button--medium">
+                          <div class="mg-c-button__content">
+                            <slot></slot>
+                          </div>
+                        </div>
+                      </template>
+                      <mg-icon icon="chevron-up"></mg-icon>
+                      <span class="mg-c-input__section-header-title">
+                        <em class="mg-c-input__section-header-title-label">
+                          Selected (19)
+                        </em>
+                      </span>
+                    </mg-button>
+                    <mg-tooltip class="mg-c-input__section-header-tootlip" message="Unselect all current search results">
+                      <mg-button role="button" tabindex="0">
+                        <template shadowrootmode="open">
+                          <div class="mg-c-button mg-c-button--link mg-c-button--medium">
+                            <div class="mg-c-button__content">
+                              <slot></slot>
+                            </div>
+                          </div>
+                        </template>
+                        Unselect all
+                      </mg-button>
+                    </mg-tooltip>
+                    <mg-pagination current-page="1">
+                      <template shadowrootmode="open">
+                        <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="input-checkbox-pagination-selected" role="navigation">
+                          <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
+                            <template shadowrootmode="open">
+                              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                                <div class="mg-c-button__content">
+                                  <slot></slot>
+                                </div>
+                              </div>
+                            </template>
+                            <mg-icon icon="chevron-left"></mg-icon>
+                          </mg-button>
+                          <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
+                            <template shadowrootmode="open">
+                              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                                <div class="mg-c-button__content">
+                                  <slot></slot>
+                                </div>
+                              </div>
+                            </template>
+                            <mg-icon icon="chevron-right"></mg-icon>
+                          </mg-button>
+                        </nav>
+                      </template>
+                    </mg-pagination>
+                  </div>
+                  <div class="mg-c-input__section-content" id="items-selected-container">
+                    <ul aria-describedby="search-results" aria-live="polite" class="mg-c-input__input-group-container" id="items-selected" role="list">
+                      <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                        <input aria-invalid="false" checked="" disabled="" id="identifier_0" type="checkbox" value="true">
+                        <label htmlfor="identifier_0">
+                          item 1
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                        <input aria-invalid="false" checked="" disabled="" id="identifier_1" type="checkbox" value="true">
+                        <label htmlfor="identifier_1">
+                          item 2
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" checked="" id="identifier_4" type="checkbox" value="true">
+                        <label htmlfor="identifier_4">
+                          item 5
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" checked="" id="identifier_5" type="checkbox" value="true">
+                        <label htmlfor="identifier_5">
+                          item 6
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" checked="" id="identifier_6" type="checkbox" value="true">
+                        <label htmlfor="identifier_6">
+                          item 7
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" checked="" id="identifier_7" type="checkbox" value="true">
+                        <label htmlfor="identifier_7">
+                          item 8
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" checked="" id="identifier_8" type="checkbox" value="true">
+                        <label htmlfor="identifier_8">
+                          item 9
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" checked="" id="identifier_9" type="checkbox" value="true">
+                        <label htmlfor="identifier_9">
+                          item 10
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" checked="" id="identifier_10" type="checkbox" value="true">
+                        <label htmlfor="identifier_10">
+                          item 11
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group">
+                        <input aria-invalid="false" checked="" id="identifier_11" type="checkbox" value="true">
+                        <label htmlfor="identifier_11">
+                          item 12
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </mg-input-checkbox-paginated>
+                <mg-input-checkbox-paginated identifier="identifier">
+                  <div class="mg-c-input__section-header">
+                    <p class="mg-c-input__section-header-title mg-c-input__section-header-title--static">
+                      <em class="mg-c-input__section-header-title-label">
+                        Not selected (2)
+                      </em>
+                    </p>
+                  </div>
+                  <div class="mg-c-input__section-content" id="items-not-selected-container">
+                    <ul aria-describedby="search-results" aria-live="polite" class="mg-c-input__input-group-container" id="items-not-selected" role="list">
+                      <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                        <input aria-invalid="false" disabled="" id="identifier_2" type="checkbox" value="false">
+                        <label htmlfor="identifier_2">
+                          item 3
+                        </label>
+                      </li>
+                      <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                        <input aria-invalid="false" disabled="" id="identifier_3" type="checkbox" value="false">
+                        <label htmlfor="identifier_3">
+                          item 4
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </mg-input-checkbox-paginated>
+              </div>
+            </div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          19 selected values
+        </b>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
 exports[`mg-input-checkbox multi search Should reset pagination when popover is closed 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <template shadowrootmode="open">

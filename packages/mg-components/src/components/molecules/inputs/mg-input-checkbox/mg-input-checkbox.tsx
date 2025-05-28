@@ -444,7 +444,9 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
     // update only displayed items
     displayItems.forEach(item => {
-      item.value = event.detail !== SectionKind.SELECTED;
+      if (item.disabled !== true) {
+        item.value = event.detail !== SectionKind.SELECTED;
+      }
     });
     this.updateValues();
   };

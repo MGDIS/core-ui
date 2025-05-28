@@ -957,6 +957,51 @@ describe('mg-input-checkbox', () => {
       expect(resultList.filter(item => item.value === 'true').length).toEqual(4);
       expect(page.root).toMatchSnapshot();
     });
+
+    test('Should not update disabled values on mass action', async () => {
+      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
+        title: `item ${item}`,
+        disabled: item === 1 || item === 2 || item === 3 || item === 4,
+        value: item === 1 || item === 2,
+      }));
+      const page = await getPage({ label: 'label', identifier: 'identifier', value });
+      const getResultList = (mgInputCheckbox: HTMLMgInputCheckboxElement) => Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('input'));
+
+      const mgInputCheckbox = page.doc.querySelector('mg-input-checkbox');
+      const mgPopover = mgInputCheckbox.shadowRoot.querySelector('mg-popover');
+      let unselectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:first-of-type mg-tootlip mg-button');
+      let selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type mg-button');
+
+      const valueChangeSpy = jest.spyOn(page.rootInstance.valueChange, 'emit');
+
+      mgPopover.display = true;
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+
+      let resultList = getResultList(mgInputCheckbox);
+
+      // Should not have display Unselect All button since all selected values are disabled
+      expect(unselectAllButton).toBeNull();
+      expect(selectAllButton).toBeDefined();
+      expect(resultList.filter(item => item.value === 'true').length).toEqual(2);
+      expect(page.root).toMatchSnapshot();
+
+      // Select All
+      selectAllButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+
+      unselectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:first-of-type mg-tootlip mg-button');
+      selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type mg-button');
+      resultList = getResultList(mgInputCheckbox);
+
+      // Should not have display Select All button since all unselected values are disabled
+      expect(unselectAllButton).toBeDefined();
+      expect(selectAllButton).toBeNull();
+      expect(valueChangeSpy).toHaveBeenCalledTimes(1);
+      expect(resultList.filter(item => item.value === 'true').length).toEqual(10);
+
+      expect(page.root).toMatchSnapshot();
+    });
   });
 
   describe('mode auto', () => {
