@@ -87,4 +87,17 @@ test.describe('mg-table', () => {
     await page.locator('th').nth(2).click();
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
+  test('Should render a 2 lines sortable header', async ({ page }) => {
+    const args = { columns: { 1: { sortable: true }, 2: { datatype: 'date', sortable: true, align: 'center' }, 3: { datatype: 'numeric', sortable: true } } };
+    const table = tableSortable.replace('Name', 'Employee first name');
+
+    const html = createHTML(args, table);
+    await page.setContent(html);
+    await page.addScriptTag({ content: renderProperties(args, 'mg-table') });
+    await page.addStyleTag({ content: '.e2e-screenshot{padding:0.5rem}' }); // Add padding to prevent hover effect to be visible
+    await page.setViewportSize({ width: 400, height: 800 }); // ensure header goes on 2 lines
+    // Initial state
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
 });

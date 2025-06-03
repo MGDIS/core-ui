@@ -51,10 +51,10 @@
           <table>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Birthday</th>
-                <th>Age</th>
-                <th>Test signature</th>
+                <th>First name un peu plus long</th>
+                <th>Birthday un peu plus long</th>
+                <th>Age un peu plus long</th>
+                <th>Test signature content Toto ?</th>
               </tr>
             </thead>
             <tbody>
@@ -81,7 +81,7 @@
         </mg-table>
         <script>
           const mgTable = document.querySelector('mg-table');
-          mgTable.columns = { 1: { sortable: true }, 2: { datatype: 'date', sortable: true }, 3: { datatype: 'numeric', sortable: true } };
+          mgTable.columns = { 1: { sortable: true }, 2: { datatype: 'date', sortable: true, align: 'center' }, 3: { datatype: 'numeric', sortable: true } };
         </script>
       </section>
       <section>
