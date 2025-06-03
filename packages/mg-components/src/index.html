@@ -1402,6 +1402,16 @@
               // mgInputToggle.value = 'non';
               // mgInputToggle.value = mgInputToggle.items[1].value;
             </script>
+            <mg-input-checkbox label="mg-input-checkbox multiple" type="multi" identifier="mg-input-checkbox-multiple"></mg-input-checkbox>
+            <script>
+              const mgInputCheckboxMultiple = document.querySelector('mg-input-checkbox[identifier="mg-input-checkbox-multiple"]');
+              const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
+                title: `item ${item}`,
+                disabled: item === 1 || item === 2 || item === 3 || item === 4,
+                value: item === 1 || item === 2,
+              }));
+              mgInputCheckboxMultiple.value = value;
+            </script>
 
             <div slot="actions" class="mg-l-group-elements mg-l-group-elements--align-right">
               <mg-button id="can-submit">Can Submit</mg-button>
