@@ -71,10 +71,12 @@ export namespace Components {
     interface MgActionMore {
         /**
           * Define button properties
+          * @default { variant: 'flat', isIcon: true }
          */
         "button"?: MgActionMoreButtonType;
         /**
           * Define if chevron is display
+          * @default false
          */
         "displayChevron": boolean;
         /**
@@ -93,10 +95,12 @@ export namespace Components {
         "delay"?: number;
         /**
           * Define variant
+          * @default 'info'
          */
         "variant"?: VariantType;
         /**
           * Define variant style
+          * @default 'bar-left'
          */
         "variantStyle"?: VariantStyleType;
     }
@@ -107,6 +111,7 @@ export namespace Components {
         "label": string;
         /**
           * Define if button is using outline style
+          * @default false
          */
         "outline"?: boolean;
         /**
@@ -115,12 +120,14 @@ export namespace Components {
         "value": string | number;
         /**
           * Define badge variant
+          * @default 'info'
          */
         "variant"?: BadgeVariantType;
     }
     interface MgButton {
         /**
           * Option to set input disable on click, in order to prevent multi-click. Parent component have to remove the attribute 'disabled' when the process ends.
+          * @default false
          */
         "disableOnClick": boolean;
         /**
@@ -133,10 +140,12 @@ export namespace Components {
         "form"?: string;
         /**
           * Set button to full-width
+          * @default false
          */
         "fullWidth": boolean;
         /**
           * Define if button is round. Used for icon button.
+          * @default false
          */
         "isIcon": boolean;
         /**
@@ -145,6 +154,7 @@ export namespace Components {
         "label"?: string;
         /**
           * Define button size
+          * @default 'medium'
          */
         "size": SizeType;
         /**
@@ -153,6 +163,7 @@ export namespace Components {
         "type"?: ButtonType;
         /**
           * Define button variant
+          * @default 'primary'
          */
         "variant": VariantType1;
     }
@@ -161,6 +172,7 @@ export namespace Components {
     interface MgCharacterLeft {
         /**
           * Sets the characters to count
+          * @default ''
          */
         "characters": string;
         /**
@@ -175,10 +187,12 @@ export namespace Components {
     interface MgDetails {
         /**
           * Define if details are diplayed
+          * @default false
          */
         "expanded": boolean;
         /**
           * Hide summary element
+          * @default false
          */
         "hideSummary": boolean;
         /**
@@ -193,6 +207,7 @@ export namespace Components {
     interface MgDivider {
         /**
           * Define component size
+          * @default false
          */
         "fullWidth": boolean;
     }
@@ -203,6 +218,7 @@ export namespace Components {
         "ariaRole"?: AriaRoleType;
         /**
           * Define if form is disabled
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -211,6 +227,7 @@ export namespace Components {
         "displayError": () => Promise<void>;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
+          * @default createID('mg-form')
          */
         "identifier": string;
         /**
@@ -219,14 +236,17 @@ export namespace Components {
         "invalid": boolean;
         /**
           * Define if slotted mg-component's label are displayed on top
+          * @default false
          */
         "labelOnTop": boolean;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name": string;
         /**
           * Define if form is readonly
+          * @default false
          */
         "readonly": boolean;
         /**
@@ -249,10 +269,12 @@ export namespace Components {
         "icon": IconType;
         /**
           * Define icon size
+          * @default 'medium'
          */
         "size": IconSizeType;
         /**
           * Make the icon spin
+          * @default false
          */
         "spin": boolean;
         /**
@@ -267,10 +289,12 @@ export namespace Components {
     interface MgIllustratedMessage {
         /**
           * Define component orientation
+          * @default 'vertical'
          */
         "direction": IllustratedMessageDirectionType;
         /**
           * Define illustration size
+          * @default 'medium'
          */
         "size": IllustratedMessageSizeType;
     }
@@ -297,14 +321,17 @@ export namespace Components {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide": boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop": boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required": boolean;
         /**
@@ -313,12 +340,14 @@ export namespace Components {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition": TooltipPosition;
     }
     interface MgInputCheckbox {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -327,6 +356,7 @@ export namespace Components {
         "displayError": () => Promise<void>;
         /**
           * Display selected values list in "multi" type This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.
+          * @default false
          */
         "displaySelectedValues": boolean;
         /**
@@ -343,6 +373,7 @@ export namespace Components {
         "identifier": string;
         /**
           * Define if inputs are display verticaly
+          * @default false
          */
         "inputVerticalList": boolean;
         /**
@@ -355,22 +386,27 @@ export namespace Components {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide": boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop": boolean;
         /**
           * Define input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name": string;
         /**
           * Define if mg-input-checkbox is readonly
+          * @default false
          */
         "readonly": boolean;
         /**
           * Define if mg-input-checkbox is required
+          * @default false
          */
         "required": boolean;
         /**
@@ -397,6 +433,7 @@ export namespace Components {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition": TooltipPosition;
         /**
@@ -418,14 +455,17 @@ export namespace Components {
     interface MgInputCheckboxPaginated {
         /**
           * Define checkboxes to paginate
+          * @default []
          */
         "checkboxes": CheckboxItem[];
         /**
           * Current page
+          * @default 1
          */
         "currentPage": number;
         /**
           * Define if mg-input-checkbox-list is disabled
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -442,12 +482,14 @@ export namespace Components {
         "name"?: string;
         /**
           * Define if mg-input-checkbox-list is readonly
+          * @default false
          */
         "readonly": boolean;
     }
     interface MgInputCombobox {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -497,18 +539,22 @@ export namespace Components {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide": boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop": boolean;
         /**
           * Define input width
+          * @default 'full'
          */
         "mgWidth": Width;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name": string;
         /**
@@ -517,10 +563,12 @@ export namespace Components {
         "placeholder"?: string;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly": boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required": boolean;
         /**
@@ -543,6 +591,7 @@ export namespace Components {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition": TooltipPosition;
         /**
@@ -557,6 +606,7 @@ export namespace Components {
     interface MgInputDate {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -581,14 +631,17 @@ export namespace Components {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide": boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop": boolean;
         /**
           * Define input maximum date format: yyyy-mm-dd
+          * @default '9999-12-31'
          */
         "max"?: string;
         /**
@@ -597,14 +650,17 @@ export namespace Components {
         "min"?: string;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name": string;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly": boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required": boolean;
         /**
@@ -623,6 +679,7 @@ export namespace Components {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition": TooltipPosition;
         /**
@@ -637,14 +694,17 @@ export namespace Components {
     interface MgInputNumeric {
         /**
           * Define currency
+          * @default 'EUR'
          */
         "currency": string;
         /**
           * Override decimal length decimal is the number after the decimal point
+          * @default 2
          */
         "decimalLength": number;
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -653,6 +713,7 @@ export namespace Components {
         "displayError": () => Promise<void>;
         /**
           * Set local formatting. Numbers are formatted based on the locale.
+          * @default 'number'
          */
         "format": Format;
         /**
@@ -665,10 +726,11 @@ export namespace Components {
         "identifier": string;
         /**
           * Override integer length integer is the number before the decimal point
+          * @default 13
          */
         "integerLength": number;
         /**
-          * Define input pattern error message
+          * Define input invalid state
          */
         "invalid": boolean;
         /**
@@ -677,10 +739,12 @@ export namespace Components {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide": boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop": boolean;
         /**
@@ -697,6 +761,7 @@ export namespace Components {
         "min"?: number;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name": string;
         /**
@@ -705,10 +770,12 @@ export namespace Components {
         "placeholder"?: string;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly": boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required": boolean;
         /**
@@ -727,10 +794,12 @@ export namespace Components {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition": TooltipPosition;
         /**
           * Define numeric type
+          * @default 'decimal'
          */
         "type": NumericType;
         /**
@@ -739,10 +808,11 @@ export namespace Components {
         "unit"?: Intl.NumberFormatOptions['unit'];
         /**
           * Define unit display format ('short', 'long', 'narrow')
+          * @default 'short'
          */
         "unitDisplay": Intl.NumberFormatOptions['unitDisplay'];
         /**
-          * Define input pattern to validate
+          * Define input valid state
          */
         "valid": boolean;
         /**
@@ -753,6 +823,7 @@ export namespace Components {
     interface MgInputPassword {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -777,10 +848,12 @@ export namespace Components {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide": boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop": boolean;
         /**
@@ -789,10 +862,12 @@ export namespace Components {
         "maxlength"?: number;
         /**
           * Define input width
+          * @default 'full'
          */
         "mgWidth": Width;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name": string;
         /**
@@ -801,10 +876,12 @@ export namespace Components {
         "placeholder"?: string;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly": boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required": boolean;
         /**
@@ -823,6 +900,7 @@ export namespace Components {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition": TooltipPosition;
         /**
@@ -837,6 +915,7 @@ export namespace Components {
     interface MgInputRadio {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -853,6 +932,7 @@ export namespace Components {
         "identifier": string;
         /**
           * Define if inputs are display verticaly
+          * @default false
          */
         "inputVerticalList": boolean;
         /**
@@ -869,22 +949,27 @@ export namespace Components {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide": boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop": boolean;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name": string;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly": boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required": boolean;
         /**
@@ -903,6 +988,7 @@ export namespace Components {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition": TooltipPosition;
         /**
@@ -917,6 +1003,7 @@ export namespace Components {
     interface MgInputRichTextEditor {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -951,10 +1038,12 @@ export namespace Components {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide": boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop": boolean;
         /**
@@ -975,10 +1064,12 @@ export namespace Components {
         "placeholder"?: string;
         /**
           * Define if the editor is readonly
+          * @default false
          */
         "readonly": boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required": boolean;
         /**
@@ -987,6 +1078,7 @@ export namespace Components {
         "reset": () => Promise<void>;
         /**
           * Define the number of visible text lines for the control
+          * @default 5
          */
         "rows": number;
         /**
@@ -1001,6 +1093,7 @@ export namespace Components {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition": TooltipPosition;
         /**
@@ -1009,12 +1102,14 @@ export namespace Components {
         "valid": boolean;
         /**
           * Define the value of the editor Can be either HTML string or plain text
+          * @default ''
          */
         "value": string;
     }
     interface MgInputSelect {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -1043,10 +1138,12 @@ export namespace Components {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide": boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop": boolean;
         /**
@@ -1055,6 +1152,7 @@ export namespace Components {
         "mgWidth": Width;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name": string;
         /**
@@ -1063,18 +1161,22 @@ export namespace Components {
         "placeholder": string;
         /**
           * Option to disable placeholder
+          * @default false
          */
         "placeholderDisabled": boolean;
         /**
           * Option to remove placeholder
+          * @default false
          */
         "placeholderHide": boolean;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly": boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required": boolean;
         /**
@@ -1093,6 +1195,7 @@ export namespace Components {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition": TooltipPosition;
         /**
@@ -1107,6 +1210,7 @@ export namespace Components {
     interface MgInputText {
         /**
           * Define if component should display character left
+          * @default false
          */
         "characterLeftHide": boolean;
         /**
@@ -1115,6 +1219,7 @@ export namespace Components {
         "datalistoptions": string[] | OptionType[];
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -1143,22 +1248,27 @@ export namespace Components {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide": boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop": boolean;
         /**
           * Input max length
+          * @default 400
          */
         "maxlength": number;
         /**
           * Define input width
+          * @default 'full'
          */
         "mgWidth": Width;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name": string;
         /**
@@ -1175,10 +1285,12 @@ export namespace Components {
         "placeholder"?: string;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly": boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required": boolean;
         /**
@@ -1201,10 +1313,12 @@ export namespace Components {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition": TooltipPosition;
         /**
           * Input type
+          * @default 'text'
          */
         "type": TextType;
         /**
@@ -1219,10 +1333,12 @@ export namespace Components {
     interface MgInputTextarea {
         /**
           * Define if component should display character left
+          * @default false
          */
         "characterLeftHide": boolean;
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -1247,22 +1363,27 @@ export namespace Components {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide": boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop": boolean;
         /**
           * Input max length
+          * @default 4000
          */
         "maxlength": number;
         /**
           * Define input width
+          * @default 'full'
          */
         "mgWidth": Width;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name": string;
         /**
@@ -1279,10 +1400,12 @@ export namespace Components {
         "placeholder"?: string;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly": boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required": boolean;
         /**
@@ -1291,10 +1414,12 @@ export namespace Components {
         "reset": () => Promise<void>;
         /**
           * Define if input is resizable
+          * @default 'none'
          */
         "resizable": 'none' | 'both' | 'horizontal' | 'vertical';
         /**
           * Define the number of visible text lines for the control
+          * @default 3
          */
         "rows": number;
         /**
@@ -1309,6 +1434,7 @@ export namespace Components {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition": TooltipPosition;
         /**
@@ -1327,6 +1453,7 @@ export namespace Components {
         "identifier": string;
         /**
           * Switch from label to fieldset sementic
+          * @default false
          */
         "isLegend": boolean;
         /**
@@ -1341,6 +1468,7 @@ export namespace Components {
     interface MgInputToggle {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -1353,10 +1481,12 @@ export namespace Components {
         "identifier": string;
         /**
           * Define if toggle display icon
+          * @default false
          */
         "isIcon": boolean;
         /**
           * Define if toggle have on/off style
+          * @default false
          */
         "isOnOff": boolean;
         /**
@@ -1369,18 +1499,22 @@ export namespace Components {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide": boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop": boolean;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name": string;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly": boolean;
         /**
@@ -1399,6 +1533,7 @@ export namespace Components {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition": TooltipPosition;
         /**
@@ -1409,6 +1544,7 @@ export namespace Components {
     interface MgItemMore {
         /**
           * Define icon
+          * @default { icon: 'ellipsis-vertical' }
          */
         "icon"?: IconType2;
         /**
@@ -1417,6 +1553,7 @@ export namespace Components {
         "size"?: SizeType1;
         /**
           * Define slot label element
+          * @default { display: false }
          */
         "slotlabel"?: SlotLabelType;
     }
@@ -1427,12 +1564,14 @@ export namespace Components {
         "message"?: string;
         /**
           * Hide message
+          * @default false
          */
         "messageHide": boolean;
     }
     interface MgMenu {
         /**
           * Component display direction.
+          * @default 'horizontal'
          */
         "direction": Direction;
         /**
@@ -1445,12 +1584,14 @@ export namespace Components {
         "label": string;
         /**
           * Define mg-menu size
+          * @default 'medium'
          */
         "size": MenuSizeType;
     }
     interface MgMenuItem {
         /**
           * Define menu-item content expanded.
+          * @default false
          */
         "expanded"?: boolean;
         /**
@@ -1459,10 +1600,12 @@ export namespace Components {
         "href"?: string;
         /**
           * Identifier is used to control mg-popover
+          * @default createID('mg-menu-item')
          */
         "identifier": string;
         /**
           * Define menu-item status.
+          * @default 'visible'
          */
         "status"?: MgMenuStatusType;
         /**
@@ -1473,24 +1616,29 @@ export namespace Components {
     interface MgMessage {
         /**
           * Define variant
+          * @default 'info'
          */
         "variant": VariantType2;
         /**
           * Define variant style
+          * @default 'bar-left'
          */
         "variantStyle": VariantStyleType1;
     }
     interface MgModal {
         /**
           * Define if modal has a cross button
+          * @default false
          */
         "closeButton": boolean;
         /**
           * Modal dialog role.
+          * @default 'dialog'
          */
         "dialogRole": DialogRoleType;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
+          * @default createID('mg-modal')
          */
         "identifier": string;
         /**
@@ -1499,24 +1647,29 @@ export namespace Components {
         "modalTitle": string;
         /**
           * Define if modal is open
+          * @default false
          */
         "open": boolean;
     }
     interface MgPagination {
         /**
           * Component current page
+          * @default 1
          */
         "currentPage": number;
         /**
           * Hide navigation label
+          * @default false
          */
         "hideNavigationLabels": boolean;
         /**
           * Hide select input
+          * @default false
          */
         "hidePageCount": boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
+          * @default createID('mg-pagination')
          */
         "identifier": string;
         /**
@@ -1529,24 +1682,29 @@ export namespace Components {
         "messages": PaginationMessagesType;
         /**
           * Component total pages
+          * @default 1
          */
         "totalPages": number;
     }
     interface MgPanel {
         /**
           * Disable possibility to toggle expand
+          * @default false
          */
         "expandToggleDisabled": boolean;
         /**
           * Define expand toggle button display
+          * @default 'text'
          */
         "expandToggleDisplay": ExpandToggleDisplayType;
         /**
           * Panel is opened
+          * @default false
          */
         "expanded": boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
+          * @default createID('mg-panel')
          */
         "identifier": string;
         /**
@@ -1555,6 +1713,7 @@ export namespace Components {
         "panelTitle": string;
         /**
           * Define if panel title is editable
+          * @default false
          */
         "titleEditable": boolean;
         /**
@@ -1567,44 +1726,53 @@ export namespace Components {
         "titlePatternErrorMessage"?: string;
         /**
           * Define title position
+          * @default 'left'
          */
         "titlePosition": TitlePositionType;
     }
     interface MgPopover {
         /**
           * Hide popover arrow
+          * @default false
          */
         "arrowHide": boolean;
         /**
           * Define if popover has a cross button
+          * @default false
          */
         "closeButton": boolean;
         /**
           * Disable popover
+          * @default false
          */
         "disabled": boolean;
         /**
           * Display popover
+          * @default false
          */
         "display": boolean;
         /**
           * Sets an `id` attribute. Needed by the input for accessibility `aria-decribedby`.
+          * @default createID('mg-popover')
          */
         "identifier": string;
         /**
           * Popover placement
+          * @default 'bottom'
          */
         "placement": Placement;
     }
     interface MgPopoverContent {
         /**
           * Define if popover has a cross button
+          * @default false
          */
         "closeButton": boolean;
     }
     interface MgProgress {
         /**
           * Define progress role - `progressbar` to indicate a progress, such as loading or percent completion of a task - `meter` to indicate a graphical display of a numeric value that varies within a defined range
+          * @default 'progressbar'
          */
         "ariaRole"?: AriaRoleType1;
         /**
@@ -1613,14 +1781,17 @@ export namespace Components {
         "label": string;
         /**
           * Define the maximum value in the range
+          * @default 100
          */
         "max"?: number;
         /**
           * Define the minimum value in the range
+          * @default 0
          */
         "min"?: number;
         /**
           * Define current value By default, it will be displayed as a percentage value. If you don’t specify the min and max props, the value should be a number within the range of 0 to 100.
+          * @default 0
          */
         "value"?: number;
     }
@@ -1637,10 +1808,12 @@ export namespace Components {
         "columns": ColumnsType;
         /**
           * Define if table fits its parent element
+          * @default false
          */
         "fullWidth": boolean;
         /**
           * Define table size
+          * @default 'medium'
          */
         "size": TableSizeType;
     }
@@ -1651,6 +1824,7 @@ export namespace Components {
         "activeTab": number;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
+          * @default createID('mg-tabs')
          */
         "identifier": string;
         /**
@@ -1663,34 +1837,41 @@ export namespace Components {
         "label": string;
         /**
           * Define tabs size
+          * @default 'medium'
          */
         "size": SizeType2;
     }
     interface MgTag {
         /**
           * Define if tag is using outline style
+          * @default false
          */
         "outline": boolean;
         /**
           * Define if tag is using soft style
+          * @default false
          */
         "soft": boolean;
         /**
           * Define tag variant
+          * @default 'primary'
          */
         "variant": TagVariantType;
     }
     interface MgTooltip {
         /**
           * Disable tooltip
+          * @default false
          */
         "disabled": boolean;
         /**
           * Display tooltip
+          * @default false
          */
         "display": boolean;
         /**
           * Sets an `id` attribute. Needed by the input for accessibility `aria-decribedby`.
+          * @default createID('mg-tooltip')
          */
         "identifier": string;
         /**
@@ -1699,6 +1880,7 @@ export namespace Components {
         "message": string;
         /**
           * Tooltip placement
+          * @default 'bottom'
          */
         "placement": Placement;
     }
@@ -2396,10 +2578,12 @@ declare namespace LocalJSX {
     interface MgActionMore {
         /**
           * Define button properties
+          * @default { variant: 'flat', isIcon: true }
          */
         "button"?: MgActionMoreButtonType;
         /**
           * Define if chevron is display
+          * @default false
          */
         "displayChevron"?: boolean;
         /**
@@ -2430,10 +2614,12 @@ declare namespace LocalJSX {
         "onComponent-show"?: (event: MgAlertCustomEvent<void>) => void;
         /**
           * Define variant
+          * @default 'info'
          */
         "variant"?: VariantType;
         /**
           * Define variant style
+          * @default 'bar-left'
          */
         "variantStyle"?: VariantStyleType;
     }
@@ -2444,6 +2630,7 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define if button is using outline style
+          * @default false
          */
         "outline"?: boolean;
         /**
@@ -2452,12 +2639,14 @@ declare namespace LocalJSX {
         "value": string | number;
         /**
           * Define badge variant
+          * @default 'info'
          */
         "variant"?: BadgeVariantType;
     }
     interface MgButton {
         /**
           * Option to set input disable on click, in order to prevent multi-click. Parent component have to remove the attribute 'disabled' when the process ends.
+          * @default false
          */
         "disableOnClick"?: boolean;
         /**
@@ -2470,10 +2659,12 @@ declare namespace LocalJSX {
         "form"?: string;
         /**
           * Set button to full-width
+          * @default false
          */
         "fullWidth"?: boolean;
         /**
           * Define if button is round. Used for icon button.
+          * @default false
          */
         "isIcon"?: boolean;
         /**
@@ -2486,6 +2677,7 @@ declare namespace LocalJSX {
         "onDisabled-change"?: (event: MgButtonCustomEvent<HTMLMgButtonElement['disabled']>) => void;
         /**
           * Define button size
+          * @default 'medium'
          */
         "size"?: SizeType;
         /**
@@ -2494,6 +2686,7 @@ declare namespace LocalJSX {
         "type"?: ButtonType;
         /**
           * Define button variant
+          * @default 'primary'
          */
         "variant"?: VariantType1;
     }
@@ -2502,6 +2695,7 @@ declare namespace LocalJSX {
     interface MgCharacterLeft {
         /**
           * Sets the characters to count
+          * @default ''
          */
         "characters"?: string;
         /**
@@ -2516,10 +2710,12 @@ declare namespace LocalJSX {
     interface MgDetails {
         /**
           * Define if details are diplayed
+          * @default false
          */
         "expanded"?: boolean;
         /**
           * Hide summary element
+          * @default false
          */
         "hideSummary"?: boolean;
         /**
@@ -2538,6 +2734,7 @@ declare namespace LocalJSX {
     interface MgDivider {
         /**
           * Define component size
+          * @default false
          */
         "fullWidth"?: boolean;
     }
@@ -2548,10 +2745,12 @@ declare namespace LocalJSX {
         "ariaRole"?: AriaRoleType;
         /**
           * Define if form is disabled
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
+          * @default createID('mg-form')
          */
         "identifier"?: string;
         /**
@@ -2560,10 +2759,12 @@ declare namespace LocalJSX {
         "invalid"?: boolean;
         /**
           * Define if slotted mg-component's label are displayed on top
+          * @default false
          */
         "labelOnTop"?: boolean;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name"?: string;
         /**
@@ -2576,6 +2777,7 @@ declare namespace LocalJSX {
         "onForm-valid"?: (event: MgFormCustomEvent<HTMLMgFormElement['valid']>) => void;
         /**
           * Define if form is readonly
+          * @default false
          */
         "readonly"?: boolean;
         /**
@@ -2594,10 +2796,12 @@ declare namespace LocalJSX {
         "icon": IconType;
         /**
           * Define icon size
+          * @default 'medium'
          */
         "size"?: IconSizeType;
         /**
           * Make the icon spin
+          * @default false
          */
         "spin"?: boolean;
         /**
@@ -2612,10 +2816,12 @@ declare namespace LocalJSX {
     interface MgIllustratedMessage {
         /**
           * Define component orientation
+          * @default 'vertical'
          */
         "direction"?: IllustratedMessageDirectionType;
         /**
           * Define illustration size
+          * @default 'medium'
          */
         "size"?: IllustratedMessageSizeType;
     }
@@ -2642,14 +2848,17 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide"?: boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop"?: boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required"?: boolean;
         /**
@@ -2658,16 +2867,19 @@ declare namespace LocalJSX {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition"?: TooltipPosition;
     }
     interface MgInputCheckbox {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * Display selected values list in "multi" type This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.
+          * @default false
          */
         "displaySelectedValues"?: boolean;
         /**
@@ -2684,6 +2896,7 @@ declare namespace LocalJSX {
         "identifier": string;
         /**
           * Define if inputs are display verticaly
+          * @default false
          */
         "inputVerticalList"?: boolean;
         /**
@@ -2696,14 +2909,17 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide"?: boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop"?: boolean;
         /**
           * Define input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name"?: string;
         /**
@@ -2716,10 +2932,12 @@ declare namespace LocalJSX {
         "onValue-change"?: (event: MgInputCheckboxCustomEvent<HTMLMgInputCheckboxElement['value']>) => void;
         /**
           * Define if mg-input-checkbox is readonly
+          * @default false
          */
         "readonly"?: boolean;
         /**
           * Define if mg-input-checkbox is required
+          * @default false
          */
         "required"?: boolean;
         /**
@@ -2736,6 +2954,7 @@ declare namespace LocalJSX {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition"?: TooltipPosition;
         /**
@@ -2757,14 +2976,17 @@ declare namespace LocalJSX {
     interface MgInputCheckboxPaginated {
         /**
           * Define checkboxes to paginate
+          * @default []
          */
         "checkboxes"?: CheckboxItem[];
         /**
           * Current page
+          * @default 1
          */
         "currentPage"?: number;
         /**
           * Define if mg-input-checkbox-list is disabled
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -2785,12 +3007,14 @@ declare namespace LocalJSX {
         "onMass-action"?: (event: MgInputCheckboxPaginatedCustomEvent<SectionKindType>) => void;
         /**
           * Define if mg-input-checkbox-list is readonly
+          * @default false
          */
         "readonly"?: boolean;
     }
     interface MgInputCombobox {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -2836,18 +3060,22 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide"?: boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop"?: boolean;
         /**
           * Define input width
+          * @default 'full'
          */
         "mgWidth"?: Width;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name"?: string;
         /**
@@ -2876,10 +3104,12 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly"?: boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required"?: boolean;
         /**
@@ -2888,6 +3118,7 @@ declare namespace LocalJSX {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition"?: TooltipPosition;
         /**
@@ -2902,6 +3133,7 @@ declare namespace LocalJSX {
     interface MgInputDate {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -2922,14 +3154,17 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide"?: boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop"?: boolean;
         /**
           * Define input maximum date format: yyyy-mm-dd
+          * @default '9999-12-31'
          */
         "max"?: string;
         /**
@@ -2938,6 +3173,7 @@ declare namespace LocalJSX {
         "min"?: string;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name"?: string;
         /**
@@ -2950,10 +3186,12 @@ declare namespace LocalJSX {
         "onValue-change"?: (event: MgInputDateCustomEvent<HTMLMgInputDateElement['value']>) => void;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly"?: boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required"?: boolean;
         /**
@@ -2962,6 +3200,7 @@ declare namespace LocalJSX {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition"?: TooltipPosition;
         /**
@@ -2976,18 +3215,22 @@ declare namespace LocalJSX {
     interface MgInputNumeric {
         /**
           * Define currency
+          * @default 'EUR'
          */
         "currency"?: string;
         /**
           * Override decimal length decimal is the number after the decimal point
+          * @default 2
          */
         "decimalLength"?: number;
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * Set local formatting. Numbers are formatted based on the locale.
+          * @default 'number'
          */
         "format"?: Format;
         /**
@@ -3000,10 +3243,11 @@ declare namespace LocalJSX {
         "identifier": string;
         /**
           * Override integer length integer is the number before the decimal point
+          * @default 13
          */
         "integerLength"?: number;
         /**
-          * Define input pattern error message
+          * Define input invalid state
          */
         "invalid"?: boolean;
         /**
@@ -3012,10 +3256,12 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide"?: boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop"?: boolean;
         /**
@@ -3032,6 +3278,7 @@ declare namespace LocalJSX {
         "min"?: number;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name"?: string;
         /**
@@ -3048,10 +3295,12 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly"?: boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required"?: boolean;
         /**
@@ -3060,10 +3309,12 @@ declare namespace LocalJSX {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition"?: TooltipPosition;
         /**
           * Define numeric type
+          * @default 'decimal'
          */
         "type"?: NumericType;
         /**
@@ -3072,10 +3323,11 @@ declare namespace LocalJSX {
         "unit"?: Intl.NumberFormatOptions['unit'];
         /**
           * Define unit display format ('short', 'long', 'narrow')
+          * @default 'short'
          */
         "unitDisplay"?: Intl.NumberFormatOptions['unitDisplay'];
         /**
-          * Define input pattern to validate
+          * Define input valid state
          */
         "valid"?: boolean;
         /**
@@ -3086,6 +3338,7 @@ declare namespace LocalJSX {
     interface MgInputPassword {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -3106,10 +3359,12 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide"?: boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop"?: boolean;
         /**
@@ -3118,10 +3373,12 @@ declare namespace LocalJSX {
         "maxlength"?: number;
         /**
           * Define input width
+          * @default 'full'
          */
         "mgWidth"?: Width;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name"?: string;
         /**
@@ -3138,10 +3395,12 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly"?: boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required"?: boolean;
         /**
@@ -3150,6 +3409,7 @@ declare namespace LocalJSX {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition"?: TooltipPosition;
         /**
@@ -3164,6 +3424,7 @@ declare namespace LocalJSX {
     interface MgInputRadio {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -3176,6 +3437,7 @@ declare namespace LocalJSX {
         "identifier": string;
         /**
           * Define if inputs are display verticaly
+          * @default false
          */
         "inputVerticalList"?: boolean;
         /**
@@ -3192,14 +3454,17 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide"?: boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop"?: boolean;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name"?: string;
         /**
@@ -3212,10 +3477,12 @@ declare namespace LocalJSX {
         "onValue-change"?: (event: MgInputRadioCustomEvent<HTMLMgInputRadioElement['value']>) => void;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly"?: boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required"?: boolean;
         /**
@@ -3224,6 +3491,7 @@ declare namespace LocalJSX {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition"?: TooltipPosition;
         /**
@@ -3238,6 +3506,7 @@ declare namespace LocalJSX {
     interface MgInputRichTextEditor {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -3258,10 +3527,12 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide"?: boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop"?: boolean;
         /**
@@ -3290,14 +3561,17 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         /**
           * Define if the editor is readonly
+          * @default false
          */
         "readonly"?: boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required"?: boolean;
         /**
           * Define the number of visible text lines for the control
+          * @default 5
          */
         "rows"?: number;
         /**
@@ -3306,6 +3580,7 @@ declare namespace LocalJSX {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition"?: TooltipPosition;
         /**
@@ -3314,12 +3589,14 @@ declare namespace LocalJSX {
         "valid"?: boolean;
         /**
           * Define the value of the editor Can be either HTML string or plain text
+          * @default ''
          */
         "value"?: string;
     }
     interface MgInputSelect {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -3344,10 +3621,12 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide"?: boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop"?: boolean;
         /**
@@ -3356,6 +3635,7 @@ declare namespace LocalJSX {
         "mgWidth"?: Width;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name"?: string;
         /**
@@ -3372,18 +3652,22 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         /**
           * Option to disable placeholder
+          * @default false
          */
         "placeholderDisabled"?: boolean;
         /**
           * Option to remove placeholder
+          * @default false
          */
         "placeholderHide"?: boolean;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly"?: boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required"?: boolean;
         /**
@@ -3392,6 +3676,7 @@ declare namespace LocalJSX {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition"?: TooltipPosition;
         /**
@@ -3406,6 +3691,7 @@ declare namespace LocalJSX {
     interface MgInputText {
         /**
           * Define if component should display character left
+          * @default false
          */
         "characterLeftHide"?: boolean;
         /**
@@ -3414,6 +3700,7 @@ declare namespace LocalJSX {
         "datalistoptions"?: string[] | OptionType[];
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -3438,22 +3725,27 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide"?: boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop"?: boolean;
         /**
           * Input max length
+          * @default 400
          */
         "maxlength"?: number;
         /**
           * Define input width
+          * @default 'full'
          */
         "mgWidth"?: Width;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name"?: string;
         /**
@@ -3478,10 +3770,12 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly"?: boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required"?: boolean;
         /**
@@ -3490,10 +3784,12 @@ declare namespace LocalJSX {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition"?: TooltipPosition;
         /**
           * Input type
+          * @default 'text'
          */
         "type"?: TextType;
         /**
@@ -3508,10 +3804,12 @@ declare namespace LocalJSX {
     interface MgInputTextarea {
         /**
           * Define if component should display character left
+          * @default false
          */
         "characterLeftHide"?: boolean;
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -3532,22 +3830,27 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide"?: boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop"?: boolean;
         /**
           * Input max length
+          * @default 4000
          */
         "maxlength"?: number;
         /**
           * Define input width
+          * @default 'full'
          */
         "mgWidth"?: Width;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name"?: string;
         /**
@@ -3572,18 +3875,22 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly"?: boolean;
         /**
           * Define if input is required
+          * @default false
          */
         "required"?: boolean;
         /**
           * Define if input is resizable
+          * @default 'none'
          */
         "resizable"?: 'none' | 'both' | 'horizontal' | 'vertical';
         /**
           * Define the number of visible text lines for the control
+          * @default 3
          */
         "rows"?: number;
         /**
@@ -3592,6 +3899,7 @@ declare namespace LocalJSX {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition"?: TooltipPosition;
         /**
@@ -3610,6 +3918,7 @@ declare namespace LocalJSX {
         "identifier": string;
         /**
           * Switch from label to fieldset sementic
+          * @default false
          */
         "isLegend"?: boolean;
         /**
@@ -3624,6 +3933,7 @@ declare namespace LocalJSX {
     interface MgInputToggle {
         /**
           * Define if input is disabled
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -3636,10 +3946,12 @@ declare namespace LocalJSX {
         "identifier": string;
         /**
           * Define if toggle display icon
+          * @default false
          */
         "isIcon"?: boolean;
         /**
           * Define if toggle have on/off style
+          * @default false
          */
         "isOnOff"?: boolean;
         /**
@@ -3652,14 +3964,17 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define if label is visible
+          * @default false
          */
         "labelHide"?: boolean;
         /**
           * Define if label is displayed on top
+          * @default false
          */
         "labelOnTop"?: boolean;
         /**
           * Input name If not set the value equals the identifier
+          * @default this.identifier
          */
         "name"?: string;
         /**
@@ -3672,6 +3987,7 @@ declare namespace LocalJSX {
         "onValue-change"?: (event: MgInputToggleCustomEvent<HTMLMgInputToggleElement['value']>) => void;
         /**
           * Define if input is readonly
+          * @default false
          */
         "readonly"?: boolean;
         /**
@@ -3680,6 +3996,7 @@ declare namespace LocalJSX {
         "tooltip"?: string;
         /**
           * Define tooltip position
+          * @default 'input'
          */
         "tooltipPosition"?: TooltipPosition;
         /**
@@ -3690,6 +4007,7 @@ declare namespace LocalJSX {
     interface MgItemMore {
         /**
           * Define icon
+          * @default { icon: 'ellipsis-vertical' }
          */
         "icon"?: IconType2;
         /**
@@ -3698,6 +4016,7 @@ declare namespace LocalJSX {
         "size"?: SizeType1;
         /**
           * Define slot label element
+          * @default { display: false }
          */
         "slotlabel"?: SlotLabelType;
     }
@@ -3708,12 +4027,14 @@ declare namespace LocalJSX {
         "message"?: string;
         /**
           * Hide message
+          * @default false
          */
         "messageHide"?: boolean;
     }
     interface MgMenu {
         /**
           * Component display direction.
+          * @default 'horizontal'
          */
         "direction"?: Direction;
         /**
@@ -3726,12 +4047,14 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define mg-menu size
+          * @default 'medium'
          */
         "size"?: MenuSizeType;
     }
     interface MgMenuItem {
         /**
           * Define menu-item content expanded.
+          * @default false
          */
         "expanded"?: boolean;
         /**
@@ -3740,6 +4063,7 @@ declare namespace LocalJSX {
         "href"?: string;
         /**
           * Identifier is used to control mg-popover
+          * @default createID('mg-menu-item')
          */
         "identifier"?: string;
         /**
@@ -3752,6 +4076,7 @@ declare namespace LocalJSX {
         "onItem-updated"?: (event: MgMenuItemCustomEvent<void>) => void;
         /**
           * Define menu-item status.
+          * @default 'visible'
          */
         "status"?: MgMenuStatusType;
         /**
@@ -3762,24 +4087,29 @@ declare namespace LocalJSX {
     interface MgMessage {
         /**
           * Define variant
+          * @default 'info'
          */
         "variant"?: VariantType2;
         /**
           * Define variant style
+          * @default 'bar-left'
          */
         "variantStyle"?: VariantStyleType1;
     }
     interface MgModal {
         /**
           * Define if modal has a cross button
+          * @default false
          */
         "closeButton"?: boolean;
         /**
           * Modal dialog role.
+          * @default 'dialog'
          */
         "dialogRole"?: DialogRoleType;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
+          * @default createID('mg-modal')
          */
         "identifier"?: string;
         /**
@@ -3800,24 +4130,29 @@ declare namespace LocalJSX {
         "onComponent-show"?: (event: MgModalCustomEvent<void>) => void;
         /**
           * Define if modal is open
+          * @default false
          */
         "open"?: boolean;
     }
     interface MgPagination {
         /**
           * Component current page
+          * @default 1
          */
         "currentPage"?: number;
         /**
           * Hide navigation label
+          * @default false
          */
         "hideNavigationLabels"?: boolean;
         /**
           * Hide select input
+          * @default false
          */
         "hidePageCount"?: boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
+          * @default createID('mg-pagination')
          */
         "identifier"?: string;
         /**
@@ -3834,24 +4169,29 @@ declare namespace LocalJSX {
         "onCurrent-page-change"?: (event: MgPaginationCustomEvent<number>) => void;
         /**
           * Component total pages
+          * @default 1
          */
         "totalPages"?: number;
     }
     interface MgPanel {
         /**
           * Disable possibility to toggle expand
+          * @default false
          */
         "expandToggleDisabled"?: boolean;
         /**
           * Define expand toggle button display
+          * @default 'text'
          */
         "expandToggleDisplay"?: ExpandToggleDisplayType;
         /**
           * Panel is opened
+          * @default false
          */
         "expanded"?: boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
+          * @default createID('mg-panel')
          */
         "identifier"?: string;
         /**
@@ -3868,6 +4208,7 @@ declare namespace LocalJSX {
         "panelTitle": string;
         /**
           * Define if panel title is editable
+          * @default false
          */
         "titleEditable"?: boolean;
         /**
@@ -3880,28 +4221,34 @@ declare namespace LocalJSX {
         "titlePatternErrorMessage"?: string;
         /**
           * Define title position
+          * @default 'left'
          */
         "titlePosition"?: TitlePositionType;
     }
     interface MgPopover {
         /**
           * Hide popover arrow
+          * @default false
          */
         "arrowHide"?: boolean;
         /**
           * Define if popover has a cross button
+          * @default false
          */
         "closeButton"?: boolean;
         /**
           * Disable popover
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * Display popover
+          * @default false
          */
         "display"?: boolean;
         /**
           * Sets an `id` attribute. Needed by the input for accessibility `aria-decribedby`.
+          * @default createID('mg-popover')
          */
         "identifier"?: string;
         /**
@@ -3914,12 +4261,14 @@ declare namespace LocalJSX {
         "onDisplay-change"?: (event: MgPopoverCustomEvent<HTMLMgPopoverElement['display']>) => void;
         /**
           * Popover placement
+          * @default 'bottom'
          */
         "placement"?: Placement;
     }
     interface MgPopoverContent {
         /**
           * Define if popover has a cross button
+          * @default false
          */
         "closeButton"?: boolean;
         /**
@@ -3930,6 +4279,7 @@ declare namespace LocalJSX {
     interface MgProgress {
         /**
           * Define progress role - `progressbar` to indicate a progress, such as loading or percent completion of a task - `meter` to indicate a graphical display of a numeric value that varies within a defined range
+          * @default 'progressbar'
          */
         "ariaRole"?: AriaRoleType1;
         /**
@@ -3938,14 +4288,17 @@ declare namespace LocalJSX {
         "label": string;
         /**
           * Define the maximum value in the range
+          * @default 100
          */
         "max"?: number;
         /**
           * Define the minimum value in the range
+          * @default 0
          */
         "min"?: number;
         /**
           * Define current value By default, it will be displayed as a percentage value. If you don’t specify the min and max props, the value should be a number within the range of 0 to 100.
+          * @default 0
          */
         "value"?: number;
     }
@@ -3966,10 +4319,12 @@ declare namespace LocalJSX {
         "columns"?: ColumnsType;
         /**
           * Define if table fits its parent element
+          * @default false
          */
         "fullWidth"?: boolean;
         /**
           * Define table size
+          * @default 'medium'
          */
         "size"?: TableSizeType;
     }
@@ -3980,6 +4335,7 @@ declare namespace LocalJSX {
         "activeTab"?: number;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
+          * @default createID('mg-tabs')
          */
         "identifier"?: string;
         /**
@@ -3996,34 +4352,41 @@ declare namespace LocalJSX {
         "onActive-tab-change"?: (event: MgTabsCustomEvent<HTMLMgTabsElement['activeTab']>) => void;
         /**
           * Define tabs size
+          * @default 'medium'
          */
         "size"?: SizeType2;
     }
     interface MgTag {
         /**
           * Define if tag is using outline style
+          * @default false
          */
         "outline"?: boolean;
         /**
           * Define if tag is using soft style
+          * @default false
          */
         "soft"?: boolean;
         /**
           * Define tag variant
+          * @default 'primary'
          */
         "variant"?: TagVariantType;
     }
     interface MgTooltip {
         /**
           * Disable tooltip
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * Display tooltip
+          * @default false
          */
         "display"?: boolean;
         /**
           * Sets an `id` attribute. Needed by the input for accessibility `aria-decribedby`.
+          * @default createID('mg-tooltip')
          */
         "identifier"?: string;
         /**
@@ -4032,6 +4395,7 @@ declare namespace LocalJSX {
         "message": string;
         /**
           * Tooltip placement
+          * @default 'bottom'
          */
         "placement"?: Placement;
     }

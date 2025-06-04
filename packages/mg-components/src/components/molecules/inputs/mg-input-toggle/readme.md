@@ -17,7 +17,7 @@
 | `identifier` _(required)_ | `identifier`       | Identifier is used for the element ID (id is a reserved prop in Stencil.js) | `string`                    | `undefined`       |
 | `isIcon`                  | `is-icon`          | Define if toggle display icon                                               | `boolean`                   | `false`           |
 | `isOnOff`                 | `is-on-off`        | Define if toggle have on/off style                                          | `boolean`                   | `false`           |
-| `items` _(required)_      | --                 | Items are the possible options to select                                    | `ToggleValue[] \| string[]` | `undefined`       |
+| `items` _(required)_      | `items`            | Items are the possible options to select                                    | `ToggleValue[] \| string[]` | `undefined`       |
 | `label` _(required)_      | `label`            | Input label                                                                 | `string`                    | `undefined`       |
 | `labelHide`               | `label-hide`       | Define if label is visible                                                  | `boolean`                   | `false`           |
 | `labelOnTop`              | `label-on-top`     | Define if label is displayed on top                                         | `boolean`                   | `false`           |
