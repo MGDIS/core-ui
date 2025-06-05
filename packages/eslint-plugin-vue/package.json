@@ -8,9 +8,9 @@
   ],
   "main": "lib/index.js",
   "scripts": {
-    "coverage": "pnpm test:rules && vitest run --coverage",
+    "coverage": "vitest run --coverage",
     "test:unit": "vitest",
-    "test:rules": "node tests/lib/rule-tester.js"
+    "test:rules": "mocha tests/lib/rules/"
   },
   "dependencies": {
     "eslint-plugin-vue": "9.33.0",

@@ -30,13 +30,52 @@ module.exports = {
    * @returns {string} attribute value
    */
   getAttributeValue(attribute) {
-    let attributeValue = '';
-
-    if (Boolean(attribute?.directive) && typeof attribute?.value?.expression?.value === 'string') {
-      attributeValue = attribute.value.expression.value;
-    } else if (!attribute?.directive && typeof attribute?.value?.value === 'string') {
-      attributeValue = attribute.value.value;
+    let attributeValue;
+    // :id
+    if (attribute?.directive) {
+      switch (attribute.value?.expression?.type) {
+        case 'Literal':
+          // :id="'kebab-case'"
+          attributeValue = attribute.value.expression.value;
+          break;
+        case 'Identifier':
+          // :id="withProps"
+          attributeValue = attribute.value.expression.name.toLowerCase();
+          break;
+        case 'TemplateLiteral':
+          // :id="`with-${props}`"
+          attributeValue = module.exports.reconstructTemplateLiteral(attribute.value.expression);
+          break;
+        case 'ConditionalExpression':
+          // :id="using ? 'ternary' : 'operator'"
+          attributeValue = `${attribute.value.expression.test.raw}-${attribute.value.expression.consequent.value}-${attribute.value.expression.alternate.value}`.toLowerCase();
+          break;
+      }
+    } else {
+      attributeValue = attribute?.value?.value;
     }
-    return attributeValue;
+    return attributeValue ?? '';
+  },
+  reconstructTemplateLiteral(node) {
+    let result = '';
+
+    for (let i = 0; i < node.quasis.length; i++) {
+      const quasi = node.quasis[i];
+      result += quasi.value.cooked ?? '';
+
+      if (i < node.expressions.length) {
+        const expr = node.expressions[i];
+
+        if (expr.type === 'Identifier') {
+          result += expr.name.toLowerCase();
+        } else if (expr.type === 'Literal' && typeof expr.value === 'string') {
+          result += expr.value;
+        } else if (expr.type === 'CallExpression') {
+          result += expr.callee.name + '-' + expr.arguments.map(arg => arg.name || arg.value).join('-');
+        }
+      }
+    }
+
+    return result;
   },
 };

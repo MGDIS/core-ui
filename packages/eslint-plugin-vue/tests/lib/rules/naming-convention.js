@@ -15,6 +15,36 @@ ruleTester.run('naming-convention', rule, {
       </template>`,
     },
     {
+      code: `<template>
+        <a :id="withProps">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="using ? 'ternary' : 'operator'">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="\`with-\${props}\`">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="\`with-\${two}-\${props}\`">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+      <a :id="\`\${starting}-with-props\`">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="\`with-\${method(blu)}\`">Anchor text</a>
+      </template>`,
+    },
+    {
       code: `<button class="bem-convention bem-convention--modifier">
         <span class="bem-convention__element">Button</span>
         <span class="bem-convention__other-element">text</span>
@@ -27,48 +57,59 @@ ruleTester.run('naming-convention', rule, {
       </button>`,
     },
   ],
-
   invalid: [
     {
       code: `<template>
-        <a id="PascalCase">Anchor text</a>
+          <a id="PascalCase">Anchor text</a>
+        </template>`,
+      errors: [{ message: 'ID must be in kebab-case' }],
+    },
+    {
+      code: `<template>
+          <a :id="'PascalCase'">Anchor text</a>
+        </template>`,
+      errors: [{ message: 'ID must be in kebab-case' }],
+    },
+    {
+      code: `<template>
+      <a :id="\`\${props}Capital\`">Anchor text</a>
       </template>`,
       errors: [{ message: 'ID must be in kebab-case' }],
     },
     {
       code: `<template>
-        <a :id="'PascalCase'">Anchor text</a>
+      <a :id="\`\${props}--modifier\`">Anchor text</a>
       </template>`,
       errors: [{ message: 'ID must be in kebab-case' }],
     },
     {
       code: `<template>
-        <a class="PascalCase">Anchor text</a>
-      </template>`,
+          <a class="PascalCase">Anchor text</a>
+        </template>`,
       errors: [{ message: 'Class must follow BEM convention' }],
     },
     {
       code: `<template>
-        <a :class="'PascalCase'">Anchor text</a>
-      </template>`,
+          <a :class="'PascalCase'">Anchor text</a>
+        </template>`,
       errors: [{ message: 'Class must follow BEM convention' }],
     },
     {
       code: `
-      <template>
-        <button class="not_bem-convention not_bem_convention">
-          <span class="not__bem__convention">Button text</span>
-        </button>
-      </template>`,
+        <template>
+          <button class="not_bem-convention not_bem_convention">
+            <span class="not__bem__convention">Button text</span>
+          </button>
+        </template>`,
       errors: [{ message: 'Class must follow BEM convention' }, { message: 'Class must follow BEM convention' }, { message: 'Class must follow BEM convention' }],
     },
     {
       code: `
-      <template>
-        <button class="not_bem-convention" :class="'not_bem_convention'">
-          <span class="not__bem__convention">Button text</span>
-        </button>
-      </template>`,
+        <template>
+          <button class="not_bem-convention" :class="'not_bem_convention'">
+            <span class="not__bem__convention">Button text</span>
+          </button>
+        </template>`,
       errors: [{ message: 'Class must follow BEM convention' }, { message: 'Class must follow BEM convention' }, { message: 'Class must follow BEM convention' }],
     },
   ],
