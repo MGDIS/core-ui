@@ -689,7 +689,9 @@ export class MgInputCombobox {
    * @param index - targeted option index to scroll into
    */
   private scrollToIndex = (index: number): void => {
-    this.element.shadowRoot.querySelector(`li:nth-of-type(${(index || 0) + this.page.baseIndex})`)?.scrollIntoView();
+    if (this.popoverDisplay) {
+      this.element.shadowRoot.querySelector(`li:nth-of-type(${(index || 0) + this.page.baseIndex})`)?.scrollIntoView();
+    }
   };
 
   /**
