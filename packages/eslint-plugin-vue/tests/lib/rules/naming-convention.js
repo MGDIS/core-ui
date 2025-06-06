@@ -9,6 +9,8 @@ ruleTester.run('naming-convention', rule, {
         <a id="kebab-case">Anchor text</a>
       </template>`,
     },
+    /* Directive */
+    // Literal
     {
       code: `<template>
         <a :id="'kebab-case'">Anchor text</a>
@@ -16,12 +18,50 @@ ruleTester.run('naming-convention', rule, {
     },
     {
       code: `<template>
+        <a class="blu" :class="{'blu--bli': blo}">Anchor text</a>
+      </template>`,
+    },
+    // Identifier
+    {
+      code: `<template>
         <a :id="withProps">Anchor text</a>
       </template>`,
     },
     {
       code: `<template>
-        <a :id="using ? 'ternary' : 'operator'">Anchor text</a>
+        <a :id="withProps.props">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="withProps.deep.props">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="withProps[props]">Anchor text</a>
+      </template>`,
+    },
+    // CallExpression
+    {
+      code: `<template>
+        <a :id="method(blu)">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="method(blu, bli)">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="method(blu, 'bli')">Anchor text</a>
+      </template>`,
+    },
+    // TemplateLiteral
+    {
+      code: `<template>
+        <a :id="id + '-blu'">Anchor text</a>
       </template>`,
     },
     {
@@ -42,6 +82,54 @@ ruleTester.run('naming-convention', rule, {
     {
       code: `<template>
         <a :id="\`with-\${method(blu)}\`">Anchor text</a>
+      </template>`,
+    },
+    // ConditionalExpression
+    {
+      code: `<template>
+        <a :id="using ? 'ternary' : 'operator'">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="using ? 'ternary' : operator">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="using ? 'ternary' : \`template-literal-\${operator}\`">Anchor text</a>
+      </template>`,
+    },
+    // ObjectExpression
+    {
+      code: `<template>
+      <a :class="{ 'blu': value }">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :class="{ 'blu': value, 'bli': value2 }">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+      <a :class="{ 'blu': value, bli: value2 }">Anchor text</a>
+      </template>`,
+    },
+    // ArrayExpression
+    {
+      code: `<template>
+        <a :class="['blu', 'bli']">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="[blu ? 'bli' : 'bla']">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :class="['rich-text-input__input-container', { 'rich-text-input__input-container--readonly': readonly }]">Anchor text</a>
       </template>`,
     },
     {
