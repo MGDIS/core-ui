@@ -31,51 +31,63 @@ module.exports = {
    */
   getAttributeValue(attribute) {
     let attributeValue;
-    // :id
     if (attribute?.directive) {
-      switch (attribute.value?.expression?.type) {
-        case 'Literal':
-          // :id="'kebab-case'"
-          attributeValue = attribute.value.expression.value;
-          break;
-        case 'Identifier':
-          // :id="withProps"
-          attributeValue = attribute.value.expression.name.toLowerCase();
-          break;
-        case 'TemplateLiteral':
-          // :id="`with-${props}`"
-          attributeValue = module.exports.reconstructTemplateLiteral(attribute.value.expression);
-          break;
-        case 'ConditionalExpression':
-          // :id="using ? 'ternary' : 'operator'"
-          attributeValue = `${attribute.value.expression.test.raw}-${attribute.value.expression.consequent.value}-${attribute.value.expression.alternate.value}`.toLowerCase();
-          break;
+      // directive attributes (e.g. :id="withProps")
+      attributeValue = module.exports.getValue(attribute.value?.expression);
+      if (attribute.key.argument.name == 'id') {
+        // If the attribute is an ID, we remove spaces, done for the ConditionalExpression case
+        attributeValue = attributeValue.split(' ').join('-');
       }
     } else {
       attributeValue = attribute?.value?.value;
     }
     return attributeValue ?? '';
   },
-  reconstructTemplateLiteral(node) {
-    let result = '';
-
-    for (let i = 0; i < node.quasis.length; i++) {
-      const quasi = node.quasis[i];
-      result += quasi.value.cooked ?? '';
-
-      if (i < node.expressions.length) {
-        const expr = node.expressions[i];
-
-        if (expr.type === 'Identifier') {
-          result += expr.name.toLowerCase();
-        } else if (expr.type === 'Literal' && typeof expr.value === 'string') {
-          result += expr.value;
-        } else if (expr.type === 'CallExpression') {
-          result += expr.callee.name + '-' + expr.arguments.map(arg => arg.name || arg.value).join('-');
-        }
+  /**
+   * Get expression value based on type
+   *
+   * @param {object} expression
+   * @returns {string} expression value
+   */
+  getValue(expression) {
+    switch (expression.type) {
+      case 'Literal': // Used for values (e.g. :id="'kebab-case'")
+        return expression.value;
+      case 'Identifier': // Used for variables (e.g. :id="withProps")
+        return expression.name.toLowerCase();
+      case 'CallExpression': // Used for function calls (e.g. :id="method(blu)")
+        return 'call-expression'; // No need to reconstruct
+      case 'TemplateLiteral': // Used for template literals (e.g. :id="\`with-\${props}\`")
+        return module.exports.reconstructTemplateLiteral(expression);
+      case 'ConditionalExpression': // Used for ternary operators (e.g. :id="using ? 'ternary' : 'operator'")
+        return `${module.exports.getValue(expression.consequent)} ${module.exports.getValue(expression.alternate)}`;
+      case 'ObjectExpression': // Used for object expressions (e.g. :id="{ 'blu': blu }")
+        return expression.properties.map(property => module.exports.getValue(property.key)).join(' ');
+      case 'ArrayExpression': // Used for array expressions (e.g. :id="['rich-text-input__input-container', { 'rich-text-input__input-container--readonly': readonly }]")
+        return expression.elements.map(element => module.exports.getValue(element)).join(' ');
+      case 'BinaryExpression': // Used for binary expressions (e.g. :id="blu + 'bli'")
+        return `${module.exports.getValue(expression.left)}${module.exports.getValue(expression.right)}`;
+      case 'MemberExpression': // Used for member expressions (e.g. :id="blu.bli")
+        return 'member-expression'; // No need to reconstruct
+      default:
+        return '';
+    }
+  },
+  /**
+   * Reconstruct a template literal from its expression
+   *
+   * @param {object} expression
+   * @returns {string} reconstructed template literal
+   */
+  reconstructTemplateLiteral(expression) {
+    let templateLiteral = '';
+    for (let i = 0; i < expression.quasis.length; i++) {
+      const quasi = expression.quasis[i];
+      templateLiteral += quasi.value.cooked ?? '';
+      if (i < expression.expressions.length) {
+        templateLiteral += module.exports.getValue(expression.expressions[i]);
       }
     }
-
-    return result;
+    return templateLiteral;
   },
 };
