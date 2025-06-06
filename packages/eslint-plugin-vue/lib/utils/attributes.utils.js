@@ -34,7 +34,7 @@ module.exports = {
     if (attribute?.directive) {
       // directive attributes (e.g. :id="withProps")
       attributeValue = module.exports.getValue(attribute.value?.expression);
-      if (attribute.key.argument.name == 'id') {
+      if (attribute?.key?.argument?.name == 'id') {
         // If the attribute is an ID, we remove spaces, done for the ConditionalExpression case
         attributeValue = attributeValue.split(' ').join('-');
       }
@@ -50,7 +50,7 @@ module.exports = {
    * @returns {string} expression value
    */
   getValue(expression) {
-    switch (expression.type) {
+    switch (expression?.type) {
       case 'Literal': // Used for values (e.g. :id="'kebab-case'")
         return expression.value;
       case 'Identifier': // Used for variables (e.g. :id="withProps")
