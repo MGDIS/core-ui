@@ -54,6 +54,7 @@ const Template = (args: MgFormType): HTMLElement => {
       <mg-input-password identifier="mg-input-password" label="mg-input-password label"></mg-input-password>
       <mg-input-radio identifier="mg-input-radio" label="mg-input-radio label" items={['blu', 'bli', 'bla', 'blo']}></mg-input-radio>
       <mg-input-select identifier="mg-input-select" label="mg-input-select label" items={['blu', 'bli', 'bla', 'blo']}></mg-input-select>
+      <mg-input-combobox identifier="mg-input-text" label="mg-input-text label" items={['batman', 'robin', 'bane', 'joker']} itemsLabel="hero"></mg-input-combobox>
       <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>
       <mg-input-textarea identifier="mg-input-textarea" label="mg-input-textarea label"></mg-input-textarea>
       <mg-input-toggle

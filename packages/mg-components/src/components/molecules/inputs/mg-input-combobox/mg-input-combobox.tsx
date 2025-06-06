@@ -387,7 +387,6 @@ export class MgInputCombobox {
     if (newValue) {
       this.classCollection.add(this.classFocus);
       this.input.focus();
-      this.scrollToIndex(0);
     } else {
       // remove visual focus
       this.option = null;
@@ -897,7 +896,13 @@ export class MgInputCombobox {
         }),
       );
       const total = Number(getObjectValueFromKey<Response, number>(json, this.fetchmappings.response.total, 0));
-      const next = getObjectValueFromKey<Response, string>(json, this.fetchmappings.response.next);
+      let next = getObjectValueFromKey<Response, string>(json, this.fetchmappings.response.next);
+      if (URL.canParse(updateUrl) && Boolean(next) && !URL.canParse(next)) {
+        const previousUrl = new URL(updateUrl);
+        if (previousUrl.pathname.endsWith(next.split('?')[0])) {
+          next = new URL(next, previousUrl).toString();
+        }
+      }
       return { items, total, next, top: items.length };
     } catch (error) {
       this.fetchError.emit(error);
