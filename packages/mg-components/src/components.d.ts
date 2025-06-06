@@ -668,7 +668,7 @@ export namespace Components {
          */
         "integerLength": number;
         /**
-          * Define input pattern error message
+          * Define input invalid state
          */
         "invalid": boolean;
         /**
@@ -742,7 +742,7 @@ export namespace Components {
          */
         "unitDisplay": Intl.NumberFormatOptions['unitDisplay'];
         /**
-          * Define input pattern to validate
+          * Define input valid state
          */
         "valid": boolean;
         /**
@@ -3003,7 +3003,7 @@ declare namespace LocalJSX {
          */
         "integerLength"?: number;
         /**
-          * Define input pattern error message
+          * Define input invalid state
          */
         "invalid"?: boolean;
         /**
@@ -3075,7 +3075,7 @@ declare namespace LocalJSX {
          */
         "unitDisplay"?: Intl.NumberFormatOptions['unitDisplay'];
         /**
-          * Define input pattern to validate
+          * Define input valid state
          */
         "valid"?: boolean;
         /**

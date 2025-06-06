@@ -243,12 +243,12 @@ export class MgInputNumeric {
   }
 
   /**
-   * Define input pattern to validate
+   * Define input valid state
    */
   @Prop({ mutable: true }) valid: boolean;
 
   /**
-   * Define input pattern error message
+   * Define input invalid state
    */
   @Prop({ mutable: true }) invalid: boolean;
 
