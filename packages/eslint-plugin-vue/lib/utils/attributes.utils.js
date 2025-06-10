@@ -30,13 +30,64 @@ module.exports = {
    * @returns {string} attribute value
    */
   getAttributeValue(attribute) {
-    let attributeValue = '';
-
-    if (Boolean(attribute?.directive) && typeof attribute?.value?.expression?.value === 'string') {
-      attributeValue = attribute.value.expression.value;
-    } else if (!attribute?.directive && typeof attribute?.value?.value === 'string') {
-      attributeValue = attribute.value.value;
+    let attributeValue;
+    if (attribute?.directive) {
+      // directive attributes (e.g. :id="withProps")
+      attributeValue = module.exports.getValue(attribute.value?.expression);
+      if (attribute?.key?.argument?.name == 'id') {
+        // If the attribute is an ID, we remove spaces, done for the ConditionalExpression case
+        attributeValue = attributeValue.split(' ').join('-');
+      }
+    } else {
+      attributeValue = attribute?.value?.value;
     }
-    return attributeValue;
+    return attributeValue ?? '';
+  },
+  /**
+   * Get expression value based on type
+   *
+   * @param {object} expression
+   * @returns {string} expression value
+   */
+  getValue(expression) {
+    switch (expression?.type) {
+      case 'Literal': // Used for values (e.g. :id="'kebab-case'")
+        return expression.value;
+      case 'Identifier': // Used for variables (e.g. :id="withProps")
+        return expression.name.toLowerCase();
+      case 'CallExpression': // Used for function calls (e.g. :id="method(blu)")
+        return 'call-expression'; // No need to reconstruct
+      case 'TemplateLiteral': // Used for template literals (e.g. :id="\`with-\${props}\`")
+        return module.exports.reconstructTemplateLiteral(expression);
+      case 'ConditionalExpression': // Used for ternary operators (e.g. :id="using ? 'ternary' : 'operator'")
+        return `${module.exports.getValue(expression.consequent)} ${module.exports.getValue(expression.alternate)}`;
+      case 'ObjectExpression': // Used for object expressions (e.g. :id="{ 'blu': blu }")
+        return expression.properties.map(property => module.exports.getValue(property.key)).join(' ');
+      case 'ArrayExpression': // Used for array expressions (e.g. :id="['rich-text-input__input-container', { 'rich-text-input__input-container--readonly': readonly }]")
+        return expression.elements.map(element => module.exports.getValue(element)).join(' ');
+      case 'BinaryExpression': // Used for binary expressions (e.g. :id="blu + 'bli'")
+        return `${module.exports.getValue(expression.left)}${module.exports.getValue(expression.right)}`;
+      case 'MemberExpression': // Used for member expressions (e.g. :id="blu.bli")
+        return 'member-expression'; // No need to reconstruct
+      default:
+        return '';
+    }
+  },
+  /**
+   * Reconstruct a template literal from its expression
+   *
+   * @param {object} expression
+   * @returns {string} reconstructed template literal
+   */
+  reconstructTemplateLiteral(expression) {
+    let templateLiteral = '';
+    for (let i = 0; i < expression.quasis.length; i++) {
+      const quasi = expression.quasis[i];
+      templateLiteral += quasi.value.cooked ?? '';
+      if (i < expression.expressions.length) {
+        templateLiteral += module.exports.getValue(expression.expressions[i]);
+      }
+    }
+    return templateLiteral;
   },
 };
