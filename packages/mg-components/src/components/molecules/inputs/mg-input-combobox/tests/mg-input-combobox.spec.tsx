@@ -779,7 +779,7 @@ describe('mg-input-combobox', () => {
       }
     });
 
-    test('Should handle element element focusin', async () => {
+    test('Should handle element focusin', async () => {
       const page = await getPage({ ...baseProps });
       const element = page.doc.querySelector('mg-input-combobox');
       const popover = element.shadowRoot.querySelector('mg-popover');
