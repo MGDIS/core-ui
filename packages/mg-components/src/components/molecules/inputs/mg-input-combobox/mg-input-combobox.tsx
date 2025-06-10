@@ -689,9 +689,11 @@ export class MgInputCombobox {
    * @param index - targeted option index to scroll into
    */
   private scrollToIndex = (index: number): void => {
-    if (this.popoverDisplay) {
+    // ensure we have an opened popover element on screen when the scrollIntiView is called
+    requestAnimationFrame(() => {
+      if (!this.popoverDisplay) return;
       this.element.shadowRoot.querySelector(`li:nth-of-type(${(index || 0) + this.page.baseIndex})`)?.scrollIntoView();
-    }
+    });
   };
 
   /**

@@ -752,6 +752,33 @@ describe('mg-input-combobox', () => {
       expect(element.value).toEqual('');
       expect(focusSpy).toHaveBeenCalled();
     });
+
+    test('Should manage scrollIntoView()', async () => {
+      const page = await getPage({ ...baseProps });
+      const element = page.doc.querySelector('mg-input-combobox');
+      const popover = element.shadowRoot.querySelector('mg-popover');
+      const button = element.shadowRoot.querySelector('mg-button');
+      const lis = Array.from(element.shadowRoot.querySelectorAll('li'));
+      lis.forEach(li => {
+        li.scrollIntoView = jest.fn();
+      });
+
+      button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+      expect(popover.display).toEqual(true);
+      for (const li of lis) {
+        expect(li.scrollIntoView).not.toHaveBeenCalled();
+      }
+
+      lis[0].dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(popover.display).toEqual(false);
+      for (const li of lis) {
+        expect(li.scrollIntoView).not.toHaveBeenCalled();
+      }
+    });
+
     test('Should handle element element focusin', async () => {
       const page = await getPage({ ...baseProps });
       const element = page.doc.querySelector('mg-input-combobox');
