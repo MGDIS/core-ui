@@ -30,15 +30,18 @@ const Template = (args: MgFormType): HTMLElement => {
   return (
     <mg-form
       {...filterArgs(args)}
+      onForm-valid={e => {
+        submit.disabled = !e.detail;
+        canSubmit = submit.disabled;
+      }}
+      onForm-submit={() => {
+        window.alert('Your form has been submitted');
+      }}
+      onForm-reset={() => {
+        window.alert('Your form has been reset');
+      }}
       ref={(el: HTMLMgFormElement) => {
         form = el;
-        form.addEventListener('form-valid', e => {
-          submit.disabled = !e.detail;
-          canSubmit = submit.disabled;
-        });
-        form.addEventListener('form-submit', () => {
-          window.alert('Your form has been submitted');
-        });
       }}
     >
       <mg-input-checkbox
@@ -88,15 +91,7 @@ const Template = (args: MgFormType): HTMLElement => {
       >
         Display errors
       </mg-button>
-      <mg-button
-        slot="actions"
-        variant="secondary"
-        type="button"
-        // eslint-disable-next-line react/jsx-no-bind
-        onClick={() => {
-          form.reset();
-        }}
-      >
+      <mg-button slot="actions" variant="secondary" type="reset">
         Reset form
       </mg-button>
     </mg-form>

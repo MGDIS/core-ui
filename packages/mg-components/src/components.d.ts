@@ -1892,6 +1892,7 @@ declare global {
     interface HTMLMgFormElementEventMap {
         "form-valid": HTMLMgFormElement['valid'];
         "form-submit": boolean;
+        "form-reset": boolean;
     }
     interface HTMLMgFormElement extends Components.MgForm, HTMLStencilElement {
         addEventListener<K extends keyof HTMLMgFormElementEventMap>(type: K, listener: (this: HTMLMgFormElement, ev: MgFormCustomEvent<HTMLMgFormElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2566,6 +2567,10 @@ declare namespace LocalJSX {
           * Input name If not set the value equals the identifier
          */
         "name"?: string;
+        /**
+          * Emitted event on form reset
+         */
+        "onForm-reset"?: (event: MgFormCustomEvent<boolean>) => void;
         /**
           * Emitted event on form submit
          */
