@@ -692,7 +692,7 @@ export class MgInputCombobox {
     // ensure we have an opened popover element on screen when the scrollIntiView is called
     requestAnimationFrame(() => {
       if (!this.popoverDisplay) return;
-      this.element.shadowRoot.querySelector(`li:nth-of-type(${(index || 0) + this.page.baseIndex})`)?.scrollIntoView();
+      this.element.shadowRoot.querySelector(`li:nth-of-type(${(index || 0) + this.page.baseIndex})`)?.scrollIntoView({ block: 'nearest' });
     });
   };
 
