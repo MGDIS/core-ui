@@ -37,9 +37,6 @@ const Template = (args: MgFormType): HTMLElement => {
       onForm-submit={() => {
         window.alert('Your form has been submitted');
       }}
-      onForm-reset={() => {
-        window.alert('Your form has been reset');
-      }}
       ref={(el: HTMLMgFormElement) => {
         form = el;
       }}
