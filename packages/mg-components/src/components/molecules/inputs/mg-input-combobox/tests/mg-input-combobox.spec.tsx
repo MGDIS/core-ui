@@ -752,7 +752,34 @@ describe('mg-input-combobox', () => {
       expect(element.value).toEqual('');
       expect(focusSpy).toHaveBeenCalled();
     });
-    test('Should handle element element focusin', async () => {
+
+    test('Should manage scrollIntoView()', async () => {
+      const page = await getPage({ ...baseProps });
+      const element = page.doc.querySelector('mg-input-combobox');
+      const popover = element.shadowRoot.querySelector('mg-popover');
+      const button = element.shadowRoot.querySelector('mg-button');
+      const lis = Array.from(element.shadowRoot.querySelectorAll('li'));
+      lis.forEach(li => {
+        li.scrollIntoView = jest.fn();
+      });
+
+      button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+      expect(popover.display).toEqual(true);
+      for (const li of lis) {
+        expect(li.scrollIntoView).not.toHaveBeenCalled();
+      }
+
+      lis[0].dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(popover.display).toEqual(false);
+      for (const li of lis) {
+        expect(li.scrollIntoView).not.toHaveBeenCalled();
+      }
+    });
+
+    test('Should handle element focusin', async () => {
       const page = await getPage({ ...baseProps });
       const element = page.doc.querySelector('mg-input-combobox');
       const popover = element.shadowRoot.querySelector('mg-popover');
@@ -901,7 +928,11 @@ describe('mg-input-combobox', () => {
       await page.waitForChanges();
 
       expect(popover.display).toEqual(value === undefined);
-      expect(spyScrollToIndex).toHaveBeenCalled();
+      if (Boolean(value)) {
+        expect(spyScrollToIndex).toHaveBeenCalled();
+      } else {
+        expect(spyScrollToIndex).not.toHaveBeenCalled();
+      }
     });
     test('Should handle filter input with not found value', async () => {
       const page = await getPage({ ...baseProps, items, value: items[2] });
@@ -969,9 +1000,10 @@ describe('mg-input-combobox', () => {
       { results: initArray(15).map(item => ({ title: item, value: item })), total: 25, next: new URL(`${fetchurl}/next?param=value`) },
       { results: initArray(15).map(item => ({ title: item, value: item })), total: 25, next: '/next' },
       { results: initArray(15).map(item => ({ title: item, value: item })), total: 25, next: '/error' },
+      { results: initArray(15).map(item => ({ title: item, value: item })), total: 25, next: '/?next=page' },
       { results: initArray(15).map(item => ({ title: item, value: item })), total: 25, next: '/next?param=value' },
       { results: initArray(15).map(item => ({ title: item, value: item })), total: 25, next: `${fetchurl}/next?param=value` },
-    ])('Should handle load-more button with API fetch', async overrides => {
+    ])('Should handle load-more button with API fetch: %s', async overrides => {
       const page = await getPage({ ...baseProps, items: undefined, fetchurl, fetchmappings }, overrides);
       const element = page.doc.querySelector('mg-input-combobox');
       const button = element.shadowRoot.querySelector('mg-button:last-of-type');
