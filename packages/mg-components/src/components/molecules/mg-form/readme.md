@@ -105,6 +105,7 @@ Here we have a `form-valid` event listener on the `mg-form` to determine if the 
 
 | Event         | Description                                                        | Type                   |
 | ------------- | ------------------------------------------------------------------ | ---------------------- |
+| `form-reset`  | Emitted event on form reset                                        | `CustomEvent<boolean>` |
 | `form-submit` | Emitted event on form submit                                       | `CustomEvent<boolean>` |
 | `form-valid`  | Emitted event on form validity check Tells if form is valid or not | `CustomEvent<boolean>` |
 

@@ -1063,10 +1063,12 @@ describe('mg-input-checkbox', () => {
         { title: 'Marshall', value: false },
       ]);
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
       await element.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify value has been reset
       expect(element.value).toEqual([
         { title: 'Chase', value: false },
@@ -1090,10 +1092,12 @@ describe('mg-input-checkbox', () => {
       // Verify initial state
       expect(page.root).toMatchSnapshot();
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
       await element.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify reset state
       expect(page.root).toMatchSnapshot();
     });
@@ -1110,10 +1114,12 @@ describe('mg-input-checkbox', () => {
       // Capture initial value
       const initialValue = element.value;
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Try to reset
       await element.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).not.toHaveBeenCalled();
       // Verify value remains unchanged
       expect(element.value).toEqual(initialValue);
     });

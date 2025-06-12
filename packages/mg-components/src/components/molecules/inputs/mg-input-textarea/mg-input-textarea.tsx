@@ -285,9 +285,20 @@ export class MgInputTextarea {
   async reset(): Promise<void> {
     if (!this.readonly) {
       this.value = '';
-      this.checkValidity();
-      this.errorMessage = undefined;
-      this.hasDisplayedError = false;
+      // Use `Promise` as requested for stencil method
+      // Use `requestAnimationFrame` to ensure:
+      // - DOM is fully updated before validation
+      // - Async operations are completed
+      // - No timing issues with Stencil's render cycle
+      // - Keep everything in sync both inside and outside the component
+      return new Promise(resolve => {
+        requestAnimationFrame(() => {
+          this.checkValidity();
+          this.errorMessage = undefined;
+          this.hasDisplayedError = false;
+          resolve();
+        });
+      });
     }
   }
 

@@ -235,9 +235,19 @@ export class MgInputToggle {
   async reset(): Promise<void> {
     if (!this.readonly) {
       this.value = this.options[0].value;
-      this.errorMessage = undefined;
-      this.valid = undefined;
       this.setChecked();
+      // Use `Promise` as requested for stencil method
+      // Use `requestAnimationFrame` to ensure:
+      // - DOM is fully updated before validation
+      // - Async operations are completed
+      // - No timing issues with Stencil's render cycle
+      // - Keep everything in sync both inside and outside the component
+      return new Promise(resolve => {
+        requestAnimationFrame(() => {
+          this.errorMessage = undefined;
+          resolve();
+        });
+      });
     }
   }
 

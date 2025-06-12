@@ -558,11 +558,59 @@ describe('mg-form', () => {
     }
   });
 
+  test.each([undefined, ...buttonTypes])('Should only emit "reset" event for <mg-button type="reset">, case type is %s', async type => {
+    const args = { identifier: 'identifier' };
+    const slot = [
+      ...getSlottedContent(),
+      <div slot="actions">
+        <mg-button type={type}>Reset</mg-button>
+      </div>,
+    ];
+    const page = await getPage(args, slot);
+
+    const mgForm = page.doc.querySelector('mg-form');
+    const mgButton = page.doc.querySelector('mg-button');
+
+    const mgFormResetSpy = jest.spyOn(page.rootInstance.formReset, 'emit');
+    const mgFormValidSpy = jest.spyOn(page.rootInstance.formValid, 'emit');
+
+    // Mock reset method for all inputs
+    const mgInputs = Array.from(mgForm.querySelectorAll('*')).filter((node: Node) => node.nodeName.startsWith('MG-INPUT')) as HTMLMgInputsElement[];
+
+    mgInputs.forEach(input => {
+      Object.defineProperty(input, 'reset', {
+        value: jest.fn(),
+        configurable: true,
+      });
+    });
+
+    mgButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+
+    await page.waitForChanges();
+
+    if (type === 'reset') {
+      expect(mgFormResetSpy).toHaveBeenCalledWith(true);
+      expect(mgFormValidSpy).toHaveBeenCalledWith(true);
+      // Verify that reset was called for each input
+      mgInputs.forEach(input => {
+        expect(input.reset).toHaveBeenCalled();
+      });
+    } else {
+      expect(mgFormResetSpy).not.toHaveBeenCalled();
+      expect(mgFormValidSpy).not.toHaveBeenCalled();
+      // Verify that reset was NOT called for each input
+      mgInputs.forEach(input => {
+        expect(input.reset).not.toHaveBeenCalled();
+      });
+    }
+  });
+
   test('Should reset all inputs when reset is called', async () => {
     const args = { identifier: 'identifier' };
     const slot = getSlottedContent();
     const page = await getPage(args, slot);
     const mgForm = page.doc.querySelector('mg-form');
+    const mgFormSpy = jest.spyOn(page.rootInstance.formReset, 'emit');
 
     // Mock reset method for all inputs
     const mgInputs = Array.from(mgForm.querySelectorAll('*')).filter((node: Node) => node.nodeName.startsWith('MG-INPUT')) as HTMLMgInputsElement[];
@@ -581,6 +629,7 @@ describe('mg-form', () => {
     mgInputs.forEach(input => {
       expect(input.reset).toHaveBeenCalled();
     });
+    expect(mgFormSpy).toHaveBeenCalledWith(true);
   });
 
   test('Should not reset inputs when form is readonly', async () => {

@@ -144,6 +144,11 @@ export class MgForm {
   @Event({ eventName: 'form-submit' }) formSubmit: EventEmitter<boolean>;
 
   /**
+   * Emitted event on form reset
+   */
+  @Event({ eventName: 'form-reset' }) formReset: EventEmitter<boolean>;
+
+  /**
    * Display input error if it exists.
    */
   @Method()
@@ -169,6 +174,8 @@ export class MgForm {
           }
         }),
       );
+      this.checkValidity();
+      this.formReset.emit(true);
     }
   }
 
@@ -287,6 +294,11 @@ export class MgForm {
     // Set button form identifier
     this.mgButtons.forEach(mgButton => {
       mgButton.setAttribute('form', this.identifier);
+      if (mgButton.type === 'reset') {
+        mgButton.addEventListener('click', () => {
+          this.reset();
+        });
+      }
     });
 
     // Set mgInputs

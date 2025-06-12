@@ -24,21 +24,24 @@ const args = {
  * @returns HTMLElement
  */
 const Template = (args: MgFormType): HTMLElement => {
-  let form;
-  let submit;
-  let canSubmit = false;
+  let form: HTMLMgFormElement;
+  let submit: HTMLMgButtonElement;
+  const onFormValid = e => {
+    if (form === undefined || submit === undefined) return;
+    submit.disabled = !e.detail;
+  };
+  const onSubmit = () => {
+    window.alert('Your form has been submitted');
+  };
   return (
     <mg-form
       {...filterArgs(args)}
-      ref={(el: HTMLMgFormElement) => {
-        form = el;
-        form.addEventListener('form-valid', e => {
-          submit.disabled = !e.detail;
-          canSubmit = submit.disabled;
-        });
-        form.addEventListener('form-submit', () => {
-          window.alert('Your form has been submitted');
-        });
+      // eslint-disable-next-line react/jsx-no-bind
+      onForm-valid={onFormValid}
+      // eslint-disable-next-line react/jsx-no-bind
+      onForm-submit={onSubmit}
+      ref={e => {
+        form = e;
       }}
     >
       <mg-input-checkbox
@@ -72,7 +75,6 @@ const Template = (args: MgFormType): HTMLElement => {
       <mg-button
         slot="actions"
         id="can-submit"
-        disabled={canSubmit}
         ref={e => {
           submit = e;
         }}
@@ -90,15 +92,7 @@ const Template = (args: MgFormType): HTMLElement => {
       >
         Display errors
       </mg-button>
-      <mg-button
-        slot="actions"
-        variant="secondary"
-        type="button"
-        // eslint-disable-next-line react/jsx-no-bind
-        onClick={() => {
-          form.reset();
-        }}
-      >
+      <mg-button slot="actions" variant="secondary" type="reset">
         Reset form
       </mg-button>
     </mg-form>
