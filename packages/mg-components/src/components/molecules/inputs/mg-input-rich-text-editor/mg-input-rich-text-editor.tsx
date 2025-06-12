@@ -187,6 +187,14 @@ export class MgInputRichTextEditor {
   @Event({ eventName: 'value-change' }) valueChange: EventEmitter<string>;
 
   /**
+   * Set focus on input.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    this.editor?.focus();
+  }
+
+  /**
    * Get editor content as HTML
    * @returns HTML content of the editor
    */

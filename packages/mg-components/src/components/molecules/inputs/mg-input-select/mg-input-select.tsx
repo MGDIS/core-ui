@@ -292,6 +292,14 @@ export class MgInputSelect {
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputCheckboxElement['valid']>;
 
   /**
+   * Set focus on input.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    this.input?.focus();
+  }
+
+  /**
    * Display input error if it exists.
    */
   @Method()

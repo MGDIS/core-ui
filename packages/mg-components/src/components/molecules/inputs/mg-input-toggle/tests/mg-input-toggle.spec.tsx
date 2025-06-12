@@ -330,6 +330,24 @@ describe('mg-input-toggle', () => {
     });
   });
 
+  test.each([true, false])("should trigger input focus method with setFocus() component's public method, readonly %s", async readonly => {
+    const page = await getPage({ ...defaultProps, readonly });
+    const element = page.doc.querySelector('mg-input-toggle');
+    const button = element.shadowRoot.querySelector('button');
+
+    if (button !== null) button.focus = jest.fn();
+
+    await element.setFocus();
+
+    await page.waitForChanges();
+
+    if (readonly) {
+      expect(button).toBeNull();
+    } else {
+      expect(button.focus).toHaveBeenCalled();
+    }
+  });
+
   describe('reset method', () => {
     test('Should reset value', async () => {
       const page = await getPage({

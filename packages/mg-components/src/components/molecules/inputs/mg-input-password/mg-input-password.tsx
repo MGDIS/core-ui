@@ -183,6 +183,14 @@ export class MgInputPassword {
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputPasswordElement['valid']>;
 
   /**
+   * Set focus on input.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    this.input?.focus();
+  }
+
+  /**
    * Display input error if it exists.
    */
   @Method()

@@ -293,6 +293,14 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputCheckboxElement['valid']>;
 
   /**
+   * Set focus on input.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    this.element.shadowRoot.querySelector('input')?.focus();
+  }
+
+  /**
    * Display input error if it exists.
    */
   @Method()

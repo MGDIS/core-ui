@@ -75,6 +75,16 @@ Type: `Promise<void>`
 
 
 
+### `setFocus() => Promise<void>`
+
+Set focus on input.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## Dependencies
 

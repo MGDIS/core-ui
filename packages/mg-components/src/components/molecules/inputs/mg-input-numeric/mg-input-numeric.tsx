@@ -278,6 +278,14 @@ export class MgInputNumeric {
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputNumericElement['valid']>;
 
   /**
+   * Set focus on input.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    this.input?.focus();
+  }
+
+  /**
    * Display input error if it exists.
    */
   @Method()

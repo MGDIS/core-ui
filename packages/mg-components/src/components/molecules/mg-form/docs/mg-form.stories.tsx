@@ -57,6 +57,7 @@ const Template = (args: MgFormType): HTMLElement => {
       <mg-input-combobox identifier="mg-input-combobox" label="mg-input-combobox label" items={['batman', 'robin', 'bane', 'joker']} itemsLabel="hero"></mg-input-combobox>
       <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>
       <mg-input-textarea identifier="mg-input-textarea" label="mg-input-textarea label"></mg-input-textarea>
+      <mg-input-rich-text-editor identifier="mg-input-rich-text-editor" label="mg-input-rich-text-editor label"></mg-input-rich-text-editor>
       <mg-input-toggle
         identifier="mg-input-toggle"
         label="mg-input-toggle label"

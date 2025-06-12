@@ -427,11 +427,11 @@ export class MgInputCombobox {
   @Event({ eventName: 'fetch-error' }) fetchError: EventEmitter<Error>;
 
   /**
-   * Public method to play input focus
+   * Set focus on input.
    */
   @Method()
   async setFocus(): Promise<void> {
-    this.input.focus();
+    this.input?.focus();
   }
 
   /**
