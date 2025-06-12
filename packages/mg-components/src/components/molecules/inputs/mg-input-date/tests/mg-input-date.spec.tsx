@@ -776,7 +776,7 @@ describe('mg-input-date', () => {
     const element = page.doc.querySelector('mg-input-date');
     const input = element.shadowRoot.querySelector('input');
 
-    if (Boolean(input)) input.focus = jest.fn();
+    if (input !== null) input.focus = jest.fn();
 
     await element.setFocus();
 

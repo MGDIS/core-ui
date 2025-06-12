@@ -195,7 +195,7 @@ export class MgInputDate {
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputDateElement['valid']>;
 
   /**
-   * Public method to play input focus
+   * Set focus on input.
    */
   @Method()
   async setFocus(): Promise<void> {

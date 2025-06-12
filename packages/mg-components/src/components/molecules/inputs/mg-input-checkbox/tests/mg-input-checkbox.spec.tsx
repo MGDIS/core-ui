@@ -1027,7 +1027,7 @@ describe('mg-input-checkbox', () => {
     const element = page.doc.querySelector('mg-input-checkbox');
     const input = element.shadowRoot.querySelector('input');
 
-    if (Boolean(input)) input.focus = jest.fn();
+    if (input !== null) input.focus = jest.fn();
 
     await element.setFocus();
 

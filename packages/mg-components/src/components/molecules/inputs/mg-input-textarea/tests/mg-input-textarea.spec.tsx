@@ -417,18 +417,18 @@ describe('mg-input-textarea', () => {
   test.each([true, false])("should trigger input focus method with setFocus() component's public method, readonly %s", async readonly => {
     const page = await getPage({ label: 'label', identifier: 'identifier', readonly });
     const element = page.doc.querySelector('mg-input-textarea');
-    const input = element.shadowRoot.querySelector('textarea');
+    const textarea = element.shadowRoot.querySelector('textarea');
 
-    if (Boolean(input)) input.focus = jest.fn();
+    if (textarea !== null) textarea.focus = jest.fn();
 
     await element.setFocus();
 
     await page.waitForChanges();
 
     if (readonly) {
-      expect(input).toBeNull();
+      expect(textarea).toBeNull();
     } else {
-      expect(input.focus).toHaveBeenCalled();
+      expect(textarea.focus).toHaveBeenCalled();
     }
   });
 

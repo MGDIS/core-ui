@@ -401,7 +401,7 @@ describe('mg-input-password', () => {
     const element = page.doc.querySelector('mg-input-password');
     const input = element.shadowRoot.querySelector('input');
 
-    if (Boolean(input)) input.focus = jest.fn();
+    if (input !== null) input.focus = jest.fn();
 
     await element.setFocus();
 

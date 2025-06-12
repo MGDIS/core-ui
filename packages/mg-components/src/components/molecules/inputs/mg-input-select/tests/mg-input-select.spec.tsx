@@ -511,18 +511,18 @@ describe('mg-input-select', () => {
   test.each([true, false])("should trigger input focus method with setFocus() component's public method, readonly %s", async readonly => {
     const page = await getPage({ label: 'label', identifier: 'identifier', items: ['batman', 'robin'], readonly });
     const element = page.doc.querySelector('mg-input-select');
-    const input = element.shadowRoot.querySelector('select');
+    const select = element.shadowRoot.querySelector('select');
 
-    if (Boolean(input)) input.focus = jest.fn();
+    if (select !== null) select.focus = jest.fn();
 
     await element.setFocus();
 
     await page.waitForChanges();
 
     if (readonly) {
-      expect(input).toBeNull();
+      expect(select).toBeNull();
     } else {
-      expect(input.focus).toHaveBeenCalled();
+      expect(select.focus).toHaveBeenCalled();
     }
   });
 

@@ -305,7 +305,7 @@ describe('mg-input-rich-text-editor', () => {
       });
       const { element, editor } = await waitForEditor(page);
 
-      if (Boolean(editor)) editor.focus = jest.fn();
+      if (editor !== undefined) editor.focus = jest.fn();
 
       await element.setFocus();
 

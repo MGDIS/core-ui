@@ -83,7 +83,7 @@ Type: `Promise<void>`
 
 ### `setFocus() => Promise<void>`
 
-Public method to play input focus
+Set focus on input.
 
 #### Returns
 

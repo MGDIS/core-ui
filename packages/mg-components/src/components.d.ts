@@ -388,7 +388,7 @@ export namespace Components {
          */
         "setError": (valid: MgInputCheckbox["valid"], errorMessage: string) => Promise<void>;
         /**
-          * Public method to play input focus
+          * Set focus on input.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -538,7 +538,7 @@ export namespace Components {
          */
         "setError": (valid: MgInputCombobox["valid"], errorMessage: string) => Promise<void>;
         /**
-          * Public method to play input focus
+          * Set focus on input.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -622,7 +622,7 @@ export namespace Components {
          */
         "setError": (valid: MgInputDate["valid"], errorMessage: string) => Promise<void>;
         /**
-          * Public method to play input focus
+          * Set focus on input.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -730,7 +730,7 @@ export namespace Components {
          */
         "setError": (valid: MgInputNumeric["valid"], errorMessage: string) => Promise<void>;
         /**
-          * Public method to play input focus
+          * Set focus on input.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -830,7 +830,7 @@ export namespace Components {
          */
         "setError": (valid: MgInputPassword["valid"], errorMessage: string) => Promise<void>;
         /**
-          * Public method to play input focus
+          * Set focus on input.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -914,7 +914,7 @@ export namespace Components {
          */
         "setError": (valid: MgInputRadio["valid"], errorMessage: string) => Promise<void>;
         /**
-          * Public method to play input focus
+          * Set focus on input.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -1016,7 +1016,7 @@ export namespace Components {
          */
         "setError": (valid: MgInputRichTextEditor["valid"], errorMessage: string) => Promise<void>;
         /**
-          * Public method to play input focus
+          * Set focus on input.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -1112,7 +1112,7 @@ export namespace Components {
          */
         "setError": (valid: MgInputSelect["valid"], errorMessage: string) => Promise<void>;
         /**
-          * Public method to play input focus
+          * Set focus on input.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -1220,7 +1220,7 @@ export namespace Components {
          */
         "setError": (valid: MgInputText["valid"], errorMessage: string) => Promise<void>;
         /**
-          * Public method to play input focus
+          * Set focus on input.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -1332,7 +1332,7 @@ export namespace Components {
          */
         "setError": (valid: MgInputTextarea["valid"], errorMessage: string) => Promise<void>;
         /**
-          * Public method to play input focus
+          * Set focus on input.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -1426,7 +1426,7 @@ export namespace Components {
          */
         "setError": (valid: boolean, errorMessage: string) => Promise<void>;
         /**
-          * Public method to play input focus
+          * Set focus on input.
          */
         "setFocus": () => Promise<void>;
         /**
