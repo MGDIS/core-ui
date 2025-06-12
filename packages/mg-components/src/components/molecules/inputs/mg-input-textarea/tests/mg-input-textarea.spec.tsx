@@ -414,6 +414,24 @@ describe('mg-input-textarea', () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  test.each([true, false])("should trigger input focus method with setFocus() component's public method, readonly %s", async readonly => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', readonly });
+    const element = page.doc.querySelector('mg-input-textarea');
+    const input = element.shadowRoot.querySelector('textarea');
+
+    if (Boolean(input)) input.focus = jest.fn();
+
+    await element.setFocus();
+
+    await page.waitForChanges();
+
+    if (readonly) {
+      expect(input).toBeNull();
+    } else {
+      expect(input.focus).toHaveBeenCalled();
+    }
+  });
+
   describe('reset method', () => {
     test('Should reset value', async () => {
       const page = await getPage({

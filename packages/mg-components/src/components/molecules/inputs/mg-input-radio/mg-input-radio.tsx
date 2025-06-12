@@ -213,6 +213,16 @@ export class MgInputRadio {
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputRadioElement['valid']>;
 
   /**
+   * Public method to play input focus
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.inputs.length > 0) {
+      this.inputs[0].focus();
+    }
+  }
+
+  /**
    * Display input error if it exists.
    */
   @Method()

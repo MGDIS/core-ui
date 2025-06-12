@@ -388,6 +388,10 @@ export namespace Components {
          */
         "setError": (valid: MgInputCheckbox["valid"], errorMessage: string) => Promise<void>;
         /**
+          * Public method to play input focus
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * Overwrite default "show" button message
          */
         "showButtonMessage": string;
@@ -618,6 +622,10 @@ export namespace Components {
          */
         "setError": (valid: MgInputDate["valid"], errorMessage: string) => Promise<void>;
         /**
+          * Public method to play input focus
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
@@ -722,6 +730,10 @@ export namespace Components {
          */
         "setError": (valid: MgInputNumeric["valid"], errorMessage: string) => Promise<void>;
         /**
+          * Public method to play input focus
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
@@ -818,6 +830,10 @@ export namespace Components {
          */
         "setError": (valid: MgInputPassword["valid"], errorMessage: string) => Promise<void>;
         /**
+          * Public method to play input focus
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
@@ -897,6 +913,10 @@ export namespace Components {
           * @param errorMessage - the error message to display
          */
         "setError": (valid: MgInputRadio["valid"], errorMessage: string) => Promise<void>;
+        /**
+          * Public method to play input focus
+         */
+        "setFocus": () => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -996,6 +1016,10 @@ export namespace Components {
          */
         "setError": (valid: MgInputRichTextEditor["valid"], errorMessage: string) => Promise<void>;
         /**
+          * Public method to play input focus
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
@@ -1087,6 +1111,10 @@ export namespace Components {
           * @param errorMessage - the error message to display
          */
         "setError": (valid: MgInputSelect["valid"], errorMessage: string) => Promise<void>;
+        /**
+          * Public method to play input focus
+         */
+        "setFocus": () => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -1304,6 +1332,10 @@ export namespace Components {
          */
         "setError": (valid: MgInputTextarea["valid"], errorMessage: string) => Promise<void>;
         /**
+          * Public method to play input focus
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
@@ -1393,6 +1425,10 @@ export namespace Components {
           * @param errorMessage - the error message to display
          */
         "setError": (valid: boolean, errorMessage: string) => Promise<void>;
+        /**
+          * Public method to play input focus
+         */
+        "setFocus": () => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */

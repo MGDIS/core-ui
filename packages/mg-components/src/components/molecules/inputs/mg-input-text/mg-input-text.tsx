@@ -281,7 +281,7 @@ export class MgInputText {
    */
   @Method()
   async setFocus(): Promise<void> {
-    this.input.focus();
+    this.input?.focus();
   }
 
   /**

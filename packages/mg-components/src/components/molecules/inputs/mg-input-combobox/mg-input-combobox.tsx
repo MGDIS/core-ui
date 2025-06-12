@@ -431,7 +431,7 @@ export class MgInputCombobox {
    */
   @Method()
   async setFocus(): Promise<void> {
-    this.input.focus();
+    this.input?.focus();
   }
 
   /**

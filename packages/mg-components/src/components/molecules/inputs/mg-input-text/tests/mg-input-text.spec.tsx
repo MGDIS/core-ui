@@ -267,18 +267,22 @@ describe('mg-input-text', () => {
       }
     });
 
-    test("should trigger input focus method with setFocus component's public method", async () => {
-      const page = await getPage({ label: 'label', identifier: 'identifier' });
+    test.each([true, false])("should trigger input focus method with setFocus() component's public method, readonly %s", async readonly => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', readonly });
       const element = page.doc.querySelector('mg-input-text');
       const input = element.shadowRoot.querySelector('input');
 
-      input.focus = jest.fn();
+      if (Boolean(input)) input.focus = jest.fn();
 
       await element.setFocus();
 
       await page.waitForChanges();
 
-      expect(input.focus).toHaveBeenCalled();
+      if (readonly) {
+        expect(input).toBeNull();
+      } else {
+        expect(input.focus).toHaveBeenCalled();
+      }
     });
   });
 

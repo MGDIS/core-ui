@@ -127,6 +127,16 @@ Type: `Promise<void>`
 
 
 
+### `setFocus() => Promise<void>`
+
+Public method to play input focus
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## Slots
 

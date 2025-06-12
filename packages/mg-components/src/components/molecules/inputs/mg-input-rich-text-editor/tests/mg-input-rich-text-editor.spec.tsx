@@ -33,7 +33,11 @@ const waitForEditor = async (page: SpecPage): Promise<{ element: HTMLMgInputRich
   const input = element.shadowRoot.querySelector('.ql-editor') as HTMLinput;
   const editor = page.rootInstance.editor;
 
-  expect(input).not.toBeNull();
+  if (element.readonly) {
+    expect(input).toBeNull();
+  } else {
+    expect(input).not.toBeNull();
+  }
   return { element, editor, input };
 };
 
@@ -291,6 +295,27 @@ describe('mg-input-rich-text-editor', () => {
       const { element } = await waitForEditor(page);
 
       await expect(element.setError(valid as boolean | null | undefined, errorMessage as string | null | undefined)).rejects.toThrow();
+    });
+
+    test.each([true, false])("should trigger input focus method with setFocus() component's public method, readonly %s", async readonly => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        readonly,
+      });
+      const { element, editor } = await waitForEditor(page);
+
+      if (Boolean(editor)) editor.focus = jest.fn();
+
+      await element.setFocus();
+
+      await page.waitForChanges();
+
+      if (readonly) {
+        expect(editor).toBeUndefined();
+      } else {
+        expect(editor.focus).toHaveBeenCalled();
+      }
     });
 
     test('Should reset editor content and validity state', async () => {

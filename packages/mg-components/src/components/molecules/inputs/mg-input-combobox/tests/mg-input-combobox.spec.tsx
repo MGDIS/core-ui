@@ -511,18 +511,22 @@ describe('mg-input-combobox', () => {
 
   describe('Components methods', () => {
     describe('setFocus()', () => {
-      test("should trigger input focus method with setFocus component's public method", async () => {
-        const page = await getPage({ ...baseProps });
+      test.each([true, false])("should trigger input focus method with setFocus() component's public method, readonly %s", async readonly => {
+        const page = await getPage({ ...baseProps, readonly });
         const element = page.doc.querySelector('mg-input-combobox');
         const input = element.shadowRoot.querySelector('input');
 
-        input.focus = jest.fn();
+        if (Boolean(input)) input.focus = jest.fn();
 
         await element.setFocus();
 
         await page.waitForChanges();
 
-        expect(input.focus).toHaveBeenCalled();
+        if (readonly) {
+          expect(input).toBeNull();
+        } else {
+          expect(input.focus).toHaveBeenCalled();
+        }
       });
     });
     describe('reset()', () => {

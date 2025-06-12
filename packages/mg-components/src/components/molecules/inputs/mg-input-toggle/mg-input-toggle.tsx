@@ -25,6 +25,7 @@ export class MgInputToggle {
    * Internal *
    ************/
 
+  private button: HTMLButtonElement;
   // Classes
   private readonly classIsActive = 'mg-c-input--toggle-is-active';
   private readonly classOnOff = 'mg-c-input--toggle-on-off';
@@ -199,6 +200,14 @@ export class MgInputToggle {
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
 
   /**
+   * Public method to play input focus
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    this.button?.focus();
+  }
+
+  /**
    * Set an error and display a custom error message.
    * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
    * It must be paired with an error message to display for the given context.
@@ -355,6 +364,9 @@ export class MgInputToggle {
             class="mg-c-input__button-toggle"
             disabled={this.disabled || this.readonly}
             onClick={this.toggleChecked}
+            ref={el => {
+              if (Boolean(el)) this.button = el;
+            }}
           >
             <span aria-hidden="true" class="mg-c-input__toggle-item-container">
               <slot name="item-1"></slot>
