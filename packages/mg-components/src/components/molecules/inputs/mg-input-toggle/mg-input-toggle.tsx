@@ -229,19 +229,6 @@ export class MgInputToggle {
   }
 
   /**
-   * Set input error message
-   * @param errorMessage - errorMessage override
-   */
-  private setErrorMessage = (errorMessage?: string): void => {
-    // Set error message
-    this.errorMessage = undefined;
-    // Does have a custom error message
-    if (!this.valid && errorMessage !== undefined) {
-      this.errorMessage = errorMessage;
-    }
-  };
-
-  /**
    * Reset value, validity, error and visual state
    */
   @Method()
@@ -253,6 +240,19 @@ export class MgInputToggle {
       this.setChecked();
     }
   }
+
+  /**
+   * Set input error message
+   * @param errorMessage - errorMessage override
+   */
+  private setErrorMessage = (errorMessage?: string): void => {
+    // Set error message
+    this.errorMessage = undefined;
+    // Does have a custom error message
+    if (!this.valid && errorMessage !== undefined) {
+      this.errorMessage = errorMessage;
+    }
+  };
 
   /**
    * Change checked value
@@ -365,7 +365,7 @@ export class MgInputToggle {
             disabled={this.disabled || this.readonly}
             onClick={this.toggleChecked}
             ref={el => {
-              if (Boolean(el)) this.button = el;
+              if (el !== null) this.button = el;
             }}
           >
             <span aria-hidden="true" class="mg-c-input__toggle-item-container">
