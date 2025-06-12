@@ -174,6 +174,7 @@ export class MgForm {
           }
         }),
       );
+      this.checkValidity();
       this.formReset.emit(true);
     }
   }

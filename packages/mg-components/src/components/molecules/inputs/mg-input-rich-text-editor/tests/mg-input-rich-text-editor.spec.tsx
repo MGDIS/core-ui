@@ -301,10 +301,12 @@ describe('mg-input-rich-text-editor', () => {
       });
       const { element } = await waitForEditor(page);
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
       await element.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).toHaveBeenCalled();
       const errorElement = element.shadowRoot.querySelector('[slot="error"]');
 
       expect(element.value).toBe('');

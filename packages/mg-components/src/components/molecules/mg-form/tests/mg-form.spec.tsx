@@ -571,7 +571,8 @@ describe('mg-form', () => {
     const mgForm = page.doc.querySelector('mg-form');
     const mgButton = page.doc.querySelector('mg-button');
 
-    const mgFormSpy = jest.spyOn(page.rootInstance.formReset, 'emit');
+    const mgFormResetSpy = jest.spyOn(page.rootInstance.formReset, 'emit');
+    const mgFormValidSpy = jest.spyOn(page.rootInstance.formValid, 'emit');
 
     // Mock reset method for all inputs
     const mgInputs = Array.from(mgForm.querySelectorAll('*')).filter((node: Node) => node.nodeName.startsWith('MG-INPUT')) as HTMLMgInputsElement[];
@@ -588,13 +589,15 @@ describe('mg-form', () => {
     await page.waitForChanges();
 
     if (type === 'reset') {
-      expect(mgFormSpy).toHaveBeenCalledWith(true);
+      expect(mgFormResetSpy).toHaveBeenCalledWith(true);
+      expect(mgFormValidSpy).toHaveBeenCalledWith(true);
       // Verify that reset was called for each input
       mgInputs.forEach(input => {
         expect(input.reset).toHaveBeenCalled();
       });
     } else {
-      expect(mgFormSpy).not.toHaveBeenCalled();
+      expect(mgFormResetSpy).not.toHaveBeenCalled();
+      expect(mgFormValidSpy).not.toHaveBeenCalled();
       // Verify that reset was NOT called for each input
       mgInputs.forEach(input => {
         expect(input.reset).not.toHaveBeenCalled();

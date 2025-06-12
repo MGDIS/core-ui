@@ -6,9 +6,10 @@ import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
 import { toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/dist/tests';
 
-const getPage = (args, customSlots?) =>
-  newSpecPage({
+const getPage = (args, customSlots?) => {
+  const page = newSpecPage({
     components: [MgInputToggle, MgIcon, MgInput, MgInputTitle],
     template: () => (
       <mg-input-toggle {...args}>
@@ -24,6 +25,11 @@ const getPage = (args, customSlots?) =>
       </mg-input-toggle>
     ),
   });
+
+  setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
+
+  return page;
+};
 
 const renderSlot = (title: string, index: number) => <span slot={`item-${index + 1}`}>{title}</span>;
 
@@ -349,10 +355,12 @@ describe('mg-input-toggle', () => {
       // Verify the value has changed
       expect(mgInputToggle.value).toEqual(true);
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
       await mgInputToggle.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify the value has been reset
       expect(mgInputToggle.value).toEqual(false);
     });
@@ -374,10 +382,12 @@ describe('mg-input-toggle', () => {
       // Verify initial state
       expect(page.root).toMatchSnapshot();
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
       await mgInputToggle.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify reset state
       expect(page.root).toMatchSnapshot();
     });
@@ -398,10 +408,12 @@ describe('mg-input-toggle', () => {
       // Capture initial value
       const initialValue = mgInputToggle.value;
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Try to reset
       await mgInputToggle.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).not.toHaveBeenCalled();
       // Verify value remains unchanged
       expect(mgInputToggle.value).toEqual(initialValue);
     });

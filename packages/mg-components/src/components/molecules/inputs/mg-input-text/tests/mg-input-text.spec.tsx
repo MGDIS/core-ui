@@ -521,10 +521,12 @@ describe('mg-input-text', () => {
       // Verify initial value is set
       expect(element.value).toEqual('Chase');
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
       await element.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify value has been reset
       expect(element.value).toEqual('');
     });
@@ -543,10 +545,12 @@ describe('mg-input-text', () => {
       // Verify error state
       expect(page.root).toMatchSnapshot();
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
       await element.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify reset state
       expect(page.root).toMatchSnapshot();
     });
@@ -563,10 +567,12 @@ describe('mg-input-text', () => {
       // Capture initial value
       const initialValue = element.value;
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Try to reset
       await element.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).not.toHaveBeenCalled();
       // Verify value remains unchanged
       expect(element.value).toEqual(initialValue);
     });

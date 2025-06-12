@@ -24,21 +24,25 @@ const args = {
  * @returns HTMLElement
  */
 const Template = (args: MgFormType): HTMLElement => {
-  let form;
-  let submit;
-  let canSubmit = false;
+  let form: HTMLMgFormElement;
+  let submit: HTMLMgButtonElement;
+  const onFormValid = e => {
+    if (!Boolean(form) || !Boolean(submit)) return;
+    form.valid = e.detail;
+    submit.disabled = !form.valid;
+  };
+  const onSubmit = () => {
+    window.alert('Your form has been submitted');
+  };
   return (
     <mg-form
       {...filterArgs(args)}
-      onForm-valid={e => {
-        submit.disabled = !e.detail;
-        canSubmit = submit.disabled;
-      }}
-      onForm-submit={() => {
-        window.alert('Your form has been submitted');
-      }}
-      ref={(el: HTMLMgFormElement) => {
-        form = el;
+      // eslint-disable-next-line react/jsx-no-bind
+      onForm-valid={onFormValid}
+      // eslint-disable-next-line react/jsx-no-bind
+      onForm-submit={onSubmit}
+      ref={e => {
+        form = e;
       }}
     >
       <mg-input-checkbox
@@ -70,7 +74,6 @@ const Template = (args: MgFormType): HTMLElement => {
       <mg-button
         slot="actions"
         id="can-submit"
-        disabled={canSubmit}
         ref={e => {
           submit = e;
         }}

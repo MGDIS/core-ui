@@ -717,10 +717,12 @@ describe('mg-input-numeric', () => {
       // Verify initial state
       expect(element.value).toEqual('5');
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
       await element.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify value has been reset
       expect(element.value).toEqual('');
     });
@@ -739,10 +741,12 @@ describe('mg-input-numeric', () => {
       // Verify initial state
       expect(page.root).toMatchSnapshot();
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
       await element.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify reset state
       expect(page.root).toMatchSnapshot();
     });
@@ -759,10 +763,12 @@ describe('mg-input-numeric', () => {
       // Capture initial value
       const initialValue = element.value;
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Try to reset
       await element.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).not.toHaveBeenCalled();
       // Verify value remains unchanged
       expect(element.value).toEqual(initialValue);
     });

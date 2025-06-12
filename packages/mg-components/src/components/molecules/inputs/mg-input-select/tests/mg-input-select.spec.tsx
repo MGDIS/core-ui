@@ -522,10 +522,12 @@ describe('mg-input-select', () => {
       // Check initial state
       expect(element.value).toEqual('Marshall');
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
       await element.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Check that value has been reset
       expect(element.value).toBeNull();
     });
@@ -546,10 +548,12 @@ describe('mg-input-select', () => {
       // Verify initial state
       expect(page.root).toMatchSnapshot();
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
       await element.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify reset state
       expect(page.root).toMatchSnapshot();
     });
@@ -569,10 +573,12 @@ describe('mg-input-select', () => {
       // Capture initial value
       const initialValue = element.value;
 
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Try to reset
       await element.reset();
       await page.waitForChanges();
 
+      expect(requestAnimationFrameSpy).not.toHaveBeenCalled();
       // Verify value remains unchanged
       expect(element.value).toEqual(initialValue);
     });
