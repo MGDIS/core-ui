@@ -27,9 +27,8 @@ const Template = (args: MgFormType): HTMLElement => {
   let form: HTMLMgFormElement;
   let submit: HTMLMgButtonElement;
   const onFormValid = e => {
-    if (!Boolean(form) || !Boolean(submit)) return;
-    form.valid = e.detail;
-    submit.disabled = !form.valid;
+    if (form === undefined || submit === undefined) return;
+    submit.disabled = !e.detail;
   };
   const onSubmit = () => {
     window.alert('Your form has been submitted');

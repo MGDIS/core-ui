@@ -33,7 +33,11 @@ const waitForEditor = async (page: SpecPage): Promise<{ element: HTMLMgInputRich
   const input = element.shadowRoot.querySelector('.ql-editor') as HTMLinput;
   const editor = page.rootInstance.editor;
 
-  expect(input).not.toBeNull();
+  if (element.readonly) {
+    expect(input).toBeNull();
+  } else {
+    expect(input).not.toBeNull();
+  }
   return { element, editor, input };
 };
 
@@ -311,6 +315,25 @@ describe('mg-input-rich-text-editor', () => {
 
       expect(element.value).toBe('');
       expect(errorElement).toBeNull();
+    });
+
+    test('Should not trigger reset content when component is readonly', async () => {
+      const value = '<p>Initial content</p>';
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        value,
+        readonly: true,
+      });
+      const { element } = await waitForEditor(page);
+
+      const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
+      // Call reset method
+      await element.reset();
+      await page.waitForChanges();
+
+      expect(requestAnimationFrameSpy).not.toHaveBeenCalled();
+      expect(element.value).toEqual(value);
     });
 
     test('Should reset hasDisplayedError when validity changes', async () => {
