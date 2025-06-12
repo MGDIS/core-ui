@@ -259,23 +259,24 @@ export class MgInputRichTextEditor {
    */
   @Method()
   async reset(): Promise<void> {
-    if (this.readonly) return;
-    this.value = '';
-    this.editor.setText('');
-    // Use `Promise` as requested for stencil method
-    // Use `requestAnimationFrame` to ensure:
-    // - DOM is fully updated before validation
-    // - Async operations are completed
-    // - No timing issues with Stencil's render cycle
-    // - Keep everything in sync both inside and outside the component
-    return new Promise(resolve => {
-      requestAnimationFrame(() => {
-        this.checkValidity();
-        this.errorMessage = undefined;
-        this.hasDisplayedError = false;
-        resolve();
+    if (!this.readonly) {
+      this.value = '';
+      this.editor.setText('');
+      // Use `Promise` as requested for stencil method
+      // Use `requestAnimationFrame` to ensure:
+      // - DOM is fully updated before validation
+      // - Async operations are completed
+      // - No timing issues with Stencil's render cycle
+      // - Keep everything in sync both inside and outside the component
+      return new Promise(resolve => {
+        requestAnimationFrame(() => {
+          this.checkValidity();
+          this.errorMessage = undefined;
+          this.hasDisplayedError = false;
+          resolve();
+        });
       });
-    });
+    }
   }
 
   /**
@@ -410,17 +411,18 @@ export class MgInputRichTextEditor {
    * add listeners and render editor element
    */
   componentDidLoad(): void {
-    if (this.readonly) return;
-    this.editor = defineEditor(this.wrapperElement, {
-      theme: 'snow',
-      modules: this.modules,
-      readOnly: this.readonly || this.disabled,
-      placeholder: this.placeholder,
-      value: this.value,
-      handleTextChange: this.handleTextChange,
-      handleBlur: this.handleBlur,
-      handleFocus: this.handleFocus,
-    });
+    if (!this.readonly) {
+      this.editor = defineEditor(this.wrapperElement, {
+        theme: 'snow',
+        modules: this.modules,
+        readOnly: this.readonly || this.disabled,
+        placeholder: this.placeholder,
+        value: this.value,
+        handleTextChange: this.handleTextChange,
+        handleBlur: this.handleBlur,
+        handleFocus: this.handleFocus,
+      });
+    }
   }
 
   /**
