@@ -1,5 +1,26 @@
 # @mgdis/mg-components
 
+## 6.13.0
+
+### Minor Changes
+
+- a5a0316: **`<mg-input-**>` add setFocus() on all inputs
+- 51ac6c6: [**`<mg-form>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-form--docs) `<mg-button type="reset">` in `<mg-form>` trigger `mgForm.reset()` and emit `form-reset` event
+- 69176eb: [**`<mg-table>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-table--docs) manage icon placement for 2 lines header
+
+### Patch Changes
+
+- 98c2bbd: [#562](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/562) mg-input-checkbox: disabled values can be selected or unselected
+- ac33c0a: [#559](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/559) mg-input-combobox: unwanted scroll on focus or blur
+- bcfc292: [#565](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/565) mg-input-numeric: valid/invalid wrong property description
+- 2cda5b3: Update dependencies
+- Updated dependencies [ac33c0a]
+- Updated dependencies [69176eb]
+- Updated dependencies [2cda5b3]
+  - @mgdis/styles@2.8.0
+  - @mgdis/core-ui-helpers@1.0.1
+  - @mgdis/img@2.4.4
+
 ## 6.12.0
 
 ### Minor Changes

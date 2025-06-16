@@ -1,5 +1,11 @@
 # @mgdis/release-bot
 
+## 1.0.2
+
+### Patch Changes
+
+- 2cda5b3: Update dependencies
+
 ## 1.0.1
 
 ### Patch Changes

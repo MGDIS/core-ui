@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.9
+
+### Patch Changes
+
+- Updated dependencies [31b8bdb]
+- Updated dependencies [761def9]
+  - @mgdis/eslint-plugin-vue@4.1.8
+
 ## 3.0.8
 
 ### Patch Changes

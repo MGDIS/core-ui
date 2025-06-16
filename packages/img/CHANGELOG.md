@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 2.4.4
+
+### Patch Changes
+
+- 2cda5b3: Update dependencies
+
 ## 2.4.3
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.1.8
+
+### Patch Changes
+
+- 31b8bdb: [#522](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/522) eslint-plugin-vue: error with the naming-convention rules if used with variables
+- 761def9: [#540](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/540) eslint-plugin-vuejs: Issue when using dynamic props
+
 ## 4.1.7
 
 ### Patch Changes
