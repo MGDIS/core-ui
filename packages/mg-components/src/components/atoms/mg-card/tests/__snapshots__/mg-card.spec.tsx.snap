@@ -11,6 +11,17 @@ exports[`mg-card render 1`] = `
 </mg-card>
 `;
 
+exports[`mg-card should have correct radius class 1`] = `
+<mg-card>
+  <template shadowrootmode="open">
+    <div class="mg-c-card mg-c-card--radius-small mg-c-card--shadow">
+      <slot></slot>
+    </div>
+  </template>
+  With small radius
+</mg-card>
+`;
+
 exports[`mg-card should not have box-shadow when hideShadow is true 1`] = `
 <mg-card>
   <template shadowrootmode="open">
@@ -19,5 +30,16 @@ exports[`mg-card should not have box-shadow when hideShadow is true 1`] = `
     </div>
   </template>
   Without shadow
+</mg-card>
+`;
+
+exports[`mg-card should not have radius class by default 1`] = `
+<mg-card>
+  <template shadowrootmode="open">
+    <div class="mg-c-card mg-c-card--shadow">
+      <slot></slot>
+    </div>
+  </template>
+  With default radius
 </mg-card>
 `;

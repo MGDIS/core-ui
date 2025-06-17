@@ -10,9 +10,14 @@ import { Component, h, Prop } from '@stencil/core';
 })
 export class MgCard {
   /**
-   * Hide the box-shadow style (default: false)
+   * Hide the box-shadow style
    */
   @Prop() hideShadow = false;
+
+  /**
+   * Define the border radius size
+   */
+  @Prop() radius: 'small' | 'medium' | 'large' = 'large';
 
   /**
    * Determines whether the card should display a box shadow.
@@ -32,7 +37,7 @@ export class MgCard {
    */
   render(): HTMLElement {
     return (
-      <div class={`mg-c-card${this.hasBoxShadow ? ' mg-c-card--shadow' : ''}`}>
+      <div class={`mg-c-card${this.hasBoxShadow ? ' mg-c-card--shadow' : ''}${this.radius !== 'large' ? ` mg-c-card--radius-${this.radius}` : ''}`}>
         <slot></slot>
       </div>
     );

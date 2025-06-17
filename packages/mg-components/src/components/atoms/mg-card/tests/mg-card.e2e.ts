@@ -33,4 +33,13 @@ test.describe('mg-card', () => {
     await expect(card).not.toHaveClass(/mg-c-card--shadow/);
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
+  test('Should render with different radius sizes', async ({ page }) => {
+    await page.setContent(`
+      ${createHTML({ radius: 'small' }, 'Small radius')}
+      ${createHTML({ radius: 'medium' }, 'Medium radius')}
+      ${createHTML({ radius: 'large' }, 'Large radius')}
+    `);
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
 });
