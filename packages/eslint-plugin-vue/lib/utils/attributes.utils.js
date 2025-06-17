@@ -83,9 +83,19 @@ module.exports = {
     let templateLiteral = '';
     for (let i = 0; i < expression.quasis.length; i++) {
       const quasi = expression.quasis[i];
-      templateLiteral += quasi.value.cooked ?? '';
+      const quasiValue = quasi.value.cooked ?? '';
       if (i < expression.expressions.length) {
-        templateLiteral += module.exports.getValue(expression.expressions[i]);
+        const expressionValue = module.exports.getValue(expression.expressions[i]);
+        if (expressionValue.includes(' ')) {
+          templateLiteral += expressionValue
+            .split(' ')
+            .map(part => `${quasiValue}${part}`)
+            .join(' ');
+        } else {
+          templateLiteral += `${quasiValue}${expressionValue}`;
+        }
+      } else {
+        templateLiteral += quasiValue;
       }
     }
     return templateLiteral;
