@@ -36,8 +36,12 @@ export class MgCard {
    * @returns HTML Element
    */
   render(): HTMLElement {
+    const classes = ['mg-c-card'];
+    if (this.hasBoxShadow) classes.push('mg-c-card--shadow');
+    if (this.radius !== 'large') classes.push(`mg-c-card--radius-${this.radius}`);
+
     return (
-      <div class={`mg-c-card${this.hasBoxShadow ? ' mg-c-card--shadow' : ''}${this.radius !== 'large' ? ` mg-c-card--radius-${this.radius}` : ''}`}>
+      <div class={classes.join(' ')}>
         <slot></slot>
       </div>
     );
