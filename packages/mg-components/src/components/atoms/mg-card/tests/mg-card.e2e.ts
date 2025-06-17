@@ -1,5 +1,8 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
+import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
+
+const createHTML = (args, slot = '') => `<mg-card ${renderAttributes(args)}>${slot}</mg-card>`;
 
 test.describe('mg-card', () => {
   test.beforeEach(async ({ page }) => {
@@ -18,9 +21,16 @@ test.describe('mg-card', () => {
           content: 'mg-card:has(> mg-card){--mg-c-card-color-background:var(--mg-b-color-danger)}.custom-card--info{--mg-c-card-color-background:var(--mg-b-color-info)}',
         });
       }
-      await page.setContent(`<mg-card>${slot}</mg-card>`);
+      await page.setContent(createHTML({}, slot));
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
+  });
+
+  test('Should not have box-shadow when hide-shadow is true', async ({ page }) => {
+    await page.setContent(createHTML({ hideShadow: true }, 'Without shadow'));
+    const card = page.locator('mg-card');
+    await expect(card).not.toHaveClass(/mg-c-card--shadow/);
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });

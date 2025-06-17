@@ -3,6 +3,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property     | Attribute     | Description                                | Type      | Default |
+| ------------ | ------------- | ------------------------------------------ | --------- | ------- |
+| `hideShadow` | `hide-shadow` | Hide the box-shadow style (default: false) | `boolean` | `false` |
+
+
 ## Slots
 
 | Slot | Description  |

@@ -29,7 +29,10 @@
   border: var(--mg-c-card-border, var(--mg-c-card-border-default));
   border-radius: var(--mg-c-card-border-radius, var(--mg-c-card-border-radius-default));
   background: var(--mg-c-card-color-background, var(--mg-c-card-color-background-default));
-  box-shadow: var(--mg-c-card-box-shadow, var(--mg-c-card-box-shadow-default));
 
   @include reset-mg-card-slotted-variables.reset-slot-card-variables;
+
+  &.mg-c-card--shadow {
+    box-shadow: var(--mg-c-card-box-shadow, var(--mg-c-card-box-shadow-default));
+  }
 }

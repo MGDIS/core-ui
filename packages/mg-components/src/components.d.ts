@@ -168,6 +168,10 @@ export namespace Components {
         "variant": VariantType1;
     }
     interface MgCard {
+        /**
+          * Hide the box-shadow style (default: false)
+         */
+        "hideShadow": boolean;
     }
     interface MgCharacterLeft {
         /**
@@ -2734,6 +2738,10 @@ declare namespace LocalJSX {
         "variant"?: VariantType1;
     }
     interface MgCard {
+        /**
+          * Hide the box-shadow style (default: false)
+         */
+        "hideShadow"?: boolean;
     }
     interface MgCharacterLeft {
         /**
