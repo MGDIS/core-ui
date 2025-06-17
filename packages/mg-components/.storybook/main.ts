@@ -38,16 +38,13 @@ const config: StorybookConfig = {
   },
   addons: [
     getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-docs'),
+    getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('storybook-addon-tag-badges'),
   ],
   framework: {
     name: getAbsolutePath('@storybook/html-vite'),
     options: {},
-  },
-  docs: {
-    autodocs: true,
   },
   staticDirs: getFilePathsEndingWith(join(__dirname, '../src/'), '/img').reduce((acc: any[], from) => {
     acc.push(

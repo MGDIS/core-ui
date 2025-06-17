@@ -651,9 +651,6 @@ importers:
       '@storybook/addon-a11y':
         specifier: 9.0.10
         version: 9.0.10(storybook@9.0.10(@testing-library/dom@10.4.0)(prettier@3.5.3))
-      '@storybook/addon-actions':
-        specifier: 9.0.8
-        version: 9.0.8
       '@storybook/addon-docs':
         specifier: 9.0.10
         version: 9.0.10(@types/react@19.1.8)(storybook@9.0.10(@testing-library/dom@10.4.0)(prettier@3.5.3))
@@ -2339,9 +2336,6 @@ packages:
     resolution: {integrity: sha512-OK2scROYje3+SuPPz+xcZ2aoRqPI8QhWQZXeI+5FjS9vQtrJXysJSK47uYzakbSH9onhiTAFJA5rp3Gt+shh2w==}
     peerDependencies:
       storybook: ^9.0.10
-
-  '@storybook/addon-actions@9.0.8':
-    resolution: {integrity: sha512-LFePu7PPnWN0Il/uoUpmA5T0J0C7d6haJIbg0pXrjxW2MQVSYXE4S4LSUz8fOImltBDV3xAl6tLPYHFj6VcrOA==}
 
   '@storybook/addon-docs@9.0.10':
     resolution: {integrity: sha512-/XlfIbKKRtUe3fAvvg/Y4gb1+lpVeBMVW26MwXpuLBxNgHeEwgnca52uMfDSAH74v5RJTuiA4KBf3xA1lVXa7w==}
@@ -9133,8 +9127,6 @@ snapshots:
       '@storybook/global': 5.0.0
       axe-core: 4.10.3
       storybook: 9.0.10(@testing-library/dom@10.4.0)(prettier@3.5.3)
-
-  '@storybook/addon-actions@9.0.8': {}
 
   '@storybook/addon-docs@9.0.10(@types/react@19.1.8)(storybook@9.0.10(@testing-library/dom@10.4.0)(prettier@3.5.3))':
     dependencies:
