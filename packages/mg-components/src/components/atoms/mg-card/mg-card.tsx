@@ -1,4 +1,5 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, State, Watch } from '@stencil/core';
+import { ClassList } from '@mgdis/core-ui-helpers/dist/utils';
 
 /**
  * @slot - Card content
@@ -13,35 +14,54 @@ export class MgCard {
    * Hide the box-shadow style
    */
   @Prop() hideShadow = false;
+  @Watch('hideShadow')
+  watchHideShadow(newValue: boolean): void {
+    if (newValue) {
+      this.classCollection.delete('mg-c-card--shadow');
+    } else {
+      this.classCollection.add('mg-c-card--shadow');
+    }
+  }
 
   /**
    * Define the border radius size
    */
   @Prop() radius: 'small' | 'medium' | 'large' = 'large';
+  @Watch('radius')
+  watchRadius(newValue: 'small' | 'medium' | 'large'): void {
+    // Remove all possible radius classes
+    this.classCollection.delete('mg-c-card--radius-small');
+    this.classCollection.delete('mg-c-card--radius-medium');
+    // Add new class if needed
+    if (newValue !== 'large') {
+      this.classCollection.add(`mg-c-card--radius-${newValue}`);
+    }
+  }
 
   /**
-   * Determines whether the card should display a box shadow.
-   * @returns `true` if the `hideShadow` property is not set to `true`.
+   * Component classes
    */
-  private get hasBoxShadow(): boolean {
-    return !this.hideShadow;
-  }
+  @State() classCollection: ClassList = new ClassList(['mg-c-card']);
 
   /*************
    * Lifecycle *
    *************/
 
   /**
+   * Check if component props are well configured on init
+   */
+  componentWillLoad(): void {
+    this.watchHideShadow(this.hideShadow);
+    this.watchRadius(this.radius);
+  }
+
+  /**
    * Render
    * @returns HTML Element
    */
   render(): HTMLElement {
-    const classes = ['mg-c-card'];
-    if (this.hasBoxShadow) classes.push('mg-c-card--shadow');
-    if (this.radius !== 'large') classes.push(`mg-c-card--radius-${this.radius}`);
-
     return (
-      <div class={classes.join(' ')}>
+      <div class={this.classCollection.join()}>
         <slot></slot>
       </div>
     );
