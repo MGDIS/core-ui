@@ -17,8 +17,15 @@ describe('mg-card', () => {
     expect(root).toMatchSnapshot();
   });
 
-  test('should not have box-shadow when hideShadow is true', async () => {
-    const { root } = await getPage({ hideShadow: true }, 'Without shadow');
+  test('should have box-shadow when shadow is true', async () => {
+    const { root } = await getPage({ shadow: true }, 'With shadow');
+    const card = root.shadowRoot.querySelector('.mg-c-card');
+    expect(card.classList.contains('mg-c-card--shadow')).toBe(true);
+    expect(root).toMatchSnapshot();
+  });
+
+  test('should not have box-shadow by default', async () => {
+    const { root } = await getPage({}, 'Without shadow');
     const card = root.shadowRoot.querySelector('.mg-c-card');
     expect(card.classList.contains('mg-c-card--shadow')).toBe(false);
     expect(root).toMatchSnapshot();

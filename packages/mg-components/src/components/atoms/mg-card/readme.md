@@ -5,10 +5,10 @@
 
 ## Properties
 
-| Property     | Attribute     | Description                   | Type                             | Default   |
-| ------------ | ------------- | ----------------------------- | -------------------------------- | --------- |
-| `hideShadow` | `hide-shadow` | Hide the box-shadow style     | `boolean`                        | `false`   |
-| `radius`     | `radius`      | Define the border radius size | `"large" \| "medium" \| "small"` | `'large'` |
+| Property | Attribute | Description                   | Type                             | Default   |
+| -------- | --------- | ----------------------------- | -------------------------------- | --------- |
+| `radius` | `radius`  | Define the border radius size | `"large" \| "medium" \| "small"` | `'large'` |
+| `shadow` | `shadow`  | Add box-shadow style          | `boolean`                        | `false`   |
 
 
 ## Slots

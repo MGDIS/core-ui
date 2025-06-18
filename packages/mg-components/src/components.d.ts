@@ -169,13 +169,13 @@ export namespace Components {
     }
     interface MgCard {
         /**
-          * Hide the box-shadow style
-         */
-        "hideShadow": boolean;
-        /**
           * Define the border radius size
          */
         "radius": 'small' | 'medium' | 'large';
+        /**
+          * Add box-shadow style
+         */
+        "shadow": boolean;
     }
     interface MgCharacterLeft {
         /**
@@ -2743,13 +2743,13 @@ declare namespace LocalJSX {
     }
     interface MgCard {
         /**
-          * Hide the box-shadow style
-         */
-        "hideShadow"?: boolean;
-        /**
           * Define the border radius size
          */
         "radius"?: 'small' | 'medium' | 'large';
+        /**
+          * Add box-shadow style
+         */
+        "shadow"?: boolean;
     }
     interface MgCharacterLeft {
         /**

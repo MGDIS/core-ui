@@ -11,15 +11,15 @@ import { ClassList } from '@mgdis/core-ui-helpers/dist/utils';
 })
 export class MgCard {
   /**
-   * Hide the box-shadow style
+   * Add box-shadow style
    */
-  @Prop() hideShadow = false;
-  @Watch('hideShadow')
-  watchHideShadow(newValue: boolean): void {
+  @Prop() shadow = false;
+  @Watch('shadow')
+  watchShadow(newValue: boolean): void {
     if (newValue) {
-      this.classCollection.delete('mg-c-card--shadow');
-    } else {
       this.classCollection.add('mg-c-card--shadow');
+    } else {
+      this.classCollection.delete('mg-c-card--shadow');
     }
   }
 
@@ -51,7 +51,7 @@ export class MgCard {
    * Check if component props are well configured on init
    */
   componentWillLoad(): void {
-    this.watchHideShadow(this.hideShadow);
+    this.watchShadow(this.shadow);
     this.watchRadius(this.radius);
   }
 
