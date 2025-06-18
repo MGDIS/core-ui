@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.9
+
+### Patch Changes
+
+- b400216: [#522](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/522) eslint-plugin-vue: error with the naming-convention rules if used with variables
+
 ## 4.1.8
 
 ### Patch Changes

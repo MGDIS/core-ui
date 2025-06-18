@@ -1,5 +1,13 @@
 # Changelog
 
+## Release (2025-06-18-12-33_Alive-Asparagus-Ape)
+
+### Packages released
+
+- [eslint-config-vue3 changelog](packages/eslint-config-vue3/CHANGELOG.md)
+- [eslint-plugin-vue changelog](packages/eslint-plugin-vue/CHANGELOG.md)
+- [linting-vue2 changelog](packages/linting-vue2/CHANGELOG.md)
+
 ## Release (2025-06-16-14-55_Delightful-Desert-Sand-Duck)
 
 ### Packages released
