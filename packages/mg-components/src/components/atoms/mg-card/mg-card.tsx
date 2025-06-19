@@ -32,8 +32,8 @@ export class MgCard {
     // Remove all possible radius classes
     this.classCollection.delete('mg-c-card--radius-small');
     this.classCollection.delete('mg-c-card--radius-medium');
-    // Add new class if needed
-    if (newValue !== 'large') {
+    // Add new class only if radius is valid and not large (default)
+    if (newValue === 'small' || newValue === 'medium') {
       this.classCollection.add(`mg-c-card--radius-${newValue}`);
     }
   }
