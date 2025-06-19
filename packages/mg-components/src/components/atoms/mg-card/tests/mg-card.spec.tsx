@@ -32,16 +32,16 @@ describe('mg-card', () => {
   });
 
   test('should have correct radius class', async () => {
-    const { root } = await getPage({ radius: 'small' }, 'With small radius');
+    const { root } = await getPage({ radius: 'xsmall' }, 'With xsmall radius');
     const card = root.shadowRoot.querySelector('.mg-c-card');
-    expect(card.classList.contains('mg-c-card--radius-small')).toBe(true);
+    expect(card.classList.contains('mg-c-card--radius-xsmall')).toBe(true);
     expect(root).toMatchSnapshot();
   });
 
   test('should not have radius class by default', async () => {
     const { root } = await getPage({}, 'With default radius');
     const card = root.shadowRoot.querySelector('.mg-c-card');
-    expect(card.classList.contains('mg-c-card--radius-large')).toBe(false);
+    expect(card.classList.contains('mg-c-card--radius-medium')).toBe(false);
     expect(root).toMatchSnapshot();
   });
 });

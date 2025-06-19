@@ -29,9 +29,9 @@ test.describe('mg-card', () => {
 
   test('Should render with different radius sizes', async ({ page }) => {
     await page.setContent(`
+      ${createHTML({ radius: 'xsmall' }, 'XSmall radius')}
       ${createHTML({ radius: 'small' }, 'Small radius')}
       ${createHTML({ radius: 'medium' }, 'Medium radius')}
-      ${createHTML({ radius: 'large' }, 'Large radius')}
     `);
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });

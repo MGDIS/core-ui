@@ -171,7 +171,7 @@ export namespace Components {
         /**
           * Define the border radius size
          */
-        "radius": 'small' | 'medium' | 'large';
+        "radius": 'xsmall' | 'small' | 'medium';
         /**
           * Add box-shadow style
          */
@@ -2745,7 +2745,7 @@ declare namespace LocalJSX {
         /**
           * Define the border radius size
          */
-        "radius"?: 'small' | 'medium' | 'large';
+        "radius"?: 'xsmall' | 'small' | 'medium';
         /**
           * Add box-shadow style
          */

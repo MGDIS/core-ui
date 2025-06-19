@@ -26,14 +26,14 @@ export class MgCard {
   /**
    * Define the border radius size
    */
-  @Prop() radius: 'small' | 'medium' | 'large' = 'large';
+  @Prop() radius: 'xsmall' | 'small' | 'medium' = 'medium';
   @Watch('radius')
-  watchRadius(newValue: 'small' | 'medium' | 'large'): void {
+  watchRadius(newValue: 'xsmall' | 'small' | 'medium'): void {
     // Remove all possible radius classes
+    this.classCollection.delete('mg-c-card--radius-xsmall');
     this.classCollection.delete('mg-c-card--radius-small');
-    this.classCollection.delete('mg-c-card--radius-medium');
-    // Add new class only if radius is valid and not large (default)
-    if (newValue === 'small' || newValue === 'medium') {
+    // Add new class only if radius is valid and not medium (default)
+    if (newValue === 'xsmall' || newValue === 'small') {
       this.classCollection.add(`mg-c-card--radius-${newValue}`);
     }
   }
