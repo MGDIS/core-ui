@@ -33,6 +33,8 @@
   @include reset-mg-card-slotted-variables.reset-slot-card-variables;
 
   &.mg-c-card--shadow {
+    --mg-c-card-border: var(--mg-b-color-neutral-20);
+
     box-shadow: var(--mg-c-card-box-shadow, var(--mg-c-card-box-shadow-default));
   }
 
