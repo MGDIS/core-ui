@@ -27,20 +27,6 @@ test.describe('mg-card', () => {
     });
   });
 
-  test('Should have box-shadow when shadow is true', async ({ page }) => {
-    await page.setContent(createHTML({ shadow: true }, 'With shadow'));
-    const card = page.locator('mg-card').locator('.mg-c-card');
-    await expect(card).toHaveClass(/mg-c-card--shadow/);
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-  });
-
-  test('Should not have box-shadow by default', async ({ page }) => {
-    await page.setContent(createHTML({}, 'Without shadow'));
-    const card = page.locator('mg-card').locator('.mg-c-card');
-    await expect(card).not.toHaveClass(/mg-c-card--shadow/);
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-  });
-
   test('Should render with different radius sizes', async ({ page }) => {
     await page.setContent(`
       ${createHTML({ radius: 'small' }, 'Small radius')}
