@@ -13,7 +13,7 @@ import { MgInputText } from '../../inputs/mg-input-text/mg-input-text';
 import { MgInputTextarea } from '../../inputs/mg-input-textarea/mg-input-textarea';
 import { MgInputToggle } from '../../inputs/mg-input-toggle/mg-input-toggle';
 import { HTMLMgInputsElement } from '../../inputs/mg-input/mg-input.conf';
-import { setupMutationObserverMock, setUpRequestAnimationFrameMock, setupSubmitEventMock } from '@mgdis/core-ui-helpers/dist/tests';
+import { setUpHTMLInputElementValidity, setupMutationObserverMock, setUpRequestAnimationFrameMock, setupSubmitEventMock } from '@mgdis/core-ui-helpers/dist/tests';
 import { MgInputTitle } from '../../../atoms/internals/mg-input-title/mg-input-title';
 import { requiredMessageStatus, roles } from '../mg-form.conf';
 import { MgInput } from '../../inputs/mg-input/mg-input';
@@ -44,6 +44,13 @@ const getPage = async (args, content?) => {
 
   jest.runOnlyPendingTimers();
   setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
+
+  // define combobx validity mocks
+  const combobox = page.doc.querySelector('mg-input-combobox');
+  const comboboxInput = combobox?.shadowRoot.querySelector('input');
+  if (![null, undefined].includes(comboboxInput)) {
+    setUpHTMLInputElementValidity(comboboxInput);
+  }
 
   await page.waitForChanges();
 

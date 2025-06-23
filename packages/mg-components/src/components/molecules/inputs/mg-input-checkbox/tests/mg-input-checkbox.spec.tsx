@@ -134,7 +134,8 @@ describe('mg-input-checkbox', () => {
       }
     });
 
-    test.each([undefined, ['batman', 'joker', 'bane']])('Should not render with invalid value property: %s', async value => {
+    test('Should not render with invalid value property: %s', async () => {
+      const value = ['batman', 'joker', 'bane'];
       expect.assertions(1);
       try {
         await getPage({ identifier: 'identifier', type, label: 'label', value });
@@ -243,6 +244,26 @@ describe('mg-input-checkbox', () => {
           await page.waitForChanges();
           expect(page.root).toMatchSnapshot(); //Snapshot with readonly/disabled TRUE
         }
+      });
+    });
+
+    describe.each([undefined, 'no value error detail content'])('noValueErrorDetail: %%', noValueErrorDetail => {
+      test.each([undefined, null, [] as unknown[]])('Should display error message with invalid value property: %s', async value => {
+        const page = await getPage({ identifier: 'identifier', type, label: 'label', value, noValueErrorDetail });
+        const element = page.doc.querySelector('mg-input-checkbox');
+        jest.runOnlyPendingTimers();
+        await page.waitForChanges();
+
+        expect(element.valid).toEqual(false);
+        expect(element.invalid).toEqual(true);
+        expect(page.root).toMatchSnapshot();
+
+        element.value = getValues();
+        await page.waitForChanges();
+
+        expect(element.valid).toEqual(true);
+        expect(element.invalid).toEqual(false);
+        expect(page.root).toMatchSnapshot();
       });
     });
 

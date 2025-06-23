@@ -21,7 +21,7 @@ const getPage = (args, customSlots?) => {
                   <mg-icon icon={icon}></mg-icon>
                 </span>
               ))
-            : args.items.map((item, index) => renderSlot(item.title, index))}
+            : args.items?.map((item, index) => renderSlot(item.title, index))}
       </mg-input-toggle>
     ),
   });
@@ -45,6 +45,12 @@ const defaultProps = {
 };
 
 describe('mg-input-toggle', () => {
+  beforeEach(() => {
+    jest.useFakeTimers({ legacyFakeTimers: true });
+  });
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+  });
   describe.each([
     {
       ...defaultProps,
@@ -189,12 +195,10 @@ describe('mg-input-toggle', () => {
     test.each([[<span></span>], [renderSlot('oui', 1)], ['oui', 'non', 'possible'].map((title, index) => renderSlot(title, index))])(
       'Should throw an error with blank slots',
       async slots => {
-        expect.assertions(1);
-        try {
-          await getPage(defaultProps, slots);
-        } catch (err) {
-          expect(err.message).toEqual('<mg-input-toggle> 2 slots are required.');
-        }
+        const spyConsole = jest.spyOn(console, 'error');
+
+        await getPage(defaultProps, slots);
+        expect(spyConsole).toHaveBeenCalledWith('<mg-input-toggle> 2 slots are required.');
       },
     );
 
@@ -296,7 +300,6 @@ describe('mg-input-toggle', () => {
       await page.waitForChanges();
 
       expect(spyInputValid).toHaveBeenCalledTimes(1);
-
       expect(page.root).toMatchSnapshot();
     });
 
@@ -352,6 +355,37 @@ describe('mg-input-toggle', () => {
     } else {
       expect(button.focus).toHaveBeenCalled();
     }
+  });
+
+  describe.each([
+    [['batman', 'robin']],
+    [
+      [
+        { title: 'batman', value: true },
+        { title: 'robin', value: false },
+      ],
+    ],
+  ])('next items %s', (nextItems: MgInputToggle['items']) => {
+    describe.each([undefined, 'no value error detail content'])('noValueErrorDetail: %%', noValueErrorDetail => {
+      test.each([undefined, null, [] as unknown[]])('Should display error message with invalid items property: %s', async items => {
+        const page = await getPage({ ...defaultProps, items, noValueErrorDetail });
+        const element = page.doc.querySelector('mg-input-toggle');
+        const button = element.shadowRoot.querySelector('button');
+
+        expect(element.valid).toEqual(false);
+        expect(element.invalid).toEqual(true);
+        expect(button.getAttribute('disabled')).not.toBeNull();
+        expect(page.root).toMatchSnapshot();
+
+        element.items = nextItems;
+        await page.waitForChanges();
+
+        expect(element.valid).toEqual(true);
+        expect(element.invalid).toEqual(false);
+        expect(button.getAttribute('disabled')).toBeNull();
+        expect(page.root).toMatchSnapshot();
+      });
+    });
   });
 
   describe('reset method', () => {

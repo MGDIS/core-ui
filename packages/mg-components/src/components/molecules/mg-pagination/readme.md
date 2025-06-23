@@ -48,9 +48,11 @@ graph TD;
   mg-pagination --> mg-input-select
   mg-button --> mg-icon
   mg-input-select --> mg-input
+  mg-input --> mg-details
   mg-input --> mg-tooltip
   mg-input --> mg-icon
   mg-input --> mg-input-title
+  mg-details --> mg-icon
   mg-tooltip --> mg-tooltip-content
   mg-input-checkbox-paginated --> mg-pagination
   style mg-pagination fill:#f9f,stroke:#333,stroke-width:4px

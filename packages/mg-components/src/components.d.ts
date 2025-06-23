@@ -12,7 +12,7 @@ import { ButtonType, SizeType, VariantType as VariantType1 } from "./components/
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
-import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+import { ErrorMessageDetailsType, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Direction, Option } from "./types";
 import { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
@@ -43,7 +43,7 @@ export { ButtonType, SizeType, VariantType as VariantType1 } from "./components/
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
-export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+export { ErrorMessageDetailsType, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Direction, Option } from "./types";
 export { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
@@ -282,7 +282,7 @@ export namespace Components {
         /**
           * Define error message to display
          */
-        "errorMessage"?: string;
+        "errorMessage"?: string | ErrorMessageDetailsType;
         /**
           * Define help text to display
          */
@@ -332,7 +332,7 @@ export namespace Components {
         /**
           * Overwrite default "edit" button message
          */
-        "editButtonMessage": string;
+        "editButtonMessage"?: string;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -366,6 +366,10 @@ export namespace Components {
          */
         "name": string;
         /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
+        /**
           * Define if mg-input-checkbox is readonly
          */
         "readonly": boolean;
@@ -380,7 +384,7 @@ export namespace Components {
         /**
           * Overwrite default "select" button message
          */
-        "selectButtonMessage": string;
+        "selectButtonMessage"?: string;
         /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
@@ -394,7 +398,7 @@ export namespace Components {
         /**
           * Overwrite default "show" button message
          */
-        "showButtonMessage": string;
+        "showButtonMessage"?: string;
         /**
           * Add a tooltip message next to the input
          */
@@ -515,6 +519,10 @@ export namespace Components {
           * Input name If not set the value equals the identifier
          */
         "name": string;
+        /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
         /**
           * Define input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help combobox.
          */
@@ -896,6 +904,10 @@ export namespace Components {
          */
         "name": string;
         /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
+        /**
           * Define if input is readonly
          */
         "readonly": boolean;
@@ -1081,6 +1093,10 @@ export namespace Components {
           * Input name If not set the value equals the identifier
          */
         "name": string;
+        /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
         /**
           * Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
          */
@@ -1376,6 +1392,10 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * Display input error if it exists.
+         */
+        "displayError": () => Promise<void>;
+        /**
           * Add a help text under the input, usually expected data format and example
          */
         "helpText"?: string;
@@ -1383,6 +1403,10 @@ export namespace Components {
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
         "identifier": string;
+        /**
+          * Define input invalid state
+         */
+        "invalid": boolean;
         /**
           * Define if toggle display icon
          */
@@ -1412,6 +1436,10 @@ export namespace Components {
          */
         "name": string;
         /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
+        /**
           * Define if input is readonly
          */
         "readonly": boolean;
@@ -1437,6 +1465,10 @@ export namespace Components {
           * Define tooltip position
          */
         "tooltipPosition": TooltipPosition;
+        /**
+          * Define input valid state
+         */
+        "valid": boolean;
         /**
           * Component value
          */
@@ -2668,7 +2700,7 @@ declare namespace LocalJSX {
         /**
           * Define error message to display
          */
-        "errorMessage"?: string;
+        "errorMessage"?: string | ErrorMessageDetailsType;
         /**
           * Define help text to display
          */
@@ -2747,6 +2779,10 @@ declare namespace LocalJSX {
           * Define input name If not set the value equals the identifier
          */
         "name"?: string;
+        /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
         /**
           * Emited event when checking validity
          */
@@ -2891,6 +2927,10 @@ declare namespace LocalJSX {
           * Input name If not set the value equals the identifier
          */
         "name"?: string;
+        /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
         /**
           * Emited event when fetch API throw an error
          */
@@ -3244,6 +3284,10 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
+        /**
           * Emited event when checking validity
          */
         "onInput-valid"?: (event: MgInputRadioCustomEvent<HTMLMgInputRadioElement['valid']>) => void;
@@ -3399,6 +3443,10 @@ declare namespace LocalJSX {
           * Input name If not set the value equals the identifier
          */
         "name"?: string;
+        /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
         /**
           * Emited event when checking validity
          */
@@ -3676,6 +3724,10 @@ declare namespace LocalJSX {
          */
         "identifier": string;
         /**
+          * Define input invalid state
+         */
+        "invalid"?: boolean;
+        /**
           * Define if toggle display icon
          */
         "isIcon"?: boolean;
@@ -3704,6 +3756,10 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
+        /**
           * Emited event when checking validity
          */
         "onInput-valid"?: (event: MgInputToggleCustomEvent<boolean>) => void;
@@ -3723,6 +3779,10 @@ declare namespace LocalJSX {
           * Define tooltip position
          */
         "tooltipPosition"?: TooltipPosition;
+        /**
+          * Define input valid state
+         */
+        "valid"?: boolean;
         /**
           * Component value
          */

@@ -101,9 +101,11 @@ graph TD;
   mg-input-text --> mg-input
   mg-input-text --> mg-icon
   mg-input-text --> mg-character-left
+  mg-input --> mg-details
   mg-input --> mg-tooltip
   mg-input --> mg-icon
   mg-input --> mg-input-title
+  mg-details --> mg-icon
   mg-tooltip --> mg-tooltip-content
   style mg-panel fill:#f9f,stroke:#333,stroke-width:4px
 ```

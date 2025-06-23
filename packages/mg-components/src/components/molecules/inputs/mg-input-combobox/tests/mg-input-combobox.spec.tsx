@@ -7,7 +7,7 @@ import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { Cursor, toString } from '@mgdis/core-ui-helpers/dist/utils';
-import { setUpRequestAnimationFrameMock, setupResizeObserverMock } from '@mgdis/core-ui-helpers/dist/tests';
+import { setUpHTMLInputElementValidity, setUpRequestAnimationFrameMock, setupResizeObserverMock } from '@mgdis/core-ui-helpers/dist/tests';
 import { MgPopover } from '../../../mg-popover/mg-popover';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 import { mockWindowFrames } from '../../../../../utils/unit.test.utils';
@@ -24,6 +24,7 @@ const objectItems = items.map((item, key) => ({
   value: (key + 1).toString(),
 }));
 
+let fetchSpy;
 const initFetchSpy = (overrides = {}) =>
   jest.spyOn(global, 'fetch').mockResolvedValue(
     Promise.resolve({
@@ -67,19 +68,27 @@ const fetchmappings = {
 };
 const fetchurl = `http://url.fr?filter=${RequestMapping.filter}`;
 
-const getPage = (args, fetchOverrides?) => {
+const getPage = async (args, fetchOverrides?) => {
   // define fetch mock if needeed
   if (args.fetchurl) {
-    initFetchSpy(fetchOverrides);
+    fetchSpy = initFetchSpy(fetchOverrides);
   }
 
-  const page = newSpecPage({
+  const page = await newSpecPage({
     components: [MgInputCombobox, MgButton, MgIcon, MgInput, MgInputTitle, MgPopover, MgPopoverContent],
     template: () => <mg-input-combobox {...args}></mg-input-combobox>,
   });
 
+  const combobox = page.doc.querySelector('mg-input-combobox');
+  const input = combobox?.shadowRoot.querySelector('input');
+  if (![null, undefined].includes(input)) {
+    setUpHTMLInputElementValidity(input);
+  }
+
   jest.runAllTimers();
   setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
+
+  await page.waitForChanges();
 
   return page;
 };
@@ -97,9 +106,6 @@ describe('mg-input-combobox', () => {
   });
   test.each([
     {},
-    {
-      items: [],
-    },
     {
       items: initArray(30),
     },
@@ -200,24 +206,75 @@ describe('mg-input-combobox', () => {
   });
 
   describe('input errors', () => {
+    describe.each([[items], [objectItems]])('next items %s', (nextItems: MgInputCombobox['items']) => {
+      describe.each([undefined, 'no value error detail content'])('noValueErrorDetail: %s', noValueErrorDetail => {
+        test.each([undefined, null, [] as unknown[]])('Should display error message with invalid items property: %s', async items => {
+          const page = await getPage({ ...baseProps, items, noValueErrorDetail });
+          const element = page.doc.querySelector('mg-input-combobox');
+
+          expect(element.valid).toEqual(false);
+          expect(element.invalid).toEqual(true);
+          expect(page.root).toMatchSnapshot();
+
+          element.items = nextItems;
+          await page.waitForChanges();
+
+          expect(element.valid).toEqual(true);
+          expect(element.invalid).toEqual(false);
+          expect(page.root).toMatchSnapshot();
+        });
+
+        test.each([undefined, null, [] as unknown[]])('Should display error message with invalid fetch response property: %s', async items => {
+          const page = await getPage(
+            {
+              ...baseProps,
+              items: undefined,
+              fetchurl: '/hello-batman',
+              fetchmappings,
+              noValueErrorDetail,
+            },
+            {
+              results: items,
+              count: 0,
+            },
+          );
+          const element = page.doc.querySelector('mg-input-combobox');
+
+          expect(element.valid).toEqual(false);
+          expect(element.invalid).toEqual(true);
+          expect(page.root).toMatchSnapshot();
+
+          fetchSpy.mockResolvedValue(
+            Promise.resolve({
+              ok: true,
+              json: () =>
+                Promise.resolve({
+                  data: {
+                    results: nextItems,
+                    count: nextItems.length,
+                  },
+                }),
+            } as Response),
+          );
+          element.fetchurl = fetchurl;
+          await page.waitForChanges();
+
+          expect(element.valid).toEqual(true);
+          expect(element.invalid).toEqual(false);
+          expect(page.root).toMatchSnapshot();
+        });
+      });
+    });
     describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {
       test.each([
         { validity: true, valueMissing: false },
         { validity: false, valueMissing: true },
-      ])('validity (%s), valueMissing (%s), patternMismatch (%s)', async ({ validity, valueMissing }) => {
-        const args = { ...baseProps };
+      ])('validity (%s), valueMissing (%s)', async ({ validity, valueMissing }) => {
+        const args = { ...baseProps, required: true, value: !valueMissing ? 'batman' : undefined };
         const page = await getPage(args);
 
         const element = page.doc.querySelector('mg-input-combobox');
         const input = element.shadowRoot.querySelector('input');
-
-        //mock validity
-        input.checkValidity = jest.fn(() => validity);
-        Object.defineProperty(input, 'validity', {
-          get: jest.fn(() => ({
-            valueMissing,
-          })),
-        });
 
         input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
         await page.waitForChanges();
@@ -242,25 +299,6 @@ describe('mg-input-combobox', () => {
       const page = await getPage({ ...baseProps, required: true });
       const element = page.doc.querySelector('mg-input-combobox');
       const input = element.shadowRoot.querySelector('input');
-
-      //mock validity
-      input.checkValidity = jest.fn().mockReturnValueOnce(false).mockReturnValueOnce(true).mockReturnValueOnce(true).mockReturnValueOnce(true);
-      Object.defineProperty(input, 'validity', {
-        get: jest
-          .fn()
-          .mockReturnValueOnce({
-            valueMissing: true,
-          })
-          .mockReturnValueOnce({
-            valueMissing: true,
-          })
-          .mockReturnValueOnce({
-            valueMissing: false,
-          })
-          .mockReturnValueOnce({
-            valueMissing: false,
-          }),
-      });
 
       await element.displayError();
       await page.waitForChanges();
@@ -294,26 +332,6 @@ describe('mg-input-combobox', () => {
     test('Should remove error on input when required change dynamically', async () => {
       const page = await getPage({ ...baseProps, required: true });
       const element = page.doc.querySelector('mg-input-combobox');
-      const input = element.shadowRoot.querySelector('input');
-
-      //mock validity
-      input.checkValidity = jest.fn().mockReturnValueOnce(false).mockReturnValueOnce(true).mockReturnValueOnce(true).mockReturnValueOnce(true);
-      Object.defineProperty(input, 'validity', {
-        get: jest
-          .fn()
-          .mockReturnValueOnce({
-            valueMissing: true,
-          })
-          .mockReturnValueOnce({
-            valueMissing: true,
-          })
-          .mockReturnValueOnce({
-            valueMissing: false,
-          })
-          .mockReturnValueOnce({
-            valueMissing: false,
-          }),
-      });
 
       await element.displayError();
       await page.waitForChanges();
@@ -341,20 +359,12 @@ describe('mg-input-combobox', () => {
     test.each(['fr', 'xx'])('display error message with locale: %s', async lang => {
       const page = await getPage({ ...baseProps, required: true, lang });
       const element = page.doc.querySelector('mg-input-combobox');
-      const input = element.shadowRoot.querySelector('input');
-
-      //mock validity
-      input.checkValidity = jest.fn(() => false);
-      Object.defineProperty(input, 'validity', {
-        get: jest.fn(() => ({
-          valueMissing: true,
-        })),
-      });
 
       await element.displayError();
 
       await page.waitForChanges();
 
+      expect(element.invalid).toEqual(true);
       expect(page.root).toMatchSnapshot();
     });
     test.each(['fr', 'xx'])('display load-more message with locale: %s', async lang => {
@@ -574,6 +584,7 @@ describe('mg-input-combobox', () => {
         await page.waitForChanges();
 
         // Verify error state
+        expect(element.invalid).toEqual(true);
         expect(page.root).toMatchSnapshot();
 
         const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
@@ -583,6 +594,7 @@ describe('mg-input-combobox', () => {
 
         expect(requestAnimationFrameSpy).toHaveBeenCalled();
         // Verify reset state
+        expect(element.invalid).toEqual(false);
         expect(page.root).toMatchSnapshot();
       });
 
@@ -624,17 +636,12 @@ describe('mg-input-combobox', () => {
         expect(page.root).toMatchSnapshot();
 
         const element = page.doc.querySelector('mg-input-combobox');
-        const input = element.shadowRoot.querySelector('input');
-
-        //mock validity
-        Object.defineProperty(input, 'validity', {
-          get: () => ({}),
-        });
 
         await element.setError(params.valid, params.errorMessage);
 
         await page.waitForChanges();
-
+        expect(element.valid).toEqual(params.valid);
+        expect(element.invalid).toEqual(!params.valid);
         expect(page.root).toMatchSnapshot();
       });
 
@@ -680,20 +687,12 @@ describe('mg-input-combobox', () => {
         expect(page.root).toMatchSnapshot();
 
         const element = page.doc.querySelector('mg-input-combobox');
-        const input = element.shadowRoot.querySelector('input');
-
-        //mock validity
-        input.checkValidity = jest.fn(() => false);
-        Object.defineProperty(input, 'validity', {
-          get: jest.fn(() => ({
-            valueMissing: true,
-          })),
-        });
 
         await element.displayError();
 
         await page.waitForChanges();
-
+        expect(element.valid).toEqual(false);
+        expect(element.invalid).toEqual(true);
         expect(page.root).toMatchSnapshot();
       });
     });
@@ -709,12 +708,6 @@ describe('mg-input-combobox', () => {
       const page = await getPage({ ...baseProps, ...props });
       const element = page.doc.querySelector('mg-input-combobox');
       const input = element.shadowRoot.querySelector('input');
-
-      //mock validity
-      input.checkValidity = jest.fn().mockReturnValue(true);
-      Object.defineProperty(input, 'validity', {
-        get: jest.fn(),
-      });
 
       input.dispatchEvent(new CustomEvent('focusin', { bubbles: true }));
       await page.waitForChanges();
@@ -1181,12 +1174,7 @@ describe('mg-input-combobox', () => {
         jest.runOnlyPendingTimers();
         await page.waitForChanges();
 
-        expect(page.root).toMatchSnapshot();
-
-        // navigate throw options
-        input.dispatchEvent(new KeyboardEvent('keydown', { key }));
-        await page.waitForChanges();
-
+        // nothing append has input and button are disabled
         expect(page.root).toMatchSnapshot();
       });
       test.each([Keys.LEFT, Keys.ARROWLEFT, Keys.HOME, Keys.RIGHT, Keys.ARROWRIGHT, Keys.END])('Should handle input "%s" keyboard key', async key => {
@@ -1319,25 +1307,13 @@ describe('mg-input-combobox', () => {
         const page = await getPage({ ...baseProps, items: [] });
         const element = page.doc.querySelector('mg-input-combobox');
         const input = element.shadowRoot.querySelector('input');
+        expect(page.root).toMatchSnapshot();
 
         // clear input
         input.dispatchEvent(new KeyboardEvent('keydown', { key }));
         await page.waitForChanges();
 
-        expect(page.root).toMatchSnapshot();
-
-        // display options
-        input.dispatchEvent(new KeyboardEvent('keydown', { key: Keys.DOWN }));
-        jest.runOnlyPendingTimers();
-        await page.waitForChanges();
-
-        // render isloading
-        jest.runOnlyPendingTimers();
-        await page.waitForChanges();
-
-        // close popover and set value
-        input.dispatchEvent(new KeyboardEvent('keydown', { key }));
-        await page.waitForChanges();
+        // nothing append has input and button are disabled
         expect(page.root).toMatchSnapshot();
       });
       test('Should handle input "h" keyboard key', async () => {

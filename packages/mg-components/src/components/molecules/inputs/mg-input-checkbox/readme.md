@@ -25,6 +25,7 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 | `labelHide`               | `label-hide`              | Define if label is visible                                                                                                                                                                                                                                                       | `boolean`               | `false`           |
 | `labelOnTop`              | `label-on-top`            | Define if label is displayed on top                                                                                                                                                                                                                                              | `boolean`               | `false`           |
 | `name`                    | `name`                    | Define input name If not set the value equals the identifier                                                                                                                                                                                                                     | `string`                | `this.identifier` |
+| `noValueErrorDetail`      | `no-value-error-detail`   | Define no value error detail                                                                                                                                                                                                                                                     | `string`                | `undefined`       |
 | `readonly`                | `readonly`                | Define if mg-input-checkbox is readonly                                                                                                                                                                                                                                          | `boolean`               | `false`           |
 | `required`                | `required`                | Define if mg-input-checkbox is required                                                                                                                                                                                                                                          | `boolean`               | `false`           |
 | `selectButtonMessage`     | `select-button-message`   | Overwrite default "select" button message                                                                                                                                                                                                                                        | `string`                | `undefined`       |
@@ -127,9 +128,11 @@ graph TD;
   mg-pagination --> mg-icon
   mg-pagination --> mg-input-select
   mg-input-select --> mg-input
+  mg-input --> mg-details
   mg-input --> mg-tooltip
   mg-input --> mg-icon
   mg-input --> mg-input-title
+  mg-details --> mg-icon
   mg-popover --> mg-popover-content
   mg-popover-content --> mg-card
   mg-popover-content --> mg-button

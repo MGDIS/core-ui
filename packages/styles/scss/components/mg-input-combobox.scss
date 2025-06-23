@@ -28,7 +28,7 @@
       position: relative;
     }
 
-    &__box {
+    &__box:not(:disabled) {
       cursor: pointer;
     }
 

@@ -48,3 +48,15 @@ export const classFieldset = 'mg-c-input--fieldset';
 export const classDisabled = 'mg-c-input--disabled';
 export const classReadonly = 'mg-c-input--readonly';
 export const classVerticalList = 'mg-c-input--vertical-list';
+
+/**
+ * Define MgInput['errorMessage'] Details type
+ */
+export type ErrorMessageDetailsType = { summary: string; details: string };
+
+/**
+ * Define cutom errors
+ */
+export const CustomError = {
+  NoValue: 'noValue',
+} as const;

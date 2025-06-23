@@ -2,6 +2,8 @@ import { Component, Event, h, Prop, EventEmitter, State, Watch, Element, Method 
 import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { ToggleValue } from './mg-input-toggle.conf';
 import { classDisabled, classReadonly, type TooltipPosition } from '../mg-input/mg-input.conf';
+import { initLocales } from '../../../../locales';
+import { defineErrorMessage } from '../mg-input/mg-input.utils';
 
 /**
  * type Option validation function
@@ -26,6 +28,10 @@ export class MgInputToggle {
    ************/
 
   private button: HTMLButtonElement;
+
+  // Locales
+  private messages;
+
   // Classes
   private readonly classIsActive = 'mg-c-input--toggle-is-active';
   private readonly classOnOff = 'mg-c-input--toggle-on-off';
@@ -59,16 +65,27 @@ export class MgInputToggle {
   @Prop() items!: string[] | ToggleValue[];
   @Watch('items')
   validateItems(newValue: MgInputToggle['items']): void {
-    if (typeof newValue === 'object' && this.items.length !== 2) {
+    if ([undefined, null].includes(newValue) || (Array.isArray(newValue) && newValue.length === 0)) {
+      this.options = [];
+      this.displayError();
+    } else if (Array.isArray(newValue) && this.items.length !== 2) {
       throw new Error(`<mg-input-toggle> prop "items" require 2 items. Passed value: ${toString(newValue)}.`);
     }
     // String array
     else if (allItemsAreString(newValue)) {
       this.options = newValue.map(item => ({ title: item, value: item }));
+      // force to reset error when noValueError is displaied
+      if (this.invalid && this.hasNoValueErrorMessageDisplay()) {
+        this.resetErrorMessage();
+      }
     }
     // Object array
     else if (Array.isArray(newValue) && newValue.every(isOption)) {
       this.options = newValue;
+      // force to reset error when noValueError is displaied
+      if (this.invalid && this.hasNoValueErrorMessageDisplay()) {
+        this.resetErrorMessage();
+      }
     } else {
       throw new Error(`<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue. Passed value: ${toString(newValue)}.`);
     }
@@ -156,6 +173,21 @@ export class MgInputToggle {
   @Prop() helpText?: string;
 
   /**
+   * Define no value error detail
+   */
+  @Prop() noValueErrorDetail?: string;
+
+  /**
+   * Define input valid state
+   */
+  @Prop({ mutable: true }) valid: boolean;
+
+  /**
+   * Define input invalid state
+   */
+  @Prop({ mutable: true }) invalid: boolean;
+
+  /**
    * Component classes
    */
   @State() classCollection: ClassList = new ClassList(['mg-c-input--toggle']);
@@ -169,11 +201,6 @@ export class MgInputToggle {
    * Error message to display
    */
   @State() errorMessage: string;
-
-  /**
-   * Define input valid state
-   */
-  @State() valid: boolean;
 
   /**
    * Checked internal value
@@ -222,8 +249,7 @@ export class MgInputToggle {
     } else if (!isValidString(errorMessage)) {
       throw new Error('<mg-input-toggle> method "setError()" param "errorMessage" must be a string.');
     } else {
-      this.valid = valid;
-      this.inputValid.emit(valid);
+      this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);
     }
   }
@@ -244,12 +270,72 @@ export class MgInputToggle {
       // - Keep everything in sync both inside and outside the component
       return new Promise(resolve => {
         requestAnimationFrame(() => {
-          this.errorMessage = undefined;
+          this.resetErrorMessage();
           resolve();
         });
       });
     }
   }
+
+  /**
+   * Display input error if it exists.
+   */
+  private displayError(): Promise<void> {
+    // Use `Promise` as requested for stencil method
+    // Use `requestAnimationFrame` to ensure:
+    // - DOM is fully updated before validation
+    // - Async operations are completed
+    // - No timing issues with Stencil's render cycle
+    // - Keep everything in sync both inside and outside the component
+    return new Promise(resolve => {
+      requestAnimationFrame(() => {
+        this.checkValidity();
+        this.setErrorMessage();
+        resolve();
+      });
+    });
+  }
+
+  /**
+   * Check if input is valid
+   */
+  private checkValidity = (): void => {
+    this.setValidity(this.readonly || this.disabled || this.hasInputItems());
+  };
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputToggle['valid']) {
+    const oldValidValue = this.valid;
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    if (this.valid !== oldValidValue) {
+      this.inputValid.emit(this.valid);
+    }
+  }
+
+  /**
+   * Reset error message
+   */
+  private resetErrorMessage = (): void => {
+    this.checkValidity();
+    this.errorMessage = undefined;
+  };
+
+  /**
+   * Test if component has items
+   * @returns truthy if component has items
+   */
+  private hasInputItems = (): boolean => this.items?.length > 0;
+
+  /**
+   * Test if component has no value error message displayed
+   * @returns truthy if compent display no value error message
+   */
+  private hasNoValueErrorMessageDisplay = (): boolean => this.errorMessage === this.messages.errors.noValue;
 
   /**
    * Set input error message
@@ -259,8 +345,12 @@ export class MgInputToggle {
     // Set error message
     this.errorMessage = undefined;
     // Does have a custom error message
-    if (!this.valid && errorMessage !== undefined) {
-      this.errorMessage = errorMessage;
+    if (!this.valid) {
+      if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      } else if (!this.hasInputItems()) {
+        this.errorMessage = this.messages.errors.noValue;
+      }
     }
   };
 
@@ -277,7 +367,7 @@ export class MgInputToggle {
   private validateSlots = (): void => {
     const slots = Array.from(this.element.children);
     if (slots.length !== 2) {
-      throw new Error('<mg-input-toggle> 2 slots are required.');
+      console.error('<mg-input-toggle> 2 slots are required.');
     } else if (!this.isIcon) {
       // Due to text-overflow set to ellipsis
       // we need to ensure that slot element have title to display value on mouse over
@@ -316,6 +406,8 @@ export class MgInputToggle {
       // we need to reversed the checked value logic
       const selectedValue = this.value === this.options[optionTrueValueIndex].value;
       this.checked = optionTrueValueIndex === 0 ? !selectedValue : selectedValue;
+    } else if (Array.isArray(this.options) && this.options.length === 0) {
+      return;
     } else {
       this.checked = this.value === this.options[1].value;
     }
@@ -329,6 +421,9 @@ export class MgInputToggle {
    * Check if component props are well configured on init
    */
   componentWillLoad(): void {
+    // Get locales
+    this.messages = initLocales(this.element).messages;
+
     // Check items format
     this.validateItems(this.items);
     // Check slots
@@ -360,7 +455,7 @@ export class MgInputToggle {
         required={undefined}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
-        errorMessage={this.errorMessage}
+        errorMessage={defineErrorMessage(this.errorMessage, this.noValueErrorDetail)}
       >
         {this.readonly ? (
           checkedItem && <b class="mg-c-input__readonly-value">{checkedItem.title}</b>
@@ -372,7 +467,7 @@ export class MgInputToggle {
             aria-readonly={this.disabled || this.readonly}
             id={this.identifier}
             class="mg-c-input__button-toggle"
-            disabled={this.disabled || this.readonly}
+            disabled={this.disabled || this.readonly || !this.hasInputItems()}
             onClick={this.toggleChecked}
             ref={el => {
               if (el !== null) this.button = el;

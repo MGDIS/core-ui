@@ -64,6 +64,18 @@ describe('object', () => {
         result: { batman: 'hero' },
       },
       {
+        object: { hero: undefined },
+        key: { filter: 'hero' },
+        defaultValue: 'batman',
+        result: 'batman',
+      },
+      {
+        object: { hero: { batman: undefined } },
+        key: { filter: 'hero.batman' },
+        defaultValue: 'talk',
+        result: 'talk',
+      },
+      {
         object: {},
         key: 'batman',
         defaultValue: {},
