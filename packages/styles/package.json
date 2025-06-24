@@ -13,16 +13,23 @@
     "build": "sass scss:dist -s compressed && cp -r scss/fonts dist/fonts",
     "build:dev": "sass scss:dist",
     "test:e2e": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
-    "test:e2e:docker": "pnpm dlx @playwright/test test"
+    "test:e2e:docker": "pnpm dlx @playwright/test test",
+    "doc": "pnpm build:dev && ts-node utils/css-docs.ts"
   },
   "files": [
     "dist",
     "scss"
   ],
   "devDependencies": {
+    "@core-ui/tsconfig": "workspace:*",
     "@mgdis/core-ui-helpers": "workspace:*",
     "@playwright/test": "1.53.0",
-    "sass": "1.89.2"
+    "@types/node": "22.15.32",
+    "comment-parser": "1.4.1",
+    "postcss": "8.5.5",
+    "sass": "1.89.2",
+    "ts-node": "10.9.2",
+    "typescript": "5.8.3"
   },
   "dependencies": {
     "modern-normalize": "3.0.1"

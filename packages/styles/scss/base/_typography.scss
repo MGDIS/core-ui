@@ -35,13 +35,24 @@ p {
 
 /**
  * Headings
- *
- * Classes can also be used on element to match attending, for exemples :
- * <h4 class="mg-u-h3">blu</h4>
- * <div role="heading" aria-level="4" class="mg-u-h4">blu</div>
  */
 
 @for $i from 1 through 6 {
+  /**
+   * Utility class that applies the default `h#{$i}` typography styles.
+   * It allows using `h#{$i}` visual styles without using a semantic heading tag.
+   * 
+   * @page Utilities
+   * @example
+   * ```html
+   * <h#{($i % 6) + 1} class="mg-u-h#{$i}">
+   *   Heading #{($i % 6) + 1} styled to look like a heading #{$i}.
+   * </h#{($i % 6) + 1}>
+   * <div role="heading" aria-level="#{$i}" class="mg-u-h#{$i}">
+   *   Heading level #{$i} visually and semantically
+   * </div>
+   * ```
+  */
   h#{$i},
   .mg-u-h#{$i} {
     font-family: var(--mg-b-font-family-heading);
@@ -55,7 +66,6 @@ h1,
   font-size: var(--mg-b-font-size-h1);
 }
 
-// h2
 h2,
 .mg-u-h2 {
   font-size: var(--mg-b-font-size-h2);
@@ -107,15 +117,42 @@ small {
 }
 
 /**
- * Text alignment
+ * Left text alignment utility.
+ *
+ * @page Utilities
+ * @example 
+ * ```html
+ * <p class="mg-u-text-left">Left aligned text</p>
+ * ```
  */
+
 .mg-u-text-left {
   text-align: left !important; /* stylelint-disable-line declaration-no-important */
 }
 
+/**
+ * Center text alignment utility.
+ *
+ * @page Utilities
+ * @example 
+ * ```html
+ * <p class="mg-u-text-center">Center aligned text</p>
+ * ```
+ */
+
 .mg-u-text-center {
   text-align: center !important; /* stylelint-disable-line declaration-no-important */
 }
+
+/**
+ * Right text alignment utility.
+ * 
+ * @page Utilities
+ * @example 
+ * ```html
+ * <p class="mg-u-text-right">Right aligned text</p>
+ * ```
+ */
 
 .mg-u-text-right {
   text-align: right !important; /* stylelint-disable-line declaration-no-important */

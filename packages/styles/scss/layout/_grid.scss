@@ -3,30 +3,69 @@
 // Number of column
 $grid-columns: 12;
 
+/**
+ * Grid container.  
+ * This class defines the grid container and its responsive behavior.
+ *
+ * @page Layout
+ * @example
+ * ```html
+ * <div class="mg-l-grid">
+ *   <div class="mg-l-grid__col">Column 1</div>
+ *   <div class="mg-l-grid__col">Column 2</div>
+ * </div>
+ * ```
+ */
 .mg-l-grid {
   display: flex;
   flex-wrap: wrap;
 }
 
-// Those columns will equaly share space
+/**
+ * Grid columns.
+ * Space will be equaly distributed between columns.
+ * 
+ * @page Layout
+ * @example
+ * ```html
+ * <div class="mg-l-grid">
+ *   <div class="mg-l-grid__col">Column 1</div>
+ *   <div class="mg-l-grid__col">Column 2</div>
+ *   <div class="mg-l-grid__col">Column 3</div>
+ * </div>
+ * ```
+ */
 .mg-l-grid__col {
   flex: 1 0 0;
   padding: 0 var(--mg-l-grid-spacing);
 
-  &[class*='mg-l-grid__col-'] {
+  &[class*='mg-l-grid--col-'] {
     flex: 0 0 auto;
   }
 
-  // Building columns
   @for $i from 1 through $grid-columns {
-    &.mg-l-grid__col-#{$i} {
+    /**
+     * Grid columns
+     * This class defines the grid columns and their responsive behavior.
+     *
+     * @page Layout
+     * @example
+     * ```html
+     * <div class="mg-l-grid">
+     *   <div class="mg-l-grid__col">Column 1</div>
+     *   <div class="mg-l-grid__col">Column 2</div>
+     *   <div class="mg-l-grid__col">Column 3</div>
+     * </div>
+     * ```
+     */
+    &.mg-l-grid--col-#{$i} {
       width: math.percentage(math.div($i, $grid-columns));
     }
   }
 
   // Building offset classes
   @for $i from 1 through $grid-columns - 1 {
-    &.mg-l-grid__offset-#{$i} {
+    &.mg-l-grid--offset-#{$i} {
       margin-inline-start: math.percentage(math.div($i, $grid-columns));
     }
   }
