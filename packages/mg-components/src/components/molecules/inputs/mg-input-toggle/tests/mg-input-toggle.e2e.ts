@@ -49,6 +49,9 @@ test.describe('mg-input-toggle', () => {
         'Choix B très long long long long long long long long long long long long long',
       ]),
     },
+    {
+      helpText: `<p>hello <a href="h">batman<mg-icon icon="user"></mg-icon></a></p>`,
+    },
   ].forEach(args => {
     test(`Keyboard navigation ${JSON.stringify(args)}`, async ({ page }) => {
       await setPageContent(page, args);

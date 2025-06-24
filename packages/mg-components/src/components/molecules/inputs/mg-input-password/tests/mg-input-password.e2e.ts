@@ -18,6 +18,9 @@ test.describe('mg-input-password', () => {
       placeholder: 'placeholder',
       helpText: 'HelpText Message',
     },
+    {
+      helpText: `<p>hello <a href="h">batman<mg-icon icon="user"></mg-icon></a></p>`,
+    },
   ].forEach(args => {
     test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, ...args });
