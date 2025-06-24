@@ -19,7 +19,13 @@ const baseArgs = {
 };
 
 test.describe('mg-input-combobox', () => {
-  [{}, { labelOnTop: true }, { labelHide: true }, { placeholder: 'placeholder', helpText: 'HelpText Message' }].forEach(args => {
+  [
+    {},
+    { labelOnTop: true },
+    { labelHide: true },
+    { placeholder: 'placeholder', helpText: 'HelpText Message' },
+    { helpText: `<p>hello <a href="h">batman<mg-icon icon="user"></mg-icon></a></p>` },
+  ].forEach(args => {
     test(`without tooltip ${renderAttributes(args)}`, async ({ page }) => {
       const componentsProps = { ...baseArgs, ...args };
       const html = createHTML(componentsProps);
