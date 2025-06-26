@@ -1,5 +1,22 @@
 # @mgdis/mg-components
 
+## 6.13.1
+
+### Patch Changes
+
+- 5e2f944: [#562](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/562) mg-input-checkbox: disabled values can be selected or unselected
+- ba486c2: [#570](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/570) mg-input: CSS into embedded style for help-text tag is not applied
+- 4bbb3f3: [#569](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/569) mg-popover: change title margin to 12px
+- 4b9f78c: apply sonar recommandations
+- ef9786d: update dependencies
+- Updated dependencies [ba486c2]
+- Updated dependencies [4bbb3f3]
+- Updated dependencies [4b9f78c]
+- Updated dependencies [ef9786d]
+  - @mgdis/styles@2.8.1
+  - @mgdis/core-ui-helpers@1.0.2
+  - @mgdis/img@2.4.5
+
 ## 6.13.0
 
 ### Minor Changes

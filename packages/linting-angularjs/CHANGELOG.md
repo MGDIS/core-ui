@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.1.7
+
+### Patch Changes
+
+- ef9786d: update dependencies
+- Updated dependencies [ef9786d]
+  - @mgdis/eslint-plugin-html@4.0.5
+
 ## 4.1.6
 
 ### Patch Changes

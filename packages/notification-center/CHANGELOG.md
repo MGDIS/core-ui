@@ -1,5 +1,11 @@
 # @mgdis/notification-center
 
+## 1.2.13
+
+### Patch Changes
+
+- ef9786d: update dependencies
+
 ## 1.2.12
 
 ### Patch Changes

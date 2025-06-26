@@ -1,5 +1,12 @@
 # @mgdis/core-ui-helpers
 
+## 1.0.2
+
+### Patch Changes
+
+- 4b9f78c: apply sonar recommandations
+- ef9786d: update dependencies
+
 ## 1.0.1
 
 ### Patch Changes

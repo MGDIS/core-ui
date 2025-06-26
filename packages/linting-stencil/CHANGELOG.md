@@ -1,5 +1,11 @@
 # @mgdis/linting-stencil
 
+## 1.3.8
+
+### Patch Changes
+
+- ef9786d: update dependencies
+
 ## 1.3.7
 
 ### Patch Changes
