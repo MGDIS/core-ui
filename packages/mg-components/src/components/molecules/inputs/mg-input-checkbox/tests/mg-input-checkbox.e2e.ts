@@ -34,6 +34,7 @@ test.describe('mg-input-checkbox', () => {
         { ...baseArgs, inputVerticalList: true, helpText: 'HelpText Message' },
         { ...baseArgs, inputVerticalList: true, helpText: 'HelpText Message', labelOnTop: true },
         { ...baseArgs, helpText: `<mg-icon icon='user' size='small'></mg-icon> Welcome batman` },
+        { ...baseArgs, helpText: `<p>hello <a href="h">batman<mg-icon icon="user"></mg-icon></a></p>` },
         { ...baseArgs, helpText: 'HelpText Message', required: true },
         { ...baseArgs, helpText: 'HelpText Message', required: true, readonly: true },
         { ...baseArgs, helpText: 'HelpText Message', required: true, disabled: true },

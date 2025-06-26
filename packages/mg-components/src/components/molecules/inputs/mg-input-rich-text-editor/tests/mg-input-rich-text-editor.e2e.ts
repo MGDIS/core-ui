@@ -11,7 +11,15 @@ const sampleContent =
   '<p>Each episode of Paw Patrol follows a similar pattern. Episodes normally open with a scene depicting the dogs going about their everyday lives in Adventure Bay, often playing with dog toys or going to the local playground.</p><p>Ryder, a ten-year-old boy, is advised of a problem by receiving a call for help or by witnessing a situation himself.</p>';
 
 test.describe('mg-input-rich-text-editor', () => {
-  [{}, { labelOnTop: true }, { labelHide: true }, { placeholder: 'placeholder', helpText: 'HelpText Message' }].forEach(args => {
+  [
+    {},
+    { labelOnTop: true },
+    { labelHide: true },
+    { placeholder: 'placeholder', helpText: 'HelpText Message' },
+    {
+      helpText: `<p>hello <a href="h">batman<mg-icon icon="user"></mg-icon></a></p>`,
+    },
+  ].forEach(args => {
     test(`without tooltip ${renderAttributes(args)}`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, ...args });
       await page.setContent(html);

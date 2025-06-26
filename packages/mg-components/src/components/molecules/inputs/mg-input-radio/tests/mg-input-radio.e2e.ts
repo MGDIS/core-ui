@@ -41,6 +41,9 @@ test.describe('mg-input-radio', () => {
     { labelOnTop: true, inputVerticalList: true, helpText: 'HelpText Message' },
     { labelHide: true },
     { helpText: 'HelpText Message' },
+    {
+      helpText: `<p>hello <a href="h">batman<mg-icon icon="user"></mg-icon></a></p>`,
+    },
     { value: 'batman', helpText: '<mg-icon icon="user" size="small"></mg-icon> Welcome batman' },
     { required: true, helpText: 'HelpText Message', value: 'batman' },
     { required: true, readonly: true, helpText: 'HelpText Message', value: 'batman' },
