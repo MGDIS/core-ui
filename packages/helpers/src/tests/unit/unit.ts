@@ -177,15 +177,14 @@ export const setUpRequestAnimationFrameMock = (faketimer: () => void): typeof re
  * @returns string value converted to given type
  */
 const convertString = (value: string, type: string): number | Date | string => {
-  let newValue: number | string | Date = value;
-  if (type === 'date') {
-    newValue = new Date(value);
-  } else if (type === 'number') {
-    newValue = Number(value);
-  } else {
-    newValue = value;
+  switch (type) {
+    case 'date':
+      return new Date(value);
+    case 'number':
+      return Number(value);
+    default:
+      return value;
   }
-  return newValue;
 };
 
 /**
