@@ -51,7 +51,6 @@ Here is the full arguments list:
   Default `'info'`, can also be `'danger'`, `'success'`, `'warning'`.
 - **delay:** Define the number of second the alert will be displayed.  
    Default values correspond to the expected behavior so these values should only be changed if it has been explicitly requested.
-
   - For `'info'`, `'danger'` and `'warning'` variants, default value is `undefined`.
   - For `'success'` variant default value is `5`. Can be set to `undefined` by setting its value to `0`.
 
