@@ -498,6 +498,29 @@ describe('mg-input-checkbox', () => {
     });
   });
 
+  describe.each(['disabled', 'readonly', 'required'])('prop: %s', (propName: string) => {
+    test(`Should update inputs with props update`, async () => {
+      const propValue = false;
+      const page = await getPage({ label: 'label', identifier: 'identifier', [propName]: propValue, value: getDefaultValues() });
+      const checkbox = page.doc.querySelector('mg-input-checkbox');
+      expect(page.root).toMatchSnapshot();
+
+      checkbox[propName] = !propValue;
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+
+      checkbox[propName] = propValue;
+      await page.waitForChanges();
+
+      if (propName !== 'readonly') {
+        const disabledInputLabel = checkbox.shadowRoot.querySelector('.mg-c-input__input-group--disabled > label');
+        expect(disabledInputLabel.textContent).toEqual('robin');
+      }
+      expect(page.root).toMatchSnapshot();
+    });
+  });
+
   test('Should log an error with invalid "identifier" property', async () => {
     const identifier = '{{batman}}';
     const spy = jest.spyOn(console, 'error');
