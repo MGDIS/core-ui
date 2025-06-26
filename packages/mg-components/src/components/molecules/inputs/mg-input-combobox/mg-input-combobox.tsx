@@ -135,7 +135,7 @@ export class MgInputCombobox {
         newValue.map(item => ({ title: item, value: item })),
         { total: newValue.length },
       );
-      // force to reset error when noValueError is displaied
+      // force to reset error when noValueError is displayed
       if (this.invalid && this.hasNoValueError()) {
         this.resetErrorMessage();
       }
@@ -143,7 +143,7 @@ export class MgInputCombobox {
     // Object array
     else if (isItems(newValue)) {
       this.options = new Paginate(newValue, { total: newValue.length });
-      // force to reset error when noValueError is displaied
+      // force to reset error when noValueError is displayed
       if (this.invalid && this.hasNoValueError()) {
         this.resetErrorMessage();
       }
