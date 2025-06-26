@@ -47,7 +47,7 @@ const localeMessages = (element: HTMLElement, messages: ObjectType, defaultLocal
   // Return
   return {
     locale,
-    messages: (messages[localeSubtag] || messages[defaultLocale] || { lang: defaultLocale }) as ObjectType,
+    messages: (messages[localeSubtag] ?? messages[defaultLocale] ?? { lang: defaultLocale }) as ObjectType,
   };
 };
 
