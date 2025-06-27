@@ -1392,10 +1392,6 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Display input error if it exists.
-         */
-        "displayError": () => Promise<void>;
-        /**
           * Add a help text under the input, usually expected data format and example
          */
         "helpText"?: string;

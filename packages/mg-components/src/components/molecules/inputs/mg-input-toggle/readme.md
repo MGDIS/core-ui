@@ -41,16 +41,6 @@
 
 ## Methods
 
-### `displayError() => Promise<void>`
-
-Display input error if it exists.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
 ### `reset() => Promise<void>`
 
 Reset value, validity, error and visual state

@@ -108,6 +108,7 @@ export class MgInputSelect {
   @Prop() items!: (string | SelectOption)[];
   @Watch('items')
   validateItems(newValue: MgInputSelect['items']): void {
+    let resetMessage = false;
     // Empty options
     if ([undefined, null].includes(newValue) || (Array.isArray(newValue) && newValue.length === 0)) {
       this.options = [];
@@ -120,9 +121,7 @@ export class MgInputSelect {
       }
       this.options = newValue.map(item => ({ title: item, value: item }));
       // force to reset error when noValueError is displaied
-      if (this.invalid && this.hasNoValueErrorMessageDisplay()) {
-        this.resetErrorMessage();
-      }
+      resetMessage = this.invalid && this.hasNoValueErrorMessageDisplay();
     }
     // Object array
     else if (allItemsAreOptions(newValue)) {
@@ -136,13 +135,15 @@ export class MgInputSelect {
         this.options = newValue;
       }
       // force to reset error when noValueError is displaied
-      if (this.invalid && this.hasNoValueErrorMessageDisplay()) {
-        this.resetErrorMessage();
-      }
+      resetMessage = this.invalid && this.hasNoValueErrorMessageDisplay();
     } else {
       throw new Error(
         `<mg-input-select> prop "items" is required, can be an empty Array or all items must be the same type: string or Option. Passed value: ${toString(newValue)}.`,
       );
+    }
+
+    if (resetMessage) {
+      this.resetErrorMessage();
     }
   }
 
