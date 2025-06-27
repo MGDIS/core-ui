@@ -1,5 +1,24 @@
 # @mgdis/styles
 
+## 2.8.1
+
+### Patch Changes
+
+- ba486c2: [#570](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/570) mg-input: CSS into embedded style for help-text tag is not applied
+- 4bbb3f3: [#569](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/569) mg-popover: change title margin to 12px
+- ef9786d: update dependencies
+
+## 2.8.0
+
+### Minor Changes
+
+- 69176eb: [**`<mg-table>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-table--docs) manage icon placement for 2 lines header
+
+### Patch Changes
+
+- ac33c0a: [#559](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/559) mg-input-combobox: unwanted scroll on focus or blur
+- 2cda5b3: Update dependencies
+
 ## 2.7.0
 
 ### Minor Changes

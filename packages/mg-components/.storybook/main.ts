@@ -38,17 +38,13 @@ const config: StorybookConfig = {
   },
   addons: [
     getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-essentials'),
-    getAbsolutePath('@storybook/addon-interactions'),
+    getAbsolutePath('@storybook/addon-docs'),
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('storybook-addon-tag-badges'),
   ],
   framework: {
     name: getAbsolutePath('@storybook/html-vite'),
     options: {},
-  },
-  docs: {
-    autodocs: true,
   },
   staticDirs: getFilePathsEndingWith(join(__dirname, '../src/'), '/img').reduce((acc: any[], from) => {
     acc.push(
@@ -69,6 +65,8 @@ const config: StorybookConfig = {
       url: 'https://master--626149b307606d003ada26b4.chromatic.com',
       versions: {
         'next': 'https://next--626149b307606d003ada26b4.chromatic.com',
+        'v6.13.0': 'https://626149b307606d003ada26b4-btsfgghigh.chromatic.com',
+        'v6.12.0': 'https://626149b307606d003ada26b4-monwfjhdcw.chromatic.com',
         'v6.11.0': 'https://626149b307606d003ada26b4-tbhiygpdyp.chromatic.com',
         'v6.10.1': 'https://626149b307606d003ada26b4-gupwjnrhvm.chromatic.com',
         'v6.10.0': 'https://626149b307606d003ada26b4-nhmqekycyi.chromatic.com',

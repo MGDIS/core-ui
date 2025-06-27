@@ -1,5 +1,33 @@
 # vanilla
 
+## 0.1.16
+
+### Patch Changes
+
+- Updated dependencies [5e2f944]
+- Updated dependencies [ba486c2]
+- Updated dependencies [4bbb3f3]
+- Updated dependencies [4b9f78c]
+- Updated dependencies [ef9786d]
+  - @mgdis/mg-components@6.13.1
+  - @mgdis/styles@2.8.1
+  - @mgdis/notification-center@1.2.13
+
+## 0.1.15
+
+### Patch Changes
+
+- Updated dependencies [a5a0316]
+- Updated dependencies [51ac6c6]
+- Updated dependencies [98c2bbd]
+- Updated dependencies [ac33c0a]
+- Updated dependencies [69176eb]
+- Updated dependencies [bcfc292]
+- Updated dependencies [2cda5b3]
+  - @mgdis/mg-components@6.13.0
+  - @mgdis/styles@2.8.0
+  - @mgdis/notification-center@1.2.12
+
 ## 0.1.14
 
 ### Patch Changes

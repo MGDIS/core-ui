@@ -1,5 +1,5 @@
 import iconList from '@mgdis/img/dist/icons/index.json';
-import { IconGallery, IconItem } from '@storybook/blocks';
+import { IconGallery, IconItem } from '@storybook/addon-docs/blocks';
 import React from 'react';
 
 /**

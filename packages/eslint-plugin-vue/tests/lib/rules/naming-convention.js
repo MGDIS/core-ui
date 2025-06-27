@@ -9,11 +9,21 @@ ruleTester.run('naming-convention', rule, {
         <a id="kebab-case">Anchor text</a>
       </template>`,
     },
+    {
+      code: `<template>
+        <a class="blu bli">Anchor text</a>
+      </template>`,
+    },
     /* Directive */
     // Literal
     {
       code: `<template>
         <a :id="'kebab-case'">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :class="'blu bli'">Anchor text</a>
       </template>`,
     },
     {
@@ -72,6 +82,11 @@ ruleTester.run('naming-convention', rule, {
     {
       code: `<template>
         <a :id="\`with-\${two}-\${props}\`">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :class="\`blu\${bli ? '--blu' : '--bli'}\`">Anchor text</a>
       </template>`,
     },
     {

@@ -1,5 +1,28 @@
 # Changelog
 
+## 4.1.12
+
+### Patch Changes
+
+- ef9786d: update dependencies
+- Updated dependencies [ef9786d]
+  - @mgdis/eslint-plugin-vue@4.1.10
+
+## 4.1.11
+
+### Patch Changes
+
+- Updated dependencies [b400216]
+  - @mgdis/eslint-plugin-vue@4.1.9
+
+## 4.1.10
+
+### Patch Changes
+
+- Updated dependencies [31b8bdb]
+- Updated dependencies [761def9]
+  - @mgdis/eslint-plugin-vue@4.1.8
+
 ## 4.1.9
 
 ### Patch Changes

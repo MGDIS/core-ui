@@ -7,7 +7,13 @@ const baseProps = { identifier: 'identifier', label: 'label' };
 const createHTML = args => `<mg-input-date ${renderAttributes(args)}></mg-input-date>`;
 
 test.describe('mg-input-date', () => {
-  [{}, { labelOnTop: true }, { labelHide: true }, { placeholder: 'placeholder', helpText: 'HelpText Message' }].forEach(props => {
+  [
+    {},
+    { labelOnTop: true },
+    { labelHide: true },
+    { placeholder: 'placeholder', helpText: 'HelpText Message' },
+    { helpText: `<p>hello <a href="h">batman<mg-icon icon="user"></mg-icon></a></p>` },
+  ].forEach(props => {
     test(`render props ${renderAttributes(props)} without tooltip`, async ({ page }) => {
       await page.setContent(createHTML({ ...baseProps, ...props }));
       await page.locator('mg-input-date.hydrated').waitFor();

@@ -12,7 +12,15 @@ const createHTML = props => {
 const baseArgs = { identifier: 'identifier', label: 'label' };
 
 test.describe('mg-input-text', () => {
-  [{}, { labelOnTop: true }, { labelHide: true }, { placeholder: 'placeholder', helpText: 'HelpText Message' }].forEach(args => {
+  [
+    {},
+    { labelOnTop: true },
+    { labelHide: true },
+    { placeholder: 'placeholder', helpText: 'HelpText Message' },
+    {
+      helpText: `<p>hello <a href="h">batman<mg-icon icon="user"></mg-icon></a></p>`,
+    },
+  ].forEach(args => {
     test(`without tooltip ${renderAttributes(args)}`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, ...args });
       await page.setContent(html);

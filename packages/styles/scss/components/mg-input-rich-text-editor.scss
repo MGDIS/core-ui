@@ -1,5 +1,6 @@
 @use 'mg-input-readonly';
 @use '../utils/a11y';
+@use '../base/anchor';
 
 /* Component Custom Style */
 
@@ -53,6 +54,7 @@
     border: 0;
     border-radius: var(--mg-c-input-border-radius) var(--mg-c-input-border-radius) 0 0;
     background: var(--mg-b-color-neutral-0);
+
     border-block-end: {
       width: var(--mg-c-input-border-width);
       color: var(--mg-c-input-color-border);
@@ -69,6 +71,7 @@
         height: var(--mg-b-size-16);
         background: var(--mg-c-input-color-border);
         content: '';
+
         margin: {
           block: $ql-spacing;
           inline: $ql-spacing;
@@ -95,6 +98,7 @@
       border-radius: var(--mg-b-size-radius);
       color: var(--mg-b-color-dark);
       float: inherit;
+
       transition: {
         duration: 0.2s;
         property: background-color, border-color;
