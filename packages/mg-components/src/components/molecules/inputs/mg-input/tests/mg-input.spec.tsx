@@ -44,6 +44,16 @@ describe('mg-input', () => {
       { tooltip },
       { tooltip, tooltipPosition: 'label' },
       { tooltip, tooltipPosition: 'input', labelOnTop: true },
+      // ariaDescribedbyIDs
+      {
+        ariaDescribedbyIDs: ['hello', 'batman'],
+      },
+      {
+        ariaDescribedbyIDs: 'hello batman',
+      },
+      {
+        ariaDescribedbyIDs: ['hello', []],
+      },
     ])('Should render with args %s:', async args => {
       const { root } = await getPage(args);
       expect(root).toMatchSnapshot();
