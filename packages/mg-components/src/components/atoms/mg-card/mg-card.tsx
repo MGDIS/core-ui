@@ -1,5 +1,6 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
 import { ClassList } from '@mgdis/core-ui-helpers/dist/utils';
+import { Radius } from '../../../types';
 
 /**
  * @slot - Card content
@@ -26,9 +27,9 @@ export class MgCard {
   /**
    * Define the border radius size
    */
-  @Prop() radius: 'xsmall' | 'small' | 'medium' = 'medium';
+  @Prop() radius: Radius = 'medium';
   @Watch('radius')
-  watchRadius(newValue: 'xsmall' | 'small' | 'medium'): void {
+  watchRadius(newValue: Radius): void {
     // Remove all possible radius classes
     this.classCollection.delete('mg-c-card--radius-xsmall');
     this.classCollection.delete('mg-c-card--radius-small');

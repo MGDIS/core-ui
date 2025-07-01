@@ -9,12 +9,12 @@ import { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, 
 import { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
+import { Direction, Option, Radius } from "./types";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-import { Direction, Option } from "./types";
 import { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
@@ -40,12 +40,12 @@ export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, 
 export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 export { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
+export { Direction, Option, Radius } from "./types";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-export { Direction, Option } from "./types";
 export { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
@@ -171,7 +171,7 @@ export namespace Components {
         /**
           * Define the border radius size
          */
-        "radius": 'xsmall' | 'small' | 'medium';
+        "radius": Radius;
         /**
           * Add box-shadow style
          */
@@ -2745,7 +2745,7 @@ declare namespace LocalJSX {
         /**
           * Define the border radius size
          */
-        "radius"?: 'xsmall' | 'small' | 'medium';
+        "radius"?: Radius;
         /**
           * Add box-shadow style
          */
