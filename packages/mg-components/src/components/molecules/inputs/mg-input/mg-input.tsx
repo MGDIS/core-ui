@@ -140,13 +140,22 @@ export class MgInput {
   /**
    * Define aria-describedby ids to link with
    */
-  @Prop() ariaDescribedbyIDs: string[];
+  @Prop({ mutable: true }) ariaDescribedbyIDs?: string[] | string = [];
   @Watch('identifier')
   @Watch('errorMessage')
   @Watch('helpText')
   @Watch('ariaDescribedbyIDs')
   watchAriaDescribedbyIDs(): void {
-    if (this.isReadonly) return;
+    if (this.isReadonly) {
+      return;
+    } else if (typeof this.ariaDescribedbyIDs === 'string') {
+      this.ariaDescribedbyIDs = this.ariaDescribedbyIDs.split(' ');
+      return;
+    } else if (!(Array.isArray(this.ariaDescribedbyIDs) && this.ariaDescribedbyIDs.every(entry => typeof entry === 'string'))) {
+      this.ariaDescribedbyIDs = [];
+      return;
+    }
+
     // a11y IDs
     const ariaDescribedbyIDs = new Set(this.ariaDescribedbyIDs);
     // Help text

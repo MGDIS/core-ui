@@ -506,7 +506,7 @@ export class MgInputCombobox {
    * Handle `click` event on option
    * @param event - option element click event
    */
-  private handleOptionClick = (event: MouseEvent & { target: HTMLLIElement }) => {
+  private handleOptionClick = (event: PointerEvent & { target: HTMLLIElement }) => {
     this.setValue(this.options.items.find(option => formatID(option.value) === event.target.id));
     this.popoverDisplay = false;
   };
@@ -985,7 +985,7 @@ export class MgInputCombobox {
         label={this.label}
         identifier={this.identifier}
         class={this.classCollection.classes.join(' ')}
-        ariaDescribedbyIDs={popoverContent && popoverContent !== 'list' ? [popoverContent] : []}
+        ariaDescribedbyIDs={popoverContent && popoverContent !== 'list' ? popoverContent : undefined}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
