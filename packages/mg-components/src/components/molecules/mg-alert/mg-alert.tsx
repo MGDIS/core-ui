@@ -118,17 +118,17 @@ export class MgAlert {
   /**
    * Emited event when alert is diplayed
    */
-  @Event({ eventName: 'component-show' }) componentShow: EventEmitter<void>;
+  @Event({ eventName: 'component-show', bubbles: false }) componentShow: EventEmitter<void>;
 
   /**
    * Emited event when alert is hidden
    */
-  @Event({ eventName: 'component-hide' }) componentHide: EventEmitter<void>;
+  @Event({ eventName: 'component-hide', bubbles: false }) componentHide: EventEmitter<void>;
 
   /**
    * Emmited event when alert is closed
    */
-  @Event({ eventName: 'component-close' }) componentClose: EventEmitter<void>;
+  @Event({ eventName: 'component-close', bubbles: false }) componentClose: EventEmitter<void>;
 
   /**
    * Set timer
