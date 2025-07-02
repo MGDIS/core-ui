@@ -109,6 +109,11 @@ export class MgPanel {
   @Prop() expandToggleDisabled = false;
 
   /**
+   * Add box-shadow style
+   */
+  @Prop() shadow = false;
+
+  /**
    * Component classes
    */
   @State() classCollection: ClassList = new ClassList(['mg-c-panel']);
@@ -316,7 +321,7 @@ export class MgPanel {
     const headerId = `${this.identifier}-header`;
     return (
       <section class={this.classCollection.join()} id={this.identifier}>
-        <mg-card>
+        <mg-card shadow={this.shadow}>
           <header class={{ 'mg-c-panel__header': true, 'mg-c-panel__header--reverse': this.titlePosition === 'right' }} id={headerId}>
             {this.renderHeaderChildren()}
           </header>

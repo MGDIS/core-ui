@@ -1757,6 +1757,10 @@ export namespace Components {
          */
         "panelTitle": string;
         /**
+          * Add box-shadow style
+         */
+        "shadow": boolean;
+        /**
           * Define if panel title is editable
           * @default false
          */
@@ -4270,6 +4274,10 @@ declare namespace LocalJSX {
           * Panel title
          */
         "panelTitle": string;
+        /**
+          * Add box-shadow style
+         */
+        "shadow"?: boolean;
         /**
           * Define if panel title is editable
           * @default false
