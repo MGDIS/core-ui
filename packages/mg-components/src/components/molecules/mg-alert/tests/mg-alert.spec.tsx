@@ -56,6 +56,40 @@ describe('mg-alert', () => {
     expect(page.rootInstance.element.hidden).toBe(true);
   });
 
+  test('Should not bubble commponent events', async () => {
+    const page = await getPage({}, getDefaultContent());
+
+    const element = page.doc.querySelector('mg-alert');
+    const elementWrapper = page.doc.createElement('div');
+    element.parentNode.replaceChild(elementWrapper, element);
+    elementWrapper.appendChild(element);
+
+    expect(page.body).toMatchSnapshot();
+
+    const onComponentShow = jest.fn();
+    elementWrapper.addEventListener('component-show', onComponentShow);
+    const onComponentHide = jest.fn();
+    elementWrapper.addEventListener('component-hide', onComponentHide);
+    const onComponentClose = jest.fn();
+    elementWrapper.addEventListener('component-close', onComponentClose);
+
+    const button = element.shadowRoot.querySelector('mg-button');
+
+    button.dispatchEvent(new CustomEvent('click', { bubbles: true }));
+    await page.waitForChanges();
+
+    expect(onComponentHide).not.toHaveBeenCalled();
+    expect(onComponentClose).not.toHaveBeenCalled();
+    expect(element.hidden).toBe(true);
+
+    element.removeAttribute('hidden');
+    await page.waitForChanges();
+
+    expect(onComponentShow).not.toHaveBeenCalled();
+    expect(onComponentClose).not.toHaveBeenCalled();
+    expect(element.hidden).toBe(false);
+  });
+
   test('Should hide alert on delay', async () => {
     const args = { delay: 2 };
     const page = await getPage(args, getDefaultContent());
