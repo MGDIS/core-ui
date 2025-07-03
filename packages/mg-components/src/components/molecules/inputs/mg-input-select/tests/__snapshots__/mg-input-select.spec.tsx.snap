@@ -1481,6 +1481,234 @@ exports[`mg-input-select Should update mg-width 4`] = `
 </mg-input-select>
 `;
 
+exports[`mg-input-select Should update readonlyValue, case ({ items: [Array], value: 'batman' }) 1`] = `
+<mg-input-select>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <b class="mg-c-input__readonly-value">
+        batman
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should update readonlyValue, case ({ items: [Array], value: 'batman' }) 2`] = `
+<mg-input-select>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <b class="mg-c-input__readonly-value">
+        robin
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should update readonlyValue, case ({ items: [Array], value: 'batman' }) 3`] = `
+<mg-input-select>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should update readonlyValue, case ({ items: [Array], value: 'batman' }) 4`] = `
+<mg-input-select>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should update readonlyValue, case ({ items: [Array], value: 'u' }) 1`] = `
+<mg-input-select>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <b class="mg-c-input__readonly-value">
+        batman
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should update readonlyValue, case ({ items: [Array], value: 'u' }) 2`] = `
+<mg-input-select>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <b class="mg-c-input__readonly-value">
+        robin
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should update readonlyValue, case ({ items: [Array], value: 'u' }) 3`] = `
+<mg-input-select>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should update readonlyValue, case ({ items: [Array], value: 'u' }) 4`] = `
+<mg-input-select>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-select>
+`;
+
 exports[`mg-input-select display error message with locale: fr 1`] = `
 <mg-input-select lang="fr">
   <template shadowrootmode="open">

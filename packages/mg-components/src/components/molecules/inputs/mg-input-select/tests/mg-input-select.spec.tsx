@@ -141,6 +141,37 @@ describe('mg-input-select', () => {
   );
 
   test.each([
+    { items: ['batman', 'robin', 'joker', 'bane'], value: 'batman' },
+    {
+      items: [
+        { title: 'batman', value: 'u' },
+        { title: 'robin', value: 'i' },
+        { title: 'joker', value: 'o' },
+        { title: 'bane', value: 'a' },
+      ],
+      value: 'u',
+    },
+  ])('Should update readonlyValue, case (%s)', async ({ items, value }) => {
+    const args = { label: 'label', identifier: 'identifier', readonly: true, items, value };
+    const page = await getPage(args);
+
+    const element = page.doc.querySelector('mg-input-select');
+    expect(page.root).toMatchSnapshot();
+
+    element.value = typeof items[0] === 'string' ? 'robin' : 'i';
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot();
+
+    element.value = 'unknow';
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot();
+
+    element.value = undefined;
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test.each([
     { items: ['batman', 'robin', 'joker', 'bane'], selectedOption: '' },
     { items: ['batman', 'robin', 'joker', 'bane'], selectedOption: 3 },
     {
