@@ -40,8 +40,3 @@ export type Option = {
   title: string;
   value: unknown;
 };
-
-/**
- * Defines the possible values for border radius
- */
-export type Radius = 'xsmall' | 'small' | 'medium';

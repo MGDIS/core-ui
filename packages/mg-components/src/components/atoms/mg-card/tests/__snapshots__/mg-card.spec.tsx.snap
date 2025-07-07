@@ -1,56 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mg-card render 1`] = `
+exports[`mg-card Should render correctly with radius=medium 1`] = `
 <mg-card>
   <template shadowrootmode="open">
-    <div class="mg-c-card">
+    <div class="mg-c-card mg-c-card--radius-medium">
       <slot></slot>
     </div>
   </template>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  radius=medium
 </mg-card>
 `;
 
-exports[`mg-card should have box-shadow when shadow is true 1`] = `
+exports[`mg-card Should render correctly with radius=small 1`] = `
 <mg-card>
   <template shadowrootmode="open">
-    <div class="mg-c-card mg-c-card--shadow">
+    <div class="mg-c-card mg-c-card--radius-small">
       <slot></slot>
     </div>
   </template>
-  With shadow
+  radius=small
 </mg-card>
 `;
 
-exports[`mg-card should have correct radius class 1`] = `
+exports[`mg-card Should render correctly with radius=undefined 1`] = `
+<mg-card>
+  <template shadowrootmode="open">
+    <div class="mg-c-card mg-c-card--radius-medium">
+      <slot></slot>
+    </div>
+  </template>
+  radius=undefined
+</mg-card>
+`;
+
+exports[`mg-card Should render correctly with radius=xsmall 1`] = `
 <mg-card>
   <template shadowrootmode="open">
     <div class="mg-c-card mg-c-card--radius-xsmall">
       <slot></slot>
     </div>
   </template>
-  With xsmall radius
+  radius=xsmall
 </mg-card>
 `;
 
-exports[`mg-card should not have box-shadow by default 1`] = `
+exports[`mg-card Should render correctly with shadow=false 1`] = `
 <mg-card>
   <template shadowrootmode="open">
-    <div class="mg-c-card">
+    <div class="mg-c-card mg-c-card--radius-medium">
       <slot></slot>
     </div>
   </template>
-  Without shadow
+  shadow=false
 </mg-card>
 `;
 
-exports[`mg-card should not have radius class by default 1`] = `
+exports[`mg-card Should render correctly with shadow=true 1`] = `
 <mg-card>
   <template shadowrootmode="open">
-    <div class="mg-c-card">
+    <div class="mg-c-card mg-c-card--radius-medium mg-c-card--shadow">
       <slot></slot>
     </div>
   </template>
-  With default radius
+  shadow=true
+</mg-card>
+`;
+
+exports[`mg-card Should render correctly with shadow=undefined 1`] = `
+<mg-card>
+  <template shadowrootmode="open">
+    <div class="mg-c-card mg-c-card--radius-medium">
+      <slot></slot>
+    </div>
+  </template>
+  shadow=undefined
+</mg-card>
+`;
+
+exports[`mg-card render 1`] = `
+<mg-card>
+  <template shadowrootmode="open">
+    <div class="mg-c-card mg-c-card--radius-medium">
+      <slot></slot>
+    </div>
+  </template>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </mg-card>
 `;

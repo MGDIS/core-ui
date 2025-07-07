@@ -1,6 +1,6 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
 import { ClassList } from '@mgdis/core-ui-helpers/dist/utils';
-import { Radius } from '../../../types';
+import { radiusSizes, Radius } from './mg-card.conf';
 
 /**
  * @slot - Card content
@@ -29,12 +29,11 @@ export class MgCard {
    */
   @Prop() radius: Radius = 'medium';
   @Watch('radius')
-  watchRadius(newValue: Radius): void {
-    // Remove all possible radius classes
-    this.classCollection.delete('mg-c-card--radius-xsmall');
-    this.classCollection.delete('mg-c-card--radius-small');
-    // Add new class only if radius is valid and not medium (default)
-    if (newValue === 'xsmall' || newValue === 'small') {
+  watchRadius(newValue: Radius, oldValue?: Radius): void {
+    if (oldValue && radiusSizes.includes(oldValue)) {
+      this.classCollection.delete(`mg-c-card--radius-${oldValue}`);
+    }
+    if (radiusSizes.includes(newValue)) {
       this.classCollection.add(`mg-c-card--radius-${newValue}`);
     }
   }

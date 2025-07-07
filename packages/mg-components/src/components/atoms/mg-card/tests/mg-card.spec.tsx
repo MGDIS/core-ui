@@ -1,6 +1,7 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgCard } from '../mg-card';
+import { radiusSizes } from '../mg-card.conf';
 
 const getPage = (props, slot) =>
   newSpecPage({
@@ -17,31 +18,23 @@ describe('mg-card', () => {
     expect(root).toMatchSnapshot();
   });
 
-  test('should have box-shadow when shadow is true', async () => {
-    const { root } = await getPage({ shadow: true }, 'With shadow');
-    const card = root.shadowRoot.querySelector('.mg-c-card');
-    expect(card.classList.contains('mg-c-card--shadow')).toBe(true);
+  test.each([undefined, true, false])('Should render correctly with shadow=%s', async shadow => {
+    const { root } = await getPage({ shadow }, `shadow=${shadow}`);
     expect(root).toMatchSnapshot();
   });
 
-  test('should not have box-shadow by default', async () => {
-    const { root } = await getPage({}, 'Without shadow');
-    const card = root.shadowRoot.querySelector('.mg-c-card');
-    expect(card.classList.contains('mg-c-card--shadow')).toBe(false);
+  test.each([undefined, ...radiusSizes])('Should render correctly with radius=%s', async radius => {
+    const { root } = await getPage({ radius }, `radius=${radius}`);
     expect(root).toMatchSnapshot();
   });
 
-  test('should have correct radius class', async () => {
-    const { root } = await getPage({ radius: 'xsmall' }, 'With xsmall radius');
-    const card = root.shadowRoot.querySelector('.mg-c-card');
-    expect(card.classList.contains('mg-c-card--radius-xsmall')).toBe(true);
-    expect(root).toMatchSnapshot();
-  });
-
-  test('should not have radius class by default', async () => {
-    const { root } = await getPage({}, 'With default radius');
-    const card = root.shadowRoot.querySelector('.mg-c-card');
-    expect(card.classList.contains('mg-c-card--radius-medium')).toBe(false);
-    expect(root).toMatchSnapshot();
+  test('Should remove old radius class when radius changes', async () => {
+    const page = await getPage({ radius: 'xsmall' }, 'radius test');
+    const card = page.root.shadowRoot.querySelector('.mg-c-card');
+    // xsmall -> small
+    page.root.radius = 'small';
+    await page.waitForChanges();
+    expect(card.classList.contains('mg-c-card--radius-xsmall')).toBe(false);
+    expect(card.classList.contains('mg-c-card--radius-small')).toBe(true);
   });
 });
