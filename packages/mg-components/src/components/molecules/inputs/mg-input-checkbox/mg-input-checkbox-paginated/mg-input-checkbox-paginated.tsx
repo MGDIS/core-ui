@@ -1,6 +1,7 @@
-import { Component, h, Prop, State, Event, EventEmitter, Watch, Host } from '@stencil/core';
-import { CheckboxItem, IMgInputCheckboxBase, type SectionKindType, SectionKind } from '../mg-input-checkbox.conf';
+import { Component, h, Prop, Watch, Host, State, Method } from '@stencil/core';
+import { CheckboxItem, IMgInputCheckboxBase } from '../mg-input-checkbox.conf';
 import { MgInputCheckboxList } from '../MgInputCheckboxList';
+import { formatID } from '@mgdis/core-ui-helpers/dist/utils';
 
 /**
  * Internal component use to manage sections instances
@@ -13,10 +14,11 @@ import { MgInputCheckboxList } from '../MgInputCheckboxList';
 })
 export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   /*************
-   * Constantes *
+   * Variables *
    *************/
-  private readonly offset = 10;
-  private sectionKind: SectionKindType;
+
+  private items: CheckboxItem[];
+  private readonly step = 10;
 
   /*************
    * Decorators *
@@ -43,28 +45,12 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   @Prop() invalid?: boolean;
 
   /**
-   * Current page
-   */
-  @Prop({ mutable: true }) currentPage = 1;
-
-  /**
    * Define checkboxes to paginate
    */
-  @Prop() checkboxes: CheckboxItem[] = [];
+  @Prop() checkboxes: CheckboxItem[];
   @Watch('checkboxes')
-  watchCheckboxes(newValue: MgInputCheckboxPaginated['checkboxes'], oldValue?: MgInputCheckboxPaginated['checkboxes']): void {
-    const pageCountNewValue = this.getPageCount(newValue);
-    const pageCountOldValue = this.getPageCount(oldValue);
-    // after each array.length update we reset pagination
-    // when items fill on page, we set current page to 1
-    if (pageCountNewValue === 1 || (pageCountNewValue !== 0 && this.currentPage === 0)) {
-      this.currentPage = 1;
-    }
-    // when old items page numbers match the current page AND new items page number is lower than current page, we set the new last page
-    else if (pageCountOldValue === this.currentPage && pageCountNewValue < this.currentPage) {
-      this.currentPage--;
-    }
-    this.sectionKind = newValue[0].value ? SectionKind.SELECTED : SectionKind.NOT_SELECTED;
+  watchCheckboxes(): void {
+    this.setItems();
   }
 
   /**
@@ -73,66 +59,48 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   @Prop() messages: Record<string, string>;
 
   /**
-   * Emit 'mass-action' event
-   * used to informe that select-all/unselect-all button listner is triggered
+   * Page items limit to display
    */
-  @Event({ eventName: 'mass-action' }) massAction: EventEmitter<SectionKindType>;
+  @State() top = this.step;
+  @Watch('top')
+  watchTop(): void {
+    this.setItems();
+  }
 
   /**
-   * Is checked items values expanded
+   * Method to reset step
    */
-  @State() expanded = true;
+  @Method()
+  async resetTop(): Promise<void> {
+    this.top = this.step;
+  }
 
   /***********
    * Methods *
    ***********/
 
   /**
-   * Mass action handler
+   * Component has next checkboxes to display
+   * @returns truthy if have next elements
    */
-  private massActionHandler = (): void => {
-    this.massAction.emit(this.sectionKind);
+  private hasNext = (): boolean => {
+    return this.checkboxes.length > this.top;
   };
 
   /**
-   * Toggle items button handler
+   * Set items from checkboxes and top values
    */
-  private handleToggleClick = (): void => {
-    this.expanded = !this.expanded;
+  private setItems = (): void => {
+    this.items = this.checkboxes.slice(0, this.top);
   };
 
   /**
-   * Method to get a array range
-   * @param from - array start index
-   * @param to - array end index
-   * @returns array's range
+   * Handle load-more <mg-button> click event
    */
-  private getArrayRange = <ItemType,>(array: ItemType[], from: number, to: number): ItemType[] => array.slice(from, to);
-
-  /**
-   * Get from and to index
-   * @returns [from,to] index
-   */
-  private getFromToIndexes(): number[] {
-    const isFirstPage = this.currentPage === 1;
-    const from = isFirstPage ? 0 : (this.currentPage - 1) * this.offset;
-    const to = isFirstPage ? this.offset : this.currentPage * this.offset;
-    return [from, to];
-  }
-
-  /**
-   * Method to get page count from items
-   * @param items - items to count
-   * @returns page count from items
-   */
-  private getPageCount = (items: unknown[]): number => (items?.length > 0 ? Math.ceil(items.length / this.offset) : 0);
-
-  /**
-   * Handle mg-pagination current page change event
-   * @param event - pagination current page change event
-   */
-  private handleCurrentPageChange = (event: CustomEvent): void => {
-    this.currentPage = Number(event.detail);
+  private handleLoadMore = (): void => {
+    if (this.hasNext()) {
+      this.top += this.step;
+    }
   };
 
   /*************
@@ -143,7 +111,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
    * Validate props
    */
   componentWillLoad(): void {
-    this.watchCheckboxes(this.checkboxes);
+    this.watchCheckboxes();
   }
 
   /**
@@ -151,53 +119,24 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    const getText = (checkboxes: CheckboxItem[]): HTMLElement => (
-      <em class="mg-c-input__section-header-title-label">{`${this.messages[checkboxes.length > 1 ? 'titlePlural' : 'title']} (${checkboxes.length})`}</em>
-    );
-    const [from, to] = this.getFromToIndexes();
-    const itemsContainerId = `items-${this.sectionKind}-container`;
-
+    const listId = formatID(this.messages.label);
+    const tabId = 'tab-info';
     return (
-      <Host hidden={this.checkboxes.length < 1}>
-        <div class="mg-c-input__section-header">
-          {this.sectionKind === SectionKind.SELECTED ? (
-            <mg-button variant="flat" onClick={this.handleToggleClick} aria-controls={itemsContainerId} aria-expanded={this.expanded.toString()}>
-              <mg-icon icon={this.expanded ? 'chevron-up' : 'chevron-down'}></mg-icon>
-              <span class="mg-c-input__section-header-title">{getText(this.checkboxes)}</span>
+      <Host>
+        <slot name="header-action"></slot>
+        <div class="mg-c-input__tabs-content">
+          <p id={tabId} class={{ 'mg-c-input__info': true, 'mg-u-visually-hidden': this.items.length !== 0 }} aria-live={this.items.length !== 0 ? 'polite' : undefined}>
+            {this.items.length === 0 ? this.messages.noValue : this.messages.values.replace('{count}', this.items.length.toString())}
+          </p>
+          {this.items.length > 0 && (
+            <MgInputCheckboxList checkboxes={this.items} labelledby={tabId} id={listId} disabled={this.disabled} name={this.name} invalid={this.invalid}></MgInputCheckboxList>
+          )}
+          {this.hasNext() && (
+            <mg-button key="load-more" variant="flat" class="mg-c-input__load-more" tabIndex={-1} full-width onClick={this.handleLoadMore} aria-controls={listId}>
+              <mg-icon icon="chevron-down"></mg-icon>
+              {this.messages.loadMore}
             </mg-button>
-          ) : (
-            <p class="mg-c-input__section-header-title mg-c-input__section-header-title--static">{getText(this.checkboxes)}</p>
           )}
-          {((this.sectionKind === SectionKind.SELECTED && this.expanded && this.checkboxes.some(checkbox => checkbox.value === true && checkbox.disabled !== true)) ||
-            (this.sectionKind === SectionKind.NOT_SELECTED && this.checkboxes.some(checkbox => checkbox.value === false && checkbox.disabled !== true))) && (
-            <mg-tooltip class="mg-c-input__section-header-tootlip" message={this.messages.tooltip}>
-              <mg-button variant="link" onClick={this.massActionHandler}>
-                {this.messages.action}
-              </mg-button>
-            </mg-tooltip>
-          )}
-          {this.expanded && this.getPageCount(this.checkboxes) > 1 && (
-            <mg-pagination
-              key="search-pagination"
-              totalPages={this.getPageCount(this.checkboxes)}
-              currentPage={this.currentPage}
-              onCurrent-page-change={this.handleCurrentPageChange}
-              hideNavigationLabels={true}
-              hidePageCount={true}
-              identifier={`input-checkbox-pagination-${this.sectionKind}`}
-            ></mg-pagination>
-          )}
-        </div>
-        <div hidden={!this.expanded} id={itemsContainerId} class="mg-c-input__section-content">
-          <MgInputCheckboxList
-            checkboxes={this.getArrayRange(this.checkboxes, from, to)}
-            displaySearchInput={true}
-            messages={this.messages}
-            id={`items-${this.sectionKind}`}
-            disabled={this.disabled}
-            name={this.name}
-            invalid={this.invalid}
-          ></MgInputCheckboxList>
         </div>
       </Host>
     );

@@ -39,6 +39,12 @@
       opacity: var(--mg-b-opacity-element-disabled);
     }
 
+    &__popover-info {
+      padding: var(--mg-b-size-8);
+      margin: 0;
+      text-align: center;
+    }
+
     // Error
     .mg-c-input.mg-c-input--has-error & {
       border-color: var(--mg-b-color-danger);

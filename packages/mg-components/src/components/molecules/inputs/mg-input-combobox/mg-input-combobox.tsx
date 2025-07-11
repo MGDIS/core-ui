@@ -1095,17 +1095,17 @@ export class MgInputCombobox {
                     }}
                   >
                     <mg-icon icon="chevron-down"></mg-icon>
-                    {this.messages.input.combobox.loadMore}
+                    {this.messages.loadMore}
                   </mg-button>
                 ),
               ]}
               {popoverContent === 'notfound' && (
-                <p id={popoverContent} class="mg-c-input__popover-info">
+                <p id={popoverContent} class="mg-c-input__info">
                   {this.messages.input.combobox.notFound}
                 </p>
               )}
               {popoverContent === 'notavailable' && (
-                <p id={popoverContent} class="mg-c-input__popover-info">
+                <p id={popoverContent} class="mg-c-input__info">
                   {this.messages.input.combobox.notAvailable}
                 </p>
               )}

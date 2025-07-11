@@ -13,7 +13,7 @@ import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+import { CheckboxItem, CheckboxType, CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Direction, Option } from "./types";
 import { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
@@ -44,7 +44,7 @@ export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+export { CheckboxItem, CheckboxType, CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Direction, Option } from "./types";
 export { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
@@ -425,10 +425,6 @@ export namespace Components {
          */
         "checkboxes": CheckboxItem[];
         /**
-          * Current page
-         */
-        "currentPage": number;
-        /**
           * Define if mg-input-checkbox-list is disabled
          */
         "disabled": boolean;
@@ -448,6 +444,10 @@ export namespace Components {
           * Define if mg-input-checkbox-list is readonly
          */
         "readonly": boolean;
+        /**
+          * Method to reset step
+         */
+        "resetTop": () => Promise<void>;
     }
     interface MgInputCombobox {
         /**
@@ -1765,10 +1765,6 @@ export interface MgInputCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgInputCheckboxElement;
 }
-export interface MgInputCheckboxPaginatedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLMgInputCheckboxPaginatedElement;
-}
 export interface MgInputComboboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgInputComboboxElement;
@@ -1980,21 +1976,10 @@ declare global {
         prototype: HTMLMgInputCheckboxElement;
         new (): HTMLMgInputCheckboxElement;
     };
-    interface HTMLMgInputCheckboxPaginatedElementEventMap {
-        "mass-action": SectionKindType;
-    }
     /**
      * Internal component use to manage sections instances
      */
     interface HTMLMgInputCheckboxPaginatedElement extends Components.MgInputCheckboxPaginated, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLMgInputCheckboxPaginatedElementEventMap>(type: K, listener: (this: HTMLMgInputCheckboxPaginatedElement, ev: MgInputCheckboxPaginatedCustomEvent<HTMLMgInputCheckboxPaginatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLMgInputCheckboxPaginatedElementEventMap>(type: K, listener: (this: HTMLMgInputCheckboxPaginatedElement, ev: MgInputCheckboxPaginatedCustomEvent<HTMLMgInputCheckboxPaginatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgInputCheckboxPaginatedElement: {
         prototype: HTMLMgInputCheckboxPaginatedElement;
@@ -2801,10 +2786,6 @@ declare namespace LocalJSX {
          */
         "checkboxes"?: CheckboxItem[];
         /**
-          * Current page
-         */
-        "currentPage"?: number;
-        /**
           * Define if mg-input-checkbox-list is disabled
          */
         "disabled"?: boolean;
@@ -2820,10 +2801,6 @@ declare namespace LocalJSX {
           * Define mg-input-checkbox input name
          */
         "name"?: string;
-        /**
-          * Emit 'mass-action' event used to informe that select-all/unselect-all button listner is triggered
-         */
-        "onMass-action"?: (event: MgInputCheckboxPaginatedCustomEvent<SectionKindType>) => void;
         /**
           * Define if mg-input-checkbox-list is readonly
          */

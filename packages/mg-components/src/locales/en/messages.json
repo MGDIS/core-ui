@@ -3,6 +3,7 @@
     "required": "This field is required."
   },
   "nbCharLeft": "{counter} characters left.",
+  "loadMore": "Load more",
   "input": {
     "select": {
       "placeholder": "Select a value"
@@ -13,23 +14,27 @@
       "editButton": "Edit",
       "selectButton": "Select values",
       "showButton": "Show",
-      "label": "Enter a value",
-      "result": "result",
-      "results": "results",
-      "searchResults": "Search result(s) list.",
-      "noResult": "No result.",
       "sections": {
+        "label": "Values grouped by: \"Selected\" ou \"Available\"",
+        "badge": { "label": "item(s)" },
+        "search": {
+          "label": "Enter a value",
+          "values": "{count} item(s) found",
+          "noValue": "No item found"
+        },
         "selected": {
           "title": "Selected",
-          "titlePlural": "Selected",
           "action": "Unselect all",
-          "tooltip": "Unselect all current search results"
+          "tooltip": "Unselect all current search results",
+          "values": "{count} item(s) selected",
+          "noValue": "No item selected"
         },
         "notSelected": {
-          "title": "Not selected",
-          "titlePlural": "Not selected",
+          "title": "Available",
           "action": "Select all",
-          "tooltip": "Select all current search results"
+          "tooltip": "Select all current search results",
+          "values": "{count} item(s) available",
+          "noValue": "All items are selected"
         }
       }
     },
@@ -63,7 +68,6 @@
     "combobox": {
       "notFound": "No elements match your input",
       "notAvailable": "No elements available",
-      "loadMore": "Load more",
       "search": "Search…"
     },
     "text": {

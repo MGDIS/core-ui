@@ -3,6 +3,7 @@
     "required": "Ce champ est obligatoire."
   },
   "nbCharLeft": "{counter} caractères disponibles.",
+  "loadMore": "Afficher plus",
   "input": {
     "select": {
       "placeholder": "Sélectionnez une valeur"
@@ -13,23 +14,27 @@
       "editButton": "Modifier",
       "selectButton": "Sélectionner des valeurs",
       "showButton": "Voir",
-      "label": "Saisissez une valeur",
-      "result": "résultat",
-      "results": "résultats",
-      "searchResults": "Liste de résultat(s) de la recherche.",
-      "noResult": "Aucun résultat.",
       "sections": {
+        "label": "Valeurs regroupées par: \"Sélectionnées\" ou \"Disponibles\"",
+        "badge": { "label": "élément(s)" },
+        "search": {
+          "label": "Saisissez une valeur",
+          "values": "{count} résultat(s)",
+          "noValue": "Aucun élément n'a été trouvé."
+        },
         "selected": {
-          "title": "Sélectionné",
-          "titlePlural": "Sélectionnés",
+          "title": "Sélectionnées",
           "action": "Tout désélectionner",
-          "tooltip": "Désélectionne tous les résultats de la recherche en cours"
+          "tooltip": "Désélectionne tous les résultats de la recherche en cours",
+          "values": "{count} élément(s) sélectionné(s)",
+          "noValue": "Aucun élément sélectionné"
         },
         "notSelected": {
-          "title": "Non sélectionné",
-          "titlePlural": "Non sélectionnés",
+          "title": "Disponibles",
           "action": "Tout sélectionner",
-          "tooltip": "Sélectionne tous les résultats de la recherche en cours"
+          "tooltip": "Sélectionne tous les résultats de la recherche en cours",
+          "values": "{count} éléments(s) disponible(s)",
+          "noValue": "Tous les éléments sont sélectionnés"
         }
       }
     },
@@ -63,7 +68,6 @@
     "combobox": {
       "notFound": "Aucun élément ne correspondont a votre saisie",
       "notAvailable": "Aucun élément disponible",
-      "loadMore": "Afficher plus",
       "search": "Recherche…"
     },
     "text": {
