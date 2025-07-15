@@ -358,8 +358,8 @@ importers:
         version: 1.2.0
     devDependencies:
       '@html-eslint/parser':
-        specifier: 0.41.0
-        version: 0.41.0
+        specifier: 0.42.0
+        version: 0.42.0
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -410,8 +410,8 @@ importers:
   packages/helpers:
     dependencies:
       '@playwright/test':
-        specifier: 1.53.1
-        version: 1.53.1
+        specifier: 1.54.1
+        version: 1.54.1
       '@stencil/core':
         specifier: 4.28.2
         version: 4.28.2
@@ -519,14 +519,14 @@ importers:
   packages/linting-angularjs:
     dependencies:
       '@babel/eslint-parser':
-        specifier: 7.27.5
-        version: 7.27.5(@babel/core@7.27.4)(eslint@8.57.1)
+        specifier: 7.28.0
+        version: 7.28.0(@babel/core@7.27.4)(eslint@8.57.1)
       '@html-eslint/eslint-plugin':
-        specifier: 0.41.0
-        version: 0.41.0(eslint@8.57.1)
+        specifier: 0.42.0
+        version: 0.42.0(eslint@8.57.1)
       '@html-eslint/parser':
-        specifier: 0.41.0
-        version: 0.41.0
+        specifier: 0.42.0
+        version: 0.42.0
       '@mgdis/eslint-plugin-html':
         specifier: workspace:*
         version: link:../eslint-plugin-html
@@ -594,8 +594,8 @@ importers:
   packages/linting-vue2:
     dependencies:
       '@babel/eslint-parser':
-        specifier: 7.27.5
-        version: 7.27.5(@babel/core@7.27.4)(eslint@8.57.1)
+        specifier: 7.28.0
+        version: 7.28.0(@babel/core@7.27.4)(eslint@8.57.1)
       '@mgdis/eslint-plugin-vue':
         specifier: workspace:*
         version: link:../eslint-plugin-vue
@@ -646,8 +646,8 @@ importers:
         specifier: workspace:*
         version: link:../linting-stencil
       '@playwright/test':
-        specifier: 1.53.1
-        version: 1.53.1
+        specifier: 1.54.1
+        version: 1.54.1
       '@storybook/addon-a11y':
         specifier: 9.0.16
         version: 9.0.16(storybook@9.0.16(@testing-library/dom@10.4.0)(prettier@3.6.2))
@@ -789,8 +789,8 @@ importers:
         specifier: workspace:*
         version: link:../mg-components
       '@playwright/test':
-        specifier: 1.53.1
-        version: 1.53.1
+        specifier: 1.54.1
+        version: 1.54.1
       '@types/jest':
         specifier: 29.5.14
         version: 29.5.14
@@ -928,8 +928,8 @@ importers:
         specifier: workspace:*
         version: link:../helpers
       '@playwright/test':
-        specifier: 1.53.1
-        version: 1.53.1
+        specifier: 1.54.1
+        version: 1.54.1
       sass:
         specifier: 1.89.2
         version: 1.89.2
@@ -967,8 +967,8 @@ packages:
     resolution: {integrity: sha512-bXYxrXFubeYdvB0NhD/NBB3Qi6aZeV20GOWVI47t2dkecCEoneR4NPVcb7abpXDEvejgrUfFtG6vG/zxAKmg+g==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/eslint-parser@7.27.5':
-    resolution: {integrity: sha512-HLkYQfRICudzcOtjGwkPvGc5nF1b4ljLZh1IRDj50lRZ718NAKVgQpIAUX8bfg6u/yuSKY3L7E0YzIV+OxrB8Q==}
+  '@babel/eslint-parser@7.28.0':
+    resolution: {integrity: sha512-N4ntErOlKvcbTt01rr5wj3y55xnIdx1ymrfIr8C2WnM1Y9glFgWaGDEULJIazOX3XM9NRzhfJ6zZnQ1sBNWU+w==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': ^7.11.0
@@ -1523,8 +1523,8 @@ packages:
     resolution: {integrity: sha512-CCZCDJuduB9OUkFkY2IgppNZMi2lBQgD2qzwXkEia16cge2pijY/aXi96CJMquDMn3nJdlPV1A5KrJEXwfLNzQ==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
-  '@eslint/core@0.15.0':
-    resolution: {integrity: sha512-b7ePw78tEWWkpgZCDYkbqDOP8dmM6qe+AOC6iuJqlq1R/0ahMAeH3qynpnqKFGkMltrp44ohV4ubGyvLX28tzw==}
+  '@eslint/core@0.15.1':
+    resolution: {integrity: sha512-bkOp+iumZCCbt1K1CmWf0R9pM5yKpDv+ZXtvSyQpudrI9kuFLp+bM2WOPXImuD/ceQuaa8f5pj93Y7zyECIGNA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/eslintrc@2.1.4':
@@ -1535,27 +1535,27 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@eslint/plugin-kit@0.3.2':
-    resolution: {integrity: sha512-4SaFZCNfJqvk/kenHpI8xvN42DMaoycy4PzKc5otHxRswww1kAt82OlBuwRVLofCACCTZEcla2Ydxv8scMXaTg==}
+  '@eslint/plugin-kit@0.3.3':
+    resolution: {integrity: sha512-1+WqvgNMhmlAambTvT3KPtCl/Ibr68VldY2XY40SL1CE0ZXiakFR/cbTspaF5HsnpDMvcYYoJHfl4980NBjGag==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@gerrit0/mini-shiki@3.7.0':
     resolution: {integrity: sha512-7iY9wg4FWXmeoFJpUL2u+tsmh0d0jcEJHAIzVxl3TG4KL493JNnisdLAILZ77zcD+z3J0keEXZ+lFzUgzQzPDg==}
 
-  '@html-eslint/eslint-plugin@0.41.0':
-    resolution: {integrity: sha512-kZhOdLOx5xGogw9CE/uGKkoo8t7fNK9PxU6kosIvu9Yveir3r2VhGYC4II/2OEGQ+O4cPk2LxV1fCpYt7XFMtQ==}
+  '@html-eslint/eslint-plugin@0.42.0':
+    resolution: {integrity: sha512-TaSt4WLAytFQR+fKW3FM51HhYISxG4xJjsk+8GtHXUu3BSFeJ21X2LAftHPvILxVC0XUbOqn0X+NlfyWdqafKg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.0.0 || ^9.0.0
 
-  '@html-eslint/parser@0.41.0':
-    resolution: {integrity: sha512-QQJeq2G11T/SGYcG09+XOajm+X8XX6bVVSouB3SVlGmm3exvJis0B6tBnb+5Rz2kC/q3C21z1ZuCc/AXcFKzIA==}
+  '@html-eslint/parser@0.42.0':
+    resolution: {integrity: sha512-fLH5u91H4q83jRS+Grlxv229RKd4JQpp4MAwGYdR3CoVtloXBHFC+QvX3+lAlTiDHytTWNNbrCKHfk3vtQWXrg==}
 
-  '@html-eslint/template-parser@0.41.0':
-    resolution: {integrity: sha512-ntZNMh+G13lPvwSSkr2U0XqWWDFLSZPeidcztgVCjxthwgSMdefL4au/YicnlB+h1WNBw8Pk0bAjczJXEbp85g==}
+  '@html-eslint/template-parser@0.42.0':
+    resolution: {integrity: sha512-lGKxMategzQ0LgDz09yT5gfLusVYNEd+bWE62gL9jd17fCX1XOHuPWzhCch0GpZ/So8Ayy8cqZiIXr1QBUgrJA==}
 
-  '@html-eslint/template-syntax-parser@0.41.0':
-    resolution: {integrity: sha512-dgiE30uXWCoD89chi6KdjYOF+143bImJ3GNl3j2iy6/ZM8enTqCQVHZ48+Esf6Tx2rLBBBdxx4Rb0fG11myHsw==}
+  '@html-eslint/template-syntax-parser@0.42.0':
+    resolution: {integrity: sha512-wUgjZJHof/O24e9AwKFip7rSR2+Xr/Oy++GHGOyDJoPQ6bjl9MHdDEbzofT6gDU6wAFx8+YCE4fZl4nnwjNEJQ==}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -2087,8 +2087,8 @@ packages:
     resolution: {integrity: sha512-YLT9Zo3oNPJoBjBc4q8G2mjU4tqIbf5CEOORbUUr48dCD9q3umJ3IPlVqOqDakPfd2HuwccBaqlGhN4Gmr5OWg==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.53.1':
-    resolution: {integrity: sha512-Z4c23LHV0muZ8hfv4jw6HngPJkbbtZxTkxPNIg7cJcTc9C28N/p2q7g3JZS2SiKBBHJ3uM1dgDye66bB7LEk5w==}
+  '@playwright/test@1.54.1':
+    resolution: {integrity: sha512-FS8hQ12acieG2dYSksmLOF7BNxnVf2afRJdCuM1eMSxj6QTSE6G4InGF7oApGgDb65MX7AwMVlIkpru0yZA4Xw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -6322,13 +6322,13 @@ packages:
   pkg-types@2.1.0:
     resolution: {integrity: sha512-wmJwA+8ihJixSoHKxZJRBQG1oY8Yr9pGLzRmSsNms0iNWyHHAlZCa7mmKiFR10YPZuz/2k169JiS/inOjBCZ2A==}
 
-  playwright-core@1.53.1:
-    resolution: {integrity: sha512-Z46Oq7tLAyT0lGoFx4DOuB1IA9D1TPj0QkYxpPVUnGDqHHvDpCftu1J2hM2PiWsNMoZh8+LQaarAWcDfPBc6zg==}
+  playwright-core@1.54.1:
+    resolution: {integrity: sha512-Nbjs2zjj0htNhzgiy5wu+3w09YetDx5pkrpI/kZotDlDUaYk0HVA5xrBVPdow4SAUIlhgKcJeJg4GRKW6xHusA==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.53.1:
-    resolution: {integrity: sha512-LJ13YLr/ocweuwxyGf1XNFWIU4M2zUSo149Qbp+A4cpwDjsxRPj7k6H25LBrEHiEwxvRbD8HdwvQmRMSvquhYw==}
+  playwright@1.54.1:
+    resolution: {integrity: sha512-peWpSwIBmSLi6aW2auvrUtf2DqY16YYcCMO8rTVx486jKmDTJg7UAhyrraP98GB8BoPURZP8+nxO7TSd4cPr5g==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -7851,7 +7851,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/eslint-parser@7.27.5(@babel/core@7.27.4)(eslint@8.57.1)':
+  '@babel/eslint-parser@7.28.0(@babel/core@7.27.4)(eslint@8.57.1)':
     dependencies:
       '@babel/core': 7.27.4
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
@@ -8447,7 +8447,7 @@ snapshots:
 
   '@eslint-community/regexpp@4.12.1': {}
 
-  '@eslint/core@0.15.0':
+  '@eslint/core@0.15.1':
     dependencies:
       '@types/json-schema': 7.0.15
 
@@ -8467,9 +8467,9 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
-  '@eslint/plugin-kit@0.3.2':
+  '@eslint/plugin-kit@0.3.3':
     dependencies:
-      '@eslint/core': 0.15.0
+      '@eslint/core': 0.15.1
       levn: 0.4.1
 
   '@gerrit0/mini-shiki@3.7.0':
@@ -8480,24 +8480,24 @@ snapshots:
       '@shikijs/types': 3.7.0
       '@shikijs/vscode-textmate': 10.0.2
 
-  '@html-eslint/eslint-plugin@0.41.0(eslint@8.57.1)':
+  '@html-eslint/eslint-plugin@0.42.0(eslint@8.57.1)':
     dependencies:
-      '@eslint/plugin-kit': 0.3.2
-      '@html-eslint/parser': 0.41.0
-      '@html-eslint/template-parser': 0.41.0
-      '@html-eslint/template-syntax-parser': 0.41.0
+      '@eslint/plugin-kit': 0.3.3
+      '@html-eslint/parser': 0.42.0
+      '@html-eslint/template-parser': 0.42.0
+      '@html-eslint/template-syntax-parser': 0.42.0
       eslint: 8.57.1
 
-  '@html-eslint/parser@0.41.0':
+  '@html-eslint/parser@0.42.0':
     dependencies:
-      '@html-eslint/template-syntax-parser': 0.41.0
+      '@html-eslint/template-syntax-parser': 0.42.0
       es-html-parser: 0.2.0
 
-  '@html-eslint/template-parser@0.41.0':
+  '@html-eslint/template-parser@0.42.0':
     dependencies:
       es-html-parser: 0.2.0
 
-  '@html-eslint/template-syntax-parser@0.41.0': {}
+  '@html-eslint/template-syntax-parser@0.42.0': {}
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
@@ -9091,9 +9091,9 @@ snapshots:
 
   '@pkgr/core@0.2.7': {}
 
-  '@playwright/test@1.53.1':
+  '@playwright/test@1.54.1':
     dependencies:
-      playwright: 1.53.1
+      playwright: 1.54.1
 
   '@pnpm/config.env-replace@1.1.0': {}
 
@@ -13625,11 +13625,11 @@ snapshots:
       exsolve: 1.0.5
       pathe: 2.0.3
 
-  playwright-core@1.53.1: {}
+  playwright-core@1.54.1: {}
 
-  playwright@1.53.1:
+  playwright@1.54.1:
     dependencies:
-      playwright-core: 1.53.1
+      playwright-core: 1.54.1
     optionalDependencies:
       fsevents: 2.3.2
 
