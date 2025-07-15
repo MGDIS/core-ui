@@ -15,8 +15,6 @@ export const config: Config = {
   },
   tsconfig: 'tsconfig.build.json',
   sourceMap: false,
-  minifyCss: true,
-  minifyJs: true,
   outputTargets: [
     {
       type: 'dist',
