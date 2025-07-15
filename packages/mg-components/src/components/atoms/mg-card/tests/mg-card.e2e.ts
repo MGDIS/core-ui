@@ -1,6 +1,7 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
+import { radiusSizes } from '../mg-card.conf';
 
 const createHTML = (args, slot = '') => `<mg-card ${renderAttributes(args)}>${slot}</mg-card>`;
 
@@ -28,11 +29,9 @@ test.describe('mg-card', () => {
   });
 
   test('Should render with different radius sizes', async ({ page }) => {
-    await page.setContent(`
-      ${createHTML({ radius: 'xsmall' }, 'XSmall radius')}
-      ${createHTML({ radius: 'small' }, 'Small radius')}
-      ${createHTML({ radius: 'medium' }, 'Medium radius')}
-    `);
+    await page.setContent(
+      radiusSizes.map(radius => createHTML({ radius }, `${radius} radius`)).join('')
+    );
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });
