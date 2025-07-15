@@ -29,9 +29,7 @@ test.describe('mg-card', () => {
   });
 
   test('Should render with different radius sizes', async ({ page }) => {
-    await page.setContent(
-      radiusSizes.map(radius => createHTML({ radius }, `${radius} radius`)).join('')
-    );
+    await page.setContent(radiusSizes.map(radiusSize => createHTML({ radiusSize }, `${radiusSize} radius`)).join(''));
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });

@@ -23,16 +23,16 @@ describe('mg-card', () => {
     expect(root).toMatchSnapshot();
   });
 
-  test.each([undefined, ...radiusSizes])('Should render correctly with radius=%s', async radius => {
-    const { root } = await getPage({ radius }, `radius=${radius}`);
+  test.each([undefined, ...radiusSizes])('Should render correctly with radiusSize=%s', async radiusSize => {
+    const { root } = await getPage({ radiusSize }, `radiusSize=${radiusSize}`);
     expect(root).toMatchSnapshot();
   });
 
-  test('Should remove old radius class when radius changes', async () => {
-    const page = await getPage({ radius: 'xsmall' }, 'radius test');
+  test('Should remove old radius class when radiusSize changes', async () => {
+    const page = await getPage({ radiusSize: 'xsmall' }, 'radius test');
     const card = page.root.shadowRoot.querySelector('.mg-c-card');
     // xsmall -> small
-    page.root.radius = 'small';
+    page.root.radiusSize = 'small';
     await page.waitForChanges();
     expect(card.classList.contains('mg-c-card--radius-xsmall')).toBe(false);
     expect(card.classList.contains('mg-c-card--radius-small')).toBe(true);
