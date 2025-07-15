@@ -16,7 +16,7 @@ export class MgCard {
    */
   @Prop() shadow = false;
   @Watch('shadow')
-  watchShadow(newValue: boolean): void {
+  watchShadow(newValue: MgCard['shadow']): void {
     if (newValue) {
       this.classCollection.add('mg-c-card--shadow');
     } else {
@@ -29,8 +29,8 @@ export class MgCard {
    */
   @Prop() radius: Radius = 'medium';
   @Watch('radius')
-  watchRadius(newValue: Radius, oldValue?: Radius): void {
-    if (oldValue && radiusSizes.includes(oldValue)) {
+  watchRadius(newValue: MgCard['radius'], oldValue?: MgCard['radius']): void {
+    if (oldValue !== undefined && radiusSizes.includes(oldValue)) {
       this.classCollection.delete(`mg-c-card--radius-${oldValue}`);
     }
     if (radiusSizes.includes(newValue)) {
