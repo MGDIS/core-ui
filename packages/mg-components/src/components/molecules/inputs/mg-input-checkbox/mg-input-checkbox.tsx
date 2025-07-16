@@ -803,7 +803,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         label={this.label}
         identifier={this.identifier}
         class={this.classCollection.join()}
-        ariaDescribedbyIDs={[]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={!this.readonly ? this.required : undefined} // required is only used display asterisk

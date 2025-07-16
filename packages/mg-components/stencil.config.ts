@@ -14,6 +14,7 @@ export const config: Config = {
     openBrowser: false,
   },
   tsconfig: 'tsconfig.build.json',
+  sourceMap: false,
   outputTargets: [
     {
       type: 'dist',

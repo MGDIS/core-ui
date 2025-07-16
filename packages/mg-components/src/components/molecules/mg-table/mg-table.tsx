@@ -254,7 +254,7 @@ export class MgTable {
     }
 
     // Add alignment to columns
-    this.element.shadowRoot.adoptedStyleSheets = [...this.element.shadowRoot.adoptedStyleSheets, this.alignmentStylesheet];
+    this.element.shadowRoot.adoptedStyleSheets.push(this.alignmentStylesheet);
 
     // Create div wrapper for responsive behavior
     const divWrapper = document.createElement('div');
