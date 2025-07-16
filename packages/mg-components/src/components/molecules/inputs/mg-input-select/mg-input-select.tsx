@@ -86,7 +86,7 @@ export class MgInputSelect {
   @Watch('value')
   validateValue(newValue: MgInputSelect['value']): void {
     if (allItemsAreString(this.items) && typeof newValue === 'string') {
-      this.readonlyValue = this.input?.value !== undefined ? this.input.value : newValue;
+      this.readonlyValue = this.input?.value ?? newValue;
     } else if (allItemsAreOptions(this.items)) {
       this.readonlyValue = this.items.find(item => item.value === newValue)?.title;
     } else {
