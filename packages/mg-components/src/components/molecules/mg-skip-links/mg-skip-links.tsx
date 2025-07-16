@@ -48,9 +48,10 @@ export class MgSkipLinks {
    * Handle link click and emit go-to-anchor event
    * @param event - mouse event
    */
-  private handleLinkCLick = (event: MouseEvent & { currentTarget: HTMLElement }): void => {
-    event.currentTarget.blur();
-    this.goToAnchor.emit(event.currentTarget.getAttribute('href'));
+  private handleLinkCLick = (event: MouseEvent): void => {
+    const element = event.currentTarget as HTMLElement;
+    element.blur();
+    this.goToAnchor.emit(element.getAttribute('href'));
   };
 
   /*************

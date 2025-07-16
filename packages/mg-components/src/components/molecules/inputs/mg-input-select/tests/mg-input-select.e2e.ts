@@ -110,6 +110,9 @@ test.describe('mg-input-select', () => {
     { value: 'blu', readonly: true, labelOnTop: true },
     { disabled: true },
     { value: 'blu', disabled: true },
+    {
+      helpText: `<p>hello <a href="h">batman<mg-icon icon="user"></mg-icon></a></p>`,
+    },
     { value: 'batman', helpText: '<mg-icon icon="user" size="small"></mg-icon> Welcome batman' },
     { value: 'blu', required: true, helpText: 'HelpText Message' },
     { value: 'blu', required: true, readonly: true, helpText: 'HelpText Message' },

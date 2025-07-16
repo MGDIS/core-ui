@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.10
+
+### Patch Changes
+
+- ef9786d: update dependencies
+
 ## 4.1.9
 
 ### Patch Changes

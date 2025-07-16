@@ -173,7 +173,14 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Watch('readonly')
   @Watch('disabled')
   handleValidityChange(newValue: boolean, _oldValue: boolean, prop: string): void {
-    if (prop !== 'readonly') this.updateCheckboxItems(prop, newValue);
+    // if required or disabled are enabled, we force options state
+    if (newValue && prop !== 'readonly') {
+      this.updateCheckboxItems(prop, newValue);
+    }
+    // else we rebase options to inital values
+    else {
+      this.validateValue(this.value);
+    }
     this.checkValidity();
     if (this.hasDisplayedError) {
       this.hasDisplayedError = prop !== 'required';
@@ -796,7 +803,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         label={this.label}
         identifier={this.identifier}
         class={this.classCollection.join()}
-        ariaDescribedbyIDs={[]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={!this.readonly ? this.required : undefined} // required is only used display asterisk

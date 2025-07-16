@@ -1,3 +1,5 @@
+@use 'anchor';
+
 /**
  * Fonts
  * Open Sans
@@ -93,20 +95,6 @@ h5,
 h6,
 .mg-u-h6 {
   font-size: var(--mg-b-font-size-h6);
-}
-
-/**
- * Links
- */
-a {
-  color: inherit;
-  text-decoration: underline;
-
-  &:hover,
-  &:focus,
-  &:active {
-    text-decoration: none;
-  }
 }
 
 /**

@@ -11,7 +11,14 @@ const baseArgs = {
 const createHTML = (args, slot = '') => `<mg-input-numeric ${renderAttributes(args)}>${slot}</mg-input-numeric>`;
 
 test.describe('mg-input-numeric', () => {
-  [{}, { labelOnTop: true }, { labelHide: true }, { placeholder: 'placeholder', helpText: 'HelpText Message' }, { type: 'integer' }].forEach(addedArgs => {
+  [
+    {},
+    { labelOnTop: true },
+    { labelHide: true },
+    { placeholder: 'placeholder', helpText: 'HelpText Message' },
+    { type: 'integer' },
+    { helpText: `<p>hello <a href="h">batman<mg-icon icon="user"></mg-icon></a></p>` },
+  ].forEach(addedArgs => {
     test(`render ${renderAttributes(addedArgs)}`, async ({ page }) => {
       const args = { ...baseArgs, ...addedArgs };
       const html = createHTML(args);

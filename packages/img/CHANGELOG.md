@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 2.4.5
+
+### Patch Changes
+
+- ef9786d: update dependencies
+
 ## 2.4.4
 
 ### Patch Changes

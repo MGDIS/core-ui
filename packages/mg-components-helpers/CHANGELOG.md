@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.2.3
+
+### Patch Changes
+
+- 4b9f78c: apply sonar recommandations
+- ef9786d: update dependencies
+- Updated dependencies [4b9f78c]
+- Updated dependencies [ef9786d]
+  - @mgdis/core-ui-helpers@1.0.2
+
 ## 4.2.2
 
 ### Patch Changes

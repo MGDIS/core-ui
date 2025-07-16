@@ -167,8 +167,8 @@ export class MgTabs {
    * Handle click events on tabs
    * @param event - mouse event
    */
-  private handleClick = (event: MouseEvent & { currentTarget: HTMLElement }): void => {
-    const tabId = event.currentTarget.dataset.index;
+  private handleClick = (event: MouseEvent): void => {
+    const tabId = (event.currentTarget as HTMLElement).dataset.index;
     if (!this.isActivableTab(this.tabs[Number(tabId) - this.startIndex])) {
       event.preventDefault();
     } else {

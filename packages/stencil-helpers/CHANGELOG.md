@@ -1,5 +1,14 @@
 # @mgdis/stencil-helpers
 
+## 3.2.3
+
+### Patch Changes
+
+- ef9786d: update dependencies
+- Updated dependencies [4b9f78c]
+- Updated dependencies [ef9786d]
+  - @mgdis/core-ui-helpers@1.0.2
+
 ## 3.2.2
 
 ### Patch Changes

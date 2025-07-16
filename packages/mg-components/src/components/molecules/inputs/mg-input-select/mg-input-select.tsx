@@ -85,13 +85,6 @@ export class MgInputSelect {
   @Prop({ mutable: true }) value: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   @Watch('value')
   validateValue(newValue: MgInputSelect['value']): void {
-    if (allItemsAreString(this.items) && typeof newValue === 'string') {
-      this.readonlyValue = this.input?.value !== undefined ? this.input.value : newValue;
-    } else if (allItemsAreOptions(this.items)) {
-      this.readonlyValue = this.items.find(item => item.value === newValue)?.title;
-    } else {
-      this.readonlyValue = null;
-    }
     setTimeout(() => {
       this.checkValidity();
       if (this.hasDisplayedError) {
@@ -277,11 +270,6 @@ export class MgInputSelect {
   @State() valueExist: boolean;
 
   /**
-   * Value to display in readonly mode
-   */
-  @State() readonlyValue: string;
-
-  /**
    * Emited event when value change
    */
   @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputCheckboxElement['value']>;
@@ -364,6 +352,20 @@ export class MgInputSelect {
       });
     }
   }
+
+  /**
+   * Method to get readonly value from value
+   * @returns readonly value
+   */
+  private getReadonlyValue = (): string | null => {
+    if (allItemsAreString(this.items) && typeof this.value === 'string') {
+      return this.items.find(item => item === this.value);
+    } else if (allItemsAreOptions(this.items)) {
+      return this.items.find(item => item.value === this.value)?.title;
+    } else {
+      return null;
+    }
+  };
 
   /**
    * Method to set validity values
@@ -491,22 +493,22 @@ export class MgInputSelect {
    * @returns HTML Element
    */
   render(): HTMLElement {
+    const readonlyValue = this.getReadonlyValue();
     return (
       <mg-input
         label={this.label}
         identifier={this.identifier}
         class={this.classCollection.join()}
-        ariaDescribedbyIDs={[]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
         tooltip={this.tooltip}
-        tooltipPosition={this.readonly && this.readonlyValue === null ? 'label' : this.tooltipPosition}
+        tooltipPosition={this.readonly && readonlyValue === null ? 'label' : this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >
         {this.readonly ? (
-          this.readonlyValue && <b class="mg-c-input__readonly-value">{this.readonlyValue}</b>
+          readonlyValue && <b class="mg-c-input__readonly-value">{readonlyValue}</b>
         ) : (
           <select
             class="mg-c-input__box"

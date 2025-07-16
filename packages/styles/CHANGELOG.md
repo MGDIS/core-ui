@@ -1,5 +1,13 @@
 # @mgdis/styles
 
+## 2.8.1
+
+### Patch Changes
+
+- ba486c2: [#570](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/570) mg-input: CSS into embedded style for help-text tag is not applied
+- 4bbb3f3: [#569](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/569) mg-popover: change title margin to 12px
+- ef9786d: update dependencies
+
 ## 2.8.0
 
 ### Minor Changes
