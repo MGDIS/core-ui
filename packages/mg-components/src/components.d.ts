@@ -278,7 +278,7 @@ export namespace Components {
         /**
           * Define aria-describedby ids to link with
          */
-        "ariaDescribedbyIDs": string[];
+        "ariaDescribedbyIDs"?: string[] | string;
         /**
           * Define error message to display
          */
@@ -2692,7 +2692,7 @@ declare namespace LocalJSX {
         /**
           * Define aria-describedby ids to link with
          */
-        "ariaDescribedbyIDs"?: string[];
+        "ariaDescribedbyIDs"?: string[] | string;
         /**
           * Define error message to display
          */

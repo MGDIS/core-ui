@@ -278,3 +278,28 @@ exports[`mg-alert Render Should render with action slot 1`] = `
   </div>
 </mg-alert>
 `;
+
+exports[`mg-alert Should not bubble commponent events 1`] = `
+<body>
+  <div>
+    <mg-alert>
+      <template shadowrootmode="open">
+        <mg-message class="mg-c-alert mg-c-alert--close-button" role="status" variant="info" variantstyle="bar-left">
+          <slot></slot>
+          <span class="mg-c-alert__close-button">
+            <mg-button is-icon="" label="Close message" variant="flat">
+              <mg-icon icon="cross"></mg-icon>
+            </mg-button>
+          </span>
+        </mg-message>
+      </template>
+      <p>
+        <strong>
+          Strong
+        </strong>
+        content!
+      </p>
+    </mg-alert>
+  </div>
+</body>
+`;
