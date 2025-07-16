@@ -311,7 +311,7 @@ export class MgInput {
       this.errorMessageSlotElement.remove();
     }
     // create element if it does NOT exist
-    if (this.errorMessageSlotElement === null) {
+    else if (this.errorMessageSlotElement === null) {
       this.errorMessageSlotElement = document.createElement('div');
       this.element.appendChild(this.errorMessageSlotElement);
     }

@@ -280,7 +280,7 @@ describe('mg-input-select', () => {
       ],
     ],
   ])('next items %s', (nextItems: MgInputSelect['items']) => {
-    describe.each([undefined, 'no value error detail content'])('noValueErrorDetail: %%', noValueErrorDetail => {
+    describe.each([undefined, 'no value error detail content'])('noValueErrorDetail: %s', noValueErrorDetail => {
       test.each([undefined, null, [] as unknown[]])('Should display error message with invalid items property: %s', async items => {
         const page = await getPage({ identifier: 'identifier', label: 'label', items, noValueErrorDetail });
         const element = page.doc.querySelector('mg-input-select');

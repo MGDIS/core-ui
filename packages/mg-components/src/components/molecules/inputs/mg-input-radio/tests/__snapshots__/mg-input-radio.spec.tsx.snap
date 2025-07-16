@@ -1597,94 +1597,7 @@ exports[`mg-input-radio display error with displayError component's public metho
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: % Should display error message with invalid items property: [] 1`] = `
-<mg-input-radio>
-  <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-          <div aria-live="assertive" class="mg-c-input__error">
-            <slot name="error"></slot>
-          </div>
-        </div>
-      </template>
-      <ul class="mg-c-input__input-group-container" role="list"></ul>
-      <div id="identifier-error" slot="error">
-        No value.
-      </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </legend>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-radio>
-`;
-
-exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: % Should display error message with invalid items property: [] 2`] = `
-<mg-input-radio>
-  <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </template>
-      <ul class="mg-c-input__input-group-container" role="list">
-        <li class="mg-c-input__input-group">
-          <input id="identifier_0" name="identifier" type="radio" value="0">
-          <label htmlfor="identifier_0">
-            batman
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_1" name="identifier" type="radio" value="1">
-          <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_2" name="identifier" type="radio" value="2">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_3" name="identifier" type="radio" value="3">
-          <label htmlfor="identifier_3">
-            bane
-          </label>
-        </li>
-      </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </legend>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-radio>
-`;
-
-exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: % Should display error message with invalid items property: [] 3`] = `
+exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: no value error detail content Should display error message with invalid items property: [] 1`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
@@ -1723,7 +1636,7 @@ exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValu
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: % Should display error message with invalid items property: [] 4`] = `
+exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: no value error detail content Should display error message with invalid items property: [] 2`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
@@ -1776,94 +1689,7 @@ exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValu
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: % Should display error message with invalid items property: null 1`] = `
-<mg-input-radio>
-  <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-          <div aria-live="assertive" class="mg-c-input__error">
-            <slot name="error"></slot>
-          </div>
-        </div>
-      </template>
-      <ul class="mg-c-input__input-group-container" role="list"></ul>
-      <div id="identifier-error" slot="error">
-        No value.
-      </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </legend>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-radio>
-`;
-
-exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: % Should display error message with invalid items property: null 2`] = `
-<mg-input-radio>
-  <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </template>
-      <ul class="mg-c-input__input-group-container" role="list">
-        <li class="mg-c-input__input-group">
-          <input id="identifier_0" name="identifier" type="radio" value="0">
-          <label htmlfor="identifier_0">
-            batman
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_1" name="identifier" type="radio" value="1">
-          <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_2" name="identifier" type="radio" value="2">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_3" name="identifier" type="radio" value="3">
-          <label htmlfor="identifier_3">
-            bane
-          </label>
-        </li>
-      </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </legend>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-radio>
-`;
-
-exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: % Should display error message with invalid items property: null 3`] = `
+exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: no value error detail content Should display error message with invalid items property: null 1`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
@@ -1902,7 +1728,7 @@ exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValu
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: % Should display error message with invalid items property: null 4`] = `
+exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: no value error detail content Should display error message with invalid items property: null 2`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
@@ -1955,94 +1781,7 @@ exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValu
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: % Should display error message with invalid items property: undefined 1`] = `
-<mg-input-radio>
-  <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-          <div aria-live="assertive" class="mg-c-input__error">
-            <slot name="error"></slot>
-          </div>
-        </div>
-      </template>
-      <ul class="mg-c-input__input-group-container" role="list"></ul>
-      <div id="identifier-error" slot="error">
-        No value.
-      </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </legend>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-radio>
-`;
-
-exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: % Should display error message with invalid items property: undefined 2`] = `
-<mg-input-radio>
-  <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </template>
-      <ul class="mg-c-input__input-group-container" role="list">
-        <li class="mg-c-input__input-group">
-          <input id="identifier_0" name="identifier" type="radio" value="0">
-          <label htmlfor="identifier_0">
-            batman
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_1" name="identifier" type="radio" value="1">
-          <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_2" name="identifier" type="radio" value="2">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_3" name="identifier" type="radio" value="3">
-          <label htmlfor="identifier_3">
-            bane
-          </label>
-        </li>
-      </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </legend>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-radio>
-`;
-
-exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: % Should display error message with invalid items property: undefined 3`] = `
+exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: no value error detail content Should display error message with invalid items property: undefined 1`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
@@ -2081,7 +1820,7 @@ exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValu
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: % Should display error message with invalid items property: undefined 4`] = `
+exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: no value error detail content Should display error message with invalid items property: undefined 2`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
@@ -2134,7 +1873,7 @@ exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValu
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: % Should display error message with invalid items property: [] 1`] = `
+exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: undefined Should display error message with invalid items property: [] 1`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
@@ -2168,7 +1907,7 @@ exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] no
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: % Should display error message with invalid items property: [] 2`] = `
+exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: undefined Should display error message with invalid items property: [] 2`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
@@ -2221,7 +1960,181 @@ exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] no
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: % Should display error message with invalid items property: [] 3`] = `
+exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: undefined Should display error message with invalid items property: null 1`] = `
+<mg-input-radio>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" role="list"></ul>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-radio>
+`;
+
+exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: undefined Should display error message with invalid items property: null 2`] = `
+<mg-input-radio>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" role="list">
+        <li class="mg-c-input__input-group">
+          <input id="identifier_0" name="identifier" type="radio" value="0">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_1" name="identifier" type="radio" value="1">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_2" name="identifier" type="radio" value="2">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_3" name="identifier" type="radio" value="3">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-radio>
+`;
+
+exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: undefined Should display error message with invalid items property: undefined 1`] = `
+<mg-input-radio>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" role="list"></ul>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-radio>
+`;
+
+exports[`mg-input-radio next items [ 'batman', 'robin', 'joker', 'bane' ] noValueErrorDetail: undefined Should display error message with invalid items property: undefined 2`] = `
+<mg-input-radio>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" role="list">
+        <li class="mg-c-input__input-group">
+          <input id="identifier_0" name="identifier" type="radio" value="0">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_1" name="identifier" type="radio" value="1">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_2" name="identifier" type="radio" value="2">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_3" name="identifier" type="radio" value="3">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-radio>
+`;
+
+exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: no value error detail content Should display error message with invalid items property: [] 1`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
@@ -2260,7 +2173,7 @@ exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] no
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: % Should display error message with invalid items property: [] 4`] = `
+exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: no value error detail content Should display error message with invalid items property: [] 2`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
@@ -2313,94 +2226,7 @@ exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] no
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: % Should display error message with invalid items property: null 1`] = `
-<mg-input-radio>
-  <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-          <div aria-live="assertive" class="mg-c-input__error">
-            <slot name="error"></slot>
-          </div>
-        </div>
-      </template>
-      <ul class="mg-c-input__input-group-container" role="list"></ul>
-      <div id="identifier-error" slot="error">
-        No value.
-      </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </legend>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-radio>
-`;
-
-exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: % Should display error message with invalid items property: null 2`] = `
-<mg-input-radio>
-  <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </template>
-      <ul class="mg-c-input__input-group-container" role="list">
-        <li class="mg-c-input__input-group">
-          <input id="identifier_0" name="identifier" type="radio" value="0">
-          <label htmlfor="identifier_0">
-            batman
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_1" name="identifier" type="radio" value="1">
-          <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_2" name="identifier" type="radio" value="2">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_3" name="identifier" type="radio" value="3">
-          <label htmlfor="identifier_3">
-            bane
-          </label>
-        </li>
-      </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </legend>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-radio>
-`;
-
-exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: % Should display error message with invalid items property: null 3`] = `
+exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: no value error detail content Should display error message with invalid items property: null 1`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
@@ -2439,7 +2265,7 @@ exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] no
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: % Should display error message with invalid items property: null 4`] = `
+exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: no value error detail content Should display error message with invalid items property: null 2`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
@@ -2492,94 +2318,7 @@ exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] no
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: % Should display error message with invalid items property: undefined 1`] = `
-<mg-input-radio>
-  <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-          <div aria-live="assertive" class="mg-c-input__error">
-            <slot name="error"></slot>
-          </div>
-        </div>
-      </template>
-      <ul class="mg-c-input__input-group-container" role="list"></ul>
-      <div id="identifier-error" slot="error">
-        No value.
-      </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </legend>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-radio>
-`;
-
-exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: % Should display error message with invalid items property: undefined 2`] = `
-<mg-input-radio>
-  <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </template>
-      <ul class="mg-c-input__input-group-container" role="list">
-        <li class="mg-c-input__input-group">
-          <input id="identifier_0" name="identifier" type="radio" value="0">
-          <label htmlfor="identifier_0">
-            batman
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_1" name="identifier" type="radio" value="1">
-          <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_2" name="identifier" type="radio" value="2">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input id="identifier_3" name="identifier" type="radio" value="3">
-          <label htmlfor="identifier_3">
-            bane
-          </label>
-        </li>
-      </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </legend>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-radio>
-`;
-
-exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: % Should display error message with invalid items property: undefined 3`] = `
+exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: no value error detail content Should display error message with invalid items property: undefined 1`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
@@ -2618,7 +2357,268 @@ exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] no
 </mg-input-radio>
 `;
 
-exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: % Should display error message with invalid items property: undefined 4`] = `
+exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: no value error detail content Should display error message with invalid items property: undefined 2`] = `
+<mg-input-radio>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" role="list">
+        <li class="mg-c-input__input-group">
+          <input id="identifier_0" name="identifier" type="radio" value="0">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_1" name="identifier" type="radio" value="1">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_2" name="identifier" type="radio" value="2">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_3" name="identifier" type="radio" value="3">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-radio>
+`;
+
+exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: undefined Should display error message with invalid items property: [] 1`] = `
+<mg-input-radio>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" role="list"></ul>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-radio>
+`;
+
+exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: undefined Should display error message with invalid items property: [] 2`] = `
+<mg-input-radio>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" role="list">
+        <li class="mg-c-input__input-group">
+          <input id="identifier_0" name="identifier" type="radio" value="0">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_1" name="identifier" type="radio" value="1">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_2" name="identifier" type="radio" value="2">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_3" name="identifier" type="radio" value="3">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-radio>
+`;
+
+exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: undefined Should display error message with invalid items property: null 1`] = `
+<mg-input-radio>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" role="list"></ul>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-radio>
+`;
+
+exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: undefined Should display error message with invalid items property: null 2`] = `
+<mg-input-radio>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" role="list">
+        <li class="mg-c-input__input-group">
+          <input id="identifier_0" name="identifier" type="radio" value="0">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_1" name="identifier" type="radio" value="1">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_2" name="identifier" type="radio" value="2">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input id="identifier_3" name="identifier" type="radio" value="3">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-radio>
+`;
+
+exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: undefined Should display error message with invalid items property: undefined 1`] = `
+<mg-input-radio>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <ul class="mg-c-input__input-group-container" role="list"></ul>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-radio>
+`;
+
+exports[`mg-input-radio next items [ [Object], [Object], [Object], [Object] ] noValueErrorDetail: undefined Should display error message with invalid items property: undefined 2`] = `
 <mg-input-radio>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">

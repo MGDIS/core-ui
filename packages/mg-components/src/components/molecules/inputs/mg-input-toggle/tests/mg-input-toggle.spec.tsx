@@ -366,7 +366,7 @@ describe('mg-input-toggle', () => {
       ],
     ],
   ])('next items %s', (nextItems: MgInputToggle['items']) => {
-    describe.each([undefined, 'no value error detail content'])('noValueErrorDetail: %%', noValueErrorDetail => {
+    describe.each([undefined, 'no value error detail content'])('noValueErrorDetail: %s', noValueErrorDetail => {
       test.each([undefined, null, [] as unknown[]])('Should display error message with invalid items property: %s', async items => {
         const page = await getPage({ ...defaultProps, items, noValueErrorDetail });
         const element = page.doc.querySelector('mg-input-toggle');

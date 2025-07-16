@@ -224,11 +224,11 @@ const getRangeOverflow = (input: HTMLInputElement): boolean => {
  */
 const isHTMLSelectElement = (input: HTMLElement): input is HTMLSelectElement => (input as HTMLSelectElement).options !== undefined;
 /**
- * Get value missing from input
+ * Is value missing from input
  * @param input - input to test
  * @returns truthy if value is required
  */
-const getValueMissing = (input: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLFieldSetElement): boolean => {
+const isValueMissing = (input: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLFieldSetElement): boolean => {
   if (input.hasAttribute('required') && (input as HTMLInputElement).required === true) {
     if (['checkbox', 'radio'].includes(input.type)) {
       return (input as HTMLInputElement).checked === false;
@@ -249,7 +249,7 @@ const getValueMissing = (input: HTMLInputElement | HTMLTextAreaElement | HTMLSel
  */
 const getValidity = (input: HTMLInputElement): ValidityState => {
   // required field without a value
-  const valueMissing = getValueMissing(input);
+  const valueMissing = isValueMissing(input);
   // value of a number field is not a number | value of a date field is not a date
   const badInput = ['number', 'date'].includes(input.type) && isNaN(input.type === 'date' ? Date.parse(input.value) : (input.value as unknown as number));
   // value does not conform to the pattern

@@ -134,7 +134,7 @@ describe('mg-input-checkbox', () => {
       }
     });
 
-    test('Should not render with invalid value property: %s', async () => {
+    test('Should not render with invalid value property', async () => {
       const value = ['batman', 'joker', 'bane'];
       expect.assertions(1);
       try {
@@ -247,7 +247,7 @@ describe('mg-input-checkbox', () => {
       });
     });
 
-    describe.each([undefined, 'no value error detail content'])('noValueErrorDetail: %%', noValueErrorDetail => {
+    describe.each([undefined, 'no value error detail content'])('noValueErrorDetail: %s', noValueErrorDetail => {
       test.each([undefined, null, [] as unknown[]])('Should display error message with invalid value property: %s', async value => {
         const page = await getPage({ identifier: 'identifier', type, label: 'label', value, noValueErrorDetail });
         const element = page.doc.querySelector('mg-input-checkbox');
