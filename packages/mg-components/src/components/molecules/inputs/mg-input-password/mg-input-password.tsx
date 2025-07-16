@@ -354,7 +354,6 @@ export class MgInputPassword {
         label={this.label}
         identifier={this.identifier}
         class={this.classCollection.join()}
-        ariaDescribedbyIDs={[]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}

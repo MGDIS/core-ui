@@ -420,7 +420,7 @@ export class MgInputTextarea {
         label={this.label}
         identifier={this.identifier}
         class={this.classCollection.join()}
-        ariaDescribedbyIDs={[this.characterLeftId]}
+        ariaDescribedbyIDs={this.characterLeftId}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}

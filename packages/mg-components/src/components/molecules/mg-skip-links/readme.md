@@ -45,7 +45,7 @@ setTimeout(()=> {
 
 | Property | Attribute | Description | Type         | Default     |
 | -------- | --------- | ----------- | ------------ | ----------- |
-| `links`  | --        | Skip links  | `SkipLink[]` | `undefined` |
+| `links`  | `links`   | Skip links  | `SkipLink[]` | `undefined` |
 
 
 ## Events
