@@ -9,7 +9,7 @@ import { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, 
 import { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
-import { RadiusType } from "./components/atoms/mg-card/mg-card.conf";
+import { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
@@ -41,7 +41,7 @@ export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, 
 export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 export { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
-export { RadiusType } from "./components/atoms/mg-card/mg-card.conf";
+export { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
@@ -172,10 +172,12 @@ export namespace Components {
     interface MgCard {
         /**
           * Define the border radius size
+          * @default 'medium'
          */
-        "radiusSize": RadiusType;
+        "radiusSize": RadiusSizeType;
         /**
           * Add box-shadow style
+          * @default false
          */
         "shadow": boolean;
     }
@@ -1760,6 +1762,7 @@ export namespace Components {
         "panelTitle": string;
         /**
           * Add box-shadow style
+          * @default false
          */
         "shadow": boolean;
         /**
@@ -2750,10 +2753,12 @@ declare namespace LocalJSX {
     interface MgCard {
         /**
           * Define the border radius size
+          * @default 'medium'
          */
-        "radiusSize"?: RadiusType;
+        "radiusSize"?: RadiusSizeType;
         /**
           * Add box-shadow style
+          * @default false
          */
         "shadow"?: boolean;
     }
@@ -4278,6 +4283,7 @@ declare namespace LocalJSX {
         "panelTitle": string;
         /**
           * Add box-shadow style
+          * @default false
          */
         "shadow"?: boolean;
         /**
