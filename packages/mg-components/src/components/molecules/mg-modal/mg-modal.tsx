@@ -178,7 +178,7 @@ export class MgModal {
           }
         }}
       >
-        <mg-card>
+        <mg-card shadow>
           <div class="mg-c-modal__dialog">
             <header class="mg-c-modal__header">
               {this.closeButton && (

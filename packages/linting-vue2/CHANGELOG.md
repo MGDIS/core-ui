@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.1.13
+
+### Patch Changes
+
+- 8d3b778: Update dependencies
+- 8ef4819: Update dependencies
+
 ## 4.1.12
 
 ### Patch Changes

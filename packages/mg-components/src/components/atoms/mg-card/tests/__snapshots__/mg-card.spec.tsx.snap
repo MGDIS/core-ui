@@ -1,9 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`mg-card Should render correctly with radiusSize=medium 1`] = `
+<mg-card>
+  <template shadowrootmode="open">
+    <div class="mg-c-card mg-c-card--radius-medium">
+      <slot></slot>
+    </div>
+  </template>
+  radiusSize=medium
+</mg-card>
+`;
+
+exports[`mg-card Should render correctly with radiusSize=small 1`] = `
+<mg-card>
+  <template shadowrootmode="open">
+    <div class="mg-c-card mg-c-card--radius-small">
+      <slot></slot>
+    </div>
+  </template>
+  radiusSize=small
+</mg-card>
+`;
+
+exports[`mg-card Should render correctly with radiusSize=undefined 1`] = `
+<mg-card>
+  <template shadowrootmode="open">
+    <div class="mg-c-card mg-c-card--radius-medium">
+      <slot></slot>
+    </div>
+  </template>
+  radiusSize=undefined
+</mg-card>
+`;
+
+exports[`mg-card Should render correctly with radiusSize=xsmall 1`] = `
+<mg-card>
+  <template shadowrootmode="open">
+    <div class="mg-c-card mg-c-card--radius-xsmall">
+      <slot></slot>
+    </div>
+  </template>
+  radiusSize=xsmall
+</mg-card>
+`;
+
+exports[`mg-card Should render correctly with shadow=false 1`] = `
+<mg-card>
+  <template shadowrootmode="open">
+    <div class="mg-c-card mg-c-card--radius-medium">
+      <slot></slot>
+    </div>
+  </template>
+  shadow=false
+</mg-card>
+`;
+
+exports[`mg-card Should render correctly with shadow=true 1`] = `
+<mg-card>
+  <template shadowrootmode="open">
+    <div class="mg-c-card mg-c-card--radius-medium mg-c-card--shadow">
+      <slot></slot>
+    </div>
+  </template>
+  shadow=true
+</mg-card>
+`;
+
+exports[`mg-card Should render correctly with shadow=undefined 1`] = `
+<mg-card>
+  <template shadowrootmode="open">
+    <div class="mg-c-card mg-c-card--radius-medium">
+      <slot></slot>
+    </div>
+  </template>
+  shadow=undefined
+</mg-card>
+`;
+
 exports[`mg-card render 1`] = `
 <mg-card>
   <template shadowrootmode="open">
-    <div class="mg-c-card">
+    <div class="mg-c-card mg-c-card--radius-medium">
       <slot></slot>
     </div>
   </template>
