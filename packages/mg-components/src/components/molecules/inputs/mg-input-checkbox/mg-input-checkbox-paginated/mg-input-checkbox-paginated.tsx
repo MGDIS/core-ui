@@ -125,7 +125,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
       <Host>
         <slot name="header-action"></slot>
         <div class="mg-c-input__tabs-content">
-          <p id={tabId} class={{ 'mg-c-input__info': true, 'mg-u-visually-hidden': this.items.length !== 0 }} aria-live={this.items.length !== 0 ? 'polite' : undefined}>
+          <p id={tabId} class={{ 'mg-c-input__info': true, 'mg-u-visually-hidden': this.items.length > 0 }} aria-live={this.items.length !== 0 ? 'polite' : undefined}>
             {this.items.length === 0 ? this.messages.noValue : this.messages.values.replace('{count}', this.items.length.toString())}
           </p>
           {this.items.length > 0 && (
