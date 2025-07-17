@@ -6,15 +6,18 @@ test.beforeEach(async ({ page }) => {
 
 test('Base', async ({ page }) => {
   page.goto(`file://${__dirname}/base.html`);
+  await page.locator('h1').first().waitFor({ state: 'visible' });
   await expect(page).toHaveScreenshot({ fullPage: true });
 });
 
 test('Layout', async ({ page }) => {
   page.goto(`file://${__dirname}/layout.html`);
+  await page.locator('h1').first().waitFor({ state: 'visible' });
   await expect(page).toHaveScreenshot({ fullPage: true });
 });
 
 test('Utils', async ({ page }) => {
   page.goto(`file://${__dirname}/utils.html`);
+  await page.locator('h1').first().waitFor({ state: 'visible' });
   await expect(page).toHaveScreenshot({ fullPage: true });
 });

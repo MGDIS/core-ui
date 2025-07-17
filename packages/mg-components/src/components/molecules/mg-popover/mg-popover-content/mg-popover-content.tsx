@@ -80,7 +80,7 @@ export class MgPopoverContent {
   render(): HTMLElement {
     return (
       <Host>
-        <mg-card class={this.classCollection.join()}>
+        <mg-card class={this.classCollection.join()} shadow>
           {this.closeButton && (
             <mg-button is-icon variant="flat" label={this.messages.general.close} onClick={this.handleCloseButton}>
               <mg-icon icon="cross"></mg-icon>

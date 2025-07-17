@@ -9,6 +9,7 @@ import { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, 
 import { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
+import { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
@@ -40,6 +41,7 @@ export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, 
 export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 export { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
+export { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
@@ -168,6 +170,16 @@ export namespace Components {
         "variant": VariantType1;
     }
     interface MgCard {
+        /**
+          * Define the border radius size
+          * @default 'medium'
+         */
+        "radiusSize": RadiusSizeType;
+        /**
+          * Add box-shadow style
+          * @default false
+         */
+        "shadow": boolean;
     }
     interface MgCharacterLeft {
         /**
@@ -1747,6 +1759,11 @@ export namespace Components {
          */
         "panelTitle": string;
         /**
+          * Add box-shadow style
+          * @default false
+         */
+        "shadow": boolean;
+        /**
           * Define if panel title is editable
           * @default false
          */
@@ -2717,6 +2734,16 @@ declare namespace LocalJSX {
         "variant"?: VariantType1;
     }
     interface MgCard {
+        /**
+          * Define the border radius size
+          * @default 'medium'
+         */
+        "radiusSize"?: RadiusSizeType;
+        /**
+          * Add box-shadow style
+          * @default false
+         */
+        "shadow"?: boolean;
     }
     interface MgCharacterLeft {
         /**
@@ -4227,6 +4254,11 @@ declare namespace LocalJSX {
           * Panel title
          */
         "panelTitle": string;
+        /**
+          * Add box-shadow style
+          * @default false
+         */
+        "shadow"?: boolean;
         /**
           * Define if panel title is editable
           * @default false

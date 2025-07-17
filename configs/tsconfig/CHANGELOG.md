@@ -1,5 +1,11 @@
 # tsconfig
 
+## 1.0.9
+
+### Patch Changes
+
+- 8d3b778: Update dependencies
+
 ## 1.0.8
 
 ### Patch Changes
