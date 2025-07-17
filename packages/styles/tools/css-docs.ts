@@ -1,6 +1,7 @@
 import { readFile, appendFile, mkdir, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import postcss from 'postcss';
+import prettier from 'prettier';
 
 // Types
 type TagType = { tag: string; value: string };
@@ -114,6 +115,8 @@ const cssMarkdown = (markdownBlocks: MarkdownBlocksRecordType, docsPath: string)
           docContent += `${tag.value}\n\n`;
         });
     });
+    // Ensure the markdown content is formatted
+    docContent = await prettier.format(docContent, { parser: 'markdown' });
     // Put the markdown content in a file
     await appendFile(markdownFilePath, docContent, 'utf-8');
   });

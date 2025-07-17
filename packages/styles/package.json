@@ -14,7 +14,7 @@
     "build:dev": "sass scss:dist",
     "test:e2e": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
     "test:e2e:docker": "pnpm dlx @playwright/test test",
-    "doc": "pnpm build:dev && ts-node utils/css-docs.ts"
+    "doc": "pnpm build:dev && ts-node tools/css-docs.ts"
   },
   "files": [
     "dist",
