@@ -74,7 +74,7 @@ const parseCss = async (cssFilePath: string) => {
       // Ensure next node is a rule
       const next = comment.next();
       if (next?.type === 'rule') {
-        const selectors = next.selectors.filter((selector: string) => selector.startsWith('.mg-'));
+        const selectors = parsedComment.tags.find(tag => tag.tag === 'selectors')?.value.split(',') ?? next.selectors.filter((selector: string) => selector.includes('.mg-'));
         if (selectors.length > 0) {
           const page = parsedComment.tags.find(tag => tag.tag === 'page')?.value ?? 'index';
           if (markdownBlocks[page] === undefined) {
@@ -109,7 +109,7 @@ const cssMarkdown = (markdownBlocks: MarkdownBlocksRecordType, docsPath: string)
       docContent += `${block.description}\n\n`;
       // Add tags
       block.tags
-        .filter(tag => tag.tag !== 'page')
+        .filter(tag => !['page', 'selectors'].includes(tag.tag))
         .forEach(tag => {
           docContent += `### ${tag.tag}\n\n`;
           docContent += `${tag.value}\n\n`;

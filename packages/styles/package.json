@@ -10,7 +10,7 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "start": "sass scss:dist -w",
-    "build": "sass scss:dist -s compressed && cp -r scss/fonts dist/fonts",
+    "build": "sass --no-source-map scss:dist -s compressed && cp -r scss/fonts dist/fonts",
     "build:dev": "sass scss:dist",
     "test:e2e": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
     "test:e2e:docker": "pnpm dlx @playwright/test test",

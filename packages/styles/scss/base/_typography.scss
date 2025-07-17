@@ -39,62 +39,29 @@ p {
  * Headings
  */
 
-@for $i from 1 through 6 {
-  /**
-   * Utility class that applies the default `h#{$i}` typography styles.
-   * It allows using `h#{$i}` visual styles without using a semantic heading tag.
+/**
+   * Utility class that applies heading styles.
+   * It allows using heading visual styles without using a semantic heading tag.
    * 
    * @page Utilities
+   * @selectors .mg-u-h<n>
    * @example
    * ```html
-   * <h#{($i % 6) + 1} class="mg-u-h#{$i}">
-   *   Heading #{($i % 6) + 1} styled to look like a heading #{$i}.
-   * </h#{($i % 6) + 1}>
-   * <div role="heading" aria-level="#{$i}" class="mg-u-h#{$i}">
-   *   Heading level #{$i} visually and semantically
+   * <h3 class="mg-u-h2">
+   *   Heading 3 styled to look like a heading 2.
+   * </h3>
+   * <div role="heading" aria-level="2" class="mg-u-h2">
+   *   Heading level 2 visually and semantically
    * </div>
    * ```
   */
+@for $i from 1 through 6 {
   h#{$i},
   .mg-u-h#{$i} {
     font-family: var(--mg-b-font-family-heading);
+    font-size: var(--mg-b-font-size-h#{$i});
     font-weight: bold;
   }
-}
-
-// h1
-h1,
-.mg-u-h1 {
-  font-size: var(--mg-b-font-size-h1);
-}
-
-h2,
-.mg-u-h2 {
-  font-size: var(--mg-b-font-size-h2);
-}
-
-// h3
-h3,
-.mg-u-h3 {
-  font-size: var(--mg-b-font-size-h3);
-}
-
-// h4
-h4,
-.mg-u-h4 {
-  font-size: var(--mg-b-font-size-h4);
-}
-
-// h5
-h5,
-.mg-u-h5 {
-  font-size: var(--mg-b-font-size-h5);
-}
-
-// h6
-h6,
-.mg-u-h6 {
-  font-size: var(--mg-b-font-size-h6);
 }
 
 /**
