@@ -485,9 +485,9 @@ export namespace Components {
          */
         "readonly": boolean;
         /**
-          * Method to reset step
+          * Method to reset limit
          */
-        "resetTop": () => Promise<void>;
+        "resetLimit": () => Promise<void>;
     }
     interface MgInputCombobox {
         /**

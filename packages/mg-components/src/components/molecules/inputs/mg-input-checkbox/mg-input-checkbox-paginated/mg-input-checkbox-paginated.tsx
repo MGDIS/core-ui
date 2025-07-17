@@ -61,18 +61,18 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   /**
    * Page items limit to display
    */
-  @State() top = this.step;
-  @Watch('top')
-  watchTop(): void {
+  @State() limit = this.step;
+  @Watch('limit')
+  watchLimit(): void {
     this.setItems();
   }
 
   /**
-   * Method to reset step
+   * Method to reset limit
    */
   @Method()
-  async resetTop(): Promise<void> {
-    this.top = this.step;
+  async resetLimit(): Promise<void> {
+    this.limit = this.step;
   }
 
   /***********
@@ -84,14 +84,14 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
    * @returns truthy if have next elements
    */
   private hasNext = (): boolean => {
-    return this.checkboxes.length > this.top;
+    return this.checkboxes.length > this.limit;
   };
 
   /**
-   * Set items from checkboxes and top values
+   * Set items from checkboxes and limit
    */
   private setItems = (): void => {
-    this.items = this.checkboxes.slice(0, this.top);
+    this.items = this.checkboxes.slice(0, this.limit);
   };
 
   /**
@@ -99,7 +99,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
    */
   private handleLoadMore = (): void => {
     if (this.hasNext()) {
-      this.top += this.step;
+      this.limit += this.step;
     }
   };
 
@@ -125,7 +125,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
       <Host>
         <slot name="header-action"></slot>
         <div class="mg-c-input__tabs-content">
-          <p id={tabId} class={{ 'mg-c-input__info': true, 'mg-u-visually-hidden': this.items.length > 0 }} aria-live={this.items.length !== 0 ? 'polite' : undefined}>
+          <p id={tabId} class={{ 'mg-c-input__popover-info': true, 'mg-u-visually-hidden': this.items.length !== 0 }} aria-live={this.items.length !== 0 ? 'polite' : undefined}>
             {this.items.length === 0 ? this.messages.noValue : this.messages.values.replace('{count}', this.items.length.toString())}
           </p>
           {this.items.length > 0 && (

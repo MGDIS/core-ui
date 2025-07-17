@@ -448,7 +448,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    */
   private handleActiveTabChange = (event: CustomEvent & { target: HTMLMgTabsElement }): void => {
     this.activeTab = event.detail;
-    this.resetTabsTop();
+    this.resetTabsLimit();
   };
 
   /**
@@ -468,7 +468,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       this.searchValue = '';
       // reset pagintated section current page
       this.activeTab = 1;
-      this.resetTabsTop();
+      this.resetTabsLimit();
       this.checkValidity();
     }
   };
@@ -588,11 +588,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   private getSelectedItems = (): CheckboxItem[] => this.checkboxItems.filter(({ value }) => value);
 
   /**
-   * Reset <mg-input-checkbox-paginated> top state
+   * Reset <mg-input-checkbox-paginated> limit state
    */
-  private resetTabsTop = () => {
+  private resetTabsLimit = () => {
     Array.from(this.element.shadowRoot.querySelectorAll('mg-input-checkbox-paginated')).forEach(component => {
-      component.resetTop();
+      component.resetLimit();
     });
   };
 
@@ -665,13 +665,13 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       {
         ...checkboxPaginatedProps,
         checkboxes: notCheckedValues,
-        messages: { ...this.messages.input.checkbox.sections.notSelected, loadMore: this.messages.loadMore },
+        messages: { ...this.messages.input.checkbox.sections.notSelected, loadMore: this.messages.input.loadMore },
         handleMassAction: handleMassAction(SectionKind.NOT_SELECTED),
       },
       {
         ...checkboxPaginatedProps,
         checkboxes: checkedValues,
-        messages: { ...this.messages.input.checkbox.sections.selected, loadMore: this.messages.loadMore },
+        messages: { ...this.messages.input.checkbox.sections.selected, loadMore: this.messages.input.loadMore },
         handleMassAction: handleMassAction(SectionKind.SELECTED),
       },
     ];
@@ -752,7 +752,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
                   <mg-input-checkbox-paginated
                     class="mg-c-input__tab"
                     {...checkboxPaginatedProps}
-                    messages={{ ...this.messages.input.checkbox.sections.search, loadMore: this.messages.loadMore }}
+                    messages={{ ...this.messages.input.checkbox.sections.search, loadMore: this.messages.input.loadMore }}
                     checkboxes={checkboxes}
                     key="search"
                   ></mg-input-checkbox-paginated>

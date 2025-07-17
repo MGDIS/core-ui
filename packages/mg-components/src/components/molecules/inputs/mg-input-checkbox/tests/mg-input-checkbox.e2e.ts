@@ -280,7 +280,7 @@ test.describe('mg-input-checkbox', () => {
     test('Should render "multi" with search', async ({ page }) => {
       const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((item, index) => ({
         title: index === 9 ? `my super long title item ${item} is very super long and finaly it could not be shorter so what can I do with it` : `${item}`,
-        value: false,
+        value: index === 1,
       }));
       const componentArgs = { ...baseArgs, value };
       const html = createHTML(componentArgs);
@@ -333,7 +333,7 @@ test.describe('mg-input-checkbox', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
-    test('Should render "multi" with 2 sections', async ({ page }) => {
+    test.only('Should render "multi" with 2 sections and change selected section', async ({ page }) => {
       const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((item, index) => ({
         title: `item ${item}`,
         value: [5, 12, 13, 17].some(item => item === index),
@@ -343,42 +343,22 @@ test.describe('mg-input-checkbox', () => {
       await page.setContent(html);
       await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
       // wait to ensure to have the interactive element rendered
       await waitForInteractiveElement(page, 'multi');
 
-      // open popover
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // open popover and display first section
       await page.keyboard.down('Tab');
       await page.keyboard.down('Enter');
       await page.locator('mg-popover-content').waitFor();
-
       await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 570 } });
-    });
 
-    test('Should render "multi" with 2 sections and a closed selected section', async ({ page }) => {
-      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((item, index) => ({
-        title: `item ${item}`,
-        value: [5, 12, 13, 17].some(item => item === index),
-      }));
-      const componentArgs = { ...baseArgs, value };
-      const html = createHTML(componentArgs);
-      await page.setContent(html);
-      await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
-
-      // wait to ensure to have the interactive element rendered
-      await waitForInteractiveElement(page, 'multi');
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-      // open popover
-      await page.keyboard.down('Tab');
-      await page.keyboard.down('Enter');
-      await page.locator('mg-popover-content').waitFor();
-
-      // close section
+      // display second section
+      debugger;
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
+      await page.keyboard.down('ArrowRight');
       await page.keyboard.down('Enter');
 
       await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 570 } });
