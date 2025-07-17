@@ -333,7 +333,7 @@ test.describe('mg-input-checkbox', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
-    test.only('Should render "multi" with 2 sections and change selected section', async ({ page }) => {
+    test('Should render "multi" with 2 sections and change selected section', async ({ page }) => {
       const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((item, index) => ({
         title: `item ${item}`,
         value: [5, 12, 13, 17].some(item => item === index),

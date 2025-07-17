@@ -226,11 +226,11 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="11" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -243,7 +243,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -257,7 +257,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -338,7 +338,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -589,11 +589,11 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -606,7 +606,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -620,7 +620,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -701,7 +701,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -802,7 +802,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                 <!---->
                 <div class="mg-c-input__tabs-content">
                   <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                    4 item(s) found
+                    4 value(s) found
                   </p>
                   <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" id="enter-a-value" role="list">
                     <li class="mg-c-input__input-group">
@@ -928,7 +928,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                 <!---->
                 <div class="mg-c-input__tabs-content">
                   <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                    1 item(s) found
+                    1 value(s) found
                   </p>
                   <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" id="enter-a-value" role="list">
                     <li class="mg-c-input__input-group">
@@ -1036,7 +1036,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                 <!---->
                 <div class="mg-c-input__tabs-content">
                   <p class="mg-c-input__popover-info" id="tab-info">
-                    No item found
+                    No values found
                   </p>
                 </div>
               </mg-input-checkbox-paginated>
@@ -1138,11 +1138,11 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -1155,7 +1155,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -1169,7 +1169,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -1250,7 +1250,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -1353,11 +1353,11 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -1370,7 +1370,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -1384,7 +1384,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -1465,7 +1465,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -1568,11 +1568,11 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -1585,7 +1585,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -1599,7 +1599,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      20 item(s) available
+                      20 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -1740,7 +1740,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -1843,11 +1843,11 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -1860,7 +1860,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -1874,7 +1874,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      21 item(s) available
+                      21 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -2010,7 +2010,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -2113,11 +2113,11 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="19" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="19" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="2" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="2" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -2130,7 +2130,7 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -2144,7 +2144,7 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -2225,7 +2225,7 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      2 item(s) selected
+                      2 value(s) selected
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
@@ -2342,11 +2342,11 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="2" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="2" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="19" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="19" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -2361,7 +2361,7 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      2 item(s) available
+                      2 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
@@ -2381,7 +2381,7 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
                 </mg-input-checkbox-paginated>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-2">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Unselect all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Unselect all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -2395,7 +2395,7 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) selected
+                      10 value(s) selected
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -2571,11 +2571,11 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -2588,7 +2588,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -2602,7 +2602,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -2683,7 +2683,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -2786,11 +2786,11 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -2803,7 +2803,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -2817,7 +2817,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -2898,7 +2898,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -3001,11 +3001,11 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -3018,7 +3018,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -3032,7 +3032,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      20 item(s) available
+                      20 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -3173,7 +3173,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -3276,11 +3276,11 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -3293,7 +3293,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -3307,7 +3307,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -3388,7 +3388,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -3491,11 +3491,11 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -3508,7 +3508,7 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -3522,7 +3522,7 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -3603,7 +3603,7 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -3704,7 +3704,7 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
                 <!---->
                 <div class="mg-c-input__tabs-content">
                   <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                    4 item(s) found
+                    4 value(s) found
                   </p>
                   <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" id="enter-a-value" role="list">
                     <li class="mg-c-input__input-group">
@@ -3832,11 +3832,11 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="20" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="20" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="1" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="1" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -3849,7 +3849,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -3863,7 +3863,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -3942,7 +3942,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                 </mg-input-checkbox-paginated>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-2">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Unselect all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Unselect all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -3956,7 +3956,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      1 item(s) selected
+                      1 value(s) selected
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -4067,11 +4067,11 @@ exports[`mg-input-checkbox multi search Should select all filtered values 1`] = 
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -4084,7 +4084,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 1`] = 
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -4098,7 +4098,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 1`] = 
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -4179,7 +4179,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 1`] = 
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -4280,7 +4280,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 2`] = 
                 <!---->
                 <div class="mg-c-input__tabs-content">
                   <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                    4 item(s) found
+                    4 value(s) found
                   </p>
                   <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" id="enter-a-value" role="list">
                     <li class="mg-c-input__input-group">
@@ -4408,11 +4408,11 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -4425,7 +4425,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -4439,7 +4439,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -4520,7 +4520,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -4623,11 +4623,11 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -4640,7 +4640,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -4654,7 +4654,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -4735,7 +4735,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -4838,11 +4838,11 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -4857,13 +4857,13 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      All items are selected
+                      All values are selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-2">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Unselect all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Unselect all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -4877,7 +4877,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) selected
+                      10 value(s) selected
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -5053,11 +5053,11 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="21" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="21" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -5070,7 +5070,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -5084,7 +5084,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -5165,7 +5165,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -6403,11 +6403,11 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                     <header aria-label="Valeurs regroupées par: &quot;Sélectionnées&quot; ou &quot;Disponibles&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Disponibles
-                        <mg-badge label="élément(s)" outline="" value="11" variant="text-color"></mg-badge>
+                        <mg-badge label="valeur(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Sélectionnées
-                        <mg-badge label="élément(s)" outline="" value="11" variant="text-color"></mg-badge>
+                        <mg-badge label="valeur(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -6420,7 +6420,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Sélectionne tous les résultats de la recherche en cours" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Sélectionne toutes les valeurs de la section" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -6434,7 +6434,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 éléments(s) disponible(s)
+                      10 valeur(s) disponible(s)
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -6513,7 +6513,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                 </mg-input-checkbox-paginated>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-2">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Désélectionne tous les résultats de la recherche en cours" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Désélectionne toutes les valeurs de la section" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -6527,7 +6527,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 élément(s) sélectionné(s)
+                      10 valeur(s) sélectionnée(s)
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -8797,11 +8797,11 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="11" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -8814,7 +8814,7 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -8828,7 +8828,7 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -8909,7 +8909,7 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -9224,11 +9224,11 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                     <header aria-label="Valeurs regroupées par: &quot;Sélectionnées&quot; ou &quot;Disponibles&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Disponibles
-                        <mg-badge label="élément(s)" outline="" value="11" variant="text-color"></mg-badge>
+                        <mg-badge label="valeur(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Sélectionnées
-                        <mg-badge label="élément(s)" outline="" value="11" variant="text-color"></mg-badge>
+                        <mg-badge label="valeur(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -9241,7 +9241,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Sélectionne tous les résultats de la recherche en cours" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Sélectionne toutes les valeurs de la section" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -9255,7 +9255,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 éléments(s) disponible(s)
+                      10 valeur(s) disponible(s)
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -9334,7 +9334,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                 </mg-input-checkbox-paginated>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-2">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Désélectionne tous les résultats de la recherche en cours" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Désélectionne toutes les valeurs de la section" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -9348,7 +9348,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 élément(s) sélectionné(s)
+                      10 valeur(s) sélectionnée(s)
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -13176,11 +13176,11 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Available
-                        <mg-badge label="item(s)" outline="" value="11" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Selected
-                        <mg-badge label="item(s)" outline="" value="0" variant="text-color"></mg-badge>
+                        <mg-badge label="value(s)" outline="" value="0" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -13193,7 +13193,7 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current search results" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Select all current values" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -13207,7 +13207,7 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 item(s) available
+                      10 value(s) available
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -13288,7 +13288,7 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
                   <!---->
                   <div class="mg-c-input__tabs-content">
                     <p class="mg-c-input__popover-info" id="tab-info">
-                      No item selected
+                      No values selected
                     </p>
                   </div>
                 </mg-input-checkbox-paginated>
@@ -13531,11 +13531,11 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                     <header aria-label="Valeurs regroupées par: &quot;Sélectionnées&quot; ou &quot;Disponibles&quot;" class="mg-c-tabs__header" role="tablist">
                       <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
                         Disponibles
-                        <mg-badge label="élément(s)" outline="" value="11" variant="text-color"></mg-badge>
+                        <mg-badge label="valeur(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
                       <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
                         Sélectionnées
-                        <mg-badge label="élément(s)" outline="" value="11" variant="text-color"></mg-badge>
+                        <mg-badge label="valeur(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
                     </header>
                     <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
@@ -13548,7 +13548,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                 </template>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-1">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Sélectionne tous les résultats de la recherche en cours" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Sélectionne toutes les valeurs de la section" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -13562,7 +13562,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 éléments(s) disponible(s)
+                      10 valeur(s) disponible(s)
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
@@ -13641,7 +13641,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                 </mg-input-checkbox-paginated>
                 <mg-input-checkbox-paginated class="mg-c-input__tab" identifier="identifier" slot="tab_content-2">
                   <!---->
-                  <mg-tooltip class="mg-c-input__tabs-action" message="Désélectionne tous les résultats de la recherche en cours" slot="header-action">
+                  <mg-tooltip class="mg-c-input__tabs-action" message="Désélectionne toutes les valeurs de la section" slot="header-action">
                     <mg-button role="button" tabindex="0">
                       <template shadowrootmode="open">
                         <div class="mg-c-button mg-c-button--link mg-c-button--medium">
@@ -13655,7 +13655,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                   </mg-tooltip>
                   <div class="mg-c-input__tabs-content">
                     <p aria-live="polite" class="mg-c-input__popover-info mg-u-visually-hidden" id="tab-info">
-                      10 élément(s) sélectionné(s)
+                      10 valeur(s) sélectionnée(s)
                     </p>
                     <ul aria-labelledby="tab-info" class="mg-c-input__input-group-container" role="list">
                       <li class="mg-c-input__input-group">
