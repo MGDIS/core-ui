@@ -276,4 +276,13 @@ describe('mg-panel', () => {
       expect(page.root).toMatchSnapshot();
     });
   });
+
+  test.each([
+    [true, '<mg-card shadow="">'],
+    [false, '<mg-card>'],
+  ])('Should render mg-card with shadow attribute = %s', async (shadow, expectedCardStart) => {
+    const { root } = await getPage({ identifier: 'identifier', panelTitle: 'panel title', shadow });
+    const html = root.shadowRoot.innerHTML;
+    expect(html).toContain(expectedCardStart);
+  });
 });
