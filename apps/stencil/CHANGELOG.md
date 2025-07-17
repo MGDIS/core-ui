@@ -1,5 +1,20 @@
 # stencil
 
+## 0.1.17
+
+### Patch Changes
+
+- 97c96f2: production build optimization
+- 8d3b778: Update dependencies
+- Updated dependencies [bd8a760]
+- Updated dependencies [b649506]
+- Updated dependencies [97c96f2]
+- Updated dependencies [01b9226]
+- Updated dependencies [8d3b778]
+- Updated dependencies [4b024aa]
+- Updated dependencies [8ef4819]
+  - @mgdis/mg-components@6.14.0
+
 ## 0.1.16
 
 ### Patch Changes
