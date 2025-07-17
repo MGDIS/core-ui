@@ -2107,23 +2107,23 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
                   </mg-input>
                 </template>
               </mg-input-text>
-              <mg-tabs active-tab="1" class="mg-c-input__tabs">
+              <mg-tabs active-tab="2" class="mg-c-input__tabs">
                 <template shadowrootmode="open">
                   <div class="mg-c-tabs mg-c-tabs--size-medium">
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
-                      <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
+                      <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="-1">
                         Available
                         <mg-badge label="value(s)" outline="" value="19" variant="text-color"></mg-badge>
                       </button>
-                      <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
+                      <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="0">
                         Selected
                         <mg-badge label="value(s)" outline="" value="2" variant="text-color"></mg-badge>
                       </button>
                     </header>
-                    <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+                    <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
                       <slot name="tab_content-1"></slot>
                     </article>
-                    <article aria-labelledby="identifier-tabs-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+                    <article aria-labelledby="identifier-tabs-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
                       <slot name="tab_content-2"></slot>
                     </article>
                   </div>
@@ -2336,23 +2336,23 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
                   </mg-input>
                 </template>
               </mg-input-text>
-              <mg-tabs active-tab="1" class="mg-c-input__tabs">
+              <mg-tabs active-tab="2" class="mg-c-input__tabs">
                 <template shadowrootmode="open">
                   <div class="mg-c-tabs mg-c-tabs--size-medium">
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
-                      <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
+                      <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="-1">
                         Available
                         <mg-badge label="value(s)" outline="" value="2" variant="text-color"></mg-badge>
                       </button>
-                      <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
+                      <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="0">
                         Selected
                         <mg-badge label="value(s)" outline="" value="19" variant="text-color"></mg-badge>
                       </button>
                     </header>
-                    <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+                    <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
                       <slot name="tab_content-1"></slot>
                     </article>
-                    <article aria-labelledby="identifier-tabs-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+                    <article aria-labelledby="identifier-tabs-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
                       <slot name="tab_content-2"></slot>
                     </article>
                   </div>
@@ -3826,23 +3826,23 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                   </mg-input>
                 </template>
               </mg-input-text>
-              <mg-tabs active-tab="1" class="mg-c-input__tabs">
+              <mg-tabs active-tab="2" class="mg-c-input__tabs">
                 <template shadowrootmode="open">
                   <div class="mg-c-tabs mg-c-tabs--size-medium">
                     <header aria-label="Values grouped by: &quot;Selected&quot; ou &quot;Available&quot;" class="mg-c-tabs__header" role="tablist">
-                      <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
+                      <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="-1">
                         Available
                         <mg-badge label="value(s)" outline="" value="20" variant="text-color"></mg-badge>
                       </button>
-                      <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
+                      <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="0">
                         Selected
                         <mg-badge label="value(s)" outline="" value="1" variant="text-color"></mg-badge>
                       </button>
                     </header>
-                    <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+                    <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
                       <slot name="tab_content-1"></slot>
                     </article>
-                    <article aria-labelledby="identifier-tabs-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+                    <article aria-labelledby="identifier-tabs-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
                       <slot name="tab_content-2"></slot>
                     </article>
                   </div>
@@ -6397,23 +6397,23 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                   </mg-input>
                 </template>
               </mg-input-text>
-              <mg-tabs active-tab="1" class="mg-c-input__tabs">
+              <mg-tabs active-tab="2" class="mg-c-input__tabs">
                 <template shadowrootmode="open">
                   <div class="mg-c-tabs mg-c-tabs--size-medium">
                     <header aria-label="Valeurs regroupées par: &quot;Sélectionnées&quot; ou &quot;Disponibles&quot;" class="mg-c-tabs__header" role="tablist">
-                      <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
+                      <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="-1">
                         Disponibles
                         <mg-badge label="valeur(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
-                      <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
+                      <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="0">
                         Sélectionnées
                         <mg-badge label="valeur(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
                     </header>
-                    <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+                    <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
                       <slot name="tab_content-1"></slot>
                     </article>
-                    <article aria-labelledby="identifier-tabs-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+                    <article aria-labelledby="identifier-tabs-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
                       <slot name="tab_content-2"></slot>
                     </article>
                   </div>
@@ -9218,23 +9218,23 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                   </mg-input>
                 </template>
               </mg-input-text>
-              <mg-tabs active-tab="1" class="mg-c-input__tabs">
+              <mg-tabs active-tab="2" class="mg-c-input__tabs">
                 <template shadowrootmode="open">
                   <div class="mg-c-tabs mg-c-tabs--size-medium">
                     <header aria-label="Valeurs regroupées par: &quot;Sélectionnées&quot; ou &quot;Disponibles&quot;" class="mg-c-tabs__header" role="tablist">
-                      <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
+                      <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="-1">
                         Disponibles
                         <mg-badge label="valeur(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
-                      <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
+                      <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="0">
                         Sélectionnées
                         <mg-badge label="valeur(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
                     </header>
-                    <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+                    <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
                       <slot name="tab_content-1"></slot>
                     </article>
-                    <article aria-labelledby="identifier-tabs-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+                    <article aria-labelledby="identifier-tabs-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
                       <slot name="tab_content-2"></slot>
                     </article>
                   </div>
@@ -13525,23 +13525,23 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                   </mg-input>
                 </template>
               </mg-input-text>
-              <mg-tabs active-tab="1" class="mg-c-input__tabs">
+              <mg-tabs active-tab="2" class="mg-c-input__tabs">
                 <template shadowrootmode="open">
                   <div class="mg-c-tabs mg-c-tabs--size-medium">
                     <header aria-label="Valeurs regroupées par: &quot;Sélectionnées&quot; ou &quot;Disponibles&quot;" class="mg-c-tabs__header" role="tablist">
-                      <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="0">
+                      <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-tabs-1" role="tab" tabindex="-1">
                         Disponibles
                         <mg-badge label="valeur(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
-                      <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="-1">
+                      <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-tabs-2" role="tab" tabindex="0">
                         Sélectionnées
                         <mg-badge label="valeur(s)" outline="" value="11" variant="text-color"></mg-badge>
                       </button>
                     </header>
-                    <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+                    <article aria-labelledby="identifier-tabs-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
                       <slot name="tab_content-1"></slot>
                     </article>
-                    <article aria-labelledby="identifier-tabs-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+                    <article aria-labelledby="identifier-tabs-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
                       <slot name="tab_content-2"></slot>
                     </article>
                   </div>

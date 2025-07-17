@@ -47,7 +47,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   // "multi" setup
   private readonly multiStart = 5;
   private readonly searchStart = 10;
-  private activeTab = 1;
 
   // popover variables
   private hasOpenedPopover = false;
@@ -294,6 +293,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @State() selectValuesButtonKey: 'editButton' | 'showButton' | 'selectButton' = 'editButton';
 
   /**
+   * Define <mg-tabs> active-tab
+   */
+  @State() activeTab = 1;
+
+  /**
    * Emitted event when value change
    */
   @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputCheckboxElement['value']>;
@@ -466,11 +470,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     if (!event.detail) {
       // reset search value
       this.searchValue = '';
-      // reset pagintated section current page
-      this.activeTab = 1;
       this.resetTabsLimit();
       this.checkValidity();
     }
+    // init active tab to selected if some values are checked
+    this.activeTab = this.checkboxItems.some(items => items.value) ? 2 : 1;
   };
 
   /**
@@ -686,6 +690,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
           badge: { value: section.checkboxes.length, label: this.messages.input.checkbox.sections.badge.label, role: 'information' },
           status: key + 1 === this.activeTab ? Status.ACTIVE : Status.VISIBLE,
         }))}
+        activeTab={this.activeTab}
         onActive-tab-change={this.handleActiveTabChange}
       >
         {sections.map((section, key) => (

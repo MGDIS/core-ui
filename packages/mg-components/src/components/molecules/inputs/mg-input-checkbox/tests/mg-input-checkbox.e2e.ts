@@ -304,6 +304,12 @@ test.describe('mg-input-checkbox', () => {
       await page.keyboard.down('Tab');
       await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 420 } });
 
+      // view unselected values
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('ArrowLeft');
+      await page.keyboard.down('Enter');
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 420 } });
+
       // got to navigation after 10th input
       for (const index of value.map((_item, index) => index)) {
         if (index < 10) await page.keyboard.down('Tab');
