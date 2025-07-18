@@ -61,7 +61,7 @@ test.describe('mg-input-combobox', () => {
       await input.press('KeyK');
 
       // wait for debounce
-      await page.locator('.mg-c-input__popover-info').first().getByText('No elements match your input').waitFor();
+      await page.locator('.mg-c-input__popover-info').first().getByText('No value matches your input').waitFor();
       await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height } });
     });
   });
