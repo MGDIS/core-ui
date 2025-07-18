@@ -3,4 +3,4 @@
 '@mgdis/img': minor
 ---
 
-Nes illustrations ans icons
+New illustrations and icons
