@@ -53,7 +53,7 @@ export class MgInputNumeric {
     // has input value is always render as string we get a stringified value or a '' for nullish value, so we test string type
     if (typeof newValue === 'string') {
       // Check if integer value starts with '0' (leading zero)
-      if (newValue.charAt(0) === '0' && parseInt(newValue, 10) > 0) {
+      if (newValue.startsWith('0') && parseInt(newValue, 10) > 0) {
         // Remove leading zero
         newValue = newValue.substring(1);
       }
