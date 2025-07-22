@@ -17,17 +17,17 @@ type MarkdownBlocksRecordType = Record<string, MarkdownBlocksType[]>;
 const cleanComment = (comment: string | undefined): string => {
   if (comment === undefined) return '';
   return comment
-    .replace(/\/\*+|\*+\//g, '') // Supprime les délimiteurs
-    .split('\n') // Découpe en lignes
+    .replace(/\/\*+|\*+\//g, '') // Remove comment delimiters
+    .split('\n') // Separate lines
     .map(
       line =>
         line
-          .replace(/^\s*\*\s?/, '') // Supprime les étoiles en début de ligne
-          .trimEnd(), // Nettoie la fin de chaque ligne
+          .replace(/^\s*\*\s?/, '') // Remove leading asterisks and spaces
+          .trimEnd(), // Clean trailing spaces
     )
-    .filter(line => line.trim() !== '') // Supprime les lignes vides
+    .filter(line => line.trim() !== '') // Remove empty lines
     .join('\n') // Recompose
-    .trim(); // Nettoie début/fin
+    .trim(); // Clean start/end
 };
 
 /**
