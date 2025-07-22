@@ -8,9 +8,9 @@
  * @prop --mg-c-card-spacing: Defines the padding property for the card. Unset by default, fallback on `--mg-c-card-spacing-default`.
  * @prop --mg-c-card-spacing-default: Defines the default padding property for the card. Default value: `--mg-b-size-16`.
  * @prop --mg-c-card-border: Defines the border property for the card. Unset by default, fallback on `--mg-c-card-border-default`.
- * @prop --mg-c-card-border-default: Defines the default border property for the card. Default value: `var(--mg-b-size-border) solid color-mix(in srgb, var(--mg-b-color-dark), transparent 95%)`.
+ * @prop --mg-c-card-border-default: Defines the default border property for the card. Default value: `var(--mg-b-size-border) solid var(--mg-b-color-neutral-30)`.
  * @prop --mg-c-card-border-radius: Defines the border radius property for the card. Unset by default, fallback on `--mg-c-card-border-radius-default`.
- * @prop --mg-c-card-border-radius-default: Defines the default border radius property for the card. Default value: `--mg-b-size-radius`.
+ * @prop --mg-c-card-border-radius-default: Defines the default border radius property for the card. Default value: `--mg-b-size-12`.
  * @prop --mg-c-card-color-background: Defines the background property for the card. Unset by default, fallback on `--mg-c-card-color-background-default`.
  * @prop --mg-c-card-color-background-default: Defines the default background property for the card. Default value: `--mg-b-color-light`.
  * @prop --mg-c-card-box-shadow: Defines the box shadow property for the card. Unset by default, fallback on `--mg-c-card-box-shadow-default`.
@@ -29,7 +29,20 @@
   border: var(--mg-c-card-border, var(--mg-c-card-border-default));
   border-radius: var(--mg-c-card-border-radius, var(--mg-c-card-border-radius-default));
   background: var(--mg-c-card-color-background, var(--mg-c-card-color-background-default));
-  box-shadow: var(--mg-c-card-box-shadow, var(--mg-c-card-box-shadow-default));
 
   @include reset-mg-card-slotted-variables.reset-slot-card-variables;
+
+  &.mg-c-card--shadow {
+    --mg-c-card-border: var(--mg-b-color-neutral-20);
+
+    box-shadow: var(--mg-c-card-box-shadow, var(--mg-c-card-box-shadow-default));
+  }
+
+  &.mg-c-card--radius-xsmall {
+    --mg-c-card-border-radius: var(--mg-b-size-4);
+  }
+
+  &.mg-c-card--radius-small {
+    --mg-c-card-border-radius: var(--mg-b-size-8);
+  }
 }

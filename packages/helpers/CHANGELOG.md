@@ -1,5 +1,13 @@
 # @mgdis/core-ui-helpers
 
+## 1.0.3
+
+### Patch Changes
+
+- 97c96f2: production build optimization
+- 8d3b778: Update dependencies
+- 8ef4819: Update dependencies
+
 ## 1.0.2
 
 ### Patch Changes
