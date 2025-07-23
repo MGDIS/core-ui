@@ -5,17 +5,5 @@ export const svgoConfig: Config = {
   js2svg: {
     pretty: true,
   },
-  plugins: [
-    {
-      name: 'preset-default',
-      params: {
-        overrides: {
-          removeViewBox: false,
-        },
-      },
-    },
-    {
-      name: 'removeDimensions',
-    },
-  ],
+  plugins: ['preset-default', 'removeTitle', 'removeDimensions'],
 };
