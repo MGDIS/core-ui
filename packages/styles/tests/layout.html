@@ -10,7 +10,7 @@
         .mg-l-grid {
           margin-top: 1rem;
         }
-        .mg-l-grid__col {
+        [class*='mg-l-grid__col'] {
           border: 1px solid rgba(0, 0, 0, 0.1);
           background-color: rgba(0, 0, 0, 0.05);
           padding-top: 1.5rem;
@@ -24,11 +24,7 @@
       <h1>Layout</h1>
       <h2>Grid</h2>
 
-      <p>You can use grid classes by using the <code>.mg-l-grid</code> class in the container. This call will add flex properties to the container.</p>
-
       <h3>Auto layout</h3>
-
-      <p>Default column class is <code>mg-l-grid__col</code>. The width will be defined by the number of element using the class.</p>
 
       <div class="mg-l-grid">
         <div class="mg-l-grid__col">.mg-l-grid__col</div>
@@ -51,120 +47,113 @@
 
       <h3>Sized column</h3>
 
-      <p>Like Bootstrap, you can use sized colomn based on a 12 colomns grid.</p>
-      <p>The library is using the BEM methodology, so to define a column width we need to set a modifier class, for exemple <code>mg-l-grid__col-2</code>.</p>
-
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-1">.mg-l-grid__col.mg-l-grid__col-1</div>
+        <div class="mg-l-grid__col-1">.mg-l-grid__col-1</div>
       </div>
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-2">.mg-l-grid__col.mg-l-grid__col-2</div>
+        <div class="mg-l-grid__col-2">.mg-l-grid__col-2</div>
       </div>
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-3">.mg-l-grid__col.mg-l-grid__col-3</div>
+        <div class="mg-l-grid__col-3">.mg-l-grid__col-3</div>
       </div>
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-4">.mg-l-grid__col.mg-l-grid__col-4</div>
+        <div class="mg-l-grid__col-4">.mg-l-grid__col-4</div>
       </div>
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-5">.mg-l-grid__col.mg-l-grid__col-5</div>
+        <div class="mg-l-grid__col-5">.mg-l-grid__col-5</div>
       </div>
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-6">.mg-l-grid__col.mg-l-grid__col-6</div>
+        <div class="mg-l-grid__col-6">.mg-l-grid__col-6</div>
       </div>
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-7">.mg-l-grid__col.mg-l-grid__col-7</div>
+        <div class="mg-l-grid__col-7">.mg-l-grid__col-7</div>
       </div>
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-8">.mg-l-grid__col.mg-l-grid__col-8</div>
+        <div class="mg-l-grid__col-8">.mg-l-grid__col-8</div>
       </div>
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-9">.mg-l-grid__col.mg-l-grid__col-9</div>
+        <div class="mg-l-grid__col-9">.mg-l-grid__col-9</div>
       </div>
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-10">.mg-l-grid__col.mg-l-grid__col-10</div>
+        <div class="mg-l-grid__col-10">.mg-l-grid__col-10</div>
       </div>
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-11">.mg-l-grid__col.mg-l-grid__col-11</div>
+        <div class="mg-l-grid__col-11">.mg-l-grid__col-11</div>
       </div>
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-12">.mg-l-grid__col.mg-l-grid__col-12</div>
+        <div class="mg-l-grid__col-12">.mg-l-grid__col-12</div>
       </div>
 
       <h3>Mix</h3>
 
-      <p>You can also mix unsized column with sized column.</p>
-
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-3">.mg-l-grid__col.mg-l-grid__col-3</div>
+        <div class="mg-l-grid__col-3">.mg-l-grid__col-3</div>
         <div class="mg-l-grid__col">.mg-l-grid__col</div>
-        <div class="mg-l-grid__col mg-l-grid__col-3">.mg-l-grid__col.mg-l-grid__col-3</div>
+        <div class="mg-l-grid__col-3">.mg-l-grid__col-3</div>
       </div>
 
       <div class="mg-l-grid">
         <div class="mg-l-grid__col">.mg-l-grid__col</div>
-        <div class="mg-l-grid__col mg-l-grid__col-5">.mg-l-grid__col.mg-l-grid__col-5</div>
+        <div class="mg-l-grid__col-5">.mg-l-grid__col-5</div>
         <div class="mg-l-grid__col">.mg-l-grid__col</div>
       </div>
 
       <h3>Offset</h3>
 
-      <p>You can use offset classes by using the <code>.mg-l-grid__offset-X</code> class in the column (<code>X</code> is the number of columns to offset).</p>
-
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-11 mg-l-grid__offset-1">.mg-l-grid__col-11.mg-l-grid__offset-1</div>
+        <div class="mg-l-grid__col-11 mg-l-grid__col--offset-1">.mg-l-grid__col-11.mg-l-grid__col--offset-1</div>
       </div>
 
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-10 mg-l-grid__offset-2">.mg-l-grid__col-10.mg-l-grid__offset-2</div>
+        <div class="mg-l-grid__col-10 mg-l-grid__col--offset-2">.mg-l-grid__col-10.mg-l-grid__col--offset-2</div>
       </div>
 
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-9 mg-l-grid__offset-3">.mg-l-grid__col-9.mg-l-grid__offset-3</div>
+        <div class="mg-l-grid__col-9 mg-l-grid__col--offset-3">.mg-l-grid__col-9.mg-l-grid__col--offset-3</div>
       </div>
 
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-8 mg-l-grid__offset-4">.mg-l-grid__col-8.mg-l-grid__offset-4</div>
+        <div class="mg-l-grid__col-8 mg-l-grid__col--offset-4">.mg-l-grid__col-8.mg-l-grid__col--offset-4</div>
       </div>
 
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-7 mg-l-grid__offset-5">.mg-l-grid__col-7.mg-l-grid__offset-5</div>
+        <div class="mg-l-grid__col-7 mg-l-grid__col--offset-5">.mg-l-grid__col-7.mg-l-grid__col--offset-5</div>
       </div>
 
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-6 mg-l-grid__offset-6">.mg-l-grid__col-6.mg-l-grid__offset-6</div>
+        <div class="mg-l-grid__col-6 mg-l-grid__col--offset-6">.mg-l-grid__col-6.mg-l-grid__col--offset-6</div>
       </div>
 
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-5 mg-l-grid__offset-7">.mg-l-grid__col-5.mg-l-grid__offset-7</div>
+        <div class="mg-l-grid__col-5 mg-l-grid__col--offset-7">.mg-l-grid__col-5.mg-l-grid__col--offset-7</div>
       </div>
 
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-4 mg-l-grid__offset-8">.mg-l-grid__col-4.mg-l-grid__offset-8</div>
+        <div class="mg-l-grid__col-4 mg-l-grid__col--offset-8">.mg-l-grid__col-4.mg-l-grid__col--offset-8</div>
       </div>
 
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-3 mg-l-grid__offset-9">.mg-l-grid__col-3.mg-l-grid__offset-9</div>
+        <div class="mg-l-grid__col-3 mg-l-grid__col--offset-9">.mg-l-grid__col-3.mg-l-grid__col--offset-9</div>
       </div>
 
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-2 mg-l-grid__offset-10">.mg-l-grid__col-2.mg-l-grid__offset-10</div>
+        <div class="mg-l-grid__col-2 mg-l-grid__col--offset-10">.mg-l-grid__col-2.mg-l-grid__col--offset-10</div>
       </div>
 
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-1 mg-l-grid__offset-11">.mg-l-grid__col-1.mg-l-grid__offset-11</div>
+        <div class="mg-l-grid__col-1 mg-l-grid__col--offset-11">.mg-l-grid__col-1.mg-l-grid__col--offset-11</div>
       </div>
 
-      <p>You can also mix offset with sized column.</p>
+      <h4>Mix</h4>
 
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-3 mg-l-grid__offset-3">.mg-l-grid__col-3.mg-l-grid__offset-3</div>
-        <div class="mg-l-grid__col mg-l-grid__col-3">.mg-l-grid__col-3</div>
+        <div class="mg-l-grid__col-3 mg-l-grid__col--offset-3">.mg-l-grid__col-3.mg-l-grid__col--offset-3</div>
+        <div class="mg-l-grid__col-3">.mg-l-grid__col-3</div>
       </div>
 
       <div class="mg-l-grid">
-        <div class="mg-l-grid__col mg-l-grid__col-2 mg-l-grid__offset-1">.mg-l-grid__col-2.mg-l-grid__offset-1</div>
-        <div class="mg-l-grid__col mg-l-grid__col-2 mg-l-grid__offset-2">.mg-l-grid__col-2.mg-l-grid__offset-2</div>
+        <div class="mg-l-grid__col-2 mg-l-grid__col--offset-1">.mg-l-grid__col-2.mg-l-grid__col--offset-1</div>
+        <div class="mg-l-grid__col-2 mg-l-grid__col--offset-2">.mg-l-grid__col-2.mg-l-grid__col--offset-2</div>
       </div>
     </main>
   </body>
