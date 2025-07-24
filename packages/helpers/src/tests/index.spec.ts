@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { setupMutationObserverMock, setUpRequestAnimationFrameMock, setupResizeObserverMock, setupSubmitEventMock } from './';
+import { setUpHTMLInputElementValidity, setupMutationObserverMock, setUpRequestAnimationFrameMock, setupResizeObserverMock, setupSubmitEventMock } from './';
 
 describe('tests', () => {
   describe('unit', () => {
@@ -8,6 +8,7 @@ describe('tests', () => {
       expect(setupResizeObserverMock).toBeDefined();
       expect(setupSubmitEventMock).toBeDefined();
       expect(setUpRequestAnimationFrameMock).toBeDefined();
+      expect(setUpHTMLInputElementValidity).toBeDefined();
     });
   });
 });

@@ -19,8 +19,8 @@ export const getObjectValueFromKey = <T, R>(object: T, path: string, defaultValu
   }
   const [current, ...next] = path.split(separator);
   if (next.length) {
-    return getObjectValueFromKey(object[current as keyof T], next.join(separator));
+    return getObjectValueFromKey(object[current as keyof T], next.join(separator), defaultValue);
   } else {
-    return object[current as keyof T];
+    return object[current as keyof T] ?? defaultValue;
   }
 };

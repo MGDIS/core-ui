@@ -2,6 +2,7 @@ import { expect } from '@playwright/test';
 import { test } from '../../../../../utils/playwright.fixture';
 import { renderAttributes, renderProperties } from '@mgdis/core-ui-helpers/dist/playwright';
 import { widths } from '../../mg-input/mg-input.conf';
+import type { MgInputSelect } from '../mg-input-select';
 
 const baseArgs = {
   identifier: 'identifier',
@@ -86,6 +87,27 @@ test.describe('mg-input-select', () => {
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
+    });
+  });
+
+  [
+    { ...baseArgs, items: undefined },
+    { ...baseArgs, items: undefined, noValueErrorDetail: 'no value error detail content' },
+  ].forEach((args: Partial<MgInputSelect>) => {
+    test(`Should render with template ${renderAttributes(args)} with no-value error`, async ({ page }) => {
+      const componentArgs = {
+        ...args,
+      };
+      const html = createHTML(componentArgs);
+      await page.setContent(html);
+      await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      if (args.noValueErrorDetail !== undefined) {
+        page.locator('mg-details').click();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      }
     });
   });
 

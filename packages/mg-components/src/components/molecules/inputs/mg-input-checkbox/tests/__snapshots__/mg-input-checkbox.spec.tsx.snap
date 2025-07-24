@@ -8021,6 +8021,537 @@ exports[`mg-input-checkbox render by type checkbox display error with displayErr
 </mg-input-checkbox>
 `;
 
+exports[`mg-input-checkbox render by type checkbox noValueErrorDetail: no value error detail content Should display error message with invalid value property: [] 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
+        <span slot="summary">
+          No value.
+        </span>
+        <p class="mg-c-input__error-details" slot="details">
+          no value error detail content
+        </p>
+      </mg-details>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox noValueErrorDetail: no value error detail content Should display error message with invalid value property: [] 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox noValueErrorDetail: no value error detail content Should display error message with invalid value property: null 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
+        <span slot="summary">
+          No value.
+        </span>
+        <p class="mg-c-input__error-details" slot="details">
+          no value error detail content
+        </p>
+      </mg-details>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox noValueErrorDetail: no value error detail content Should display error message with invalid value property: null 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox noValueErrorDetail: no value error detail content Should display error message with invalid value property: undefined 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
+        <span slot="summary">
+          No value.
+        </span>
+        <p class="mg-c-input__error-details" slot="details">
+          no value error detail content
+        </p>
+      </mg-details>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox noValueErrorDetail: no value error detail content Should display error message with invalid value property: undefined 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox noValueErrorDetail: undefined Should display error message with invalid value property: [] 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox noValueErrorDetail: undefined Should display error message with invalid value property: [] 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox noValueErrorDetail: undefined Should display error message with invalid value property: null 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox noValueErrorDetail: undefined Should display error message with invalid value property: null 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox noValueErrorDetail: undefined Should display error message with invalid value property: undefined 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox noValueErrorDetail: undefined Should display error message with invalid value property: undefined 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
 exports[`mg-input-checkbox render by type checkbox should display override error with setError component's public method 1`] = `
 <mg-input-checkbox>
   <template shadowrootmode="open">
@@ -12220,6 +12751,963 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
 </mg-input-checkbox>
 `;
 
+exports[`mg-input-checkbox render by type multi noValueErrorDetail: no value error detail content Should display error message with invalid value property: [] 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Select values
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content" shadow="">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content"></div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          0 selected value
+        </b>
+      </div>
+      <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
+        <span slot="summary">
+          No value.
+        </span>
+        <p class="mg-c-input__error-details" slot="details">
+          no value error detail content
+        </p>
+      </mg-details>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi noValueErrorDetail: no value error detail content Should display error message with invalid value property: [] 2`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Edit
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content" shadow="">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content">
+              <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                  <label htmlfor="identifier_0">
+                    batman
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                  <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_1">
+                    robin
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_2">
+                    joker
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                  <label htmlfor="identifier_3">
+                    bane
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          1 selected value
+        </b>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi noValueErrorDetail: no value error detail content Should display error message with invalid value property: null 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Select values
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content" shadow="">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content"></div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          0 selected value
+        </b>
+      </div>
+      <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
+        <span slot="summary">
+          No value.
+        </span>
+        <p class="mg-c-input__error-details" slot="details">
+          no value error detail content
+        </p>
+      </mg-details>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi noValueErrorDetail: no value error detail content Should display error message with invalid value property: null 2`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Edit
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content" shadow="">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content">
+              <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                  <label htmlfor="identifier_0">
+                    batman
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                  <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_1">
+                    robin
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_2">
+                    joker
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                  <label htmlfor="identifier_3">
+                    bane
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          1 selected value
+        </b>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi noValueErrorDetail: no value error detail content Should display error message with invalid value property: undefined 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Select values
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content" shadow="">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content"></div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          0 selected value
+        </b>
+      </div>
+      <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
+        <span slot="summary">
+          No value.
+        </span>
+        <p class="mg-c-input__error-details" slot="details">
+          no value error detail content
+        </p>
+      </mg-details>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi noValueErrorDetail: no value error detail content Should display error message with invalid value property: undefined 2`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Edit
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content" shadow="">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content">
+              <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                  <label htmlfor="identifier_0">
+                    batman
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                  <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_1">
+                    robin
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_2">
+                    joker
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                  <label htmlfor="identifier_3">
+                    bane
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          1 selected value
+        </b>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi noValueErrorDetail: undefined Should display error message with invalid value property: [] 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Select values
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content" shadow="">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content"></div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          0 selected value
+        </b>
+      </div>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi noValueErrorDetail: undefined Should display error message with invalid value property: [] 2`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Edit
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content" shadow="">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content">
+              <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                  <label htmlfor="identifier_0">
+                    batman
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                  <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_1">
+                    robin
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_2">
+                    joker
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                  <label htmlfor="identifier_3">
+                    bane
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          1 selected value
+        </b>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi noValueErrorDetail: undefined Should display error message with invalid value property: null 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Select values
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content" shadow="">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content"></div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          0 selected value
+        </b>
+      </div>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi noValueErrorDetail: undefined Should display error message with invalid value property: null 2`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Edit
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content" shadow="">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content">
+              <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                  <label htmlfor="identifier_0">
+                    batman
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                  <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_1">
+                    robin
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_2">
+                    joker
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                  <label htmlfor="identifier_3">
+                    bane
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          1 selected value
+        </b>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi noValueErrorDetail: undefined Should display error message with invalid value property: undefined 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Select values
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content" shadow="">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content"></div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          0 selected value
+        </b>
+      </div>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi noValueErrorDetail: undefined Should display error message with invalid value property: undefined 2`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            Edit
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content" shadow="">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content">
+              <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                  <label htmlfor="identifier_0">
+                    batman
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                  <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_1">
+                    robin
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_2">
+                    joker
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group">
+                  <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                  <label htmlfor="identifier_3">
+                    bane
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          1 selected value
+        </b>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
 exports[`mg-input-checkbox render by type multi should display override error with setError component's public method 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <template shadowrootmode="open">
@@ -15144,6 +16632,537 @@ exports[`mg-input-checkbox render by type undefined display error with displayEr
           </span>
         </legend>
       </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined noValueErrorDetail: no value error detail content Should display error message with invalid value property: [] 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
+        <span slot="summary">
+          No value.
+        </span>
+        <p class="mg-c-input__error-details" slot="details">
+          no value error detail content
+        </p>
+      </mg-details>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined noValueErrorDetail: no value error detail content Should display error message with invalid value property: [] 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined noValueErrorDetail: no value error detail content Should display error message with invalid value property: null 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
+        <span slot="summary">
+          No value.
+        </span>
+        <p class="mg-c-input__error-details" slot="details">
+          no value error detail content
+        </p>
+      </mg-details>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined noValueErrorDetail: no value error detail content Should display error message with invalid value property: null 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined noValueErrorDetail: no value error detail content Should display error message with invalid value property: undefined 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
+        <span slot="summary">
+          No value.
+        </span>
+        <p class="mg-c-input__error-details" slot="details">
+          no value error detail content
+        </p>
+      </mg-details>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined noValueErrorDetail: no value error detail content Should display error message with invalid value property: undefined 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined noValueErrorDetail: undefined Should display error message with invalid value property: [] 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined noValueErrorDetail: undefined Should display error message with invalid value property: [] 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined noValueErrorDetail: undefined Should display error message with invalid value property: null 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined noValueErrorDetail: undefined Should display error message with invalid value property: null 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined noValueErrorDetail: undefined Should display error message with invalid value property: undefined 1`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div id="identifier-error" slot="error">
+        No value.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined noValueErrorDetail: undefined Should display error message with invalid value property: undefined 2`] = `
+<mg-input-checkbox>
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
     </mg-input>
   </template>
 </mg-input-checkbox>

@@ -3,6 +3,7 @@ import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/co
 import { SelectOption, OptGroup } from './mg-input-select.conf';
 import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
+import { defineErrorMessage } from '../mg-input/mg-input.utils';
 
 /**
  * Check if item is a well configured option
@@ -100,9 +101,11 @@ export class MgInputSelect {
   @Prop() items!: (string | SelectOption)[];
   @Watch('items')
   validateItems(newValue: MgInputSelect['items']): void {
+    let resetMessage = false;
     // Empty options
-    if (newValue.length === 0) {
+    if ([undefined, null].includes(newValue) || (Array.isArray(newValue) && newValue.length === 0)) {
       this.options = [];
+      this.displayError();
     }
     // String array
     else if (allItemsAreString(newValue)) {
@@ -110,6 +113,8 @@ export class MgInputSelect {
         this.valueExist = newValue.includes(this.value);
       }
       this.options = newValue.map(item => ({ title: item, value: item }));
+      // force to reset error when noValueError is displaied
+      resetMessage = this.invalid && this.hasNoValueErrorMessageDisplay();
     }
     // Object array
     else if (allItemsAreOptions(newValue)) {
@@ -122,10 +127,16 @@ export class MgInputSelect {
       else {
         this.options = newValue;
       }
+      // force to reset error when noValueError is displaied
+      resetMessage = this.invalid && this.hasNoValueErrorMessageDisplay();
     } else {
       throw new Error(
         `<mg-input-select> prop "items" is required, can be an empty Array or all items must be the same type: string or Option. Passed value: ${toString(newValue)}.`,
       );
+    }
+
+    if (resetMessage) {
+      this.resetErrorMessage();
     }
   }
 
@@ -240,6 +251,11 @@ export class MgInputSelect {
   @Prop() helpText?: string;
 
   /**
+   * Define no value error detail
+   */
+  @Prop() noValueErrorDetail?: string;
+
+  /**
    * Define input valid state
    */
   @Prop({ mutable: true }) valid: boolean;
@@ -344,9 +360,7 @@ export class MgInputSelect {
       // - Keep everything in sync both inside and outside the component
       return new Promise(resolve => {
         requestAnimationFrame(() => {
-          this.checkValidity();
-          this.errorMessage = undefined;
-          this.hasDisplayedError = false;
+          this.resetErrorMessage();
           resolve();
         });
       });
@@ -409,6 +423,18 @@ export class MgInputSelect {
   private isInputValue = (item: SelectOption): boolean => item.title === this.input?.value;
 
   /**
+   * Test if component has items
+   * @returns truthy if component has items
+   */
+  private hasInputValue = (): boolean => this.items?.length > 0;
+
+  /**
+   * Test if component has no value error message displayed
+   * @returns truthy if compent display no value error message
+   */
+  private hasNoValueErrorMessageDisplay = (): boolean => this.errorMessage === this.messages.errors.noValue;
+
+  /**
    * Handle blur event
    */
   private handleBlur = (): void => {
@@ -429,7 +455,7 @@ export class MgInputSelect {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(!this.isDisabledValue() && (this.readonly || this.disabled || this.input.checkValidity()));
+    this.setValidity(!this.isDisabledValue() && (this.readonly || this.disabled || (this.hasInputValue() && this.input.checkValidity())));
   };
 
   /**
@@ -442,10 +468,21 @@ export class MgInputSelect {
     if (!this.valid) {
       if (errorMessage !== undefined) {
         this.errorMessage = errorMessage;
+      } else if (!this.hasInputValue()) {
+        this.errorMessage = this.messages.errors.noValue;
       } else if (this.input.validity.valueMissing) {
         this.errorMessage = this.messages.errors.required;
       }
     }
+  };
+
+  /**
+   * Reset error message
+   */
+  private resetErrorMessage = (): void => {
+    this.checkValidity();
+    this.errorMessage = undefined;
+    this.hasDisplayedError = false;
   };
 
   /*************
@@ -505,7 +542,7 @@ export class MgInputSelect {
         tooltip={this.tooltip}
         tooltipPosition={this.readonly && readonlyValue === null ? 'label' : this.tooltipPosition}
         helpText={this.helpText}
-        errorMessage={this.errorMessage}
+        errorMessage={defineErrorMessage(this.errorMessage, this.noValueErrorDetail)}
       >
         {this.readonly ? (
           readonlyValue && <b class="mg-c-input__readonly-value">{readonlyValue}</b>
@@ -515,7 +552,7 @@ export class MgInputSelect {
             id={this.identifier}
             name={this.name}
             title={this.placeholder}
-            disabled={this.disabled}
+            disabled={this.disabled || !this.hasInputValue()}
             required={this.required}
             aria-invalid={(this.invalid === true).toString()}
             onInput={this.handleInput}

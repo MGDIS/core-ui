@@ -2,6 +2,7 @@ import { expect } from '@playwright/test';
 import { test } from '../../../../../utils/playwright.fixture';
 import { renderAttributes, renderProperties } from '@mgdis/core-ui-helpers/dist/playwright';
 import { Keys } from '../../../../../utils/events.utils';
+import type { MgInputCombobox } from '../mg-input-combobox';
 
 const initArray = length => new Array(length).fill('').map((_, key) => (key + 1).toString());
 
@@ -63,6 +64,27 @@ test.describe('mg-input-combobox', () => {
       // wait for debounce
       await page.locator('.mg-c-input__popover-info').first().getByText('No value matches your input').waitFor();
       await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height } });
+    });
+  });
+
+  [
+    { ...baseArgs, items: undefined },
+    { ...baseArgs, items: undefined, noValueErrorDetail: 'no value error detail content' },
+  ].forEach((args: Partial<MgInputCombobox>) => {
+    test(`Should render with template ${renderAttributes(args)} with no-value error`, async ({ page }) => {
+      const componentArgs = {
+        ...args,
+      };
+      const html = createHTML(componentArgs);
+      await page.setContent(html);
+      await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      if (args.noValueErrorDetail !== undefined) {
+        page.locator('mg-details').click();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      }
     });
   });
 

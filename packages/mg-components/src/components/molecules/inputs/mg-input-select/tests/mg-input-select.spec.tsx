@@ -300,6 +300,36 @@ describe('mg-input-select', () => {
     });
   });
 
+  describe.each([
+    [['batman', 'robin', 'joker', 'bane']],
+    [
+      [
+        { title: 'batman', value: true },
+        { title: 'robin', value: false },
+        { title: 'joker', value: false },
+        { title: 'bane', value: false },
+      ],
+    ],
+  ])('next items %s', (nextItems: MgInputSelect['items']) => {
+    describe.each([undefined, 'no value error detail content'])('noValueErrorDetail: %s', noValueErrorDetail => {
+      test.each([undefined, null, [] as unknown[]])('Should display error message with invalid items property: %s', async items => {
+        const page = await getPage({ identifier: 'identifier', label: 'label', items, noValueErrorDetail });
+        const element = page.doc.querySelector('mg-input-select');
+
+        expect(element.valid).toEqual(false);
+        expect(element.invalid).toEqual(true);
+        expect(page.root).toMatchSnapshot();
+
+        element.items = nextItems;
+        await page.waitForChanges();
+
+        expect(element.valid).toEqual(true);
+        expect(element.invalid).toEqual(false);
+        expect(page.root).toMatchSnapshot();
+      });
+    });
+  });
+
   test("display error with displayError component's public method", async () => {
     const page = await getPage({ label: 'label', items: ['batman', 'robin', 'joker', 'bane'], identifier: 'identifier', required: true });
 
@@ -373,7 +403,7 @@ describe('mg-input-select', () => {
       errorMessage: true,
       error: '<mg-input-select> method "setError()" param "errorMessage" must be a string.',
     },
-  ])("shloud throw error with setError component's public method invalid params", async params => {
+  ])("should throw error with setError component's public method invalid params", async params => {
     expect.assertions(1);
     try {
       const page = await getPage({ label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true });

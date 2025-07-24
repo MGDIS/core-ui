@@ -4,6 +4,7 @@ import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, 
 import { MgInputCheckboxList } from './MgInputCheckboxList';
 import { classDisabled, type TooltipPosition, classReadonly, classFieldset, classVerticalList } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
+import { defineErrorMessage } from '../mg-input/mg-input.utils';
 import { Status, type TabItem } from '../../mg-tabs/mg-tabs.conf';
 import { type MgInputCheckboxPaginated } from './mg-input-checkbox-paginated/mg-input-checkbox-paginated';
 
@@ -68,7 +69,9 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Prop({ mutable: true }) value!: CheckboxValue[];
   @Watch('value')
   validateValue(newValue: MgInputCheckbox['value']): void {
-    if (isCheckboxItems(newValue)) {
+    if ([null, undefined].includes(newValue) || newValue.length === 0) {
+      this.displayError();
+    } else if (newValue.length > 0 && isCheckboxItems(newValue)) {
       this.checkboxItems = newValue.map((item, index) => ({
         ...item,
         _id: `${this.identifier}_${index}`,
@@ -77,6 +80,10 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         _handleKeydown: this.handleKeydown.bind(this),
       }));
       this.valueChange.emit(newValue);
+      // force to reset error when noValueError is displaied
+      if (this.invalid && this.hasNoValueErrorMessageDisplay()) {
+        this.resetErrorMessage();
+      }
     } else {
       throw new Error(`<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem. Passed value: ${toString(newValue)}.`);
     }
@@ -226,16 +233,21 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Overwrite default "edit" button message
    */
-  @Prop() editButtonMessage: string;
+  @Prop() editButtonMessage?: string;
   /**
    * Overwrite default "show" button message
    */
-  @Prop() showButtonMessage: string;
+  @Prop() showButtonMessage?: string;
 
   /**
    * Overwrite default "select" button message
    */
-  @Prop() selectButtonMessage: string;
+  @Prop() selectButtonMessage?: string;
+
+  /**
+   * Define no value error detail
+   */
+  @Prop() noValueErrorDetail?: string;
 
   /**
    * Component classes
@@ -372,9 +384,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       // - Keep everything in sync both inside and outside the component
       return new Promise(resolve => {
         requestAnimationFrame(() => {
-          this.checkValidity();
-          this.errorMessage = undefined;
-          this.hasDisplayedError = false;
+          this.resetErrorMessage();
           resolve();
         });
       });
@@ -527,8 +537,20 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(this.readonly || this.disabled || (!this.hasInvalidInput() && this.validateRequired()));
+    this.setValidity(this.readonly || this.disabled || (this.hasInputValue() && !this.hasInvalidInput() && this.validateRequired()));
   };
+
+  /**
+   * Test if component has items
+   * @returns truthy if component has items
+   */
+  private hasInputValue = (): boolean => this.value?.length > 0;
+
+  /**
+   * Test if component has no value error message displayed
+   * @returns truthy if compent display no value error message
+   */
+  private hasNoValueErrorMessageDisplay = (): boolean => this.errorMessage === this.messages.errors.noValue;
 
   /**
    * Set button text locale key
@@ -568,9 +590,23 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     // Set error message
     this.errorMessage = undefined;
     if (displayError && !this.valid) {
-      if (errorMessage !== undefined) this.errorMessage = errorMessage;
-      else if (!this.validateRequired()) this.errorMessage = this.messages.errors.required;
+      if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      } else if (!this.hasInputValue()) {
+        this.errorMessage = this.messages.errors.noValue;
+      } else if (!this.validateRequired()) {
+        this.errorMessage = this.messages.errors.required;
+      }
     }
+  };
+
+  /**
+   * Reset error message
+   */
+  private resetErrorMessage = (): void => {
+    this.checkValidity();
+    this.errorMessage = undefined;
+    this.hasDisplayedError = false;
   };
 
   /**
@@ -792,17 +828,21 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @returns The rendered readonly value.
    */
   private renderReadonly = (readonlyValue: string[]): HTMLElement => {
-    return this.inputVerticalList ? (
-      <ul class="mg-c-input__readonly-value">
-        {readonlyValue.map(value => (
-          <li key={value}>
-            <b>{value}</b>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <b class="mg-c-input__readonly-value">{readonlyValue.join(', ')}</b>
-    );
+    if (Array.isArray(readonlyValue)) {
+      if (this.inputVerticalList) {
+        return (
+          <ul class="mg-c-input__readonly-value">
+            {readonlyValue.map(value => (
+              <li key={value}>
+                <b>{value}</b>
+              </li>
+            ))}
+          </ul>
+        );
+      } else {
+        return <b class="mg-c-input__readonly-value">{readonlyValue.join(', ')}</b>;
+      }
+    }
   };
 
   /**
@@ -819,7 +859,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    */
   render(): HTMLElement {
     let inputContent: HTMLElement;
-    const readonlyValue = this.value.filter(({ value }) => value).map(({ title }) => title);
+    const readonlyValue = (this.value ?? []).filter(({ value }) => value).map(({ title }) => title);
 
     if (this.readonly) {
       inputContent = this.renderReadonly(readonlyValue);
@@ -840,7 +880,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         tooltip={this.tooltip}
         tooltipPosition={this.readonly && readonlyValue.length === 0 ? 'label' : this.tooltipPosition}
         helpText={!this.readonly ? this.helpText : undefined}
-        errorMessage={!this.readonly ? this.errorMessage : undefined}
+        errorMessage={!this.readonly ? defineErrorMessage(this.errorMessage, this.noValueErrorDetail) : undefined}
       >
         {inputContent}
       </mg-input>
