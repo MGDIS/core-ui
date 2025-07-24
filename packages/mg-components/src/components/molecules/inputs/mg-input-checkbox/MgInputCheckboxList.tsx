@@ -9,14 +9,7 @@ import { MgInputCheckboxListProps } from './mg-input-checkbox.conf';
 export const MgInputCheckboxList: FunctionalComponent<MgInputCheckboxListProps> = (props: MgInputCheckboxListProps): VNode[] =>
   Array.isArray(props.checkboxes) &&
   props.checkboxes.length > 0 && (
-    <ul
-      class="mg-c-input__input-group-container"
-      role="list"
-      aria-describedby={props.displaySearchInput ? 'search-results' : undefined}
-      aria-label={props.displaySearchInput ? props.messages.searchResults : undefined}
-      aria-live={props.displaySearchInput ? 'polite' : undefined}
-      id={props.id}
-    >
+    <ul class="mg-c-input__input-group-container" role="list" aria-labelledby={props.labelledby} id={props.id}>
       {props.checkboxes.map(input => (
         <li key={input._id} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': props.disabled || input.disabled }}>
           <input

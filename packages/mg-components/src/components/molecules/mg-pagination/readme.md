@@ -30,10 +30,6 @@ A pagination component should be displayed only when it is useful, for example:
 
 ## Dependencies
 
-### Used by
-
- - mg-input-checkbox-paginated
-
 ### Depends on
 
 - [mg-button](../../atoms/mg-button)
@@ -54,7 +50,6 @@ graph TD;
   mg-input --> mg-input-title
   mg-details --> mg-icon
   mg-tooltip --> mg-tooltip-content
-  mg-input-checkbox-paginated --> mg-pagination
   style mg-pagination fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

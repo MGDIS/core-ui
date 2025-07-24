@@ -434,7 +434,7 @@ export class MgInputCombobox {
   /**
    * Emited event when `load-more` is called
    */
-  @Event({ eventName: 'load-more' }) loadMore: EventEmitter<void>;
+  @Event({ eventName: 'load-more' }) showMore: EventEmitter<void>;
 
   /**
    * Emited event when checking validity
@@ -868,8 +868,8 @@ export class MgInputCombobox {
     } else if (this.loadingAction === 'load-more') {
       index = this.page.items.length - this.page.baseIndex;
     }
-    // when action require a loadMore we fetch the API else we report action to next tick
-    // Set "load more" if action match OR if next item not available in the current page
+    // when action require a showMore we fetch the API else we report action to next tick
+    // Set "Show more" if action match OR if next item not available in the current page
     if (action.name === 'load-more') {
       // wait for new element render and update scroll position
       // set component loading
@@ -918,7 +918,7 @@ export class MgInputCombobox {
    * @returns promise
    */
   private goToNextPage = (): Promise<void> => {
-    this.loadMore.emit();
+    this.showMore.emit();
     if (this.fetchurl !== undefined) {
       return this.getOptions(typeof this.page.next === 'string' ? this.page.next : undefined).then(nextPage => {
         if (isObject(nextPage)) {
@@ -1182,7 +1182,7 @@ export class MgInputCombobox {
                     }}
                   >
                     <mg-icon icon="chevron-down"></mg-icon>
-                    {this.messages.input.combobox.loadMore}
+                    {this.messages.input.showMore}
                   </mg-button>
                 ),
               ]}

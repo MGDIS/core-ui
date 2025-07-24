@@ -5,6 +5,7 @@
   },
   "nbCharLeft": "{counter} characters left.",
   "input": {
+    "showMore": "Show more",
     "select": {
       "placeholder": "Select a value"
     },
@@ -14,23 +15,27 @@
       "editButton": "Edit",
       "selectButton": "Select values",
       "showButton": "Show",
-      "label": "Enter a value",
-      "result": "result",
-      "results": "results",
-      "searchResults": "Search result(s) list.",
-      "noResult": "No result.",
       "sections": {
+        "label": "Values grouped by: \"Selected\" or \"Available\"",
+        "badge": { "label": "value(s)" },
+        "search": {
+          "label": "Enter a value",
+          "values": "{count} value(s) found",
+          "noValue": "No values found"
+        },
         "selected": {
           "title": "Selected",
-          "titlePlural": "Selected",
           "action": "Unselect all",
-          "tooltip": "Unselect all current search results"
+          "tooltip": "Unselect all current values",
+          "values": "{count} value(s) selected",
+          "noValue": "No value selected"
         },
         "notSelected": {
-          "title": "Not selected",
-          "titlePlural": "Not selected",
+          "title": "Available",
           "action": "Select all",
-          "tooltip": "Select all current search results"
+          "tooltip": "Select all current values",
+          "values": "{count} value(s) available",
+          "noValue": "All values are selected"
         }
       }
     },
@@ -62,9 +67,8 @@
       "hide": "Hide password value"
     },
     "combobox": {
-      "notFound": "No elements match your input",
-      "notAvailable": "No elements available",
-      "loadMore": "Load more",
+      "notFound": "No value matches your input",
+      "notAvailable": "No value available",
       "search": "Search…"
     },
     "text": {
