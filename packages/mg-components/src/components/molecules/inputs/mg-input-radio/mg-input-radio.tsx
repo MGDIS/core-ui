@@ -433,31 +433,31 @@ export class MgInputRadio {
         helpText={this.helpText}
         errorMessage={defineErrorMessage(this.errorMessage, this.noValueErrorDetail)}
       >
-        {this.readonly ? (
-          this.readonlyValue && <b class="mg-c-input__readonly-value">{this.readonlyValue}</b>
-        ) : (
-          <ul class="mg-c-input__input-group-container" role="list">
-            {this.options.map((input, index) => (
-              <li key={input.title} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': this.disabled || input.disabled }}>
-                <input
-                  type="radio"
-                  id={this.identifier + '_' + index}
-                  name={this.identifier}
-                  value={index}
-                  checked={JSON.stringify(this.value) === JSON.stringify(this.options[index].value)}
-                  disabled={this.disabled || input.disabled}
-                  required={this.required}
-                  onBlur={this.handleBlur}
-                  onInput={this.handleInput}
-                  ref={(el: HTMLInputElement) => {
-                    if (el !== null) this.inputs[index] = el;
-                  }}
-                />
-                <label htmlFor={this.identifier + '_' + index}>{input.title}</label>
-              </li>
-            ))}
-          </ul>
-        )}
+        {this.readonly
+          ? this.readonlyValue && <b class="mg-c-input__readonly-value">{this.readonlyValue}</b>
+          : this.options.length > 0 && (
+              <ul class="mg-c-input__input-group-container" role="list">
+                {this.options.map((input, index) => (
+                  <li key={input.title} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': this.disabled || input.disabled }}>
+                    <input
+                      type="radio"
+                      id={this.identifier + '_' + index}
+                      name={this.identifier}
+                      value={index}
+                      checked={JSON.stringify(this.value) === JSON.stringify(this.options[index].value)}
+                      disabled={this.disabled || input.disabled}
+                      required={this.required}
+                      onBlur={this.handleBlur}
+                      onInput={this.handleInput}
+                      ref={(el: HTMLInputElement) => {
+                        if (el !== null) this.inputs[index] = el;
+                      }}
+                    />
+                    <label htmlFor={this.identifier + '_' + index}>{input.title}</label>
+                  </li>
+                ))}
+              </ul>
+            )}
       </mg-input>
     );
   }

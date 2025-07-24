@@ -789,17 +789,21 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @returns The rendered readonly value.
    */
   private renderReadonly = (readonlyValue: string[]): HTMLElement => {
-    return this.inputVerticalList ? (
-      <ul class="mg-c-input__readonly-value">
-        {readonlyValue.map(value => (
-          <li key={value}>
-            <b>{value}</b>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <b class="mg-c-input__readonly-value">{readonlyValue.join(', ')}</b>
-    );
+    if (Array.isArray(readonlyValue)) {
+      if (this.inputVerticalList) {
+        return (
+          <ul class="mg-c-input__readonly-value">
+            {readonlyValue.map(value => (
+              <li key={value}>
+                <b>{value}</b>
+              </li>
+            ))}
+          </ul>
+        );
+      } else {
+        return <b class="mg-c-input__readonly-value">{readonlyValue.join(', ')}</b>;
+      }
+    }
   };
 
   /**
@@ -824,7 +828,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    */
   render(): HTMLElement {
     let inputContent: HTMLElement;
-    const readonlyValue = this.value?.filter(({ value }) => value).map(({ title }) => title);
+    const readonlyValue = (this.value ?? []).filter(({ value }) => value).map(({ title }) => title);
 
     if (this.readonly) {
       inputContent = this.renderReadonly(readonlyValue);
