@@ -61,7 +61,7 @@ test.describe('mg-input-combobox', () => {
       await input.press('KeyK');
 
       // wait for debounce
-      await page.locator('.mg-c-input__popover-info').first().getByText('No elements match your input').waitFor();
+      await page.locator('.mg-c-input__popover-info').first().getByText('No value matches your input').waitFor();
       await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height } });
     });
   });
@@ -341,8 +341,8 @@ test.describe('mg-input-combobox', () => {
         // load-more displaied
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
-        // Load more elements
-        await page.getByText('Load more').click();
+        // Show more elements
+        await page.getByText('Show more').click();
 
         // popover opened with 20 elements
         // 1 to 11 visible (1 partialy)
@@ -365,8 +365,8 @@ test.describe('mg-input-combobox', () => {
         // load-more visible
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
-        // Load more elements
-        await page.getByText('Load more').click();
+        // Show more elements
+        await page.getByText('Show more').click();
 
         // popover opened with 25 elements
         // 11 to 21 visible
@@ -389,7 +389,7 @@ test.describe('mg-input-combobox', () => {
         // load-more not displaied
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
-        // Load more elements
+        // Show more elements
         await page.getByText('20').click();
 
         // input with 20th element selected and popover closed
