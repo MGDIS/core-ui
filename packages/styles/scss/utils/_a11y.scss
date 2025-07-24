@@ -2,10 +2,6 @@
  a11y
 */
 
-/**
- Make content available only for screen reader
- https://gist.github.com/ffoodd/000b59f431e3e64e4ce1a24d5bb36034
-*/
 @mixin visually-hidden {
   /* stylelint-disable declaration-no-important */
   position: absolute !important;
@@ -20,6 +16,21 @@
   white-space: nowrap !important;
   /* stylelint-enable declaration-no-important */
 }
+
+/**
+ * Make content available only for assistive technologies.
+ * 
+ * @page Utilities
+ * @example 
+ * ```html
+ * <button type="button">
+ *   <span aria-hidden="true">&times;</span>
+ *   <span class="mg-u-visually-hidden">Close</span>
+ * </button>
+ * ```
+ * @ressources 
+ * - https://gist.github.com/ffoodd/000b59f431e3e64e4ce1a24d5bb36034
+*/
 
 .mg-u-visually-hidden {
   @include visually-hidden;

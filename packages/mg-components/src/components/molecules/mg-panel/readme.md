@@ -49,6 +49,7 @@ class MyComponent {
 | `expanded`                 | `expanded`                    | Panel is opened                                                                                             | `boolean`           | `false`                |
 | `identifier`               | `identifier`                  | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`            | `createID('mg-panel')` |
 | `panelTitle` _(required)_  | `panel-title`                 | Panel title                                                                                                 | `string`            | `undefined`            |
+| `shadow`                   | `shadow`                      | Add box-shadow style                                                                                        | `boolean`           | `false`                |
 | `titleEditable`            | `title-editable`              | Define if panel title is editable                                                                           | `boolean`           | `false`                |
 | `titlePattern`             | `title-pattern`               | Panel title pattern                                                                                         | `string`            | `undefined`            |
 | `titlePatternErrorMessage` | `title-pattern-error-message` | Panel title pattern error message                                                                           | `string`            | `undefined`            |
