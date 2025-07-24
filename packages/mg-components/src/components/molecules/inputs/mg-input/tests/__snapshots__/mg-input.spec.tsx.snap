@@ -505,11 +505,11 @@ exports[`mg-input render Should update "error" slot 2`] = `
       </span>
     </label>
   </mg-input-title>
-  <mg-details id="identifier-error" slot="error">
+  <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
     <span slot="summary">
       This is an error
     </span>
-    <p slot="details">
+    <p class="mg-c-input__error-details" slot="details">
       This is error details. You can use it to add context or describe it.
     </p>
   </mg-details>
@@ -586,11 +586,11 @@ exports[`mg-input render Should update "error" slot 5`] = `
     </div>
   </template>
   <input aria-describedby="identifier-error" id="identifier" type="file">
-  <mg-details id="identifier-error" slot="error">
+  <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
     <span slot="summary">
       This is an error
     </span>
-    <p slot="details">
+    <p class="mg-c-input__error-details" slot="details">
       This is error details. You can use it to add context or describe it.
     </p>
   </mg-details>
@@ -659,11 +659,11 @@ exports[`mg-input render Should update "error" slot 7`] = `
       </span>
     </label>
   </mg-input-title>
-  <mg-details id="identifier-error" slot="error">
+  <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
     <span slot="summary">
       This is an error
     </span>
-    <p slot="details">
+    <p class="mg-c-input__error-details" slot="details">
       This is error details. You can use it to add context or describe it.
     </p>
   </mg-details>

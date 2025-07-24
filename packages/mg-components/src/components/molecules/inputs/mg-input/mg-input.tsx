@@ -294,6 +294,7 @@ export class MgInput {
     if (detailsSlotElement === null) {
       detailsSlotElement = document.createElement('p');
       detailsSlotElement.setAttribute('slot', this.slotDetails);
+      detailsSlotElement.classList.add('mg-c-input__error-details');
     }
     detailsSlotElement.innerHTML = message.details;
 
@@ -301,6 +302,7 @@ export class MgInput {
     let mgDetails: HTMLMgDetailsElement = this.element.querySelector(`mg-details[slot=${this.slotError}]`);
     if (mgDetails === null) {
       mgDetails = document.createElement('mg-details');
+      mgDetails.classList.add('mg-c-input__error');
       mgDetails.toggleClosed = this.messages.details.toggleClosed;
       mgDetails.toggleOpened = this.messages.details.toggleOpened;
       mgDetails.hideSummary = true;
