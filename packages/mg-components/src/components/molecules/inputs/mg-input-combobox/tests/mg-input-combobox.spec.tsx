@@ -994,7 +994,7 @@ describe('mg-input-combobox', () => {
       button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
-      // load more items
+      // Show more items
       element.shadowRoot.querySelector('.mg-c-input__load-more').dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
@@ -1028,7 +1028,7 @@ describe('mg-input-combobox', () => {
       button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
-      // load more items
+      // Show more items
       const loadMoreButton = element.shadowRoot.querySelector('.mg-c-input__load-more');
 
       if (!overrides) {
@@ -1092,7 +1092,7 @@ describe('mg-input-combobox', () => {
       button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
-      // load more items
+      // Show more items
       const loadMoreButton = element.shadowRoot.querySelector('.mg-c-input__load-more');
 
       loadMoreButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
@@ -1247,7 +1247,7 @@ describe('mg-input-combobox', () => {
         jest.runOnlyPendingTimers();
         await page.waitForChanges();
 
-        // nvigate throw item and trigger load more
+        // nvigate throw item and trigger Show more
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for (const _ of element.items) {
           input.dispatchEvent(new KeyboardEvent('keydown', { key }));

@@ -669,13 +669,13 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       {
         ...checkboxPaginatedProps,
         checkboxes: notCheckedValues,
-        messages: { ...this.messages.input.checkbox.sections.notSelected, loadMore: this.messages.input.loadMore },
+        messages: { ...this.messages.input.checkbox.sections.notSelected, showMore: this.messages.input.showMore },
         handleMassAction: handleMassAction(SectionKind.NOT_SELECTED),
       },
       {
         ...checkboxPaginatedProps,
         checkboxes: checkedValues,
-        messages: { ...this.messages.input.checkbox.sections.selected, loadMore: this.messages.input.loadMore },
+        messages: { ...this.messages.input.checkbox.sections.selected, showMore: this.messages.input.showMore },
         handleMassAction: handleMassAction(SectionKind.SELECTED),
       },
     ];
@@ -757,7 +757,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
                   <mg-input-checkbox-paginated
                     class="mg-c-input__tab"
                     {...checkboxPaginatedProps}
-                    messages={{ ...this.messages.input.checkbox.sections.search, loadMore: this.messages.input.loadMore }}
+                    messages={{ ...this.messages.input.checkbox.sections.search, showMore: this.messages.input.showMore }}
                     checkboxes={checkboxes}
                     key="search"
                   ></mg-input-checkbox-paginated>

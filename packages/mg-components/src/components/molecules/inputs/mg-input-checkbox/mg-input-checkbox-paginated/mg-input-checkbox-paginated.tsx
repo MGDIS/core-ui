@@ -134,7 +134,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
           {this.hasNext() && (
             <mg-button key="load-more" variant="flat" class="mg-c-input__load-more" tabIndex={-1} full-width onClick={this.handleLoadMore} aria-controls={listId}>
               <mg-icon icon="chevron-down"></mg-icon>
-              {this.messages.loadMore}
+              {this.messages.showMore}
             </mg-button>
           )}
         </div>
