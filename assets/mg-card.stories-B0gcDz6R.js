@@ -1,0 +1,6 @@
+import{h as t}from"./index-BdigElPL.js";import{f as a}from"./iframe-a__NqWOS.js";const u={component:"mg-card",title:"Atoms/mg-card"},o=i=>t("mg-card",{...a(i,void 0,[""]),innerHTML:i[""]}),e={render:o,args:{"":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  render: Template,
+  args: {
+    '': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }
+}`,...e.parameters?.docs?.source}}};const s=["MgCard"];export{e as MgCard,s as __namedExportsOrder,u as default};

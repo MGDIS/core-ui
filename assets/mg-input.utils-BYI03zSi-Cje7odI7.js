@@ -1,0 +1,1 @@
+import{c as E}from"./index-WtiuOkLj-C6DxXKrY.js";const R={TAB:"Tab",ENTER:"Enter",DOWN:"Down",UP:"Up",LEFT:"Left",RIGHT:"Right",ARROWDOWN:"ArrowDown",ARROWUP:"ArrowUp",ARROWRIGHT:"ArrowRight",ARROWLEFT:"ArrowLeft",HOME:"Home",END:"End",ESC:"Esc",ESCAPE:"Escape",NUMPADENTER:"NumpadEnter",SPACE:"Space"},o=(r,e)=>E(r)&&E(e)?{summary:r,details:e}:E(r)?r:void 0;export{R as K,o as d};
