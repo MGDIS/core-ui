@@ -1,6 +1,6 @@
 // From https://www.w3.org/WAI/tutorials/tables/one-header/#table-with-header-cells-in-the-top-row-only
-export const tableWithHeaderCellsInTheTopRowOnly = `<table>
-  <tbody><tr>
+export const tableWithHeaderCellsInTheTopRowOnly = `<table><tbody>
+  <tr>
     <th>Date</th>
     <th>Event</th>
     <th>Venue</th>

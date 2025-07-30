@@ -100,4 +100,20 @@ test.describe('mg-table', () => {
     // Initial state
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
+  test('Should align non textual content', async ({ page }) => {
+    const args = { fullWidth: true, columns: { 2: { align: 'center' }, 3: { align: 'right' } } };
+    const table = tableWithHeaderCellsInTheTopRowOnly
+      .replace('12 February', '<mg-input-date value="2023-02-12" label="Date" label-hide identifier="date"></mg-input-date>')
+      .replace('Waltz with Strauss', '<mg-input-text value="Waltz with Strauss" label="Event" label-hide identifier="event"></mg-input-text>')
+      .replace('Main Hall', '<mg-input-text value="Main Hall" label="Venue" label-hide identifier="venue"></mg-input-text>');
+
+    const html = createHTML(args, table);
+    await page.setContent(html);
+    await page.addScriptTag({ content: renderProperties(args, 'mg-table') });
+    await page.addStyleTag({ content: '.e2e-screenshot{padding:0.5rem;display:block}' }); // Add padding to prevent hover effect to be visible
+
+    // Initial state
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
 });
