@@ -1,5 +1,14 @@
 # Changelog
 
+## Release (2025-07-30-10-20_Faithful-Fuzzy-Wuzzy-Brown-Falcon)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [linting-styles changelog](packages/linting-styles/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2025-07-17-14-13_Graceful-Green-Gaur)
 
 ### Packages released

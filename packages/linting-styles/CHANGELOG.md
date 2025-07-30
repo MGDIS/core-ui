@@ -1,5 +1,11 @@
 # @mgdis/linting-styles
 
+## 1.0.4
+
+### Patch Changes
+
+- addd35f: Update dependencies
+
 ## 1.0.3
 
 ### Patch Changes

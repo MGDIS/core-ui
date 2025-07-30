@@ -1,5 +1,24 @@
 # @mgdis/mg-components
 
+## 6.15.0
+
+### Minor Changes
+
+- 46a95df: New illustrations and icons
+- 5e55f2f: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-checkbox--docs) multi: manage sections with `<mg-tabs>`
+- 1158571: **`<mg-input-**>` add no value error
+
+### Patch Changes
+
+- 66066f6: [#575](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/575) mg-input-numeric can't add number after 0
+- e3577ff: [#577](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/577) mg-table: Input alignment
+- Updated dependencies [46a95df]
+- Updated dependencies [76259a4]
+- Updated dependencies [5e55f2f]
+- Updated dependencies [1158571]
+  - @mgdis/img@2.5.0
+  - @mgdis/styles@2.10.0
+
 ## 6.14.0
 
 ### Minor Changes

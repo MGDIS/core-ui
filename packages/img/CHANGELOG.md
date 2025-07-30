@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 2.5.0
+
+### Minor Changes
+
+- 46a95df: New illustrations and icons
+
 ## 2.4.6
 
 ### Patch Changes

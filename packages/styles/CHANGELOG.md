@@ -1,5 +1,13 @@
 # @mgdis/styles
 
+## 2.10.0
+
+### Minor Changes
+
+- 76259a4: Add documentation
+- 5e55f2f: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-checkbox--docs) multi: manage sections with `<mg-tabs>`
+- 1158571: **`<mg-input-**>` add no value error
+
 ## 2.9.0
 
 ### Minor Changes
