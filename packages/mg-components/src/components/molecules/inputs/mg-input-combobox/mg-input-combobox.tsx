@@ -14,10 +14,11 @@ import {
   formatID,
 } from '@mgdis/core-ui-helpers/dist/utils';
 import { type ActionType, type RequestMappingType, type ResponseMappingType } from './mg-input-combobox.conf';
-import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled, CustomError } from '../mg-input/mg-input.conf';
 import type { Option } from '../../../../types';
 import { initLocales } from '../../../../locales';
 import { Keys } from '../../../../utils/events.utils';
+import { defineErrorMessage } from '../mg-input/mg-input.utils';
 
 /**
  * Check if object is an item
@@ -80,6 +81,8 @@ export class MgInputCombobox {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  // input cutom error
+  private customError: string | undefined;
 
   private handlerInProgress: EventType;
   private loadingAction: ActionType['name'];
@@ -112,15 +115,19 @@ export class MgInputCombobox {
   @Prop() items: (string | Option)[];
   @Watch('items')
   watchItems(newValue: MgInputCombobox['items']) {
-    if (Boolean(this.fetchurl) && !Boolean(newValue)) {
+    // fetch items
+    if (![undefined, null].includes(this.fetchurl) && [undefined, null].includes(newValue)) {
       // skip newValue check
       return;
-    } else if (Boolean(this.fetchurl) && Boolean(newValue)) {
+    }
+    // invalid items
+    else if (![undefined, null].includes(this.fetchurl) && Array.isArray(newValue)) {
       throw new Error(`<mg-input-combobox> prop "items" values cannot be use with "fetchurl" prop defined. Passed value: ${toString(newValue)}.`);
     }
-    // Empty options
-    else if (Array.isArray(newValue) && newValue.length === 0) {
+    // Empty items
+    else if ([undefined, null].includes(newValue) || (Array.isArray(newValue) && newValue.length === 0)) {
       this.options = new Paginate([]);
+      this.displayError();
     }
     // String array
     else if (allItemsAreString(newValue)) {
@@ -128,10 +135,18 @@ export class MgInputCombobox {
         newValue.map(item => ({ title: item, value: item })),
         { total: newValue.length },
       );
+      // force to reset error when noValueError is displayed
+      if (this.invalid && this.hasNoValueError()) {
+        this.resetErrorMessage();
+      }
     }
     // Object array
     else if (isItems(newValue)) {
       this.options = new Paginate(newValue, { total: newValue.length });
+      // force to reset error when noValueError is displayed
+      if (this.invalid && this.hasNoValueError()) {
+        this.resetErrorMessage();
+      }
     } else {
       throw new Error(`<mg-input-combobox> prop "items" values must be the same type, string or Option. Passed value: ${toString(newValue)}.`);
     }
@@ -330,6 +345,11 @@ export class MgInputCombobox {
   }
 
   /**
+   * Define no value error detail
+   */
+  @Prop() noValueErrorDetail?: string;
+
+  /**
    * Define input valid state
    */
   @Prop({ mutable: true }) valid: boolean;
@@ -350,7 +370,7 @@ export class MgInputCombobox {
   @State() options: Paginate<Option> = new Paginate([]);
   @Watch('options')
   watchOptions(newValue: Paginate<Option>): void {
-    this.page = newValue.getPage(0, Boolean(this.filter) ? this.optionsFilter : undefined);
+    this.page = newValue.getPage(0, this.filter.length > 0 ? this.optionsFilter : undefined);
   }
 
   /**
@@ -414,7 +434,7 @@ export class MgInputCombobox {
   /**
    * Emited event when `load-more` is called
    */
-  @Event({ eventName: 'load-more' }) loadMore: EventEmitter<void>;
+  @Event({ eventName: 'load-more' }) showMore: EventEmitter<void>;
 
   /**
    * Emited event when checking validity
@@ -470,8 +490,8 @@ export class MgInputCombobox {
     } else if (!isValidString(errorMessage)) {
       throw new Error('<mg-input-combobox> method "setError()" param "errorMessage" must be a string.');
     } else {
-      this.setValidity(valid);
-      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.setValidity(valid, errorMessage);
+      this.setErrorMessage();
       this.hasDisplayedError = this.invalid;
     }
   }
@@ -493,9 +513,7 @@ export class MgInputCombobox {
       // - Keep everything in sync both inside and outside the component
       return new Promise(resolve => {
         requestAnimationFrame(() => {
-          this.checkValidity();
-          this.errorMessage = undefined;
-          this.hasDisplayedError = false;
+          this.resetErrorMessage();
           resolve();
         });
       });
@@ -534,8 +552,13 @@ export class MgInputCombobox {
    */
   private handleFilterInput = (): void => {
     this.checkValidity();
-    if (this.hasDisplayedError) this.setErrorMessage();
-    if (!this.popoverDisplay) this.popoverDisplay = true;
+    if (this.hasDisplayedError) {
+      this.setErrorMessage();
+    }
+
+    if (!this.popoverDisplay) {
+      this.popoverDisplay = true;
+    }
 
     // update filter with debounce to prevent filter update overload
     if (!this.debounce) {
@@ -597,7 +620,7 @@ export class MgInputCombobox {
         guard = event.key === Keys.ENTER;
         const option = this.option || this.options.items.find(this.isCurrentOption);
         // Sets the value to the content of the focused option in the listbox.
-        if (this.popoverDisplay) this.setValue(this.page.total > 0 ? option : null);
+        if (this.popoverDisplay) this.setValue(option);
         // Closes the popover.
         this.popoverDisplay = false;
         break;
@@ -740,39 +763,83 @@ export class MgInputCombobox {
   };
 
   /**
-   * Method to set validity values
-   * @param newValue - valid new value
+   * Test if component has no value error message displayed
+   * @returns truthy if compent display no value error message
    */
-  private setValidity(newValue: MgInputCombobox['valid']) {
+  private hasNoValueError = (): boolean => this.customError === CustomError.NoValue;
+
+  /**
+   * Method to set validity values
+   * @param newValidValue - new valid value. `true` will bypass input check.
+   * @param customErrorMessage - custom error message
+   */
+  private setValidity(newValidValue?: MgInputCombobox['valid'], customErrorMessage?: string) {
     const oldValidValue = this.valid;
-    this.valid = newValue;
+
+    let valid = newValidValue;
+    // Set custom validity
+    if (!valid && this.input !== undefined) {
+      // custom errror, start by reset it
+      this.customError = undefined;
+      if (isValidString(customErrorMessage)) {
+        this.customError = customErrorMessage;
+      }
+      // no value
+      else if ((this.fetchurl === undefined ? (this.items ?? []).length : this.page.total) === 0) {
+        this.customError = CustomError.NoValue;
+      }
+
+      // get new input validity from validity state
+      valid = this.input.checkValidity() && this.customError === undefined;
+    }
+
+    // set valid/invalid props
+    this.valid = valid;
     this.invalid = !this.valid;
+
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) {
+      this.inputValid.emit(this.valid);
+    }
   }
 
   /**
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(this.readonly || this.disabled || this.input.checkValidity());
+    // force validity with readonly|disabled states
+    this.setValidity(this.readonly || this.disabled);
   };
 
   /**
    * Set input error message
-   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (errorMessage?: string): void => {
+  private setErrorMessage = (): void => {
     // Set error message
     this.errorMessage = undefined;
-    // Does have a custom error message
-    if (!this.valid && errorMessage !== undefined) {
-      this.errorMessage = errorMessage;
+    if (!this.valid) {
+      // Does have a custom error message
+      if (this.customError !== undefined && !(Object.values(CustomError) as string[]).includes(this.customError)) {
+        this.errorMessage = this.customError;
+      }
+      // no items
+      else if (this.hasNoValueError()) {
+        this.errorMessage = this.messages.errors.noValue;
+      }
+      // required
+      else if (this.input.validity.valueMissing) {
+        this.errorMessage = this.messages.errors.required;
+      }
     }
-    // required
-    else if (!this.valid && this.input.validity.valueMissing) {
-      this.errorMessage = this.messages.errors.required;
-    }
+  };
+
+  /**
+   * Reset error message
+   */
+  private resetErrorMessage = (): void => {
+    this.checkValidity();
+    this.errorMessage = undefined;
+    this.hasDisplayedError = false;
   };
 
   /**
@@ -801,8 +868,8 @@ export class MgInputCombobox {
     } else if (this.loadingAction === 'load-more') {
       index = this.page.items.length - this.page.baseIndex;
     }
-    // when action require a loadMore we fetch the API else we report action to next tick
-    // Set "load more" if action match OR if next item not available in the current page
+    // when action require a showMore we fetch the API else we report action to next tick
+    // Set "Show more" if action match OR if next item not available in the current page
     if (action.name === 'load-more') {
       // wait for new element render and update scroll position
       // set component loading
@@ -851,14 +918,15 @@ export class MgInputCombobox {
    * @returns promise
    */
   private goToNextPage = (): Promise<void> => {
-    this.loadMore.emit();
-    if (Boolean(this.fetchurl)) {
+    this.showMore.emit();
+    if (this.fetchurl !== undefined) {
       return this.getOptions(typeof this.page.next === 'string' ? this.page.next : undefined).then(nextPage => {
-        if (!Boolean(nextPage)) return;
-        // merge items from current page and next page
-        const items = [...this.page.items, ...nextPage.items];
-        // create new options pagination withe merged items
-        this.options = new Paginate(items, { total: nextPage.total, next: nextPage.next, top: items.length });
+        if (isObject(nextPage)) {
+          // merge items from current page and next page
+          const items = [...this.page.items, ...nextPage.items];
+          // create new options pagination withe merged items
+          this.options = new Paginate(items, { total: nextPage.total, next: nextPage.next, top: items.length });
+        }
       });
     } else {
       return nextTick(() => {
@@ -878,11 +946,20 @@ export class MgInputCombobox {
    * @returns promise
    */
   private updatePage = async (): Promise<void> => {
-    if (Boolean(this.fetchurl)) {
+    if (this.fetchurl !== undefined) {
       return this.getOptions().then(page => {
-        if (!Boolean(page)) return;
-        // reset current options pagination from API response
-        this.options = new Paginate(page.items, { total: page.total, next: page.next, top: page.top });
+        if (isObject(page)) {
+          // reset current options pagination from API response
+          this.options = new Paginate(page.items, { total: page.total, next: page.next, top: page.top });
+          // has items aren't updated with fetch mode we run the noValueError control here
+          if (this.filter.length === 0 && page.total === 0) {
+            this.displayError();
+          }
+          // force to reset error when noValueError is displaied
+          else if (this.invalid && this.hasNoValueError()) {
+            this.resetErrorMessage();
+          }
+        }
       });
     } else {
       this.page = this.options.getPage(0, this.optionsFilter);
@@ -902,16 +979,18 @@ export class MgInputCombobox {
       const response = await fetch(updateUrl, this.fetchoptions);
       if (!response.ok) {
         this.fetchError.emit(new Error(`${response.status} - ${response.statusText}`));
+        this.displayError();
         return;
       }
       const json = await response.json();
-      const items = getObjectValueFromKey<Response, Option[]>(json, this.fetchmappings.response.items).map(
+      const defaultItems = [];
+      const items = getObjectValueFromKey<Response, (Option | string)[]>(json, this.fetchmappings.response.items, defaultItems).map(
         (item): Option => ({
-          title: getObjectValueFromKey<unknown, Option['title']>(item, this.fetchmappings.response.itemTitle),
-          value: this.fetchmappings.response.itemValue !== undefined ? getObjectValueFromKey<unknown, Option['value']>(item, this.fetchmappings.response.itemValue) : item,
+          title: getObjectValueFromKey<unknown, Option['title']>(item, this.fetchmappings.response.itemTitle, typeof item === 'string' ? item : JSON.stringify(item)),
+          value: getObjectValueFromKey<unknown, Option['value']>(item, this.fetchmappings.response.itemValue, item),
         }),
       );
-      const total = Number(getObjectValueFromKey<Response, number>(json, this.fetchmappings.response.total, 0));
+      const total = Number(getObjectValueFromKey<Response, number>(json, this.fetchmappings.response.total, defaultItems.length));
       let next = getObjectValueFromKey<Response, string>(json, this.fetchmappings.response.next);
       if (URL.canParse(updateUrl) && Boolean(next) && !URL.canParse(next)) {
         const previousUrl = new URL(updateUrl);
@@ -919,9 +998,11 @@ export class MgInputCombobox {
           next = new URL(next, previousUrl).toString();
         }
       }
+
       return { items, total, next, top: items.length };
     } catch (error) {
       this.fetchError.emit(error);
+      this.displayError();
     }
   };
 
@@ -965,14 +1046,19 @@ export class MgInputCombobox {
     const listId = `${this.identifier}-list`;
     const readonlyValue = this.getValueTitle();
     const withResetButton = this.value && !this.disabled;
+    const disabled = this.disabled || this.hasNoValueError();
 
     let popoverContent: 'list' | 'notfound' | 'notavailable';
-    if (this.page?.items.length > 0) popoverContent = 'list';
-    else if (this.page?.items.length === 0 && Boolean(this.filter)) popoverContent = 'notfound';
-    else if (this.page?.items.length === 0) popoverContent = 'notavailable';
+    if (this.page?.items.length > 0) {
+      popoverContent = 'list';
+    } else if (this.page?.items.length === 0 && this.filter.length > 0) {
+      popoverContent = 'notfound';
+    } else if (this.page?.items.length === 0) {
+      popoverContent = 'notavailable';
+    }
 
     let activeDescendant;
-    if (Boolean(this.option?.value)) {
+    if (![null, undefined].includes(this.option?.value)) {
       activeDescendant = this.option.value;
     } else if (typeof this.value === 'string') {
       activeDescendant = this.value;
@@ -992,7 +1078,7 @@ export class MgInputCombobox {
         tooltip={this.tooltip}
         tooltipPosition={this.readonly && this.value === undefined ? 'label' : this.tooltipPosition}
         helpText={this.helpText}
-        errorMessage={this.errorMessage}
+        errorMessage={defineErrorMessage(this.errorMessage, this.noValueErrorDetail)}
       >
         {this.readonly ? (
           readonlyValue && <b class="mg-c-input__readonly-value">{readonlyValue}</b>
@@ -1019,7 +1105,7 @@ export class MgInputCombobox {
                 name={this.name}
                 placeholder={this.placeholder}
                 title={this.placeholder}
-                disabled={this.disabled}
+                disabled={disabled}
                 required={this.required}
                 autocomplete="off"
                 aria-autocomplete="list"
@@ -1044,11 +1130,12 @@ export class MgInputCombobox {
                   aria-controls={this.identifier}
                   tabindex="-1"
                   onClick={this.handleResetButton}
+                  disabled={disabled}
                 >
                   <mg-icon icon="cross"></mg-icon>
                 </mg-button>
               ) : (
-                <mg-button class="mg-c-input__box-append" variant="flat" is-icon label={this.itemsLabel} tabindex="-1" disabled={this.disabled}>
+                <mg-button class="mg-c-input__box-append" variant="flat" is-icon label={this.itemsLabel} tabindex="-1" disabled={disabled}>
                   <mg-icon icon={`chevron-${this.popoverDisplay ? 'up' : 'down'}`}></mg-icon>
                 </mg-button>
               )}
@@ -1095,7 +1182,7 @@ export class MgInputCombobox {
                     }}
                   >
                     <mg-icon icon="chevron-down"></mg-icon>
-                    {this.messages.input.combobox.loadMore}
+                    {this.messages.input.showMore}
                   </mg-button>
                 ),
               ]}

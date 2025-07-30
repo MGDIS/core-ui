@@ -9,19 +9,19 @@ import { CheckboxValue, checkboxTypes } from '../mg-input-checkbox.conf';
 import { MgPopover } from '../../../mg-popover/mg-popover';
 import { MgInputText } from '../../mg-input-text/mg-input-text';
 import { MgMessage } from '../../../mg-message/mg-message';
-import { MgPagination } from '../../../mg-pagination/mg-pagination';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { MgInputCheckboxPaginated } from '../mg-input-checkbox-paginated/mg-input-checkbox-paginated';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { MgInput } from '../../mg-input/mg-input';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
+import { MgTabs } from '../../../mg-tabs/mg-tabs';
 
 mockWindowFrames();
 
 const getPage = async args => {
   const page = await newSpecPage({
-    components: [MgInputCheckbox, MgPopover, MgPopoverContent, MgInputText, MgMessage, MgPagination, MgButton, MgInputCheckboxPaginated, MgInputTitle, MgInput],
+    components: [MgInputCheckbox, MgPopover, MgPopoverContent, MgInputText, MgMessage, MgTabs, MgButton, MgInputCheckboxPaginated, MgInputTitle, MgInput],
     template: () => <mg-input-checkbox {...args}></mg-input-checkbox>,
   });
 
@@ -134,7 +134,8 @@ describe('mg-input-checkbox', () => {
       }
     });
 
-    test.each([undefined, ['batman', 'joker', 'bane']])('Should not render with invalid value property: %s', async value => {
+    test('Should not render with invalid value property', async () => {
+      const value = ['batman', 'joker', 'bane'];
       expect.assertions(1);
       try {
         await getPage({ identifier: 'identifier', type, label: 'label', value });
@@ -243,6 +244,26 @@ describe('mg-input-checkbox', () => {
           await page.waitForChanges();
           expect(page.root).toMatchSnapshot(); //Snapshot with readonly/disabled TRUE
         }
+      });
+    });
+
+    describe.each([undefined, 'no value error detail content'])('noValueErrorDetail: %s', noValueErrorDetail => {
+      test.each([undefined, null, [] as unknown[]])('Should display error message with invalid value property: %s', async value => {
+        const page = await getPage({ identifier: 'identifier', type, label: 'label', value, noValueErrorDetail });
+        const element = page.doc.querySelector('mg-input-checkbox');
+        jest.runOnlyPendingTimers();
+        await page.waitForChanges();
+
+        expect(element.valid).toEqual(false);
+        expect(element.invalid).toEqual(true);
+        expect(page.root).toMatchSnapshot();
+
+        element.value = getValues();
+        await page.waitForChanges();
+
+        expect(element.valid).toEqual(true);
+        expect(element.invalid).toEqual(false);
+        expect(page.root).toMatchSnapshot();
       });
     });
 
@@ -656,10 +677,7 @@ describe('mg-input-checkbox', () => {
 
   describe('multi search', () => {
     test('Should enable return search result and update pagination', async () => {
-      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
-        title: `item ${item}`,
-        value: false,
-      }));
+      const value = getValues(21);
       const getResultList = (mgInputCheckbox: HTMLMgInputCheckboxElement) => Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('li'));
       const page = await getPage({ label: 'label', identifier: 'identifier', value });
       expect(page.root).toMatchSnapshot();
@@ -706,17 +724,13 @@ describe('mg-input-checkbox', () => {
     });
 
     test('Should reset pagination when popover is closed', async () => {
-      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
-        title: `item ${item}`,
-        value: false,
-      }));
+      const value = getValues(21);
       const page = await getPage({ label: 'label', identifier: 'identifier', value });
       expect(page.root).toMatchSnapshot();
 
       const mgInputCheckbox = page.doc.querySelector('mg-input-checkbox');
       const mgPopover = mgInputCheckbox.shadowRoot.querySelector('mg-popover');
-      const mgPagination = mgInputCheckbox.shadowRoot.querySelector('mg-pagination');
-      const mgPaginationNext = mgPagination.shadowRoot.querySelector('mg-button:last-of-type');
+      const loadmoreButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated mg-button.mg-c-input__load-more');
 
       mgPopover.display = true;
       await page.waitForChanges();
@@ -724,7 +738,7 @@ describe('mg-input-checkbox', () => {
 
       expect(page.root).toMatchSnapshot();
 
-      mgPaginationNext.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      loadmoreButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -737,10 +751,7 @@ describe('mg-input-checkbox', () => {
     });
 
     test('Should search and update values', async () => {
-      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
-        title: `item ${item}`,
-        value: false,
-      }));
+      const value = getValues(21);
       const page = await getPage({ label: 'label', identifier: 'identifier', value });
       expect(page.root).toMatchSnapshot();
 
@@ -772,19 +783,15 @@ describe('mg-input-checkbox', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test('Should navigate across paginated list with mg-pagination', async () => {
-      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
-        title: `item ${item}`,
-        value: false,
-      }));
+    test('Should load-more items when button is clicked', async () => {
+      const value = getValues(21);
       const getResultList = (mgInputCheckbox: HTMLMgInputCheckboxElement) => Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('li'));
       const page = await getPage({ label: 'label', identifier: 'identifier', value });
       expect(page.root).toMatchSnapshot();
 
       const mgInputCheckbox = page.doc.querySelector('mg-input-checkbox');
       const mgPopover = mgInputCheckbox.shadowRoot.querySelector('mg-popover');
-      const mgPagination = mgInputCheckbox.shadowRoot.querySelector('mg-pagination');
-      const mgPaginationNext = mgPagination.shadowRoot.querySelector('mg-button:last-of-type');
+      const loadMoreButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:first-of-type mg-button.mg-c-input__load-more');
 
       mgPopover.display = true;
       await page.waitForChanges();
@@ -794,26 +801,23 @@ describe('mg-input-checkbox', () => {
 
       expect(resultList.length).toEqual(10);
 
-      mgPaginationNext.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      loadMoreButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
       resultList = getResultList(mgInputCheckbox);
-      expect(resultList.length).toEqual(10);
+      expect(resultList.length).toEqual(20);
       expect(page.root).toMatchSnapshot();
 
-      mgPaginationNext.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      loadMoreButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
       resultList = getResultList(mgInputCheckbox);
-      expect(resultList.length).toEqual(1);
+      expect(resultList.length).toEqual(21);
       expect(page.root).toMatchSnapshot();
     });
 
     test('Should update all values with mass actions', async () => {
-      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
-        title: `item ${item}`,
-        value: false,
-      }));
+      const value = getValues(21);
       const getResultList = (mgInputCheckbox: HTMLMgInputCheckboxElement) => Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('input'));
       const page = await getPage({ label: 'label', identifier: 'identifier', value });
       expect(page.root).toMatchSnapshot();
@@ -831,7 +835,7 @@ describe('mg-input-checkbox', () => {
       expect(mgInputCheckbox.value.filter(item => item.value).length).toEqual(0);
       expect(page.root).toMatchSnapshot();
 
-      const selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type mg-button');
+      const selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:first-of-type mg-button');
       selectAllButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
@@ -840,9 +844,7 @@ describe('mg-input-checkbox', () => {
       expect(mgInputCheckbox.value.filter(item => item.value).length).toEqual(21);
       expect(page.root).toMatchSnapshot();
 
-      const unselectAllButton = Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('mg-input-checkbox-paginated .mg-c-input__section-header mg-button:last-of-type')).find(
-        button => button.textContent === 'Unselect all',
-      );
+      const unselectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type mg-button');
       unselectAllButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
@@ -852,99 +854,15 @@ describe('mg-input-checkbox', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test('Should toggle selected items section', async () => {
-      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((item, index) => ({
-        title: `item ${item}`,
-        value: [5, 12, 13, 17].some(item => item === index),
-      }));
-      const page = await getPage({ label: 'label', identifier: 'identifier', value });
-
-      const mgInputCheckbox = page.doc.querySelector('mg-input-checkbox');
-      const mgPopover = mgInputCheckbox.shadowRoot.querySelector('mg-popover');
-
-      mgPopover.display = true;
-      await page.waitForChanges();
-      jest.runOnlyPendingTimers();
-
-      const sections = Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('mg-input-checkbox-paginated'));
-
-      expect(sections.length).toEqual(2);
-
-      for (const [i, section] of sections.entries()) {
-        const firstButton = section.querySelector('mg-button');
-        const sectionContent = section.querySelector('.mg-c-input__section-content');
-        expect(sectionContent).not.toHaveAttribute('hidden');
-
-        firstButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-        await page.waitForChanges();
-
-        if (i !== 0) {
-          expect(sectionContent).not.toHaveAttribute('hidden');
-        } else {
-          expect(sectionContent).toHaveAttribute('hidden');
-        }
-        expect(page.root).toMatchSnapshot();
-      }
-    });
-
-    test('Should go to previous page when last item is checked', async () => {
-      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
-        title: `item ${item}`,
-        value: false,
-      }));
-      const page = await getPage({ label: 'label', identifier: 'identifier', value });
-      const getResultList = (mgInputCheckbox: HTMLMgInputCheckboxElement) => Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('input'));
-
-      const mgInputCheckbox = page.doc.querySelector('mg-input-checkbox');
-      const mgPopover = mgInputCheckbox.shadowRoot.querySelector('mg-popover');
-      const mgPagination = mgInputCheckbox.shadowRoot.querySelector('mg-pagination:last-of-type');
-      const mgPaginationNext = mgPagination.shadowRoot.querySelector('mg-button:last-of-type');
-
-      mgPopover.display = true;
-      await page.waitForChanges();
-      jest.runOnlyPendingTimers();
-
-      let resultList = getResultList(mgInputCheckbox);
-
-      expect(resultList.length).toEqual(10);
-
-      mgPaginationNext.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-      await page.waitForChanges();
-
-      mgPaginationNext.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-      await page.waitForChanges();
-
-      resultList = Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('mg-input-checkbox-paginated:last-of-type input'));
-      expect(resultList.length).toEqual(1);
-      expect(page.root).toMatchSnapshot();
-
-      const input = mgInputCheckbox.shadowRoot.querySelector('input');
-      input.checkValidity = () => true;
-      input.checked = true;
-
-      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
-      await page.waitForChanges();
-
-      const firstSectionInputs = mgInputCheckbox.shadowRoot.querySelectorAll('mg-input-checkbox-paginated:first-of-type input');
-      const lastSectionInputs = mgInputCheckbox.shadowRoot.querySelectorAll('mg-input-checkbox-paginated:last-of-type input');
-
-      expect(firstSectionInputs.length).toEqual(1);
-      expect(lastSectionInputs.length).toEqual(10);
-      expect(page.root).toMatchSnapshot();
-    });
-
     test('Should select all filtered values', async () => {
-      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
-        title: `item ${item}`,
-        value: false,
-      }));
+      const value = getValues(21);
       const page = await getPage({ label: 'label', identifier: 'identifier', value });
       const getResultList = (mgInputCheckbox: HTMLMgInputCheckboxElement) => Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('input'));
 
       const mgInputCheckbox = page.doc.querySelector('mg-input-checkbox');
       const mgPopover = mgInputCheckbox.shadowRoot.querySelector('mg-popover');
       const searchInput = mgInputCheckbox.shadowRoot.querySelector('mg-input-text');
-      const selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type mg-button');
+      const selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:first-of-type mg-button');
 
       const valueChangeSpy = jest.spyOn(page.rootInstance.valueChange, 'emit');
 
@@ -982,18 +900,18 @@ describe('mg-input-checkbox', () => {
     });
 
     test('Should not update disabled values on mass action', async () => {
-      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
-        title: `item ${item}`,
-        disabled: item === 1 || item === 2 || item === 3 || item === 4,
-        value: item === 1 || item === 2,
+      const value = getValues(21).map((item, i) => ({
+        ...item,
+        disabled: [1, 2, 3, 4].includes(i),
+        value: [1, 2].includes(i),
       }));
       const page = await getPage({ label: 'label', identifier: 'identifier', value });
       const getResultList = (mgInputCheckbox: HTMLMgInputCheckboxElement) => Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('input'));
 
       const mgInputCheckbox = page.doc.querySelector('mg-input-checkbox');
       const mgPopover = mgInputCheckbox.shadowRoot.querySelector('mg-popover');
-      let unselectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:first-of-type mg-tootlip mg-button');
-      let selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type mg-button');
+      let unselectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type mg-tootlip mg-button');
+      let selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:first-of-type mg-button');
 
       const valueChangeSpy = jest.spyOn(page.rootInstance.valueChange, 'emit');
 
@@ -1013,8 +931,8 @@ describe('mg-input-checkbox', () => {
       selectAllButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
-      unselectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:first-of-type mg-tootlip mg-button');
-      selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type mg-button');
+      unselectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type mg-tootlip mg-button');
+      selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:first-of-type mg-button');
       resultList = getResultList(mgInputCheckbox);
 
       // Should not have display Select All button since all unselected values are disabled

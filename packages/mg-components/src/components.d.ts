@@ -13,8 +13,8 @@ import { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
-import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+import { ErrorMessageDetailsType, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+import { CheckboxItem, CheckboxType, CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Direction, Option } from "./types";
 import { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
@@ -45,8 +45,8 @@ export { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
-export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+export { ErrorMessageDetailsType, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+export { CheckboxItem, CheckboxType, CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Direction, Option } from "./types";
 export { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
@@ -319,7 +319,7 @@ export namespace Components {
         /**
           * Define error message to display
          */
-        "errorMessage"?: string;
+        "errorMessage"?: string | ErrorMessageDetailsType;
         /**
           * Define help text to display
          */
@@ -375,7 +375,7 @@ export namespace Components {
         /**
           * Overwrite default "edit" button message
          */
-        "editButtonMessage": string;
+        "editButtonMessage"?: string;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -413,6 +413,10 @@ export namespace Components {
          */
         "name": string;
         /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
+        /**
           * Define if mg-input-checkbox is readonly
           * @default false
          */
@@ -429,7 +433,7 @@ export namespace Components {
         /**
           * Overwrite default "select" button message
          */
-        "selectButtonMessage": string;
+        "selectButtonMessage"?: string;
         /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
@@ -443,7 +447,7 @@ export namespace Components {
         /**
           * Overwrite default "show" button message
          */
-        "showButtonMessage": string;
+        "showButtonMessage"?: string;
         /**
           * Add a tooltip message next to the input
          */
@@ -472,14 +476,8 @@ export namespace Components {
     interface MgInputCheckboxPaginated {
         /**
           * Define checkboxes to paginate
-          * @default []
          */
         "checkboxes": CheckboxItem[];
-        /**
-          * Current page
-          * @default 1
-         */
-        "currentPage": number;
         /**
           * Define if mg-input-checkbox-list is disabled
           * @default false
@@ -502,6 +500,10 @@ export namespace Components {
           * @default false
          */
         "readonly": boolean;
+        /**
+          * Method to reset limit
+         */
+        "resetLimit": () => Promise<void>;
     }
     interface MgInputCombobox {
         /**
@@ -574,6 +576,10 @@ export namespace Components {
           * @default this.identifier
          */
         "name": string;
+        /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
         /**
           * Define input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help combobox.
          */
@@ -992,6 +998,10 @@ export namespace Components {
          */
         "name": string;
         /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
+        /**
           * Define if input is readonly
           * @default false
          */
@@ -1192,6 +1202,10 @@ export namespace Components {
           * @default this.identifier
          */
         "name": string;
+        /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
         /**
           * Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
          */
@@ -1525,6 +1539,10 @@ export namespace Components {
          */
         "identifier": string;
         /**
+          * Define input invalid state
+         */
+        "invalid": boolean;
+        /**
           * Define if toggle display icon
           * @default false
          */
@@ -1558,6 +1576,10 @@ export namespace Components {
          */
         "name": string;
         /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
+        /**
           * Define if input is readonly
           * @default false
          */
@@ -1585,6 +1607,10 @@ export namespace Components {
           * @default 'input'
          */
         "tooltipPosition": TooltipPosition;
+        /**
+          * Define input valid state
+         */
+        "valid": boolean;
         /**
           * Component value
          */
@@ -1965,10 +1991,6 @@ export interface MgInputCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgInputCheckboxElement;
 }
-export interface MgInputCheckboxPaginatedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLMgInputCheckboxPaginatedElement;
-}
 export interface MgInputComboboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgInputComboboxElement;
@@ -2180,21 +2202,10 @@ declare global {
         prototype: HTMLMgInputCheckboxElement;
         new (): HTMLMgInputCheckboxElement;
     };
-    interface HTMLMgInputCheckboxPaginatedElementEventMap {
-        "mass-action": SectionKindType;
-    }
     /**
      * Internal component use to manage sections instances
      */
     interface HTMLMgInputCheckboxPaginatedElement extends Components.MgInputCheckboxPaginated, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLMgInputCheckboxPaginatedElementEventMap>(type: K, listener: (this: HTMLMgInputCheckboxPaginatedElement, ev: MgInputCheckboxPaginatedCustomEvent<HTMLMgInputCheckboxPaginatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLMgInputCheckboxPaginatedElementEventMap>(type: K, listener: (this: HTMLMgInputCheckboxPaginatedElement, ev: MgInputCheckboxPaginatedCustomEvent<HTMLMgInputCheckboxPaginatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgInputCheckboxPaginatedElement: {
         prototype: HTMLMgInputCheckboxPaginatedElement;
@@ -2908,7 +2919,7 @@ declare namespace LocalJSX {
         /**
           * Define error message to display
          */
-        "errorMessage"?: string;
+        "errorMessage"?: string | ErrorMessageDetailsType;
         /**
           * Define help text to display
          */
@@ -2998,6 +3009,10 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
+        /**
           * Emited event when checking validity
          */
         "onInput-valid"?: (event: MgInputCheckboxCustomEvent<HTMLMgInputCheckboxElement['valid']>) => void;
@@ -3051,14 +3066,8 @@ declare namespace LocalJSX {
     interface MgInputCheckboxPaginated {
         /**
           * Define checkboxes to paginate
-          * @default []
          */
         "checkboxes"?: CheckboxItem[];
-        /**
-          * Current page
-          * @default 1
-         */
-        "currentPage"?: number;
         /**
           * Define if mg-input-checkbox-list is disabled
           * @default false
@@ -3076,10 +3085,6 @@ declare namespace LocalJSX {
           * Define mg-input-checkbox input name
          */
         "name"?: string;
-        /**
-          * Emit 'mass-action' event used to informe that select-all/unselect-all button listner is triggered
-         */
-        "onMass-action"?: (event: MgInputCheckboxPaginatedCustomEvent<SectionKindType>) => void;
         /**
           * Define if mg-input-checkbox-list is readonly
           * @default false
@@ -3153,6 +3158,10 @@ declare namespace LocalJSX {
           * @default this.identifier
          */
         "name"?: string;
+        /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
         /**
           * Emited event when fetch API throw an error
          */
@@ -3543,6 +3552,10 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
+        /**
           * Emited event when checking validity
          */
         "onInput-valid"?: (event: MgInputRadioCustomEvent<HTMLMgInputRadioElement['valid']>) => void;
@@ -3713,6 +3726,10 @@ declare namespace LocalJSX {
           * @default this.identifier
          */
         "name"?: string;
+        /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
         /**
           * Emited event when checking validity
          */
@@ -4020,6 +4037,10 @@ declare namespace LocalJSX {
          */
         "identifier": string;
         /**
+          * Define input invalid state
+         */
+        "invalid"?: boolean;
+        /**
           * Define if toggle display icon
           * @default false
          */
@@ -4053,6 +4074,10 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Define no value error detail
+         */
+        "noValueErrorDetail"?: string;
+        /**
           * Emited event when checking validity
          */
         "onInput-valid"?: (event: MgInputToggleCustomEvent<boolean>) => void;
@@ -4074,6 +4099,10 @@ declare namespace LocalJSX {
           * @default 'input'
          */
         "tooltipPosition"?: TooltipPosition;
+        /**
+          * Define input valid state
+         */
+        "valid"?: boolean;
         /**
           * Component value
          */

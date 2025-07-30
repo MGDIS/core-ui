@@ -375,6 +375,18 @@ describe('mg-input-numeric', () => {
       expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(parseFloat(inputValue));
     });
 
+    test('Should remove leading zero on input', async () => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', type });
+      const element = page.doc.querySelector('mg-input-numeric');
+      const input = element.shadowRoot.querySelector('input');
+
+      input.value = '01';
+      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(input.value).toEqual(type === 'decimal' ? '1.00' : '1');
+    });
+
     test("display error with displayError component's public method", async () => {
       const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
 

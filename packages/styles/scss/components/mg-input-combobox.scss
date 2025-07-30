@@ -1,4 +1,6 @@
+@use 'mg-input-error-details';
 @use 'mg-input-box';
+@use 'mg-input-info';
 @use 'mg-input-width';
 @use 'mg-input-readonly';
 @use '../utils/a11y';
@@ -29,7 +31,7 @@
       position: relative;
     }
 
-    &__box {
+    &__box:not(:disabled) {
       cursor: pointer;
     }
 
@@ -40,12 +42,6 @@
       flex-direction: column;
       gap: var(--mg-b-size-4);
       overflow-y: scroll;
-    }
-
-    &__popover-info {
-      padding: var(--mg-b-size-8);
-      margin: 0;
-      text-align: center;
     }
 
     &__load-more {

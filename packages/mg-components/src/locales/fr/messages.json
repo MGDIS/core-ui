@@ -1,9 +1,11 @@
 {
   "errors": {
-    "required": "Ce champ est obligatoire."
+    "required": "Ce champ est obligatoire.",
+    "noValue": "Aucune valeur."
   },
   "nbCharLeft": "{counter} caractères disponibles.",
   "input": {
+    "showMore": "Afficher plus",
     "select": {
       "placeholder": "Sélectionnez une valeur"
     },
@@ -13,23 +15,27 @@
       "editButton": "Modifier",
       "selectButton": "Sélectionner des valeurs",
       "showButton": "Voir",
-      "label": "Saisissez une valeur",
-      "result": "résultat",
-      "results": "résultats",
-      "searchResults": "Liste de résultat(s) de la recherche.",
-      "noResult": "Aucun résultat.",
       "sections": {
+        "label": "Valeurs regroupées par: \"Sélectionnées\" ou \"Disponibles\"",
+        "badge": { "label": "valeur(s)" },
+        "search": {
+          "label": "Saisissez une valeur",
+          "values": "{count} résultat(s)",
+          "noValue": "Aucune valeur n'a été trouvée."
+        },
         "selected": {
-          "title": "Sélectionné",
-          "titlePlural": "Sélectionnés",
+          "title": "Sélectionnées",
           "action": "Tout désélectionner",
-          "tooltip": "Désélectionne tous les résultats de la recherche en cours"
+          "tooltip": "Désélectionne toutes les valeurs de la section",
+          "values": "{count} valeur(s) sélectionnée(s)",
+          "noValue": "Aucune valeur sélectionnée"
         },
         "notSelected": {
-          "title": "Non sélectionné",
-          "titlePlural": "Non sélectionnés",
+          "title": "Disponibles",
           "action": "Tout sélectionner",
-          "tooltip": "Sélectionne tous les résultats de la recherche en cours"
+          "tooltip": "Sélectionne toutes les valeurs de la section",
+          "values": "{count} valeur(s) disponible(s)",
+          "noValue": "Toutes les valeurs sont sélectionnées"
         }
       }
     },
@@ -61,9 +67,8 @@
       "hide": "Masquer le mot de passe"
     },
     "combobox": {
-      "notFound": "Aucun élément ne correspondont a votre saisie",
-      "notAvailable": "Aucun élément disponible",
-      "loadMore": "Afficher plus",
+      "notFound": "Aucune valeur ne correspondont à votre saisie",
+      "notAvailable": "Aucune valeur disponible",
       "search": "Recherche…"
     },
     "text": {
@@ -130,5 +135,9 @@
   },
   "table": {
     "sortableCaption": "(les en-têtes de colonnes avec des boutons peuvent être triés)"
+  },
+  "details": {
+    "toggleClosed": "Voir le detail",
+    "toggleOpened": "Masquer le detail"
   }
 }

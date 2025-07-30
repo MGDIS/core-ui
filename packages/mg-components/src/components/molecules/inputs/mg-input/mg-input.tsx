@@ -1,6 +1,9 @@
 import { Component, h, Prop, Element, Watch, Host, State } from '@stencil/core';
-import { isValideID, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
-import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, classDisabled, classVerticalList } from './mg-input.conf';
+import { isObject, isValideID, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, classDisabled, classVerticalList, type ErrorMessageDetailsType } from './mg-input.conf';
+import { initLocales } from '../../../../locales';
+
+const isValidErrorMessageType = (msg: unknown): msg is ErrorMessageDetailsType => isObject(msg) && ['summary', 'details'].every(key => typeof msg[key] === 'string');
 
 /**
  * @slot - Input content
@@ -15,16 +18,21 @@ export class MgInput {
    * Internal *
    ************/
 
+  // Locales
+  private messages;
+
   // HTML selectors
   private helpTextId: string;
   private helpTextErrorId: string;
   private readonly slotLabel = 'label';
   private readonly slotError = 'error';
+  private readonly slotSummary = 'summary';
+  private readonly slotDetails = 'details';
   private readonly slotHelpText = 'help-text';
 
   // slots elements
-  private errorMessageSlotElement: HTMLElement;
-  private helptextMessageSlotElement: HTMLElement;
+  private errorMessageSlotElement: HTMLElement | undefined;
+  private helptextMessageSlotElement: HTMLElement | undefined;
 
   // style
   private readonly classInput = 'mg-c-input';
@@ -110,17 +118,16 @@ export class MgInput {
   /**
    * Define error message to display
    */
-  @Prop() errorMessage?: string;
+  @Prop() errorMessage?: string | ErrorMessageDetailsType;
   @Watch('errorMessage')
   watchErrorMessage(newValue: MgInput['errorMessage']): void {
-    if (newValue !== undefined) {
+    if (isValidString(newValue) || isValidErrorMessageType(newValue)) {
       this.element.classList.add(this.classHasError);
-      this.renderErrorMessage();
     } else {
       this.element.classList.remove(this.classHasError);
-      this.errorMessageSlotElement?.remove();
-      this.errorMessageSlotElement = undefined;
     }
+    // update error message slot
+    this.renderErrorMessageSlot();
   }
 
   /**
@@ -161,13 +168,13 @@ export class MgInput {
     // Help text
     if (this.helpText !== undefined) {
       this.renderHelpText();
-      if (!ariaDescribedbyIDs.has(this.helpTextId)) ariaDescribedbyIDs.add(this.helpTextId);
+      ariaDescribedbyIDs.add(this.helpTextId);
     }
 
     // Error Message
     if (this.errorMessage !== undefined) {
-      this.renderErrorMessage();
-      if (!ariaDescribedbyIDs.has(this.helpTextErrorId)) ariaDescribedbyIDs.add(this.helpTextErrorId);
+      this.renderErrorMessageSlot();
+      ariaDescribedbyIDs.add(this.helpTextErrorId);
     }
 
     this.element.querySelectorAll('input,select,textarea,[role="switch"]').forEach(element => {
@@ -267,17 +274,78 @@ export class MgInput {
   }
 
   /**
-   * Render error message
+   * Render error message details element
    */
-  private renderErrorMessage(): void {
-    this.errorMessageSlotElement = this.element.querySelector(`[slot=${this.slotError}]`);
-    if (this.errorMessageSlotElement === null) {
+  private renderErrorDetailsMessage = (message: ErrorMessageDetailsType): void => {
+    // remove error slot if it is NOT a MG-DETAIL
+    if (this.errorMessageSlotElement?.nodeName !== 'MG-DETAILS') {
+      this.errorMessageSlotElement?.remove();
+    }
+    // create OR update error summary
+    let summarySlotElement = this.element.querySelector(`[slot=${this.slotError}] [slot=${this.slotSummary}]`);
+    if (summarySlotElement === null) {
+      summarySlotElement = document.createElement('span');
+      summarySlotElement.setAttribute('slot', this.slotSummary);
+    }
+    summarySlotElement.innerHTML = message.summary;
+
+    // create OR update error details
+    let detailsSlotElement = this.element.querySelector(`[slot=${this.slotError}] [slot=${this.slotDetails}]`);
+    if (detailsSlotElement === null) {
+      detailsSlotElement = document.createElement('p');
+      detailsSlotElement.setAttribute('slot', this.slotDetails);
+      detailsSlotElement.classList.add('mg-c-input__error-details');
+    }
+    detailsSlotElement.innerHTML = message.details;
+
+    // create error mg-details
+    let mgDetails: HTMLMgDetailsElement = this.element.querySelector(`mg-details[slot=${this.slotError}]`);
+    if (mgDetails === null) {
+      mgDetails = document.createElement('mg-details');
+      mgDetails.classList.add('mg-c-input__error');
+      mgDetails.toggleClosed = this.messages.details.toggleClosed;
+      mgDetails.toggleOpened = this.messages.details.toggleOpened;
+      mgDetails.hideSummary = true;
+      mgDetails.appendChild(summarySlotElement);
+      mgDetails.appendChild(detailsSlotElement);
+      this.element.appendChild(mgDetails);
+    }
+    this.errorMessageSlotElement = mgDetails;
+  };
+
+  /**
+   * Render error message element
+   */
+  private renderErrorStringMessage(message: string): void {
+    // remove error slot if it is a MG-DETAIL
+    if (this.errorMessageSlotElement?.nodeName === 'MG-DETAILS') {
+      this.errorMessageSlotElement.remove();
+    }
+    // create element if it does NOT exist
+    else if (this.errorMessageSlotElement === null) {
       this.errorMessageSlotElement = document.createElement('div');
-      this.errorMessageSlotElement.setAttribute('slot', this.slotError);
       this.element.appendChild(this.errorMessageSlotElement);
     }
-    this.errorMessageSlotElement.setAttribute('id', this.helpTextErrorId);
-    this.errorMessageSlotElement.innerHTML = this.errorMessage;
+    this.errorMessageSlotElement.innerHTML = message;
+  }
+
+  /**
+   * Render error message slot element
+   */
+  private renderErrorMessageSlot(): void {
+    this.errorMessageSlotElement = this.element.querySelector(`[slot=${this.slotError}]`);
+    if (this.errorMessage !== undefined) {
+      if (typeof this.errorMessage === 'string') {
+        this.renderErrorStringMessage(this.errorMessage);
+      } else {
+        this.renderErrorDetailsMessage(this.errorMessage);
+      }
+      this.errorMessageSlotElement.setAttribute('slot', this.slotError);
+      this.errorMessageSlotElement.setAttribute('id', this.helpTextErrorId);
+    } else {
+      this.errorMessageSlotElement?.remove();
+      this.errorMessageSlotElement = undefined;
+    }
   }
 
   /**
@@ -302,6 +370,10 @@ export class MgInput {
    * Check if component props are well configured on init
    */
   componentWillLoad(): void {
+    // Get locales
+    this.messages = initLocales(this.element).messages;
+
+    // Validate
     this.watchIdentifier(this.identifier);
     this.watchLabel();
     this.watchClass();

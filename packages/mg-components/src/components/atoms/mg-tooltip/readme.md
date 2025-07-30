@@ -59,7 +59,7 @@ If the element is located at the edge of the screen, the tooltip is shifted to a
 ### Used by
 
  - [mg-input](../../molecules/inputs/mg-input)
- - mg-input-checkbox-paginated
+ - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
 
 ### Depends on
 
@@ -70,7 +70,7 @@ If the element is located at the edge of the screen, the tooltip is shifted to a
 graph TD;
   mg-tooltip --> mg-tooltip-content
   mg-input --> mg-tooltip
-  mg-input-checkbox-paginated --> mg-tooltip
+  mg-input-checkbox --> mg-tooltip
   style mg-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -482,6 +482,195 @@ exports[`mg-input render Should update "error" slot 1`] = `
 `;
 
 exports[`mg-input render Should update "error" slot 2`] = `
+<mg-input class="mg-c-input mg-c-input--has-error">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+      <div aria-live="assertive" class="mg-c-input__error">
+        <slot name="error"></slot>
+      </div>
+    </div>
+  </template>
+  <input aria-describedby="identifier-error" id="identifier" type="file">
+  <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+    <!---->
+    <label class="mg-c-input-title" htmlfor="identifier">
+      <span class="mg-c-input-title__text">
+        label
+      </span>
+    </label>
+  </mg-input-title>
+  <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
+    <span slot="summary">
+      This is an error
+    </span>
+    <p class="mg-c-input__error-details" slot="details">
+      This is error details. You can use it to add context or describe it.
+    </p>
+  </mg-details>
+</mg-input>
+`;
+
+exports[`mg-input render Should update "error" slot 3`] = `
+<mg-input class="mg-c-input mg-c-input--has-error">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+      <div aria-live="assertive" class="mg-c-input__error">
+        <slot name="error"></slot>
+      </div>
+    </div>
+  </template>
+  <input aria-describedby="identifier-error" id="identifier" type="file">
+  <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+    <!---->
+    <label class="mg-c-input-title" htmlfor="identifier">
+      <span class="mg-c-input-title__text">
+        label
+      </span>
+    </label>
+  </mg-input-title>
+  <div id="identifier-error" slot="error">
+    This is an error
+  </div>
+</mg-input>
+`;
+
+exports[`mg-input render Should update "error" slot 4`] = `
+<mg-input class="mg-c-input">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  <input id="identifier" type="file">
+  <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+    <!---->
+    <label class="mg-c-input-title" htmlfor="identifier">
+      <span class="mg-c-input-title__text">
+        label
+      </span>
+    </label>
+  </mg-input-title>
+</mg-input>
+`;
+
+exports[`mg-input render Should update "error" slot 5`] = `
+<mg-input class="mg-c-input mg-c-input--has-error">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+      <div aria-live="assertive" class="mg-c-input__error">
+        <slot name="error"></slot>
+      </div>
+    </div>
+  </template>
+  <input aria-describedby="identifier-error" id="identifier" type="file">
+  <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
+    <span slot="summary">
+      This is an error
+    </span>
+    <p class="mg-c-input__error-details" slot="details">
+      This is error details. You can use it to add context or describe it.
+    </p>
+  </mg-details>
+  <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+    <!---->
+    <label class="mg-c-input-title" htmlfor="identifier">
+      <span class="mg-c-input-title__text">
+        label
+      </span>
+    </label>
+  </mg-input-title>
+</mg-input>
+`;
+
+exports[`mg-input render Should update "error" slot 6`] = `
+<mg-input class="mg-c-input mg-c-input--has-error">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+      <div aria-live="assertive" class="mg-c-input__error">
+        <slot name="error"></slot>
+      </div>
+    </div>
+  </template>
+  <input aria-describedby="identifier-error" id="identifier" type="file">
+  <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+    <!---->
+    <label class="mg-c-input-title" htmlfor="identifier">
+      <span class="mg-c-input-title__text">
+        label
+      </span>
+    </label>
+  </mg-input-title>
+  <div id="identifier-error" slot="error">
+    This is an error
+  </div>
+</mg-input>
+`;
+
+exports[`mg-input render Should update "error" slot 7`] = `
+<mg-input class="mg-c-input mg-c-input--has-error">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+      <div aria-live="assertive" class="mg-c-input__error">
+        <slot name="error"></slot>
+      </div>
+    </div>
+  </template>
+  <input aria-describedby="identifier-error" id="identifier" type="file">
+  <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+    <!---->
+    <label class="mg-c-input-title" htmlfor="identifier">
+      <span class="mg-c-input-title__text">
+        label
+      </span>
+    </label>
+  </mg-input-title>
+  <mg-details class="mg-c-input__error" id="identifier-error" slot="error">
+    <span slot="summary">
+      This is an error
+    </span>
+    <p class="mg-c-input__error-details" slot="details">
+      This is error details. You can use it to add context or describe it.
+    </p>
+  </mg-details>
+</mg-input>
+`;
+
+exports[`mg-input render Should update "error" slot 8`] = `
 <mg-input class="mg-c-input">
   <template shadowrootmode="open">
     <div class="mg-c-input__title">

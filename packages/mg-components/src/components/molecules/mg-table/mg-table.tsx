@@ -147,11 +147,11 @@ export class MgTable {
       Object.entries(this.columns).forEach(([key, value]) => {
         // Add alignment to stylesheet
         if (value.align !== undefined) {
-          this.alignmentStylesheet.insertRule(`.${this.componentClass}{th:nth-child(${key}),td:nth-child(${key}){text-align:${value.align}}}`);
+          this.alignmentStylesheet.insertRule(`.${this.componentClass} th:nth-child(${key}),td:nth-child(${key}){text-align:${value.align};&>*{display:inline-block;}}`);
         }
         // if align is not defined and datatype is number, align right
         else if (value.datatype === 'numeric') {
-          this.alignmentStylesheet.insertRule(`.${this.componentClass}{th:nth-child(${key}),td:nth-child(${key}){text-align:right}}`);
+          this.alignmentStylesheet.insertRule(`.${this.componentClass} th:nth-child(${key}),td:nth-child(${key}){text-align:right;&>*{display:inline-block;}}`);
         }
 
         // Define if column is sortable

@@ -37,54 +37,31 @@ p {
 
 /**
  * Headings
- *
- * Classes can also be used on element to match attending, for exemples :
- * <h4 class="mg-u-h3">blu</h4>
- * <div role="heading" aria-level="4" class="mg-u-h4">blu</div>
  */
 
+/**
+   * Utility class that applies heading styles.
+   * It allows using heading visual styles without using a semantic heading tag.
+   * 
+   * @page Utilities
+   * @selectors .mg-u-h<n>
+   * @example
+   * ```html
+   * <h3 class="mg-u-h2">
+   *   Heading 3 styled to look like a heading 2.
+   * </h3>
+   * <div role="heading" aria-level="2" class="mg-u-h2">
+   *   Heading level 2 visually and semantically
+   * </div>
+   * ```
+  */
 @for $i from 1 through 6 {
   h#{$i},
   .mg-u-h#{$i} {
     font-family: var(--mg-b-font-family-heading);
+    font-size: var(--mg-b-font-size-h#{$i});
     font-weight: bold;
   }
-}
-
-// h1
-h1,
-.mg-u-h1 {
-  font-size: var(--mg-b-font-size-h1);
-}
-
-// h2
-h2,
-.mg-u-h2 {
-  font-size: var(--mg-b-font-size-h2);
-}
-
-// h3
-h3,
-.mg-u-h3 {
-  font-size: var(--mg-b-font-size-h3);
-}
-
-// h4
-h4,
-.mg-u-h4 {
-  font-size: var(--mg-b-font-size-h4);
-}
-
-// h5
-h5,
-.mg-u-h5 {
-  font-size: var(--mg-b-font-size-h5);
-}
-
-// h6
-h6,
-.mg-u-h6 {
-  font-size: var(--mg-b-font-size-h6);
 }
 
 /**
@@ -95,15 +72,42 @@ small {
 }
 
 /**
- * Text alignment
+ * Left text alignment utility.
+ *
+ * @page Utilities
+ * @example 
+ * ```html
+ * <p class="mg-u-text-left">Left aligned text</p>
+ * ```
  */
+
 .mg-u-text-left {
   text-align: left !important; /* stylelint-disable-line declaration-no-important */
 }
 
+/**
+ * Center text alignment utility.
+ *
+ * @page Utilities
+ * @example 
+ * ```html
+ * <p class="mg-u-text-center">Center aligned text</p>
+ * ```
+ */
+
 .mg-u-text-center {
   text-align: center !important; /* stylelint-disable-line declaration-no-important */
 }
+
+/**
+ * Right text alignment utility.
+ * 
+ * @page Utilities
+ * @example 
+ * ```html
+ * <p class="mg-u-text-right">Right aligned text</p>
+ * ```
+ */
 
 .mg-u-text-right {
   text-align: right !important; /* stylelint-disable-line declaration-no-important */

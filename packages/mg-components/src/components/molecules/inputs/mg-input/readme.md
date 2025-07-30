@@ -90,18 +90,18 @@ When we enter in an input field with an error its state is checked everytime the
 
 ## Properties
 
-| Property                  | Attribute               | Description                                                                 | Type                 | Default     |
-| ------------------------- | ----------------------- | --------------------------------------------------------------------------- | -------------------- | ----------- |
-| `ariaDescribedbyIDs`      | `aria-describedby-i-ds` | Define aria-describedby ids to link with                                    | `string \| string[]` | `[]`        |
-| `errorMessage`            | `error-message`         | Define error message to display                                             | `string`             | `undefined` |
-| `helpText`                | `help-text`             | Define help text to display                                                 | `string`             | `undefined` |
-| `identifier` _(required)_ | `identifier`            | Identifier is used for the element ID (id is a reserved prop in Stencil.js) | `string`             | `undefined` |
-| `label` _(required)_      | `label`                 | Define input label                                                          | `string`             | `undefined` |
-| `labelHide`               | `label-hide`            | Define if label is visible                                                  | `boolean`            | `false`     |
-| `labelOnTop`              | `label-on-top`          | Define if label is displayed on top                                         | `boolean`            | `false`     |
-| `required`                | `required`              | Define if input is required                                                 | `boolean`            | `false`     |
-| `tooltip`                 | `tooltip`               | Add a tooltip message next to the input                                     | `string`             | `undefined` |
-| `tooltipPosition`         | `tooltip-position`      | Define tooltip position                                                     | `"input" \| "label"` | `'input'`   |
+| Property                  | Attribute               | Description                                                                 | Type                                              | Default     |
+| ------------------------- | ----------------------- | --------------------------------------------------------------------------- | ------------------------------------------------- | ----------- |
+| `ariaDescribedbyIDs`      | `aria-describedby-i-ds` | Define aria-describedby ids to link with                                    | `string \| string[]`                              | `[]`        |
+| `errorMessage`            | `error-message`         | Define error message to display                                             | `string \| { summary: string; details: string; }` | `undefined` |
+| `helpText`                | `help-text`             | Define help text to display                                                 | `string`                                          | `undefined` |
+| `identifier` _(required)_ | `identifier`            | Identifier is used for the element ID (id is a reserved prop in Stencil.js) | `string`                                          | `undefined` |
+| `label` _(required)_      | `label`                 | Define input label                                                          | `string`                                          | `undefined` |
+| `labelHide`               | `label-hide`            | Define if label is visible                                                  | `boolean`                                         | `false`     |
+| `labelOnTop`              | `label-on-top`          | Define if label is displayed on top                                         | `boolean`                                         | `false`     |
+| `required`                | `required`              | Define if input is required                                                 | `boolean`                                         | `false`     |
+| `tooltip`                 | `tooltip`               | Add a tooltip message next to the input                                     | `string`                                          | `undefined` |
+| `tooltipPosition`         | `tooltip-position`      | Define tooltip position                                                     | `"input" \| "label"`                              | `'input'`   |
 
 
 ## Slots
@@ -143,6 +143,7 @@ When we enter in an input field with an error its state is checked everytime the
 
 ### Depends on
 
+- [mg-details](../../mg-details)
 - [mg-tooltip](../../../atoms/mg-tooltip)
 - [mg-icon](../../../atoms/mg-icon)
 - mg-input-title
@@ -150,9 +151,11 @@ When we enter in an input field with an error its state is checked everytime the
 ### Graph
 ```mermaid
 graph TD;
+  mg-input --> mg-details
   mg-input --> mg-tooltip
   mg-input --> mg-icon
   mg-input --> mg-input-title
+  mg-details --> mg-icon
   mg-tooltip --> mg-tooltip-content
   mg-input-checkbox --> mg-input
   mg-input-combobox --> mg-input

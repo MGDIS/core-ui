@@ -38,6 +38,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [mg-input-checkbox](../inputs/mg-input-checkbox)
+
 ### Depends on
 
 - [mg-icon](../../atoms/mg-icon)
@@ -48,6 +52,7 @@
 graph TD;
   mg-tabs --> mg-icon
   mg-tabs --> mg-badge
+  mg-input-checkbox --> mg-tabs
   style mg-tabs fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
