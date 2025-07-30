@@ -46,7 +46,7 @@ $grid-columns: 12;
   * Grid is based on a #{$grid-columns}-column layout.  
   *
   * @page Layout
-  * @selectors .mg-l-grid__col-{n}
+  * @selectors .mg-l-grid__col-{{n}}
   * @example
   * ```html
   * <div class="mg-l-grid">
@@ -68,7 +68,7 @@ $grid-columns: 12;
  * Grid column offset size.
  * 
  * @page Layout
- * @selectors .mg-l-grid__col--offset-{n}
+ * @selectors .mg-l-grid__col--offset-{{n}}
  * @example
  * ```html
  * <div class="mg-l-grid">
