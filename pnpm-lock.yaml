@@ -468,11 +468,11 @@ importers:
         specifier: 2.8.1
         version: 2.8.1
       typedoc:
-        specifier: 0.28.9
-        version: 0.28.9(typescript@5.9.2)
+        specifier: 0.28.10
+        version: 0.28.10(typescript@5.9.2)
       typedoc-plugin-markdown:
         specifier: 4.8.0
-        version: 4.8.0(typedoc@0.28.9(typescript@5.9.2))
+        version: 4.8.0(typedoc@0.28.10(typescript@5.9.2))
       vitest:
         specifier: 3.2.4
         version: 3.2.4(@types/node@22.17.1)(jsdom@26.1.0)(sass-embedded@1.89.2)(sass@1.90.0)(yaml@2.8.1)
@@ -752,11 +752,11 @@ importers:
         specifier: 6.2.1
         version: 6.2.1(rollup@4.46.2)(typescript@5.9.2)
       typedoc:
-        specifier: 0.28.9
-        version: 0.28.9(typescript@5.9.2)
+        specifier: 0.28.10
+        version: 0.28.10(typescript@5.9.2)
       typedoc-plugin-markdown:
         specifier: 4.8.0
-        version: 4.8.0(typedoc@0.28.9(typescript@5.9.2))
+        version: 4.8.0(typedoc@0.28.10(typescript@5.9.2))
       vitest:
         specifier: 3.2.4
         version: 3.2.4(@types/node@22.17.1)(jsdom@26.1.0)(sass-embedded@1.89.2)(sass@1.90.0)(yaml@2.8.1)
@@ -903,11 +903,11 @@ importers:
         specifier: 0.8.1
         version: 0.8.1
       typedoc:
-        specifier: 0.28.9
-        version: 0.28.9(typescript@5.9.2)
+        specifier: 0.28.10
+        version: 0.28.10(typescript@5.9.2)
       typedoc-plugin-markdown:
         specifier: 4.8.0
-        version: 4.8.0(typedoc@0.28.9(typescript@5.9.2))
+        version: 4.8.0(typedoc@0.28.10(typescript@5.9.2))
       vite:
         specifier: 7.0.6
         version: 7.0.6(@types/node@22.17.1)(sass-embedded@1.89.2)(sass@1.90.0)(yaml@2.8.1)
@@ -7274,8 +7274,8 @@ packages:
     peerDependencies:
       typedoc: 0.28.x
 
-  typedoc@0.28.9:
-    resolution: {integrity: sha512-aw45vwtwOl3QkUAmWCnLV9QW1xY+FSX2zzlit4MAfE99wX+Jij4ycnpbAWgBXsRrxmfs9LaYktg/eX5Bpthd3g==}
+  typedoc@0.28.10:
+    resolution: {integrity: sha512-zYvpjS2bNJ30SoNYfHSRaFpBMZAsL7uwKbWwqoCNFWjcPnI3e/mPLh2SneH9mX7SJxtDpvDgvd9/iZxGbo7daw==}
     engines: {node: '>= 18', pnpm: '>= 10'}
     hasBin: true
     peerDependencies:
@@ -7656,11 +7656,6 @@ packages:
 
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
-
-  yaml@2.8.0:
-    resolution: {integrity: sha512-4lLa/EcQCB0cJkyts+FpIRx5G/llPxfP6VQU5KByHEhLxY3IJCH0f0Hy1MHI8sClTvsIb8qwRJ6R/ZdlDJ/leQ==}
-    engines: {node: '>= 14.6'}
-    hasBin: true
 
   yaml@2.8.1:
     resolution: {integrity: sha512-lcYcMxX2PO9XMGvAJkJ3OsNMw+/7FKes7/hgerGUYWIoWu5j/+YQqcZr5JnPZWzOsEBgMbSbiSTn/dv/69Mkpw==}
@@ -14593,18 +14588,18 @@ snapshots:
       possible-typed-array-names: 1.1.0
       reflect.getprototypeof: 1.0.10
 
-  typedoc-plugin-markdown@4.8.0(typedoc@0.28.9(typescript@5.9.2)):
+  typedoc-plugin-markdown@4.8.0(typedoc@0.28.10(typescript@5.9.2)):
     dependencies:
-      typedoc: 0.28.9(typescript@5.9.2)
+      typedoc: 0.28.10(typescript@5.9.2)
 
-  typedoc@0.28.9(typescript@5.9.2):
+  typedoc@0.28.10(typescript@5.9.2):
     dependencies:
       '@gerrit0/mini-shiki': 3.9.0
       lunr: 2.3.9
       markdown-it: 14.1.0
       minimatch: 9.0.5
       typescript: 5.9.2
-      yaml: 2.8.0
+      yaml: 2.8.1
 
   typescript@5.8.2: {}
 
@@ -15118,8 +15113,6 @@ snapshots:
   yallist@3.1.1: {}
 
   yallist@4.0.0: {}
-
-  yaml@2.8.0: {}
 
   yaml@2.8.1: {}
 
