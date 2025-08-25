@@ -595,9 +595,11 @@ export class MgInputCombobox {
       case Keys.TAB:
       case Keys.ENTER:
         guard = event.key === Keys.ENTER;
-        const option = this.option || this.options.items.find(this.isCurrentOption);
+        const option = this.option ?? this.options.items.find(this.isCurrentOption);
         // Sets the value to the content of the focused option in the listbox.
-        if (this.popoverDisplay) this.setValue(this.page.total > 0 ? option : null);
+        if (this.popoverDisplay) {
+          this.setValue(option);
+        }
         // Closes the popover.
         this.popoverDisplay = false;
         break;
