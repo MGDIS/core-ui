@@ -76,10 +76,6 @@ class MyComponent {
 
 ## Dependencies
 
-### Used by
-
- - [mg-input](../inputs/mg-input)
-
 ### Depends on
 
 - [mg-icon](../../atoms/mg-icon)
@@ -88,7 +84,6 @@ class MyComponent {
 ```mermaid
 graph TD;
   mg-details --> mg-icon
-  mg-input --> mg-details
   style mg-details fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

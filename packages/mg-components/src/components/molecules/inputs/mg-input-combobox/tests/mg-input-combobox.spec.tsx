@@ -24,7 +24,6 @@ const objectItems = items.map((item, key) => ({
   value: (key + 1).toString(),
 }));
 
-let fetchSpy;
 const initFetchSpy = (overrides = {}) =>
   jest.spyOn(global, 'fetch').mockResolvedValue(
     Promise.resolve({
@@ -71,7 +70,7 @@ const fetchurl = `http://url.fr?filter=${RequestMapping.filter}`;
 const getPage = async (args, fetchOverrides?) => {
   // define fetch mock if needeed
   if (args.fetchurl) {
-    fetchSpy = initFetchSpy(fetchOverrides);
+    initFetchSpy(fetchOverrides);
   }
 
   const page = await newSpecPage({
@@ -106,6 +105,9 @@ describe('mg-input-combobox', () => {
   });
   test.each([
     {},
+    {
+      items: [],
+    },
     {
       items: initArray(30),
     },
@@ -206,65 +208,6 @@ describe('mg-input-combobox', () => {
   });
 
   describe('input errors', () => {
-    describe.each([[items], [objectItems]])('next items %s', (nextItems: MgInputCombobox['items']) => {
-      describe.each([undefined, 'no value error detail content'])('noValueErrorDetail: %s', noValueErrorDetail => {
-        test.each([undefined, null, [] as unknown[]])('Should display error message with invalid items property: %s', async items => {
-          const page = await getPage({ ...baseProps, items, noValueErrorDetail });
-          const element = page.doc.querySelector('mg-input-combobox');
-
-          expect(element.valid).toEqual(false);
-          expect(element.invalid).toEqual(true);
-          expect(page.root).toMatchSnapshot();
-
-          element.items = nextItems;
-          await page.waitForChanges();
-
-          expect(element.valid).toEqual(true);
-          expect(element.invalid).toEqual(false);
-          expect(page.root).toMatchSnapshot();
-        });
-
-        test.each([undefined, null, [] as unknown[]])('Should display error message with invalid fetch response property: %s', async items => {
-          const page = await getPage(
-            {
-              ...baseProps,
-              items: undefined,
-              fetchurl: '/hello-batman',
-              fetchmappings,
-              noValueErrorDetail,
-            },
-            {
-              results: items,
-              count: 0,
-            },
-          );
-          const element = page.doc.querySelector('mg-input-combobox');
-
-          expect(element.valid).toEqual(false);
-          expect(element.invalid).toEqual(true);
-          expect(page.root).toMatchSnapshot();
-
-          fetchSpy.mockResolvedValue(
-            Promise.resolve({
-              ok: true,
-              json: () =>
-                Promise.resolve({
-                  data: {
-                    results: nextItems,
-                    count: nextItems.length,
-                  },
-                }),
-            } as Response),
-          );
-          element.fetchurl = fetchurl;
-          await page.waitForChanges();
-
-          expect(element.valid).toEqual(true);
-          expect(element.invalid).toEqual(false);
-          expect(page.root).toMatchSnapshot();
-        });
-      });
-    });
     describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {
       test.each([
         { validity: true, valueMissing: false },

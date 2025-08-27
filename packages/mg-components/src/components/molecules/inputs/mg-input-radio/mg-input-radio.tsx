@@ -3,7 +3,6 @@ import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/co
 import { RadioOption } from './mg-input-radio.conf';
 import { type EventType, classReadonly, type TooltipPosition, classDisabled, classFieldset } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
-import { defineErrorMessage } from '../mg-input/mg-input.utils';
 
 /**
  * type Option validation function
@@ -68,29 +67,17 @@ export class MgInputRadio {
   @Prop() items!: string[] | RadioOption[];
   @Watch('items')
   validateItems(newValue: string[] | RadioOption[]): void {
-    if ([undefined, null].includes(newValue) || (Array.isArray(newValue) && newValue.length === 0)) {
-      this.options = [];
-      this.displayError();
-    }
     // Validate if items have required min length
-    else if (Array.isArray(newValue) && newValue.length < 2) {
+    if (typeof newValue === 'object' && newValue.length < 2) {
       throw new Error(`<mg-input-radio> prop "items" require at least 2 items. Passed value: ${toString(newValue)}.`);
     }
     // String array
-    else if (allItemsAreString(newValue)) {
+    else if (allItemsAreString(newValue as string[])) {
       this.options = newValue.map(item => ({ title: item, value: item, disabled: this.disabled }));
-      // force to reset error when noValueError is displaied
-      if (this.invalid && this.hasNoValueErrorMessageDisplay()) {
-        this.resetErrorMessage();
-      }
     }
     // Object array
-    else if (Array.isArray(newValue) && newValue.every(isOption)) {
-      this.options = newValue;
-      // force to reset error when noValueError is displaied
-      if (this.invalid && this.hasNoValueErrorMessageDisplay()) {
-        this.resetErrorMessage();
-      }
+    else if (newValue && (newValue as RadioOption[]).every(item => isOption(item))) {
+      this.options = newValue as RadioOption[];
     } else {
       throw new Error(`<mg-input-radio> prop "items" is required and all items must be the same type, string or RadioOption. Passed value: ${toString(newValue)}.`);
     }
@@ -184,11 +171,6 @@ export class MgInputRadio {
    * Add a help text under the input, usually expected data format and example
    */
   @Prop() helpText?: string;
-
-  /**
-   * Define no value error detail
-   */
-  @Prop() noValueErrorDetail?: string;
 
   /**
    * Define input valid state
@@ -297,7 +279,9 @@ export class MgInputRadio {
       // - Keep everything in sync both inside and outside the component
       return new Promise(resolve => {
         requestAnimationFrame(() => {
-          this.resetErrorMessage();
+          this.checkValidity();
+          this.errorMessage = undefined;
+          this.hasDisplayedError = false;
           resolve();
         });
       });
@@ -337,22 +321,10 @@ export class MgInputRadio {
   };
 
   /**
-   * Test if component has items
-   * @returns truthy if component has items
-   */
-  private hasInputValue = (): boolean => this.items?.length > 0;
-
-  /**
-   * Test if component has no value error message displayed
-   * @returns truthy if compent display no value error message
-   */
-  private hasNoValueErrorMessageDisplay = (): boolean => this.errorMessage === this.messages.errors.noValue;
-
-  /**
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(this.readonly || this.disabled || (this.hasInputValue() && this.getInvalidElement() === undefined));
+    this.setValidity(this.readonly || this.disabled || this.getInvalidElement() === undefined);
   };
 
   /**
@@ -367,21 +339,10 @@ export class MgInputRadio {
     if (!this.valid) {
       if (errorMessage !== undefined) {
         this.errorMessage = errorMessage;
-      } else if (!this.hasInputValue()) {
-        this.errorMessage = this.messages.errors.noValue;
       } else if (invalidElement.validity.valueMissing) {
         this.errorMessage = this.messages.errors.required;
       }
     }
-  };
-
-  /**
-   * Reset error message
-   */
-  private resetErrorMessage = (): void => {
-    this.checkValidity();
-    this.errorMessage = undefined;
-    this.hasDisplayedError = false;
   };
 
   /**
@@ -431,33 +392,33 @@ export class MgInputRadio {
         tooltip={this.tooltip}
         tooltipPosition={this.readonly && !this.value ? 'label' : this.tooltipPosition}
         helpText={this.helpText}
-        errorMessage={defineErrorMessage(this.errorMessage, this.noValueErrorDetail)}
+        errorMessage={this.errorMessage}
       >
-        {this.readonly
-          ? this.readonlyValue && <b class="mg-c-input__readonly-value">{this.readonlyValue}</b>
-          : this.options.length > 0 && (
-              <ul class="mg-c-input__input-group-container" role="list">
-                {this.options.map((input, index) => (
-                  <li key={input.title} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': this.disabled || input.disabled }}>
-                    <input
-                      type="radio"
-                      id={this.identifier + '_' + index}
-                      name={this.identifier}
-                      value={index}
-                      checked={JSON.stringify(this.value) === JSON.stringify(this.options[index].value)}
-                      disabled={this.disabled || input.disabled}
-                      required={this.required}
-                      onBlur={this.handleBlur}
-                      onInput={this.handleInput}
-                      ref={(el: HTMLInputElement) => {
-                        if (el !== null) this.inputs[index] = el;
-                      }}
-                    />
-                    <label htmlFor={this.identifier + '_' + index}>{input.title}</label>
-                  </li>
-                ))}
-              </ul>
-            )}
+        {this.readonly ? (
+          this.readonlyValue && <b class="mg-c-input__readonly-value">{this.readonlyValue}</b>
+        ) : (
+          <ul class="mg-c-input__input-group-container" role="list">
+            {this.options.map((input, index) => (
+              <li key={input.title} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': this.disabled || input.disabled }}>
+                <input
+                  type="radio"
+                  id={this.identifier + '_' + index}
+                  name={this.identifier}
+                  value={index}
+                  checked={JSON.stringify(this.value) === JSON.stringify(this.options[index].value)}
+                  disabled={this.disabled || input.disabled}
+                  required={this.required}
+                  onBlur={this.handleBlur}
+                  onInput={this.handleInput}
+                  ref={(el: HTMLInputElement) => {
+                    if (el !== null) this.inputs[index] = el;
+                  }}
+                />
+                <label htmlFor={this.identifier + '_' + index}>{input.title}</label>
+              </li>
+            ))}
+          </ul>
+        )}
       </mg-input>
     );
   }

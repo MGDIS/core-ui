@@ -104,11 +104,9 @@ Type: `Promise<void>`
 graph TD;
   mg-input-textarea --> mg-input
   mg-input-textarea --> mg-character-left
-  mg-input --> mg-details
   mg-input --> mg-tooltip
   mg-input --> mg-icon
   mg-input --> mg-input-title
-  mg-details --> mg-icon
   mg-tooltip --> mg-tooltip-content
   style mg-input-textarea fill:#f9f,stroke:#333,stroke-width:4px
 ```

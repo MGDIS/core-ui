@@ -96,11 +96,9 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   mg-input-date --> mg-input
-  mg-input --> mg-details
   mg-input --> mg-tooltip
   mg-input --> mg-icon
   mg-input --> mg-input-title
-  mg-details --> mg-icon
   mg-tooltip --> mg-tooltip-content
   style mg-input-date fill:#f9f,stroke:#333,stroke-width:4px
 ```
