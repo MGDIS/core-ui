@@ -31,25 +31,11 @@ const setPageContent = async (page, args?: PropsType, slot?: string) => {
 };
 
 test.describe('mg-input', () => {
-  [
-    {},
-    { class: '' },
-    { labelHide: true },
-    { required: true },
-    { helpText },
-    { errorMessage },
-    { errorMessage: { summary: 'Aucune valeur', details: 'no value error detail content' } },
-    { helpText, errorMessage },
-  ].forEach((args, identifier) => {
+  [{}, { class: '' }, { labelHide: true }, { required: true }, { helpText }, { errorMessage }, { helpText, errorMessage }].forEach((args, identifier) => {
     test(`Render without tooltip ${renderAttributes({ ...args, identifier })}`, async ({ page }) => {
       await setPageContent(page, args);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-      if (typeof args.errorMessage === 'object') {
-        page.locator('mg-details').click();
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      }
     });
   });
 

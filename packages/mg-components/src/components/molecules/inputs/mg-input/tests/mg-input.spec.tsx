@@ -10,10 +10,6 @@ const baseArgs = {
 };
 
 const errorMessage = 'This is an error';
-const errorMessageWithDetails = {
-  summary: errorMessage,
-  details: 'This is error details. You can use it to add context or describe it.',
-};
 
 const helpText = 'Hello joker';
 
@@ -111,49 +107,11 @@ describe('mg-input', () => {
       const page = await getPage();
       const element = page.doc.querySelector('mg-input');
 
-      // render string error
       element.errorMessage = errorMessage;
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
 
-      // update error with object error
-      element.errorMessage = errorMessageWithDetails;
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-
-      // back to string error
-      element.errorMessage = errorMessage;
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-
-      // reset error
-      element.errorMessage = undefined;
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-
-      // render object error
-      element.errorMessage = errorMessageWithDetails;
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-
-      // update error with string error
-      element.errorMessage = errorMessage;
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-
-      // back to object error
-      element.errorMessage = errorMessageWithDetails;
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-
-      // reset error
       element.errorMessage = undefined;
       await page.waitForChanges();
 
