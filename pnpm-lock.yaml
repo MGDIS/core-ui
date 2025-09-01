@@ -18,8 +18,8 @@ importers:
         specifier: workspace:*
         version: link:configs/prettier-config
       '@manypkg/cli':
-        specifier: 0.25.0
-        version: 0.25.0
+        specifier: 0.25.1
+        version: 0.25.1
       '@mgdis/linting-styles':
         specifier: workspace:*
         version: link:packages/linting-styles
@@ -1990,8 +1990,8 @@ packages:
   '@keyv/serialize@1.1.0':
     resolution: {integrity: sha512-RlDgexML7Z63Q8BSaqhXdCYNBy/JQnqYIwxofUrNLGCblOMHp+xux2Q8nLMLlPpgHQPoU0Do8Z6btCpRBEqZ8g==}
 
-  '@manypkg/cli@0.25.0':
-    resolution: {integrity: sha512-qohYlbfx4RdQX6OqRR0yW7duYzSxgzB/gfHuJA+RDOrbNXhLh/3KQxcH9FxyRqr69OP+CjuEeWZVRfLhfJjqfw==}
+  '@manypkg/cli@0.25.1':
+    resolution: {integrity: sha512-lag906FyiNxzZjsRErkUD5/to174I2JzPk5bZubuJp6loMKKJn73zrtqeU7nHlVkHBg3tgXDTJj22HxUDxLRXw==}
     engines: {node: '>=20.0.0'}
     hasBin: true
 
@@ -9034,7 +9034,7 @@ snapshots:
 
   '@keyv/serialize@1.1.0': {}
 
-  '@manypkg/cli@0.25.0':
+  '@manypkg/cli@0.25.1':
     dependencies:
       '@manypkg/get-packages': 3.1.0
       detect-indent: 7.0.1
