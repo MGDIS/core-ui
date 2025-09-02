@@ -2,50 +2,53 @@ import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { createID } from '@mgdis/core-ui-helpers/dist/utils';
 import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
-
-const slots = ['default', 'flex'] as const;
-type SlotType = (typeof slots)[number] | string;
+import { MgPanel } from '../mg-panel';
 
 const baseArgs = {
   panelTitle: 'panel title',
 };
 
-const createHTML = (args): string => {
-  const identifier = createID();
-  const slot: SlotType = Boolean(args.slot) ? args.slot : slots[0];
-  delete args.slot;
-
-  const flexSlotContainer = (content: string): string => `<mg-badge variant="primary" value="1" label="label"></mg-badge><div>${content}</div>`;
-
-  const slotContent = `<mg-button variant="secondary" style="margin-left: 200px;">
+const renderSlotHeader = (content: string): string => `<div slot="header-right" style="width:100%; align-items:center;">${content}</div>`;
+const mgBadge = '<mg-badge variant="primary" value="1" label="label"></mg-badge>';
+const mgButtonUpload = `
+  <mg-button variant="secondary" style="margin-left: auto">
     <mg-icon icon="file-upload"></mg-icon> Upload
-  </mg-button>
+  </mg-button>  
+  `;
+const mgButtonTrash = `
   <mg-button is-icon variant="secondary" label="delete">
     <mg-icon icon="trash"></mg-icon>
   </mg-button>`;
+const slotHeaderWithBadgeAndButtons = renderSlotHeader([mgBadge, mgButtonUpload, mgButtonTrash].join(''));
 
-  return `<mg-panel ${renderAttributes({ ...args, identifier })}>
-      ${
-        slots.includes(slot as (typeof slots)[number])
-          ? `
-          <div>Content</div>
-          <div slot="header-right" ${slot === 'flex' ? 'style="display:flex; justify-content:space-between; align-items:center; width:100%;"' : ''}>
-            ${slot === 'flex' ? flexSlotContainer(slotContent) : slotContent}
-          </div>`
-          : slot
-      }
-    </mg-panel>`;
+const slotContent = '<div>Content</div>';
+
+const createHTML = (args: Partial<MgPanel & { slot: string }>): string => {
+  const identifier = createID();
+  const slots = args.slot;
+  delete args.slot;
+
+  return `
+  <style>
+  .e2e-screenshot {
+    width: 465px;
+  }
+  </style>
+  <mg-panel ${renderAttributes({ ...args, identifier })}>
+    ${slots === undefined ? [slotContent, renderSlotHeader([mgButtonUpload, mgButtonTrash].join(''))].join('') : slots}
+  </mg-panel>
+  `;
 };
 
 test.describe('mg-panel', () => {
   [
     {},
-    { titlePosition: 'left' },
-    { titlePosition: 'right' },
-    { titlePosition: 'right', titleEditable: true },
-    { expandToggleDisplay: 'text' },
-    { expandToggleDisplay: 'icon' },
-    { expandToggleDisplay: 'icon', titleEditable: true },
+    { titlePosition: 'left' as MgPanel['titlePosition'] },
+    { titlePosition: 'right' as MgPanel['titlePosition'] },
+    { titlePosition: 'right' as MgPanel['titlePosition'], titleEditable: true },
+    { expandToggleDisplay: 'text' as MgPanel['expandToggleDisplay'] },
+    { expandToggleDisplay: 'icon' as MgPanel['expandToggleDisplay'] },
+    { expandToggleDisplay: 'icon' as MgPanel['expandToggleDisplay'], titleEditable: true },
     { expanded: true },
     { titleEditable: true },
     {
@@ -57,9 +60,9 @@ test.describe('mg-panel', () => {
       panelTitle:
         'very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title',
     },
-    { slot: 'flex' },
+    { slot: [slotHeaderWithBadgeAndButtons, slotContent].join('') },
     {
-      slot: 'flex',
+      slot: [slotHeaderWithBadgeAndButtons, slotContent].join(''),
       panelTitle:
         'very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title',
     },
@@ -79,13 +82,11 @@ test.describe('mg-panel', () => {
       const html = createHTML({ ...baseArgs, ...args });
       await page.setContent(html);
 
-      await page.setViewportSize({ width: 500, height: 100 });
-
-      await expect(page.locator('mg-panel')).toHaveScreenshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       await page.keyboard.press('Tab');
       await page.keyboard.press('Enter');
-      await expect(page.locator('mg-panel')).toHaveScreenshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
@@ -102,14 +103,14 @@ test.describe('mg-panel', () => {
         const html = createHTML({ ...baseArgs, ...args });
         await page.setContent(html);
 
-        await expect(page.locator('mg-panel')).toHaveScreenshot();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
         await page.locator('.mg-c-panel__header-title mg-button:last-of-type').click();
 
         // Hide caret for screenshots
         await page.locator('mg-panel input').evaluate(elm => (elm.style.caretColor = 'transparent'));
 
-        await expect(page.locator('mg-panel')).toHaveScreenshot();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
         const input = page.locator('mg-panel mg-input-text input');
 
@@ -124,7 +125,7 @@ test.describe('mg-panel', () => {
 
         await page.locator('mg-panel mg-input-text mg-button:last-of-type').click();
 
-        await expect(page.locator('mg-panel')).toHaveScreenshot();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
     });
 
@@ -142,7 +143,7 @@ test.describe('mg-panel', () => {
       // Hide caret for screenshots
       await page.locator('mg-panel input').evaluate(elm => (elm.style.caretColor = 'transparent'));
 
-      await expect(page.locator('mg-panel')).toHaveScreenshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       const input = page.locator('mg-panel mg-input-text input');
 
@@ -159,7 +160,7 @@ test.describe('mg-panel', () => {
 
       await page.locator('mg-panel mg-input-text mg-button:last-of-type').click();
 
-      await expect(page.locator('mg-panel')).toHaveScreenshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 });
