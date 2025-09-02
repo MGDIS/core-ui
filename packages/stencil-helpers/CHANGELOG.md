@@ -1,5 +1,14 @@
 # @mgdis/stencil-helpers
 
+## 3.2.5
+
+### Patch Changes
+
+- e3a86b1: [#578](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/578) - mg-input-\*\* revert noValue error
+- 958dcd3: Update dependencies
+- Updated dependencies [958dcd3]
+  - @mgdis/core-ui-helpers@1.0.4
+
 ## 3.2.4
 
 ### Patch Changes

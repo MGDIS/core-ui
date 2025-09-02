@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.1.9
+
+### Patch Changes
+
+- 958dcd3: Update dependencies
+- Updated dependencies [958dcd3]
+  - @mgdis/eslint-plugin-html@4.0.7
+
 ## 4.1.8
 
 ### Patch Changes
