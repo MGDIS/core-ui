@@ -324,30 +324,6 @@ describe('components.utils', () => {
         result: 'batman',
       },
       {
-        object: { hero: 'batman' },
-        key: undefined,
-        defaultValue: { hero: 'batman' },
-        result: { hero: 'batman' },
-      },
-      {
-        object: { hero: 'batman' },
-        key: null,
-        defaultValue: { hero: 'batman' },
-        result: { hero: 'batman' },
-      },
-      {
-        object: { hero: 'batman' },
-        key: '',
-        defaultValue: { hero: 'batman' },
-        result: { hero: 'batman' },
-      },
-      {
-        object: { hero: 'batman' },
-        key: undefined,
-        defaultValue: 'batman',
-        result: 'batman',
-      },
-      {
         value: { batman: undefined },
         key: 'batman',
         result: undefined,

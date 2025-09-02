@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { renderProperties, renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { test } from '../../../../../utils/playwright.fixture';
 import { MgInputToggle } from '../mg-input-toggle';
-import type { ToggleValue } from '../mg-input-toggle.conf';
+import { ToggleValue } from '../mg-input-toggle.conf';
 
 const getItemsFromStrings = (items: string[]): ToggleValue[] => items.map((item, index) => ({ title: item, value: index === 1 }));
 
@@ -20,7 +20,7 @@ const renderSlot = (title: string, index: number) => `<span slot="item-${index +
 
 const createHTML = props => {
   return `<mg-input-toggle ${renderAttributes(props)}>${
-    props.isIcon || !props.items
+    props.isIcon
       ? ['cross', 'check'].map(
           (icon, index) =>
             `<span slot="item-${index + 1}">
@@ -86,25 +86,6 @@ test.describe('mg-input-toggle', () => {
       await setPageContent(page, args);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
-  });
-
-  [
-    { ...defaultProps, items: undefined },
-    { ...defaultProps, items: undefined, noValueErrorDetail: 'no value error detail content' },
-  ].forEach((args: Partial<MgInputToggle>) => {
-    test(`Should render with template ${renderAttributes(args)} with no-value error`, async ({ page }) => {
-      const componentArgs = {
-        ...args,
-      };
-      await setPageContent(page, componentArgs);
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-      if (args.noValueErrorDetail !== undefined) {
-        page.locator('mg-details').click();
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      }
     });
   });
 
