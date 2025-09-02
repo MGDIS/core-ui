@@ -65,6 +65,7 @@ const config: StorybookConfig = {
       url: 'https://master--626149b307606d003ada26b4.chromatic.com',
       versions: {
         'next': 'https://next--626149b307606d003ada26b4.chromatic.com',
+        'v6.15.0': 'https://626149b307606d003ada26b4-ucawozqjkg.chromatic.com',
         'v6.14.0': 'https://626149b307606d003ada26b4-nxtwkvfcgv.chromatic.com',
         'v6.13.1': 'http://626149b307606d003ada26b4-lmgshhqtpz.chromatic.com',
         'v6.13.0': 'https://626149b307606d003ada26b4-btsfgghigh.chromatic.com',
