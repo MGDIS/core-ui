@@ -31,7 +31,7 @@
   }
 
   @each $style in 'icon', 'background', 'full' {
-    @each $variant, $color in list.join(variables.$app, variables.$semantics) {
+    @each $variant, $color in list.join(variables.$neutrals, list.join(variables.$app, variables.$semantics)) {
       &.mg-c-icon--variant-#{$variant}.mg-c-icon--variant-style-#{$style} {
         @if $style == 'icon' or $style == 'full' {
           color: var(--mg-b-color-#{$variant});

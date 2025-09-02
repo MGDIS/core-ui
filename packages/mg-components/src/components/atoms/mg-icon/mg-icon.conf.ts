@@ -15,7 +15,7 @@ export type IconSizeType = Size & (typeof sizes)[number];
 /**
  * List of all possibles variants
  */
-export const variants = ['success', 'warning', 'danger', 'info', 'app', 'neutral'] as const;
+export const variants = ['success', 'warning', 'danger', 'info', 'app', 'dark'] as const;
 
 /**
  * Variant type from variants
