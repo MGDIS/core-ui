@@ -1,5 +1,16 @@
 # @mgdis/styles
 
+## 2.11.0
+
+### Minor Changes
+
+- 95cccb5: [**`<mg-panel>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-panel--docs) use default **`<mg-card>`** border
+
+### Patch Changes
+
+- e3a86b1: [#578](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/578) - mg-input-\*\* revert noValue error
+- 958dcd3: Update dependencies
+
 ## 2.10.0
 
 ### Minor Changes

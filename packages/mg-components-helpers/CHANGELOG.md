@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.2.5
+
+### Patch Changes
+
+- 958dcd3: Update dependencies
+- Updated dependencies [958dcd3]
+  - @mgdis/core-ui-helpers@1.0.4
+
 ## 4.2.4
 
 ### Patch Changes

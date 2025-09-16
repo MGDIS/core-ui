@@ -1,5 +1,22 @@
 # @mgdis/mg-components
 
+## 6.16.0
+
+### Minor Changes
+
+- 03879e5: [**`<mg-pagination>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-pagination--docs) update previous/next text
+- 95cccb5: [**`<mg-panel>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-panel--docs) use default **`<mg-card>`** border
+
+### Patch Changes
+
+- e3a86b1: [#578](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/578) - mg-input-\*\* revert noValue error
+- 958dcd3: Update dependencies
+- Updated dependencies [e3a86b1]
+- Updated dependencies [958dcd3]
+- Updated dependencies [95cccb5]
+  - @mgdis/styles@2.11.0
+  - @mgdis/core-ui-helpers@1.0.4
+
 ## 6.15.0
 
 ### Minor Changes
