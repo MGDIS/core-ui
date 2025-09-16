@@ -6,7 +6,7 @@ export type Size = 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge
 /**
  * Defines the possible values for variant
  */
-export type Variant = 'info' | 'success' | 'warning' | 'danger' | 'danger-alt' | 'primary' | 'secondary' | 'app' | 'light' | 'dark' | 'flat' | 'text-color' | 'link';
+export type Variant = 'info' | 'success' | 'warning' | 'danger' | 'danger-alt' | 'primary' | 'secondary' | 'app' | 'light' | 'dark' | 'flat' | 'text-color' | 'link' | 'neutral';
 
 /**
  * Defines the possible values for directions
