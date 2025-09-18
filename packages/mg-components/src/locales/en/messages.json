@@ -45,17 +45,17 @@
         "yyyy": "yyyy"
       },
       "helpText": {
-        "expectedFormat": "Expected format: {pattern} (ex: {date})",
+        "expectedFormat": "Expected format: {pattern} (ex: {date})"
+      },
+      "error": {
+        "badInput": "The date is inexistent or incorrect, the expected format is {pattern} (ex: {date})",
         "min": "The date must be after or equal to {min}",
         "max": "The date must be before or equal to {max}",
         "minMax": "The date must be between {min} and {max}"
-      },
-      "error": {
-        "badInput": "The date is inexistent or incorrect, the expected format is {pattern} (ex: {date})"
       }
     },
     "numeric": {
-      "helpText": {
+      "error": {
         "min": "The value must be greater than or equal to {min}",
         "max": "The value must be less than or equal to {max}",
         "minMax": "The value must be between {min} and {max}"

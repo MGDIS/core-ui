@@ -297,25 +297,7 @@ export class MgInputDate {
     }
 
     // Replace pattern and date variables
-    text = text.replace('{pattern}', this.renderPattern()).replace('{date}', localeDate(dateToString(new Date('2025-12-24')), this.systemLocale));
-
-    // Add additional message for min/max if necessary
-    let rangeMessage: string;
-
-    if (this.min?.length > 0 && this.max !== DEFAULT_MAX_DATE) {
-      rangeMessage = this.messages.input.date.helpText.minMax.replace('{min}', localeDate(this.min, this.systemLocale)).replace('{max}', localeDate(this.max, this.systemLocale));
-    } else if (this.min?.length > 0) {
-      rangeMessage = this.messages.input.date.helpText.min.replace('{min}', localeDate(this.min, this.systemLocale));
-    } else if (this.max !== DEFAULT_MAX_DATE) {
-      rangeMessage = this.messages.input.date.helpText.max.replace('{max}', localeDate(this.max, this.systemLocale));
-    }
-
-    // Combine custom helpText with range message if both exist
-    if (text !== undefined && rangeMessage !== undefined) {
-      return `${text}<br>${rangeMessage}`;
-    }
-
-    return text;
+    return text.replace('{pattern}', this.renderPattern()).replace('{date}', localeDate(dateToString(new Date('2025-12-24')), this.systemLocale));
   };
 
   /**
@@ -427,7 +409,7 @@ export class MgInputDate {
       }
       // min, max & minMax
       else if (['min', 'max', 'minMax'].includes(inputError)) {
-        this.errorMessage = this.messages.input.date.helpText[inputError]
+        this.errorMessage = this.messages.input.date.error[inputError]
           .replace('{min}', localeDate(this.min, this.systemLocale))
           .replace('{max}', localeDate(this.max, this.systemLocale));
       }

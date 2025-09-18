@@ -709,16 +709,10 @@ exports[`mg-input-numeric type decimal Should keep validity on input update 1`] 
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be between 0.10 and 0.10
-      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -744,16 +738,10 @@ exports[`mg-input-numeric type decimal Should keep validity on input update 2`] 
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be greater than or equal to 0.10
-      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -779,16 +767,10 @@ exports[`mg-input-numeric type decimal Should keep validity on input update 3`] 
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be less than or equal to 0.10
-      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -2270,16 +2252,10 @@ exports[`mg-input-numeric type integer Should keep validity on input update 1`] 
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be between 0.1 and 0.1
-      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -2305,16 +2281,10 @@ exports[`mg-input-numeric type integer Should keep validity on input update 2`] 
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be greater than or equal to 0.1
-      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -2340,16 +2310,10 @@ exports[`mg-input-numeric type integer Should keep validity on input update 3`] 
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be less than or equal to 0.1
-      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -3594,12 +3558,9 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="2" name="identifier" type="text" value="1.00">
+      <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="2" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
@@ -3609,9 +3570,6 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be less than or equal to 2
-      </div>
     </mg-input>
   </template>
 </mg-input-numeric>
@@ -3629,12 +3587,9 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="3" name="identifier" type="text" value="1.00">
+      <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="3" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
@@ -3644,9 +3599,6 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be less than or equal to 3
-      </div>
     </mg-input>
   </template>
 </mg-input-numeric>
@@ -3722,19 +3674,13 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
           <div aria-live="assertive" class="mg-c-input__error">
             <slot name="error"></slot>
           </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="2" name="identifier" type="text" value="1.00">
+      <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="2" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be greater than or equal to 2
-      </div>
       <div id="identifier-error" slot="error">
         The value must be greater than or equal to 2
       </div>
@@ -3763,16 +3709,10 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="1" name="identifier" type="text" value="1.00">
+      <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="1" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be greater than or equal to 1
-      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -3856,19 +3796,13 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
           <div aria-live="assertive" class="mg-c-input__error">
             <slot name="error"></slot>
           </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="2" name="identifier" type="text" value="3.00">
+      <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="2" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be less than or equal to 2
-      </div>
       <div id="identifier-error" slot="error">
         The value must be less than or equal to 2
       </div>
@@ -3897,16 +3831,10 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="3" name="identifier" type="text" value="3.00">
+      <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="3" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be less than or equal to 3
-      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -3990,12 +3918,9 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="2" name="identifier" type="text" value="3.00">
+      <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="2" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
@@ -4005,9 +3930,6 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be greater than or equal to 2
-      </div>
     </mg-input>
   </template>
 </mg-input-numeric>
@@ -4025,12 +3947,9 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
         </div>
       </template>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="1" name="identifier" type="text" value="3.00">
+      <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="1" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
@@ -4040,9 +3959,6 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        The value must be greater than or equal to 1
-      </div>
     </mg-input>
   </template>
 </mg-input-numeric>
