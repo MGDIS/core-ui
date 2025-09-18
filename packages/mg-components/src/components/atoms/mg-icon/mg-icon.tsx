@@ -59,12 +59,13 @@ export class MgIcon {
   @Prop() variant?: IconVariantType;
   @Watch('variant')
   validateVariant(newValue: MgIcon['variant'], oldValue?: MgIcon['variant']): void {
-    if (newValue !== undefined) {
-      if (!variants.includes(newValue)) throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
+    const variant = newValue === 'neutral' ? 'dark' : newValue;
+    if (variant !== undefined) {
+      if (![...variants, 'dark'].includes(variant)) throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
       else {
         this.setDefaultVariantStyle();
         if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--variant-${oldValue}`);
-        this.classCollection.add(`mg-c-icon--variant-${newValue}`);
+        this.classCollection.add(`mg-c-icon--variant-${variant}`);
       }
     }
   }
