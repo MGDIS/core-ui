@@ -69,9 +69,7 @@ export class MgIcon {
       if (![...variants, 'dark'].includes(variant)) {
         throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
       } else {
-        if (this.variantStyle === undefined) {
-          this.variantStyle = 'background';
-        }
+        this.variantStyle ??= 'background';
         this.classCollection.add(`mg-c-icon--variant-${variant}`);
       }
     } else {
