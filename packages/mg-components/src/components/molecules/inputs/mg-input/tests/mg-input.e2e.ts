@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { renderProperties, renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { test } from '../../../../../utils/playwright.fixture';
 import { MgInput } from '../mg-input';
-import { TooltipPosition, classReadonly } from '../mg-input.conf';
+import { LabelHeadingLevel, TooltipPosition, classFieldset, classReadonly, labelHeadingLevels } from '../mg-input.conf';
 
 type PropsType = Partial<MgInput & { class: string }>;
 
@@ -31,9 +31,19 @@ const setPageContent = async (page, args?: PropsType, slot?: string) => {
 };
 
 test.describe('mg-input', () => {
-  [{}, { class: '' }, { labelHide: true }, { required: true }, { helpText }, { errorMessage }, { helpText, errorMessage }].forEach((args, identifier) => {
+  [
+    {},
+    { class: '' },
+    { labelHide: true },
+    { required: true },
+    { helpText },
+    { errorMessage },
+    { helpText, errorMessage },
+    ...labelHeadingLevels.map(labelHeadingLevel => ({ labelHeadingLevel, class: classFieldset, labelOnTop: true })),
+    { inputsOnBottom: true, class: classFieldset, labelOnTop: true },
+  ].forEach((args, identifier) => {
     test(`Render without tooltip ${renderAttributes({ ...args, identifier })}`, async ({ page }) => {
-      await setPageContent(page, args);
+      await setPageContent(page, args as PropsType);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -45,6 +55,22 @@ test.describe('mg-input', () => {
       await setPageContent(page, { labelOnTop: true, ...args });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
+
+  // labelBorderDisplay
+  [true, false].forEach(labelBorderDisplay => {
+    [undefined, 'h3'].forEach((labelHeadingLevel: LabelHeadingLevel) => {
+      [false, true].forEach(inputsOnBottom => {
+        [{}, { helpText }, { errorMessage }, { errorMessage, helpText }].forEach((args, identifier) => {
+          const props = { ...args, labelHeadingLevel, inputsOnBottom, labelBorderDisplay, identifier: identifier.toString(), class: classFieldset, labelOnTop: true };
+          test(`Render with ${renderAttributes(props)}`, async ({ page }) => {
+            await setPageContent(page, props);
+
+            await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          });
+        });
+      });
     });
   });
 
@@ -60,6 +86,8 @@ test.describe('mg-input', () => {
     ].forEach((args, identifier) => {
       test(`Render with tooltip ${renderAttributes({ ...args, identifier })}`, async ({ page }) => {
         await setPageContent(page, { tooltip, ...args });
+
+        await page.locator('mg-tooltip.hydrated').waitFor();
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });

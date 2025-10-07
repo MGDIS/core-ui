@@ -1,6 +1,6 @@
 import { Component, h, Prop, Element, Watch, Host, State } from '@stencil/core';
 import { isValideID, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
-import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, classDisabled, classVerticalList } from './mg-input.conf';
+import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, classDisabled, classVerticalList, labelHeadingLevels, LabelHeadingLevel } from './mg-input.conf';
 
 /**
  * @slot - Input content
@@ -30,6 +30,9 @@ export class MgInput {
   private readonly classInput = 'mg-c-input';
   private readonly classHasError = 'mg-c-input--has-error';
   private readonly classLabelOnTop = 'mg-c-input--label-on-top';
+  private readonly classHasHeading = 'mg-c-input--has-heading';
+  private readonly classLabelBorderDisplay = 'mg-c-input--label-border-display';
+  private readonly classInputsOnBottom = 'mg-c-input--inputs-on-bottom';
 
   /**************
    * Decorators *
@@ -87,6 +90,38 @@ export class MgInput {
   }
 
   /**
+   * Define heading level, use to define label with associated semantic
+   * You must pair this mode with `labelOnTop`and `fieldset` class
+   */
+  @Prop({ mutable: true }) labelHeadingLevel?: LabelHeadingLevel;
+  @Watch('labelHeadingLevel')
+  watchLabelHeadingLevel(newValue: MgInput['labelHeadingLevel']): void {
+    if (this.isFieldset && this.labelOnTop && labelHeadingLevels.includes(newValue)) {
+      this.element.classList.add(this.classHasHeading);
+    } else {
+      if ((!this.isFieldset && newValue !== undefined) || typeof newValue === 'string') {
+        throw new Error(`<mg-input> prop "labelHeadingLevel" must be used with a fieldset and be one of: ${labelHeadingLevels.join(', ')}. Passed value: ${toString(newValue)}.`);
+      }
+      this.labelHeadingLevel = undefined;
+      this.element.classList.remove(this.classHasHeading);
+    }
+  }
+
+  /**
+   * Define if label border is visible
+   * You must pair this mode with `labelOnTop`and `fieldset` class
+   */
+  @Prop() labelBorderDisplay: boolean = false;
+  @Watch('labelBorderDisplay')
+  watchLabelBorderDisplay(newValue: MgInput['labelBorderDisplay']): void {
+    if (this.isFieldset && this.labelOnTop && newValue) {
+      this.element.classList.add(this.classLabelBorderDisplay);
+    } else {
+      this.element.classList.remove(this.classLabelBorderDisplay);
+    }
+  }
+
+  /**
    * Add a tooltip message next to the input
    */
   @Prop() tooltip?: string;
@@ -129,11 +164,24 @@ export class MgInput {
   @Prop() helpText?: string;
   @Watch('helpText')
   watchHelpText(newValue: MgInput['helpText']): void {
-    if (newValue && !this.isReadonly) {
+    if (isValidString(newValue) && !this.isReadonly) {
       this.renderHelpText();
     } else {
       this.helptextMessageSlotElement?.remove();
       this.helptextMessageSlotElement = undefined;
+    }
+  }
+
+  /**
+   * Display inputs after help-text and error message
+   */
+  @Prop() inputsOnBottom? = false;
+  @Watch('inputsOnBottom')
+  watchInputsOnBottom(newValue: MgInput['inputsOnBottom']): void {
+    if (newValue) {
+      this.element.classList.add(this.classInputsOnBottom);
+    } else {
+      this.element.classList.remove(this.classInputsOnBottom);
     }
   }
 
@@ -159,24 +207,31 @@ export class MgInput {
     // a11y IDs
     const ariaDescribedbyIDs = new Set(this.ariaDescribedbyIDs);
     // Help text
-    if (this.helpText !== undefined) {
+    if (isValidString(this.helpText)) {
       this.renderHelpText();
       if (!ariaDescribedbyIDs.has(this.helpTextId)) ariaDescribedbyIDs.add(this.helpTextId);
     }
 
     // Error Message
-    if (this.errorMessage !== undefined) {
+    if (isValidString(this.errorMessage)) {
       this.renderErrorMessage();
       if (!ariaDescribedbyIDs.has(this.helpTextErrorId)) ariaDescribedbyIDs.add(this.helpTextErrorId);
     }
 
-    this.element.querySelectorAll('input,select,textarea,[role="switch"]').forEach(element => {
-      if (ariaDescribedbyIDs.size > 0) {
-        element.setAttribute('aria-describedby', Array.from(ariaDescribedbyIDs).join(' '));
-      } else {
-        element.removeAttribute('aria-describedby');
-      }
-    });
+    const inputs = this.element.querySelectorAll('input,select,textarea,[role="switch"]');
+    if (inputs.length > 0) {
+      inputs.forEach(element => {
+        if (ariaDescribedbyIDs.size > 0) {
+          element.setAttribute('aria-describedby', Array.from(ariaDescribedbyIDs).join(' '));
+        } else {
+          element.removeAttribute('aria-describedby');
+        }
+      });
+    } else if (this.isFieldset && this.element.querySelector('legend') !== null) {
+      setTimeout(() => {
+        this.element.querySelector('legend').setAttribute('aria-describedby', Array.from(ariaDescribedbyIDs).join(' '));
+      });
+    }
   }
 
   /**
@@ -258,7 +313,7 @@ export class MgInput {
     });
 
     // create label element
-    const label = document.createElement('span');
+    const label = document.createElement(labelHeadingLevels.includes(this.labelHeadingLevel) ? this.labelHeadingLevel : 'span');
     label.classList.add('mg-c-input-title__text');
     label.textContent = this.label;
 
@@ -310,6 +365,9 @@ export class MgInput {
     this.watchTooltipPosition(this.tooltipPosition);
     this.watchHelpText(this.helpText);
     this.watchErrorMessage(this.errorMessage);
+    this.watchInputsOnBottom(this.inputsOnBottom);
+    this.watchLabelHeadingLevel(this.labelHeadingLevel);
+    this.watchLabelBorderDisplay(this.labelBorderDisplay);
   }
 
   /**
@@ -333,6 +391,36 @@ export class MgInput {
   );
 
   /**
+   * Get input container element
+   * @returns ordered elements
+   */
+  private inputContainerElements = (): HTMLElement[] => {
+    const elements = [
+      this.helptextMessageSlotElement && (
+        <div class="mg-c-input__help-text">
+          <slot name={this.slotHelpText}></slot>
+        </div>
+      ),
+      !this.isDisabled && this.errorMessage && (
+        <div class="mg-c-input__error" aria-live="assertive">
+          <slot name={this.slotError}></slot>
+        </div>
+      ),
+    ];
+    const inputSlot = (
+      <div class="mg-c-input__input">
+        <slot></slot>
+        {this.tooltip && !this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
+      </div>
+    );
+    if (this.inputsOnBottom) {
+      return [...elements, inputSlot];
+    } else {
+      return [inputSlot, ...elements];
+    }
+  };
+
+  /**
    * Render
    * @returns HTML Element
    */
@@ -344,22 +432,7 @@ export class MgInput {
           <slot name={this.slotLabel}></slot>
           {this.tooltip && (this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}
         </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-            {this.tooltip && !this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
-          </div>
-          {this.helptextMessageSlotElement && (
-            <div class="mg-c-input__help-text">
-              <slot name={this.slotHelpText}></slot>
-            </div>
-          )}
-          {!this.isDisabled && this.errorMessage && (
-            <div class="mg-c-input__error" aria-live="assertive">
-              <slot name={this.slotError}></slot>
-            </div>
-          )}
-        </div>
+        <div class="mg-c-input__input-container">{this.inputContainerElements()}</div>
       </Host>
     );
   }

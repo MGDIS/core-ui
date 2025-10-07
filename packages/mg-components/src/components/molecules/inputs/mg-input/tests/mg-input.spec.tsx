@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
-import { classDisabled, classFieldset, classReadonly, tooltipPositions } from '../mg-input.conf';
+import { classDisabled, classFieldset, classReadonly, labelHeadingLevels, tooltipPositions } from '../mg-input.conf';
 
 const baseArgs = {
   label: 'label',
@@ -15,6 +15,11 @@ const helpText = 'Hello joker';
 
 const tooltip = 'Batman is a DC Comics license';
 
+const getSlottedContent = () => [
+  <mg-input-radio identifier="mg-input-radio" label="mg-input-radio label" items={['batman', 'robin', 'joker', 'bane']}></mg-input-radio>,
+  <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+];
+
 const getPage = (args = {}, slot?) => {
   const props = { ...baseArgs, ...args };
 
@@ -25,6 +30,9 @@ const getPage = (args = {}, slot?) => {
 };
 
 describe('mg-input', () => {
+  beforeEach(() => {
+    jest.useFakeTimers({ legacyFakeTimers: true });
+  });
   describe('render', () => {
     test.each([
       {},
@@ -36,6 +44,9 @@ describe('mg-input', () => {
       { errorMessage },
       // fieldset
       { class: classFieldset },
+      ...labelHeadingLevels.map(labelHeadingLevel => ({ class: classFieldset, labelHeadingLevel, labelOnTop: true })),
+      { class: classFieldset, labelBorderDisplay: true, labelOnTop: true },
+      { class: classFieldset, inputsOnBottom: true },
       // disabled
       { class: classDisabled },
       { class: classDisabled, required: true, helpText },
@@ -103,11 +114,16 @@ describe('mg-input', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test('Should update "error" slot', async () => {
-      const page = await getPage();
+    test.each([undefined, classFieldset])('Should update "error" slot', async newClass => {
+      const page = await getPage({ class: newClass }, newClass !== undefined ? getSlottedContent() : undefined);
+
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
       const element = page.doc.querySelector('mg-input');
 
       element.errorMessage = errorMessage;
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -118,11 +134,16 @@ describe('mg-input', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test('Should update "help-text" slot', async () => {
-      const page = await getPage();
+    test.each([undefined, classFieldset])('Should update "help-text" slot', async newClass => {
+      const page = await getPage({ class: newClass }, newClass !== undefined ? getSlottedContent() : undefined);
+
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
       const element = page.doc.querySelector('mg-input');
 
       element.helpText = helpText;
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -141,6 +162,17 @@ describe('mg-input', () => {
         await getPage({ identifier });
       } catch (err) {
         expect(err.message).toEqual(`<mg-input> prop "identifier" is required and must be a string. Passed value: ${identifier}.`);
+      }
+    });
+
+    test.each([' ', 'batman'])('Should not render with invalid "labelHeadingLevel" property: %s', async labelHeadingLevel => {
+      expect.assertions(1);
+      try {
+        await getPage({ ...baseArgs, labelHeadingLevel });
+      } catch (err) {
+        expect(err.message).toEqual(
+          `<mg-input> prop "labelHeadingLevel" must be used with a fieldset and be one of: ${labelHeadingLevels.join(', ')}. Passed value: ${labelHeadingLevel}.`,
+        );
       }
     });
 
