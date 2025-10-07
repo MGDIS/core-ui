@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2025-10-07-10-43_Testy-Turquoise-Blue-Toad)
+
+### Packages released
+
+- [helpers changelog](packages/helpers/CHANGELOG.md)
+- [img changelog](packages/img/CHANGELOG.md)
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+- [sanitize-html changelog](packages/sanitize-html/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2025-09-02-15-54_Icy-Indigo-2)
 
 ### Packages released
