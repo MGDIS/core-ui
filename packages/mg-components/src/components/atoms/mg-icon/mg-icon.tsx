@@ -59,14 +59,22 @@ export class MgIcon {
   @Prop() variant?: IconVariantType;
   @Watch('variant')
   validateVariant(newValue: MgIcon['variant'], oldValue?: MgIcon['variant']): void {
+    // Remove old variant if exists
+    if (oldValue !== undefined) {
+      this.classCollection.delete(`mg-c-icon--variant-${oldValue}`);
+    }
+    // Set new variant
     const variant = newValue === 'neutral' ? 'dark' : newValue;
     if (variant !== undefined) {
-      if (![...variants, 'dark'].includes(variant)) throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
-      else {
-        this.setDefaultVariantStyle();
-        if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--variant-${oldValue}`);
+      if (![...variants, 'dark'].includes(variant)) {
+        throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${toString(newValue)}.`);
+      } else {
+        this.variantStyle ??= 'background';
         this.classCollection.add(`mg-c-icon--variant-${variant}`);
       }
+    } else {
+      // remove variantStyle if variant is undefined
+      this.variantStyle = undefined;
     }
   }
 
@@ -80,10 +88,15 @@ export class MgIcon {
   @Prop({ mutable: true }) variantStyle: IconVariantStyleType;
   @Watch('variantStyle')
   validateVariantStyle(newValue: MgIcon['variantStyle'], oldValue?: MgIcon['variantStyle']): void {
+    // Remove old variantStyle if exists
+    if (oldValue !== undefined) {
+      this.classCollection.delete(`mg-c-icon--variant-style-${oldValue}`);
+    }
+    // Set new variantStyle
     if (newValue !== undefined) {
-      if (!variantStyles.includes(newValue)) throw new Error(`<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}. Passed value: ${toString(newValue)}.`);
-      else {
-        if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--variant-style-${oldValue}`);
+      if (!variantStyles.includes(newValue)) {
+        throw new Error(`<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}. Passed value: ${toString(newValue)}.`);
+      } else {
         this.classCollection.add(`mg-c-icon--variant-style-${newValue}`);
       }
     }
@@ -106,14 +119,6 @@ export class MgIcon {
    * Component classes
    */
   @State() classCollection: ClassList = new ClassList(['mg-c-icon']);
-
-  /**
-   * Method to set default varianStyle props
-   * needeed has stencil doesn't know that props is mutated when updated in prop watcher
-   */
-  private setDefaultVariantStyle = (): void => {
-    if (this.variantStyle === undefined) this.variantStyle = 'background';
-  };
 
   /**
    * Render icon in shadowroot

@@ -1,5 +1,22 @@
 # @mgdis/mg-components
 
+## 6.17.0
+
+### Minor Changes
+
+- 15b33ac: [**`<mg-input-date>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-date--docs) & [**`<mg-input-numeric>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-numeric--docs) remove informations in help text with min/max attributes
+- 81b1a61: [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs) added `neutral` variant
+
+### Patch Changes
+
+- 8d5a3c3: [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs) remove variant classes when undefined
+- 745242e: Update dependencies
+- Updated dependencies [745242e]
+- Updated dependencies [81b1a61]
+  - @mgdis/core-ui-helpers@1.0.5
+  - @mgdis/styles@2.12.0
+  - @mgdis/img@2.5.1
+
 ## 6.16.0
 
 ### Minor Changes

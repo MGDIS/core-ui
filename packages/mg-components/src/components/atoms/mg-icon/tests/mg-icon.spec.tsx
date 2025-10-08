@@ -42,13 +42,19 @@ describe('mg-icon', () => {
   });
 
   test.each([
-    { initialProps: { icon: 'chevron-up' }, initialClass: ['.mg-c-icon--chevron-up'], nextProps: { icon: 'chevron-down' }, nextClass: ['.mg-c-icon--chevron-down'] },
-    { initialProps: { icon: 'chevron-up' }, initialClass: ['.mg-c-icon--size-medium'], nextProps: { size: 'large' }, nextClass: ['.mg-c-icon--size-large'] },
+    { initialProps: { icon: 'chevron-up' }, initialClass: ['mg-c-icon--chevron-up'], nextProps: { icon: 'chevron-down' }, nextClass: ['mg-c-icon--chevron-down'] },
+    { initialProps: { icon: 'chevron-up' }, initialClass: ['mg-c-icon--size-medium'], nextProps: { size: 'large' }, nextClass: ['mg-c-icon--size-large'] },
     {
       initialProps: { icon: 'chevron-up', variant: 'success', variantStyle: 'icon' },
-      initialClass: ['.mg-c-icon--variant-success', '.mg-c-icon--variant-style-icon'],
+      initialClass: ['mg-c-icon--variant-success', 'mg-c-icon--variant-style-icon'],
       nextProps: { variant: 'danger', variantStyle: 'background' },
-      nextClass: ['.mg-c-icon--variant-danger', '.mg-c-icon--variant-style-background'],
+      nextClass: ['mg-c-icon--variant-danger', 'mg-c-icon--variant-style-background'],
+    },
+    {
+      initialProps: { icon: 'chevron-up', variant: 'success' },
+      initialClass: ['mg-c-icon--variant-success', 'mg-c-icon--variant-style-background'],
+      nextProps: { variant: undefined },
+      nextClass: [],
     },
   ])('Should replace classes on icon changes', async ({ initialProps, initialClass, nextProps, nextClass }) => {
     const page = await getPage(initialProps);
@@ -56,11 +62,11 @@ describe('mg-icon', () => {
 
     // validate inital state
     initialClass.forEach(className => {
-      expect(element.shadowRoot.querySelector(className)).not.toBeNull();
+      expect(element.shadowRoot.firstElementChild.classList.contains(className)).toEqual(true);
     });
 
     nextClass.forEach(className => {
-      expect(element.shadowRoot.querySelector(className)).toBeNull();
+      expect(element.shadowRoot.firstElementChild.classList.contains(className)).toEqual(false);
     });
 
     // update props
@@ -72,12 +78,13 @@ describe('mg-icon', () => {
 
     // validate next state
     initialClass.forEach(className => {
-      expect(element.shadowRoot.querySelector(className)).toBeNull();
+      expect(element.shadowRoot.firstElementChild.classList.contains(className)).toEqual(false);
     });
 
     nextClass.forEach(className => {
-      expect(element.shadowRoot.querySelector(className)).not.toBeNull();
+      expect(element.shadowRoot.firstElementChild.classList.contains(className)).toEqual(true);
     });
+
     expect(page.root).toMatchSnapshot();
   });
 
@@ -89,7 +96,7 @@ describe('mg-icon', () => {
     }));
     const variantError = { props: { icon: 'check-circle', variant: 'blu' }, error: `<mg-icon> prop "variant" must be one of: ${variants.join(', ')}. Passed value: blu.` };
     const variantStyleError = {
-      props: { icon: 'check-circle', variantStyle: 'blu' },
+      props: { icon: 'check-circle', variant: 'success', variantStyle: 'blu' },
       error: `<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}. Passed value: blu.`,
     };
 

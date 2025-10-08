@@ -1,5 +1,15 @@
 # @mgdis/styles
 
+## 2.12.0
+
+### Minor Changes
+
+- 81b1a61: [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs) added `neutral` variant
+
+### Patch Changes
+
+- 745242e: Update dependencies
+
 ## 2.11.0
 
 ### Minor Changes
