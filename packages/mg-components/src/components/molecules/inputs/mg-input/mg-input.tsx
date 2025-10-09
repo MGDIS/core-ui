@@ -219,7 +219,7 @@ export class MgInput {
     }
 
     const inputs = this.element.querySelectorAll('input,select,textarea,[role="switch"]');
-    if (inputs.length > 0) {
+    if (inputs !== null) {
       inputs.forEach(element => {
         if (ariaDescribedbyIDs.size > 0) {
           element.setAttribute('aria-describedby', Array.from(ariaDescribedbyIDs).join(' '));
