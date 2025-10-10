@@ -84,7 +84,7 @@ export class MgMenu {
    */
   @Listen('item-loaded')
   updateItemListener(event: CustomEvent & { target: HTMLMgMenuItemElement }): void {
-    // `<mg-action-more>` element don't need `data-has-focus` attribute
+    // `<mg-action-more>` element doesn't need `data-has-focus` attribute
     if (event.target.nodeName === 'MG-ACTION-MORE') {
       return;
     }
