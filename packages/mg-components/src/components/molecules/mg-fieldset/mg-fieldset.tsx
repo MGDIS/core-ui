@@ -1,6 +1,6 @@
 import { Component, Element, h, Method, Prop, State, Watch } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/core-ui-helpers/dist/utils';
-import { classReadonly, HTMLMgInputsElement, LabelHeadingLevel } from '../inputs/mg-input/mg-input.conf';
+import { classReadonly, HTMLMgInputsElement, labelHeading } from '../inputs/mg-input/mg-input.conf';
 
 @Component({
   tag: 'mg-fieldset',
@@ -45,9 +45,9 @@ export class MgFieldset {
   @Prop() legendHide = false;
 
   /**
-   * Define heading level, use to define label with associated semantic
+   * Define legend heading, use to define legend with associated semantic
    */
-  @Prop() legendHeadingLevel?: LabelHeadingLevel;
+  @Prop() legendHeading?: labelHeading;
 
   /**
    * Define if legend border is visible.
@@ -55,8 +55,8 @@ export class MgFieldset {
   @Prop() legendBorderDisplay = false;
   @Watch('legendBorderDisplay')
   watchLegendBorderDisplay(newValue: MgFieldset['legendBorderDisplay']): void {
-    if (newValue && !isValidString(this.legendHeadingLevel)) {
-      throw new Error('<mg-input> prop "legendBorderDisplay" must not be paired with the prop "legendHeadingLevel".');
+    if (newValue && !isValidString(this.legendHeading)) {
+      throw new Error('<mg-input> prop "legendBorderDisplay" must not be paired with the prop "legendHeading".');
     }
   }
 
@@ -198,10 +198,10 @@ export class MgFieldset {
         identifier={this.identifier}
         class={this.classCollection.join()}
         labelOnTop={!this.legendHide}
-        labelHeadingLevel={this.legendHeadingLevel}
-        labelBorderDisplay={this.legendHeadingLevel && this.legendBorderDisplay}
+        labelHeading={this.legendHeading}
+        labelBorderDisplay={this.legendHeading && this.legendBorderDisplay}
         labelHide={this.legendHide}
-        inputsOnBottom={this.legendHeadingLevel !== undefined}
+        inputsOnBottom={this.legendHeading !== undefined}
         tooltip={this.tooltip}
         tooltipPosition={'label'}
         helpText={this.helpText}

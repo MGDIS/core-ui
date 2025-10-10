@@ -6,7 +6,7 @@ import { requiredMessageStatus } from '../mg-form.conf';
 const createHTML = (args, slot) => `<mg-form ${renderAttributes(args)}>${slot}</mg-form>`;
 
 const fieldset = `
-  <mg-fieldset identifier="mg-fieldset" legend="mg-fieldset legend" legend-heading-level="h5" legend-border-display>
+  <mg-fieldset identifier="mg-fieldset" legend="mg-fieldset legend" legend-heading="h5" legend-border-display>
     <mg-input-text identifier="mg-fieldset-mg-input-text" label="mg-fieldset mg-input-text label"></mg-input-text>
     <mg-input-numeric identifier="mg-fieldset-mg-input-numeric" label="mg-fieldset mg-input-numeric label"></mg-input-numeric>
   </mg-fieldset>`;

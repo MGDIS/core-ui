@@ -26,9 +26,7 @@ exports[`mg-input render Should render with args {
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -54,177 +52,7 @@ exports[`mg-input render Should render with args {
   <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
     <!---->
     <legend class="mg-c-input-title" id="identifier-title">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
-    </legend>
-  </mg-input-title>
-</mg-input>
-`;
-
-exports[`mg-input render Should render with args {
-  class: 'mg-c-input--fieldset',
-  labelHeadingLevel: 'h1',
-  labelOnTop: true
-}: 1`] = `
-<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-on-top" role="group">
-  <template shadowrootmode="open">
-    <div class="mg-c-input__title">
-      <slot name="label"></slot>
-    </div>
-    <div class="mg-c-input__input-container">
-      <div class="mg-c-input__input">
-        <slot></slot>
-      </div>
-    </div>
-  </template>
-  <input id="identifier" type="file">
-  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-    <!---->
-    <legend class="mg-c-input-title" id="identifier-title">
-      <h1 class="mg-c-input-title__text">
-        label
-      </h1>
-    </legend>
-  </mg-input-title>
-</mg-input>
-`;
-
-exports[`mg-input render Should render with args {
-  class: 'mg-c-input--fieldset',
-  labelHeadingLevel: 'h2',
-  labelOnTop: true
-}: 1`] = `
-<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-on-top" role="group">
-  <template shadowrootmode="open">
-    <div class="mg-c-input__title">
-      <slot name="label"></slot>
-    </div>
-    <div class="mg-c-input__input-container">
-      <div class="mg-c-input__input">
-        <slot></slot>
-      </div>
-    </div>
-  </template>
-  <input id="identifier" type="file">
-  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-    <!---->
-    <legend class="mg-c-input-title" id="identifier-title">
-      <h2 class="mg-c-input-title__text">
-        label
-      </h2>
-    </legend>
-  </mg-input-title>
-</mg-input>
-`;
-
-exports[`mg-input render Should render with args {
-  class: 'mg-c-input--fieldset',
-  labelHeadingLevel: 'h3',
-  labelOnTop: true
-}: 1`] = `
-<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-on-top" role="group">
-  <template shadowrootmode="open">
-    <div class="mg-c-input__title">
-      <slot name="label"></slot>
-    </div>
-    <div class="mg-c-input__input-container">
-      <div class="mg-c-input__input">
-        <slot></slot>
-      </div>
-    </div>
-  </template>
-  <input id="identifier" type="file">
-  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-    <!---->
-    <legend class="mg-c-input-title" id="identifier-title">
-      <h3 class="mg-c-input-title__text">
-        label
-      </h3>
-    </legend>
-  </mg-input-title>
-</mg-input>
-`;
-
-exports[`mg-input render Should render with args {
-  class: 'mg-c-input--fieldset',
-  labelHeadingLevel: 'h4',
-  labelOnTop: true
-}: 1`] = `
-<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-on-top" role="group">
-  <template shadowrootmode="open">
-    <div class="mg-c-input__title">
-      <slot name="label"></slot>
-    </div>
-    <div class="mg-c-input__input-container">
-      <div class="mg-c-input__input">
-        <slot></slot>
-      </div>
-    </div>
-  </template>
-  <input id="identifier" type="file">
-  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-    <!---->
-    <legend class="mg-c-input-title" id="identifier-title">
-      <h4 class="mg-c-input-title__text">
-        label
-      </h4>
-    </legend>
-  </mg-input-title>
-</mg-input>
-`;
-
-exports[`mg-input render Should render with args {
-  class: 'mg-c-input--fieldset',
-  labelHeadingLevel: 'h5',
-  labelOnTop: true
-}: 1`] = `
-<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-on-top" role="group">
-  <template shadowrootmode="open">
-    <div class="mg-c-input__title">
-      <slot name="label"></slot>
-    </div>
-    <div class="mg-c-input__input-container">
-      <div class="mg-c-input__input">
-        <slot></slot>
-      </div>
-    </div>
-  </template>
-  <input id="identifier" type="file">
-  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-    <!---->
-    <legend class="mg-c-input-title" id="identifier-title">
-      <h5 class="mg-c-input-title__text">
-        label
-      </h5>
-    </legend>
-  </mg-input-title>
-</mg-input>
-`;
-
-exports[`mg-input render Should render with args {
-  class: 'mg-c-input--fieldset',
-  labelHeadingLevel: 'h6',
-  labelOnTop: true
-}: 1`] = `
-<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-on-top" role="group">
-  <template shadowrootmode="open">
-    <div class="mg-c-input__title">
-      <slot name="label"></slot>
-    </div>
-    <div class="mg-c-input__input-container">
-      <div class="mg-c-input__input">
-        <slot></slot>
-      </div>
-    </div>
-  </template>
-  <input id="identifier" type="file">
-  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-    <!---->
-    <legend class="mg-c-input-title" id="identifier-title">
-      <h6 class="mg-c-input-title__text">
-        label
-      </h6>
+      label
     </legend>
   </mg-input-title>
 </mg-input>
@@ -253,9 +81,7 @@ exports[`mg-input render Should render with args {
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -277,9 +103,7 @@ exports[`mg-input render Should render with args { ariaDescribedbyIDs: 'hello ba
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -301,9 +125,7 @@ exports[`mg-input render Should render with args { ariaDescribedbyIDs: [Array] }
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -325,9 +147,7 @@ exports[`mg-input render Should render with args { ariaDescribedbyIDs: [Array] }
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -349,9 +169,7 @@ exports[`mg-input render Should render with args { class: '' }: 1`] = `
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -373,9 +191,7 @@ exports[`mg-input render Should render with args { class: 'mg-c-input--disabled'
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -400,9 +216,7 @@ exports[`mg-input render Should render with args { class: 'mg-c-input--disabled'
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -424,9 +238,7 @@ exports[`mg-input render Should render with args { class: 'mg-c-input--fieldset'
   <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
     <!---->
     <legend class="mg-c-input-title" id="identifier-title">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </legend>
   </mg-input-title>
 </mg-input>
@@ -448,9 +260,151 @@ exports[`mg-input render Should render with args { class: 'mg-c-input--fieldset'
   <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
     <!---->
     <legend class="mg-c-input-title" id="identifier-title">
-      <span class="mg-c-input-title__text">
+      label
+    </legend>
+  </mg-input-title>
+</mg-input>
+`;
+
+exports[`mg-input render Should render with args { class: 'mg-c-input--fieldset', labelHeading: 'h1', labelOnTop: true }: 1`] = `
+<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-on-top" role="group">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  <input id="identifier" type="file">
+  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+    <!---->
+    <legend class="mg-c-input-title" id="identifier-title">
+      <h1 class="mg-c-input-title__text">
         label
-      </span>
+      </h1>
+    </legend>
+  </mg-input-title>
+</mg-input>
+`;
+
+exports[`mg-input render Should render with args { class: 'mg-c-input--fieldset', labelHeading: 'h2', labelOnTop: true }: 1`] = `
+<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-on-top" role="group">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  <input id="identifier" type="file">
+  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+    <!---->
+    <legend class="mg-c-input-title" id="identifier-title">
+      <h2 class="mg-c-input-title__text">
+        label
+      </h2>
+    </legend>
+  </mg-input-title>
+</mg-input>
+`;
+
+exports[`mg-input render Should render with args { class: 'mg-c-input--fieldset', labelHeading: 'h3', labelOnTop: true }: 1`] = `
+<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-on-top" role="group">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  <input id="identifier" type="file">
+  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+    <!---->
+    <legend class="mg-c-input-title" id="identifier-title">
+      <h3 class="mg-c-input-title__text">
+        label
+      </h3>
+    </legend>
+  </mg-input-title>
+</mg-input>
+`;
+
+exports[`mg-input render Should render with args { class: 'mg-c-input--fieldset', labelHeading: 'h4', labelOnTop: true }: 1`] = `
+<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-on-top" role="group">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  <input id="identifier" type="file">
+  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+    <!---->
+    <legend class="mg-c-input-title" id="identifier-title">
+      <h4 class="mg-c-input-title__text">
+        label
+      </h4>
+    </legend>
+  </mg-input-title>
+</mg-input>
+`;
+
+exports[`mg-input render Should render with args { class: 'mg-c-input--fieldset', labelHeading: 'h5', labelOnTop: true }: 1`] = `
+<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-on-top" role="group">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  <input id="identifier" type="file">
+  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+    <!---->
+    <legend class="mg-c-input-title" id="identifier-title">
+      <h5 class="mg-c-input-title__text">
+        label
+      </h5>
+    </legend>
+  </mg-input-title>
+</mg-input>
+`;
+
+exports[`mg-input render Should render with args { class: 'mg-c-input--fieldset', labelHeading: 'h6', labelOnTop: true }: 1`] = `
+<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-on-top" role="group">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  <input id="identifier" type="file">
+  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+    <!---->
+    <legend class="mg-c-input-title" id="identifier-title">
+      <h6 class="mg-c-input-title__text">
+        label
+      </h6>
     </legend>
   </mg-input-title>
 </mg-input>
@@ -478,9 +432,7 @@ exports[`mg-input render Should render with args { errorMessage: 'This is an err
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -508,9 +460,7 @@ exports[`mg-input render Should render with args { helpText: 'Hello joker' }: 1`
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -532,9 +482,7 @@ exports[`mg-input render Should render with args { labelHide: true }: 1`] = `
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -556,9 +504,7 @@ exports[`mg-input render Should render with args { labelOnTop: true }: 1`] = `
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -580,9 +526,7 @@ exports[`mg-input render Should render with args { required: true }: 1`] = `
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
       <span class="mg-c-input-title__required">
         <span class="mg-u-is-asterisk">
           *
@@ -612,9 +556,7 @@ exports[`mg-input render Should render with args { tooltip: 'Batman is a DC Comi
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -639,9 +581,7 @@ exports[`mg-input render Should render with args { tooltip: 'Batman is a DC Comi
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -663,9 +603,7 @@ exports[`mg-input render Should render with args {}: 1`] = `
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -693,9 +631,7 @@ exports[`mg-input render Should update "error" slot 1`] = `
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -717,9 +653,7 @@ exports[`mg-input render Should update "error" slot 2`] = `
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -748,9 +682,7 @@ exports[`mg-input render Should update "error" slot 3`] = `
   <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
     <!---->
     <legend aria-describedby="identifier-error" class="mg-c-input-title" id="identifier-title">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </legend>
   </mg-input-title>
 </mg-input>
@@ -773,9 +705,7 @@ exports[`mg-input render Should update "error" slot 4`] = `
   <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
     <!---->
     <legend class="mg-c-input-title" id="identifier-title">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </legend>
   </mg-input-title>
 </mg-input>
@@ -800,9 +730,7 @@ exports[`mg-input render Should update "help-text" slot 1`] = `
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
   <div id="identifier-help-text" slot="help-text">
@@ -827,9 +755,7 @@ exports[`mg-input render Should update "help-text" slot 2`] = `
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </label>
   </mg-input-title>
 </mg-input>
@@ -855,9 +781,7 @@ exports[`mg-input render Should update "help-text" slot 3`] = `
   <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
     <!---->
     <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </legend>
   </mg-input-title>
   <div id="identifier-help-text" slot="help-text">
@@ -883,9 +807,7 @@ exports[`mg-input render Should update "help-text" slot 4`] = `
   <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
     <!---->
     <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
+      label
     </legend>
   </mg-input-title>
 </mg-input>
@@ -907,9 +829,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "fieldset" prop 1`
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        batman
-      </span>
+      batman
     </label>
   </mg-input-title>
 </mg-input>
@@ -931,9 +851,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "fieldset" prop 2`
   <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
     <!---->
     <legend class="mg-c-input-title" id="identifier-title">
-      <span class="mg-c-input-title__text">
-        batman
-      </span>
+      batman
     </legend>
   </mg-input-title>
 </mg-input>
@@ -955,9 +873,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "label" slot 1`] =
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        batman
-      </span>
+      batman
     </label>
   </mg-input-title>
 </mg-input>
@@ -979,9 +895,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "label" slot 2`] =
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        joker
-      </span>
+      joker
     </label>
   </mg-input-title>
 </mg-input>
@@ -1003,9 +917,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "readonly" prop 1`
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        batman
-      </span>
+      batman
     </label>
   </mg-input-title>
 </mg-input>
@@ -1027,9 +939,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "readonly" prop 2`
   <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
     <!---->
     <span class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        batman
-      </span>
+      batman
     </span>
   </mg-input-title>
 </mg-input>
@@ -1051,9 +961,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "required" prop 1`
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        batman
-      </span>
+      batman
       <span class="mg-c-input-title__required">
         <span class="mg-u-is-asterisk">
           *
@@ -1080,9 +988,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "required" prop 2`
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
     <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        batman
-      </span>
+      batman
     </label>
   </mg-input-title>
 </mg-input>

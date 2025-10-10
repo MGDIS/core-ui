@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { test } from '../../../../utils/playwright.fixture';
 import { MgFieldset } from '../mg-fieldset';
-import { LabelHeadingLevel } from '../../inputs/mg-input/mg-input.conf';
+import { labelHeading } from '../../inputs/mg-input/mg-input.conf';
 
 type PropsType = Partial<MgFieldset>;
 
@@ -22,7 +22,7 @@ const helpText = 'Hello joker';
 
 const tooltip = 'Batman is a DC Comics license';
 
-const legendHeadingLevel = 'h3' as LabelHeadingLevel;
+const legendHeading = 'h3' as labelHeading;
 
 const inputs = `
   <mg-input-text identifier="mg-input-text" label="mg-input-text label" value="batman"></mg-input-text>
@@ -54,17 +54,17 @@ test.describe('mg-fieldset', () => {
   [
     {},
     { legendHide: true },
-    { legendHeadingLevel },
-    { legendHeadingLevel, legendBorderDisplay: true },
-    { legendHeadingLevel, legendBorderDisplay: true, helpText },
+    { legendHeading },
+    { legendHeading, legendBorderDisplay: true },
+    { legendHeading, legendBorderDisplay: true, helpText },
     { readonly: true },
-    { readonly: true, legendHeadingLevel },
-    { readonly: true, legendHeadingLevel, legendBorderDisplay: true },
-    { readonly: true, legendHeadingLevel, legendBorderDisplay: true, helpText },
+    { readonly: true, legendHeading },
+    { readonly: true, legendHeading, legendBorderDisplay: true },
+    { readonly: true, legendHeading, legendBorderDisplay: true, helpText },
     { disabled: true },
     { tooltip },
-    { tooltip, legendHeadingLevel, legendBorderDisplay: true },
-    { tooltip, legendHeadingLevel, legendBorderDisplay: true, helpText },
+    { tooltip, legendHeading, legendBorderDisplay: true },
+    { tooltip, legendHeading, legendBorderDisplay: true, helpText },
   ].forEach((args, identifier) => {
     test(`Render template ${renderAttributes({ ...args, identifier })}`, async ({ page }) => {
       await setPageContent(page, args, getSlot(inputs, inputsScript));
@@ -74,7 +74,7 @@ test.describe('mg-fieldset', () => {
   });
 
   test.describe('errors', () => {
-    [{}, { legendHide: true }, { legendHeadingLevel }, { legendHeadingLevel, legendBorderDisplay: true }].forEach((args, identifier) => {
+    [{}, { legendHide: true }, { legendHeading }, { legendHeading, legendBorderDisplay: true }].forEach((args, identifier) => {
       test(`Render template ${renderAttributes({ ...args, identifier })}`, async ({ page }) => {
         await setPageContent(page, { ...args }, getSlot(inputs, inputsScript));
 
@@ -90,7 +90,7 @@ test.describe('mg-fieldset', () => {
   });
 
   test.describe('help-text', () => {
-    [{}, { legendHide: true }, { legendHeadingLevel }, { legendHeadingLevel, legendBorderDisplay: true }].forEach((args, identifier) => {
+    [{}, { legendHide: true }, { legendHeading }, { legendHeading, legendBorderDisplay: true }].forEach((args, identifier) => {
       test(`Render template ${renderAttributes({ ...args, identifier, helpText })}`, async ({ page }) => {
         await setPageContent(page, { ...args, helpText }, getSlot(inputs, inputsScript));
 

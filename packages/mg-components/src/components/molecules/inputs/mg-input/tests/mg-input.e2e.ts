@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { renderProperties, renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { test } from '../../../../../utils/playwright.fixture';
 import { MgInput } from '../mg-input';
-import { LabelHeadingLevel, TooltipPosition, classFieldset, classReadonly, labelHeadingLevels } from '../mg-input.conf';
+import { labelHeading, TooltipPosition, classFieldset, classReadonly, labelHeadings } from '../mg-input.conf';
 
 type PropsType = Partial<MgInput & { class: string }>;
 
@@ -39,7 +39,7 @@ test.describe('mg-input', () => {
     { helpText },
     { errorMessage },
     { helpText, errorMessage },
-    ...labelHeadingLevels.map(labelHeadingLevel => ({ labelHeadingLevel, class: classFieldset, labelOnTop: true })),
+    ...labelHeadings.map(labelHeading => ({ labelHeading, class: classFieldset, labelOnTop: true })),
     { inputsOnBottom: true, class: classFieldset, labelOnTop: true },
   ].forEach((args, identifier) => {
     test(`Render without tooltip ${renderAttributes({ ...args, identifier })}`, async ({ page }) => {
@@ -60,10 +60,10 @@ test.describe('mg-input', () => {
 
   // labelBorderDisplay
   [true, false].forEach(labelBorderDisplay => {
-    [undefined, 'h3'].forEach((labelHeadingLevel: LabelHeadingLevel) => {
+    [undefined, 'h3'].forEach((labelHeading: labelHeading) => {
       [false, true].forEach(inputsOnBottom => {
         [{}, { helpText }, { errorMessage }, { errorMessage, helpText }].forEach((args, identifier) => {
-          const props = { ...args, labelHeadingLevel, inputsOnBottom, labelBorderDisplay, identifier: identifier.toString(), class: classFieldset, labelOnTop: true };
+          const props = { ...args, labelHeading, inputsOnBottom, labelBorderDisplay, identifier: identifier.toString(), class: classFieldset, labelOnTop: true };
           test(`Render with ${renderAttributes(props)}`, async ({ page }) => {
             await setPageContent(page, props);
 

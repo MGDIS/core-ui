@@ -10,7 +10,7 @@ import { VariantStyleType, VariantType } from "./components/molecules/mg-alert/m
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 import { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
-import { LabelHeadingLevel, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+import { labelHeading, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
@@ -42,7 +42,7 @@ export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/m
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 export { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 export { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
-export { LabelHeadingLevel, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+export { labelHeading, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
@@ -251,9 +251,9 @@ export namespace Components {
          */
         "legendBorderDisplay": boolean;
         /**
-          * Define heading level, use to define label with associated semantic
+          * Define legend heading, use to define legend with associated semantic
          */
-        "legendHeadingLevel"?: LabelHeadingLevel;
+        "legendHeading"?: labelHeading;
         /**
           * Define if legend is visible
           * @default false
@@ -399,9 +399,9 @@ export namespace Components {
          */
         "labelBorderDisplay": boolean;
         /**
-          * Define heading level, use to define label with associated semantic You must pair this mode with `labelOnTop`and `fieldset` class
+          * Define label heading, use to define label with associated semantic You must pair this mode with `labelOnTop`and `fieldset` class
          */
-        "labelHeadingLevel"?: LabelHeadingLevel;
+        "labelHeading"?: labelHeading;
         /**
           * Define if label is visible
           * @default false
@@ -2892,9 +2892,9 @@ declare namespace LocalJSX {
          */
         "legendBorderDisplay"?: boolean;
         /**
-          * Define heading level, use to define label with associated semantic
+          * Define legend heading, use to define legend with associated semantic
          */
-        "legendHeadingLevel"?: LabelHeadingLevel;
+        "legendHeading"?: labelHeading;
         /**
           * Define if legend is visible
           * @default false
@@ -3039,9 +3039,9 @@ declare namespace LocalJSX {
          */
         "labelBorderDisplay"?: boolean;
         /**
-          * Define heading level, use to define label with associated semantic You must pair this mode with `labelOnTop`and `fieldset` class
+          * Define label heading, use to define label with associated semantic You must pair this mode with `labelOnTop`and `fieldset` class
          */
-        "labelHeadingLevel"?: LabelHeadingLevel;
+        "labelHeading"?: labelHeading;
         /**
           * Define if label is visible
           * @default false

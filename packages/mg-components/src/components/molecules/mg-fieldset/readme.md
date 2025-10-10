@@ -12,7 +12,7 @@
 | `identifier` _(required)_ | `identifier`            | Identifier is used for the element ID (id is a reserved prop in Stencil.js)  | `string`                                       | `undefined`       |
 | `legend` _(required)_     | `legend`                | Fieldset legend                                                              | `string`                                       | `undefined`       |
 | `legendBorderDisplay`     | `legend-border-display` | Define if legend border is visible.                                          | `boolean`                                      | `false`           |
-| `legendHeadingLevel`      | `legend-heading-level`  | Define heading level, use to define label with associated semantic           | `"h1" \| "h2" \| "h3" \| "h4" \| "h5" \| "h6"` | `undefined`       |
+| `legendHeading`           | `legend-heading`        | Define legend heading, use to define legend with associated semantic         | `"h1" \| "h2" \| "h3" \| "h4" \| "h5" \| "h6"` | `undefined`       |
 | `legendHide`              | `legend-hide`           | Define if legend is visible                                                  | `boolean`                                      | `false`           |
 | `name`                    | `name`                  | Fieldset name If not set the value equals the identifier                     | `string`                                       | `this.identifier` |
 | `readonly`                | `readonly`              | Define if inputs are readonly                                                | `boolean`                                      | `false`           |

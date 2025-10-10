@@ -1,6 +1,6 @@
 import { Component, h, Prop, Element, Watch, Host, State } from '@stencil/core';
 import { isValideID, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
-import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, classDisabled, classVerticalList, labelHeadingLevels, LabelHeadingLevel } from './mg-input.conf';
+import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, classDisabled, classVerticalList, labelHeadings, labelHeading } from './mg-input.conf';
 
 /**
  * @slot - Input content
@@ -90,19 +90,19 @@ export class MgInput {
   }
 
   /**
-   * Define heading level, use to define label with associated semantic
+   * Define label heading, use to define label with associated semantic
    * You must pair this mode with `labelOnTop`and `fieldset` class
    */
-  @Prop({ mutable: true }) labelHeadingLevel?: LabelHeadingLevel;
-  @Watch('labelHeadingLevel')
-  watchLabelHeadingLevel(newValue: MgInput['labelHeadingLevel']): void {
-    if (this.isFieldset && this.labelOnTop && labelHeadingLevels.includes(newValue)) {
+  @Prop({ mutable: true }) labelHeading?: labelHeading;
+  @Watch('labelHeading')
+  watchlabelHeading(newValue: MgInput['labelHeading']): void {
+    if (this.isFieldset && this.labelOnTop && labelHeadings.includes(newValue)) {
       this.element.classList.add(this.classHasHeading);
     } else {
       if ((!this.isFieldset && newValue !== undefined) || typeof newValue === 'string') {
-        throw new Error(`<mg-input> prop "labelHeadingLevel" must be used with a fieldset and be one of: ${labelHeadingLevels.join(', ')}. Passed value: ${toString(newValue)}.`);
+        throw new Error(`<mg-input> prop "labelHeading" must be used with a fieldset and be one of: ${labelHeadings.join(', ')}. Passed value: ${toString(newValue)}.`);
       }
-      this.labelHeadingLevel = undefined;
+      this.labelHeading = undefined;
       this.element.classList.remove(this.classHasHeading);
     }
   }
@@ -219,19 +219,17 @@ export class MgInput {
     }
 
     const inputs = this.element.querySelectorAll('input,select,textarea,[role="switch"]');
-    if (inputs !== null) {
-      inputs.forEach(element => {
-        if (ariaDescribedbyIDs.size > 0) {
-          element.setAttribute('aria-describedby', Array.from(ariaDescribedbyIDs).join(' '));
-        } else {
-          element.removeAttribute('aria-describedby');
-        }
-      });
-    } else if (this.isFieldset && this.element.querySelector('legend') !== null) {
-      setTimeout(() => {
-        this.element.querySelector('legend').setAttribute('aria-describedby', Array.from(ariaDescribedbyIDs).join(' '));
-      });
-    }
+    inputs.forEach((element: HTMLElement) => {
+      this.updateElementAriaDescribedby(element, ariaDescribedbyIDs);
+    });
+
+    // use timeout to await for legend render for componentWillLoad hook
+    setTimeout(() => {
+      const legend = this.element.querySelector('legend');
+      if (legend !== null) {
+        this.updateElementAriaDescribedby(legend, ariaDescribedbyIDs);
+      }
+    });
   }
 
   /**
@@ -292,6 +290,19 @@ export class MgInput {
    ************/
 
   /**
+   * Update element aria-describedby
+   * @param element - element to update
+   * @param ariaDescribedbyIDs - ariaDescribedbyIDs references
+   */
+  private updateElementAriaDescribedby = (element: HTMLElement, ariaDescribedbyIDs: Set<string>): void => {
+    if (ariaDescribedbyIDs.size > 0) {
+      element.setAttribute('aria-describedby', Array.from(ariaDescribedbyIDs).join(' '));
+    } else {
+      element.removeAttribute('aria-describedby');
+    }
+  };
+
+  /**
    * Render input label
    */
   private renderLabel(): void {
@@ -313,12 +324,22 @@ export class MgInput {
     });
 
     // create label element
-    const label = document.createElement(labelHeadingLevels.includes(this.labelHeadingLevel) ? this.labelHeadingLevel : 'span');
-    label.classList.add('mg-c-input-title__text');
-    label.textContent = this.label;
+    if (labelHeadings.includes(this.labelHeading)) {
+      let label = this.element.shadowRoot.querySelector(this.labelHeading);
+      if (label === null) {
+        label = document.createElement(this.labelHeading);
+      }
+      label.classList.add('mg-c-input-title__text');
+      label.textContent = this.label;
 
-    labelSlotElement.appendChild(label);
+      labelSlotElement.appendChild(label);
+    } else {
+      labelSlotElement.textContent = this.label;
+    }
     this.element.appendChild(labelSlotElement);
+
+    // update aria-describedby
+    this.watchAriaDescribedbyIDs();
   }
 
   /**
@@ -366,7 +387,7 @@ export class MgInput {
     this.watchHelpText(this.helpText);
     this.watchErrorMessage(this.errorMessage);
     this.watchInputsOnBottom(this.inputsOnBottom);
-    this.watchLabelHeadingLevel(this.labelHeadingLevel);
+    this.watchlabelHeading(this.labelHeading);
     this.watchLabelBorderDisplay(this.labelBorderDisplay);
   }
 

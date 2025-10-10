@@ -70,8 +70,8 @@ describe('mg-fieldset', () => {
       {},
       { legendHide: true },
       { legendOnTop: true },
-      { legendHeadingLevel: 'h1' },
-      { legendHeadingLevel: 'h1', legendBorderDisplay: true },
+      { legendHeading: 'h1' },
+      { legendHeading: 'h1', legendBorderDisplay: true },
       { readonly: true },
       { disabled: true },
       { tooltip: 'My Tooltip Message' },
@@ -118,13 +118,13 @@ describe('mg-fieldset', () => {
   });
 
   describe('errors', () => {
-    test('Should not render with invalid prop combination: "legendBorderDisplay" and "legendHeadingLevel"', async () => {
+    test('Should not render with invalid prop combination: "legendBorderDisplay" and "legendHeading"', async () => {
       expect.assertions(1);
       const slot = getSlottedContent();
       try {
         await getPage({ ...baseArgs, legendBorderDisplay: true }, slot);
       } catch (err) {
-        expect(err.message).toEqual('<mg-input> prop "legendBorderDisplay" must not be paired with the prop "legendHeadingLevel".');
+        expect(err.message).toEqual('<mg-input> prop "legendBorderDisplay" must not be paired with the prop "legendHeading".');
       }
     });
   });

@@ -13,11 +13,11 @@ export const tooltipPositions = ['input', 'label'] as const;
 export type TooltipPosition = (typeof tooltipPositions)[number];
 
 /**
- * Possible label heading level
+ * Possible label headings
  */
-export const labelHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
+export const labelHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 
-export type LabelHeadingLevel = (typeof labelHeadingLevels)[number];
+export type labelHeading = (typeof labelHeadings)[number];
 
 /**
  * Base interface for common methods

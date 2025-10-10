@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
-import { classDisabled, classFieldset, classReadonly, labelHeadingLevels, tooltipPositions } from '../mg-input.conf';
+import { classDisabled, classFieldset, classReadonly, labelHeadings, tooltipPositions } from '../mg-input.conf';
 
 const baseArgs = {
   label: 'label',
@@ -44,7 +44,7 @@ describe('mg-input', () => {
       { errorMessage },
       // fieldset
       { class: classFieldset },
-      ...labelHeadingLevels.map(labelHeadingLevel => ({ class: classFieldset, labelHeadingLevel, labelOnTop: true })),
+      ...labelHeadings.map(labelHeading => ({ class: classFieldset, labelHeading, labelOnTop: true })),
       { class: classFieldset, labelBorderDisplay: true, labelOnTop: true },
       { class: classFieldset, inputsOnBottom: true },
       // disabled
@@ -165,14 +165,12 @@ describe('mg-input', () => {
       }
     });
 
-    test.each([' ', 'batman'])('Should not render with invalid "labelHeadingLevel" property: %s', async labelHeadingLevel => {
+    test.each([' ', 'batman'])('Should not render with invalid "labelHeading" property: %s', async labelHeading => {
       expect.assertions(1);
       try {
-        await getPage({ ...baseArgs, labelHeadingLevel });
+        await getPage({ ...baseArgs, labelHeading });
       } catch (err) {
-        expect(err.message).toEqual(
-          `<mg-input> prop "labelHeadingLevel" must be used with a fieldset and be one of: ${labelHeadingLevels.join(', ')}. Passed value: ${labelHeadingLevel}.`,
-        );
+        expect(err.message).toEqual(`<mg-input> prop "labelHeading" must be used with a fieldset and be one of: ${labelHeadings.join(', ')}. Passed value: ${labelHeading}.`);
       }
     });
 
