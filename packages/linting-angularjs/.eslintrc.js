@@ -37,8 +37,12 @@ module.exports = {
       extends: ['plugin:@html-eslint/recommended', 'plugin:@mgdis/html/recommended'],
       rules: {
         // Best Practices
+        '@html-eslint/no-inline-styles': 'error',
         '@html-eslint/require-doctype': 'off', // Component templates do not require a doctype.
         '@html-eslint/require-closing-tags': 'off', // This rule is in conflict with Prettier.
+        // Accessibility
+        '@html-eslint/require-frame-title': 'error',
+        '@html-eslint/require-img-alt': 'error',
         // Style - Disabling rules in favor of Prettier
         '@html-eslint/attrs-newline': 'off',
         '@html-eslint/element-newline': 'off',

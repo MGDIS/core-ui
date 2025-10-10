@@ -16,6 +16,7 @@ stages:
 .changes:
   helpers: 'packages/helpers/**/*'
   img: 'packages/img/**/*'
+  linting-angularjs: 'packages/linting-angularjs/**/*'
   linting-stencil: 'packages/linting-stencil/**/*'
   linting-styles: 'packages/linting-styles/**/*'
   mg-components: 'packages/mg-components/**/*'
@@ -34,6 +35,9 @@ stages:
   img:
     changes:
       - !reference [.changes, img]
+  linting-angularjs:
+    changes:
+      - !reference [.changes, linting-angularjs]
   linting-stencil:
     changes:
       - !reference [.changes, linting-stencil]
@@ -431,6 +435,23 @@ notification-center:artifact:
   script:
     - pnpm build --filter=@mgdis/notification-center
     - cd packages/notification-center
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+#####################
+# linting-angularjs #
+#####################
+
+linting-angularjs:artifact:
+  stage: artifacts
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, linting-angularjs, changes]
+  extends:
+    - .install:dependencies
+  script:
+    - cd packages/linting-angularjs
     - !reference [.artifact, script]
   needs:
     - lint
