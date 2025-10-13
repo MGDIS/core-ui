@@ -170,6 +170,28 @@ test.describe('mg-input-select', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
+  test(`Should fit with a very long items`, async ({ page }) => {
+    await page.setViewportSize({ width: 400, height: 100 });
+    const componentArgs = {
+      ...baseArgs,
+      items: [
+        'batman',
+        'joker',
+        'bane',
+        'Voici un exemple de libellé extrêmement long, qui dépasse largement la largeur normale prévue pour le champ mg-input-select et qui va mettre à l’épreuve la capacité du composant à gérer des contenus hors de sa zone de confort habituelle, tout en testant l’affichage, la gestion du texte tronqué et l’accessibilité de la sélection dans des cas extrêmes.',
+      ],
+    };
+    const html = createHTML(componentArgs);
+    await page.addStyleTag({ content: '.e2e-screenshot{width: 300px;}' });
+    await page.setContent(html);
+    await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
+
+    await page.locator('mg-input-select.hydrated').waitFor();
+
+    // mg-input-select sizing should be based on the e2e-screenshot container rather than the body element
+    await expect(page.locator('body')).toHaveScreenshot();
+  });
+
   test.describe('Responsive', () => {
     [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
       test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
