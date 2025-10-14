@@ -84,6 +84,10 @@ export class MgMenu {
    */
   @Listen('item-loaded')
   updateItemListener(event: CustomEvent & { target: HTMLMgMenuItemElement }): void {
+    // `<mg-action-more>` element doesn't need `data-has-focus` attribute
+    if (event.target.nodeName === 'MG-ACTION-MORE') {
+      return;
+    }
     const itemToWatch = event.target.nodeName === 'MG-ITEM-MORE' ? event.target.shadowRoot.querySelector('mg-menu-item') : event.target;
 
     ['click', 'focus'].forEach(trigger => {
