@@ -149,14 +149,16 @@ export class MgForm {
   @Event({ eventName: 'form-reset' }) formReset: EventEmitter<boolean>;
 
   /**
-   * Display input error if it exists.
+   * Display inputs/fieldsets errors if it exists.
    */
   @Method()
   async displayError(): Promise<void> {
     if (!this.readonly) {
-      this.mgInputs.forEach(input => {
+      const mgFieldsets = Array.from(this.element.querySelectorAll('*')).filter((node: Node) => node.nodeName.startsWith('MG-FIELDSET')) as HTMLMgFieldsetElement[];
+      [...mgFieldsets, ...this.mgInputs].forEach(input => {
         input.displayError?.();
       });
+
       this.checkValidity();
     }
   }

@@ -5,6 +5,20 @@ import { requiredMessageStatus } from '../mg-form.conf';
 
 const createHTML = (args, slot) => `<mg-form ${renderAttributes(args)}>${slot}</mg-form>`;
 
+const fieldset = `
+  <mg-fieldset identifier="mg-fieldset" legend="mg-fieldset legend" legend-heading="h5" legend-border-display>
+    <mg-input-text identifier="mg-fieldset-mg-input-text" label="mg-fieldset mg-input-text label"></mg-input-text>
+    <mg-input-numeric identifier="mg-fieldset-mg-input-numeric" label="mg-fieldset mg-input-numeric label"></mg-input-numeric>
+  </mg-fieldset>`;
+
+const fieldsetScript = `
+  const mgFieldsetMgInputText = document.querySelector('mg-fieldset > mg-input-text');
+  const mgFieldsetMgInputNumeric = document.querySelector('mg-fieldset > mg-input-numeric');`;
+
+const fieldsetScriptSetValues = `
+  mgFieldsetMgInputText.value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+  mgFieldsetMgInputNumeric.value = 1234567890;`;
+
 const inputs = `<mg-input-checkbox identifier="mg-input-checkbox" label="mg-input-checkbox label"></mg-input-checkbox>
 <mg-input-combobox identifier="mg-input-combobox" label="mg-input-combobox label" items-label="tests"></mg-input-combobox>
 <mg-input-date identifier="mg-input-date" label="mg-input-date label"></mg-input-date>
@@ -192,6 +206,18 @@ test.describe('mg-form', () => {
         await page.locator('mg-form').evaluate((elm: HTMLMgFormElement) => {
           elm.setAttribute('style', '--mg-c-form-inputs-title-width: 15rem;');
         });
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+
+      test('Should render with fieldset', async ({ page }) => {
+        const html = createHTML(args, [inputs, fieldset].join(''));
+        await page.setContent(html);
+        await page.addScriptTag({ content: inputsScript });
+        await page.addScriptTag({ content: fieldsetScript });
+        await page.addScriptTag({ content: inputsScriptSetValues });
+        await page.addScriptTag({ content: fieldsetScriptSetValues });
+        await page.addScriptTag({ content: inputsScriptRequiredSome });
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });

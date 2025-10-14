@@ -114,7 +114,7 @@ Here we have a `form-valid` event listener on the `mg-form` to determine if the 
 
 ### `displayError() => Promise<void>`
 
-Display input error if it exists.
+Display inputs/fieldsets errors if it exists.
 
 #### Returns
 
