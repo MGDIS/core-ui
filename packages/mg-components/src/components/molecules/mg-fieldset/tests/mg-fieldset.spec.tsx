@@ -124,7 +124,7 @@ describe('mg-fieldset', () => {
       try {
         await getPage({ ...baseArgs, legendBorderDisplay: true }, slot);
       } catch (err) {
-        expect(err.message).toEqual('<mg-input> prop "legendBorderDisplay" must not be paired with the prop "legendHeading".');
+        expect(err.message).toEqual('<mg-fieldset> prop "legendBorderDisplay" must not be paired with the prop "legendHeading".');
       }
     });
   });

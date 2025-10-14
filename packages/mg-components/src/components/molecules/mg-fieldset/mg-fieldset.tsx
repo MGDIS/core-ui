@@ -56,7 +56,7 @@ export class MgFieldset {
   @Watch('legendBorderDisplay')
   watchLegendBorderDisplay(newValue: MgFieldset['legendBorderDisplay']): void {
     if (newValue && !isValidString(this.legendHeading)) {
-      throw new Error('<mg-input> prop "legendBorderDisplay" must not be paired with the prop "legendHeading".');
+      throw new Error('<mg-fieldset> prop "legendBorderDisplay" must not be paired with the prop "legendHeading".');
     }
   }
 
