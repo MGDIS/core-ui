@@ -328,11 +328,10 @@ export class MgInput {
       let label = this.element.shadowRoot.querySelector(this.labelHeading);
       if (label === null) {
         label = document.createElement(this.labelHeading);
+        label.classList.add('mg-c-input-title__text');
+        labelSlotElement.appendChild(label);
       }
-      label.classList.add('mg-c-input-title__text');
       label.textContent = this.label;
-
-      labelSlotElement.appendChild(label);
     } else {
       labelSlotElement.textContent = this.label;
     }

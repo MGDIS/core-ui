@@ -857,7 +857,65 @@ exports[`mg-input render Should update "mg-input-title" slot, "fieldset" prop 2`
 </mg-input>
 `;
 
-exports[`mg-input render Should update "mg-input-title" slot, "label" slot 1`] = `
+exports[`mg-input render Should update "mg-input-title" slot, "label" slot ({
+  class: 'mg-c-input--fieldset',
+  labelBorderDisplay: true,
+  labelOnTop: true,
+  labelHeading: 'h3'
+}) 1`] = `
+<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-border-display mg-c-input--label-on-top" role="group">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  <input id="identifier" type="file">
+  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+    <!---->
+    <legend class="mg-c-input-title" id="identifier-title">
+      <h3 class="mg-c-input-title__text">
+        batman
+      </h3>
+    </legend>
+  </mg-input-title>
+</mg-input>
+`;
+
+exports[`mg-input render Should update "mg-input-title" slot, "label" slot ({
+  class: 'mg-c-input--fieldset',
+  labelBorderDisplay: true,
+  labelOnTop: true,
+  labelHeading: 'h3'
+}) 2`] = `
+<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-heading mg-c-input--label-border-display mg-c-input--label-on-top" role="group">
+  <template shadowrootmode="open">
+    <div class="mg-c-input__title">
+      <slot name="label"></slot>
+    </div>
+    <div class="mg-c-input__input-container">
+      <div class="mg-c-input__input">
+        <slot></slot>
+      </div>
+    </div>
+  </template>
+  <input id="identifier" type="file">
+  <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+    <!---->
+    <legend class="mg-c-input-title" id="identifier-title">
+      <h3 class="mg-c-input-title__text">
+        joker
+      </h3>
+    </legend>
+  </mg-input-title>
+</mg-input>
+`;
+
+exports[`mg-input render Should update "mg-input-title" slot, "label" slot ({}) 1`] = `
 <mg-input class="mg-c-input">
   <template shadowrootmode="open">
     <div class="mg-c-input__title">
@@ -879,7 +937,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "label" slot 1`] =
 </mg-input>
 `;
 
-exports[`mg-input render Should update "mg-input-title" slot, "label" slot 2`] = `
+exports[`mg-input render Should update "mg-input-title" slot, "label" slot ({}) 2`] = `
 <mg-input class="mg-c-input">
   <template shadowrootmode="open">
     <div class="mg-c-input__title">

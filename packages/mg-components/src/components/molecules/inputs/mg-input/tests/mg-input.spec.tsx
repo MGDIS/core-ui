@@ -70,16 +70,19 @@ describe('mg-input', () => {
       expect(root).toMatchSnapshot();
     });
 
-    test('Should update "mg-input-title" slot, "label" slot', async () => {
-      const page = await getPage({ label: 'batman' });
-      expect(page.root).toMatchSnapshot();
-      const element = page.doc.querySelector('mg-input');
+    test.each([{}, { class: classFieldset, labelBorderDisplay: true, labelOnTop: true, labelHeading: 'h3' }])(
+      'Should update "mg-input-title" slot, "label" slot (%s)',
+      async props => {
+        const page = await getPage({ label: 'batman', ...props });
+        expect(page.root).toMatchSnapshot();
+        const element = page.doc.querySelector('mg-input');
 
-      element.label = 'joker';
-      await page.waitForChanges();
+        element.label = 'joker';
+        await page.waitForChanges();
 
-      expect(page.root).toMatchSnapshot();
-    });
+        expect(page.root).toMatchSnapshot();
+      },
+    );
 
     test('Should update "mg-input-title" slot, "required" prop', async () => {
       const page = await getPage({ label: 'batman', required: true });
