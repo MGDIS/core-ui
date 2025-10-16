@@ -281,4 +281,21 @@ describe('mg-menu', () => {
       expect(page.root).toMatchSnapshot();
     });
   });
+  test('Should NOT attach the "item-loaded" listener to the "mg-action-more" element.', async () => {
+    const page = await getPage({ label: 'batman menu' }, { submenu: false, itemMore: false, siblingMenu: false });
+
+    const mgMenuItem = page.doc.querySelector('mg-menu-item');
+    const spyListener = jest.spyOn(mgMenuItem, 'addEventListener');
+
+    // override mg-menu-item nodeName to test with an mg-action-action node
+    Object.defineProperty(mgMenuItem, 'nodeName', {
+      value: 'MG-ACTION-MORE',
+    });
+
+    mgMenuItem.dispatchEvent(new CustomEvent('item-loaded', { bubbles: true }));
+
+    await page.waitForChanges();
+
+    expect(spyListener).not.toHaveBeenCalled();
+  });
 });

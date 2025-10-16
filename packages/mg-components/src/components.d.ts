@@ -10,10 +10,10 @@ import { VariantStyleType, VariantType } from "./components/molecules/mg-alert/m
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 import { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
+import { labelHeading, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
-import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Direction, Option } from "./types";
 import { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
@@ -42,10 +42,10 @@ export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/m
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 export { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 export { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
+export { labelHeading, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
-export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Direction, Option } from "./types";
 export { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
@@ -223,6 +223,62 @@ export namespace Components {
          */
         "fullWidth": boolean;
     }
+    interface MgFieldset {
+        /**
+          * Define if inputs are disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Display inputs error if it exists.
+         */
+        "displayError": () => Promise<void>;
+        /**
+          * Add a help text under the fieldset, usually expected data format and example
+         */
+        "helpText"?: string;
+        /**
+          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
+         */
+        "identifier": string;
+        /**
+          * Fieldset legend
+         */
+        "legend": string;
+        /**
+          * Define if legend border is visible.
+          * @default false
+         */
+        "legendBorderDisplay": boolean;
+        /**
+          * Define legend heading, use to define legend with associated semantic
+         */
+        "legendHeading"?: labelHeading;
+        /**
+          * Define if legend is visible
+          * @default false
+         */
+        "legendHide": boolean;
+        /**
+          * Fieldset name If not set the value equals the identifier
+          * @default this.identifier
+         */
+        "name": string;
+        /**
+          * Define if inputs are readonly
+          * @default false
+         */
+        "readonly": boolean;
+        /**
+          * Component is not a candidate for constraint validation. You can use this method to define the `errorMessage` and set the `valid` state to `false`.
+          * @param errorMessage - error message to display. Use a valid `string` to define an error or `undefined` to delete the error
+         */
+        "setCustomValidity": (errorMessage?: string) => Promise<void>;
+        /**
+          * Add a tooltip message next to the fieldset
+         */
+        "tooltip"?: string;
+    }
     interface MgForm {
         /**
           * Define `<form/>` element aria role see more about aria roles use case: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
@@ -234,7 +290,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Display input error if it exists.
+          * Display inputs/fieldsets errors if it exists.
          */
         "displayError": () => Promise<void>;
         /**
@@ -329,9 +385,23 @@ export namespace Components {
          */
         "identifier": string;
         /**
+          * Display inputs after help-text and error message
+          * @default false
+         */
+        "inputsOnBottom"?: boolean;
+        /**
           * Define input label
          */
         "label": string;
+        /**
+          * Define if label border is visible You must pair this mode with `labelOnTop`and `fieldset` class
+          * @default false
+         */
+        "labelBorderDisplay": boolean;
+        /**
+          * Define label heading, use to define label with associated semantic You must pair this mode with `labelOnTop`and `fieldset` class
+         */
+        "labelHeading"?: labelHeading;
         /**
           * Define if label is visible
           * @default false
@@ -2130,6 +2200,12 @@ declare global {
         prototype: HTMLMgDividerElement;
         new (): HTMLMgDividerElement;
     };
+    interface HTMLMgFieldsetElement extends Components.MgFieldset, HTMLStencilElement {
+    }
+    var HTMLMgFieldsetElement: {
+        prototype: HTMLMgFieldsetElement;
+        new (): HTMLMgFieldsetElement;
+    };
     interface HTMLMgFormElementEventMap {
         "form-valid": HTMLMgFormElement['valid'];
         "form-submit": boolean;
@@ -2592,6 +2668,7 @@ declare global {
         "mg-character-left": HTMLMgCharacterLeftElement;
         "mg-details": HTMLMgDetailsElement;
         "mg-divider": HTMLMgDividerElement;
+        "mg-fieldset": HTMLMgFieldsetElement;
         "mg-form": HTMLMgFormElement;
         "mg-icon": HTMLMgIconElement;
         "mg-illustrated-message": HTMLMgIllustratedMessageElement;
@@ -2802,6 +2879,53 @@ declare namespace LocalJSX {
          */
         "fullWidth"?: boolean;
     }
+    interface MgFieldset {
+        /**
+          * Define if inputs are disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Add a help text under the fieldset, usually expected data format and example
+         */
+        "helpText"?: string;
+        /**
+          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
+         */
+        "identifier": string;
+        /**
+          * Fieldset legend
+         */
+        "legend": string;
+        /**
+          * Define if legend border is visible.
+          * @default false
+         */
+        "legendBorderDisplay"?: boolean;
+        /**
+          * Define legend heading, use to define legend with associated semantic
+         */
+        "legendHeading"?: labelHeading;
+        /**
+          * Define if legend is visible
+          * @default false
+         */
+        "legendHide"?: boolean;
+        /**
+          * Fieldset name If not set the value equals the identifier
+          * @default this.identifier
+         */
+        "name"?: string;
+        /**
+          * Define if inputs are readonly
+          * @default false
+         */
+        "readonly"?: boolean;
+        /**
+          * Add a tooltip message next to the fieldset
+         */
+        "tooltip"?: string;
+    }
     interface MgForm {
         /**
           * Define `<form/>` element aria role see more about aria roles use case: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
@@ -2912,9 +3036,23 @@ declare namespace LocalJSX {
          */
         "identifier": string;
         /**
+          * Display inputs after help-text and error message
+          * @default false
+         */
+        "inputsOnBottom"?: boolean;
+        /**
           * Define input label
          */
         "label": string;
+        /**
+          * Define if label border is visible You must pair this mode with `labelOnTop`and `fieldset` class
+          * @default false
+         */
+        "labelBorderDisplay"?: boolean;
+        /**
+          * Define label heading, use to define label with associated semantic You must pair this mode with `labelOnTop`and `fieldset` class
+         */
+        "labelHeading"?: labelHeading;
         /**
           * Define if label is visible
           * @default false
@@ -4478,6 +4616,7 @@ declare namespace LocalJSX {
         "mg-character-left": MgCharacterLeft;
         "mg-details": MgDetails;
         "mg-divider": MgDivider;
+        "mg-fieldset": MgFieldset;
         "mg-form": MgForm;
         "mg-icon": MgIcon;
         "mg-illustrated-message": MgIllustratedMessage;
@@ -4526,6 +4665,7 @@ declare module "@stencil/core" {
             "mg-character-left": LocalJSX.MgCharacterLeft & JSXBase.HTMLAttributes<HTMLMgCharacterLeftElement>;
             "mg-details": LocalJSX.MgDetails & JSXBase.HTMLAttributes<HTMLMgDetailsElement>;
             "mg-divider": LocalJSX.MgDivider & JSXBase.HTMLAttributes<HTMLMgDividerElement>;
+            "mg-fieldset": LocalJSX.MgFieldset & JSXBase.HTMLAttributes<HTMLMgFieldsetElement>;
             "mg-form": LocalJSX.MgForm & JSXBase.HTMLAttributes<HTMLMgFormElement>;
             "mg-icon": LocalJSX.MgIcon & JSXBase.HTMLAttributes<HTMLMgIconElement>;
             "mg-illustrated-message": LocalJSX.MgIllustratedMessage & JSXBase.HTMLAttributes<HTMLMgIllustratedMessageElement>;

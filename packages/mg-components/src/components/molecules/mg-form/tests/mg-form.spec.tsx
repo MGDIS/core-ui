@@ -19,6 +19,7 @@ import { requiredMessageStatus, roles } from '../mg-form.conf';
 import { MgInput } from '../../inputs/mg-input/mg-input';
 import { MgInputRichTextEditor } from '../../inputs/mg-input-rich-text-editor/mg-input-rich-text-editor';
 import { MgInputCombobox } from '../../inputs/mg-input-combobox/mg-input-combobox';
+import { MgFieldset } from '../../mg-fieldset/mg-fieldset';
 
 const getPage = async (args, content?) => {
   const page = await newSpecPage({
@@ -38,6 +39,7 @@ const getPage = async (args, content?) => {
       MgButton,
       MgInputTitle,
       MgInput,
+      MgFieldset,
     ],
     template: () => <mg-form {...args}>{content}</mg-form>,
   });
@@ -56,6 +58,18 @@ const getPage = async (args, content?) => {
 
   return page;
 };
+
+const getFieldsetContent = () => (
+  <mg-fieldset
+    {...{
+      legend: 'legend',
+      identifier: 'fieldset',
+    }}
+  >
+    <mg-input-radio identifier="mg-input-radio" label="mg-input-radio label" items={['batman', 'robin', 'joker', 'bane']}></mg-input-radio>
+    <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>
+  </mg-fieldset>
+);
 
 const getSlottedContent = () => [
   <mg-input-checkbox
@@ -165,7 +179,7 @@ describe('mg-form', () => {
   test.each([false, true])('Should display components errors (readonly: %s)', async readonly => {
     const args = { identifier: 'identifier', readonly };
 
-    const slot = getSlottedContent();
+    const slot = [...getSlottedContent(), getFieldsetContent()];
     // Set all elements required
     slot.forEach(s => {
       s.$attrs$.required = true;
@@ -183,6 +197,13 @@ describe('mg-form', () => {
         if (input.nodeName.includes('CHECKBOX')) setMgInputChecboxeInvalid(input as HTMLMgInputCheckboxElement);
         setCheckValitidy(input);
       });
+
+      // set fieldset error
+      const mgFieldset = page.doc.querySelector('mg-fieldset');
+      await mgFieldset.setCustomValidity('this is a custom error');
+      await page.waitForChanges();
+
+      jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
       await mgForm.displayError();
