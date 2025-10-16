@@ -191,34 +191,53 @@ describe('mg-input-password', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test.each([
-    {
-      valid: true,
-      errorMessage: 'Override error',
+  test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
+    "should display override error with setError component's public method (%s)",
+    async ({ valid, lock }) => {
+      const getErrorMessage = (element: HTMLMgInputPasswordElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
+
+      const customErrorMessage = 'Override error';
+      const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
+
+      expect(page.root).toMatchSnapshot();
+
+      const element = page.doc.querySelector('mg-input-password');
+      const input = element.shadowRoot.querySelector('input');
+
+      //mock validity
+      input.checkValidity = jest.fn(() => false);
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          valueMissing: true,
+        })),
+      });
+
+      await element.setError(valid, customErrorMessage, lock);
+
+      await page.waitForChanges();
+
+      if (valid) {
+        expect(getErrorMessage(element)).toEqual(undefined);
+      } else {
+        expect(getErrorMessage(element)).toEqual(customErrorMessage);
+      }
+      expect(page.root).toMatchSnapshot();
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      if (lock) {
+        if (valid) {
+          expect(getErrorMessage(element)).toEqual(undefined);
+        } else {
+          expect(getErrorMessage(element)).toEqual(customErrorMessage);
+        }
+      } else {
+        expect(getErrorMessage(element)).toEqual('This field is required.');
+      }
+      expect(page.root).toMatchSnapshot();
     },
-    {
-      valid: false,
-      errorMessage: 'Override error',
-    },
-  ])("should display override error with setError component's public method", async params => {
-    const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
-
-    expect(page.root).toMatchSnapshot();
-
-    const element = page.doc.querySelector('mg-input-password');
-    const input = element.shadowRoot.querySelector('input');
-
-    //mock validity
-    Object.defineProperty(input, 'validity', {
-      get: () => ({}),
-    });
-
-    await element.setError(params.valid, params.errorMessage);
-
-    await page.waitForChanges();
-
-    expect(page.root).toMatchSnapshot();
-  });
+  );
 
   test.each([
     {
@@ -438,12 +457,12 @@ describe('mg-input-password', () => {
       expect(element.value).toEqual('');
     });
 
-    test('Should reset error message when error is displayed', async () => {
+    test.each([true, false])('Should reset displayed error, lock %s', async lock => {
       const page = await getPage({ label: 'label', identifier: 'identifier' });
       const element = page.doc.querySelector('mg-input-password');
 
       // Set error state manually
-      await element.setError(false, "Message d'erreur de test");
+      await element.setError(false, "Message d'erreur de test", lock);
       await page.waitForChanges();
 
       // Verify initial state
@@ -456,6 +475,7 @@ describe('mg-input-password', () => {
 
       expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify reset state
+      expect(element.shadowRoot.querySelector('#identifier-error')?.textContent).toEqual(undefined);
       expect(page.root).toMatchSnapshot();
     });
 

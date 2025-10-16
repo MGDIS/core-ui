@@ -300,6 +300,33 @@ describe('mg-input-toggle', () => {
       expect(page.root).toMatchSnapshot();
     });
 
+    test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
+      "should display override error with setError component's public method (%s)",
+      async ({ valid, lock }) => {
+        const getErrorMessage = (element: HTMLMgInputToggleElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
+
+        const customErrorMessage = 'Override error';
+        const page = await getPage({ ...defaultProps });
+
+        expect(page.root).toMatchSnapshot();
+
+        const element = page.doc.querySelector('mg-input-toggle');
+        const spyInputValid = jest.spyOn(page.rootInstance.inputValid, 'emit');
+
+        await element.setError(valid, customErrorMessage, lock);
+
+        await page.waitForChanges();
+
+        if (valid) {
+          expect(getErrorMessage(element)).toEqual(undefined);
+        } else {
+          expect(getErrorMessage(element)).toEqual(customErrorMessage);
+        }
+        expect(spyInputValid).toHaveBeenCalledTimes(1);
+        expect(page.root).toMatchSnapshot();
+      },
+    );
+
     test.each([
       {
         valid: '',
@@ -383,7 +410,7 @@ describe('mg-input-toggle', () => {
       expect(mgInputToggle.value).toEqual(false);
     });
 
-    test('Should reset error message when error is displayed', async () => {
+    test.each([true, false])('Should reset displayed error, lock %s', async lock => {
       const page = await getPage({
         ...defaultProps,
         items: [
@@ -391,10 +418,10 @@ describe('mg-input-toggle', () => {
           { title: 'Oui', value: true },
         ],
       });
-      const mgInputToggle = page.doc.querySelector('mg-input-toggle');
+      const element = page.doc.querySelector('mg-input-toggle');
 
       // Add an error message
-      await mgInputToggle.setError(false, "Message d'erreur de test");
+      await element.setError(false, "Message d'erreur de test", lock);
       await page.waitForChanges();
 
       // Verify initial state
@@ -402,11 +429,12 @@ describe('mg-input-toggle', () => {
 
       const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
-      await mgInputToggle.reset();
+      await element.reset();
       await page.waitForChanges();
 
       expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify reset state
+      expect(element.shadowRoot.querySelector('#identifier-error')?.textContent).toEqual(undefined);
       expect(page.root).toMatchSnapshot();
     });
 

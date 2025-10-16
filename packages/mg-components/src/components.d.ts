@@ -434,8 +434,9 @@ export namespace Components {
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
+          * @param errorMessageLock - lock the error message and validity state
          */
-        "setError": (valid: MgInputCheckbox["valid"], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputCheckbox["valid"], errorMessage: string, errorMessageLock?: boolean) => Promise<void>;
         /**
           * Set focus on input.
          */
@@ -594,8 +595,9 @@ export namespace Components {
           * Set an error and display a custom error message. This method can be used to set the component's error state from its concombobox by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given concombobox. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
+          * @param errorMessageLock - lock the error message and validity state
          */
-        "setError": (valid: MgInputCombobox["valid"], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputCombobox["valid"], errorMessage: string, errorMessageLock?: boolean) => Promise<void>;
         /**
           * Set focus on input.
          */
@@ -686,8 +688,9 @@ export namespace Components {
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
+          * @param errorMessageLock - lock the error message and validity state
          */
-        "setError": (valid: MgInputDate["valid"], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputDate["valid"], errorMessage: string, errorMessageLock?: boolean) => Promise<void>;
         /**
           * Set focus on input.
          */
@@ -805,8 +808,9 @@ export namespace Components {
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
+          * @param errorMessageLock - lock the error message and validity state
          */
-        "setError": (valid: MgInputNumeric["valid"], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputNumeric["valid"], errorMessage: string, errorMessageLock?: boolean) => Promise<void>;
         /**
           * Set focus on input.
          */
@@ -915,8 +919,9 @@ export namespace Components {
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
+          * @param errorMessageLock - lock the error message and validity state
          */
-        "setError": (valid: MgInputPassword["valid"], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputPassword["valid"], errorMessage: string, errorMessageLock?: boolean) => Promise<void>;
         /**
           * Set focus on input.
          */
@@ -1007,8 +1012,9 @@ export namespace Components {
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
+          * @param errorMessageLock - lock the error message and validity state
          */
-        "setError": (valid: MgInputRadio["valid"], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputRadio["valid"], errorMessage: string, errorMessageLock?: boolean) => Promise<void>;
         /**
           * Set focus on input.
          */
@@ -1116,8 +1122,9 @@ export namespace Components {
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
+          * @param errorMessageLock - lock the error message and validity state
          */
-        "setError": (valid: MgInputRichTextEditor["valid"], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputRichTextEditor["valid"], errorMessage: string, errorMessageLock?: boolean) => Promise<void>;
         /**
           * Set focus on input.
          */
@@ -1222,8 +1229,9 @@ export namespace Components {
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
+          * @param errorMessageLock - lock the error message and validity state
          */
-        "setError": (valid: MgInputSelect["valid"], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputSelect["valid"], errorMessage: string, errorMessageLock?: boolean) => Promise<void>;
         /**
           * Set focus on input.
          */
@@ -1340,8 +1348,9 @@ export namespace Components {
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
+          * @param errorMessageLock - lock the error message and validity state
          */
-        "setError": (valid: MgInputText["valid"], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputText["valid"], errorMessage: string, errorMessageLock?: boolean) => Promise<void>;
         /**
           * Set focus on input.
          */
@@ -1465,8 +1474,9 @@ export namespace Components {
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
+          * @param errorMessageLock - lock the error message and validity state
          */
-        "setError": (valid: MgInputTextarea["valid"], errorMessage: string) => Promise<void>;
+        "setError": (valid: MgInputTextarea["valid"], errorMessage: string, errorMessageLock?: boolean) => Promise<void>;
         /**
           * Set focus on input.
          */
@@ -1568,8 +1578,9 @@ export namespace Components {
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
+          * @param errorMessageLock - lock the error message and validity state
          */
-        "setError": (valid: boolean, errorMessage: string) => Promise<void>;
+        "setError": (valid: boolean, errorMessage: string, errorMessageLock?: boolean) => Promise<void>;
         /**
           * Set focus on input.
          */

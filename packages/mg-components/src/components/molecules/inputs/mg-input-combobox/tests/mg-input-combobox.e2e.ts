@@ -253,33 +253,40 @@ test.describe('mg-input-combobox', () => {
     });
   });
 
-  test('Should reset value and error when calling reset method', async ({ page }) => {
-    const componentsProps = {
-      ...baseArgs,
-      required: true,
-    };
-    const html = createHTML(componentsProps);
-    await page.setContent(html);
-    await page.addScriptTag({ content: renderProperties(componentsProps, `[identifier="${componentsProps.identifier}"]`) });
+  [true, false].forEach(lock => {
+    test(`Should reset value and error when calling reset method, lock: ${lock}`, async ({ page }) => {
+      const componentsProps = {
+        ...baseArgs,
+        required: true,
+      };
+      const html = createHTML(componentsProps);
+      await page.setContent(html);
+      await page.addScriptTag({ content: renderProperties(componentsProps, `[identifier="${componentsProps.identifier}"]`) });
 
-    await page.locator('mg-input-combobox.hydrated').waitFor();
+      await page.locator('mg-input-combobox.hydrated').waitFor();
 
-    // Take focus in input
-    await page.keyboard.down('Tab');
+      // Set an error message
+      await page.evaluate(lock => {
+        document.querySelector('mg-input-combobox').setError(false, "Message d'erreur de test", lock);
+      }, lock);
 
-    // Leave input and display error
-    await page.keyboard.down('Tab');
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    // Check state with value and error
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      // render required error
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
 
-    // Call reset method
-    await page.evaluate(() => {
-      document.querySelector('mg-input-combobox').reset();
+      // Verify the state with required error
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Call reset method
+      await page.evaluate(() => {
+        document.querySelector('mg-input-combobox').reset();
+      });
+
+      // Check that the input has been reset and the error has been removed
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
-
-    // Check that the input has been reset and the error has been removed
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
   test('Should udpate error with displayError() after value update with props', async ({ page }) => {

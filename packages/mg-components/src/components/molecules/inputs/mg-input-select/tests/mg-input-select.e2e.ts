@@ -189,35 +189,53 @@ test.describe('mg-input-select', () => {
     });
   });
 
-  test('Should reset value and error when calling reset method', async ({ page }) => {
-    const componentArgs = {
-      ...baseArgs,
-      items: ['Chase', 'Marshall', 'Rubble', 'Rocky'],
-    };
-    const html = createHTML(componentArgs);
-    await page.setContent(html);
-    await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
+  [true, false].forEach(lock => {
+    test(`Should reset value and error when calling reset method, lock: ${lock}`, async ({ page }) => {
+      const componentArgs = {
+        ...baseArgs,
+        required: true,
+        items: ['Chase', 'Marshall', 'Rubble', 'Rocky'],
+      };
+      const html = createHTML(componentArgs);
+      await page.setContent(html);
+      await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-    await page.locator('mg-input-select.hydrated').waitFor();
+      await page.locator('mg-input-select.hydrated').waitFor();
 
-    // Select a value
-    await page.selectOption('mg-input-select select', 'Marshall');
+      // Set an error message
+      await page.evaluate(lock => {
+        document.querySelector('mg-input-select').setError(false, "Message d'erreur de test", lock);
+      }, lock);
 
-    // Set an error message intentionally
-    await page.evaluate(() => {
-      document.querySelector('mg-input-select').setError(false, "Message d'erreur de test");
+      // Verify the state with custom error
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // render required error
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+
+      // Verify the state with required error
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Select a value
+      await page.selectOption('mg-input-select select', 'Marshall');
+
+      // Set an error message
+      await page.evaluate(lock => {
+        document.querySelector('mg-input-select').setError(false, "Message d'erreur de test", lock);
+      }, lock);
+
+      // Verify the state with custom error message
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Call the reset method
+      await page.evaluate(() => {
+        document.querySelector('mg-input-select').reset();
+      });
+
+      // Verify that the value has been reset and the error has been removed
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
-
-    // Verify the state with an error message
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-    // Call the reset method
-    await page.evaluate(() => {
-      document.querySelector('mg-input-select').reset();
-    });
-
-    // Verify that the value has been reset and the error has been removed
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
   test('Should udpate error with displayError() after value update with props', async ({ page }) => {

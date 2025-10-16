@@ -281,30 +281,40 @@ test.describe('mg-input-numeric', () => {
     });
   });
 
-  test('Should reset value and error when calling reset method', async ({ page }) => {
-    const html = createHTML({
-      ...baseArgs,
-      min: 10, // Example of constraint to generate an error
-      max: 100,
+  [true, false].forEach(lock => {
+    test(`Should reset value and error when calling reset method, lock: ${lock}`, async ({ page }) => {
+      const html = createHTML({
+        ...baseArgs,
+        min: 10, // Example of constraint to generate an error
+        max: 100,
+      });
+      await page.setContent(html);
+
+      await page.locator('mg-input-numeric.hydrated').waitFor();
+
+      // Set an error message
+      await page.evaluate(lock => {
+        document.querySelector('mg-input-numeric').setError(false, "Message d'erreur de test", lock);
+      }, lock);
+
+      // Verify the state with custom error
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Enter a value that doesn't respect constraints
+      await page.locator('mg-input-numeric input').fill('5'); // Value outside limits
+      await page.locator('mg-input-numeric input').blur(); // Trigger error
+
+      // Check state with value and constraints error
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Call reset method
+      await page.evaluate(() => {
+        document.querySelector('mg-input-numeric').reset();
+      });
+
+      // Check that input has been reset and error has been removed
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
-    await page.setContent(html);
-
-    await page.locator('mg-input-numeric.hydrated').waitFor();
-
-    // Enter a value that doesn't respect constraints
-    await page.locator('mg-input-numeric input').fill('5'); // Value outside limits
-    await page.locator('mg-input-numeric input').blur(); // Trigger error
-
-    // Check state with value and error
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-    // Call reset method
-    await page.evaluate(() => {
-      document.querySelector('mg-input-numeric').reset();
-    });
-
-    // Check that input has been reset and error has been removed
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
   test('Should udpate error with displayError() after value update with props', async ({ page }) => {

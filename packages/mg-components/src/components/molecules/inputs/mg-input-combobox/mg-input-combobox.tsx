@@ -80,6 +80,7 @@ export class MgInputCombobox {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private errorMessageLock = false;
 
   private handlerInProgress: EventType;
   private loadingAction: ActionType['name'];
@@ -462,17 +463,23 @@ export class MgInputCombobox {
    * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
    * @param valid - value indicating the validity
    * @param errorMessage - the error message to display
+   * @param errorMessageLock - lock the error message and validity state
    */
   @Method()
-  async setError(valid: MgInputCombobox['valid'], errorMessage: string): Promise<void> {
+  async setError(valid: MgInputCombobox['valid'], errorMessage: string, errorMessageLock = false): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-combobox> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
       throw new Error('<mg-input-combobox> method "setError()" param "errorMessage" must be a string.');
     } else {
+      // unlock validity check by reseting customErrorMessage
+      this.errorMessageLock = false;
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);
       this.hasDisplayedError = this.invalid;
+
+      // define errorMessage lock
+      this.errorMessageLock = errorMessageLock;
     }
   }
 
@@ -493,6 +500,8 @@ export class MgInputCombobox {
       // - Keep everything in sync both inside and outside the component
       return new Promise(resolve => {
         requestAnimationFrame(() => {
+          // unlock validity check by reseting customErrorMessage
+          this.errorMessageLock = false;
           this.checkValidity();
           this.errorMessage = undefined;
           this.hasDisplayedError = false;
@@ -746,6 +755,10 @@ export class MgInputCombobox {
    * @param newValue - valid new value
    */
   private setValidity(newValue: MgInputCombobox['valid']) {
+    // if custom error message is locked we skip validity update
+    if (this.errorMessageLock) {
+      return;
+    }
     const oldValidValue = this.valid;
     this.valid = newValue;
     this.invalid = !this.valid;
@@ -765,6 +778,10 @@ export class MgInputCombobox {
    * @param errorMessage - errorMessage override
    */
   private setErrorMessage = (errorMessage?: string): void => {
+    // if custom error message is locked we skip errorMessage update
+    if (this.errorMessageLock) {
+      return;
+    }
     // Set error message
     this.errorMessage = undefined;
     // Does have a custom error message

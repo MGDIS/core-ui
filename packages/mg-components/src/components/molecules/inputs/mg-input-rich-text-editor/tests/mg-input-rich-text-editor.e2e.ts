@@ -130,33 +130,43 @@ test.describe('mg-input-rich-text-editor', () => {
     });
   });
 
-  test('Should reset value and error when calling reset method', async ({ page }) => {
-    const html = createHTML({
-      ...baseArgs,
-      pattern: '.*!.*', // Requires an exclamation mark
-      patternErrorMessage: "Le texte doit contenir un point d'exclamation (!)",
+  [true, false].forEach(lock => {
+    test(`Should reset value and error when calling reset method, lock: ${lock}`, async ({ page }) => {
+      const html = createHTML({
+        ...baseArgs,
+        pattern: '.*!.*', // Requires an exclamation mark
+        patternErrorMessage: "Le texte doit contenir un point d'exclamation (!)",
+      });
+      await page.setContent(html);
+
+      await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
+      await page.locator('.ql-editor').waitFor();
+
+      // Set an error message
+      await page.evaluate(lock => {
+        document.querySelector('mg-input-rich-text-editor').setError(false, "Message d'erreur de test", lock);
+      }, lock);
+
+      // Verify the state with custom error
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Enter a value that doesn't match the pattern
+      await page.locator('.ql-editor').evaluate((element, content) => {
+        element.innerHTML = content;
+      }, 'Paw Patrol');
+      await page.locator('body').click(); // Trigger blur event
+
+      // Check state with value and pattern error
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Call reset method
+      await page.evaluate(() => {
+        document.querySelector('mg-input-rich-text-editor').reset();
+      });
+
+      // Check that the input has been reset and the error has been removed
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
-    await page.setContent(html);
-
-    await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
-    await page.locator('.ql-editor').waitFor();
-
-    // Enter a value that doesn't match the pattern
-    await page.locator('.ql-editor').evaluate((element, content) => {
-      element.innerHTML = content;
-    }, 'Paw Patrol');
-    await page.locator('body').click(); // Trigger blur event
-
-    // Check state with value and error
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-    // Call reset method
-    await page.evaluate(() => {
-      document.querySelector('mg-input-rich-text-editor').reset();
-    });
-
-    // Check that the input has been reset and the error has been removed
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
   test('Should render with custom toolbar options', async ({ page }) => {

@@ -69,6 +69,7 @@ export class MgInputSelect {
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
   private handlerInProgress: EventType;
+  private errorMessageLock = false;
 
   /**************
    * Decorators *
@@ -315,17 +316,23 @@ export class MgInputSelect {
    * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
    * @param valid - value indicating the validity
    * @param errorMessage - the error message to display
+   * @param errorMessageLock - lock the error message and validity state
    */
   @Method()
-  async setError(valid: MgInputSelect['valid'], errorMessage: string): Promise<void> {
+  async setError(valid: MgInputSelect['valid'], errorMessage: string, errorMessageLock = false): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-select> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
       throw new Error('<mg-input-select> method "setError()" param "errorMessage" must be a string.');
     } else {
+      // unlock validity check by reseting customErrorMessage
+      this.errorMessageLock = false;
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);
       this.hasDisplayedError = this.invalid;
+
+      // define errorMessage lock
+      this.errorMessageLock = errorMessageLock;
     }
   }
 
@@ -344,6 +351,8 @@ export class MgInputSelect {
       // - Keep everything in sync both inside and outside the component
       return new Promise(resolve => {
         requestAnimationFrame(() => {
+          // unlock validity check by reseting customErrorMessage
+          this.errorMessageLock = false;
           this.checkValidity();
           this.errorMessage = undefined;
           this.hasDisplayedError = false;
@@ -372,6 +381,10 @@ export class MgInputSelect {
    * @param newValue - valid new value
    */
   private setValidity(newValue: MgInputSelect['valid']) {
+    // if custom error message is locked we skip validity update
+    if (this.errorMessageLock) {
+      return;
+    }
     const oldValidValue = this.valid;
     this.valid = newValue;
     this.invalid = !this.valid;
@@ -437,6 +450,10 @@ export class MgInputSelect {
    * @param errorMessage - errorMessage override
    */
   private setErrorMessage = (errorMessage?: string): void => {
+    // if custom error message is locked we skip errorMessage update
+    if (this.errorMessageLock) {
+      return;
+    }
     // Set error message
     this.errorMessage = undefined;
     if (!this.valid) {

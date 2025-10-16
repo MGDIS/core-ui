@@ -323,34 +323,53 @@ describe('mg-input-select', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test.each([
-    {
-      valid: true,
-      errorMessage: 'Override error',
+  test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
+    "should display override error with setError component's public method (%s)",
+    async ({ valid, lock }) => {
+      const getErrorMessage = (element: HTMLMgInputSelectElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
+
+      const customErrorMessage = 'Override error';
+      const page = await getPage({ label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true });
+
+      expect(page.root).toMatchSnapshot();
+
+      const element = page.doc.querySelector('mg-input-select');
+      const input = element.shadowRoot.querySelector('select');
+
+      //mock validity
+      input.checkValidity = jest.fn(() => false);
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          valueMissing: true,
+        })),
+      });
+
+      await element.setError(valid, customErrorMessage, lock);
+
+      await page.waitForChanges();
+
+      if (valid) {
+        expect(getErrorMessage(element)).toEqual(undefined);
+      } else {
+        expect(getErrorMessage(element)).toEqual(customErrorMessage);
+      }
+      expect(page.root).toMatchSnapshot();
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      if (lock) {
+        if (valid) {
+          expect(getErrorMessage(element)).toEqual(undefined);
+        } else {
+          expect(getErrorMessage(element)).toEqual(customErrorMessage);
+        }
+      } else {
+        expect(getErrorMessage(element)).toEqual('This field is required.');
+      }
+      expect(page.root).toMatchSnapshot();
     },
-    {
-      valid: false,
-      errorMessage: 'Override error',
-    },
-  ])("should display override error with setError component's public method", async params => {
-    const page = await getPage({ label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true });
-
-    expect(page.root).toMatchSnapshot();
-
-    const element = page.doc.querySelector('mg-input-select');
-    const input = element.shadowRoot.querySelector('select');
-
-    //mock validity
-    Object.defineProperty(input, 'validity', {
-      get: () => ({}),
-    });
-
-    await element.setError(params.valid, params.errorMessage);
-
-    await page.waitForChanges();
-
-    expect(page.root).toMatchSnapshot();
-  });
+  );
 
   test.each([
     {
@@ -581,7 +600,7 @@ describe('mg-input-select', () => {
       expect(element.value).toBeNull();
     });
 
-    test('Should reset error message when error is displayed', async () => {
+    test.each([true, false])('Should reset displayed error, lock %s', async lock => {
       const args = {
         label: 'label',
         identifier: 'identifier',
@@ -591,7 +610,7 @@ describe('mg-input-select', () => {
       const element = page.doc.querySelector('mg-input-select');
 
       // Set an error message intentionally
-      await element.setError(false, "Message d'erreur de test");
+      await element.setError(false, "Message d'erreur de test", lock);
       await page.waitForChanges();
 
       // Verify initial state
@@ -604,6 +623,7 @@ describe('mg-input-select', () => {
 
       expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify reset state
+      expect(element.shadowRoot.querySelector('#identifier-error')?.textContent).toEqual(undefined);
       expect(page.root).toMatchSnapshot();
     });
 
