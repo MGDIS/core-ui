@@ -1648,9 +1648,8 @@ export namespace Components {
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
-          * @param errorMessageLock - lock the error message and validity state
          */
-        "setError": (valid: boolean, errorMessage: string, errorMessageLock?: boolean) => Promise<void>;
+        "setError": (valid: boolean, errorMessage: string) => Promise<void>;
         /**
           * Set focus on input.
          */

@@ -31,8 +31,6 @@ export class MgInputToggle {
   private readonly classOnOff = 'mg-c-input--toggle-on-off';
   private readonly classIcon = 'mg-c-input--toggle-icon';
 
-  private errorMessageLock = false;
-
   /**************
    * Decorators *
    **************/
@@ -216,23 +214,17 @@ export class MgInputToggle {
    * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
    * @param valid - value indicating the validity
    * @param errorMessage - the error message to display
-   * @param errorMessageLock - lock the error message and validity state
    */
   @Method()
-  async setError(valid: boolean, errorMessage: string, errorMessageLock = false): Promise<void> {
+  async setError(valid: boolean, errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-toggle> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
       throw new Error('<mg-input-toggle> method "setError()" param "errorMessage" must be a string.');
     } else {
-      // unlock validity check by reseting customErrorMessage
-      this.errorMessageLock = false;
       this.valid = valid;
       this.inputValid.emit(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);
-
-      // define errorMessage lock
-      this.errorMessageLock = errorMessageLock;
     }
   }
 
@@ -252,8 +244,6 @@ export class MgInputToggle {
       // - Keep everything in sync both inside and outside the component
       return new Promise(resolve => {
         requestAnimationFrame(() => {
-          // unlock validity check by reseting customErrorMessage
-          this.errorMessageLock = false;
           this.errorMessage = undefined;
           resolve();
         });

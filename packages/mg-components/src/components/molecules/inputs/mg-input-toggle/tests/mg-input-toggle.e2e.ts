@@ -174,33 +174,31 @@ test.describe('mg-input-toggle', () => {
   });
 
   test.describe('Reset input', () => {
-    [true, false].forEach(lock => {
-      test(`Should reset value and error when calling reset method, lock: ${lock}`, async ({ page }) => {
-        await setPageContent(page, {
-          items: getItemsFromStrings(['Non', 'Oui']),
-        });
-
-        await page.locator('mg-input-toggle.hydrated').waitFor();
-
-        // Toggle the value
-        await page.locator('mg-input-toggle .mg-c-input__button-toggle').click();
-
-        // Set an error message intentionally
-        await page.evaluate(lock => {
-          document.querySelector('mg-input-toggle').setError(false, "Message d'erreur de test", lock);
-        }, lock);
-
-        // Check state with custom error
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-        // Call reset method
-        await page.evaluate(() => {
-          document.querySelector('mg-input-toggle').reset();
-        });
-
-        // Verify that the input has been reset
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    test('Should reset value and error when calling reset method', async ({ page }) => {
+      await setPageContent(page, {
+        items: getItemsFromStrings(['Non', 'Oui']),
       });
+
+      await page.locator('mg-input-toggle.hydrated').waitFor();
+
+      // Toggle the value
+      await page.locator('mg-input-toggle .mg-c-input__button-toggle').click();
+
+      // Set an error message intentionally
+      await page.evaluate(() => {
+        document.querySelector('mg-input-toggle').setError(false, "Message d'erreur de test");
+      });
+
+      // Check state with custom error
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Call reset method
+      await page.evaluate(() => {
+        document.querySelector('mg-input-toggle').reset();
+      });
+
+      // Verify that the input has been reset
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 });
