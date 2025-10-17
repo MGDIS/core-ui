@@ -263,7 +263,6 @@ describe('mg-input-rich-text-editor', () => {
       }
     });
 
-
     test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
       "should display override error with setError component's public method (%s)",
       async ({ valid, lock }) => {
