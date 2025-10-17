@@ -266,10 +266,6 @@ export class MgInputToggle {
    * @param errorMessage - errorMessage override
    */
   private setErrorMessage = (errorMessage?: string): void => {
-    // if custom error message is locked we skip errorMessage update
-    if (this.errorMessageLock) {
-      return;
-    }
     // Set error message
     this.errorMessage = undefined;
     // Does have a custom error message

@@ -263,25 +263,52 @@ describe('mg-input-rich-text-editor', () => {
       }
     });
 
-    test.each([
-      { valid: true, message: 'Error message', expectError: false },
-      { valid: false, message: 'Error message', expectError: true },
-    ])('Should handle setError with valid: $valid', async ({ valid, message, expectError }) => {
-      const page = await getPage({ label: 'label', identifier: 'identifier' });
-      const { element } = await waitForEditor(page);
 
-      await element.setError(valid, message);
-      await page.waitForChanges();
-      jest.runOnlyPendingTimers();
+    test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
+      "should display override error with setError component's public method (%s)",
+      async ({ valid, lock }) => {
+        const getErrorMessage = (element: HTMLMgInputRichTextEditorElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
 
-      const errorElement = element.shadowRoot.querySelector('[slot="error"]');
-      if (expectError) {
-        expect(errorElement).not.toBeNull();
-        expect(errorElement.textContent.trim()).toBe(message);
-      } else {
-        expect(errorElement).toBeNull();
-      }
-    });
+        const customErrorMessage = 'Override error';
+        const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
+        const { element, input } = await waitForEditor(page);
+
+        expect(page.root).toMatchSnapshot();
+
+        //mock validity
+        input.checkValidity = jest.fn(() => false);
+        Object.defineProperty(input, 'validity', {
+          get: jest.fn(() => ({
+            valueMissing: true,
+          })),
+        });
+
+        await element.setError(valid, customErrorMessage, lock);
+
+        await page.waitForChanges();
+
+        if (valid) {
+          expect(getErrorMessage(element)).toEqual(undefined);
+        } else {
+          expect(getErrorMessage(element)).toEqual(customErrorMessage);
+        }
+        expect(page.root).toMatchSnapshot();
+
+        input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+        await page.waitForChanges();
+
+        if (lock) {
+          if (valid) {
+            expect(getErrorMessage(element)).toEqual(undefined);
+          } else {
+            expect(getErrorMessage(element)).toEqual(customErrorMessage);
+          }
+        } else {
+          expect(getErrorMessage(element)).toEqual('This field is required.');
+        }
+        expect(page.root).toMatchSnapshot();
+      },
+    );
 
     test.each([
       [null, 'error message'],

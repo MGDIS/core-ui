@@ -297,6 +297,7 @@ describe('mg-input-date', () => {
       { validity: false, valueMissing: true, badInput: false },
       { validity: false, valueMissing: false, badInput: true },
       { validity: false, valueMissing: false, badInput: true, min: date.first },
+      { validity: false, valueMissing: false, badInput: false },
     ])('validity (%s)', async ({ validity, valueMissing, badInput, min }) => {
       const args = { label: 'label', identifier: 'identifier', min };
       const page = await getPage(args);
