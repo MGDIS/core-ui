@@ -313,11 +313,7 @@ describe('mg-input-checkbox', () => {
 
         await page.waitForChanges();
 
-        if (valid) {
-          expect(getErrorMessage(element)).toEqual(undefined);
-        } else {
-          expect(getErrorMessage(element)).toEqual(customErrorMessage);
-        }
+        expect(getErrorMessage(element)).toEqual(valid ? undefined : customErrorMessage);
         expect(page.root).toMatchSnapshot();
 
         inputs[0].dispatchEvent(new CustomEvent('blur', { bubbles: true }));
