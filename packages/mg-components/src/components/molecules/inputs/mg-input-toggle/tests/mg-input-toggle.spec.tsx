@@ -284,23 +284,7 @@ describe('mg-input-toggle', () => {
   });
 
   describe('setError', () => {
-    test.each([true, false])("should display override error with setError component's public method", async valid => {
-      const page = await getPage({ ...defaultProps });
-
-      const mgInputToggle = page.doc.querySelector('mg-input-toggle');
-
-      const spyInputValid = jest.spyOn(page.rootInstance.inputValid, 'emit');
-
-      await mgInputToggle.setError(valid, 'error Batman');
-
-      await page.waitForChanges();
-
-      expect(spyInputValid).toHaveBeenCalledTimes(1);
-
-      expect(page.root).toMatchSnapshot();
-    });
-
-    test.each([true, false])("should display override error with setError component's public method (valid='%s')", async valid => {
+    test.each([true, false])("Should display override error with setError component's public method (valid='%s')", async valid => {
       const getErrorMessage = (element: HTMLMgInputToggleElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
 
       const customErrorMessage = 'Override error';

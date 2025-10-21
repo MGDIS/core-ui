@@ -324,7 +324,7 @@ describe('mg-input-select', () => {
   });
 
   test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
-    "should display override error with setError component's public method (%s)",
+    "Should display override error with setError component's public method (%s)",
     async ({ valid, lock }) => {
       const getErrorMessage = (element: HTMLMgInputSelectElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
 
