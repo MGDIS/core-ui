@@ -102,6 +102,7 @@ export class MgInputToggle {
 
   /**
    * Define if toggle have on/off style
+   * the left icon is hidden
    */
   @Prop() isOnOff = false;
   @Watch('isOnOff')
@@ -282,6 +283,12 @@ export class MgInputToggle {
       // Due to text-overflow set to ellipsis
       // we need to ensure that slot element have title to display value on mouse over
       slots.forEach(slot => slot.setAttribute('title', slot.textContent));
+    } else {
+      slots.forEach(slot => {
+        if (slot.nodeName === 'MG-ICON') {
+          (slot as HTMLMgIconElement).size = 'small';
+        }
+      });
     }
   };
 

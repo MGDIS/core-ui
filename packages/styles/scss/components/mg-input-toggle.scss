@@ -6,26 +6,23 @@
 * Toggle
 */
 
-$color-app-light: color-mix(in srgb, var(--mg-b-color-app), white 80%);
-
 .mg-c-input {
   &__toggle-item-container {
     $border-radius-value: calc(((var(--mg-b-font-size) * var(--mg-b-line-height)) + (2 * var(--mg-b-size-4))) / var(--mg-c-input-toggle-border-radius-ratio));
 
-    overflow: hidden;
     box-sizing: border-box;
     padding: var(--mg-b-size-4) var(--mg-b-size-8);
-    border: 0;
+    border-width: 0.1rem;
     border-radius: $border-radius-value;
-    background-color: unset;
-    color: var(--mg-b-color-dark);
+    color: var(--mg-b-color-neutral-110);
     font-weight: unset;
     text-overflow: ellipsis;
     white-space: nowrap;
 
     &:first-of-type {
-      background-color: $color-app-light;
-      color: var(--mg-b-color-app);
+      border-style: solid;
+      border-color: var(--mg-b-color-neutral-80);
+      background-color: var(--mg-b-color-light);
       font-weight: 600;
     }
   }
@@ -39,74 +36,109 @@ $color-app-light: color-mix(in srgb, var(--mg-b-color-app), white 80%);
     /* stylelint-enable scss/operator-no-newline-after */
 
     display: flex;
+    overflow: hidden;
     min-width: 0;
-    padding: var(--mg-b-size-4);
+    align-items: center;
+    padding: calc(var(--mg-b-size-4) / 4);
     border-width: var(--mg-c-input-border-width);
     border-style: solid;
-    border-color: var(--mg-c-input-color-border);
+    border-color: var(--mg-b-color-neutral-80);
     border-radius: $border-radius-value;
-    background-color: var(--mg-b-color-light);
+    background-color: var(--mg-b-color-neutral-20);
     cursor: pointer;
     font-family: var(--mg-b-font-family);
-    font-size: inherit;
-    line-height: inherit;
+    font-size: var(--mg-b-small-font-size);
+    line-height: var(--mg-b-size-12);
 
     &:disabled {
       cursor: default;
     }
+
+    &:focus {
+      outline-offset: var(--mg-b-size-4);
+    }
   }
 
-  &.mg-c-input--toggle .mg-c-input__input-container {
-    min-width: 0;
-    flex: auto;
+  &.mg-c-input--toggle {
+    .mg-c-input__input-container {
+      min-width: 0;
+      flex: auto;
+    }
+
+    &:not(.mg-c-input--readonly) .mg-c-input__button-toggle {
+      margin-top: var(--mg-b-size-4);
+    }
   }
 
   // toggle default active variation
   &.mg-c-input--toggle-is-active {
-    .mg-c-input__toggle-item-container {
-      &:first-of-type {
-        background-color: unset;
-        color: var(--mg-b-color-dark);
-        font-weight: unset;
+    .mg-c-input {
+      /* stylelint-disable-next-line no-descending-specificity */
+      &__button-toggle {
+        background-color: var(--mg-b-color-neutral-110);
       }
 
-      &:last-of-type {
-        background-color: $color-app-light;
-        color: var(--mg-b-color-info);
-        font-weight: 600;
+      &__toggle-item-container {
+        &:first-of-type {
+          border: unset;
+          background-color: unset;
+          color: var(--mg-b-color-light);
+          font-weight: unset;
+        }
+
+        &:last-of-type {
+          border-style: solid;
+          background-color: var(--mg-b-color-neutral-20);
+          font-weight: 600;
+        }
       }
     }
   }
 
   // icon
   &.mg-c-input--toggle-icon {
-    /* stylelint-disable-next-line no-descending-specificity */
-    .mg-c-input__toggle-item-container {
-      $size: calc(((var(--mg-b-font-size) * var(--mg-b-line-height)) + (2 * var(--mg-b-size-4))));
+    $size: var(--mg-b-size-20);
 
-      display: flex;
-      width: $size;
-      height: $size;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      visibility: hidden;
-
-      &:first-of-type {
-        visibility: visible;
+    .mg-c-input {
+      /* stylelint-disable-next-line no-descending-specificity */
+      &__button-toggle {
+        width: 100%;
+        min-width: calc(#{$size} * 2);
+        max-width: calc(#{$size} * 2);
       }
-
-      ::slotted(mg-icon) {
+      /* stylelint-disable-next-line no-descending-specificity */
+      &__toggle-item-container {
         display: flex;
+        min-width: $size;
+        max-width: $size;
+        height: $size;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        visibility: hidden;
+
+        &:first-of-type {
+          visibility: visible;
+        }
+
+        &:last-of-type {
+          width: unset;
+        }
+
+        ::slotted(mg-icon) {
+          display: flex;
+        }
       }
     }
 
     &.mg-c-input--toggle-is-active .mg-c-input__toggle-item-container {
       &:first-of-type {
+        min-width: unset;
         visibility: hidden;
       }
 
       &:last-of-type {
+        margin-left: auto;
         visibility: visible;
       }
     }
@@ -114,17 +146,31 @@ $color-app-light: color-mix(in srgb, var(--mg-b-color-app), white 80%);
 
   // on/off
   &.mg-c-input--toggle-on-off {
-    /* stylelint-disable-next-line no-descending-specificity */
-    .mg-c-input__toggle-item-container:first-of-type {
-      background-color: var(--mg-b-color-neutral-30);
-      color: var(--mg-b-color-dark);
-      font-weight: 600;
+    &.mg-c-input--toggle-icon .mg-c-input__toggle-item-container:first-of-type ::slotted(*) {
+      display: none;
     }
 
-    &.mg-c-input--toggle-is-active .mg-c-input__toggle-item-container:first-of-type {
-      background-color: unset;
-      color: var(--mg-b-color-dark);
-      font-weight: unset;
+    &:not(.mg-c-input--toggle-icon) {
+      .mg-c-input__toggle-item-container {
+        &:first-of-type {
+          margin-right: var(--mg-b-size-16);
+        }
+
+        &:last-of-type {
+          display: none;
+        }
+      }
+
+      &.mg-c-input--toggle-is-active .mg-c-input__toggle-item-container {
+        &:first-of-type {
+          display: none;
+        }
+
+        &:last-of-type {
+          display: unset;
+          margin-left: var(--mg-b-size-16);
+        }
+      }
     }
   }
 }

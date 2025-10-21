@@ -7,31 +7,29 @@ import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-inpu
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
 import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/dist/tests';
+import { icons } from '../../../../../assets/icons';
+
+const renderSlots = (props: Pick<MgInputToggle, 'items' | 'isIcon'>): HTMLElement[] => {
+  return props.items.map((item, index) => {
+    const slot = `item-${index + 1}`;
+    if (props.isIcon && Object.keys(icons).includes(item)) {
+      return <mg-icon slot={slot} icon={item}></mg-icon>;
+    } else {
+      return <span slot={slot}>{item.title}</span>;
+    }
+  });
+};
 
 const getPage = (args, customSlots?) => {
   const page = newSpecPage({
     components: [MgInputToggle, MgIcon, MgInput, MgInputTitle],
-    template: () => (
-      <mg-input-toggle {...args}>
-        {customSlots
-          ? customSlots
-          : args.isIcon
-            ? ['cross', 'check'].map((icon: MgIcon['icon'], index) => (
-                <span slot={`item-${index + 1}`}>
-                  <mg-icon icon={icon}></mg-icon>
-                </span>
-              ))
-            : args.items.map((item, index) => renderSlot(item.title, index))}
-      </mg-input-toggle>
-    ),
+    template: () => <mg-input-toggle {...args}>{customSlots ? customSlots : renderSlots(args)}</mg-input-toggle>,
   });
 
   setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
 
   return page;
 };
-
-const renderSlot = (title: string, index: number) => <span slot={`item-${index + 1}`}>{title}</span>;
 
 const defaultItems = [
   { title: 'Batman', value: false },
@@ -67,7 +65,7 @@ describe('mg-input-toggle', () => {
     },
     {
       ...defaultProps,
-      items: ['Oui', 'Non'],
+      items: ['cross', 'check'],
       isIcon: true,
       isOnOff: true,
     },
@@ -115,8 +113,12 @@ describe('mg-input-toggle', () => {
         labelOnTop: true,
       },
     ])('Should render with args %s:', async args => {
-      const { root } = await getPage({ ...templateArgs, ...args });
-      expect(root).toMatchSnapshot();
+      const props = { ...templateArgs, ...args } as Partial<MgInputToggle>;
+      const page = await getPage(props);
+      if (props.isIcon) {
+        expect(page.doc.querySelector('mg-icon')).toHaveProperty('size', 'small');
+      }
+      expect(page.root).toMatchSnapshot();
     });
   });
 
@@ -186,7 +188,7 @@ describe('mg-input-toggle', () => {
       }
     });
 
-    test.each([[<span></span>], [renderSlot('oui', 1)], ['oui', 'non', 'possible'].map((title, index) => renderSlot(title, index))])(
+    test.each([[<span></span>], [<span slot="item-2">Oui</span>], ['oui', 'non', 'possible'].map((title, index) => <span slot={`item-${index + 1}`}>{title}</span>)])(
       'Should throw an error with blank slots',
       async slots => {
         expect.assertions(1);
