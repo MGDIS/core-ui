@@ -214,10 +214,10 @@ test.describe('mg-form', () => {
         const html = createHTML(args, [inputs, fieldset].join(''));
         await page.setContent(html);
         await page.addScriptTag({ content: inputsScript });
-        await page.addScriptTag({ content: fieldsetScript });
         await page.addScriptTag({ content: inputsScriptSetValues });
-        await page.addScriptTag({ content: fieldsetScriptSetValues });
         await page.addScriptTag({ content: inputsScriptRequiredSome });
+        await page.addScriptTag({ content: fieldsetScript });
+        await page.addScriptTag({ content: fieldsetScriptSetValues });
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
