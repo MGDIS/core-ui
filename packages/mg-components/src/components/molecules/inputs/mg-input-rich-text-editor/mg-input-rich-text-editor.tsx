@@ -23,7 +23,7 @@ export class MgInputRichTextEditor {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private errorMessageLock = false;
+  private customErrorMessage = { lock: false, message: undefined };
 
   // Classes
   private readonly classFocus = 'mg-u-is-focused';
@@ -252,20 +252,19 @@ export class MgInputRichTextEditor {
    * @param errorMessageLock - lock the error message and validity state
    */
   @Method()
-  async setError(valid: MgInputRichTextEditor['valid'], errorMessage: string, errorMessageLock = false): Promise<void> {
+  async setError(valid: MgInputRichTextEditor['valid'], errorMessage?: string, errorMessageLock = false): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-rich-text-editor> method "setError()" param "valid" must be a boolean.');
-    } else if (!isValidString(errorMessage)) {
+    } else if (errorMessage !== undefined && !isValidString(errorMessage)) {
       throw new Error('<mg-input-rich-text-editor> method "setError()" param "errorMessage" must be a string.');
     } else {
-      // unlock validity check by reseting customErrorMessage
-      this.errorMessageLock = false;
-      this.setValidity(valid);
-      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.customErrorMessage = {
+        lock: errorMessageLock,
+        message: errorMessage,
+      };
+      this.setValidity(valid, true);
+      this.setErrorMessage(valid ? undefined : this.customErrorMessage.message);
       this.hasDisplayedError = this.invalid;
-
-      // define errorMessage lock
-      this.errorMessageLock = errorMessageLock;
     }
   }
 
@@ -286,7 +285,10 @@ export class MgInputRichTextEditor {
       return new Promise(resolve => {
         requestAnimationFrame(() => {
           // unlock validity check by reseting customErrorMessage
-          this.errorMessageLock = false;
+          this.customErrorMessage = {
+            lock: false,
+            message: undefined,
+          };
           this.checkValidity();
           this.errorMessage = undefined;
           this.hasDisplayedError = false;
@@ -320,16 +322,15 @@ export class MgInputRichTextEditor {
   /**
    * Method to set validity values
    * @param newValue - valid new value
+   * @param bypassErrorMessageLock - true to bypass errorMessageLock
    */
-  private setValidity(newValue: MgInputRichTextEditor['valid']) {
-    // if custom error message is locked we skip validity update
-    if (this.errorMessageLock) {
-      return;
+  private setValidity(newValue: MgInputRichTextEditor['valid'], bypassErrorMessageLock?: boolean) {
+    const oldValue = this.valid;
+    if (!this.customErrorMessage.lock || (this.customErrorMessage.lock && bypassErrorMessageLock)) {
+      this.valid = newValue;
     }
-    const oldValidValue = this.valid;
-    this.valid = newValue;
     this.invalid = !this.valid;
-    if (this.valid !== oldValidValue) {
+    if (this.valid !== oldValue) {
       this.inputValid.emit(this.valid);
     }
   }
@@ -346,18 +347,20 @@ export class MgInputRichTextEditor {
    * @param errorMessage - errorMessage override
    */
   private setErrorMessage = (errorMessage?: string): void => {
-    // if custom error message is locked we skip errorMessage update
-    if (this.errorMessageLock) {
-      return;
-    }
+    // Set error message
     this.errorMessage = undefined;
-    if (this.valid) return;
-    else if (isValidString(errorMessage)) {
-      this.errorMessage = errorMessage;
-    } else if (this.required && this.isEmpty()) {
-      this.errorMessage = this.messages.errors.required;
-    } else if (!this.getPatternValidity()) {
-      this.errorMessage = this.patternErrorMessage;
+    // Does have a new custom error message
+    if (!this.valid) {
+      // Does have a custom error message locked
+      if (this.customErrorMessage.lock && this.customErrorMessage.message) {
+        this.errorMessage = this.customErrorMessage.message;
+      } else if (isValidString(errorMessage)) {
+        this.errorMessage = errorMessage;
+      } else if (this.required && this.isEmpty()) {
+        this.errorMessage = this.messages.errors.required;
+      } else if (!this.getPatternValidity()) {
+        this.errorMessage = this.patternErrorMessage;
+      }
     }
   };
 

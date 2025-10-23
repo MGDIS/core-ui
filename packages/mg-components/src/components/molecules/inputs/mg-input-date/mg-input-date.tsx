@@ -26,7 +26,7 @@ export class MgInputDate {
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
   private handlerInProgress: EventType;
-  private errorMessageLock = false;
+  private customErrorMessage = { lock: false, message: undefined };
 
   /**************
    * Decorators *
@@ -234,20 +234,19 @@ export class MgInputDate {
    * @param errorMessageLock - lock the error message and validity state
    */
   @Method()
-  async setError(valid: MgInputDate['valid'], errorMessage: string, errorMessageLock = false): Promise<void> {
+  async setError(valid: MgInputDate['valid'], errorMessage?: string, errorMessageLock = false): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-date> method "setError()" param "valid" must be a boolean.');
-    } else if (!isValidString(errorMessage)) {
+    } else if (errorMessage !== undefined && !isValidString(errorMessage)) {
       throw new Error('<mg-input-date> method "setError()" param "errorMessage" must be a string.');
     } else {
-      // unlock validity check by reseting customErrorMessage
-      this.errorMessageLock = false;
-      this.setValidity(valid);
-      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.customErrorMessage = {
+        lock: errorMessageLock,
+        message: errorMessage,
+      };
+      this.setValidity(valid, true);
+      this.setErrorMessage(valid ? undefined : this.customErrorMessage.message);
       this.hasDisplayedError = this.invalid;
-
-      // define errorMessage lock
-      this.errorMessageLock = errorMessageLock;
     }
   }
 
@@ -267,7 +266,10 @@ export class MgInputDate {
       return new Promise(resolve => {
         requestAnimationFrame(() => {
           // unlock validity check by reseting customErrorMessage
-          this.errorMessageLock = false;
+          this.customErrorMessage = {
+            lock: false,
+            message: undefined,
+          };
           this.checkValidity();
           this.errorMessage = undefined;
           this.hasDisplayedError = false;
@@ -312,17 +314,16 @@ export class MgInputDate {
   /**
    * Method to set validity values
    * @param newValue - valid new value
+   * @param bypassErrorMessageLock - true to bypass errorMessageLock
    */
-  private setValidity(newValue: MgInputDate['valid']) {
-    // if custom error message is locked we skip validity update
-    if (this.errorMessageLock) {
-      return;
+  private setValidity(newValue: MgInputDate['valid'], bypassErrorMessageLock?: boolean) {
+    const oldValue = this.valid;
+    if (!this.customErrorMessage.lock || (this.customErrorMessage.lock && bypassErrorMessageLock)) {
+      this.valid = newValue;
     }
-    const oldValidValue = this.valid;
-    this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -409,15 +410,16 @@ export class MgInputDate {
    * @param errorMessage - errorMessage override
    */
   private setErrorMessage = (errorMessage?: string): void => {
-    // if custom error message is locked we skip errorMessage update
-    if (this.errorMessageLock) {
-      return;
-    }
     // Set error message
     this.errorMessage = undefined;
     if (!this.valid) {
       const inputError = this.getInputError();
-      if (errorMessage !== undefined) {
+      // Does have a custom error message locked
+      if (this.customErrorMessage.lock && this.customErrorMessage.message) {
+        this.errorMessage = this.customErrorMessage.message;
+      }
+      // Does have a new custom error message
+      else if (errorMessage !== undefined) {
         this.errorMessage = errorMessage;
       }
       // required

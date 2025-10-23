@@ -35,7 +35,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private errorMessageLock = false;
+  private customErrorMessage = { lock: false, message: undefined };
 
   private mode: 'custom' | 'auto' = 'custom';
 
@@ -188,7 +188,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.checkValidity();
     if (this.hasDisplayedError) {
       this.hasDisplayedError = prop !== 'required';
-      this.setErrorMessage(this.hasDisplayedError);
+      this.setErrorMessage();
     }
     this.setButtonTextKey();
   }
@@ -347,20 +347,19 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @param errorMessageLock - lock the error message and validity state
    */
   @Method()
-  async setError(valid: MgInputCheckbox['valid'], errorMessage: string, errorMessageLock = false): Promise<void> {
+  async setError(valid: MgInputCheckbox['valid'], errorMessage?: string, errorMessageLock = false): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-checkbox> method "setError()" param "valid" must be a boolean.');
-    } else if (!isValidString(errorMessage)) {
+    } else if (errorMessage !== undefined && !isValidString(errorMessage)) {
       throw new Error('<mg-input-checkbox> method "setError()" param "errorMessage" must be a string.');
     } else {
-      // unlock validity check by reseting customErrorMessage
-      this.errorMessageLock = false;
-      this.setValidity(valid);
-      this.setErrorMessage(undefined, valid ? undefined : errorMessage);
+      this.customErrorMessage = {
+        lock: errorMessageLock,
+        message: errorMessage,
+      };
+      this.setValidity(valid, true);
+      this.setErrorMessage(valid ? undefined : this.customErrorMessage.message);
       this.hasDisplayedError = this.invalid;
-
-      // define errorMessage lock
-      this.errorMessageLock = errorMessageLock;
     }
   }
 
@@ -380,7 +379,10 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       return new Promise(resolve => {
         requestAnimationFrame(() => {
           // unlock validity check by reseting customErrorMessage
-          this.errorMessageLock = false;
+          this.customErrorMessage = {
+            lock: false,
+            message: undefined,
+          };
           this.checkValidity();
           this.errorMessage = undefined;
           this.hasDisplayedError = false;
@@ -393,17 +395,16 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Method to set validity values
    * @param newValue - valid new value
+   * @param bypassErrorMessageLock - true to bypass errorMessageLock
    */
-  private setValidity(newValue: MgInputCheckbox['valid']) {
-    // if custom error message is locked we skip validity update
-    if (this.errorMessageLock) {
-      return;
+  private setValidity(newValue: MgInputCheckbox['valid'], bypassErrorMessageLock?: boolean) {
+    const oldValue = this.valid;
+    if (!this.customErrorMessage.lock || (this.customErrorMessage.lock && bypassErrorMessageLock)) {
+      this.valid = newValue;
     }
-    const oldValidValue = this.valid;
-    this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.valid !== oldValidValue) this.inputValid.emit(this.valid);
+    if (this.valid !== oldValue) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -574,19 +575,24 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   /**
    * Set input error message
-   * @param displayError - dispay error condition
    * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (displayError = true, errorMessage?: string): void => {
-    // if custom error message is locked we skip errorMessage update
-    if (this.errorMessageLock) {
-      return;
-    }
+  private setErrorMessage = (errorMessage?: string): void => {
     // Set error message
     this.errorMessage = undefined;
-    if (displayError && !this.valid) {
-      if (errorMessage !== undefined) this.errorMessage = errorMessage;
-      else if (!this.validateRequired()) this.errorMessage = this.messages.errors.required;
+    if (!this.valid) {
+      // Does have a custom error message locked
+      if (this.customErrorMessage.lock && this.customErrorMessage.message) {
+        this.errorMessage = this.customErrorMessage.message;
+      }
+      // Does have a new custom error message
+      else if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      }
+      // required
+      else if (!this.validateRequired()) {
+        this.errorMessage = this.messages.errors.required;
+      }
     }
   };
 

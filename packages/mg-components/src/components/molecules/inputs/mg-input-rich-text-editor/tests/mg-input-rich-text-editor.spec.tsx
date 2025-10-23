@@ -315,7 +315,6 @@ describe('mg-input-rich-text-editor', () => {
       [true, ''],
       [true, ' '],
       [true, null],
-      [true, undefined],
     ])('Should throw error when setError called with invalid arguments: %s, %s', async (valid, errorMessage) => {
       const page = await getPage({ label: 'label', identifier: 'identifier' });
       const { element } = await waitForEditor(page);
