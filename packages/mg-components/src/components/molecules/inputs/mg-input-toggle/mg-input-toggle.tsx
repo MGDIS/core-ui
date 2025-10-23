@@ -102,7 +102,8 @@ export class MgInputToggle {
 
   /**
    * Define if toggle have on/off style,
-   * the left icon is hidden
+   * the left icon is hidden.
+   * Only available in combination with the "isIcon" prop.
    */
   @Prop({ mutable: true }) isOnOff = false;
   @Watch('isOnOff')
