@@ -109,7 +109,7 @@ export class MgInputToggle {
   watchIsOnOff(newValue: MgInputToggle['isOnOff']): void {
     if (newValue && !this.isIcon) {
       this.isOnOff = false;
-      console.warn('<mg-input-toggle> prop "isOnOff" must be used with "isIcon".');
+      console.warn('<mg-input-toggle> prop "isOnOff" must be used with "isIcon". Setting isOnOff to false.');
     } else if (newValue) {
       this.classCollection.add(this.classOnOff);
     } else {
