@@ -5,6 +5,7 @@ import { type ExpandToggleDisplayType, type TitlePositionType, expandToggleDispl
 
 /**
  * @slot - Panel content
+ * @slot panel-title - Panel title content (replaces panel-title prop when used)
  * @slot header-right - Header right panel content
  */
 @Component({
@@ -47,11 +48,11 @@ export class MgPanel {
   /**
    * Panel title
    */
-  @Prop({ mutable: true }) panelTitle!: string;
+  @Prop({ mutable: true }) panelTitle?: string;
   @Watch('panelTitle')
   validatePanelTitle(newValue: MgPanel['panelTitle']): void {
-    if (!isValidString(newValue)) throw new Error(`<mg-panel> prop "panelTitle" is required and must be a string. Passed value: ${toString(newValue)}.`);
-    this.titleChange.emit(newValue);
+    if (newValue !== undefined && !isValidString(newValue)) throw new Error(`<mg-panel> prop "panelTitle" must be a string. Passed value: ${toString(newValue)}.`);
+    if (newValue !== undefined) this.titleChange.emit(newValue);
   }
 
   /**
@@ -73,6 +74,13 @@ export class MgPanel {
    * Define if panel title is editable
    */
   @Prop({ mutable: true }) titleEditable = false;
+  @Watch('titleEditable')
+  validateTitleEditable(newValue: MgPanel['titleEditable']): void {
+    if (newValue && this.hasPanelTitleSlot()) {
+      console.warn(`<mg-panel> prop "titleEditable" cannot be used with panel-title slot. Setting titleEditable to false.`);
+      this.titleEditable = false;
+    }
+  }
 
   /**
    * Define title position
@@ -101,6 +109,10 @@ export class MgPanel {
     if (!expandToggleDisplays.includes(newValue))
       throw new Error(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}. Passed value: ${toString(newValue)}.`);
     if (newValue === 'icon' && this.titleEditable) this.titleEditable = false;
+    if (newValue === 'icon' && this.hasPanelTitleSlot()) {
+      console.warn(`<mg-panel> prop "expandToggleDisplay" cannot be "icon" when panel-title slot is used. Setting expandToggleDisplay to "text".`);
+      this.expandToggleDisplay = 'text';
+    }
   }
 
   /**
@@ -141,6 +153,14 @@ export class MgPanel {
   /************
    * Methods *
    ************/
+
+  /**
+   * Check if panel-title slot is used
+   * @returns true if slot is used
+   */
+  private hasPanelTitleSlot = (): boolean => {
+    return this.element.querySelector('[slot="panel-title"]') !== null;
+  };
 
   /**
    * Toggle is editing state
@@ -206,9 +226,14 @@ export class MgPanel {
     this.watchIdentifier(this.identifier);
     this.validateTitlePattern(this.titlePattern);
     this.validateTitlePattern(this.titlePatternErrorMessage);
-    this.validatePanelTitle(this.panelTitle);
+    // Only validate panelTitle if slot is not used
+    if (!this.hasPanelTitleSlot()) {
+      if (this.panelTitle === undefined || this.panelTitle === null) throw new Error(`<mg-panel> prop "panelTitle" is required when panel-title slot is not used.`);
+      this.validatePanelTitle(this.panelTitle);
+    }
     this.validateExpandToggleDisplay(this.expandToggleDisplay);
     this.validateTitlePosition(this.titlePosition);
+    this.validateTitleEditable(this.titleEditable);
   }
 
   /**
@@ -235,11 +260,11 @@ export class MgPanel {
       aria-controls={`${this.identifier}-content`}
       disabled={this.expandToggleDisabled}
       isIcon={this.expandToggleDisplay === 'icon'}
-      label={this.panelTitle}
+      label={this.expandToggleDisplay === 'icon' ? this.panelTitle : undefined}
     >
       <span class="mg-c-panel__collapse-button-content">
         <mg-icon icon="chevron-up" class={{ 'mg-c-panel__collapse-button-icon': true, 'mg-c-panel__collapse-button-icon--reverse': !this.expanded }}></mg-icon>
-        {!this.isEditing && this.expandToggleDisplay !== 'icon' && this.panelTitle}
+        {!this.isEditing && this.expandToggleDisplay !== 'icon' && (this.hasPanelTitleSlot() ? <slot name="panel-title"></slot> : this.panelTitle)}
       </span>
     </mg-button>
   );
@@ -286,7 +311,9 @@ export class MgPanel {
    */
   private renderTitle = (): HTMLElement[] => {
     const elementsToRender: HTMLElement[] = [this.renderCollapseButton()];
-    if (this.titleEditable) {
+
+    // Add edit functionality only if not using slot and title is editable
+    if (this.titleEditable && !this.hasPanelTitleSlot()) {
       if (!this.isEditing) elementsToRender.push(this.renderEditButton());
       else elementsToRender.push(this.renderEditInput());
     }
