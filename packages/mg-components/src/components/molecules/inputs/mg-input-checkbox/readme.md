@@ -66,7 +66,7 @@ Type: `Promise<void>`
 
 
 
-### `setError(valid: MgInputCheckbox["valid"], errorMessage: string, errorMessageLock?: boolean) => Promise<void>`
+### `setError(valid: MgInputCheckbox["valid"], errorMessage?: string, errorMessageLock?: boolean) => Promise<void>`
 
 Set an error and display a custom error message.
 This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.

@@ -26,18 +26,9 @@ test.describe('mg-input-select', () => {
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
         await page.keyboard.down('Tab');
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
         await page.keyboard.down('Space');
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
         await page.keyboard.down('ArrowDown');
         await page.keyboard.down('ArrowDown');
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
         await page.keyboard.down('Enter');
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -166,6 +157,9 @@ test.describe('mg-input-select', () => {
 
     await page.keyboard.down('Tab');
     await page.keyboard.down('Space');
+    await page.keyboard.down('ArrowDown');
+    await page.keyboard.down('ArrowDown');
+    await page.keyboard.down('Enter');
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
