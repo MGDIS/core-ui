@@ -1,4 +1,21 @@
+## Usage
 
+```html
+<mg-panel panel-title="Title">
+  <div>Panel content</div>
+</mg-panel>
+```
+
+### Using panel-title slot for complex title content
+
+```html
+<mg-panel>
+  <div slot="panel-title">Slotted title <span class="mg-u-is-asterisk">*</span></div>
+  <div>Panel content</div>
+</mg-panel>
+```
+
+**Note:** When using the `panel-title` slot, the `titleEditable` prop is automatically disabled if both are used together.
 
 ## 💥 Troubleshooting
 
