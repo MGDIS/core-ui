@@ -101,14 +101,20 @@ export class MgInputToggle {
   @Prop() labelHide = false;
 
   /**
-   * Define if toggle have on/off style
+   * Define if toggle have on/off style,
    * the left icon is hidden
    */
-  @Prop() isOnOff = false;
+  @Prop({ mutable: true }) isOnOff = false;
   @Watch('isOnOff')
   watchIsOnOff(newValue: MgInputToggle['isOnOff']): void {
-    if (newValue) this.classCollection.add(this.classOnOff);
-    else this.classCollection.delete(this.classOnOff);
+    if (newValue && !this.isIcon) {
+      this.isOnOff = false;
+      console.warn('<mg-input-toggle> prop "isOnOff" must be used with "isIcon".');
+    } else if (newValue) {
+      this.classCollection.add(this.classOnOff);
+    } else {
+      this.classCollection.delete(this.classOnOff);
+    }
   }
 
   /**

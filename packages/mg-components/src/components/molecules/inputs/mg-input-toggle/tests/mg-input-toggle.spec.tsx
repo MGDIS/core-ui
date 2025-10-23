@@ -61,7 +61,7 @@ describe('mg-input-toggle', () => {
     },
     {
       ...defaultProps,
-      isOnOff: false,
+      isOnOff: true,
     },
     {
       ...defaultProps,

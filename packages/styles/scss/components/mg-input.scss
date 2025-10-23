@@ -156,6 +156,11 @@ mg-icon {
   margin-left: var(--mg-b-size-32);
 }
 
+:host(.mg-c-input.mg-c-input--toggle) .mg-c-input__input-container {
+  min-width: 0;
+  flex: 1;
+}
+
 :host(.mg-c-input.mg-c-input--label-on-top) {
   @include label-on-top-styles;
 }

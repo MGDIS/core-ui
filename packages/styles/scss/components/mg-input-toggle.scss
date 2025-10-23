@@ -10,6 +10,7 @@
   &__toggle-item-container {
     $border-radius-value: calc(((var(--mg-b-font-size) * var(--mg-b-line-height)) + (2 * var(--mg-b-size-4))) / var(--mg-c-input-toggle-border-radius-ratio));
 
+    overflow: hidden;
     box-sizing: border-box;
     padding: var(--mg-b-size-4) var(--mg-b-size-8);
     border-width: var(--mg-b-size-border);
@@ -39,7 +40,7 @@
     overflow: hidden;
     min-width: 0;
     align-items: center;
-    padding: calc(var(--mg-b-size-4) / 4);
+    padding: 0.1rem;
     border-width: var(--mg-c-input-border-width);
     border-style: solid;
     border-color: var(--mg-b-color-neutral-80);
@@ -59,15 +60,8 @@
     }
   }
 
-  &.mg-c-input--toggle {
-    .mg-c-input__input-container {
-      min-width: 0;
-      flex: auto;
-    }
-
-    &:not(.mg-c-input--readonly) .mg-c-input__button-toggle {
-      margin-top: var(--mg-b-size-4);
-    }
+  &.mg-c-input--toggle:not(.mg-c-input--readonly) .mg-c-input__button-toggle {
+    margin-top: var(--mg-b-size-4);
   }
 
   // toggle default active variation
@@ -97,21 +91,20 @@
 
   // icon
   &.mg-c-input--toggle-icon {
-    $size: var(--mg-b-size-20);
-
     .mg-c-input {
       /* stylelint-disable-next-line no-descending-specificity */
       &__button-toggle {
         width: 100%;
-        min-width: calc(#{$size} * 2);
-        max-width: calc(#{$size} * 2);
+        min-width: calc(var(--mg-b-size-20) * 2);
+        max-width: calc(var(--mg-b-size-20) * 2);
       }
       /* stylelint-disable-next-line no-descending-specificity */
       &__toggle-item-container {
         display: flex;
-        min-width: $size;
-        max-width: $size;
-        height: $size;
+        overflow: unset;
+        min-width: var(--mg-b-size-20);
+        max-width: var(--mg-b-size-20);
+        height: var(--mg-b-size-20);
         align-items: center;
         justify-content: center;
         padding: 0;
@@ -145,32 +138,7 @@
   }
 
   // on/off
-  &.mg-c-input--toggle-on-off {
-    &.mg-c-input--toggle-icon .mg-c-input__toggle-item-container:first-of-type ::slotted(*) {
-      display: none;
-    }
-
-    &:not(.mg-c-input--toggle-icon) {
-      .mg-c-input__toggle-item-container {
-        &:first-of-type {
-          margin-right: var(--mg-b-size-16);
-        }
-
-        &:last-of-type {
-          display: none;
-        }
-      }
-
-      &.mg-c-input--toggle-is-active .mg-c-input__toggle-item-container {
-        &:first-of-type {
-          display: none;
-        }
-
-        &:last-of-type {
-          display: unset;
-          margin-left: var(--mg-b-size-16);
-        }
-      }
-    }
+  &.mg-c-input--toggle-on-off.mg-c-input--toggle-icon .mg-c-input__toggle-item-container:first-of-type ::slotted(*) {
+    display: none;
   }
 }

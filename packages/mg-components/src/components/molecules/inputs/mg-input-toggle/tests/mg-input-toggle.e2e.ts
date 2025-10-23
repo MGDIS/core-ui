@@ -161,15 +161,26 @@ test.describe('mg-input-toggle', () => {
   });
 
   test.describe('Responsive', () => {
-    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' as MgInputToggle['tooltipPosition'] }].forEach(args => {
-      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+    [
+      {},
+      { tooltip: 'blu' },
+      { tooltip: 'blu', tooltipPosition: 'label' as MgInputToggle['tooltipPosition'] },
+      {
+        items: createItems([
+          'Choix A très long long long long long long long long long long long long long',
+          'Choix B très long long long long long long long long long long long long long',
+        ]),
+      },
+    ].forEach((args, key) => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)} - ${key}`, async ({ page }) => {
         const props = getProps(args);
         await setPageContent(page, props);
+        await page.addStyleTag({ content: '.e2e-screenshot{max-width:100%}' });
 
         // Initial state
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-        await page.setViewportSize({ width: 767, height: 800 });
+        await page.setViewportSize({ width: 200, height: 800 });
 
         // Responsive state
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
