@@ -42,6 +42,38 @@ describe('mg-panel', () => {
     expect(root).toMatchSnapshot();
   });
 
+  test('Should render with panel-title slot', async () => {
+    const { root } = await getPage(
+      { identifier: 'identifier' },
+      <div slot="panel-title">
+        <span>Slotted Title</span>
+      </div>,
+    );
+    expect(root).toMatchSnapshot();
+  });
+
+  test('Should warn when titleEditable is used with panel-title slot', async () => {
+    const spy = jest.spyOn(console, 'warn');
+    await getPage(
+      { identifier: 'identifier', titleEditable: true },
+      <div slot="panel-title">
+        <span>Slotted Title</span>
+      </div>,
+    );
+    expect(spy).toHaveBeenCalledWith(`<mg-panel> prop "titleEditable" cannot be used with panel-title slot. Setting titleEditable to false.`);
+  });
+
+  test('Should warn when expandToggleDisplay is icon with panel-title slot', async () => {
+    const spy = jest.spyOn(console, 'warn');
+    await getPage(
+      { identifier: 'identifier', expandToggleDisplay: 'icon' },
+      <div slot="panel-title">
+        <span>Slotted Title</span>
+      </div>,
+    );
+    expect(spy).toHaveBeenCalledWith(`<mg-panel> prop "expandToggleDisplay" cannot be "icon" when panel-title slot is used. Setting expandToggleDisplay to "text".`);
+  });
+
   describe('errors', () => {
     test('Should log an error with invalid "identifier" property', async () => {
       const identifier = '{{batman}}';
@@ -59,12 +91,21 @@ describe('mg-panel', () => {
       }
     });
 
-    test.each(['', ' ', undefined])('Should not render with invalid panelTitle property: %s', async panelTitle => {
+    test.each(['', ' '])('Should not render with invalid panelTitle property: %s', async panelTitle => {
       expect.assertions(1);
       try {
         await getPage({ panelTitle });
       } catch (err) {
-        expect(err.message).toEqual(`<mg-panel> prop "panelTitle" is required and must be a string. Passed value: ${panelTitle}.`);
+        expect(err.message).toEqual(`<mg-panel> prop "panelTitle" must be a string. Passed value: ${panelTitle}.`);
+      }
+    });
+
+    test('Should not render without panelTitle when slot is not used', async () => {
+      expect.assertions(1);
+      try {
+        await getPage({ panelTitle: undefined });
+      } catch (err) {
+        expect(err.message).toEqual(`<mg-panel> prop "panelTitle" is required when panel-title slot is not used.`);
       }
     });
 
