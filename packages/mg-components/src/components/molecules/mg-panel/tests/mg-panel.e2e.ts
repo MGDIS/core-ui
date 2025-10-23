@@ -13,7 +13,7 @@ const mgBadge = '<mg-badge variant="primary" value="1" label="label"></mg-badge>
 const mgButtonUpload = `
   <mg-button variant="secondary" style="margin-left: auto">
     <mg-icon icon="file-upload"></mg-icon> Upload
-  </mg-button>  
+  </mg-button>
   `;
 const mgButtonTrash = `
   <mg-button is-icon variant="secondary" label="delete">
@@ -77,6 +77,7 @@ test.describe('mg-panel', () => {
     { slot: '<div><mg-message>message</mg-message></div>' },
     { slot: '<mg-card>card</mg-card>' },
     { slot: '<div><mg-card>card</mg-card></div>' },
+    { slot: '<div slot="panel-title">required mark in title <span style="color:red">*</span></div><div>Content</div>' },
   ].forEach(args => {
     test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, ...args });
