@@ -35,7 +35,7 @@
 
 | Name                           | Description                                                                     |
 | ------------------------------ | ------------------------------------------------------------------------------- |
-| `--mg-c-modal-border-radius`   | Defines the border radius of the modal. Default value: `--mg-b-size-radius`.    |
+| `--mg-c-modal-border-radius`   | Defines the border radius of the modal. Default value: `unset`.                 |
 | `--mg-c-modal-title-font-size` | Defines the font size of the modal title. Default value: `--mg-b-font-size-h3`. |
 
 

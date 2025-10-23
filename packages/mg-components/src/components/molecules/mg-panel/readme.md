@@ -74,12 +74,12 @@ class MyComponent {
 
 ## CSS Custom Properties
 
-| Name                            | Description                                                                  |
-| ------------------------------- | ---------------------------------------------------------------------------- |
-| `--mg-c-panel-border-radius`    | Defines the border radius of the panel. Default value: `--mg-b-size-radius`. |
-| `--mg-c-panel-box-shadow`       | Defines the box shadow of the panel. Default value: `--mg-b-box-shadow`.     |
-| `--mg-c-panel-color-background` | Defines the background of the panel.                                         |
-| `--mg-c-panel-content-spacing`  | Defines the padding of the panel content. Default value: `--mg-b-size-16`.   |
+| Name                            | Description                                                                |
+| ------------------------------- | -------------------------------------------------------------------------- |
+| `--mg-c-panel-border-radius`    | Defines the border radius of the panel. Default value: `unset`.            |
+| `--mg-c-panel-box-shadow`       | Defines the box shadow of the panel. Default value: `--mg-b-box-shadow`.   |
+| `--mg-c-panel-color-background` | Defines the background of the panel. Default value: `unset`.               |
+| `--mg-c-panel-content-spacing`  | Defines the padding of the panel content. Default value: `--mg-b-size-16`. |
 
 
 ## Dependencies
