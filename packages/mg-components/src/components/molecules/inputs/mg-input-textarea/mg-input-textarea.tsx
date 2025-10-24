@@ -300,10 +300,7 @@ export class MgInputTextarea {
       return new Promise(resolve => {
         requestAnimationFrame(() => {
           // unlock validity check by reseting customErrorMessage
-          this.customErrorMessage = {
-            lock: false,
-            message: undefined,
-          };
+          this.customErrorMessage = { lock: false };
           this.checkValidity();
           this.errorMessage = undefined;
           this.hasDisplayedError = false;
