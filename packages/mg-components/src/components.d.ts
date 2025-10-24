@@ -1598,7 +1598,7 @@ export namespace Components {
          */
         "isIcon": boolean;
         /**
-          * Define if toggle have on/off style
+          * Define if toggle have on/off style, the left icon is hidden. Only available in combination with the "isIcon" prop.
           * @default false
          */
         "isOnOff": boolean;
@@ -4136,7 +4136,7 @@ declare namespace LocalJSX {
          */
         "isIcon"?: boolean;
         /**
-          * Define if toggle have on/off style
+          * Define if toggle have on/off style, the left icon is hidden. Only available in combination with the "isIcon" prop.
           * @default false
          */
         "isOnOff"?: boolean;
