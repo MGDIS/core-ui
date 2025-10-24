@@ -299,11 +299,7 @@ describe('mg-input-toggle', () => {
 
       await page.waitForChanges();
 
-      if (valid) {
-        expect(getErrorMessage(element)).toEqual(undefined);
-      } else {
-        expect(getErrorMessage(element)).toEqual(customErrorMessage);
-      }
+      expect(getErrorMessage(element)).toEqual(valid ? undefined : customErrorMessage);
       expect(spyInputValid).toHaveBeenCalledTimes(1);
       expect(page.root).toMatchSnapshot();
     });

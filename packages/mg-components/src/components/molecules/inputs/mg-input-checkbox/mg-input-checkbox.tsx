@@ -35,7 +35,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private customErrorMessage = { lock: false, message: undefined };
+  private customErrorMessage: { lock: boolean; message?: string } = { lock: false };
 
   private mode: 'custom' | 'auto' = 'custom';
 
@@ -354,11 +354,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       throw new Error('<mg-input-checkbox> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.customErrorMessage = {
-        lock: errorMessageLock,
-        message: errorMessage,
+        lock: valid ? false : errorMessageLock,
+        message: valid ? undefined : errorMessage,
       };
-      this.setValidity(valid, true);
-      this.setErrorMessage(valid ? undefined : this.customErrorMessage.message);
+      this.setValidity(valid);
+      this.setErrorMessage(true);
       this.hasDisplayedError = this.invalid;
     }
   }
@@ -395,11 +395,10 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Method to set validity values
    * @param newValue - valid new value
-   * @param bypassErrorMessageLock - true to bypass errorMessageLock
    */
-  private setValidity(newValue: MgInputCheckbox['valid'], bypassErrorMessageLock?: boolean) {
+  private setValidity(newValue: MgInputCheckbox['valid']) {
     const oldValue = this.valid;
-    if (!this.customErrorMessage.lock || (this.customErrorMessage.lock && bypassErrorMessageLock)) {
+    if (!this.customErrorMessage.lock || (this.customErrorMessage.lock && this.customErrorMessage.message !== undefined)) {
       this.valid = newValue;
     }
     this.invalid = !this.valid;
@@ -575,19 +574,15 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   /**
    * Set input error message
-   * @param errorMessage - errorMessage override
+   * @param fromSetErrorContext - context come from `setError` method
    */
-  private setErrorMessage = (errorMessage?: string): void => {
+  private setErrorMessage = (fromSetErrorContext = false): void => {
     // Set error message
     this.errorMessage = undefined;
     if (!this.valid) {
-      // Does have a custom error message locked
-      if (this.customErrorMessage.lock && this.customErrorMessage.message) {
+      // Does have a new custom error message OR does have a custom error message locked
+      if (fromSetErrorContext || (this.customErrorMessage.lock && this.customErrorMessage.message !== undefined)) {
         this.errorMessage = this.customErrorMessage.message;
-      }
-      // Does have a new custom error message
-      else if (errorMessage !== undefined) {
-        this.errorMessage = errorMessage;
       }
       // required
       else if (!this.validateRequired()) {

@@ -319,12 +319,8 @@ describe('mg-input-checkbox', () => {
         inputs[0].dispatchEvent(new CustomEvent('blur', { bubbles: true }));
         await page.waitForChanges();
 
-        if (lock) {
-          if (valid) {
-            expect(getErrorMessage(element)).toEqual(undefined);
-          } else {
-            expect(getErrorMessage(element)).toEqual(customErrorMessage);
-          }
+        if (lock && !valid) {
+          expect(getErrorMessage(element)).toEqual(customErrorMessage);
         } else {
           expect(getErrorMessage(element)).toEqual('This field is required.');
         }

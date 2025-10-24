@@ -26,7 +26,7 @@ export class MgInputDate {
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
   private handlerInProgress: EventType;
-  private customErrorMessage = { lock: false, message: undefined };
+  private customErrorMessage: { lock: boolean; message?: string } = { lock: false };
 
   /**************
    * Decorators *
@@ -241,11 +241,11 @@ export class MgInputDate {
       throw new Error('<mg-input-date> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.customErrorMessage = {
-        lock: errorMessageLock,
-        message: errorMessage,
+        lock: valid ? false : errorMessageLock,
+        message: valid ? undefined : errorMessage,
       };
-      this.setValidity(valid, true);
-      this.setErrorMessage(valid ? undefined : this.customErrorMessage.message);
+      this.setValidity(valid);
+      this.setErrorMessage(true);
       this.hasDisplayedError = this.invalid;
     }
   }
@@ -314,11 +314,10 @@ export class MgInputDate {
   /**
    * Method to set validity values
    * @param newValue - valid new value
-   * @param bypassErrorMessageLock - true to bypass errorMessageLock
    */
-  private setValidity(newValue: MgInputDate['valid'], bypassErrorMessageLock?: boolean) {
+  private setValidity(newValue: MgInputDate['valid']) {
     const oldValue = this.valid;
-    if (!this.customErrorMessage.lock || (this.customErrorMessage.lock && bypassErrorMessageLock)) {
+    if (!this.customErrorMessage.lock || (this.customErrorMessage.lock && this.customErrorMessage.message !== undefined)) {
       this.valid = newValue;
     }
     this.invalid = !this.valid;
@@ -376,51 +375,44 @@ export class MgInputDate {
    * get input error code
    * @returns error code
    */
-  private getInputError = (): null | InputDateError => {
+  private getInputError = (): undefined | InputDateError => {
+    let error;
     // bad input or pattern
     if (this.input.validity.badInput || (this.value && !this.isValidPattern(this.value))) {
-      return 'badInput';
+      error = 'badInput';
     }
-
     // required
-    if (this.input.validity.valueMissing) {
-      return 'required';
+    else if (this.input.validity.valueMissing) {
+      error = 'required';
     }
-
     // min & max
-    if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max !== DEFAULT_MAX_DATE) {
-      return 'minMax';
+    else if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max !== DEFAULT_MAX_DATE) {
+      error = 'minMax';
     }
-
     // min
-    if (this.input.validity.rangeUnderflow) {
-      return 'min';
+    else if (this.input.validity.rangeUnderflow) {
+      error = 'min';
     }
-
     // max
-    if (this.input.validity.rangeOverflow) {
-      return 'max';
+    else if (this.input.validity.rangeOverflow) {
+      error = 'max';
     }
 
-    return null;
+    return error;
   };
 
   /**
    * Check input errors
-   * @param errorMessage - errorMessage override
+   * @param fromSetErrorContext - context come from `setError` method
    */
-  private setErrorMessage = (errorMessage?: string): void => {
+  private setErrorMessage = (fromSetErrorContext = false): void => {
     // Set error message
     this.errorMessage = undefined;
     if (!this.valid) {
       const inputError = this.getInputError();
-      // Does have a custom error message locked
-      if (this.customErrorMessage.lock && this.customErrorMessage.message) {
+      // Does have a new custom error message OR does have a custom error message locked
+      if (fromSetErrorContext || (this.customErrorMessage.lock && this.customErrorMessage.message !== undefined)) {
         this.errorMessage = this.customErrorMessage.message;
-      }
-      // Does have a new custom error message
-      else if (errorMessage !== undefined) {
-        this.errorMessage = errorMessage;
       }
       // required
       else if (inputError === 'required') {

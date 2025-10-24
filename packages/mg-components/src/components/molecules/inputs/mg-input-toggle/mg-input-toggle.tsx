@@ -259,7 +259,7 @@ export class MgInputToggle {
     // Set error message
     this.errorMessage = undefined;
     // Does have a custom error message
-    if (!this.valid && errorMessage !== undefined) {
+    if (!this.valid && typeof errorMessage === 'string') {
       this.errorMessage = errorMessage;
     }
   };

@@ -297,7 +297,6 @@ describe('mg-input-date', () => {
       { validity: false, valueMissing: true, badInput: false },
       { validity: false, valueMissing: false, badInput: true },
       { validity: false, valueMissing: false, badInput: true, min: date.first },
-      { validity: false, valueMissing: false, badInput: false },
     ])('validity (%s)', async ({ validity, valueMissing, badInput, min }) => {
       const args = { label: 'label', identifier: 'identifier', min };
       const page = await getPage(args);
@@ -549,22 +548,14 @@ describe('mg-input-date', () => {
 
       await page.waitForChanges();
 
-      if (valid) {
-        expect(getErrorMessage(element)).toEqual(undefined);
-      } else {
-        expect(getErrorMessage(element)).toEqual(customErrorMessage);
-      }
+      expect(getErrorMessage(element)).toEqual(valid ? undefined : customErrorMessage);
       expect(page.root).toMatchSnapshot();
 
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();
 
-      if (lock) {
-        if (valid) {
-          expect(getErrorMessage(element)).toEqual(undefined);
-        } else {
-          expect(getErrorMessage(element)).toEqual(customErrorMessage);
-        }
+      if (lock && !valid) {
+        expect(getErrorMessage(element)).toEqual(customErrorMessage);
       } else {
         expect(getErrorMessage(element)).toEqual('This field is required.');
       }

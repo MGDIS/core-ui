@@ -245,22 +245,14 @@ describe('mg-input-textarea', () => {
 
       await page.waitForChanges();
 
-      if (valid) {
-        expect(getErrorMessage(element)).toEqual(undefined);
-      } else {
-        expect(getErrorMessage(element)).toEqual(customErrorMessage);
-      }
+      expect(getErrorMessage(element)).toEqual(valid ? undefined : customErrorMessage);
       expect(page.root).toMatchSnapshot();
 
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();
 
-      if (lock) {
-        if (valid) {
-          expect(getErrorMessage(element)).toEqual(undefined);
-        } else {
-          expect(getErrorMessage(element)).toEqual(customErrorMessage);
-        }
+      if (lock && !valid) {
+        expect(getErrorMessage(element)).toEqual(customErrorMessage);
       } else {
         expect(getErrorMessage(element)).toEqual('This field is required.');
       }
