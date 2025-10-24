@@ -306,19 +306,23 @@ describe('mg-input-toggle', () => {
   });
 
   describe('setError', () => {
-    test.each([true, false])("should display override error with setError component's public method", async valid => {
+    test.each([true, false])("Should display override error with setError component's public method (valid='%s')", async valid => {
+      const getErrorMessage = (element: HTMLMgInputToggleElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
+
+      const customErrorMessage = 'Override error';
       const page = await getPage({ ...defaultProps });
 
-      const mgInputToggle = page.doc.querySelector('mg-input-toggle');
+      expect(page.root).toMatchSnapshot();
 
+      const element = page.doc.querySelector('mg-input-toggle');
       const spyInputValid = jest.spyOn(page.rootInstance.inputValid, 'emit');
 
-      await mgInputToggle.setError(valid, 'error Batman');
+      await element.setError(valid, customErrorMessage);
 
       await page.waitForChanges();
 
+      expect(getErrorMessage(element)).toEqual(valid ? undefined : customErrorMessage);
       expect(spyInputValid).toHaveBeenCalledTimes(1);
-
       expect(page.root).toMatchSnapshot();
     });
 
@@ -405,7 +409,7 @@ describe('mg-input-toggle', () => {
       expect(mgInputToggle.value).toEqual(false);
     });
 
-    test('Should reset error message when error is displayed', async () => {
+    test('Should reset displayed error', async () => {
       const page = await getPage({
         ...defaultProps,
         items: [
@@ -413,10 +417,10 @@ describe('mg-input-toggle', () => {
           { title: 'Oui', value: true },
         ],
       });
-      const mgInputToggle = page.doc.querySelector('mg-input-toggle');
+      const element = page.doc.querySelector('mg-input-toggle');
 
       // Add an error message
-      await mgInputToggle.setError(false, "Message d'erreur de test");
+      await element.setError(false, "Message d'erreur de test");
       await page.waitForChanges();
 
       // Verify initial state
@@ -424,11 +428,12 @@ describe('mg-input-toggle', () => {
 
       const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
-      await mgInputToggle.reset();
+      await element.reset();
       await page.waitForChanges();
 
       expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify reset state
+      expect(element.shadowRoot.querySelector('#identifier-error')).toEqual(null);
       expect(page.root).toMatchSnapshot();
     });
 

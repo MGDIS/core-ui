@@ -189,7 +189,7 @@ test.describe('mg-input-toggle', () => {
   });
 
   test.describe('Reset input', () => {
-    test('Should reset value when calling reset method', async ({ page }) => {
+    test('Should reset value and error when calling reset method', async ({ page }) => {
       await setPageContent(page, {
         items: createItems(['Non', 'Oui']),
       });
@@ -204,6 +204,7 @@ test.describe('mg-input-toggle', () => {
         document.querySelector('mg-input-toggle').setError(false, "Message d'erreur de test");
       });
 
+      // Check state with custom error
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       // Call reset method

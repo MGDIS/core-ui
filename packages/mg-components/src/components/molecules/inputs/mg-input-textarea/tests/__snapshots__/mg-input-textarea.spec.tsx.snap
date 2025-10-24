@@ -1,5 +1,437 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`mg-input-textarea Should display override error with setError component's public method ({ valid: false, lock: false }) 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should display override error with setError component's public method ({ valid: false, lock: false }) 2`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should display override error with setError component's public method ({ valid: false, lock: false }) 3`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should display override error with setError component's public method ({ valid: false, lock: true }) 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should display override error with setError component's public method ({ valid: false, lock: true }) 2`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should display override error with setError component's public method ({ valid: false, lock: true }) 3`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should display override error with setError component's public method ({ valid: true, lock: false }) 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should display override error with setError component's public method ({ valid: true, lock: false }) 2`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should display override error with setError component's public method ({ valid: true, lock: false }) 3`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should display override error with setError component's public method ({ valid: true, lock: true }) 1`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should display override error with setError component's public method ({ valid: true, lock: true }) 2`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should display override error with setError component's public method ({ valid: true, lock: true }) 3`] = `
+<mg-input-textarea>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
 exports[`mg-input-textarea Should render with args {
   readonly: true,
   tooltip: 'Tooltip message',
@@ -879,7 +1311,7 @@ exports[`mg-input-textarea display error with displayError component's public me
 </mg-input-textarea>
 `;
 
-exports[`mg-input-textarea reset method Should reset error message when error is displayed 1`] = `
+exports[`mg-input-textarea reset method Should reset displayed error, lock false 1`] = `
 <mg-input-textarea>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
@@ -913,7 +1345,7 @@ exports[`mg-input-textarea reset method Should reset error message when error is
 </mg-input-textarea>
 `;
 
-exports[`mg-input-textarea reset method Should reset error message when error is displayed 2`] = `
+exports[`mg-input-textarea reset method Should reset displayed error, lock false 2`] = `
 <mg-input-textarea value="">
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
@@ -941,106 +1373,7 @@ exports[`mg-input-textarea reset method Should reset error message when error is
 </mg-input-textarea>
 `;
 
-exports[`mg-input-textarea should display override error with setError component's public method 1`] = `
-<mg-input-textarea>
-  <template shadowrootmode="open">
-    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </template>
-      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
-        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-textarea>
-`;
-
-exports[`mg-input-textarea should display override error with setError component's public method 2`] = `
-<mg-input-textarea>
-  <template shadowrootmode="open">
-    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </template>
-      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
-        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-textarea>
-`;
-
-exports[`mg-input-textarea should display override error with setError component's public method 3`] = `
-<mg-input-textarea>
-  <template shadowrootmode="open">
-    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </template>
-      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
-        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-textarea>
-`;
-
-exports[`mg-input-textarea should display override error with setError component's public method 4`] = `
+exports[`mg-input-textarea reset method Should reset displayed error, lock true 1`] = `
 <mg-input-textarea>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
@@ -1057,21 +1390,44 @@ exports[`mg-input-textarea should display override error with setError component
           </div>
         </div>
       </template>
-      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
       <div id="identifier-error" slot="error">
-        Override error
+        Message d'erreur de test
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea reset method Should reset displayed error, lock true 2`] = `
+<mg-input-textarea value="">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--textarea mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3" value=""></textarea>
+        <mg-character-left characters="" identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
         </label>
       </mg-input-title>
     </mg-input>

@@ -411,34 +411,57 @@ describe('mg-input-numeric', () => {
     });
   });
 
-  test.each([
-    {
-      valid: true,
-      errorMessage: 'Override error',
+  test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
+    "Should display override error with setError component's public method (%s)",
+    async ({ valid, lock }) => {
+      const getErrorMessage = (element: HTMLMgInputNumericElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
+
+      const customErrorMessage = 'Override error';
+      const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
+
+      expect(page.root).toMatchSnapshot();
+
+      const element = page.doc.querySelector('mg-input-numeric');
+      const input = element.shadowRoot.querySelector('input');
+      let validity = false;
+
+      //mock validity
+      input.checkValidity = jest.fn(() => validity);
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          valueMissing: !validity,
+        })),
+      });
+
+      await element.setError(valid, customErrorMessage, lock);
+
+      await page.waitForChanges();
+
+      expect(getErrorMessage(element)).toEqual(valid ? undefined : customErrorMessage);
+      expect(page.root).toMatchSnapshot();
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      if (lock && !valid) {
+        expect(getErrorMessage(element)).toEqual(customErrorMessage);
+      } else {
+        expect(getErrorMessage(element)).toEqual('This field is required.');
+      }
+      expect(page.root).toMatchSnapshot();
+
+      //mock validity
+      validity = true;
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      if (lock && !valid) {
+        expect(getErrorMessage(element)).toEqual(customErrorMessage);
+      } else {
+        expect(getErrorMessage(element)).toEqual(undefined);
+      }
     },
-    {
-      valid: false,
-      errorMessage: 'Override error',
-    },
-  ])("should display override error with setError component's public method", async params => {
-    const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
-
-    expect(page.root).toMatchSnapshot();
-
-    const element = page.doc.querySelector('mg-input-numeric');
-    const input = element.shadowRoot.querySelector('input');
-
-    //mock validity
-    Object.defineProperty(input, 'validity', {
-      get: () => ({}),
-    });
-
-    await element.setError(params.valid, params.errorMessage);
-
-    await page.waitForChanges();
-
-    expect(page.root).toMatchSnapshot();
-  });
+  );
 
   test.each([
     {
@@ -757,7 +780,7 @@ describe('mg-input-numeric', () => {
       expect(element.value).toEqual('');
     });
 
-    test('Should reset error message when error is displayed', async () => {
+    test.each([true, false])('Should reset displayed error, lock %s', async lock => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
@@ -765,7 +788,7 @@ describe('mg-input-numeric', () => {
       const element = page.doc.querySelector('mg-input-numeric');
 
       // Set error message
-      await element.setError(false, "Message d'erreur de test");
+      await element.setError(false, "Message d'erreur de test", lock);
       await page.waitForChanges();
 
       // Verify initial state
@@ -778,6 +801,7 @@ describe('mg-input-numeric', () => {
 
       expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify reset state
+      expect(element.shadowRoot.querySelector('#identifier-error')?.textContent).toEqual(undefined);
       expect(page.root).toMatchSnapshot();
     });
 

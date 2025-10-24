@@ -197,30 +197,43 @@ test.describe('mg-input-password', () => {
     });
   });
 
-  test('Should reset value and error when calling reset method', async ({ page }) => {
-    const html = createHTML({ ...baseArgs });
-    await page.setContent(html);
+  [true, false].forEach(lock => {
+    test(`Should reset value and error when calling reset method, lock: ${lock}`, async ({ page }) => {
+      const html = createHTML({ ...baseArgs, required: true });
+      await page.setContent(html);
 
-    await page.locator('mg-input-password.hydrated').waitFor();
+      await page.locator('mg-input-password.hydrated').waitFor();
 
-    // Enter a value that doesn't match the pattern
-    await page.locator('mg-input-password input').fill('Chase');
+      // Set an error message
+      await page.evaluate(lock => {
+        document.querySelector('mg-input-password').setError(false, "Message d'erreur de test", lock);
+      }, lock);
 
-    // Set an error message intentionally
-    await page.evaluate(() => {
-      document.querySelector('mg-input-password').setError(false, "Message d'erreur de test");
+      // Verify the state with custom error
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // render required error
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+
+      // Verify the state with required error
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Enter a value that doesn't match the pattern
+      await page.locator('mg-input-password input').fill('Chase'); // Invalid value
+      await page.locator('mg-input-password input').blur(); // Trigger validity
+
+      // Check state with value and no error
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // Call reset method
+      await page.evaluate(() => {
+        document.querySelector('mg-input-password').reset();
+      });
+
+      // Check that the input has been reset and the error has been removed
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
-
-    // Check state with value and error
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-    // Call reset method
-    await page.evaluate(() => {
-      document.querySelector('mg-input-password').reset();
-    });
-
-    // Check that the input has been reset and the error has been removed
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
   test('Should udpate error with displayError() after value update with props', async ({ page }) => {

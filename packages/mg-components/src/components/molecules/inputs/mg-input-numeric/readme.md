@@ -107,7 +107,7 @@ Type: `Promise<void>`
 
 
 
-### `setError(valid: MgInputNumeric["valid"], errorMessage: string) => Promise<void>`
+### `setError(valid: MgInputNumeric["valid"], errorMessage?: string, errorMessageLock?: boolean) => Promise<void>`
 
 Set an error and display a custom error message.
 This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
@@ -116,10 +116,11 @@ When used to set validity to `false`, you should use this method again to reset 
 
 #### Parameters
 
-| Name           | Type      | Description                     |
-| -------------- | --------- | ------------------------------- |
-| `valid`        | `boolean` | - value indicating the validity |
-| `errorMessage` | `string`  | - the error message to display  |
+| Name               | Type      | Description                                 |
+| ------------------ | --------- | ------------------------------------------- |
+| `valid`            | `boolean` | - value indicating the validity             |
+| `errorMessage`     | `string`  | - the error message to display              |
+| `errorMessageLock` | `boolean` | - lock the error message and validity state |
 
 #### Returns
 

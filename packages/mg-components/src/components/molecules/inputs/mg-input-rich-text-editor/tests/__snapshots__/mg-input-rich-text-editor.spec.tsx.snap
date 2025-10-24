@@ -160,6 +160,462 @@ exports[`mg-input-rich-text-editor Events Should manage focus and blur events 4`
 </mg-input-rich-text-editor>
 `;
 
+exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: false, lock: false }) 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: false, lock: false }) 2`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: false, lock: false }) 3`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: false, lock: true }) 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: false, lock: true }) 2`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: false, lock: true }) 3`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: true, lock: false }) 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: true, lock: false }) 2`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: true, lock: false }) 3`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: true, lock: true }) 1`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: true, lock: true }) 2`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: true, lock: true }) 3`] = `
+<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper" id="identifier">
+        <div class="ql-editor">
+          <div></div>
+        </div>
+      </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
 exports[`mg-input-rich-text-editor Methods getHTML should return correct content 1`] = `
 <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
   <template shadowrootmode="open">

@@ -289,39 +289,59 @@ describe('mg-input-radio', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test.each([
-    {
-      valid: true,
-      errorMessage: 'Override error',
-    },
-    {
-      valid: false,
-      errorMessage: 'Override error',
-    },
-  ])("should display override error with setError component's public method", async params => {
-    const page = await getPage({ label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true });
+  test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
+    "Should display override error with setError component's public method (%s)",
+    async ({ valid, lock }) => {
+      const getErrorMessage = (element: HTMLMgInputRadioElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
+      const page = await getPage({ label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true });
 
-    expect(page.root).toMatchSnapshot();
+      expect(page.root).toMatchSnapshot();
 
-    const element = page.doc.querySelector('mg-input-radio');
-    const allInputs = element.shadowRoot.querySelectorAll('input');
+      const element = page.doc.querySelector('mg-input-radio');
+      const inputs = element.shadowRoot.querySelectorAll('input');
+      let validity = false;
 
-    //mock validity
-    allInputs.forEach(input => {
-      input.checkValidity = jest.fn(() => false);
-      Object.defineProperty(input, 'validity', {
-        get: jest.fn(() => ({
-          valueMissing: true,
-        })),
+      //mock validity
+      inputs.forEach(input => {
+        input.checkValidity = jest.fn(() => validity);
+        Object.defineProperty(input, 'validity', {
+          get: jest.fn(() => ({
+            valueMissing: !validity,
+          })),
+        });
       });
-    });
 
-    await element.setError(params.valid, params.errorMessage);
+      const customErrorMessage = 'Override error';
 
-    await page.waitForChanges();
+      await element.setError(valid, customErrorMessage, lock);
 
-    expect(page.root).toMatchSnapshot();
-  });
+      await page.waitForChanges();
+
+      expect(getErrorMessage(element)).toEqual(valid ? undefined : customErrorMessage);
+      expect(page.root).toMatchSnapshot();
+
+      inputs[0].dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      if (lock && !valid) {
+        expect(getErrorMessage(element)).toEqual(customErrorMessage);
+      } else {
+        expect(getErrorMessage(element)).toEqual('This field is required.');
+      }
+      expect(page.root).toMatchSnapshot();
+
+      //mock validity
+      validity = true;
+      inputs[0].dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      if (lock && !valid) {
+        expect(getErrorMessage(element)).toEqual(customErrorMessage);
+      } else {
+        expect(getErrorMessage(element)).toEqual(undefined);
+      }
+    },
+  );
 
   test.each([
     {
@@ -480,7 +500,7 @@ describe('mg-input-radio', () => {
       expect(element.value).toBeUndefined();
     });
 
-    test('Should reset error message when error is displayed', async () => {
+    test.each([true, false])('Should reset displayed error, lock %s', async lock => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
@@ -489,7 +509,7 @@ describe('mg-input-radio', () => {
       const element = page.doc.querySelector('mg-input-radio');
 
       // Set an error message
-      await element.setError(false, "Message d'erreur de test");
+      await element.setError(false, "Message d'erreur de test", lock);
       await page.waitForChanges();
 
       // Verify initial state
@@ -502,6 +522,7 @@ describe('mg-input-radio', () => {
 
       expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify reset state
+      expect(element.shadowRoot.querySelector('#identifier-error')?.textContent).toEqual(undefined);
       expect(page.root).toMatchSnapshot();
     });
 

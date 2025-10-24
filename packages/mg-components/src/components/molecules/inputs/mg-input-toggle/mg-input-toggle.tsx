@@ -225,10 +225,10 @@ export class MgInputToggle {
    * @param errorMessage - the error message to display
    */
   @Method()
-  async setError(valid: boolean, errorMessage: string): Promise<void> {
+  async setError(valid: boolean, errorMessage?: string): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-toggle> method "setError()" param "valid" must be a boolean.');
-    } else if (!isValidString(errorMessage)) {
+    } else if (errorMessage !== undefined && !isValidString(errorMessage)) {
       throw new Error('<mg-input-toggle> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.valid = valid;
@@ -268,7 +268,7 @@ export class MgInputToggle {
     // Set error message
     this.errorMessage = undefined;
     // Does have a custom error message
-    if (!this.valid && errorMessage !== undefined) {
+    if (!this.valid && typeof errorMessage === 'string') {
       this.errorMessage = errorMessage;
     }
   };
