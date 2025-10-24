@@ -108,11 +108,12 @@ export class MgInputToggle {
   @Prop({ mutable: true }) isOnOff = false;
   @Watch('isOnOff')
   watchIsOnOff(newValue: MgInputToggle['isOnOff']): void {
-    if (newValue && !this.isIcon) {
-      this.isOnOff = false;
-      console.warn('<mg-input-toggle> prop "isOnOff" must be used with "isIcon". Setting isOnOff to false.');
-    } else if (newValue) {
+    if (newValue) {
       this.classCollection.add(this.classOnOff);
+      if (!this.isIcon) {
+        this.isOnOff = false;
+        console.warn('<mg-input-toggle> prop "isOnOff" must be used with "isIcon". Setting isOnOff to false.');
+      }
     } else {
       this.classCollection.delete(this.classOnOff);
     }
@@ -284,9 +285,20 @@ export class MgInputToggle {
    */
   private validateSlots = (): void => {
     const slots = Array.from(this.element.children);
+    // validate slots
     if (slots.length !== 2) {
-      throw new Error('<mg-input-toggle> 2 slots are required.');
-    } else if (!this.isIcon) {
+      if (this.isOnOff && this.isIcon) {
+        // ONLY slot="item-2" is required in with isOnOff && isIcon
+        if (this.element.querySelector('[slot="item-2"]') === null) {
+          throw new Error('<mg-input-toggle> an element with attribute slot="item-2" is required.');
+        }
+      } else {
+        throw new Error('<mg-input-toggle> 2 slots are required.');
+      }
+    }
+
+    // update slots
+    if (!this.isIcon) {
       // Due to text-overflow set to ellipsis
       // we need to ensure that slot element have title to display value on mouse over
       slots.forEach(slot => slot.setAttribute('title', slot.textContent));

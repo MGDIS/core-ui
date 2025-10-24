@@ -188,17 +188,37 @@ describe('mg-input-toggle', () => {
       }
     });
 
-    test.each([[<span></span>], [<span slot="item-2">Oui</span>], ['oui', 'non', 'possible'].map((title, index) => <span slot={`item-${index + 1}`}>{title}</span>)])(
-      'Should throw an error with blank slots',
-      async slots => {
-        expect.assertions(1);
-        try {
-          await getPage(defaultProps, slots);
-        } catch (err) {
-          expect(err.message).toEqual('<mg-input-toggle> 2 slots are required.');
-        }
-      },
-    );
+    describe.each([true, false])('isIcon props: %s', isIcon => {
+      describe.each([true, false])('isIcon props: %s', isOnOff => {
+        test.each([[<span></span>], [<span slot="item-1">non</span>], ['oui', 'non', 'possible'].map((title, index) => <span slot={`item-${index + 1}`}>{title}</span>)])(
+          'Should throw an error with blank slots',
+          async slots => {
+            expect.assertions(1);
+            try {
+              await getPage({ ...defaultProps, isIcon, isOnOff }, slots);
+            } catch (err) {
+              if (isIcon && isOnOff) {
+                expect(err.message).toEqual('<mg-input-toggle> an element with attribute slot="item-2" is required.');
+              } else {
+                expect(err.message).toEqual('<mg-input-toggle> 2 slots are required.');
+              }
+            }
+          },
+        );
+        test('Should NOT throw an error with slot="item-2"', async () => {
+          expect.assertions(isIcon && isOnOff ? 0 : 1);
+          try {
+            await getPage({ ...defaultProps, isIcon, isOnOff }, <span slot="item-2">Oui</span>);
+          } catch (error) {
+            if (isIcon && isOnOff) {
+              expect(error.message).toEqual(undefined);
+            } else {
+              expect(error.message).toEqual('<mg-input-toggle> 2 slots are required.');
+            }
+          }
+        });
+      });
+    });
 
     test.each([
       [['Batman', { title: 'Batman', value: 'Batman' }]],
