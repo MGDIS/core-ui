@@ -316,6 +316,7 @@ describe('mg-input-text', () => {
 
       const customErrorMessage = 'Override error';
       const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
+      let validity = false;
 
       expect(page.root).toMatchSnapshot();
 
@@ -323,10 +324,10 @@ describe('mg-input-text', () => {
       const input = element.shadowRoot.querySelector('input');
 
       //mock validity
-      input.checkValidity = jest.fn(() => false);
+      input.checkValidity = jest.fn(() => validity);
       Object.defineProperty(input, 'validity', {
         get: jest.fn(() => ({
-          valueMissing: true,
+          valueMissing: !validity,
         })),
       });
 
@@ -346,6 +347,17 @@ describe('mg-input-text', () => {
         expect(getErrorMessage(element)).toEqual('This field is required.');
       }
       expect(page.root).toMatchSnapshot();
+
+      //mock validity
+      validity = true;
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      if (lock && !valid) {
+        expect(getErrorMessage(element)).toEqual(customErrorMessage);
+      } else {
+        expect(getErrorMessage(element)).toEqual(undefined);
+      }
     },
   );
 

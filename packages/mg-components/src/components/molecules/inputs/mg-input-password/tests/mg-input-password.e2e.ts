@@ -220,17 +220,10 @@ test.describe('mg-input-password', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       // Enter a value that doesn't match the pattern
-      await page.locator('mg-input-password input').fill('Chase');
+      await page.locator('mg-input-password input').fill('Chase'); // Invalid value
+      await page.locator('mg-input-password input').blur(); // Trigger validity
 
       // Check state with value and no error
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-      // Set an error message
-      await page.evaluate(lock => {
-        document.querySelector('mg-input-password').setError(false, "Message d'erreur de test", lock);
-      }, lock);
-
-      // Check state with value and custom error
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       // Call reset method

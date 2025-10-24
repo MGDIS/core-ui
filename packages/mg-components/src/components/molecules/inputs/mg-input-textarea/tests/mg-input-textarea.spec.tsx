@@ -232,12 +232,13 @@ describe('mg-input-textarea', () => {
 
       const element = page.doc.querySelector('mg-input-textarea');
       const input = element.shadowRoot.querySelector('textarea');
+      let validity = false;
 
       //mock validity
-      input.checkValidity = jest.fn(() => false);
+      input.checkValidity = jest.fn(() => validity);
       Object.defineProperty(input, 'validity', {
         get: jest.fn(() => ({
-          valueMissing: true,
+          valueMissing: !validity,
         })),
       });
 
@@ -257,6 +258,17 @@ describe('mg-input-textarea', () => {
         expect(getErrorMessage(element)).toEqual('This field is required.');
       }
       expect(page.root).toMatchSnapshot();
+
+      //mock validity
+      validity = true;
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      if (lock && !valid) {
+        expect(getErrorMessage(element)).toEqual(customErrorMessage);
+      } else {
+        expect(getErrorMessage(element)).toEqual(undefined);
+      }
     },
   );
 

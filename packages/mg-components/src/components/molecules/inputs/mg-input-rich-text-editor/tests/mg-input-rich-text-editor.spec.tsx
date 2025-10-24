@@ -271,14 +271,15 @@ describe('mg-input-rich-text-editor', () => {
         const customErrorMessage = 'Override error';
         const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
         const { element, input } = await waitForEditor(page);
+        let validity = false;
 
         expect(page.root).toMatchSnapshot();
 
         //mock validity
-        input.checkValidity = jest.fn(() => false);
+        input.checkValidity = jest.fn(() => validity);
         Object.defineProperty(input, 'validity', {
           get: jest.fn(() => ({
-            valueMissing: true,
+            valueMissing: !validity,
           })),
         });
 
@@ -298,6 +299,18 @@ describe('mg-input-rich-text-editor', () => {
           expect(getErrorMessage(element)).toEqual('This field is required.');
         }
         expect(page.root).toMatchSnapshot();
+
+        //mock validity
+        validity = true;
+        element.value = 'batman';
+        input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+        await page.waitForChanges();
+
+        if (lock && !valid) {
+          expect(getErrorMessage(element)).toEqual(customErrorMessage);
+        } else {
+          expect(getErrorMessage(element)).toEqual(undefined);
+        }
       },
     );
 

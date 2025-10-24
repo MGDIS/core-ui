@@ -301,11 +301,12 @@ describe('mg-input-checkbox', () => {
 
         const element = page.doc.querySelector('mg-input-checkbox');
         const inputs = Array.from(element.shadowRoot.querySelectorAll('input'));
+        let validity = false;
 
         //mock validity
         inputs.forEach(input => {
           Object.defineProperty(input, 'validity', {
-            get: () => ({ valueMissing: true }),
+            get: () => ({ valueMissing: !validity }),
           });
         });
 
@@ -325,6 +326,18 @@ describe('mg-input-checkbox', () => {
           expect(getErrorMessage(element)).toEqual('This field is required.');
         }
         expect(page.root).toMatchSnapshot();
+
+        //mock validity
+        element.value = getValues().map(item => ({ ...item, value: true }));
+        validity = true;
+        inputs[0].dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+        await page.waitForChanges();
+
+        if (lock && !valid) {
+          expect(getErrorMessage(element)).toEqual(customErrorMessage);
+        } else {
+          expect(getErrorMessage(element)).toEqual(undefined);
+        }
       },
     );
 

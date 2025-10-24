@@ -370,7 +370,7 @@ export class MgInputNumeric {
    */
   private setValidity(newValue: MgInputNumeric['valid']) {
     const oldValue = this.valid;
-    if (!this.customErrorMessage.lock || (this.customErrorMessage.lock && this.customErrorMessage.message !== undefined)) {
+    if (!this.customErrorMessage.lock || (this.customErrorMessage.message !== undefined && !newValue)) {
       this.valid = newValue;
     }
     this.invalid = !this.valid;

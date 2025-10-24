@@ -270,7 +270,7 @@ export class MgInputPassword {
    */
   private setValidity(newValue: MgInputPassword['valid']) {
     const oldValue = this.valid;
-    if (!this.customErrorMessage.lock || (this.customErrorMessage.lock && this.customErrorMessage.message !== undefined)) {
+    if (!this.customErrorMessage.lock || (this.customErrorMessage.message !== undefined && !newValue)) {
       this.valid = newValue;
     }
     this.invalid = !this.valid;

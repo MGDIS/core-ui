@@ -577,12 +577,13 @@ describe('mg-input-combobox', () => {
 
           const element = page.doc.querySelector('mg-input-combobox');
           const input = element.shadowRoot.querySelector('input');
+          let validity = false;
 
           //mock validity
-          input.checkValidity = jest.fn(() => false);
+          input.checkValidity = jest.fn(() => validity);
           Object.defineProperty(input, 'validity', {
             get: jest.fn(() => ({
-              valueMissing: true,
+              valueMissing: !validity,
             })),
           });
 
@@ -602,6 +603,17 @@ describe('mg-input-combobox', () => {
             expect(getErrorMessage(element)).toEqual('This field is required.');
           }
           expect(page.root).toMatchSnapshot();
+
+          //mock validity
+          validity = true;
+          input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+          await page.waitForChanges();
+
+          if (lock && !valid) {
+            expect(getErrorMessage(element)).toEqual(customErrorMessage);
+          } else {
+            expect(getErrorMessage(element)).toEqual(undefined);
+          }
         },
       );
 

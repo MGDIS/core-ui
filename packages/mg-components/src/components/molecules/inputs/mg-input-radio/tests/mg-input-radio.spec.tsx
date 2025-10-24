@@ -299,13 +299,14 @@ describe('mg-input-radio', () => {
 
       const element = page.doc.querySelector('mg-input-radio');
       const inputs = element.shadowRoot.querySelectorAll('input');
+      let validity = false;
 
       //mock validity
       inputs.forEach(input => {
-        input.checkValidity = jest.fn(() => false);
+        input.checkValidity = jest.fn(() => validity);
         Object.defineProperty(input, 'validity', {
           get: jest.fn(() => ({
-            valueMissing: true,
+            valueMissing: !validity,
           })),
         });
       });
@@ -328,6 +329,17 @@ describe('mg-input-radio', () => {
         expect(getErrorMessage(element)).toEqual('This field is required.');
       }
       expect(page.root).toMatchSnapshot();
+
+      //mock validity
+      validity = true;
+      inputs[0].dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      if (lock && !valid) {
+        expect(getErrorMessage(element)).toEqual(customErrorMessage);
+      } else {
+        expect(getErrorMessage(element)).toEqual(undefined);
+      }
     },
   );
 
