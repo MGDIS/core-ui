@@ -140,6 +140,7 @@ mg-icon {
 }
 
 :host(.mg-c-input.mg-c-input--checkbox),
+:host(.mg-c-input.mg-c-input--toggle),
 :host(.mg-c-input.mg-c-input--radio) {
   .mg-c-input__input {
     min-height: unset;
@@ -153,6 +154,11 @@ mg-icon {
 
 :host(.mg-c-input.mg-c-input--fieldset:not(.mg-c-input--checkbox-multi, .mg-c-input--readonly)) .mg-c-input__input-container mg-tooltip {
   margin-left: var(--mg-b-size-32);
+}
+
+:host(.mg-c-input.mg-c-input--toggle) .mg-c-input__input-container {
+  min-width: 0;
+  flex: 1;
 }
 
 :host(.mg-c-input.mg-c-input--label-on-top) {

@@ -3,10 +3,11 @@ import { renderProperties, renderAttributes } from '@mgdis/core-ui-helpers/dist/
 import { test } from '../../../../../utils/playwright.fixture';
 import { MgInputToggle } from '../mg-input-toggle';
 import { ToggleValue } from '../mg-input-toggle.conf';
+import { icons } from '../../../../../assets/icons';
 
-const getItemsFromStrings = (items: string[]): ToggleValue[] => items.map((item, index) => ({ title: item, value: index === 1 }));
+const createItems = (items: string[]): ToggleValue[] => items.map((item, index) => ({ title: item, value: index === 1 }));
 
-const defaultItems = getItemsFromStrings(['Choix A', 'Choix B']);
+const defaultItems = createItems(['Choix A', 'Choix B']);
 
 const defaultProps = {
   identifier: 'identifier',
@@ -16,20 +17,20 @@ const defaultProps = {
 
 const getProps = args => ({ ...defaultProps, ...args });
 
-const renderSlot = (title: string, index: number) => `<span slot="item-${index + 1}">${title}</span>`;
-
-const createHTML = props => {
-  return `<mg-input-toggle ${renderAttributes(props)}>${
-    props.isIcon
-      ? ['cross', 'check'].map(
-          (icon, index) =>
-            `<span slot="item-${index + 1}">
-        <mg-icon icon="${icon}"></mg-icon>
-      </span>`,
-        )
-      : props.items.map((item, index) => renderSlot(item.title, index))
-  }}</mg-input-toggle>`;
+const renderSlots = (props: Pick<MgInputToggle, 'items' | 'isIcon'>): string => {
+  return props.items
+    .map((item, index) => {
+      const slot = `item-${index + 1}`;
+      if (props.isIcon && Object.keys(icons).includes(item.title)) {
+        return `<mg-icon slot="${slot}" icon="${item.title}"></mg-icon>`;
+      } else {
+        return `<span slot="${slot}">${item.title}</span>`;
+      }
+    })
+    .join('');
 };
+
+const createHTML = props => `<mg-input-toggle ${renderAttributes(props)}>${renderSlots(props)}</mg-input-toggle>`;
 
 const setPageContent = async (page, args?) => {
   const props = getProps(args);
@@ -41,10 +42,11 @@ const setPageContent = async (page, args?) => {
 test.describe('mg-input-toggle', () => {
   [
     {},
-    { isOnOff: true, items: getItemsFromStrings(['Non', 'Oui']) },
-    { isIcon: true, isOnOff: true, items: getItemsFromStrings(['Non', 'Oui']) },
+    { isOnOff: true, items: createItems(['Non', 'Oui']) },
+    { isIcon: true, items: createItems(['cross', 'check']) },
+    { isIcon: true, isOnOff: true, items: createItems(['cross', 'check']) },
     {
-      items: getItemsFromStrings([
+      items: createItems([
         'Choix A très long long long long long long long long long long long long long',
         'Choix B très long long long long long long long long long long long long long',
       ]),
@@ -55,12 +57,14 @@ test.describe('mg-input-toggle', () => {
   ].forEach(args => {
     test(`Keyboard navigation ${JSON.stringify(args)}`, async ({ page }) => {
       await setPageContent(page, args);
-
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       for (const key of ['Tab', 'Space', 'Tab']) {
-        if (key === 'Space') await page.locator('mg-input-toggle button').press('Space');
-        else await page.keyboard.down(key);
+        if (key === 'Space') {
+          await page.locator('mg-input-toggle button').press('Space');
+        } else {
+          await page.keyboard.down(key);
+        }
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       }
     });
@@ -71,14 +75,14 @@ test.describe('mg-input-toggle', () => {
     { inputVerticalList: true, helpText: 'HelpText Message' },
     { labelOnTop: true, inputVerticalList: true, helpText: 'HelpText Message' },
     {
-      items: getItemsFromStrings([
+      items: createItems([
         'Choix A très long long long long long long long long long long long long long',
         'Choix B très long long long long long long long long long long long long long',
       ]),
     },
-    { readonly: true, items: getItemsFromStrings(['Choix A avec text long long', 'Choix B avec text long long']) },
+    { readonly: true, items: createItems(['Choix A avec text long long', 'Choix B avec text long long']) },
     { labelHide: true },
-    { isOnOff: true, readonly: true, items: getItemsFromStrings(['Off', 'On']) },
+    { isOnOff: true, readonly: true, items: createItems(['Off', 'On']) },
     { placeholder: 'placeholder', helpText: 'HelpText Message' },
     { helpText: '<mg-icon icon="user" size="small"></mg-icon> Welcome batman' },
   ].forEach(args => {
@@ -157,15 +161,26 @@ test.describe('mg-input-toggle', () => {
   });
 
   test.describe('Responsive', () => {
-    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' as MgInputToggle['tooltipPosition'] }].forEach(args => {
-      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+    [
+      {},
+      { tooltip: 'blu' },
+      { tooltip: 'blu', tooltipPosition: 'label' as MgInputToggle['tooltipPosition'] },
+      {
+        items: createItems([
+          'Choix A très long long long long long long long long long long long long long',
+          'Choix B très long long long long long long long long long long long long long',
+        ]),
+      },
+    ].forEach((args, key) => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)} - ${key}`, async ({ page }) => {
         const props = getProps(args);
         await setPageContent(page, props);
+        await page.addStyleTag({ content: '.e2e-screenshot{max-width:100%}' });
 
         // Initial state
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-        await page.setViewportSize({ width: 767, height: 800 });
+        await page.setViewportSize({ width: 200, height: 800 });
 
         // Responsive state
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -176,7 +191,7 @@ test.describe('mg-input-toggle', () => {
   test.describe('Reset input', () => {
     test('Should reset value and error when calling reset method', async ({ page }) => {
       await setPageContent(page, {
-        items: getItemsFromStrings(['Non', 'Oui']),
+        items: createItems(['Non', 'Oui']),
       });
 
       await page.locator('mg-input-toggle.hydrated').waitFor();

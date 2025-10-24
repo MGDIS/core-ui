@@ -734,7 +734,7 @@ exports[`mg-input-toggle template Should render with args {
         </div>
       </template>
       <b class="mg-c-input__readonly-value">
-        Oui
+        cross
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
@@ -744,25 +744,21 @@ exports[`mg-input-toggle template Should render with args {
       </mg-input-title>
     </mg-input>
   </template>
-  <span slot="item-1">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
-          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
-  <span slot="item-2">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
+  <mg-icon slot="item-1">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+        <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
+  <mg-icon slot="item-2">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
 </mg-input-toggle>
 `;
 
@@ -1069,25 +1065,21 @@ exports[`mg-input-toggle template Should render with args {
       </mg-input-title>
     </mg-input>
   </template>
-  <span slot="item-1">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
-          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
-  <span slot="item-2">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
+  <mg-icon slot="item-1">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+        <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
+  <mg-icon slot="item-2">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
 </mg-input-toggle>
 `;
 
@@ -1316,25 +1308,21 @@ exports[`mg-input-toggle template Should render with args { disabled: true }: 6`
       </mg-input-title>
     </mg-input>
   </template>
-  <span slot="item-1">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
-          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
-  <span slot="item-2">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
+  <mg-icon slot="item-1">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+        <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
+  <mg-icon slot="item-2">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
 </mg-input-toggle>
 `;
 
@@ -1599,25 +1587,21 @@ exports[`mg-input-toggle template Should render with args { helpText: 'Hello Jok
       </mg-input-title>
     </mg-input>
   </template>
-  <span slot="item-1">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
-          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
-  <span slot="item-2">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
+  <mg-icon slot="item-1">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+        <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
+  <mg-icon slot="item-2">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
 </mg-input-toggle>
 `;
 
@@ -1846,25 +1830,21 @@ exports[`mg-input-toggle template Should render with args { labelHide: true }: 6
       </mg-input-title>
     </mg-input>
   </template>
-  <span slot="item-1">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
-          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
-  <span slot="item-2">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
+  <mg-icon slot="item-1">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+        <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
+  <mg-icon slot="item-2">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
 </mg-input-toggle>
 `;
 
@@ -2093,25 +2073,21 @@ exports[`mg-input-toggle template Should render with args { labelOnTop: true }: 
       </mg-input-title>
     </mg-input>
   </template>
-  <span slot="item-1">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
-          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
-  <span slot="item-2">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
+  <mg-icon slot="item-1">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+        <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
+  <mg-icon slot="item-2">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
 </mg-input-toggle>
 `;
 
@@ -2300,7 +2276,7 @@ exports[`mg-input-toggle template Should render with args { readonly: true }: 6`
         </div>
       </template>
       <b class="mg-c-input__readonly-value">
-        Oui
+        cross
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
@@ -2310,25 +2286,21 @@ exports[`mg-input-toggle template Should render with args { readonly: true }: 6`
       </mg-input-title>
     </mg-input>
   </template>
-  <span slot="item-1">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
-          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
-  <span slot="item-2">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
+  <mg-icon slot="item-1">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+        <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
+  <mg-icon slot="item-2">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
 </mg-input-toggle>
 `;
 
@@ -2571,7 +2543,7 @@ exports[`mg-input-toggle template Should render with args { readonly: true, tool
         </div>
       </template>
       <b class="mg-c-input__readonly-value">
-        Oui
+        cross
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
@@ -2581,25 +2553,21 @@ exports[`mg-input-toggle template Should render with args { readonly: true, tool
       </mg-input-title>
     </mg-input>
   </template>
-  <span slot="item-1">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
-          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
-  <span slot="item-2">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
+  <mg-icon slot="item-1">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+        <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
+  <mg-icon slot="item-2">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
 </mg-input-toggle>
 `;
 
@@ -2882,25 +2850,21 @@ exports[`mg-input-toggle template Should render with args { tooltip: 'My Tooltip
       </mg-input-title>
     </mg-input>
   </template>
-  <span slot="item-1">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
-          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
-  <span slot="item-2">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
+  <mg-icon slot="item-1">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+        <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
+  <mg-icon slot="item-2">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
 </mg-input-toggle>
 `;
 
@@ -3183,25 +3147,21 @@ exports[`mg-input-toggle template Should render with args { tooltip: 'My Tooltip
       </mg-input-title>
     </mg-input>
   </template>
-  <span slot="item-1">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
-          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
-  <span slot="item-2">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
+  <mg-icon slot="item-1">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+        <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
+  <mg-icon slot="item-2">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
 </mg-input-toggle>
 `;
 
@@ -3484,25 +3444,21 @@ exports[`mg-input-toggle template Should render with args { tooltip: 'My Tooltip
       </mg-input-title>
     </mg-input>
   </template>
-  <span slot="item-1">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
-          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
-  <span slot="item-2">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
+  <mg-icon slot="item-1">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+        <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
+  <mg-icon slot="item-2">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
 </mg-input-toggle>
 `;
 
@@ -3731,24 +3687,20 @@ exports[`mg-input-toggle template Should render with args {}: 6`] = `
       </mg-input-title>
     </mg-input>
   </template>
-  <span slot="item-1">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
-          <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
-  <span slot="item-2">
-    <mg-icon>
-      <template shadowrootmode="open">
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
-        </svg>
-      </template>
-    </mg-icon>
-  </span>
+  <mg-icon slot="item-1">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+        <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
+  <mg-icon slot="item-2">
+    <template shadowrootmode="open">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-small" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
+      </svg>
+    </template>
+  </mg-icon>
 </mg-input-toggle>
 `;
