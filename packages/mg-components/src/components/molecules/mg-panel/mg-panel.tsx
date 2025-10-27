@@ -77,8 +77,7 @@ export class MgPanel {
   @Watch('titleEditable')
   validateTitleEditable(newValue: MgPanel['titleEditable']): void {
     if (newValue && this.hasPanelTitleSlot()) {
-      console.warn(`<mg-panel> prop "titleEditable" cannot be used with panel-title slot. Setting titleEditable to false.`);
-      this.titleEditable = false;
+      throw new Error(`<mg-panel> prop "titleEditable" cannot be used with panel-title slot.`);
     }
   }
 
@@ -110,8 +109,7 @@ export class MgPanel {
       throw new Error(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}. Passed value: ${toString(newValue)}.`);
     if (newValue === 'icon' && this.titleEditable) this.titleEditable = false;
     if (newValue === 'icon' && this.hasPanelTitleSlot()) {
-      console.warn(`<mg-panel> prop "expandToggleDisplay" cannot be "icon" when panel-title slot is used. Setting expandToggleDisplay to "text".`);
-      this.expandToggleDisplay = 'text';
+      throw new Error(`<mg-panel> prop "expandToggleDisplay" cannot be "icon" when panel-title slot is used.`);
     }
   }
 

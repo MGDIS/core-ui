@@ -43,35 +43,26 @@ describe('mg-panel', () => {
   });
 
   test('Should render with panel-title slot', async () => {
-    const { root } = await getPage(
-      { identifier: 'identifier' },
-      <div slot="panel-title">
-        <span>Slotted Title</span>
-      </div>,
-    );
+    const { root } = await getPage({ identifier: 'identifier' }, <div slot="panel-title">Slotted Title</div>);
     expect(root).toMatchSnapshot();
   });
 
-  test('Should warn when titleEditable is used with panel-title slot', async () => {
-    const spy = jest.spyOn(console, 'warn');
-    await getPage(
-      { identifier: 'identifier', titleEditable: true },
-      <div slot="panel-title">
-        <span>Slotted Title</span>
-      </div>,
-    );
-    expect(spy).toHaveBeenCalledWith(`<mg-panel> prop "titleEditable" cannot be used with panel-title slot. Setting titleEditable to false.`);
+  test('Should throw error when titleEditable is used with panel-title slot', async () => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', titleEditable: true }, <div slot="panel-title">Slotted Title</div>);
+    } catch (err) {
+      expect(err.message).toBe('<mg-panel> prop "titleEditable" cannot be used with panel-title slot.');
+    }
   });
 
-  test('Should warn when expandToggleDisplay is icon with panel-title slot', async () => {
-    const spy = jest.spyOn(console, 'warn');
-    await getPage(
-      { identifier: 'identifier', expandToggleDisplay: 'icon' },
-      <div slot="panel-title">
-        <span>Slotted Title</span>
-      </div>,
-    );
-    expect(spy).toHaveBeenCalledWith(`<mg-panel> prop "expandToggleDisplay" cannot be "icon" when panel-title slot is used. Setting expandToggleDisplay to "text".`);
+  test('Should throw error when expandToggleDisplay is icon with panel-title slot', async () => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', expandToggleDisplay: 'icon' }, <div slot="panel-title">Slotted Title</div>);
+    } catch (err) {
+      expect(err.message).toBe('<mg-panel> prop "expandToggleDisplay" cannot be "icon" when panel-title slot is used.');
+    }
   });
 
   describe('errors', () => {
