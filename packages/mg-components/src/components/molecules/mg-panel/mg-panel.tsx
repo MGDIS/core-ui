@@ -226,7 +226,7 @@ export class MgPanel {
     this.validateTitlePattern(this.titlePatternErrorMessage);
     // Only validate panelTitle if slot is not used
     if (!this.hasPanelTitleSlot()) {
-      if (this.panelTitle === undefined || this.panelTitle === null) throw new Error(`<mg-panel> prop "panelTitle" is required when panel-title slot is not used.`);
+      if (!isValidString(this.panelTitle)) throw new Error(`<mg-panel> prop "panelTitle" is required when panel-title slot is not used.`);
       this.validatePanelTitle(this.panelTitle);
     }
     this.validateExpandToggleDisplay(this.expandToggleDisplay);
