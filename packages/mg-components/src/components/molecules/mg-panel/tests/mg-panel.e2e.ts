@@ -19,7 +19,8 @@ const mgButtonTrash = `
   <mg-button is-icon variant="secondary" label="delete">
     <mg-icon icon="trash"></mg-icon>
   </mg-button>`;
-const slotHeaderWithBadgeAndButtons = renderSlotHeader([mgBadge, mgButtonUpload, mgButtonTrash].join(''));
+const slotPanelTitleWithTextAndBadge = `<div slot="panel-title">very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title ${mgBadge}</div>`;
+const slotHeaderWithButtons = renderSlotHeader([mgButtonUpload, mgButtonTrash].join(''));
 
 const slotContent = '<div>Content</div>';
 
@@ -60,12 +61,7 @@ test.describe('mg-panel', () => {
       panelTitle:
         'very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title',
     },
-    { slot: [slotHeaderWithBadgeAndButtons, slotContent].join('') },
-    {
-      slot: [slotHeaderWithBadgeAndButtons, slotContent].join(''),
-      panelTitle:
-        'very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title',
-    },
+    { slot: [slotPanelTitleWithTextAndBadge, slotHeaderWithButtons, slotContent].join('') },
     { expanded: true, style: '--mg-c-panel-content-spacing: 0', slot: '<div>Content without padding.</div>' },
     { expanded: true, style: '--mg-c-panel-color-background: none; --mg-c-panel-border-radius: 0; --mg-c-panel-box-shadow: none', slot: '<div>Transparent mg-panel</div>' },
     {
