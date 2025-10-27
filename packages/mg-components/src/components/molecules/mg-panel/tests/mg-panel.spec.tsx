@@ -73,6 +73,20 @@ describe('mg-panel', () => {
       expect(spy).toHaveBeenCalledWith(`<mg-panel> prop "identifier" value is invalid. Passed value: ${identifier}.`);
     });
 
+    test('Should throw error in validatePanelTitle for invalid string value', () => {
+      const panel = new MgPanel();
+      expect(() => panel.validatePanelTitle('')).toThrow('<mg-panel> prop "panelTitle" must be a string. Passed value: .');
+    });
+
+    test.each([null, [], {}])('Should not render with empty/invalid panelTitle property: %s', async panelTitle => {
+      expect.assertions(1);
+      try {
+        await getPage({ panelTitle });
+      } catch (err) {
+        expect(err.message).toEqual(`<mg-panel> prop "panelTitle" is required when panel-title slot is not used.`);
+      }
+    });
+
     test('Should throw error when props association are unauthorized %s:', async () => {
       expect.assertions(1);
       try {
@@ -87,7 +101,7 @@ describe('mg-panel', () => {
       try {
         await getPage({ panelTitle });
       } catch (err) {
-        expect(err.message).toEqual(`<mg-panel> prop "panelTitle" must be a string. Passed value: ${panelTitle}.`);
+        expect(err.message).toEqual(`<mg-panel> prop "panelTitle" is required when panel-title slot is not used.`);
       }
     });
 

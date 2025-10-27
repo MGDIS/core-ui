@@ -51,8 +51,13 @@ export class MgPanel {
   @Prop({ mutable: true }) panelTitle?: string;
   @Watch('panelTitle')
   validatePanelTitle(newValue: MgPanel['panelTitle']): void {
-    if (newValue !== undefined && !isValidString(newValue)) throw new Error(`<mg-panel> prop "panelTitle" must be a string. Passed value: ${toString(newValue)}.`);
-    if (newValue !== undefined) this.titleChange.emit(newValue);
+    if (newValue !== undefined) {
+      if (!isValidString(newValue)) {
+        throw new Error(`<mg-panel> prop "panelTitle" must be a string. Passed value: ${toString(newValue)}.`);
+      } else {
+        this.titleChange.emit(newValue);
+      }
+    }
   }
 
   /**
