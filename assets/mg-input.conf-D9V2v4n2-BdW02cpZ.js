@@ -1,0 +1,1 @@
+const s=[2,4,16,"full"],t=["input","label"],a=["h1","h2","h3","h4","h5","h6"],l="mg-c-input--fieldset",c="mg-c-input--disabled",i="mg-c-input--readonly",n="mg-c-input--vertical-list";export{c as a,l as b,i as c,n as d,a as l,t,s as w};
