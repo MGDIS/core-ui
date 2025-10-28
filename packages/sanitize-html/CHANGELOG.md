@@ -1,5 +1,11 @@
 # @mgdis/sanitize-html
 
+## 1.0.10
+
+### Patch Changes
+
+- 964340e: Update dependencies
+
 ## 1.0.9
 
 ### Patch Changes

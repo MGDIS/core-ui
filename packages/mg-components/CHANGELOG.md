@@ -1,5 +1,26 @@
 # @mgdis/mg-components
 
+## 6.18.0
+
+### Minor Changes
+
+- cc93525: `<mg-input-**>` add to `setError()` method `lock` option
+- dadf535: [**`<mg-input-toggle>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-toggle--docs) design update
+- 498ef9a: [**`<mg-fieldset>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-fieldset--docs) new component
+- afe1fc6: [**`<mg-panel>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-panel--docs) Add support for panel-title slot to allow complex panel title
+
+### Patch Changes
+
+- a996df8: [#580](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/580) mg-input-select: width should limit to its container
+- 964340e: Update dependencies
+- 8b2866d: [#582](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/582) mg-action-more: menu throw error on click
+- Updated dependencies [dadf535]
+- Updated dependencies [a996df8]
+- Updated dependencies [964340e]
+- Updated dependencies [498ef9a]
+  - @mgdis/styles@2.13.0
+  - @mgdis/img@2.5.2
+
 ## 6.17.0
 
 ### Minor Changes

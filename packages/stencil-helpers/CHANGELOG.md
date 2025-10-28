@@ -1,5 +1,11 @@
 # @mgdis/stencil-helpers
 
+## 3.2.7
+
+### Patch Changes
+
+- 964340e: Update dependencies
+
 ## 3.2.6
 
 ### Patch Changes
