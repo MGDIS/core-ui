@@ -13,13 +13,14 @@ const mgBadge = '<mg-badge variant="primary" value="1" label="label"></mg-badge>
 const mgButtonUpload = `
   <mg-button variant="secondary" style="margin-left: auto">
     <mg-icon icon="file-upload"></mg-icon> Upload
-  </mg-button>  
+  </mg-button>
   `;
 const mgButtonTrash = `
   <mg-button is-icon variant="secondary" label="delete">
     <mg-icon icon="trash"></mg-icon>
   </mg-button>`;
-const slotHeaderWithBadgeAndButtons = renderSlotHeader([mgBadge, mgButtonUpload, mgButtonTrash].join(''));
+const slotPanelTitleWithTextAndBadge = `<div slot="panel-title">very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title ${mgBadge}</div>`;
+const slotHeaderWithButtons = renderSlotHeader([mgButtonUpload, mgButtonTrash].join(''));
 
 const slotContent = '<div>Content</div>';
 
@@ -60,12 +61,7 @@ test.describe('mg-panel', () => {
       panelTitle:
         'very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title',
     },
-    { slot: [slotHeaderWithBadgeAndButtons, slotContent].join('') },
-    {
-      slot: [slotHeaderWithBadgeAndButtons, slotContent].join(''),
-      panelTitle:
-        'very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title',
-    },
+    { slot: [slotPanelTitleWithTextAndBadge, slotHeaderWithButtons, slotContent].join('') },
     { expanded: true, style: '--mg-c-panel-content-spacing: 0', slot: '<div>Content without padding.</div>' },
     { expanded: true, style: '--mg-c-panel-color-background: none; --mg-c-panel-border-radius: 0; --mg-c-panel-box-shadow: none', slot: '<div>Transparent mg-panel</div>' },
     {
@@ -77,6 +73,7 @@ test.describe('mg-panel', () => {
     { slot: '<div><mg-message>message</mg-message></div>' },
     { slot: '<mg-card>card</mg-card>' },
     { slot: '<div><mg-card>card</mg-card></div>' },
+    { slot: '<div slot="panel-title">required mark in title <span style="color:red">*</span></div><div>Content</div>' },
   ].forEach(args => {
     test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, ...args });

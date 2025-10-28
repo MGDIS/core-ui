@@ -1837,7 +1837,7 @@ export namespace Components {
         /**
           * Panel title
          */
-        "panelTitle": string;
+        "panelTitle"?: string;
         /**
           * Add box-shadow style
           * @default false
@@ -4401,7 +4401,7 @@ declare namespace LocalJSX {
         /**
           * Panel title
          */
-        "panelTitle": string;
+        "panelTitle"?: string;
         /**
           * Add box-shadow style
           * @default false

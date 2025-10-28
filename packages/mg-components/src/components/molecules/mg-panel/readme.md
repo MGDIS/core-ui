@@ -1,4 +1,21 @@
+## Usage
 
+```html
+<mg-panel panel-title="Title">
+  <div>Panel content</div>
+</mg-panel>
+```
+
+### Using panel-title slot for complex title content
+
+```html
+<mg-panel>
+  <div slot="panel-title">Slotted title <span class="mg-u-is-asterisk">*</span></div>
+  <div>Panel content</div>
+</mg-panel>
+```
+
+**Note:** When using the `panel-title` slot, the `titleEditable` prop is automatically disabled if both are used together.
 
 ## 💥 Troubleshooting
 
@@ -10,7 +27,7 @@ Then you can use `window.parentIFrame.size()` to manually trigger a resize on th
 
 ```jsx
 class MyComponent {
-  [...] 
+  [...]
   #expanded = true;
 
   handleExpandedChange = () => {
@@ -48,7 +65,7 @@ class MyComponent {
 | `expandToggleDisplay`      | `expand-toggle-display`       | Define expand toggle button display                                                                         | `"icon" \| "text"`  | `'text'`               |
 | `expanded`                 | `expanded`                    | Panel is opened                                                                                             | `boolean`           | `false`                |
 | `identifier`               | `identifier`                  | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`            | `createID('mg-panel')` |
-| `panelTitle` _(required)_  | `panel-title`                 | Panel title                                                                                                 | `string`            | `undefined`            |
+| `panelTitle`               | `panel-title`                 | Panel title                                                                                                 | `string`            | `undefined`            |
 | `shadow`                   | `shadow`                      | Add box-shadow style                                                                                        | `boolean`           | `false`                |
 | `titleEditable`            | `title-editable`              | Define if panel title is editable                                                                           | `boolean`           | `false`                |
 | `titlePattern`             | `title-pattern`               | Panel title pattern                                                                                         | `string`            | `undefined`            |
@@ -66,10 +83,11 @@ class MyComponent {
 
 ## Slots
 
-| Slot             | Description                |
-| ---------------- | -------------------------- |
-|                  | Panel content              |
-| `"header-right"` | Header right panel content |
+| Slot             | Description                                               |
+| ---------------- | --------------------------------------------------------- |
+|                  | Panel content                                             |
+| `"header-right"` | Header right panel content                                |
+| `"panel-title"`  | Panel title content (replaces panel-title prop when used) |
 
 
 ## CSS Custom Properties
