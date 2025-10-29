@@ -8,7 +8,6 @@
 '@mgdis/playwright-helpers': patch
 '@mgdis/stencil-helpers': patch
 '@mgdis/styles': patch
-'@mgdis/release-bot': patch
 ---
 
-
+Updated dependency `@types/node` to `v22.18.13`
