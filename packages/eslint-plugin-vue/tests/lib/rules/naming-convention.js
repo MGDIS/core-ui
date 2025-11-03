@@ -31,10 +31,20 @@ ruleTester.run('naming-convention', rule, {
         <a class="blu" :class="{'blu--bli': blo}">Anchor text</a>
       </template>`,
     },
+    {
+      code: `<template>
+        <a class="blu" :class="{'blu--bli': _blo}">Anchor text</a>
+      </template>`,
+    },
     // Identifier
     {
       code: `<template>
         <a :id="withProps">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="with_props">Anchor text</a>
       </template>`,
     },
     {
@@ -50,6 +60,11 @@ ruleTester.run('naming-convention', rule, {
     {
       code: `<template>
         <a :id="withProps[props]">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="withProps[_uid]">Anchor text</a>
       </template>`,
     },
     // CallExpression
@@ -76,7 +91,17 @@ ruleTester.run('naming-convention', rule, {
     },
     {
       code: `<template>
+        <a :id="_uid + '-blu'">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
         <a :id="\`with-\${props}\`">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :id="\`with-\${_uid}\`">Anchor text</a>
       </template>`,
     },
     {
@@ -86,7 +111,17 @@ ruleTester.run('naming-convention', rule, {
     },
     {
       code: `<template>
+        <a :id="\`with-\${_two}-\${_props}\`">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
         <a :class="\`blu\${bli ? '--blu' : '--bli'}\`">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+        <a :class="\`blu\${_bli ? '--blu' : '--bli'}\`">Anchor text</a>
       </template>`,
     },
     {
@@ -107,6 +142,11 @@ ruleTester.run('naming-convention', rule, {
     },
     {
       code: `<template>
+        <a :id="_using ? 'ternary' : 'operator'">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
         <a :id="using ? 'ternary' : operator">Anchor text</a>
       </template>`,
     },
@@ -119,6 +159,11 @@ ruleTester.run('naming-convention', rule, {
     {
       code: `<template>
       <a :class="{ 'blu': value }">Anchor text</a>
+      </template>`,
+    },
+    {
+      code: `<template>
+      <a :class="{ 'blu': _uid }">Anchor text</a>
       </template>`,
     },
     {
