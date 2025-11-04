@@ -159,6 +159,28 @@ describe('mg-input-combobox', () => {
     expect(root).toMatchSnapshot();
   });
 
+  test('Should update value without case sensitivity', async () => {
+    const page = await getPage({ ...baseProps, items: ['batman', 'Batman', 'robin', 'joker'] });
+
+    const element = page.doc.querySelector('mg-input-combobox');
+    const input = element.shadowRoot.querySelector('input');
+
+    // Call input event
+    input.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    await page.waitForChanges();
+
+    // run debounce
+    jest.runOnlyPendingTimers();
+    await page.waitForChanges();
+
+    element.shadowRoot.querySelector('li:nth-child(2)').dispatchEvent(new MouseEvent('click', { bubbles: true }));
+
+    await page.waitForChanges();
+
+    // Verify initial value is set and popover to be displaied
+    expect(element.value).toEqual('Batman');
+  });
+
   test.each(['', ' ', undefined])('Should not render with invalid identifier property: %s', async identifier => {
     expect.assertions(1);
     try {
