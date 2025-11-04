@@ -4433,6 +4433,93 @@ exports[`mg-input-combobox Should update required props 1`] = `
 </mg-input-combobox>
 `;
 
+exports[`mg-input-combobox Should update value without case sensitivity 1`] = `
+<mg-input-combobox data-mg-popover-guard="identifier-popover" value="Batman">
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--combobox mg-c-input--has-icon mg-c-input--input-append mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <mg-popover arrow-hide="" data-fallback-placement="bottom-end">
+        <template shadowrootmode="open">
+          <slot></slot>
+          <slot name="content"></slot>
+        </template>
+        <div aria-controls="identifier-popover" aria-expanded="false" class="mg-c-input__input-group-container">
+          <mg-icon>
+            <template shadowrootmode="open">
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--magnifying-glass mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M2 7a5 5 0 1 1 8.872 3.164l3.127 3.128-.707.707-3.128-3.128A5 5 0 0 1 2 7m5 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </template>
+          </mg-icon>
+          <input aria-activedescendant="batman" aria-autocomplete="list" aria-controls="identifier-list" aria-expanded="false" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" role="combobox" type="text" value="Batman">
+          <mg-button aria-controls="identifier" aria-label="reset" class="mg-c-input__box-append mg-c-input__reset" is-icon="" role="button" tabindex="-1">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon>
+              <template shadowrootmode="open">
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--cross mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 2.707 2.707 2l11.29 11.289-.708.707z" fill="currentColor"></path>
+                  <path d="M2.707 14 2 13.293 13.293 2l.707.708z" fill="currentColor"></path>
+                </svg>
+              </template>
+            </mg-icon>
+          </mg-button>
+        </div>
+        <mg-popover-content data-arrow-hide data-popper-escaped data-popper-placement="bottom-start" data-popper-reference-hidden id="identifier-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <template shadowrootmode="open">
+            <mg-card class="mg-c-popover-content" shadow="">
+              <div class="mg-c-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </template>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-c-input__popover-container" slot="content">
+            <ul aria-label="Dc Comics" aria-setsize="4" class="mg-c-input__input-list" id="identifier-list" role="listbox">
+              <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
+                batman
+              </li>
+              <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" data-value="Batman" id="batman" role="option">
+                Batman
+                <mg-icon>
+                  <template shadowrootmode="open">
+                    <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.77 12.113 15 3.883l-.707-.707-8.23 8.23-4.355-4.355L1 7.76l4.355 4.355-.004.004.707.706.004-.004.003.004.708-.707z" fill="currentColor"></path>
+                    </svg>
+                  </template>
+                </mg-icon>
+              </li>
+            </ul>
+          </div>
+        </mg-popover-content>
+      </mg-popover>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-combobox>
+`;
+
 exports[`mg-input-combobox input errors validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 1`] = `
 <mg-input-combobox data-mg-popover-guard="identifier-popover">
   <template shadowrootmode="open">

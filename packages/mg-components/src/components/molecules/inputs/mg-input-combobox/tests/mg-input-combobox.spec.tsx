@@ -179,6 +179,7 @@ describe('mg-input-combobox', () => {
 
     // Verify initial value is set and popover to be displaied
     expect(element.value).toEqual('Batman');
+    expect(page.root).toMatchSnapshot();
   });
 
   test.each(['', ' ', undefined])('Should not render with invalid identifier property: %s', async identifier => {
