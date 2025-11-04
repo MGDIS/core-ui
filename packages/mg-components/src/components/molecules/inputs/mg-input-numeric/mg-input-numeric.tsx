@@ -34,6 +34,7 @@ export class MgInputNumeric {
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
   private handlerInProgress: EventType;
+  private customErrorMessage: { lock: boolean; message?: string } = { lock: false };
 
   /**************
    * Decorators *
@@ -318,16 +319,21 @@ export class MgInputNumeric {
    * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
    * @param valid - value indicating the validity
    * @param errorMessage - the error message to display
+   * @param errorMessageLock - lock the error message and validity state
    */
   @Method()
-  async setError(valid: MgInputNumeric['valid'], errorMessage: string): Promise<void> {
+  async setError(valid: MgInputNumeric['valid'], errorMessage?: string, errorMessageLock = false): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-numeric> method "setError()" param "valid" must be a boolean.');
-    } else if (!isValidString(errorMessage)) {
+    } else if (errorMessage !== undefined && !isValidString(errorMessage)) {
       throw new Error('<mg-input-numeric> method "setError()" param "errorMessage" must be a string.');
     } else {
+      this.customErrorMessage = {
+        lock: valid ? false : errorMessageLock,
+        message: valid ? undefined : errorMessage,
+      };
       this.setValidity(valid);
-      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.setErrorMessage(true);
       this.hasDisplayedError = this.invalid;
     }
   }
@@ -347,6 +353,8 @@ export class MgInputNumeric {
       // - Keep everything in sync both inside and outside the component
       return new Promise(resolve => {
         requestAnimationFrame(() => {
+          // unlock validity check by reseting customErrorMessage
+          this.customErrorMessage = { lock: false };
           this.checkValidity();
           this.errorMessage = undefined;
           this.hasDisplayedError = false;
@@ -361,11 +369,13 @@ export class MgInputNumeric {
    * @param newValue - valid new value
    */
   private setValidity(newValue: MgInputNumeric['valid']) {
-    const oldValidValue = this.valid;
-    this.valid = newValue;
+    const oldValue = this.valid;
+    if (!this.customErrorMessage.lock || (this.customErrorMessage.message !== undefined && !newValue)) {
+      this.valid = newValue;
+    }
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -460,18 +470,23 @@ export class MgInputNumeric {
 
   /**
    * Set input error message
-   * @param errorMessage - errorMessage override
+   * @param fromSetErrorContext - context come from `setError` method
    */
-  private setErrorMessage = (errorMessage?: string): void => {
+  private setErrorMessage = (fromSetErrorContext = false): void => {
     // Set error message
     this.errorMessage = undefined;
     if (!this.valid) {
       const inputError = this.getInputError();
-      if (errorMessage !== undefined) {
-        this.errorMessage = errorMessage;
-      } else if (inputError === 'required') {
+      // Does have a new custom error message OR does have a custom error message locked
+      if (fromSetErrorContext || (this.customErrorMessage.lock && this.customErrorMessage.message !== undefined)) {
+        this.errorMessage = this.customErrorMessage.message;
+      }
+      // required
+      else if (inputError === 'required') {
         this.errorMessage = this.messages.errors[inputError];
-      } else {
+      }
+      // min/max
+      else {
         const formattedMin = this.formatErrorValue(this.min);
         const formattedMax = this.formatErrorValue(this.max);
         this.errorMessage = this.messages.input.numeric.error[inputError].replace('{min}', formattedMin).replace('{max}', formattedMax);

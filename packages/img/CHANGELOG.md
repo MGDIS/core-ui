@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 2.5.2
+
+### Patch Changes
+
+- 964340e: Update dependencies
+
 ## 2.5.1
 
 ### Patch Changes

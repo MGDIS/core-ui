@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.0
+
+### Major Changes
+
+- b2a293d: Add Rules
+
 ## 4.1.9
 
 ### Patch Changes

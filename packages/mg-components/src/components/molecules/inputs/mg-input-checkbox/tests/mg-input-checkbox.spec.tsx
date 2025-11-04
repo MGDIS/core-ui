@@ -282,36 +282,64 @@ describe('mg-input-checkbox', () => {
       expect(page.root).toMatchSnapshot(); //Snapshot with readonly/disabled TRUE
     });
 
-    test.each([
-      {
-        valid: true,
-        errorMessage: 'Override error',
-      },
-      {
-        valid: false,
-        errorMessage: 'Override error',
-      },
-    ])("should display override error with setError component's public method", async params => {
-      const page = await getPage({ label: 'label', identifier: 'identifier', type, value: getValues(), helpText: 'My help text', required: true });
+    test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
+      "Should display override error with setError component's public method (%s)",
+      async ({ valid, lock }) => {
+        const getErrorMessage = (element: HTMLMgInputCheckboxElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
 
-      expect(page.root).toMatchSnapshot();
-
-      const element = page.doc.querySelector('mg-input-checkbox');
-      const inputs = Array.from(element.shadowRoot.querySelectorAll('input'));
-
-      //mock validity
-      inputs.forEach(input => {
-        Object.defineProperty(input, 'validity', {
-          get: () => ({}),
+        const customErrorMessage = 'Override error';
+        const page = await getPage({
+          label: 'label',
+          identifier: 'identifier',
+          type,
+          value: getValues().map(item => ({ ...item, value: false })),
+          helpText: 'My help text',
+          required: true,
         });
-      });
 
-      await element.setError(params.valid, params.errorMessage);
+        expect(page.root).toMatchSnapshot();
 
-      await page.waitForChanges();
+        const element = page.doc.querySelector('mg-input-checkbox');
+        const inputs = Array.from(element.shadowRoot.querySelectorAll('input'));
+        let validity = false;
 
-      expect(page.root).toMatchSnapshot();
-    });
+        //mock validity
+        inputs.forEach(input => {
+          Object.defineProperty(input, 'validity', {
+            get: () => ({ valueMissing: !validity }),
+          });
+        });
+
+        await element.setError(valid, customErrorMessage, lock);
+
+        await page.waitForChanges();
+
+        expect(getErrorMessage(element)).toEqual(valid ? undefined : customErrorMessage);
+        expect(page.root).toMatchSnapshot();
+
+        inputs[0].dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+        await page.waitForChanges();
+
+        if (lock && !valid) {
+          expect(getErrorMessage(element)).toEqual(customErrorMessage);
+        } else {
+          expect(getErrorMessage(element)).toEqual('This field is required.');
+        }
+        expect(page.root).toMatchSnapshot();
+
+        //mock validity
+        element.value = getValues().map(item => ({ ...item, value: true }));
+        validity = true;
+        inputs[0].dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+        await page.waitForChanges();
+
+        if (lock && !valid) {
+          expect(getErrorMessage(element)).toEqual(customErrorMessage);
+        } else {
+          expect(getErrorMessage(element)).toEqual(undefined);
+        }
+      },
+    );
 
     test.each([
       {
@@ -996,7 +1024,7 @@ describe('mg-input-checkbox', () => {
       ]);
     });
 
-    test('Should reset displayed error', async () => {
+    test.each([true, false])('Should reset displayed error, lock %s', async lock => {
       // Initial setup with two checkboxes
       const value = [
         { title: 'Chase', value: false },
@@ -1006,7 +1034,7 @@ describe('mg-input-checkbox', () => {
       const element = page.doc.querySelector('mg-input-checkbox');
 
       // Set error message
-      await element.setError(false, "Message d'erreur de test");
+      await element.setError(false, "Message d'erreur de test", lock);
       await page.waitForChanges();
 
       // Verify initial state
@@ -1019,6 +1047,7 @@ describe('mg-input-checkbox', () => {
 
       expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify reset state
+      expect(element.shadowRoot.querySelector('#identifier-error')?.textContent).toEqual(undefined);
       expect(page.root).toMatchSnapshot();
     });
 

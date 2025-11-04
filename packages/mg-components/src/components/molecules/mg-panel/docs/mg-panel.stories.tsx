@@ -21,9 +21,9 @@ const Template = (args: MgPanelType): HTMLElement => (
         titlePosition: 'left',
         expandToggleDisplay: 'text',
       },
-      ['', 'header-right'],
+      ['', 'panel-title', 'header-right'],
     )}
-    innerHTML={`${args['']}${args['header-right']}`}
+    innerHTML={`${args['']}${args['panel-title']}${args['header-right']}`}
   ></mg-panel>
 );
 
@@ -42,6 +42,7 @@ export const MgPanel = {
     'expandToggleDisabled': false,
     // Slots
     '': `<div>Content</div>`,
+    'panel-title': ``,
     'header-right': `<div slot="header-right" style="width:100%">
   <mg-badge label="item" value="1" style="margin-right:auto"></mg-badge>
   <mg-button variant="secondary">

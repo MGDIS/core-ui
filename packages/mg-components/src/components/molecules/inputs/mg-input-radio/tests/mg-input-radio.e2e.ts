@@ -163,32 +163,47 @@ test.describe('mg-input-radio', () => {
   });
 
   test.describe('Reset input', () => {
-    test('Should reset value and error when calling reset method', async ({ page }) => {
-      const componentArgs = { ...baseArgs };
-      const html = createHTML(componentArgs);
-      await page.setContent(html);
-      await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
+    [true, false].forEach(lock => {
+      test(`Should reset value and error when calling reset method, lock: ${lock}`, async ({ page }) => {
+        const componentArgs = { ...baseArgs, required: true };
+        const html = createHTML(componentArgs);
+        await page.setContent(html);
+        await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-      await page.locator('mg-input-radio.hydrated').waitFor();
+        await page.locator('mg-input-radio.hydrated').waitFor();
 
-      // Select a radio option
-      await page.locator('.mg-c-input__input-group input').first().press('Space');
+        // Set an error message
+        await page.evaluate(lock => {
+          document.querySelector('mg-input-radio').setError(false, "Message d'erreur de test", lock);
+        }, lock);
 
-      // Set an error message intentionally
-      await page.evaluate(() => {
-        document.querySelector('mg-input-radio').setError(false, "Message d'erreur de test");
+        // Verify the state with custom error
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        // render required error
+        await page.keyboard.down('Tab');
+        await page.keyboard.down('Tab');
+        await page.keyboard.down('Tab');
+        await page.keyboard.down('Tab');
+        await page.keyboard.down('Tab');
+
+        // Verify the state with required error
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        // select first value
+        await page.locator('.mg-c-input__input-group input').first().press('Space');
+
+        // Verify the state with selection and required error
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        // Call the reset method
+        await page.evaluate(() => {
+          document.querySelector('mg-input-radio').reset();
+        });
+
+        // Verify that the input has been reset and the error has been removed
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
-
-      // Verify the state with selection and error
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-      // Call the reset method
-      await page.evaluate(() => {
-        document.querySelector('mg-input-radio').reset();
-      });
-
-      // Verify that the input has been reset and the error has been removed
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 

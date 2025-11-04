@@ -1,5 +1,17 @@
 # Changelog
 
+## Release (2025-10-28-13-58_Strange-Silver-Stork)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [linting-angularjs changelog](packages/linting-angularjs/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [sanitize-html changelog](packages/sanitize-html/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2025-10-07-10-43_Testy-Turquoise-Blue-Toad)
 
 ### Packages released

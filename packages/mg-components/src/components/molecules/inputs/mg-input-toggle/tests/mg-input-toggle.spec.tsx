@@ -7,31 +7,29 @@ import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-inpu
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
 import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/dist/tests';
+import { icons } from '../../../../../assets/icons';
+
+const renderSlots = (props: Pick<MgInputToggle, 'items' | 'isIcon'>): HTMLElement[] => {
+  return props.items.map((item, index) => {
+    const slot = `item-${index + 1}`;
+    if (props.isIcon && Object.keys(icons).includes(item)) {
+      return <mg-icon slot={slot} icon={item}></mg-icon>;
+    } else {
+      return <span slot={slot}>{item.title}</span>;
+    }
+  });
+};
 
 const getPage = (args, customSlots?) => {
   const page = newSpecPage({
     components: [MgInputToggle, MgIcon, MgInput, MgInputTitle],
-    template: () => (
-      <mg-input-toggle {...args}>
-        {customSlots
-          ? customSlots
-          : args.isIcon
-            ? ['cross', 'check'].map((icon: MgIcon['icon'], index) => (
-                <span slot={`item-${index + 1}`}>
-                  <mg-icon icon={icon}></mg-icon>
-                </span>
-              ))
-            : args.items.map((item, index) => renderSlot(item.title, index))}
-      </mg-input-toggle>
-    ),
+    template: () => <mg-input-toggle {...args}>{customSlots ? customSlots : renderSlots(args)}</mg-input-toggle>,
   });
 
   setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
 
   return page;
 };
-
-const renderSlot = (title: string, index: number) => <span slot={`item-${index + 1}`}>{title}</span>;
 
 const defaultItems = [
   { title: 'Batman', value: false },
@@ -63,11 +61,11 @@ describe('mg-input-toggle', () => {
     },
     {
       ...defaultProps,
-      isOnOff: false,
+      isOnOff: true,
     },
     {
       ...defaultProps,
-      items: ['Oui', 'Non'],
+      items: ['cross', 'check'],
       isIcon: true,
       isOnOff: true,
     },
@@ -115,8 +113,12 @@ describe('mg-input-toggle', () => {
         labelOnTop: true,
       },
     ])('Should render with args %s:', async args => {
-      const { root } = await getPage({ ...templateArgs, ...args });
-      expect(root).toMatchSnapshot();
+      const props = { ...templateArgs, ...args } as Partial<MgInputToggle>;
+      const page = await getPage(props);
+      if (props.isIcon) {
+        expect(page.doc.querySelector('mg-icon')).toHaveProperty('size', 'small');
+      }
+      expect(page.root).toMatchSnapshot();
     });
   });
 
@@ -186,17 +188,37 @@ describe('mg-input-toggle', () => {
       }
     });
 
-    test.each([[<span></span>], [renderSlot('oui', 1)], ['oui', 'non', 'possible'].map((title, index) => renderSlot(title, index))])(
-      'Should throw an error with blank slots',
-      async slots => {
-        expect.assertions(1);
-        try {
-          await getPage(defaultProps, slots);
-        } catch (err) {
-          expect(err.message).toEqual('<mg-input-toggle> 2 slots are required.');
-        }
-      },
-    );
+    describe.each([true, false])('isIcon props: %s', isIcon => {
+      describe.each([true, false])('isIcon props: %s', isOnOff => {
+        test.each([[<span></span>], [<span slot="item-1">non</span>], ['oui', 'non', 'possible'].map((title, index) => <span slot={`item-${index + 1}`}>{title}</span>)])(
+          'Should throw an error with blank slots',
+          async slots => {
+            expect.assertions(1);
+            try {
+              await getPage({ ...defaultProps, isIcon, isOnOff }, slots);
+            } catch (err) {
+              if (isIcon && isOnOff) {
+                expect(err.message).toEqual('<mg-input-toggle> an element with attribute slot="item-2" is required.');
+              } else {
+                expect(err.message).toEqual('<mg-input-toggle> 2 slots are required.');
+              }
+            }
+          },
+        );
+        test('Should NOT throw an error with slot="item-2"', async () => {
+          expect.assertions(isIcon && isOnOff ? 0 : 1);
+          try {
+            await getPage({ ...defaultProps, isIcon, isOnOff }, <span slot="item-2">Oui</span>);
+          } catch (error) {
+            if (isIcon && isOnOff) {
+              expect(error.message).toEqual(undefined);
+            } else {
+              expect(error.message).toEqual('<mg-input-toggle> 2 slots are required.');
+            }
+          }
+        });
+      });
+    });
 
     test.each([
       [['Batman', { title: 'Batman', value: 'Batman' }]],
@@ -284,19 +306,23 @@ describe('mg-input-toggle', () => {
   });
 
   describe('setError', () => {
-    test.each([true, false])("should display override error with setError component's public method", async valid => {
+    test.each([true, false])("Should display override error with setError component's public method (valid='%s')", async valid => {
+      const getErrorMessage = (element: HTMLMgInputToggleElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
+
+      const customErrorMessage = 'Override error';
       const page = await getPage({ ...defaultProps });
 
-      const mgInputToggle = page.doc.querySelector('mg-input-toggle');
+      expect(page.root).toMatchSnapshot();
 
+      const element = page.doc.querySelector('mg-input-toggle');
       const spyInputValid = jest.spyOn(page.rootInstance.inputValid, 'emit');
 
-      await mgInputToggle.setError(valid, 'error Batman');
+      await element.setError(valid, customErrorMessage);
 
       await page.waitForChanges();
 
+      expect(getErrorMessage(element)).toEqual(valid ? undefined : customErrorMessage);
       expect(spyInputValid).toHaveBeenCalledTimes(1);
-
       expect(page.root).toMatchSnapshot();
     });
 
@@ -383,7 +409,7 @@ describe('mg-input-toggle', () => {
       expect(mgInputToggle.value).toEqual(false);
     });
 
-    test('Should reset error message when error is displayed', async () => {
+    test('Should reset displayed error', async () => {
       const page = await getPage({
         ...defaultProps,
         items: [
@@ -391,10 +417,10 @@ describe('mg-input-toggle', () => {
           { title: 'Oui', value: true },
         ],
       });
-      const mgInputToggle = page.doc.querySelector('mg-input-toggle');
+      const element = page.doc.querySelector('mg-input-toggle');
 
       // Add an error message
-      await mgInputToggle.setError(false, "Message d'erreur de test");
+      await element.setError(false, "Message d'erreur de test");
       await page.waitForChanges();
 
       // Verify initial state
@@ -402,11 +428,12 @@ describe('mg-input-toggle', () => {
 
       const requestAnimationFrameSpy = jest.spyOn(global, 'requestAnimationFrame');
       // Call reset method
-      await mgInputToggle.reset();
+      await element.reset();
       await page.waitForChanges();
 
       expect(requestAnimationFrameSpy).toHaveBeenCalled();
       // Verify reset state
+      expect(element.shadowRoot.querySelector('#identifier-error')).toEqual(null);
       expect(page.root).toMatchSnapshot();
     });
 

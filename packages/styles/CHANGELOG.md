@@ -1,5 +1,16 @@
 # @mgdis/styles
 
+## 2.13.0
+
+### Minor Changes
+
+- dadf535: [**`<mg-input-toggle>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-toggle--docs) design update
+- 498ef9a: [**`<mg-fieldset>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-fieldset--docs) new component
+
+### Patch Changes
+
+- a996df8: [#580](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/580) mg-input-select: width should limit to its container
+
 ## 2.12.0
 
 ### Minor Changes

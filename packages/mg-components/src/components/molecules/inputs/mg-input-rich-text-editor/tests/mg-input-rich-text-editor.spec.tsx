@@ -263,25 +263,56 @@ describe('mg-input-rich-text-editor', () => {
       }
     });
 
-    test.each([
-      { valid: true, message: 'Error message', expectError: false },
-      { valid: false, message: 'Error message', expectError: true },
-    ])('Should handle setError with valid: $valid', async ({ valid, message, expectError }) => {
-      const page = await getPage({ label: 'label', identifier: 'identifier' });
-      const { element } = await waitForEditor(page);
+    test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
+      "Should display override error with setError component's public method (%s)",
+      async ({ valid, lock }) => {
+        const getErrorMessage = (element: HTMLMgInputRichTextEditorElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
 
-      await element.setError(valid, message);
-      await page.waitForChanges();
-      jest.runOnlyPendingTimers();
+        const customErrorMessage = 'Override error';
+        const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
+        const { element, input } = await waitForEditor(page);
+        let validity = false;
 
-      const errorElement = element.shadowRoot.querySelector('[slot="error"]');
-      if (expectError) {
-        expect(errorElement).not.toBeNull();
-        expect(errorElement.textContent.trim()).toBe(message);
-      } else {
-        expect(errorElement).toBeNull();
-      }
-    });
+        expect(page.root).toMatchSnapshot();
+
+        //mock validity
+        input.checkValidity = jest.fn(() => validity);
+        Object.defineProperty(input, 'validity', {
+          get: jest.fn(() => ({
+            valueMissing: !validity,
+          })),
+        });
+
+        await element.setError(valid, customErrorMessage, lock);
+
+        await page.waitForChanges();
+
+        expect(getErrorMessage(element)).toEqual(valid ? undefined : customErrorMessage);
+        expect(page.root).toMatchSnapshot();
+
+        input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+        await page.waitForChanges();
+
+        if (lock && !valid) {
+          expect(getErrorMessage(element)).toEqual(customErrorMessage);
+        } else {
+          expect(getErrorMessage(element)).toEqual('This field is required.');
+        }
+        expect(page.root).toMatchSnapshot();
+
+        //mock validity
+        validity = true;
+        element.value = 'batman';
+        input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+        await page.waitForChanges();
+
+        if (lock && !valid) {
+          expect(getErrorMessage(element)).toEqual(customErrorMessage);
+        } else {
+          expect(getErrorMessage(element)).toEqual(undefined);
+        }
+      },
+    );
 
     test.each([
       [null, 'error message'],
@@ -289,7 +320,6 @@ describe('mg-input-rich-text-editor', () => {
       [true, ''],
       [true, ' '],
       [true, null],
-      [true, undefined],
     ])('Should throw error when setError called with invalid arguments: %s, %s', async (valid, errorMessage) => {
       const page = await getPage({ label: 'label', identifier: 'identifier' });
       const { element } = await waitForEditor(page);

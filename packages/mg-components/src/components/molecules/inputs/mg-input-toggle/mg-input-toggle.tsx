@@ -101,13 +101,22 @@ export class MgInputToggle {
   @Prop() labelHide = false;
 
   /**
-   * Define if toggle have on/off style
+   * Define if toggle have on/off style,
+   * the left icon is hidden.
+   * Only available in combination with the "isIcon" prop.
    */
-  @Prop() isOnOff = false;
+  @Prop({ mutable: true }) isOnOff = false;
   @Watch('isOnOff')
   watchIsOnOff(newValue: MgInputToggle['isOnOff']): void {
-    if (newValue) this.classCollection.add(this.classOnOff);
-    else this.classCollection.delete(this.classOnOff);
+    if (newValue) {
+      this.classCollection.add(this.classOnOff);
+      if (!this.isIcon) {
+        this.isOnOff = false;
+        console.warn('<mg-input-toggle> prop "isOnOff" must be used with "isIcon". Setting isOnOff to false.');
+      }
+    } else {
+      this.classCollection.delete(this.classOnOff);
+    }
   }
 
   /**
@@ -216,10 +225,10 @@ export class MgInputToggle {
    * @param errorMessage - the error message to display
    */
   @Method()
-  async setError(valid: boolean, errorMessage: string): Promise<void> {
+  async setError(valid: boolean, errorMessage?: string): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-toggle> method "setError()" param "valid" must be a boolean.');
-    } else if (!isValidString(errorMessage)) {
+    } else if (errorMessage !== undefined && !isValidString(errorMessage)) {
       throw new Error('<mg-input-toggle> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.valid = valid;
@@ -259,7 +268,7 @@ export class MgInputToggle {
     // Set error message
     this.errorMessage = undefined;
     // Does have a custom error message
-    if (!this.valid && errorMessage !== undefined) {
+    if (!this.valid && typeof errorMessage === 'string') {
       this.errorMessage = errorMessage;
     }
   };
@@ -276,12 +285,29 @@ export class MgInputToggle {
    */
   private validateSlots = (): void => {
     const slots = Array.from(this.element.children);
+    // validate slots
     if (slots.length !== 2) {
-      throw new Error('<mg-input-toggle> 2 slots are required.');
-    } else if (!this.isIcon) {
+      if (this.isOnOff && this.isIcon) {
+        // ONLY slot="item-2" is required in with isOnOff && isIcon
+        if (this.element.querySelector('[slot="item-2"]') === null) {
+          throw new Error('<mg-input-toggle> an element with attribute slot="item-2" is required.');
+        }
+      } else {
+        throw new Error('<mg-input-toggle> 2 slots are required.');
+      }
+    }
+
+    // update slots
+    if (!this.isIcon) {
       // Due to text-overflow set to ellipsis
       // we need to ensure that slot element have title to display value on mouse over
       slots.forEach(slot => slot.setAttribute('title', slot.textContent));
+    } else {
+      slots.forEach(slot => {
+        if (slot.nodeName === 'MG-ICON') {
+          (slot as HTMLMgIconElement).size = 'small';
+        }
+      });
     }
   };
 
