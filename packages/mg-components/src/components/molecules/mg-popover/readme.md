@@ -50,7 +50,7 @@ The click on button with ’popovertargetaction="hide"’ will hide a shown popo
 
 | Name                                | Description                                                                                          |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `--mg-c-popover-border-radius`      | Defines the border-radius of the popover. Default value: `unset`.                                    |
+| `--mg-c-popover-border-radius`      | Defines the border-radius of the popover. Default value: `--mg-c-card-border-radius-default`.        |
 | `--mg-c-popover-color-background`   | Defines the background color of the popover. Default value: `--mg-b-color-light`.                    |
 | `--mg-c-popover-color-text`         | Defines the font color of the popover. Default value: `--mg-b-color-font-dark`.                      |
 | `--mg-c-popover-max-width`          | Defines the max-width of the popover. Default value: `--mg-b-size-floating-element-max-width`.       |
