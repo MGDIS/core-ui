@@ -68,8 +68,8 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
 * Arrow style
 */
 ::slotted([slot='arrow']) {
-  $width-value: calc(var(--mg-b-size-24) + 2 * var(--mg-c-card-border-radius) + 2 * var(--mg-b-size-8));
-  $popover-position: calc(var(--mg-c-card-border-radius) + var(--mg-b-size-8));
+  $width-value: calc(var(--mg-b-size-24) + 2 * var(--mg-c-popover-border-radius) + 2 * var(--mg-b-size-8));
+  $popover-position: calc(var(--mg-c-popover-border-radius) + var(--mg-b-size-8));
 
   position: absolute;
 
@@ -153,12 +153,10 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
   :host([data-popper-placement^='left-end']) &,
   :host([data-popper-placement^='right-start']) &,
   :host([data-popper-placement^='right-end']) & {
-    $height-value: calc(var(--mg-b-size-24) + 2 * var(--mg-c-card-border-radius));
-
-    height: $height-value;
+    height: calc(var(--mg-b-size-24) + 2 * var(--mg-c-popover-border-radius));
 
     &::before {
-      top: var(--mg-c-card-border-radius);
+      top: var(--mg-c-popover-border-radius);
     }
   }
 }
