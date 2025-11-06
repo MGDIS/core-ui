@@ -348,8 +348,8 @@ export class MgInputCombobox {
    */
   @State() options: Paginate<Option> = new Paginate([]);
   @Watch('options')
-  watchOptions(newValue: Paginate<Option>): void {
-    this.page = newValue.getPage(0, this.filter.length > 0 ? this.optionsFilter : undefined);
+  watchOptions(): void {
+    this.page = this.getFirstPage();
   }
 
   /**
@@ -513,7 +513,7 @@ export class MgInputCombobox {
    * @param event - option element click event
    */
   private handleOptionClick = (event: PointerEvent & { target: HTMLLIElement }) => {
-    this.setValue(this.options.items.find(option => formatID(option.value) === event.target.id));
+    this.setValue(this.options.items.find(option => toString(option.value) === event.target.dataset.value));
     this.popoverDisplay = false;
   };
 
@@ -789,10 +789,10 @@ export class MgInputCombobox {
   };
 
   /**
-   * Get filtered options from `filter` input value
-   * @returns filtered options
+   * Get first page with filter applied
+   * @returns first page with filter applied
    */
-  private optionsFilter = (option): boolean => (this.filter === '' ? true : option.title.toLocaleLowerCase().includes(this.filter.toLocaleLowerCase()));
+  private getFirstPage = (): Page<Option> => this.options.getPage(0, option => this.filter === '' || option.title.toLocaleLowerCase().includes(this.filter.toLocaleLowerCase()));
 
   /**
    * Loading wrapper with a given action
@@ -837,7 +837,7 @@ export class MgInputCombobox {
     return promise()
       .then(() => {
         // parse full items list from options
-        const options = this.options.items.filter(this.optionsFilter);
+        const options = this.filter === '' ? this.options.items : this.options.items.filter(option => option.title.includes(this.filter));
 
         // update visual focus
         if (action.name !== 'load-data') {
@@ -898,7 +898,7 @@ export class MgInputCombobox {
         }
       });
     } else {
-      this.page = this.options.getPage(0, this.optionsFilter);
+      this.page = this.getFirstPage();
     }
   };
 
@@ -921,7 +921,7 @@ export class MgInputCombobox {
       const items = getObjectValueFromKey<Response, Option[]>(json, this.fetchmappings.response.items).map(
         (item): Option => ({
           title: getObjectValueFromKey<unknown, Option['title']>(item, this.fetchmappings.response.itemTitle),
-          value: this.fetchmappings.response.itemValue !== undefined ? getObjectValueFromKey<unknown, Option['value']>(item, this.fetchmappings.response.itemValue) : item,
+          value: getObjectValueFromKey<unknown, Option['value']>(item, this.fetchmappings.response.itemValue) ?? item,
         }),
       );
       const total = Number(getObjectValueFromKey<Response, number>(json, this.fetchmappings.response.total, 0));
@@ -958,7 +958,7 @@ export class MgInputCombobox {
       this.loadingWrapper({ name: 'load-data' });
     }
     this.watchValue(this.value);
-    this.watchOptions(this.options);
+    this.watchOptions();
     this.watchMgWidth(this.mgWidth);
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
@@ -1087,6 +1087,7 @@ export class MgInputCombobox {
                         key={option.title}
                         id={formatID(option.value)}
                         aria-selected={this.isCurrentOption(option).toString()}
+                        data-value={toString(option.value)}
                         onClick={this.handleOptionClick}
                       >
                         {option.title}
