@@ -3,7 +3,14 @@ import { test } from '../../../../utils/playwright.fixture';
 import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { directions, sizes } from '../mg-illustrated-message.conf';
 
-const createHTML = (args, title = '<h2 slot="title">Lorem Ipsum</h2>') => `<mg-illustrated-message ${renderAttributes(args)}>
+const createHTML = (args, title = '<h2 slot="title">Lorem Ipsum</h2>') => `
+  <style>
+  .e2e-screenshot {
+    display: block;
+    max-width: ${args.direction !== 'horizontal' ? '500px' : ''};
+  }
+  </style>
+  <mg-illustrated-message ${renderAttributes(args)}>
   <svg slot="illustration" viewBox="0 0 190 350" xmlns="http://www.w3.org/2000/svg">
     <path
       fill-rule="evenodd"
@@ -32,7 +39,7 @@ test.describe('mg-illustrated-message', () => {
 
         // Ensure responsive
         if (direction === 'horizontal') {
-          await page.setViewportSize({ width: 600, height: 600 });
+          await page.setViewportSize({ width: 500, height: 600 });
 
           await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
         }
