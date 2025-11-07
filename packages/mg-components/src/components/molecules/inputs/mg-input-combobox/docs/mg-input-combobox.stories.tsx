@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/core-ui-helpers/dist/storybook';
 import type { MgInputCombobox as MgInputComboboxType } from '../mg-input-combobox';
-import { type ItemType } from '../mg-input-combobox.conf';
+import { type Option } from '../../../../../types';
 
 export default {
   component: 'mg-input-combobox',
@@ -10,7 +10,7 @@ export default {
   tags: ['beta'],
 };
 
-const getOptionsItems = (length: number): ItemType[] => new Array(length).fill(() => '').map((_, index) => ({ title: `title ${index + 1}`, value: `/${index + 1}` }));
+const getOptionsItems = (length: number): Option[] => new Array(length).fill(() => '').map((_, index) => ({ title: `title ${index + 1}`, value: `/${index + 1}` }));
 
 /**
  * Template
