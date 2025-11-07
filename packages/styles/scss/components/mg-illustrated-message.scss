@@ -85,6 +85,7 @@
   @container (width > 528px) {
     &.mg-c-illustrated-message--direction-horizontal {
       flex-direction: row;
+      align-items: center;
       column-gap: var(--mg-b-size-48);
       text-align: left;
 
@@ -95,7 +96,6 @@
       .mg-c-illustrated-message__illustration {
         max-width: fit-content;
         flex: 1 0 auto;
-        align-self: center;
       }
 
       &.mg-c-illustrated-message--size-small {
