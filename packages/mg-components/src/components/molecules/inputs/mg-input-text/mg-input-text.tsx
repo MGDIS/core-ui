@@ -1,7 +1,7 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { allItemsAreString, ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { helpTextTypes, type OptionType, type TextType, textTypes } from './mg-input-text.conf';
-import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled, classDisplayCharacterLeft, classFocus } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import { IconType } from '../../../../components';
 
@@ -35,7 +35,6 @@ export class MgInputText {
    ************/
 
   // Classes
-  private readonly classFocus = 'mg-u-is-focused';
   private readonly classIsInputGroupAppend = 'mg-c-input--is-input-group-append';
   private readonly classHasIcon = 'mg-c-input--has-icon';
   private readonly classHasButtonsGroupAppend = 'mg-c-input--has-buttons-group-append';
@@ -234,6 +233,14 @@ export class MgInputText {
    * Define if component should display character left
    */
   @Prop() characterLeftHide = false;
+  @Watch('characterLeftHide')
+  validateCharacterLeftHide(newValue: boolean): void {
+    if (newValue) {
+      this.classCollection.delete(classDisplayCharacterLeft);
+    } else {
+      this.classCollection.add(classDisplayCharacterLeft);
+    }
+  }
 
   /**
    * Add a help text under the input, usually expected data format and example
@@ -400,7 +407,7 @@ export class MgInputText {
    * Handle focus event
    */
   private handleFocus = (): void => {
-    this.classCollection.add(this.classFocus);
+    this.classCollection.add(classFocus);
     this.classCollection = new ClassList(this.classCollection.classes);
   };
 
@@ -409,7 +416,7 @@ export class MgInputText {
    */
   private handleBlur = (): void => {
     // Manage focus
-    this.classCollection.delete(this.classFocus);
+    this.classCollection.delete(classFocus);
     this.classCollection = new ClassList(this.classCollection.classes);
     // Display Error
     this.handlerInProgress = 'blur';
@@ -499,6 +506,7 @@ export class MgInputText {
     this.watchMgWidth(this.mgWidth);
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
+    this.validateCharacterLeftHide(this.characterLeftHide);
     this.validateType(this.type);
     this.watchHelpText(this.helpText);
     // Check validity when component is ready
@@ -548,7 +556,7 @@ export class MgInputText {
           : [
               <div
                 key="input"
-                class="mg-c-input__with-character-left"
+                class="mg-c-input__input-group-container"
                 style={{
                   '--mg-c-character-left-message-length': (!this.characterLeftHide ? this.maxlength.toString().length * 2 + 1 : 0).toString(),
                 }}

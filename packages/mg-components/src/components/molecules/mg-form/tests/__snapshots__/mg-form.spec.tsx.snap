@@ -404,7 +404,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -418,7 +418,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left mg-input-text-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -456,7 +456,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <div id="mg-input-textarea-error" slot="error">
@@ -592,7 +592,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
     </mg-input-radio>
     <mg-input-text>
       <template shadowrootmode="open">
-        <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+        <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
           <template shadowrootmode="open">
             <div class="mg-c-input__title">
               <slot name="label"></slot>
@@ -603,7 +603,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
               </div>
             </div>
           </template>
-          <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+          <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
             <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
             <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
           </div>
@@ -810,7 +810,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -931,7 +931,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
     </mg-input-radio>
     <mg-input-text>
       <template shadowrootmode="open">
-        <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
+        <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
           <template shadowrootmode="open">
             <div class="mg-c-input__title">
               <slot name="label"></slot>
@@ -1314,7 +1314,7 @@ exports[`mg-form Should render with args {
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1325,7 +1325,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -1357,7 +1357,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="true" slot="label">
@@ -1742,7 +1742,7 @@ exports[`mg-form Should render with args {
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1753,7 +1753,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -1780,7 +1780,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -2155,7 +2155,7 @@ exports[`mg-form Should render with args {
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2166,7 +2166,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -2193,7 +2193,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -2625,7 +2625,7 @@ exports[`mg-form Should render with args {
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2636,7 +2636,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -2663,7 +2663,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -3066,7 +3066,7 @@ exports[`mg-form Should render with args {
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3077,7 +3077,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -3109,7 +3109,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="true" slot="label">
@@ -3487,7 +3487,7 @@ exports[`mg-form Should render with args {
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3498,7 +3498,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -3525,7 +3525,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -3893,7 +3893,7 @@ exports[`mg-form Should render with args {
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3904,7 +3904,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -3931,7 +3931,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -4349,7 +4349,7 @@ exports[`mg-form Should render with args {
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4360,7 +4360,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -4387,7 +4387,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -4793,7 +4793,7 @@ exports[`mg-form Should render with args {
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4804,7 +4804,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -4836,7 +4836,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="true" slot="label">
@@ -5221,7 +5221,7 @@ exports[`mg-form Should render with args {
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5232,7 +5232,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -5259,7 +5259,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -5634,7 +5634,7 @@ exports[`mg-form Should render with args {
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5645,7 +5645,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -5672,7 +5672,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -6093,7 +6093,7 @@ exports[`mg-form Should render with args {
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6104,7 +6104,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -6131,7 +6131,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -6491,7 +6491,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6502,7 +6502,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -6529,7 +6529,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -6770,7 +6770,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7154,7 +7154,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7165,7 +7165,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -7192,7 +7192,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -7552,7 +7552,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--label-on-top mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7563,7 +7563,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -7590,7 +7590,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -7830,7 +7830,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8215,7 +8215,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8226,7 +8226,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -8253,7 +8253,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -8613,7 +8613,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8624,7 +8624,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -8651,7 +8651,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -9011,7 +9011,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -9022,7 +9022,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -9049,7 +9049,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -9409,7 +9409,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -9420,7 +9420,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -9447,7 +9447,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -9807,7 +9807,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -9818,7 +9818,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -9845,7 +9845,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -10205,7 +10205,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -10216,7 +10216,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -10243,7 +10243,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
@@ -10694,7 +10694,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -10708,7 +10708,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left mg-input-text-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -10746,7 +10746,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <div id="mg-input-textarea-error" slot="error">
@@ -11205,7 +11205,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
   </mg-input-rich-text-editor>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -11219,7 +11219,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left mg-input-text-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -11257,7 +11257,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
+        <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
         <div id="mg-input-textarea-error" slot="error">
