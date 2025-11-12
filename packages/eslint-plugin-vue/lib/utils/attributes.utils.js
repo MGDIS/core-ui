@@ -53,8 +53,8 @@ module.exports = {
     switch (expression?.type) {
       case 'Literal': // Used for values (e.g. :id="'kebab-case'")
         return expression.value;
-      case 'Identifier': // Used for variables (e.g. :id="withProps")
-        return expression.name.toLowerCase();
+      case 'Identifier': // Used for variables (e.g. :id="_withProps")
+        return expression.name.toLowerCase().replace(/_/g, ''); // Ensure variables are minified and underscores are removed
       case 'CallExpression': // Used for function calls (e.g. :id="method(blu)")
         return 'call-expression'; // No need to reconstruct
       case 'TemplateLiteral': // Used for template literals (e.g. :id="\`with-\${props}\`")
