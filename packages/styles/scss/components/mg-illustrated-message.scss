@@ -19,6 +19,7 @@
     ::slotted([slot='illustration']) {
       width: 100%;
       max-width: 100%;
+      max-width: calc(15 * var(--mg-b-size-8)); // 120px;
       height: auto;
       max-height: calc(15 * var(--mg-b-size-8)); // 120px;
     }
@@ -27,7 +28,7 @@
   &__slots {
     display: flex;
     flex-direction: column;
-    gap: var(--mg-b-size-16);
+    gap: var(--mg-b-size-8);
 
     ::slotted([slot='title']) {
       margin: 0;
@@ -45,6 +46,12 @@
    * Sizes
    */
   &.mg-c-illustrated-message--size-small {
+    --mg-c-illustrated-message-spacing-vertical: var(--mg-b-size-24);
+
+    .mg-c-illustrated-message__slots {
+      gap: calc(var(--mg-b-size-4) / 2);
+    }
+
     .mg-c-illustrated-message__illustration {
       max-height: var(--mg-b-size-64);
 
@@ -69,12 +76,40 @@
    */
   &.mg-c-illustrated-message--direction-horizontal {
     max-width: unset;
-    flex-flow: row wrap;
-    align-items: center;
 
-    .mg-c-illustrated-message__slots,
-    .mg-c-illustrated-message__illustration {
+    .mg-c-illustrated-message__slots {
       max-width: calc(60 * var(--mg-b-size-8)); // 480px;
     }
   }
+
+  @container (width > 52.8rem) {
+    &.mg-c-illustrated-message--direction-horizontal {
+      flex-direction: row;
+      align-items: center;
+      column-gap: var(--mg-b-size-48);
+      text-align: left;
+
+      .mg-c-illustrated-message__slots {
+        max-width: unset;
+      }
+
+      .mg-c-illustrated-message__illustration {
+        max-width: fit-content;
+        flex: 1 0 auto;
+      }
+
+      &.mg-c-illustrated-message--size-small {
+        column-gap: var(--mg-b-size-24);
+      }
+
+      &.mg-c-illustrated-message--size-large {
+        column-gap: var(--mg-b-size-64);
+      }
+    }
+  }
+}
+
+:host {
+  display: block;
+  container-type: inline-size;
 }
