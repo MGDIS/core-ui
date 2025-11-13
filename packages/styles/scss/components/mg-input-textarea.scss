@@ -46,14 +46,12 @@
     }
 
     mg-character-left {
-      $offset-width: 0.1rem;
-
-      right: calc(var(--mg-c-input-border-width) + #{$offset-width});
-      bottom: calc(var(--mg-c-input-border-width) + #{$offset-width});
+      right: calc(var(--mg-c-input-border-width) + 0.1rem);
+      bottom: calc(var(--mg-c-input-border-width) + 0.1rem);
       padding: calc(var(--mg-b-size-4) / 2 - var(--mg-c-input-border-width)) calc(var(--mg-b-size-4) - var(--mg-c-input-border-width));
       border: var(--mg-c-input-border-width) solid var(--mg-c-input-color-border);
-      border-bottom-width: 0;
       border-right-width: 0;
+      border-bottom-width: 0;
       border-top-left-radius: var(--mg-c-input-border-radius);
       text-align: center;
     }

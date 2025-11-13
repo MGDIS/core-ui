@@ -192,18 +192,24 @@ test.describe('mg-input-textarea', () => {
   });
 
   [true, false].forEach(characterLeftHide => {
-    test(`render input with characterLeftHide=${characterLeftHide}`, async ({ page }) => {
-      const html = createHTML({
-        ...baseArgs,
-        characterLeftHide,
+    [
+      'loerem ipsum dolor sit amet ',
+      'Voici un texte volontairement très long, conçu pour tester le comportement du compteur de caractères flottant en bas à droite du champ mg-input-textarea. Ce contenu permet de vérifier que le compteur reste visible et correctement positionné, même lorsque la zone de saisie s’agrandit ou que l’utilisateur fait défiler une grande quantité de texte. L’objectif est de s’assurer que le composant conserve une expérience fluide, lisible et accessible, quelles que soient la longueur ou la densité du texte saisi.',
+    ].forEach(value => {
+      test(`render input with characterLeftHide=${characterLeftHide} and value=${value}`, async ({ page }) => {
+        const html = createHTML({
+          ...baseArgs,
+          value,
+          characterLeftHide,
+        });
+        await page.setContent(html);
+
+        await page.locator('mg-input-textarea.hydrated').waitFor();
+
+        await page.keyboard.press('Tab');
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
-      await page.setContent(html);
-
-      await page.locator('mg-input-textarea.hydrated').waitFor();
-
-      await page.keyboard.press('Tab');
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
