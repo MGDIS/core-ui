@@ -6,8 +6,11 @@
   mg-character-left {
     position: absolute;
     display: none;
-    font-size: var(--mg-b-font-size-small);
-    opacity: 0.6;
+
+    > span {
+      font-size: var(--mg-b-font-size-small);
+      opacity: 0.6;
+    }
   }
 
   .mg-c-input__input {

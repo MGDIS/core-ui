@@ -209,6 +209,10 @@ test.describe('mg-input-textarea', () => {
         await page.keyboard.press('Tab');
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        // Scroll to top to ensure character left is upper the textarea in screenshot
+        await page.locator('mg-input-textarea textarea').evaluate(elm => elm.scrollTo(0, 0));
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
     });
   });
