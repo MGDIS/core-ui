@@ -13,7 +13,7 @@
   position: relative;
   width: 100%;
 
-  .mg-c-input.mg-u-is-focused & .mg-c-input__box {
+  .mg-c-input__box:focus {
     /* Dynamic right padding calculation:
      * - First part: space for character counter
      *   (0.35ch + 0.3rem) per character multiplied by number of characters
@@ -35,9 +35,9 @@
     font-size: var(--mg-b-font-size-small);
     opacity: 0.6;
     transform: translateY(-50%);
+  }
 
-    .mg-c-input.mg-u-is-focused & {
-      display: block;
-    }
+  input:focus ~ mg-character-left {
+    display: block;
   }
 }

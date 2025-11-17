@@ -45,10 +45,10 @@
     display: block;
     text-align: end;
     visibility: hidden;
+  }
 
-    .mg-c-input.mg-u-is-focused & {
-      visibility: visible;
-    }
+  textarea:focus ~ mg-character-left {
+    visibility: visible;
   }
 }
 

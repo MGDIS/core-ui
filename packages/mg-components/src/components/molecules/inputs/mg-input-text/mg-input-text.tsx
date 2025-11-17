@@ -35,7 +35,6 @@ export class MgInputText {
    ************/
 
   // Classes
-  private readonly classFocus = 'mg-u-is-focused';
   private readonly classIsInputGroupAppend = 'mg-c-input--is-input-group-append';
   private readonly classHasIcon = 'mg-c-input--has-icon';
   private readonly classHasButtonsGroupAppend = 'mg-c-input--has-buttons-group-append';
@@ -397,20 +396,9 @@ export class MgInputText {
   };
 
   /**
-   * Handle focus event
-   */
-  private handleFocus = (): void => {
-    this.classCollection.add(this.classFocus);
-    this.classCollection = new ClassList(this.classCollection.classes);
-  };
-
-  /**
    * Handle blur event
    */
   private handleBlur = (): void => {
-    // Manage focus
-    this.classCollection.delete(this.classFocus);
-    this.classCollection = new ClassList(this.classCollection.classes);
     // Display Error
     this.handlerInProgress = 'blur';
     this.displayError().finally(() => {
@@ -571,7 +559,6 @@ export class MgInputText {
                   aria-invalid={(this.invalid === true).toString()}
                   pattern={this.pattern}
                   onInput={this.handleInput}
-                  onFocus={this.handleFocus}
                   onBlur={this.handleBlur}
                   ref={(el: HTMLInputElement) => {
                     if (el !== null) this.input = el;

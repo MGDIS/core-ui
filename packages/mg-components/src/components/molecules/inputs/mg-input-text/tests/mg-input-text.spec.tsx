@@ -59,6 +59,38 @@ describe('mg-input-text', () => {
     expect(root).toMatchSnapshot();
   });
 
+  test('Should render with interactive helpText', async () => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', helpText: '<a href="#">My help text</a>' });
+    expect(page.root).toMatchSnapshot();
+
+    const element = page.doc.querySelector('mg-input-text');
+    const input = element.shadowRoot.querySelector('input');
+
+    // mock focus event on input
+    input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    // add event listeners to link and document
+    const helpTextLink = element.shadowRoot.querySelector('a');
+    const helpTextLinkClick = jest.fn();
+    const documentClick = jest.fn();
+    helpTextLink.addEventListener('click', helpTextLinkClick);
+    page.doc.addEventListener('click', documentClick);
+
+    // mock blur event on link click
+    input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+    await page.waitForChanges();
+    // mock link click
+    helpTextLink.click();
+    await page.waitForChanges();
+
+    expect(helpTextLinkClick).toHaveBeenCalled();
+    expect(documentClick).toHaveBeenCalled();
+    expect(page.root).toMatchSnapshot();
+  });
+
   describe.each([false, true])('readonly %s', readonly => {
     test.each([
       <mg-button slot="append-input" label="search">
@@ -209,9 +241,9 @@ describe('mg-input-text', () => {
 
     input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.classCollection.has('mg-u-is-focused')).toEqual(true);
 
     expect(page.root).toMatchSnapshot(); //Snapshot on focus
+    expect(inputValidSpy).toHaveBeenCalledTimes(0);
 
     input.value = inputValue;
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
@@ -219,10 +251,12 @@ describe('mg-input-text', () => {
     expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(
       ['Bla', 'Blo', 'Ble'].includes(inputValue) ? datalistoptions.find(option => option.title === inputValue).value : inputValue,
     );
+    expect(inputValidSpy).toHaveBeenCalledTimes(1);
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.classCollection.has('mg-u-is-focused')).toEqual(false);
+
+    // no extra call on blur
     expect(inputValidSpy).toHaveBeenCalledTimes(1);
   });
 

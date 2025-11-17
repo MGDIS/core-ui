@@ -50,6 +50,38 @@ describe('mg-input-textarea', () => {
     expect(root).toMatchSnapshot();
   });
 
+  test('Should render with interactive helpText', async () => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', helpText: '<a href="#">My help text</a>' });
+    expect(page.root).toMatchSnapshot();
+
+    const element = page.doc.querySelector('mg-input-textarea');
+    const textarea = element.shadowRoot.querySelector('textarea');
+
+    // mock focus event on input
+    textarea.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    // add event listeners to link and document
+    const helpTextLink = element.shadowRoot.querySelector('a');
+    const helpTextLinkClick = jest.fn();
+    const documentClick = jest.fn();
+    helpTextLink.addEventListener('click', helpTextLinkClick);
+    page.doc.addEventListener('click', documentClick);
+
+    // mock blur event on link click
+    textarea.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+    await page.waitForChanges();
+    // mock link click
+    helpTextLink.click();
+    await page.waitForChanges();
+
+    expect(helpTextLinkClick).toHaveBeenCalled();
+    expect(documentClick).toHaveBeenCalled();
+    expect(page.root).toMatchSnapshot();
+  });
+
   test.each(['', ' ', undefined])('Should not render with invalid identifier property: %s', async identifier => {
     expect.assertions(1);
     try {
@@ -141,18 +173,20 @@ describe('mg-input-textarea', () => {
 
     input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.classCollection.has('mg-u-is-focused')).toEqual(true);
 
     expect(page.root).toMatchSnapshot(); //Snapshot on focus
+    expect(inputValidSpy).toHaveBeenCalledTimes(0);
 
     input.value = inputValue;
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
     await page.waitForChanges();
     expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(inputValue);
+    expect(inputValidSpy).toHaveBeenCalledTimes(1);
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.classCollection.has('mg-u-is-focused')).toEqual(false);
+
+    // no extra call on blur
     expect(inputValidSpy).toHaveBeenCalledTimes(1);
   });
 
