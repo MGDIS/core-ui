@@ -8,7 +8,7 @@ export type ActionType = { name: 'scroll' | 'load-data' | 'load-more'; cursor?: 
 /**
  * Define request mapping type
  */
-export type RequestMappingType = { filter: string };
+export type RequestMappingType = { filter: string; filterTransform?: (filter: string) => string };
 
 /**
  * Define response mapping type

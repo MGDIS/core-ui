@@ -427,6 +427,13 @@ describe('mg-input-combobox', () => {
           response: { ...ResponseMapping },
         },
         {
+          request: {
+            filter: value,
+            filterTransform: 'hello',
+          },
+          response: { ...ResponseMapping },
+        },
+        {
           request: { ...RequestMapping },
           response: {
             ...ResponseMapping,
@@ -698,8 +705,13 @@ describe('mg-input-combobox', () => {
       { items },
       { items: objectItems },
       { items: undefined, fetchurl, fetchmappings },
+      {
+        items: undefined,
+        fetchurl,
+        fetchmappings: { request: { ...fetchmappings.request, filterTransform: value => value.replace('joker', 'batman') }, response: { ...fetchmappings.response } },
+      },
       { items: undefined, fetchurl, fetchmappings: { ...fetchmappings, response: { ...fetchmappings.response, itemValue: undefined } } },
-    ])('Should handle option click, case props %s', async props => {
+    ])('Should handle option click, case props %s', async (props: Partial<MgInputCombobox>) => {
       const page = await getPage({ ...baseProps, ...props });
       const element = page.doc.querySelector('mg-input-combobox');
       const input = element.shadowRoot.querySelector('input');
@@ -722,6 +734,11 @@ describe('mg-input-combobox', () => {
       // update value
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();
+
+      // Verify fetch called with filter transformed value
+      if (typeof props.fetchmappings?.request?.filterTransform === 'function') {
+        expect(global.fetch).toHaveBeenCalledWith(`http://url.fr?filter=batman`, undefined);
+      }
 
       // On blur the hasDisplayedError status change
       if (props.items && typeof props.items[0] === 'string') {
