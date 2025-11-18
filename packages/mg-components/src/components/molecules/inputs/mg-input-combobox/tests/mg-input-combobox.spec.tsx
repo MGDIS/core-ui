@@ -826,6 +826,7 @@ describe('mg-input-combobox', () => {
       // Call input event
       input.value = 'j';
       input.dispatchEvent(new MouseEvent('input', { bubbles: true }));
+      jest.runOnlyPendingTimers();
       await page.waitForChanges();
       // test debounce prevent loading before it ending
       expect(spy).toHaveBeenCalledTimes(1);
@@ -851,6 +852,7 @@ describe('mg-input-combobox', () => {
       expect(element.value).toEqual('joker');
       expect(popover.display).toEqual(true);
     });
+
     test('Should handle input blur', async () => {
       const page = await getPage({ ...baseProps, value: 'joker' });
       const element = page.doc.querySelector('mg-input-combobox');
@@ -1096,6 +1098,38 @@ describe('mg-input-combobox', () => {
 
       // Verify initial value is set and popover to be displaied
       expect(element.shadowRoot.querySelector('mg-loader')).toEqual(null);
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should render with interactive helpText', async () => {
+      const page = await getPage({ ...baseProps, helpText: '<a href="#">My help text</a>' });
+      expect(page.root).toMatchSnapshot();
+
+      const element = page.doc.querySelector('mg-input-combobox');
+      const input = element.shadowRoot.querySelector('input');
+
+      // mock focus event on input
+      input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+
+      // add event listeners to link and document
+      const helpTextLink = element.shadowRoot.querySelector('a');
+      const helpTextLinkClick = jest.fn();
+      const documentClick = jest.fn();
+      helpTextLink.addEventListener('click', helpTextLinkClick);
+      page.doc.addEventListener('click', documentClick);
+
+      // mock blur event on link click
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+      // mock link click
+      helpTextLink.click();
+      await page.waitForChanges();
+
+      expect(helpTextLinkClick).toHaveBeenCalled();
+      expect(documentClick).toHaveBeenCalled();
       expect(page.root).toMatchSnapshot();
     });
 

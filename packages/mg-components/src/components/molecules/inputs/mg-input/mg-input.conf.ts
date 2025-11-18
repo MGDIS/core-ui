@@ -56,4 +56,3 @@ export const classDisabled = 'mg-c-input--disabled';
 export const classReadonly = 'mg-c-input--readonly';
 export const classVerticalList = 'mg-c-input--vertical-list';
 export const classDisplayCharacterLeft = 'mg-c-input--display-character-left';
-export const classFocus = 'mg-u-is-focused';

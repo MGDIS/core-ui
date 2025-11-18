@@ -25,9 +25,6 @@ export class MgInputRichTextEditor {
   private hasDisplayedError = false;
   private customErrorMessage: { lock: boolean; message?: string } = { lock: false };
 
-  // Classes
-  private readonly classFocus = 'mg-u-is-focused';
-
   /**************
    * Decorators *
    **************/
@@ -362,7 +359,6 @@ export class MgInputRichTextEditor {
    * Handle focus event
    */
   private handleFocus = (): void => {
-    this.classCollection.add(this.classFocus);
     this.classCollection = new ClassList(this.classCollection.classes);
   };
 
@@ -372,7 +368,6 @@ export class MgInputRichTextEditor {
    */
   private handleBlur = (): void => {
     // Manage focus
-    this.classCollection.delete(this.classFocus);
     this.classCollection = new ClassList(this.classCollection.classes);
 
     if (!this.readonly) {

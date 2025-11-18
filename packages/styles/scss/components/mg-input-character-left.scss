@@ -24,7 +24,10 @@
     }
   }
 
-  &.mg-u-is-focused mg-character-left {
-    display: block;
+  input,
+  textarea {
+    &:focus ~ mg-character-left {
+      display: block;
+    }
   }
 }

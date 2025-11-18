@@ -1,7 +1,7 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { allItemsAreString, ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { helpTextTypes, type OptionType, type TextType, textTypes } from './mg-input-text.conf';
-import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled, classDisplayCharacterLeft, classFocus } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled, classDisplayCharacterLeft } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import { IconType } from '../../../../components';
 
@@ -404,20 +404,9 @@ export class MgInputText {
   };
 
   /**
-   * Handle focus event
-   */
-  private handleFocus = (): void => {
-    this.classCollection.add(classFocus);
-    this.classCollection = new ClassList(this.classCollection.classes);
-  };
-
-  /**
    * Handle blur event
    */
   private handleBlur = (): void => {
-    // Manage focus
-    this.classCollection.delete(classFocus);
-    this.classCollection = new ClassList(this.classCollection.classes);
     // Display Error
     this.handlerInProgress = 'blur';
     this.displayError().finally(() => {
@@ -579,7 +568,6 @@ export class MgInputText {
                   aria-invalid={(this.invalid === true).toString()}
                   pattern={this.pattern}
                   onInput={this.handleInput}
-                  onFocus={this.handleFocus}
                   onBlur={this.handleBlur}
                   ref={(el: HTMLInputElement) => {
                     if (el !== null) this.input = el;

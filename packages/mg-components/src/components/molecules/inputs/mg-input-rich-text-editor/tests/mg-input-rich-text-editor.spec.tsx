@@ -492,6 +492,36 @@ describe('mg-input-rich-text-editor', () => {
       // Verify that checkValidity has been called
       expect(checkValiditySpy).toHaveBeenCalled();
     });
+
+    test('Should render with interactive helpText', async () => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', helpText: '<a href="#">My help text</a>' });
+      const { input, element } = await waitForEditor(page);
+      expect(page.root).toMatchSnapshot();
+
+      // mock focus event on input
+      input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+
+      // add event listeners to link and document
+      const helpTextLink = element.shadowRoot.querySelector('a');
+      const helpTextLinkClick = jest.fn();
+      const documentClick = jest.fn();
+      helpTextLink.addEventListener('click', helpTextLinkClick);
+      page.doc.addEventListener('click', documentClick);
+
+      // mock blur event on link click
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+      // mock link click
+      helpTextLink.click();
+      await page.waitForChanges();
+
+      expect(helpTextLinkClick).toHaveBeenCalled();
+      expect(documentClick).toHaveBeenCalled();
+      expect(page.root).toMatchSnapshot();
+    });
   });
 
   describe('Editor', () => {

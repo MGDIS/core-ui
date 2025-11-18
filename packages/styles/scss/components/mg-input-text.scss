@@ -17,7 +17,7 @@
     transform: translateY(-50%);
   }
 
-  &.mg-u-is-focused .mg-c-input__box {
+  .mg-c-input__box:focus {
     /* Dynamic right padding calculation:
     * - First part: space for character counter
     *   (0.35ch + 0.3rem) per character multiplied by number of characters

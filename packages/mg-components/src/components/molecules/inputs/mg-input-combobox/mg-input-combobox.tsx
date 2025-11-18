@@ -68,8 +68,6 @@ export class MgInputCombobox {
    ************/
 
   // Classes
-  private readonly classFocus = 'mg-u-is-focused';
-
   // HTML selector
   private input: HTMLInputElement;
   private loadMoreElement: HTMLMgButtonElement;
@@ -384,14 +382,12 @@ export class MgInputCombobox {
   @Watch('popoverDisplay')
   watchPopoverDisplay(newValue: MgInputCombobox['popoverDisplay']): void {
     if (newValue) {
-      this.classCollection.add(this.classFocus);
       this.input.focus();
     } else {
       // remove visual focus
       this.option = null;
       // reset filter with value
       this.filter = this.getValueTitle();
-      this.classCollection.delete(this.classFocus);
       this.handlerInProgress = 'blur';
       this.displayError().finally(() => {
         // reset guard
