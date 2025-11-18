@@ -4,8 +4,13 @@
 
 .mg-c-input.mg-c-input--display-character-left {
   mg-character-left {
-    font-size: var(--mg-b-font-size-small);
-    opacity: 0.6;
+    position: absolute;
+    display: none;
+
+    > span {
+      font-size: var(--mg-b-font-size-small);
+      opacity: 0.6;
+    }
   }
 
   .mg-c-input__input {
@@ -13,5 +18,13 @@
     & + .mg-c-input__error ::slotted(*) {
       margin-top: 0;
     }
+
+    &-group-container {
+      position: relative;
+    }
+  }
+
+  &.mg-u-is-focused mg-character-left {
+    display: block;
   }
 }

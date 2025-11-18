@@ -8,17 +8,15 @@
     width: $size;
   }
 
-  .mg-c-input__with-character-left {
-    &:not(:has(textarea)) .mg-c-input__box {
-      /* This calculation determines the total width of the input:
-       * - Starts with the base width ($size)
-       * - Adds extra space for the character counter message
-       * - The extra space is calculated by:
-       *   * Taking the length of the counter message (--mg-c-character-left-message-length)
-       *   * Multiplying it by (0.35ch + 0.3rem), which is the width of each character with a calculated value (because each character has a different width)
-       */
-      width: calc(#{$size} + (var(--mg-c-character-left-message-length) * (0.35ch + 0.3rem)));
-    }
+  &.mg-c-input--text.mg-c-input--display-character-left .mg-c-input__box {
+    /* This calculation determines the total width of the input:
+      * - Starts with the base width ($size)
+      * - Adds extra space for the character counter message
+      * - The extra space is calculated by:
+      *   * Taking the length of the counter message (--mg-c-character-left-message-length)
+      *   * Multiplying it by (0.35ch + 0.3rem), which is the width of each character with a calculated value (because each character has a different width)
+      */
+    width: calc(#{$size} + (var(--mg-c-character-left-message-length) * (0.35ch + 0.3rem)));
   }
 }
 
@@ -33,20 +31,23 @@
   */
 
   &.mg-c-input--width-full {
-    .mg-c-input__box {
-      width: 100%;
+    .mg-c-input {
+      &__box {
+        width: 100%;
+      }
+
+      &__input-group-container {
+        width: 100%;
+        flex-grow: 1;
+      }
     }
   }
 
   &.mg-c-input--width-2,
   &.mg-c-input--width-4,
   &.mg-c-input--width-16 {
-    .mg-c-input__with-character-left {
+    &.mg-c-input--display-character-left .mg-c-input__input-group-container {
       width: max-content;
-
-      &:has(textarea) {
-        flex-grow: inherit;
-      }
     }
   }
 

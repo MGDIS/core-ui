@@ -75,7 +75,7 @@ exports[`mg-fieldset render Should render with args { disabled: true }: 1`] = `
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -86,7 +86,7 @@ exports[`mg-fieldset render Should render with args { disabled: true }: 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -178,7 +178,7 @@ exports[`mg-fieldset render Should render with args { errorMessage: 'This is an 
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -189,7 +189,7 @@ exports[`mg-fieldset render Should render with args { errorMessage: 'This is an 
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -287,7 +287,7 @@ exports[`mg-fieldset render Should render with args { helpText: 'Hello joker' }:
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -298,7 +298,7 @@ exports[`mg-fieldset render Should render with args { helpText: 'Hello joker' }:
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -392,7 +392,7 @@ exports[`mg-fieldset render Should render with args { legendHeading: 'h1' }: 1`]
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -403,7 +403,7 @@ exports[`mg-fieldset render Should render with args { legendHeading: 'h1' }: 1`]
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -497,7 +497,7 @@ exports[`mg-fieldset render Should render with args { legendHeading: 'h1', legen
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -508,7 +508,7 @@ exports[`mg-fieldset render Should render with args { legendHeading: 'h1', legen
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -600,7 +600,7 @@ exports[`mg-fieldset render Should render with args { legendHide: true }: 1`] = 
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -611,7 +611,7 @@ exports[`mg-fieldset render Should render with args { legendHide: true }: 1`] = 
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -703,7 +703,7 @@ exports[`mg-fieldset render Should render with args { legendOnTop: true }: 1`] =
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -714,7 +714,7 @@ exports[`mg-fieldset render Should render with args { legendOnTop: true }: 1`] =
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -780,7 +780,7 @@ exports[`mg-fieldset render Should render with args { readonly: true }: 1`] = `
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -881,7 +881,7 @@ exports[`mg-fieldset render Should render with args { tooltip: 'My Tooltip Messa
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -892,7 +892,7 @@ exports[`mg-fieldset render Should render with args { tooltip: 'My Tooltip Messa
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -984,7 +984,7 @@ exports[`mg-fieldset render Should render with args {}: 1`] = `
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -995,7 +995,7 @@ exports[`mg-fieldset render Should render with args {}: 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -1098,7 +1098,7 @@ exports[`mg-fieldset validity Should display components errors (readonly: false)
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1112,7 +1112,7 @@ exports[`mg-fieldset validity Should display components errors (readonly: false)
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left mg-input-text-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -1186,7 +1186,7 @@ exports[`mg-fieldset validity Should display components errors (readonly: true) 
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1290,7 +1290,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: false) 1`] =
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1301,7 +1301,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: false) 1`] =
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -1393,7 +1393,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: false) 2`] =
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1404,7 +1404,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: false) 2`] =
             </div>
           </div>
         </template>
-        <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <div class="mg-c-input__input-group-container" style="--mg-c-character-left-message-length: 7;">
           <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
@@ -1476,7 +1476,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: true) 1`] = 
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1548,7 +1548,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: true) 2`] = 
   </mg-input-radio>
   <mg-input-text>
     <template shadowrootmode="open">
-      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
         <template shadowrootmode="open">
           <div class="mg-c-input__title">
             <slot name="label"></slot>

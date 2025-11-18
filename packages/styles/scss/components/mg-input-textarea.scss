@@ -28,26 +28,34 @@
       resize: vertical;
     }
   }
-}
 
-.mg-c-input__readonly-value {
-  white-space: pre-line;
-}
+  /**
+   * readonly
+   */
+  &.mg-c-input--readonly .mg-c-input__readonly-value {
+    white-space: pre-line;
+  }
 
-/**
- * Character left
- */
+  /**
+   * Character left
+   */
 
-.mg-c-input__with-character-left {
-  flex-grow: 1;
+  &.mg-c-input--display-character-left {
+    .mg-c-input__box {
+      padding-bottom: var(--mg-b-size-24);
+    }
 
-  mg-character-left {
-    display: block;
-    text-align: end;
-    visibility: hidden;
-
-    .mg-c-input.mg-u-is-focused & {
-      visibility: visible;
+    mg-character-left {
+      right: calc(var(--mg-c-input-border-width) + 0.1rem);
+      bottom: calc(var(--mg-c-input-border-width) + 0.1rem);
+      padding: calc(var(--mg-b-size-4) / 2 - var(--mg-c-input-border-width)) calc(var(--mg-b-size-4) - var(--mg-c-input-border-width));
+      border: var(--mg-c-input-border-width) solid var(--mg-c-input-color-border);
+      border-right-width: 0;
+      border-bottom-width: 0;
+      background: var(--mg-b-color-neutral-0);
+      border-bottom-right-radius: var(--mg-c-input-border-radius);
+      border-top-left-radius: var(--mg-c-input-border-radius);
+      opacity: initial;
     }
   }
 }

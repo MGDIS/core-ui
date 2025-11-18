@@ -122,7 +122,7 @@ mg-icon {
   }
 
   /* Manage space between input and first message */
-  :host(:not(&--textarea)) &__input + & {
+  :host &__input + & {
     &__error,
     &__help-text {
       margin-top: var(--mg-b-size-4);
