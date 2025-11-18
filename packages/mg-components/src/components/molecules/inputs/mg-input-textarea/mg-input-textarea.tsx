@@ -1,6 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
-import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled, classDisplayCharacterLeft } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -12,9 +12,6 @@ export class MgInputTextarea {
   /************
    * Internal *
    ************/
-
-  // Classes
-  private readonly classDisplayCharacterLeft = 'mg-c-input--display-character-left';
 
   // IDs
   private characterLeftId;
@@ -182,9 +179,9 @@ export class MgInputTextarea {
   @Watch('characterLeftHide')
   validatecharacterLeftHide(newValue: boolean): void {
     if (newValue) {
-      this.classCollection.delete(this.classDisplayCharacterLeft);
+      this.classCollection.delete(classDisplayCharacterLeft);
     } else {
-      this.classCollection.add(this.classDisplayCharacterLeft);
+      this.classCollection.add(classDisplayCharacterLeft);
     }
   }
 
@@ -431,7 +428,7 @@ export class MgInputTextarea {
         {this.readonly ? (
           this.value && <b class="mg-c-input__readonly-value">{this.value}</b>
         ) : (
-          <div class="mg-c-input__with-character-left">
+          <div class="mg-c-input__input-group-container">
             <textarea
               class={{
                 'mg-c-input__box': true,

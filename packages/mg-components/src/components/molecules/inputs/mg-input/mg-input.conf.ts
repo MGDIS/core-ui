@@ -55,3 +55,4 @@ export const classFieldset = 'mg-c-input--fieldset';
 export const classDisabled = 'mg-c-input--disabled';
 export const classReadonly = 'mg-c-input--readonly';
 export const classVerticalList = 'mg-c-input--vertical-list';
+export const classDisplayCharacterLeft = 'mg-c-input--display-character-left';
