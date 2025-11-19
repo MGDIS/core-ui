@@ -1,3 +1,0 @@
-import{e as o,I as r,k as c,j as t,M as a}from"./blocks-BbPAhQiK.js";import{useMDXComponents as m}from"./index-V8cvKqPj.js";import{i}from"./index-15CAg8Br.js";import"./preload-helper-PPVm8Dsz.js";import"./_commonjsHelpers-CqkleIqs.js";import"./iframe-6DGX90e-.js";const l=()=>o.createElement(r,null,i.map(e=>o.createElement(c,{name:e,key:e},o.createElement("mg-icon",{icon:e}))));function s(e){const n={h1:"h1",...m(),...e.components};return t.jsxs(t.Fragment,{children:[t.jsx(a,{title:"Style/Icons"}),`
-`,t.jsx(n.h1,{id:"icons",children:"Icons"}),`
-`,t.jsx(l,{})]})}function h(e={}){const{wrapper:n}={...m(),...e.components};return n?t.jsx(n,{...e,children:t.jsx(s,{...e})}):s(e)}export{h as default};
