@@ -1,5 +1,14 @@
 # @mgdis/stencil-helpers
 
+## 3.2.8
+
+### Patch Changes
+
+- 004124f: Updated dependency `@types/node` to `v22.18.13`
+- Updated dependencies [1dbcf59]
+- Updated dependencies [004124f]
+  - @mgdis/core-ui-helpers@1.0.6
+
 ## 3.2.7
 
 ### Patch Changes

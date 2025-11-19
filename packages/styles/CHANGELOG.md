@@ -1,5 +1,20 @@
 # @mgdis/styles
 
+## 2.14.0
+
+### Minor Changes
+
+- db3b0bb: [**`<mg-illustrated-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-illustrated-message--docs) Update spacings, horizontal text-alignement and responsive behavior
+- badceb3: [**`<mg-modal>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-modal--docs) update `--mg-c-modal-border-radius` default value
+  [**`<mg-panel>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-panel--docs) update `--mg-c-panel-border-radius` default value
+  [**`<mg-popover>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-popover--docs) [**`<mg-action-more>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-action-more--docs) update `--mg-c-popover-border-radius` default value
+- 83540f3: [**`<mg-input-textarea>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-textarea--docs) update characterleft position
+
+### Patch Changes
+
+- 1dbcf59: Update dependencies
+- 004124f: Updated dependency `@types/node` to `v22.18.13`
+
 ## 2.13.0
 
 ### Minor Changes

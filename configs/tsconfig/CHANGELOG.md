@@ -1,5 +1,12 @@
 # tsconfig
 
+## 1.0.10
+
+### Patch Changes
+
+- 1dbcf59: Update dependencies
+- 004124f: Updated dependency `@types/node` to `v22.18.13`
+
 ## 1.0.9
 
 ### Patch Changes

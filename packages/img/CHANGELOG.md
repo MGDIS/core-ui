@@ -1,5 +1,12 @@
 # @mgdis/img
 
+## 2.5.3
+
+### Patch Changes
+
+- 004124f: Updated dependency `@types/node` to `v22.18.13`
+- fb56dea: [#583](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/583) update all-done illustration to avoid the use of masked part and update mg-icon with new and updated icons
+
 ## 2.5.2
 
 ### Patch Changes

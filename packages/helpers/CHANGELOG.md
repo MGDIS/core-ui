@@ -1,5 +1,12 @@
 # @mgdis/core-ui-helpers
 
+## 1.0.6
+
+### Patch Changes
+
+- 1dbcf59: Update dependencies
+- 004124f: Updated dependency `@types/node` to `v22.18.13`
+
 ## 1.0.5
 
 ### Patch Changes

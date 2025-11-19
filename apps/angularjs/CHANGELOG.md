@@ -1,5 +1,24 @@
 # angularjs
 
+## 0.2.20
+
+### Patch Changes
+
+- 1dbcf59: Update dependencies
+- Updated dependencies [db3b0bb]
+- Updated dependencies [ee17ca3]
+- Updated dependencies [1dbcf59]
+- Updated dependencies [badceb3]
+- Updated dependencies [2559d40]
+- Updated dependencies [004124f]
+- Updated dependencies [fb56dea]
+- Updated dependencies [83540f3]
+- Updated dependencies [214ddac]
+  - @mgdis/mg-components@6.19.0
+  - @mgdis/styles@2.14.0
+  - @mgdis/core-ui-helpers@1.0.6
+  - @mgdis/notification-center@1.2.17
+
 ## 0.2.19
 
 ### Patch Changes

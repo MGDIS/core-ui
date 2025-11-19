@@ -1,5 +1,33 @@
 # @mgdis/mg-components
 
+## 6.19.0
+
+### Minor Changes
+
+- db3b0bb: [**`<mg-illustrated-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-illustrated-message--docs) Update spacings, horizontal text-alignement and responsive behavior
+- badceb3: [**`<mg-modal>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-modal--docs) update `--mg-c-modal-border-radius` default value
+  [**`<mg-panel>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-panel--docs) update `--mg-c-panel-border-radius` default value
+  [**`<mg-popover>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-popover--docs) [**`<mg-action-more>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-action-more--docs) update `--mg-c-popover-border-radius` default value
+- 83540f3: [**`<mg-input-textarea>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-textarea--docs) update characterleft position
+
+### Patch Changes
+
+- ee17ca3: [#587](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/587) mg-input-combobox: In API mode, the request fails when filter requires a specific parser.
+- 1dbcf59: Update dependencies
+- 2559d40: [#584](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/584) mg-input-combobox: select option is case insensitive
+- 004124f: Updated dependency `@types/node` to `v22.18.13`
+- fb56dea: [#583](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/583) update all-done illustration to avoid the use of masked part and update mg-icon with new and updated icons
+- 214ddac: [#586](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/586) mg-input-\*\*: link into help text doesn't work when input has focus
+- Updated dependencies [db3b0bb]
+- Updated dependencies [1dbcf59]
+- Updated dependencies [badceb3]
+- Updated dependencies [004124f]
+- Updated dependencies [fb56dea]
+- Updated dependencies [83540f3]
+  - @mgdis/styles@2.14.0
+  - @mgdis/core-ui-helpers@1.0.6
+  - @mgdis/img@2.5.3
+
 ## 6.18.0
 
 ### Minor Changes

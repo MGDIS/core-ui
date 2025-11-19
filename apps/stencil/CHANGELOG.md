@@ -1,5 +1,22 @@
 # stencil
 
+## 0.1.22
+
+### Patch Changes
+
+- 1dbcf59: Update dependencies
+- 004124f: Updated dependency `@types/node` to `v22.18.13`
+- Updated dependencies [db3b0bb]
+- Updated dependencies [ee17ca3]
+- Updated dependencies [1dbcf59]
+- Updated dependencies [badceb3]
+- Updated dependencies [2559d40]
+- Updated dependencies [004124f]
+- Updated dependencies [fb56dea]
+- Updated dependencies [83540f3]
+- Updated dependencies [214ddac]
+  - @mgdis/mg-components@6.19.0
+
 ## 0.1.21
 
 ### Patch Changes

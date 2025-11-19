@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.12
+
+### Patch Changes
+
+- d5ebce7: [#585](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/585) Linting vue2 - IDs with underscore variables are flagged as Invalid
+
 ## 4.1.11
 
 ### Patch Changes
