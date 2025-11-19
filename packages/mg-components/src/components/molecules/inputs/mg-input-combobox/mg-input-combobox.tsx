@@ -43,7 +43,7 @@ const isFetchmappings = (value: unknown): value is MgInputCombobox['fetchmapping
   if (isValidRoot) {
     const { request, response } = value as MgInputCombobox['fetchmappings'];
     if ([request, response].some(property => !isObject(property))) return false;
-    const isValidRequest = typeof request.filter === 'string';
+    const isValidRequest = typeof request.filter === 'string' && (request.filterTransform === undefined || typeof request.filterTransform === 'function');
     const isValidResponse =
       typeof response === 'object' &&
       typeof response.total === 'string' &&
@@ -904,8 +904,9 @@ export class MgInputCombobox {
    * @returns new page from url
    */
   private getOptions = async (url = this.fetchurl): Promise<Pick<Page<Option>, 'items' | 'top'> & Partial<Page<Option>>> => {
-    // add text filter
-    const updateUrl = (typeof url === 'string' ? url : url.toString()).replaceAll(this.fetchmappings.request.filter, encodeURIComponent(this.filter));
+    // add text filter to url
+    const filter = typeof this.fetchmappings.request.filterTransform === 'function' ? this.fetchmappings.request.filterTransform(this.filter) : this.filter;
+    const updateUrl = (typeof url === 'string' ? url : url.toString()).replaceAll(this.fetchmappings.request.filter, encodeURIComponent(filter));
 
     try {
       const response = await fetch(updateUrl, this.fetchoptions);

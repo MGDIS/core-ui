@@ -2,6 +2,7 @@ import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/core-ui-helpers/dist/storybook';
 import type { MgInputCombobox as MgInputComboboxType } from '../mg-input-combobox';
 import { type Option } from '../../../../../types';
+import { RequestMappingType, ResponseMappingType } from '../mg-input-combobox.conf';
 
 export default {
   component: 'mg-input-combobox',
@@ -52,11 +53,12 @@ export const MgInputComboboxOptionsItems = {
   },
 };
 
-const RequestMapping = {
+const RequestMapping: RequestMappingType = {
   filter: '{q}',
+  filterTransform: (filter: string) => filter.replace(/'/g, "''"),
 };
 
-const ResponseMapping = {
+const ResponseMapping: ResponseMappingType = {
   items: 'd.results',
   total: 'd.__count',
   next: 'd.__next',
