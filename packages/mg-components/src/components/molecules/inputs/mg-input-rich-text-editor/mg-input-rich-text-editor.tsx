@@ -197,7 +197,7 @@ export class MgInputRichTextEditor {
    * @returns HTML content of the editor
    */
   @Method()
-  async getHTML(): Promise<string> {
+  getHTML(): Promise<string> {
     return new Promise(resolve => {
       requestAnimationFrame(() => {
         resolve(this.editor.getSemanticHTML());
