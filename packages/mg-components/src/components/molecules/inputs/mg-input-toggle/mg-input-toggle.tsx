@@ -1,6 +1,6 @@
 import { Component, Event, h, Prop, EventEmitter, State, Watch, Element, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
-import { ToggleValue } from './mg-input-toggle.conf';
+import { Option as ToggleOption } from '../../../../types';
 import { classDisabled, classReadonly, type TooltipPosition } from '../mg-input/mg-input.conf';
 
 /**
@@ -8,8 +8,8 @@ import { classDisabled, classReadonly, type TooltipPosition } from '../mg-input/
  * @param option - radio option
  * @returns toggle option type is valid
  */
-const isOption = (option: unknown): option is ToggleValue =>
-  typeof option === 'object' && typeof (option as ToggleValue).title === 'string' && (option as ToggleValue).value !== undefined;
+const isOption = (option: unknown): option is ToggleOption =>
+  typeof option === 'object' && typeof (option as ToggleOption).title === 'string' && (option as ToggleOption).value !== undefined;
 
 /**
  * @slot item-1 - Left option toggle content
@@ -43,22 +43,46 @@ export class MgInputToggle {
   /**
    * Component value
    */
-  @Prop({ mutable: true }) value: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  @Prop({ mutable: true }) value: ToggleOption['value'];
   @Watch('value')
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  handleValue(newValue: any): void {
-    // Swich to the right option
-    this.setChecked();
-    // Emit value-change event
-    this.valueChange.emit(newValue);
+  watchValue(newValue: MgInputToggle['value'], oldValue?: MgInputToggle['value']): void {
+    // A "true" attribute can be represented by an empty string
+    // We need to convert it to a boolean true value
+    if (newValue === '') {
+      this.value = true;
+      // Return early to prevent infinite loop
+      return;
+    }
+    // As the "value" prop type is "unknown",
+    // it is bound as an attribute/string by Stencil: https://stenciljs.com/docs/properties.
+    // To fix Stencil's interpretation of boolean as string value, we convert it to a boolean property before internal use.
+    else if (['true', 'false'].includes(newValue as string) && this.options.every(option => typeof option.value === 'boolean')) {
+      this.value = newValue === 'true';
+      // Return early to prevent infinite loop
+      return;
+    }
+
+    if (this.isChecked(newValue)) {
+      this.classCollection.add(this.classIsActive);
+    } else {
+      this.classCollection.delete(this.classIsActive);
+    }
+
+    // when value is reassigned programmatically from previous `watchValue` call
+    // `oldValue` can be a string while `newValue` is boolean or vice versa
+    // so we need to compare them as strings to prevent infinite loop and unnecessary event emission
+    if (toString(newValue) !== toString(oldValue)) {
+      // Emit value-change event
+      this.valueChange.emit(newValue);
+    }
   }
 
   /**
    * Items are the possible options to select
    */
-  @Prop() items!: string[] | ToggleValue[];
+  @Prop() items!: string[] | ToggleOption[];
   @Watch('items')
-  validateItems(newValue: MgInputToggle['items']): void {
+  watchItems(newValue: MgInputToggle['items']): void {
     if (typeof newValue === 'object' && this.items.length !== 2) {
       throw new Error(`<mg-input-toggle> prop "items" require 2 items. Passed value: ${toString(newValue)}.`);
     }
@@ -70,7 +94,7 @@ export class MgInputToggle {
     else if (Array.isArray(newValue) && newValue.every(isOption)) {
       this.options = newValue;
     } else {
-      throw new Error(`<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue. Passed value: ${toString(newValue)}.`);
+      throw new Error(`<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleOption. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -172,7 +196,7 @@ export class MgInputToggle {
   /**
    * Formated items for display
    */
-  @State() options: ToggleValue[];
+  @State() options: ToggleOption[];
 
   /**
    * Error message to display
@@ -183,20 +207,6 @@ export class MgInputToggle {
    * Define input valid state
    */
   @State() valid: boolean;
-
-  /**
-   * Checked internal value
-   */
-  @State() checked = false;
-  @Watch('checked')
-  handleChecked(newValue: MgInputToggle['checked']): void {
-    // style
-    if (newValue) this.classCollection.add(this.classIsActive);
-    else this.classCollection.delete(this.classIsActive);
-
-    // update value
-    this.value = this.getCheckedItem(newValue).value;
-  }
 
   /**
    * Emited event when value change
@@ -244,7 +254,6 @@ export class MgInputToggle {
   async reset(): Promise<void> {
     if (!this.readonly) {
       this.value = this.options[0].value;
-      this.setChecked();
       // Use `Promise` as requested for stencil method
       // Use `requestAnimationFrame` to ensure:
       // - DOM is fully updated before validation
@@ -274,10 +283,11 @@ export class MgInputToggle {
   };
 
   /**
-   * Change checked value
+   * Handle switch button to update value
    */
-  private toggleChecked = (): void => {
-    this.checked = !this.checked;
+  private handleSwitchButton = (): void => {
+    const currentOptionIndex = this.getCurrentOptionIndex(this.value);
+    this.value = this.options[currentOptionIndex === 0 ? 1 : 0].value;
   };
 
   /**
@@ -316,36 +326,18 @@ export class MgInputToggle {
    * @param checked - checked item
    * @returns toggle value
    */
-  private getCheckedItem = (checked: MgInputToggle['checked']): ToggleValue => {
-    if (this.options?.length === 2) {
-      return this.options[checked ? 1 : 0];
-    } else {
-      return null;
-    }
+  private getCurrentOptionIndex = (value: MgInputToggle['value']): number => {
+    return this.options.findIndex(option => toString(option.value) === toString(value)) === 1 ? 1 : 0;
   };
+
   /**
-   * set checked state
+   * Check if value is checked
+   * @param value - toggle value
+   * @returns truthy if value is checked
    */
-  private setChecked(): void {
-    const optionTrueValueIndex = this.options.map(option => option.value).findIndex(value => value === true);
-
-    if ([0, 1].includes(optionTrueValueIndex)) {
-      // has "value" props type is not a boolean, it is bind/render as an attributes/props
-      // true props will be represent by "true" string so we convert it has boolean
-      // true attribute will be represent by "" string so we convert it has boolean
-      // https://stenciljs.com/docs/properties
-      if (['', 'true'].includes(this.value as string) && this.options.find(option => option.value) !== undefined) {
-        this.value = true;
-      }
-
-      // when options are boolean values and ordered as [true,false] instead [false,true]
-      // we need to reversed the checked value logic
-      const selectedValue = this.value === this.options[optionTrueValueIndex].value;
-      this.checked = optionTrueValueIndex === 0 ? !selectedValue : selectedValue;
-    } else {
-      this.checked = this.value === this.options[1].value;
-    }
-  }
+  private isChecked = (value: MgInputToggle['value']): boolean => {
+    return this.getCurrentOptionIndex(value) === 1;
+  };
 
   /*************
    * Lifecycle *
@@ -355,13 +347,9 @@ export class MgInputToggle {
    * Check if component props are well configured on init
    */
   componentWillLoad(): void {
-    // Check items format
-    this.validateItems(this.items);
-    // Check slots
+    this.watchItems(this.items);
     this.validateSlots();
-    // init checked value
-    this.setChecked();
-    // apply handler
+    this.watchValue(this.value);
     this.watchIsIcon(this.isIcon);
     this.watchIsOnOff(this.isOnOff);
     this.watchReadonly(this.readonly);
@@ -373,7 +361,7 @@ export class MgInputToggle {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    const checkedItem = this.getCheckedItem(this.checked);
+    const currentOption = this.options[this.getCurrentOptionIndex(this.value)];
     return (
       <mg-input
         label={this.label}
@@ -388,17 +376,17 @@ export class MgInputToggle {
         errorMessage={this.errorMessage}
       >
         {this.readonly ? (
-          checkedItem && <b class="mg-c-input__readonly-value">{checkedItem.title}</b>
+          currentOption && <b class="mg-c-input__readonly-value">{currentOption.title}</b>
         ) : (
           <button
             type="button"
             role="switch"
-            aria-checked={this.checked.toString()}
+            aria-checked={this.isChecked(this.value).toString()}
             aria-readonly={this.disabled || this.readonly}
             id={this.identifier}
             class="mg-c-input__button-toggle"
             disabled={this.disabled || this.readonly}
-            onClick={this.toggleChecked}
+            onClick={this.handleSwitchButton}
             ref={el => {
               if (el !== null) this.button = el;
             }}
