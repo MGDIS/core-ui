@@ -4,4 +4,4 @@
 '@mgdis/core-ui-helpers': patch
 ---
 
-helpers: `renderAttributes` sould render "false" attributes to prevent unassigned values
+`renderAttributes` helper should render "false" attributes to avoid unassigned values.
