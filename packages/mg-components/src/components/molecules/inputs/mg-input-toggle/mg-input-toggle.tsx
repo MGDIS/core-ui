@@ -53,9 +53,11 @@ export class MgInputToggle {
       // Return early to prevent infinite loop
       return;
     }
-    // As the "value" prop type is "unknown",
-    // it is bound as an attribute/string by Stencil: https://stenciljs.com/docs/properties.
-    // To fix Stencil's interpretation of boolean as string value, we convert it to a boolean property before internal use.
+    // https://stenciljs.com/docs/properties
+    // According to the Stencil documentation, when a prop is declared as `any`, boolean values can be bound as boolean attributes.
+    // However, depending on the integration context (e.g., Vue.js), they may also be interpreted as string attributes.
+    // To avoid incorrect type interpretation when a boolean is received as a string,
+    // we normalize the value and convert it to a proper boolean before internal use.
     else if (['true', 'false'].includes(newValue as string) && this.options.every(option => typeof option.value === 'boolean')) {
       this.value = newValue === 'true';
       // Return early to prevent infinite loop
