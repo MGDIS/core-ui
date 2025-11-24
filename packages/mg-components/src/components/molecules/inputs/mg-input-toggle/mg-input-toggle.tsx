@@ -8,8 +8,7 @@ import { classDisabled, classReadonly, type TooltipPosition } from '../mg-input/
  * @param option - radio option
  * @returns toggle option type is valid
  */
-const isOption = (option: unknown): option is ToggleOption =>
-  typeof option === 'object' && typeof (option as ToggleOption).title === 'string' && (option as ToggleOption).value !== undefined;
+const isOption = (option: unknown): option is ToggleOption => typeof option === 'object' && typeof (option as ToggleOption).title === 'string';
 
 /**
  * @slot item-1 - Left option toggle content
