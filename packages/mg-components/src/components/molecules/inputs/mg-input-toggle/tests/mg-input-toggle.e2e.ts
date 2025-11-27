@@ -2,10 +2,10 @@ import { expect } from '@playwright/test';
 import { renderProperties, renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { test } from '../../../../../utils/playwright.fixture';
 import { MgInputToggle } from '../mg-input-toggle';
-import { ToggleValue } from '../mg-input-toggle.conf';
 import { icons } from '../../../../../assets/icons';
+import { Option as ToggleOption } from '../../../../../types';
 
-const createItems = (items: string[]): ToggleValue[] => items.map((item, index) => ({ title: item, value: index === 1 }));
+const createItems = (items: string[]): ToggleOption[] => items.map((item, index) => ({ title: item, value: index === 1 }));
 
 const defaultItems = createItems(['Choix A', 'Choix B']);
 

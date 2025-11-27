@@ -229,7 +229,7 @@ describe('mg-input-toggle', () => {
       [[{ title: 'Batman', value: 'Batman' }, { Batman: 'Batman' }]],
       [
         [
-          { title: 'Batman', value: undefined },
+          { title: undefined, value: undefined },
           { title: 'Batman', value: 'test' },
         ],
       ],
@@ -238,7 +238,7 @@ describe('mg-input-toggle', () => {
       try {
         await getPage({ label: 'Label', items });
       } catch (err) {
-        expect(err.message).toEqual(`<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue. Passed value: ${toString(items)}.`);
+        expect(err.message).toEqual(`<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleOption. Passed value: ${toString(items)}.`);
       }
     });
   });
@@ -262,11 +262,51 @@ describe('mg-input-toggle', () => {
     },
     {
       items: [
+        { title: 'Batman', value: false },
+        { title: 'Joker', value: true },
+      ],
+      expected: false,
+      value: 'true',
+    },
+    {
+      items: [
         { title: 'Batman', value: 1 },
         { title: 'Joker', value: 2 },
       ],
       expected: 2,
       value: 1,
+    },
+    {
+      items: [
+        { title: 'Batman', value: false },
+        { title: 'Joker', value: true },
+      ],
+      expected: true,
+      value: undefined,
+    },
+    {
+      items: [
+        { title: 'Batman', value: true },
+        { title: 'Joker', value: false },
+      ],
+      expected: false,
+      value: undefined,
+    },
+    {
+      items: [
+        { title: 'Batman', value: true },
+        { title: 'Joker', value: undefined },
+      ],
+      expected: true,
+      value: undefined,
+    },
+    {
+      items: [
+        { title: 'Batman', value: undefined },
+        { title: 'Joker', value: undefined },
+      ],
+      expected: undefined,
+      value: undefined,
     },
     {
       items: [
@@ -301,8 +341,23 @@ describe('mg-input-toggle', () => {
     button.dispatchEvent(new CustomEvent('click', { bubbles: true }));
     await page.waitForChanges();
 
-    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(expected);
-    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledTimes(1);
+    if (expected !== value) {
+      expect(page.rootInstance.valueChange.emit).toHaveBeenCalledTimes(1);
+      expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(expected);
+    } else {
+      expect(page.rootInstance.valueChange.emit).not.toHaveBeenCalled();
+    }
+
+    // test external update as attribute/string
+    mgInputToggle.value = String(expected);
+    await page.waitForChanges();
+
+    // check no extra event is emitted when value is set programmatically
+    if (expected !== value) {
+      expect(page.rootInstance.valueChange.emit).toHaveBeenCalledTimes(1);
+    } else {
+      expect(page.rootInstance.valueChange.emit).not.toHaveBeenCalled();
+    }
   });
 
   describe('setError', () => {

@@ -15,7 +15,7 @@ import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-import { Direction, Option } from "./types";
+import { Direction, Option, Option as ToggleOption } from "./types";
 import { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
@@ -23,7 +23,6 @@ import { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-t
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
-import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 import { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
 import { ItemMoreType, MenuSizeType } from "./components/molecules/menus/mg-menu/mg-menu.conf";
 import { MgMenuStatusType, TargetType } from "./components/molecules/menus/mg-menu-item/mg-menu-item.conf";
@@ -47,7 +46,7 @@ export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageDirectionType, IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-export { Direction, Option } from "./types";
+export { Direction, Option, Option as ToggleOption } from "./types";
 export { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
@@ -55,7 +54,6 @@ export { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-t
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
-export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 export { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
 export { ItemMoreType, MenuSizeType } from "./components/molecules/menus/mg-menu/mg-menu.conf";
 export { MgMenuStatusType, TargetType } from "./components/molecules/menus/mg-menu-item/mg-menu-item.conf";
@@ -1615,7 +1613,7 @@ export namespace Components {
         /**
           * Items are the possible options to select
          */
-        "items": string[] | ToggleValue[];
+        "items": string[] | ToggleOption[];
         /**
           * Input label
          */
@@ -1666,7 +1664,7 @@ export namespace Components {
         /**
           * Component value
          */
-        "value": any;
+        "value": ToggleOption['value'];
     }
     interface MgItemMore {
         /**
@@ -4153,7 +4151,7 @@ declare namespace LocalJSX {
         /**
           * Items are the possible options to select
          */
-        "items": string[] | ToggleValue[];
+        "items": string[] | ToggleOption[];
         /**
           * Input label
          */
@@ -4198,7 +4196,7 @@ declare namespace LocalJSX {
         /**
           * Component value
          */
-        "value"?: any;
+        "value"?: ToggleOption['value'];
     }
     interface MgItemMore {
         /**
