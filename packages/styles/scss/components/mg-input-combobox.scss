@@ -20,11 +20,9 @@
 
 .mg-c-input.mg-c-input--combobox {
   mg-popover {
-    --mg-c-popover-overflow: auto;
+    --mg-c-card-overflow: hidden;
     --mg-c-popover-padding-vertical: 0;
     --mg-c-popover-padding-horizontal: 0;
-    --mg-c-popover-min-width: var(--mg-c-input-list-width);
-    --mg-c-popover-max-height: calc(50 * var(--mg-b-size-8) - var(--mg-b-size-32));
   }
 
   .mg-c-input {
@@ -38,8 +36,11 @@
 
     &__popover-container {
       display: flex;
+      min-width: var(--mg-c-input-list-width);
+      max-height: calc(50 * var(--mg-b-size-8) - var(--mg-b-size-32));
       flex-direction: column;
       gap: var(--mg-b-size-4);
+      overflow-y: scroll;
     }
 
     &__load-more {

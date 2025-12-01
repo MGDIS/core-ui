@@ -30,7 +30,6 @@
 | `--mg-c-card-box-shadow-default`       | Defines the default box shadow property for the card. Default value: `--mg-b-box-shadow`.                                      |
 | `--mg-c-card-color-background`         | Defines the background property for the card. Unset by default, fallback on `--mg-c-card-color-background-default`.            |
 | `--mg-c-card-color-background-default` | Defines the default background property for the card. Default value: `--mg-b-color-light`.                                     |
-| `--mg-c-card-max-height`               | Defines the max-height property for the card. Unset by default.                                                                |
 | `--mg-c-card-max-width`                | Defines the max-width property for the card. Unset by default.                                                                 |
 | `--mg-c-card-min-width`                | Defines the min-width property for the card. Unset by default.                                                                 |
 | `--mg-c-card-overflow`                 | Defines the overflow property for the card. Unset by default, fallback on `--mg-c-card-overflow-default`.                      |

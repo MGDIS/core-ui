@@ -26,12 +26,6 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
 .mg-c-popover-content {
   --mg-c-card-max-width: var(--mg-c-popover-max-width);
   --mg-c-card-min-width: var(--mg-c-popover-min-width);
-  --mg-c-card-max-height: min(
-    var(--mg-c-popover-max-height),
-    100vh - calc(var(--mg-b-size-min-height) + var(--mg-b-size-32))
-  ); // Ensure it doesn't exceed viewport height when displayed on bottom if interactive elements
-
-  --mg-c-card-overflow: var(--mg-c-popover-overflow);
 
   mg-button {
     margin-top: calc(-1 * ((var(--mg-b-size-min-height) - var(--mg-c-popover-title-font-size) * var(--mg-b-line-height)) / 2));

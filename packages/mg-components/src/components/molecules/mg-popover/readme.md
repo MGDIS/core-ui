@@ -53,10 +53,8 @@ The click on button with ’popovertargetaction="hide"’ will hide a shown popo
 | `--mg-c-popover-border-radius`      | Defines the border-radius of the popover. Default value: `--mg-c-card-border-radius-default`.        |
 | `--mg-c-popover-color-background`   | Defines the background color of the popover. Default value: `--mg-b-color-light`.                    |
 | `--mg-c-popover-color-text`         | Defines the font color of the popover. Default value: `--mg-b-color-font-dark`.                      |
-| `--mg-c-popover-max-height`         | Defines the max-height of the popover. Default value: `unset`.                                       |
 | `--mg-c-popover-max-width`          | Defines the max-width of the popover. Default value: `--mg-b-size-floating-element-max-width`.       |
 | `--mg-c-popover-min-width`          | Defines the min-width of the popover. Default value: `unset`.                                        |
-| `--mg-c-popover-overflow`           | Defines the overflow property for the popover. Unset by default, fallback on `--mg-c-card-overflow`. |
 | `--mg-c-popover-padding-horizontal` | Defines the horizontal padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`. |
 | `--mg-c-popover-padding-vertical`   | Defines the vertical padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`.   |
 | `--mg-c-popover-title-font-size`    | Defines the font size of the popover title. Default value: `--mg-b-font-size-h5`.                    |
