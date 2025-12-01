@@ -219,7 +219,7 @@ test.describe('mg-input-combobox', () => {
       await page.locator('input').click();
 
       // Scroll to bottom to show "load-more"
-      const section = page.locator('.mg-c-input__popover-container');
+      const section = page.locator('.mg-c-card');
       await section.evaluate(element => {
         element.scrollTo({
           top: element.scrollHeight,
@@ -231,24 +231,40 @@ test.describe('mg-input-combobox', () => {
     });
   });
 
-  test.describe('Responsive', () => {
-    [{}, { tooltip: 'joker' }, { tooltip: 'joker', tooltipPosition: 'label' }].forEach(args => {
-      test(`Should display label on top on responsive breakpoint with tooltip: ${renderAttributes(args)}`, async ({ page }) => {
-        const componentsProps = {
-          ...baseArgs,
-          ...args,
-        };
-        const html = createHTML(componentsProps);
-        await page.setContent(html);
-        await page.addScriptTag({ content: renderProperties(componentsProps, `[identifier="${componentsProps.identifier}"]`) });
+  [
+    { width: 450, height: 500 },
+    { width: 450, height: 250 },
+  ].forEach(viewport => {
+    test.describe('Responsive', () => {
+      [{}, { tooltip: 'joker' }, { tooltip: 'joker', tooltipPosition: 'label' }].forEach(args => {
+        test(`Should display label on top on responsive breakpoint with tooltip: ${renderAttributes(args)}, viewport: ${JSON.stringify(viewport)}`, async ({ page }) => {
+          const componentsProps = {
+            ...baseArgs,
+            ...args,
+            items: initArray(25),
+          };
+          const html = createHTML(componentsProps);
+          await page.setContent(html);
+          await page.addStyleTag({ content: '.e2e-screenshot{display: block;}' });
+          await page.addScriptTag({ content: renderProperties(componentsProps, `[identifier="${componentsProps.identifier}"]`) });
 
-        // Initial state
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          // Initial state
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-        await page.setViewportSize({ width: 767, height: 800 });
+          // Responsive state
+          await page.setViewportSize(viewport);
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-        // Responsive state
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          // Open popover on focus
+          await page.keyboard.down('Tab');
+          if (args.tooltipPosition === 'label') {
+            await page.keyboard.down('Tab');
+          }
+          await page.keyboard.down(Keys.ARROWDOWN);
+          await page.locator('mg-popover-content').waitFor();
+
+          await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, ...viewport } });
+        });
       });
     });
   });
@@ -358,7 +374,7 @@ test.describe('mg-input-combobox', () => {
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 420 } });
 
         // Scroll to bottom
-        const section = page.locator('.mg-c-input__popover-container');
+        const section = page.locator('.mg-c-card');
         await section.evaluate(element => {
           element.scrollTo({
             top: element.scrollHeight,
