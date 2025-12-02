@@ -1,6 +1,7 @@
 @use 'mg-input-readonly';
 @use '../utils/a11y';
 @use '../base/anchor';
+@use '../variables' as variables;
 
 /**
 * Toggle
@@ -12,11 +13,12 @@
 
     overflow: hidden;
     box-sizing: border-box;
-    padding: var(--mg-b-size-4) var(--mg-b-size-8);
+    padding: 0.1rem var(--mg-b-size-8);
     border-width: var(--mg-b-size-border);
     border-radius: $border-radius-value;
     color: var(--mg-b-color-neutral-110);
     font-weight: unset;
+    line-height: var(--mg-b-size-16);
     text-overflow: ellipsis;
     white-space: nowrap;
 
@@ -60,8 +62,21 @@
     }
   }
 
-  &.mg-c-input--toggle:not(.mg-c-input--readonly) .mg-c-input__button-toggle {
-    margin-top: var(--mg-b-size-4);
+  &.mg-c-input--toggle:not(.mg-c-input--readonly) {
+    .mg-c-input__button-toggle {
+      margin-top: var(--mg-b-size-4);
+    }
+
+    &,
+    &:not(.mg-c-input--label-on-top) {
+      @media screen and (min-width: variables.$mg-input-breakpoint) {
+        .mg-c-input__button-toggle {
+          margin-top: calc(
+            (var(--mg-b-size-min-height) - (var(--mg-b-size-20) + var(--mg-b-size-4)) + 0.1rem) / 2
+          ); // compare default input size with toggle button size, the additional 0.1rem is for preventing semi-pixel issues
+        }
+      }
+    }
   }
 
   // toggle default active variation
@@ -69,6 +84,7 @@
     .mg-c-input {
       /* stylelint-disable-next-line no-descending-specificity */
       &__button-toggle {
+        border-color: var(--mg-b-color-neutral-110);
         background-color: var(--mg-b-color-neutral-110);
       }
 
@@ -82,7 +98,8 @@
 
         &:last-of-type {
           border-style: solid;
-          background-color: var(--mg-b-color-neutral-20);
+          border-color: var(--mg-b-color-light);
+          background-color: var(--mg-b-color-light);
           font-weight: 600;
         }
       }
