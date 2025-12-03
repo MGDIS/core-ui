@@ -298,7 +298,7 @@ chromatic:mr:
     - chromatic:publish
 
 .npmjs:
-  image: node:22 ## use official image to avoid the .npmrc present in our images
+  image: node:24 ## use official image to avoid the .npmrc present in our images
   stage: release
   extends:
     - .rules:tags
