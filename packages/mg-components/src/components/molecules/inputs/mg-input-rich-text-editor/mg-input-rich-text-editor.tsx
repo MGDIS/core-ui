@@ -430,7 +430,6 @@ export class MgInputRichTextEditor {
   componentDidLoad(): void {
     if (!this.readonly) {
       this.editor = defineEditor(this.wrapperElement, {
-        theme: 'snow',
         modules: this.modules,
         readOnly: this.readonly || this.disabled,
         placeholder: this.placeholder,
@@ -469,9 +468,7 @@ export class MgInputRichTextEditor {
             }}
             id={this.identifier}
             class="mg-c-input__wrapper"
-          >
-            <div></div>
-          </div>
+          ></div>
         )}
       </mg-input>
     );

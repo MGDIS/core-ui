@@ -1,142 +1,227 @@
 import { isValidString } from '@mgdis/core-ui-helpers/dist/utils';
-import Quill, { type QuillOptions } from 'quill';
+import { Jodit } from 'jodit';
+// Import Jodit plugins
+import './jodit-plugins';
+// Import Jodit types
+import type { IJodit, ButtonsOption } from 'jodit/esm/types';
 
-export type EditorOptionsType = QuillOptions & {
+/**
+ * Editor options type extending Jodit configuration
+ */
+export type EditorOptionsType = {
   value: string;
   handleTextChange: () => void;
   handleFocus: () => void;
   handleBlur: () => void;
+  readOnly?: boolean;
+  placeholder?: string;
+  modules?: ButtonsOption;
 };
 
-export type EditorType = Quill;
+/**
+ * Editor interface matching the component's expectations
+ * This wrapper ensures compatibility with the component while using Jodit internally
+ */
+export interface EditorInterface {
+  /**
+   * Get editor content as semantic HTML
+   * @returns HTML content
+   */
+  getSemanticHTML(): string;
 
-type ExtendSelection = Selection & { getComposedRanges?: (root: Node) => Range[] };
+  /**
+   * Get editor content as plain text
+   * @returns Plain text content
+   */
+  getText(): string;
 
-type ExtendedShadowRoot = ShadowRoot & { getSelection(): ExtendSelection };
+  /**
+   * Set editor content as plain text
+   * @param text - Text content to set
+   */
+  setText(text: string): void;
 
+  /**
+   * Set focus on the editor
+   */
+  focus(): void;
+
+  /**
+   * Enable the editor
+   */
+  enable(): void;
+
+  /**
+   * Disable the editor
+   */
+  disable(): void;
+}
+
+/**
+ * Editor type - Jodit instance wrapped with EditorInterface
+ */
+export type EditorType = IJodit & EditorInterface;
+
+/**
+ * Interface for the defineEditor function
+ */
 interface IdefineEditor {
   (wrapperElement: HTMLElement, config: EditorOptionsType): EditorType;
 }
 
 /**
- * HTML element type guard
- * @param element - element to test
- * @returns truthy if element is an HTMLElement
+ * Creates a wrapper around Jodit instance to match the expected EditorInterface
+ * @param joditInstance - Jodit instance
+ * @returns Editor instance with all required methods
  */
-const isHtmlElement = (element: unknown): element is HTMLElement => Boolean((element as HTMLElement).tagName);
+const createEditorWrapper = (joditInstance: IJodit): EditorType => {
+  const editor = joditInstance as EditorType;
 
-/**
- * Implements the range API properly in Native Shadow
- * @param rootNode - root node
- * @returns selection
- */
-const getNativeRange = (rootNode: ExtendedShadowRoot | Document) => {
-  try {
-    if (typeof (document.createElement('div').attachShadow({ mode: 'open' }) as ExtendedShadowRoot).getSelection === 'function') {
-      // In Chromium, the shadow root has a getSelection function which returns the range
-      return rootNode.getSelection().getRangeAt(0);
-    }
-    const selection: ExtendSelection = window.getSelection();
-    // Webkit range retrieval is done with getComposedRanges (see: https://bugs.webkit.org/show_bug.cgi?id=163921)
-    if (typeof selection.getComposedRanges === 'function') {
-      return selection.getComposedRanges(rootNode)[0];
-    }
-    // Gecko implements the range API properly in Native Shadow: https://developer.mozilla.org/en-US/docs/Web/API/Selection/getRangeAt
-    return selection.getRangeAt(0);
-  } catch {
-    return null;
-  }
-};
-
-/**
- * Quill overrides to support shadow dom
- * https://github.com/slab/quill/issues/2961#issuecomment-1775999845
- * @param editor - Quill instance
- */
-const setQuillOverrides = (editor: EditorType): void => {
-  const getRootNode = () => editor.root.getRootNode() as ExtendedShadowRoot;
-
-  // Original implementation uses document.active element but with an imlplementation in web-component with shadow root we need compare with it.
-  editor.selection.hasFocus = () => getRootNode().activeElement === editor.root;
-
-  // Original implementation uses document.getSelection which does not work in Native Shadow.
-  // Replace document.getSelection with shadow dom equivalent (different for each browser)
-  editor.selection.getNativeRange = () => {
-    const nativeRange = getNativeRange(getRootNode());
-    return Boolean(nativeRange) ? editor.selection.normalizeNative(nativeRange) : null;
+  /**
+   * Get editor content as semantic HTML
+   * Jodit's value property returns the HTML content
+   * @returns HTML content
+   */
+  editor.getSemanticHTML = (): string => {
+    return editor.value;
   };
 
-  // Original implementation relies on Selection.addRange to programatically set the range, which does not work in Webkit with Native Shadow. Selection.addRange works fine in Chromium and Gecko.
-  editor.selection.setNativeRange = (startContainer, startOffset, endContainer = startContainer, endOffset = startOffset, force = false) => {
-    if ([startContainer?.parentNode, editor.root.parentNode, endContainer?.parentNode].some(node => node == null)) {
-      return;
-    }
-
-    const selection = window.getSelection();
-
-    if (!editor.selection.hasFocus()) editor.root.focus();
-
-    const native = (editor.selection.getNativeRange() || {}).native;
-    if (
-      !Boolean(native) ||
-      force ||
-      startContainer !== native.startContainer ||
-      startOffset !== native.startOffset ||
-      endContainer !== native.endContainer ||
-      endOffset !== native.endOffset
-    ) {
-      if (isHtmlElement(startContainer) && startContainer.tagName === 'BR') {
-        startOffset = [].indexOf.call(startContainer.parentNode.childNodes, startContainer);
-        startContainer = startContainer.parentNode;
-      }
-      if (isHtmlElement(endContainer) && endContainer.tagName === 'BR') {
-        endOffset = [].indexOf.call(endContainer.parentNode.childNodes, endContainer);
-        endContainer = endContainer.parentNode;
-      }
-
-      selection.setBaseAndExtent(startContainer, startOffset, endContainer, endOffset);
-    }
+  /**
+   * Get editor content as plain text
+   * Extracts text content from the HTML
+   * @returns Plain text content
+   */
+  editor.getText = (): string => {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = editor.value;
+    return tempDiv.textContent?.trim() || '';
   };
 
-  // Subscribe to selection change separately, because emitter in Quill doesn't catch this event in Shadow DOM
-  document.addEventListener('selectionchange', () => {
-    editor.selection.update();
-  });
-};
-
-/**
- * Fixes for handling text selection in Quill when used within the Shadow DOM.
- * - Fixes focus detection
- * - Adapts native range handling to work with the Shadow DOM
- * - Correctly manages text selection across Shadow DOM boundaries
- * - Sets up selection change events
- * @returns Quill instance
- */
-export const defineEditor: IdefineEditor = (wrapperElement, { value, modules, readOnly, placeholder, handleTextChange, handleFocus, handleBlur }) => {
-  const toolbarOptions = {
-    toolbar: [['bold', 'italic', 'underline'], [{ list: 'ordered' }, { list: 'bullet' }], ['link'], ['clean']],
+  /**
+   * Set editor content as plain text
+   * @param text - Text content to set
+   */
+  editor.setText = (text: string): void => {
+    editor.value = text;
   };
-  const editor = new Quill(wrapperElement.querySelector('div'), {
-    theme: 'snow',
-    modules: modules || toolbarOptions,
-    readOnly,
-    placeholder,
-  });
 
-  if (isValidString(value) && /<[a-z][\s\S]*>/i.test(value)) {
-    editor.clipboard.dangerouslyPasteHTML(value);
-  } else if (isValidString(value)) {
-    editor.setText(value);
-  }
+  /**
+   * Enable the editor
+   * Sets readonly to false
+   */
+  editor.enable = (): void => {
+    editor.setReadOnly(false);
+  };
 
-  const editorContent = wrapperElement.querySelector('.ql-editor');
-  editorContent.addEventListener('focus', handleFocus);
-  editorContent.addEventListener('blur', handleBlur);
-
-  // Add an event listener for the text-change event
-  editor.on('text-change', handleTextChange);
-
-  setQuillOverrides(editor);
+  /**
+   * Disable the editor
+   * Sets readonly to true
+   */
+  editor.disable = (): void => {
+    editor.setReadOnly(true);
+  };
 
   return editor;
+};
+
+/**
+ * Configures Jodit editor
+ * @param wrapperElement - Container element for the editor
+ * @param config - Editor configuration options
+ * @returns Configured Jodit editor instance
+ */
+export const defineEditor: IdefineEditor = (wrapperElement, { value, modules, readOnly, placeholder, handleTextChange, handleFocus, handleBlur }) => {
+  // Get the shadow root if the element is inside a Shadow DOM
+  const shadowRoot = wrapperElement.getRootNode() instanceof ShadowRoot ? (wrapperElement.getRootNode() as ShadowRoot) : null;
+
+  // Get the owner document from the shadow root or fallback to global
+  const ownerDocument = shadowRoot !== null ? shadowRoot.ownerDocument : document;
+  // Shadow DOM shares the same window as the main document
+  const ownerWindow = window;
+
+  // Create textarea element for Jodit editor using the correct document
+  const editorElement = ownerDocument.createElement('textarea');
+
+  // Append textarea to wrapper
+  wrapperElement.appendChild(editorElement);
+
+  // Configure Jodit
+  // Using default toolbar configuration or custom modules if provided
+  const joditConfig: Record<string, unknown> = {
+    readonly: readOnly || false,
+    placeholder: placeholder || '',
+    buttons: modules || [
+      'bold',
+      'italic',
+      'underline',
+      'strikethrough',
+      'eraser',
+      '|',
+      'ul',
+      'ol',
+      '|',
+      'superscript',
+      'subscript',
+      '|',
+      'brush',
+      '|',
+      'link',
+      'image',
+      'file',
+      '|',
+      'table',
+      '|',
+      'undo',
+      'redo',
+      '|',
+      'print',
+      '|',
+      'source',
+    ],
+    // Disable features we don't want
+    showXPathInStatusbar: false,
+    showCharsCounter: false,
+    showWordsCounter: false,
+    toolbarAdaptive: false,
+    // Configure source editor mode
+    sourceEditor: 'area',
+    // This ensures tooltips and popups are created inside the component's shadow root
+    shadowRoot: shadowRoot,
+    // Provide ownerDocument and ownerWindow to ensure Jodit uses the correct context
+    ownerDocument: ownerDocument,
+    ownerWindow: ownerWindow,
+    globalFullSize: false, // Prevent fullscreen from breaking component's shadow root isolation
+    // Resizer configuration
+    allowResizeTags: new Set(['img', 'table']),
+    resizer: {
+      showSize: true,
+      hideSizeTimeout: 1000,
+      useAspectRatio: new Set(['img']), // Preserve aspect ratio for images only
+      forImageChangeAttributes: true,
+      min_width: 10,
+      min_height: 10,
+    },
+    // Inline toolbar configuration
+    toolbarInline: true,
+    tableAllowCellSelection: true,
+    popup: {
+      a: Jodit.atom(['link', 'unlink', 'delete']),
+    },
+  };
+
+  // Initialize Jodit editor
+  const joditInstance = Jodit.make(editorElement, joditConfig as Parameters<typeof Jodit.make>[1]);
+
+  // Set initial value
+  if (isValidString(value)) {
+    joditInstance.value = value;
+  }
+
+  // Set up event listeners
+  joditInstance.events.on('change', handleTextChange);
+  joditInstance.events.on('focus', handleFocus);
+  joditInstance.events.on('blur', handleBlur);
+
+  // Create and return the wrapped editor instance
+  return createEditorWrapper(joditInstance);
 };

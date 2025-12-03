@@ -25,7 +25,7 @@ export const MgInputRichTextEditor = {
     label: 'Label',
     labelOnTop: false,
     labelHide: false,
-    placeholder: '',
+    placeholder: 'Saisissez votre texte ici...',
     rows: 5,
     required: false,
     readonly: false,
@@ -35,8 +35,5 @@ export const MgInputRichTextEditor = {
     tooltip: 'This is a tooltip',
     tooltipPosition: undefined,
     helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
-    modules: {
-      toolbar: [['bold', 'italic', 'underline'], [{ list: 'ordered' }, { list: 'bullet' }], ['link'], ['clean']],
-    },
   },
 };

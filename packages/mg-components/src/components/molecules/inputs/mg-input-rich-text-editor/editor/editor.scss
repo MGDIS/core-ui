@@ -1,0 +1,87 @@
+:host {
+  // Tooltip properties
+  --jd-tooltip-color: #fff;
+  --jd-tooltip-background-color: rgb(0 0 0 / 70%);
+  --jd-tooltip-sfx-shadow: rgb(0 0 0 / 15%);
+  --jd-tooltip-border-width: 0;
+  --jd-tooltip-border-color: #e5e5e5;
+
+  // Color properties
+  --jd-color-background-light-gray: #f5f5f5;
+  --jd-color-background-default: #fff;
+  --jd-color-background-active: #e6e6e6;
+  --jd-color-background-button-hover: rgb(0 0 0 / 5%);
+  --jd-color-background-button-hover-opacity30: rgb(0 0 0 / 3%);
+  --jd-color-background-button-hover-opacity40: rgb(0 0 0 / 4%);
+  --jd-color-background-button-hover-opacity60: rgb(0 0 0 / 6%);
+  --jd-color-background-filebrowser-folders: #f8f9fa;
+  --jd-color-background-gray: #e9ecef;
+  --jd-color-background-progress: #007bff;
+  --jd-color-background-selection: rgb(0 123 255 / 20%);
+  --jd-color-background-selection-opacity50: rgb(0 123 255 / 10%);
+  --jd-color-border: #dee2e6;
+  --jd-color-border-active: #007bff;
+  --jd-color-border-selected: #007bff;
+  --jd-color-button-background-hover: rgb(0 0 0 / 5%);
+  --jd-color-button-background-hover-opacity40: rgb(0 0 0 / 4%);
+  --jd-color-button-background-hover-opacity60: rgb(0 0 0 / 6%);
+  --jd-color-dark: #212529;
+  --jd-color-default: #495057;
+  --jd-color-error: #dc3545;
+  --jd-color-folder-title: #495057;
+  --jd-color-gray: #6c757d;
+  --jd-color-gray-dark: #495057;
+  --jd-color-icon: #495057;
+  --jd-color-label: #495057;
+  --jd-color-panel: #fff;
+  --jd-color-picker-cell-size: 20px;
+  --jd-color-placeholder: #6c757d;
+  --jd-color-red: #dc3545;
+  --jd-color-selection-area: rgb(0 123 255 / 10%);
+  --jd-color-source-area: #f8f9fa;
+  --jd-color-table-cell-background-hover: rgb(0 0 0 / 5%);
+  --jd-color-text: #212529;
+  --jd-color-text-icons: #495057;
+  --jd-color-text-selection: #212529;
+  --jd-color-white: #fff;
+
+  // Size properties
+  --jd-button-size: 32px;
+  --jd-button-icon-size: 14px;
+  --jd-button-trigger-size: 14px;
+  --jd-button-df-size: 32px;
+  --jd-col-size: 32px;
+  --jd-input-height: 32px;
+  --jd-height: 18px;
+  --jd-padding-default: 8px;
+  --jd-margin-v: 2px;
+
+  // Border and radius
+  --jd-border-radius-default: 4px;
+
+  // Font properties
+  --jd-font-default: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
+  --jd-font-size-default: 14px;
+  --jd-font-size-small: 12px;
+
+  // Shadow properties
+  --jd-box-shadow-1: 0 8px 16px rgb(0 0 0 / 19%);
+  --jd-box-shadow-blur: 16px;
+  --jd-box-shadow-tabs: 0 2px 4px rgb(0 0 0 / 10%);
+  --jd-popup-box-shadow: 0 4px 1px -2px rgb(76 76 76 / 20%), 0 3px 3px 0 rgb(76 76 76 / 15%), 0 1px 4px 0 rgb(76 76 76 / 13%);
+  --jd-popup-max-height: max(50vh, 350px);
+
+  // Z-index
+  --jd-z-index-dialog: 10000;
+
+  // Animation properties
+  --jd-anl-color-new-line: #007bff;
+  --jd-anl-handle-offset: 4px;
+  --jd-anl-handle-size: 8px;
+
+  // Additional properties
+  --jd-info-background: rgb(0 0 0 / 5%);
+}
+
+// Import Jodit CSS
+@import '../../../../../../node_modules/jodit/es2021/jodit.css';
