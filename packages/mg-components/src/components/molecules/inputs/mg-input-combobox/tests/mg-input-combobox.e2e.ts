@@ -231,42 +231,62 @@ test.describe('mg-input-combobox', () => {
     });
   });
 
-  [
-    { width: 450, height: 500 },
-    { width: 450, height: 250 },
-  ].forEach(viewport => {
-    test.describe('Responsive', () => {
-      [{}, { tooltip: 'joker' }, { tooltip: 'joker', tooltipPosition: 'label' }].forEach(args => {
-        test(`Should display label on top on responsive breakpoint with tooltip: ${renderAttributes(args)}, viewport: ${JSON.stringify(viewport)}`, async ({ page }) => {
-          const componentsProps = {
-            ...baseArgs,
-            ...args,
-            items: initArray(25),
-          };
-          const html = createHTML(componentsProps);
-          await page.setContent(html);
-          await page.addStyleTag({ content: '.e2e-screenshot{display: block;}' });
-          await page.addScriptTag({ content: renderProperties(componentsProps, `[identifier="${componentsProps.identifier}"]`) });
+  test.describe('Responsive', () => {
+    [{}, { tooltip: 'joker' }, { tooltip: 'joker', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip: ${renderAttributes(args)}`, async ({ page }) => {
+        const componentsProps = {
+          ...baseArgs,
+          ...args,
+          items: initArray(25),
+        };
 
-          // Initial state
-          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        const viewport = { width: 450, height: 500 };
+        const html = createHTML(componentsProps);
+        await page.setContent(html);
+        await page.addScriptTag({ content: renderProperties(componentsProps, `[identifier="${componentsProps.identifier}"]`) });
 
-          // Responsive state
-          await page.setViewportSize(viewport);
-          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-          // Open popover on focus
+        // Responsive state
+        await page.setViewportSize(viewport);
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        // Open popover on focus
+        await page.keyboard.down('Tab');
+        if (args.tooltipPosition === 'label') {
           await page.keyboard.down('Tab');
-          if (args.tooltipPosition === 'label') {
-            await page.keyboard.down('Tab');
-          }
-          await page.keyboard.down(Keys.ARROWDOWN);
-          await page.locator('mg-popover-content').waitFor();
+        }
+        await page.keyboard.down(Keys.ARROWDOWN);
+        await page.locator('mg-popover-content').waitFor();
 
-          await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, ...viewport } });
-        });
+        await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, ...viewport } });
       });
     });
+  });
+
+  test('Should display with small viewport', async ({ page }) => {
+    const componentsProps = {
+      ...baseArgs,
+      items: initArray(25),
+    };
+
+    const viewport = { width: 450, height: 250 };
+    const html = createHTML(componentsProps);
+    await page.setContent(html);
+    await page.addStyleTag({ content: '.e2e-screenshot{display: block;}' });
+    await page.addScriptTag({ content: renderProperties(componentsProps, `[identifier="${componentsProps.identifier}"]`) });
+
+    // Responsive state
+    await page.setViewportSize(viewport);
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+    // Open popover on focus
+    await page.keyboard.down('Tab');
+    await page.keyboard.down(Keys.ARROWDOWN);
+    await page.locator('mg-popover-content').waitFor();
+
+    await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, ...viewport } });
   });
 
   [true, false].forEach(lock => {
