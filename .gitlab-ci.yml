@@ -1,4 +1,4 @@
-image: $DOCKER_REGISTRE_URL/$DOCKER_REGISTRE_NAMESPACE_INT/node:22-build
+image: $DOCKER_REGISTRE_URL/$DOCKER_REGISTRE_NAMESPACE_INT/node:24-build
 
 default:
   interruptible: true # allows to cancel the job automatically
@@ -129,7 +129,7 @@ stages:
   script:
     - version=`cat package.json | jq -r '.version'`-$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID
     - pnpm version --no-git-tag-version $version
-    - pnpm publish --no-git-checks
+    - pnpm publish --no-git-checks --tag $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
 
 # install JQ (for other images)
 .install:jq:
@@ -419,7 +419,7 @@ mg-components:npmjs:
   script:
     - !reference [.mg-components:build, script]
     - cd packages/mg-components
-    - pnpm publish --no-git-checks --access public
+    - pnpm publish --no-git-checks --access public --tag latest
 
 #######################
 # notification-center #
@@ -501,7 +501,7 @@ img:npmjs:
     - .npmjs
   script:
     - !reference [.img:build, script]
-    - pnpm publish --no-git-checks --access public
+    - pnpm publish --no-git-checks --access public --tag latest
 
 ##########
 # styles #
@@ -530,7 +530,7 @@ styles:npmjs:
     - .npmjs
   script:
     - !reference [.styles:build, script]
-    - pnpm publish --no-git-checks --access public
+    - pnpm publish --no-git-checks --access public --tag latest
 
 ######################
 # Playwright helpers #
@@ -577,7 +577,7 @@ helpers:npmjs:
     - .npmjs
   script:
     - !reference [.helpers, script]
-    - pnpm publish --no-git-checks --access public
+    - pnpm publish --no-git-checks --access public --tag latest
 
 ###################
 # Stencil helpers #
@@ -606,7 +606,7 @@ stencil-helpers:npmjs:
     - .npmjs
   script:
     - !reference [.stencil-helpers, script]
-    - pnpm publish --no-git-checks --access public
+    - pnpm publish --no-git-checks --access public --tag latest
 
 ##################
 # linting-styles #
