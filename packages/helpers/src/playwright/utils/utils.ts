@@ -15,7 +15,7 @@ import { isObject, isValidString } from '../../utils';
 export const renderAttributes = (args: Record<string, unknown>): string =>
   (isObject<Record<string, never>>(args) &&
     Object.keys(args)
-      .filter(key => ![null, undefined, false].includes(args[key]) && !['object', 'function'].includes(typeof args[key]))
+      .filter(key => ![null, undefined].includes(args[key]) && !['object', 'function'].includes(typeof args[key]))
       .map(key => {
         const attribute: string = key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
         const value: string = ['number', 'boolean'].includes(typeof args[key]) || isValidString(args[key]) ? String(args[key]).replace(/"/g, "'") : '';
@@ -59,6 +59,6 @@ export const renderProperties = (args: Record<string, unknown>, selector: string
       .join('')
       .split('</fn>"')
       .join('') // remove fn end decorator
-  }`
+  };`
     : '';
 };

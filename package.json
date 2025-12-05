@@ -1,11 +1,11 @@
 {
   "name": "core-ui",
   "license": "BSD-3-Clause",
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.24.0",
   "engineStrict": true,
   "engines": {
-    "pnpm": "9.x",
-    "node": "22.x"
+    "pnpm": "10.x",
+    "node": "24.x"
   },
   "repository": {
     "type": "git",
@@ -63,7 +63,7 @@
     "*.{scss,css}": "pnpm lint:styles"
   },
   "devDependencies": {
-    "@changesets/cli": "2.29.7",
+    "@changesets/cli": "2.29.8",
     "@core-ui/eslint-config-custom": "workspace:*",
     "@core-ui/prettier-config": "workspace:*",
     "@manypkg/cli": "0.25.1",
@@ -73,7 +73,7 @@
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "prettier": "3.6.2",
-    "stylelint": "16.25.0",
-    "turbo": "2.6.1"
+    "stylelint": "16.26.1",
+    "turbo": "2.6.3"
   }
 }

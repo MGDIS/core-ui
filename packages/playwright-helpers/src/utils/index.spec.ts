@@ -20,7 +20,7 @@ describe('utils', () => {
   describe('renderProperties', () => {
     test('Should render properties, case id selector', () => {
       const res = renderProperties({ object: {} }, '#id');
-      expect(res).toEqual("\n  document.getElementById('id').object={}");
+      expect(res).toEqual("\n  document.getElementById('id').object={};");
     });
     test.each([undefined, null, {}, { name: 'batman' }])('Should not render attributes as properties', args => {
       const res = renderProperties(args as Record<string, unknown>, 'div');
