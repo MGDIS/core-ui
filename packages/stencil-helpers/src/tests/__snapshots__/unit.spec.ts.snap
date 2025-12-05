@@ -12,11 +12,11 @@ MockMutationObserver {
 exports[`test - e2e > setupMutationObserverMock > Should render html 2`] = `
 MockMutationObserver {
   "cb": {
-    "disconnect": [MockFunction spy],
+    "disconnect": [MockFunction],
     "observe": [Function],
     "takeRecords": [Function],
   },
-  "disconnect": [MockFunction spy],
+  "disconnect": [MockFunction],
   "observe": [Function],
   "takeRecords": [Function],
 }
@@ -34,11 +34,11 @@ MockResizeObserver {
 exports[`test - e2e > setupResizeObserverMock > Should render html 2`] = `
 MockResizeObserver {
   "cb": {
-    "disconnect": [MockFunction spy],
+    "disconnect": [MockFunction],
     "observe": [Function],
     "unobserve": [Function],
   },
-  "disconnect": [MockFunction spy],
+  "disconnect": [MockFunction],
   "observe": [Function],
   "unobserve": undefined,
 }
