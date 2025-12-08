@@ -129,7 +129,7 @@ stages:
   script:
     - version=`cat package.json | jq -r '.version'`-$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID
     - pnpm version --no-git-tag-version $version
-    - pnpm publish --no-git-checks --tag $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
+    - pnpm publish --no-git-checks --tag beta
 
 # install JQ (for other images)
 .install:jq:
@@ -419,7 +419,7 @@ mg-components:npmjs:
   script:
     - !reference [.mg-components:build, script]
     - cd packages/mg-components
-    - pnpm publish --no-git-checks --access public --tag latest
+    - pnpm publish --no-git-checks --access public --tag stable
 
 #######################
 # notification-center #
@@ -501,7 +501,7 @@ img:npmjs:
     - .npmjs
   script:
     - !reference [.img:build, script]
-    - pnpm publish --no-git-checks --access public --tag latest
+    - pnpm publish --no-git-checks --access public --tag stable
 
 ##########
 # styles #
@@ -530,7 +530,7 @@ styles:npmjs:
     - .npmjs
   script:
     - !reference [.styles:build, script]
-    - pnpm publish --no-git-checks --access public --tag latest
+    - pnpm publish --no-git-checks --access public --tag stable
 
 ######################
 # Playwright helpers #
@@ -577,7 +577,7 @@ helpers:npmjs:
     - .npmjs
   script:
     - !reference [.helpers, script]
-    - pnpm publish --no-git-checks --access public --tag latest
+    - pnpm publish --no-git-checks --access public --tag stable
 
 ###################
 # Stencil helpers #
@@ -606,7 +606,7 @@ stencil-helpers:npmjs:
     - .npmjs
   script:
     - !reference [.stencil-helpers, script]
-    - pnpm publish --no-git-checks --access public --tag latest
+    - pnpm publish --no-git-checks --access public --tag stable
 
 ##################
 # linting-styles #
