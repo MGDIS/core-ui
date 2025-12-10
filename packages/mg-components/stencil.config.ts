@@ -81,7 +81,7 @@ export const config: Config = {
     coverageReporters,
     coverageThreshold,
     moduleNameMapper: {
-      '^quill$': '<rootDir>/src/components/molecules/inputs/mg-input-rich-text-editor/editor/tests/__mocks__/quill.ts',
+      '^jodit(/.*)?$': '<rootDir>/src/components/molecules/inputs/mg-input-rich-text-editor/tests/__mocks__/jodit.ts',
     },
   },
 };

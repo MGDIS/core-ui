@@ -88,13 +88,11 @@ const createEditorWrapper = (joditInstance: IJodit): EditorType => {
 
   /**
    * Get editor content as plain text
-   * Extracts text content from the HTML
+   * Uses Jodit's editor element textContent property to extract plain text
    * @returns Plain text content
    */
   editor.getText = (): string => {
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = editor.value;
-    return tempDiv.textContent?.trim() || '';
+    return editor.editor.textContent.trim();
   };
 
   /**
