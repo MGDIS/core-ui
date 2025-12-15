@@ -29,13 +29,6 @@ The component emits the modified content via the `value-change` event. To ensure
 
 The sanitizer is configured by default to allow commonly used tags and attributes in a rich text editor while blocking potentially dangerous content like `<script>` tags or inline JavaScript attributes.
 
-### Utility Methods
-
-The component provides several methods to retrieve content in different formats:
-
-- `getHTML()`: Retrieves the content in HTML format
-- `getText()`: Retrieves the content in plain text format
-
 <!-- Auto Generated Below -->
 
 
@@ -83,9 +76,9 @@ Type: `Promise<void>`
 
 
 
-### `getHTML() => Promise<string>`
+### `getEditorHTML() => Promise<string>`
 
-Get editor content as HTML
+Get editor content in HTML format
 
 #### Returns
 
@@ -93,9 +86,9 @@ Type: `Promise<string>`
 
 HTML content of the editor
 
-### `getText() => Promise<string>`
+### `getEditorText() => Promise<string>`
 
-Get editor content as plain text
+Get editor content in plain text format
 
 #### Returns
 
