@@ -21,9 +21,9 @@
 
 ## CSS Custom Properties
 
-| Name                        | Description                                                 |
-| --------------------------- | ----------------------------------------------------------- |
-| `--mg-c-icon-border-radius` | Defines the border radius of icons. Default value is `50%`. |
+| Name                        | Description                                                   |
+| --------------------------- | ------------------------------------------------------------- |
+| `--mg-c-icon-border-radius` | Defines the border radius of icons. Default value is \`50%\`. |
 
 
 ## Dependencies

@@ -33,10 +33,10 @@
 
 ## CSS Custom Properties
 
-| Name                           | Description                                                                                 |
-| ------------------------------ | ------------------------------------------------------------------------------------------- |
-| `--mg-c-modal-border-radius`   | Defines the border radius of the modal. Default value: `--mg-c-card-border-radius-default`. |
-| `--mg-c-modal-title-font-size` | Defines the font size of the modal title. Default value: `--mg-b-font-size-h3`.             |
+| Name                           | Description                                                                                   |
+| ------------------------------ | --------------------------------------------------------------------------------------------- |
+| `--mg-c-modal-border-radius`   | Defines the border radius of the modal. Default value: \`--mg-c-card-border-radius-default\`. |
+| `--mg-c-modal-title-font-size` | Defines the font size of the modal title. Default value: \`--mg-b-font-size-h3\`.             |
 
 
 ## Dependencies

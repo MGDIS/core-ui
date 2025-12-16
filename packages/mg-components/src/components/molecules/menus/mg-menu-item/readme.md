@@ -75,11 +75,11 @@ Sub-items add to their left spacing the spacing between left border and content 
 
 ## CSS Custom Properties
 
-| Name                                           | Description                                                                                              |
-| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `--mg-c-menu-item-color`                       | Defines menu item global color, used for bottom line and active tabs. Default value: `--mg-b-color-app`. |
-| `--mg-c-menu-item-color-text`                  | Defines the color of the menu item. Unset by default, fallback on `--mg-b-color-dark`.                   |
-| `--mg-c-menu-item-navigation-button-max-width` | Defines the max-width property for the navigation button. Unset by default.                              |
+| Name                                           | Description                                                                                                |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `--mg-c-menu-item-color`                       | Defines menu item global color, used for bottom line and active tabs. Default value: \`--mg-b-color-app\`. |
+| `--mg-c-menu-item-color-text`                  | Defines the color of the menu item. Unset by default, fallback on \`--mg-b-color-dark\`.                   |
+| `--mg-c-menu-item-navigation-button-max-width` | Defines the max-width property for the navigation button. Unset by default.                                |
 
 
 ## Dependencies

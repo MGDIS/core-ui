@@ -6,7 +6,7 @@ import { defineEditor, type EditorType, type EditorOptionsType } from './editor'
 
 @Component({
   tag: 'mg-input-rich-text-editor',
-  styleUrls: ['./editor/editor.scss', '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-rich-text-editor.css'],
+  styleUrls: ['../../../../../node_modules/@mgdis/styles/dist/components/mg-input-rich-text-editor.css'],
   shadow: true,
 })
 export class MgInputRichTextEditor {

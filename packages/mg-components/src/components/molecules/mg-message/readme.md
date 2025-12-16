@@ -21,9 +21,9 @@
 
 ## CSS Custom Properties
 
-| Name                           | Description                                                                    |
-| ------------------------------ | ------------------------------------------------------------------------------ |
-| `--mg-c-message-border-radius` | Defines the border radius of the message. Default value: `--mg-b-size-radius`. |
+| Name                           | Description                                                                      |
+| ------------------------------ | -------------------------------------------------------------------------------- |
+| `--mg-c-message-border-radius` | Defines the border radius of the message. Default value: \`--mg-b-size-radius\`. |
 
 
 ## Dependencies
