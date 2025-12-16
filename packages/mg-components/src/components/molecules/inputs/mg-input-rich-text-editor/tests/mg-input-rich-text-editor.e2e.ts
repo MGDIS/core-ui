@@ -1,4 +1,4 @@
-import { expect } from '@playwright/test';
+import { expect, type Page } from '@playwright/test';
 import { test } from '../../../../../utils/playwright.fixture';
 import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 
@@ -9,6 +9,17 @@ const createHTML = props => {
 const baseArgs = { identifier: 'identifier', label: 'label' };
 const sampleContent =
   '<p>Each episode of Paw Patrol follows a similar pattern. Episodes normally open with a scene depicting the dogs going about their everyday lives in Adventure Bay, often playing with dog toys or going to the local playground.</p><p>Ryder, a ten-year-old boy, is advised of a problem by receiving a call for help or by witnessing a situation himself.</p>';
+
+/**
+ * Inserts content into the Jodit editor and triggers input event to update placeholder state
+ */
+const setEditorContent = async (page: Page, content: string): Promise<void> => {
+  await page.locator('.jodit-wysiwyg').evaluate((element, htmlContent) => {
+    element.innerHTML = htmlContent;
+    // Trigger input event to notify Jodit of content change (updates placeholder state)
+    element.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
+  }, content);
+};
 
 test.describe('mg-input-rich-text-editor', () => {
   [
@@ -27,14 +38,12 @@ test.describe('mg-input-rich-text-editor', () => {
       await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
 
       // Wait for the editor to be initialized
-      await page.locator('.ql-editor').waitFor();
+      await page.locator('.jodit-wysiwyg').waitFor();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       // Enter content in the editor
-      await page.locator('.ql-editor').evaluate((element, content) => {
-        element.innerHTML = content;
-      }, sampleContent);
+      await setEditorContent(page, sampleContent);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -84,33 +93,13 @@ test.describe('mg-input-rich-text-editor', () => {
       await page.setContent(html);
 
       await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
-      await page.locator('.ql-editor').waitFor();
+      await page.locator('.jodit-wysiwyg').waitFor();
 
-      await page.locator('.ql-editor').click();
+      await page.locator('.jodit-wysiwyg').click();
       await page.locator('body').click();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
-  });
-
-  test('Should render error when leaving input with a non matching pattern value', async ({ page }) => {
-    const html = createHTML({
-      ...baseArgs,
-      pattern: '[a-z]*',
-      patternErrorMessage: 'Vous ne pouvez saisir que des lettres minuscules.',
-    });
-    await page.setContent(html);
-
-    await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
-    await page.locator('.ql-editor').waitFor();
-
-    await page.locator('.ql-editor').click();
-    await page.locator('.ql-editor').evaluate((element, content) => {
-      element.innerHTML = content;
-    }, sampleContent);
-    await page.locator('body').click();
-
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
   test.describe('Responsive', () => {
@@ -140,7 +129,7 @@ test.describe('mg-input-rich-text-editor', () => {
       await page.setContent(html);
 
       await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
-      await page.locator('.ql-editor').waitFor();
+      await page.locator('.jodit-wysiwyg').waitFor();
 
       // Set an error message
       await page.evaluate(lock => {
@@ -151,10 +140,8 @@ test.describe('mg-input-rich-text-editor', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       // Enter a value that doesn't match the pattern
-      await page.locator('.ql-editor').evaluate((element, content) => {
-        element.innerHTML = content;
-      }, 'Paw Patrol');
-      await page.locator('body').click(); // Trigger blur event
+      await setEditorContent(page, 'Paw Patrol');
+      await page.locator('body').click(); // Trigger blur event for validation
 
       // Check state with value and pattern error
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -175,9 +162,7 @@ test.describe('mg-input-rich-text-editor', () => {
 
     await page.evaluate(() => {
       const editor = document.querySelector('mg-input-rich-text-editor');
-      editor.modules = {
-        toolbar: [['bold', 'italic'], ['clean']],
-      };
+      editor.modules = ['bold', 'italic', 'eraser'];
     });
 
     await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
@@ -190,27 +175,25 @@ test.describe('mg-input-rich-text-editor', () => {
     await page.setContent(html);
 
     await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
-    await page.locator('.ql-editor').waitFor();
+    await page.locator('.jodit-wysiwyg').waitFor();
 
-    await page.locator('.ql-editor').evaluate((element, content) => {
-      element.innerHTML = content;
-    }, sampleContent);
+    await setEditorContent(page, sampleContent);
 
     // Select specific text
     await page.evaluate(() => {
       const editor = document.querySelector('mg-input-rich-text-editor');
       if (editor === null) throw new Error('Editor not found');
 
-      // Access Quill editor via ql-editor class
-      const quillEditor = editor.shadowRoot?.querySelector('.ql-editor');
-      if (quillEditor === null) throw new Error('Quill editor not found');
+      // Access Jodit editor via jodit-wysiwyg class
+      const joditEditor = editor.shadowRoot?.querySelector('.jodit-wysiwyg');
+      if (joditEditor === null) throw new Error('Jodit editor not found');
 
       const textToSelect = 'Paw Patrol follows a similar pattern';
       const range = document.createRange();
       const selection = window.getSelection();
 
-      // Find the first paragraph in Quill editor
-      const firstP = quillEditor.querySelector('p');
+      // Find the first paragraph in Jodit editor
+      const firstP = joditEditor.querySelector('p');
       if (firstP === null) throw new Error('First paragraph not found');
 
       // Find text node containing our phrase
@@ -226,7 +209,9 @@ test.describe('mg-input-rich-text-editor', () => {
     });
 
     // Click on bold button
-    await page.locator('button.ql-bold').click();
+    await page.evaluate(() => {
+      (document.querySelector('mg-input-rich-text-editor').shadowRoot.querySelector('span.jodit-toolbar-button_bold button') as HTMLButtonElement).click();
+    });
 
     // Place cursor at the end of selection to highlight action button
     await page.evaluate(() => {
@@ -242,27 +227,25 @@ test.describe('mg-input-rich-text-editor', () => {
     await page.setContent(html);
 
     await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
-    await page.locator('.ql-editor').waitFor();
+    await page.locator('.jodit-wysiwyg').waitFor();
 
-    await page.locator('.ql-editor').evaluate((element, content) => {
-      element.innerHTML = content;
-    }, sampleContent);
+    await setEditorContent(page, sampleContent);
 
     // Select specific text
     await page.evaluate(() => {
       const editor = document.querySelector('mg-input-rich-text-editor');
       if (editor === null) throw new Error('Editor not found');
 
-      // Access Quill editor via ql-editor class
-      const quillEditor = editor.shadowRoot?.querySelector('.ql-editor');
-      if (quillEditor === null) throw new Error('Quill editor not found');
+      // Access Jodit editor via jodit-wysiwyg class
+      const joditEditor = editor.shadowRoot?.querySelector('.jodit-wysiwyg');
+      if (joditEditor === null) throw new Error('Jodit editor not found');
 
       const textToSelect = 'Paw Patrol follows a similar pattern';
       const range = document.createRange();
       const selection = window.getSelection();
 
-      // Find the first paragraph in Quill editor
-      const firstP = quillEditor.querySelector('p');
+      // Find the first paragraph in Jodit editor
+      const firstP = joditEditor.querySelector('p');
       if (firstP === null) throw new Error('First paragraph not found');
 
       // Find text node containing our phrase
@@ -278,7 +261,9 @@ test.describe('mg-input-rich-text-editor', () => {
     });
 
     // Click on underline button
-    await page.locator('button.ql-underline').click();
+    await page.evaluate(() => {
+      (document.querySelector('mg-input-rich-text-editor').shadowRoot.querySelector('span.jodit-toolbar-button_underline button') as HTMLButtonElement).click();
+    });
 
     // Place cursor at the end of selection to highlight action button
     await page.evaluate(() => {
