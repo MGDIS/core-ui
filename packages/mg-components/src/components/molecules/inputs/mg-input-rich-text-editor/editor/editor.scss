@@ -1,87 +1,219 @@
 :host {
-  // Tooltip properties
-  --jd-tooltip-color: #fff;
+  /**
+   * Colors - Base
+   */
+  --jd-color-white: rgb(255 255 255);
+  --jd-color-dark: rgb(76 76 76);
+  --jd-color-default: var(--jd-color-dark);
+  --jd-color-gray: rgb(218 218 218);
+  --jd-color-gray-dark: rgb(165 165 165);
+  --jd-color-red: rgb(255 59 59);
+  --jd-color-blue: rgb(181 214 253);
+  --jd-color-light-blue: rgb(181 214 253 / 50%);
+  --jd-color-light-red: rgb(255 59 59 / 40%);
+  --jd-color-error: var(--jd-color-red);
+
+  /**
+   * Colors - Background
+   */
+  --jd-color-background-default: var(--jd-color-white);
+  --jd-color-background-light-gray: rgb(245 245 246);
+  --jd-color-background-gray: var(--jd-color-gray);
+  --jd-color-background-gray-hover: rgb(248 248 248);
+  --jd-color-background-active: rgb(33 150 243);
+  --jd-color-background-button-hover: rgb(236 235 233);
+  --jd-color-background-button-hover-opacity30: rgb(234 234 234 / 30%);
+  --jd-color-background-button-hover-opacity40: rgb(219 219 219 / 40%);
+  --jd-color-background-button-hover-opacity60: rgb(219 219 219 / 60%);
+  --jd-color-background-filebrowser-folders: rgb(248 249 250);
+  --jd-color-background-progress: rgb(185 31 31);
+  --jd-color-background-selection: rgb(181 214 253);
+  --jd-color-background-selection-opacity50: rgb(181 214 253 / 99.5%);
+  --jd-color-panel: rgb(249 249 249);
+  --jd-color-source-area: rgb(50 50 50);
+  --jd-info-background: rgb(233 233 233);
+
+  /**
+   * Colors - Border
+   */
+  --jd-color-border: var(--jd-color-gray);
+  --jd-color-border-dark: var(--jd-color-dark);
+  --jd-color-border-active: rgb(181 181 181);
+  --jd-color-border-selected: rgb(30 136 229);
+  --jd-color-separator: var(--jd-color-border);
+  --jd-color-resizer: rgb(200 200 200);
+
+  /**
+   * Colors - Text
+   */
+  --jd-color-text: rgb(34 34 34);
+  --jd-color-text-icons: rgb(0 0 0 / 75%);
+  --jd-color-text-selection: var(--jd-color-white);
+  --jd-color-icon: var(--jd-color-dark);
+  --jd-color-label: var(--jd-color-gray-dark);
+  --jd-color-placeholder: var(--jd-color-gray-dark);
+  --jd-color-folder-title: rgb(177 177 177);
+  --jd-color-selection: var(--jd-color-dark);
+
+  /**
+   * Colors - Button
+   */
+  --jd-color-button-background-hover: rgb(220 220 220);
+  --jd-color-button-background-hover-opacity40: rgb(219 219 219 / 40%);
+  --jd-color-button-background-hover-opacity60: rgb(219 219 219 / 60%);
+
+  /**
+   * Colors - Selection
+   */
+  --jd-color-selection-area: rgb(189 189 189);
+  --jd-color-table-cell-background-hover: rgb(0 0 0 / 5%);
+
+  /**
+   * Colors - Dark mode
+   */
+  --jd-dark-background-color: rgb(87 87 87);
+  --jd-dark-background-darknes: rgb(53 53 53);
+  --jd-dark-background-ligher: rgb(192 192 192);
+  --jd-dark-border-color: rgb(68 68 68);
+  --jd-dark-color-border-selected: rgb(21 47 95);
+  --jd-dark-icon-color: rgb(192 192 192);
+  --jd-dark-text-color: rgb(209 204 204);
+  --jd-dark-text-color-opacity50: rgb(206 206 206 / 50%);
+  --jd-dark-text-color-opacity80: rgb(206 206 206 / 80%);
+  --jd-dark-toolbar-color: rgb(95 92 92);
+  --jd-dark-toolbar-seperator-color1: rgb(81 81 81 / 41%);
+  --jd-dark-toolbar-seperator-color2: rgb(104 103 103);
+  --jd-dark-toolbar-seperator-color3: rgb(105 105 105 / 75%);
+  --jd-dark-toolbar-seperator-color-opacity80: rgb(105 105 105 / 80%);
+
+  /**
+   * Colors - Special
+   */
+  --jd-color-picker-cell-size: 2.4rem;
+  --jd-image-editor-resizer-border-color: rgb(5 255 0);
+  --jd-image-editor-resizer-target-bg-color: rgb(140 120 120);
+  --jd-image-editor-resizer-target-border-color: rgb(56 56 56);
+  --jd-resizer-border-color: rgb(152 193 241);
+  --jd-resizer-handle-color: rgb(91 164 243);
+  --jd-resizer-handle-hover-color: rgb(83 126 187);
+
+  /**
+   * Colors - Em (Alert/Message)
+   */
+  --jd-em-color-bg: rgb(207 226 255);
+  --jd-em-color-border: rgb(182 212 254);
+  --jd-em-color-color: rgb(8 66 152);
+
+  /**
+   * Sizes - Buttons
+   */
+  --jd-button-icon-size: 1.4rem;
+  --jd-button-trigger-size: 1.4rem;
+  --jd-button-df-size: calc((var(--jd-button-icon-size) - 0.4rem) * 2);
+  --jd-button-size: calc(var(--jd-button-icon-size) + var(--jd-button-df-size) + var(--jd-margin-v) * 2);
+
+  /**
+   * Sizes - Icons
+   */
+  --jd-icon-size: 1.2rem;
+  --jd-icon-loader-size: 4.8rem;
+
+  /**
+   * Sizes - Height
+   */
+  --jd-height: 1.8rem;
+  --jd-height-element-default: 1.8rem;
+  --jd-height-search: 3rem;
+  --jd-input-height: 3.2rem;
+  --jd-switche-height: 3.2rem;
+  --jd-viewer-height: 2.4rem;
+
+  /**
+   * Sizes - Width
+   */
+  --jd-width-default: 18rem;
+  --jd-width-element-default: 1.8rem;
+  --jd-width-input-min: var(--jd-width-default);
+  --jd-width-search: 32rem;
+  --jd-width-search-count-box: 15%;
+  --jd-width-search-input-box: 60%;
+  --jd-viewer-width: 7rem;
+  --jd-switche-width: 6rem;
+  --jd-col-size: 15rem;
+  --jd-first-column: 31%;
+  --jd-image-editor-resizer-target-size: padding-default;
+
+  /**
+   * Sizes - Spacing
+   */
+  --jd-padding-default: 0.8rem;
+  --jd-margin-v: 0.2rem;
+  --jd-switche-slider-margin: 0.4rem;
+  --jd-em-padding: calc(1rem / 2) 1rem;
+
+  /**
+   * Sizes - Other
+   */
+  --jd-resizer-handle-size: 1rem;
+  --jd-switche-slider-size: calc(var(--jd-switche-height) - var(--jd-switche-slider-margin) * 2);
+  --jd-cols: 4;
+
+  /**
+   * Border and radius
+   */
+  --jd-border-radius-default: 0.3rem;
+  --jd-em-border-radius: 0.375rem;
+
+  /**
+   * Font
+   */
+  --jd-font-default: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen-sans, ubuntu, cantarell, 'Helvetica Neue', sans-serif;
+  --jd-font-size-default: 1.4rem;
+  --jd-font-size-small: 1.1rem;
+  --jd-em-font-size: 1rem;
+
+  /**
+   * Shadow
+   */
+  --jd-box-shadow-1: 0 0.8rem 1.6rem rgb(0 0 0 / 19%);
+  --jd-box-shadow-blur: 1.6rem;
+  --jd-box-shadow-tabs: 0 0.2rem 0.4rem rgb(0 0 0 / 10%);
+  --jd-popup-box-shadow: 0 0.4rem 0.1rem -0.2rem rgb(76 76 76 / 20%), 0 0.3rem 0.3rem 0 rgb(76 76 76 / 15%), 0 0.1rem 0.4rem 0 rgb(76 76 76 / 13%);
+  --jd-popup-max-height: max(50vh, 35rem);
+  --jd-focus-input-box-shadow: 0 0 0 0.05rem rgb(0 123 255 / 25%);
+
+  /**
+   * Z-index
+   */
+  --jd-z-index-dialog: 20000004;
+  --jd-z-index-dialog-overlay: 20000003;
+  --jd-z-index-popup: 10000001;
+  --jd-z-index-full-size: 100000;
+  --jd-z-index-context-menu: 30000005;
+  --jd-z-index-tooltip: 30000006;
+
+  /**
+   * Animation and transition
+   */
+  --jd-anl-color-new-line: var(--jd-color-border);
+  --jd-anl-handle-offset: calc(100% - var(--jd-anl-handle-size));
+  --jd-anl-handle-size: 2rem;
+  --jd-timeout-button-active: 0.1s;
+  --jd-transform-button-active: 0.95;
+
+  /**
+   * Tooltip
+   */
+  --jd-tooltip-color: rgb(255 255 255);
   --jd-tooltip-background-color: rgb(0 0 0 / 70%);
   --jd-tooltip-sfx-shadow: rgb(0 0 0 / 15%);
   --jd-tooltip-border-width: 0;
-  --jd-tooltip-border-color: #e5e5e5;
-
-  // Color properties
-  --jd-color-background-light-gray: #f5f5f5;
-  --jd-color-background-default: #fff;
-  --jd-color-background-active: #e6e6e6;
-  --jd-color-background-button-hover: rgb(0 0 0 / 5%);
-  --jd-color-background-button-hover-opacity30: rgb(0 0 0 / 3%);
-  --jd-color-background-button-hover-opacity40: rgb(0 0 0 / 4%);
-  --jd-color-background-button-hover-opacity60: rgb(0 0 0 / 6%);
-  --jd-color-background-filebrowser-folders: #f8f9fa;
-  --jd-color-background-gray: #e9ecef;
-  --jd-color-background-progress: #007bff;
-  --jd-color-background-selection: rgb(0 123 255 / 20%);
-  --jd-color-background-selection-opacity50: rgb(0 123 255 / 10%);
-  --jd-color-border: #dee2e6;
-  --jd-color-border-active: #007bff;
-  --jd-color-border-selected: #007bff;
-  --jd-color-button-background-hover: rgb(0 0 0 / 5%);
-  --jd-color-button-background-hover-opacity40: rgb(0 0 0 / 4%);
-  --jd-color-button-background-hover-opacity60: rgb(0 0 0 / 6%);
-  --jd-color-dark: #212529;
-  --jd-color-default: #495057;
-  --jd-color-error: #dc3545;
-  --jd-color-folder-title: #495057;
-  --jd-color-gray: #6c757d;
-  --jd-color-gray-dark: #495057;
-  --jd-color-icon: #495057;
-  --jd-color-label: #495057;
-  --jd-color-panel: #fff;
-  --jd-color-picker-cell-size: 20px;
-  --jd-color-placeholder: #6c757d;
-  --jd-color-red: #dc3545;
-  --jd-color-selection-area: rgb(0 123 255 / 10%);
-  --jd-color-source-area: #f8f9fa;
-  --jd-color-table-cell-background-hover: rgb(0 0 0 / 5%);
-  --jd-color-text: #212529;
-  --jd-color-text-icons: #495057;
-  --jd-color-text-selection: #212529;
-  --jd-color-white: #fff;
-
-  // Size properties
-  --jd-button-size: 32px;
-  --jd-button-icon-size: 14px;
-  --jd-button-trigger-size: 14px;
-  --jd-button-df-size: 32px;
-  --jd-col-size: 32px;
-  --jd-input-height: 32px;
-  --jd-height: 18px;
-  --jd-padding-default: 8px;
-  --jd-margin-v: 2px;
-
-  // Border and radius
-  --jd-border-radius-default: 4px;
-
-  // Font properties
-  --jd-font-default: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
-  --jd-font-size-default: 14px;
-  --jd-font-size-small: 12px;
-
-  // Shadow properties
-  --jd-box-shadow-1: 0 8px 16px rgb(0 0 0 / 19%);
-  --jd-box-shadow-blur: 16px;
-  --jd-box-shadow-tabs: 0 2px 4px rgb(0 0 0 / 10%);
-  --jd-popup-box-shadow: 0 4px 1px -2px rgb(76 76 76 / 20%), 0 3px 3px 0 rgb(76 76 76 / 15%), 0 1px 4px 0 rgb(76 76 76 / 13%);
-  --jd-popup-max-height: max(50vh, 350px);
-
-  // Z-index
-  --jd-z-index-dialog: 10000;
-
-  // Animation properties
-  --jd-anl-color-new-line: #007bff;
-  --jd-anl-handle-offset: 4px;
-  --jd-anl-handle-size: 8px;
-
-  // Additional properties
-  --jd-info-background: rgb(0 0 0 / 5%);
+  --jd-tooltip-border-color: rgb(229 229 229);
 }
 
-// Import Jodit CSS
+/**
+ * Import Jodit CSS
+ *
+ */
+/* stylelint-disable-next-line no-invalid-position-at-import-rule */
 @import '../../../../../../node_modules/jodit/es2021/jodit.css';
