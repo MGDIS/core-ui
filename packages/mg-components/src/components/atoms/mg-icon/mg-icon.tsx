@@ -134,8 +134,8 @@ export class MgIcon {
     this.element.shadowRoot.append(svgContainer.firstChild);
     svgContainer.remove();
 
-    // update svg attributes
-    this.svg = this.element.shadowRoot.querySelector('svg');
+    // Update svg attributes
+    this.svg = this.element.shadowRoot.querySelector('svg') as unknown as SVGSVGElement;
     this.svg.setAttribute('aria-hidden', 'true');
     this.svg.setAttribute('focusable', 'false');
     this.svg.setAttribute('class', this.classCollection.join());
