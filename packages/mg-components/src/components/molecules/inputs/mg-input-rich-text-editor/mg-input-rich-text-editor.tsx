@@ -3,6 +3,7 @@ import { ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/
 import { classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import { defineEditor, type EditorType, type EditorOptionsType } from './editor';
+import { Sanitizer, type SanitizerOptions } from '@mgdis/sanitize-html';
 
 @Component({
   tag: 'mg-input-rich-text-editor',
@@ -17,6 +18,9 @@ export class MgInputRichTextEditor {
   // editor
   private editor: EditorType;
   private wrapperElement: HTMLDivElement;
+
+  // Sanitizer
+  private sanitizer: Sanitizer;
 
   // Locales
   private messages;
@@ -155,6 +159,12 @@ export class MgInputRichTextEditor {
   @Prop() modules?: EditorOptionsType['modules'];
 
   /**
+   * Sanitizer configuration options
+   * Allows to customize which tags and attributes are disallowed in the sanitized HTML
+   */
+  @Prop({ attribute: 'sanitizer-options' }) sanitizerOptions?: SanitizerOptions;
+
+  /**
    * Define input valid state
    */
   @Prop({ mutable: true }) valid: boolean;
@@ -193,14 +203,14 @@ export class MgInputRichTextEditor {
   }
 
   /**
-   * Get editor content in HTML format
-   * @returns HTML content of the editor
+   * Get editor content as HTML
+   * @returns HTML content of the editor (sanitized)
    */
   @Method()
   getEditorHTML(): Promise<string> {
     return new Promise(resolve => {
       requestAnimationFrame(() => {
-        resolve(this.editor.getSemanticHTML());
+        resolve(this.sanitizer.sanitize(this.editor.getSemanticHTML()));
       });
     });
   }
@@ -383,12 +393,11 @@ export class MgInputRichTextEditor {
    * Handle `text-change` event
    */
   private handleTextChange = (): void => {
-    // Get HTML content
-    const htmlContent = this.editor.getSemanticHTML();
-    this.value = htmlContent;
+    // Get HTML content and sanitize before storing and emitting
+    this.value = this.sanitizer.sanitize(this.editor.getSemanticHTML());
 
-    // Emit the HTML content for form compatibility
-    this.valueChange.emit(htmlContent);
+    // Emit the sanitized HTML content for form compatibility
+    this.valueChange.emit(this.value);
 
     // Check validity but do not display the error message if the error message is already displayed
     this.checkValidity();
@@ -406,6 +415,9 @@ export class MgInputRichTextEditor {
    * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
+    // Initialize sanitizer with optional configuration
+    this.sanitizer = new Sanitizer(this.sanitizerOptions);
+
     // Get locales
     this.messages = initLocales(this.element as unknown as HTMLElement).messages;
     this.element.style.setProperty('--mg-c-input-rich-text-editor-rows', this.rows.toString());
@@ -425,7 +437,7 @@ export class MgInputRichTextEditor {
   }
 
   /**
-   * add listeners and render editor element
+   * Add listeners and render editor element
    */
   componentDidLoad(): void {
     if (!this.readonly) {
@@ -433,7 +445,7 @@ export class MgInputRichTextEditor {
         modules: this.modules,
         readOnly: this.readonly || this.disabled,
         placeholder: this.placeholder,
-        value: this.value,
+        value: this.sanitizer.sanitize(this.value),
         handleTextChange: this.handleTextChange,
         handleBlur: this.handleBlur,
         handleFocus: this.handleFocus,
@@ -460,7 +472,7 @@ export class MgInputRichTextEditor {
         errorMessage={this.hasDisplayedError ? this.errorMessage : undefined}
       >
         {this.readonly ? (
-          <div class="mg-c-input__readonly-value" innerHTML={this.value}></div>
+          <div class="mg-c-input__readonly-value" innerHTML={this.sanitizer.sanitize(this.value)}></div>
         ) : (
           <div
             ref={el => {

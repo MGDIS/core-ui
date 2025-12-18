@@ -20,6 +20,7 @@ import { RequestMappingType, ResponseMappingType } from "./components/molecules/
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
+import { SanitizerOptions } from "@mgdis/sanitize-html";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
@@ -51,6 +52,7 @@ export { RequestMappingType, ResponseMappingType } from "./components/molecules/
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
+export { SanitizerOptions } from "@mgdis/sanitize-html";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
@@ -1212,8 +1214,8 @@ export namespace Components {
          */
         "displayError": () => Promise<void>;
         /**
-          * Get editor content in HTML format
-          * @returns HTML content of the editor
+          * Get editor content as HTML
+          * @returns HTML content of the editor (sanitized)
          */
         "getEditorHTML": () => Promise<string>;
         /**
@@ -1282,6 +1284,10 @@ export namespace Components {
           * @default 5
          */
         "rows": number;
+        /**
+          * Sanitizer configuration options Allows to customize which tags and attributes are disallowed in the sanitized HTML
+         */
+        "sanitizerOptions"?: SanitizerOptions;
         /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
@@ -3967,6 +3973,10 @@ declare namespace LocalJSX {
           * @default 5
          */
         "rows"?: number;
+        /**
+          * Sanitizer configuration options Allows to customize which tags and attributes are disallowed in the sanitized HTML
+         */
+        "sanitizerOptions"?: SanitizerOptions;
         /**
           * Add a tooltip message next to the input
          */

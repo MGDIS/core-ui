@@ -43,13 +43,14 @@ The sanitizer is configured by default to allow commonly used tags and attribute
 | `label` _(required)_      | `label`                 | Input label                                                                                                                                                          | `string`                                                                                                                                        | `undefined` |
 | `labelHide`               | `label-hide`            | Define if label is visible                                                                                                                                           | `boolean`                                                                                                                                       | `false`     |
 | `labelOnTop`              | `label-on-top`          | Define if label is displayed on top                                                                                                                                  | `boolean`                                                                                                                                       | `false`     |
-| `modules`                 | `modules`               | Editor modules configuration                                                                                                                                         | `(string \| ButtonsGroup \| IControlType<IViewBased<IViewOptions> \| IJodit \| IFileBrowser<IFileBrowserOptions>, IToolbarButton>)[] \| string` | `undefined` |
+| `modules`                 | `modules`               | Editor modules configuration                                                                                                                                         | `(string \| ButtonsGroup \| IControlType<IJodit \| IViewBased<IViewOptions> \| IFileBrowser<IFileBrowserOptions>, IToolbarButton>)[] \| string` | `undefined` |
 | `pattern`                 | `pattern`               | Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components. | `string`                                                                                                                                        | `undefined` |
 | `patternErrorMessage`     | `pattern-error-message` | Define input pattern error message                                                                                                                                   | `string`                                                                                                                                        | `undefined` |
 | `placeholder`             | `placeholder`           | Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.                       | `string`                                                                                                                                        | `undefined` |
 | `readonly`                | `readonly`              | Define if the editor is readonly                                                                                                                                     | `boolean`                                                                                                                                       | `false`     |
 | `required`                | `required`              | Define if input is required                                                                                                                                          | `boolean`                                                                                                                                       | `false`     |
 | `rows`                    | `rows`                  | Define the number of visible text lines for the control                                                                                                              | `number`                                                                                                                                        | `5`         |
+| `sanitizerOptions`        | --                      | Sanitizer configuration options Allows to customize which tags and attributes are disallowed in the sanitized HTML                                                   | `{ disallowAttributes?: Record<string, string[]>; disallowTags?: string[]; }`                                                                   | `undefined` |
 | `tooltip`                 | `tooltip`               | Add a tooltip message next to the input                                                                                                                              | `string`                                                                                                                                        | `undefined` |
 | `tooltipPosition`         | `tooltip-position`      | Define tooltip position                                                                                                                                              | `"input" \| "label"`                                                                                                                            | `'input'`   |
 | `valid`                   | `valid`                 | Define input valid state                                                                                                                                             | `boolean`                                                                                                                                       | `undefined` |
@@ -78,13 +79,13 @@ Type: `Promise<void>`
 
 ### `getEditorHTML() => Promise<string>`
 
-Get editor content in HTML format
+Get editor content as HTML
 
 #### Returns
 
 Type: `Promise<string>`
 
-HTML content of the editor
+HTML content of the editor (sanitized)
 
 ### `getEditorText() => Promise<string>`
 
