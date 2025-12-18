@@ -436,6 +436,7 @@ test.describe('mg-input-combobox', () => {
         await page.getByText('20').click();
 
         // input with 20th element selected and popover closed
+        await page.locator('input:focus').waitFor();
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
     });
