@@ -870,70 +870,115 @@ describe('mg-input-combobox', () => {
       expect(popover.display).toEqual(true);
     });
 
-    test('Should handle input blur', async () => {
+    test('Should handle input blur with keyboard navigation', async () => {
       const page = await getPage({ ...baseProps, value: 'joker' });
       const element = page.doc.querySelector('mg-input-combobox');
       const input = element.shadowRoot.querySelector('input');
       const popover = element.shadowRoot.querySelector('mg-popover');
 
-      // popover initialize with false
-      expect(popover.display).toEqual(false);
+      const spyInputFocus = jest.spyOn(input, 'focus');
 
-      // Call input blur
-      input.dispatchEvent(new MouseEvent('blur', { bubbles: true }));
-      await page.waitForChanges();
-
+      // initialize with hidden popover
+      expect(spyInputFocus).toHaveBeenCalledTimes(0);
       expect(popover.display).toEqual(false);
       expect(input.value).toEqual('joker');
 
-      // Call input focus
+      // Call input focusin
+      input.dispatchEvent(new MouseEvent('focus', { bubbles: true }));
+      await page.waitForChanges();
+
+      // Verify popover not to be displayed and value unchanged
+      expect(popover.display).toEqual(false);
+      expect(input.value).toEqual('joker');
+
+      // Call input keydown DOWN
       input.dispatchEvent(new KeyboardEvent('keydown', { key: Keys.DOWN }));
       jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
-      // Verify initial value is set and popover to be displaied
+      // Verify popover to be displayed and value unchanged
       expect(popover.display).toEqual(true);
+      expect(input.value).toEqual('joker');
 
-      // Call input blur
+      // Select first option with keydown ENTER
       input.dispatchEvent(new KeyboardEvent('keydown', { key: Keys.ENTER }));
+      await page.waitForChanges();
+
+      // Verify popover to be hidden
+      expect(spyInputFocus).toHaveBeenCalledTimes(1);
+      expect(popover.display).toEqual(false);
+      expect(input.value).toEqual('joker');
+
+      // Call input blur with keyboard TAB
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: Keys.TAB }));
+      // mock missing blur event on input when using keyboard TAB
+      const blurEvent = new FocusEvent('blur', { bubbles: true });
+      const blurEventSpy = jest.spyOn(blurEvent, 'stopImmediatePropagation');
+      input.dispatchEvent(blurEvent);
       await page.waitForChanges();
 
       // Verify popover to be hidden
       expect(popover.display).toEqual(false);
       expect(input.value).toEqual('joker');
 
-      // Call input focus
-      input.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-      jest.runOnlyPendingTimers();
+      // Call input blur with keyboard TAB
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: Keys.TAB }));
+      // mock missing blur event on input when using keyboard TAB
+      input.dispatchEvent(blurEvent);
       await page.waitForChanges();
 
-      // Verify initial value is set and popover to be displaied
-      expect(popover.display).toEqual(true);
-
-      // Call input blur
-      input.dispatchEvent(new KeyboardEvent('keydown', { key: Keys.ENTER }));
-      await page.waitForChanges();
-
+      // expect no extra input focus call
+      expect(spyInputFocus).toHaveBeenCalledTimes(1);
+      expect(blurEventSpy).not.toHaveBeenCalled();
       // Verify popover to be hidden
       expect(popover.display).toEqual(false);
-      expect(input.value).toEqual('joker');
-
-      // Call input focus
-      input.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-      jest.runOnlyPendingTimers();
-      await page.waitForChanges();
-
-      // Verify initial value is set and popover to be displaied
-      expect(popover.display).toEqual(true);
-
-      // Call input blur
-      input.dispatchEvent(new MouseEvent('blur', { bubbles: true }));
-      await page.waitForChanges();
-
-      // Verify popover to be hidden
-      expect(popover.display).toEqual(true);
       expect(input.value).toEqual('joker');
     });
+
+    test('Should handle input blur with mouse navigation', async () => {
+      const page = await getPage({ ...baseProps, value: 'joker' });
+      const element = page.doc.querySelector('mg-input-combobox');
+      const input = element.shadowRoot.querySelector('input');
+      const popover = element.shadowRoot.querySelector('mg-popover');
+
+      const spyInputFocus = jest.spyOn(input, 'focus');
+
+      // initialize with hidden popover
+      input.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
+
+      // Verify initial value is set and popover to be displaied
+      expect(spyInputFocus).toHaveBeenCalledTimes(1);
+      expect(popover.display).toEqual(true);
+      expect(input.value).toEqual('joker');
+
+      // we reproduce blur event when clicking on an option
+      // first we create and trigger the blur event
+      const blurEvent = new FocusEvent('blur', { bubbles: true });
+      const blurEventSpy = jest.spyOn(blurEvent, 'stopImmediatePropagation');
+      input.dispatchEvent(blurEvent);
+      // then we select first option with click
+      element.shadowRoot.querySelector('li').dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+
+      // Verify popover to be hidden
+      expect(popover.display).toEqual(false);
+      expect(input.value).toEqual('joker');
+
+      // click outside to call blur
+      page.doc.body.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      // mock missing blur event on input when clicking outside
+      input.dispatchEvent(blurEvent);
+      await page.waitForChanges();
+
+      // Verify popover to be hidden
+      expect(spyInputFocus).toHaveBeenCalledTimes(2);
+      expect(blurEventSpy).toHaveBeenCalled();
+      expect(popover.display).toEqual(false);
+      expect(input.value).toEqual('joker');
+    });
+
     test.each([undefined, 'joker', 'hello'])('Should handle popover display, case value %s', async value => {
       const page = await getPage({ ...baseProps, value });
       const element = page.doc.querySelector('mg-input-combobox');
