@@ -1,16 +1,16 @@
-The `mg-input-rich-text-editor` component is a rich text editor input that uses Quill as its underlying editor. It provides a user-friendly interface for editing formatted text with various styling options.
+The `mg-input-rich-text-editor` component is a rich text editor input that uses Jodit as its underlying editor. It provides a user-friendly interface for editing formatted text with various styling options.
 
 ## Features
 
-- Rich text editing capabilities powered by Quill
-- Customizable toolbar with formatting options
+- Rich text editing capabilities powered by Jodit
 - Support for both HTML string and plain text formats
-- Accessibility features
+- Customizable toolbar with formatting options
+- Automatic HTML sanitization for security
 - Validation and error handling
 
-## Content Management
+## Content management
 
-### Receiving Content
+### Receiving content
 
 The component can receive content in two different ways:
 
@@ -19,15 +19,95 @@ The component can receive content in two different ways:
 
 The component automatically detects the type of content received via the `value` property and handles it accordingly.
 
-### Emitting Content
+### Emitting content
 
 The component emits the modified content via the `value-change` event. To ensure compatibility with forms, the content is always emitted in HTML format, regardless of how it was initially received.
 
-### HTML Security and Sanitization
+### Toolbar configuration
 
-⚠️ **Important**: When handling HTML content, it is crucial to sanitize the HTML to prevent XSS (Cross-Site Scripting) vulnerabilities. We strongly recommend using the `@mgdis/sanitize-html` package to sanitize HTML content before displaying it.
+The component provides a default toolbar with commonly used formatting options. You can customize the toolbar by using the `modules` prop, which accepts a Jodit `ButtonsOption` configuration.
 
-The sanitizer is configured by default to allow commonly used tags and attributes in a rich text editor while blocking potentially dangerous content like `<script>` tags or inline JavaScript attributes.
+#### Default toolbar
+
+By default, the toolbar includes the following buttons (in order):
+
+- **Text formatting**: `bold`, `italic`, `underline`, `strikethrough`, `eraser`
+- **Lists**: `ul` (unordered list), `ol` (ordered list)
+- **Text positioning**: `superscript`, `subscript`
+- **Colors**: `brush` (text color/background)
+- **Media**: `link`, `image`, `file`
+- **Tables**: `table`
+- **History**: `undo`, `redo`
+- **Other**: `print`, `source` (HTML source editor)
+
+The `|` character in the configuration represents a separator/divider in the toolbar.
+
+#### Customizing the toolbar
+
+You can customize the toolbar by passing a custom configuration to the `modules` prop. The configuration is a JSON string representing an array of button names (strings) and separators (`|`), or a more complex Jodit `ButtonsOption` configuration for advanced customization.
+
+**Example:**
+
+```html
+<mg-input-rich-text-editor
+  modules='["bold", "italic", "|", "ul", "ol"]'
+  ...
+></mg-input-rich-text-editor>
+```
+
+For more advanced configurations, refer to the [Jodit documentation](https://xdsoft.net/jodit/docs/) on toolbar configuration. The `modules` prop accepts the same `ButtonsOption` type that Jodit uses for its `buttons` configuration.
+
+### HTML security and sanitization
+
+**Automatic Sanitization**: The component automatically sanitizes all HTML content to prevent XSS (Cross-Site Scripting) vulnerabilities. The sanitization is performed using the `@mgdis/sanitize-html` package and is applied:
+
+- When content is received via the `value` prop (initial value)
+- When content is emitted via the `value-change` event
+- When content is retrieved via the `getHTML()` method
+- When content is displayed in readonly mode
+
+The sanitizer is configured by default to allow commonly used tags and attributes in a rich text editor (headings, lists, tables, links, images, formatting tags, etc.) while blocking potentially dangerous content like `<script>` tags or inline JavaScript attributes.
+
+#### Customizing sanitization
+
+You can customize the sanitization behavior using the `sanitizerOptions` prop. This allows you to restrict specific tags or attributes that would otherwise be allowed by default:
+
+```html
+<mg-input-rich-text-editor
+  sanitizer-options='{"disallowTags": ["img"], "disallowAttributes": {"*": ["style"]}}'
+  ...
+></mg-input-rich-text-editor>
+```
+
+The `sanitizerOptions` prop accepts a `SanitizerOptions` object with the following properties:
+- `disallowTags`: Array of tag names to remove from the sanitized HTML
+- `disallowAttributes`: Object mapping tag names (or `"*"` for all tags) to arrays of attribute names to remove
+
+**Note**: The sanitizer options only allow to restrict what is allowed by default. You cannot add tags or attributes that are not already allowed in the default configuration. This is intentional to enforce a secure configuration.
+
+### Editor height
+
+The component allows you to control the height of the editor using the `editor-height` property. This property defines the minimum height of the editor in pixels and is passed directly to Jodit's `minHeight` configuration option.
+
+**Default value**: `200` pixels
+
+**Example:**
+
+```html
+<mg-input-rich-text-editor
+  editor-height="300"
+  ...
+></mg-input-rich-text-editor>
+```
+
+The height value is applied to the entire editor container, including the toolbar and the content area. The editor will maintain this minimum height while allowing the content to grow if needed.
+
+### Utility methods
+
+The component provides several methods to retrieve content in different formats:
+
+- `getHTML()`: Retrieves the content in HTML format (automatically sanitized)
+- `getText()`: Retrieves the content in plain text format
 
 <!-- Auto Generated Below -->
 
