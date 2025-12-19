@@ -46,15 +46,15 @@
     }
 
     mg-character-left {
-      right: calc(var(--mg-c-input-border-width) + 0.1rem);
       bottom: calc(var(--mg-c-input-border-width) + 0.1rem);
+      left: calc(var(--mg-c-input-border-width) + 0.1rem);
       padding: calc(var(--mg-b-size-4) / 2 - var(--mg-c-input-border-width)) calc(var(--mg-b-size-4) - var(--mg-c-input-border-width));
       border: var(--mg-c-input-border-width) solid var(--mg-c-input-color-border);
-      border-right-width: 0;
       border-bottom-width: 0;
+      border-left-width: 0;
       background: var(--mg-b-color-neutral-0);
-      border-bottom-right-radius: var(--mg-c-input-border-radius);
-      border-top-left-radius: var(--mg-c-input-border-radius);
+      border-bottom-left-radius: var(--mg-c-input-border-radius);
+      border-top-right-radius: var(--mg-c-input-border-radius);
     }
   }
 }
