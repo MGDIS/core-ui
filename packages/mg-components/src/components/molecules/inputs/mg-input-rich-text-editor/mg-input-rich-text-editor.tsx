@@ -50,6 +50,12 @@ export class MgInputRichTextEditor {
   @Prop() identifier!: string;
 
   /**
+   * Input name
+   * If not set the value equals the identifier
+   */
+  @Prop() name: string = this.identifier;
+
+  /**
    * Input label
    */
   @Prop() label!: string;
@@ -442,6 +448,7 @@ export class MgInputRichTextEditor {
     if (!this.readonly) {
       this.editor = defineEditor(this.wrapperElement, {
         modules: this.modules,
+        name: this.name,
         readOnly: this.readonly || this.disabled,
         placeholder: this.placeholder,
         value: this.sanitizer.sanitize(this.value),

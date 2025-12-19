@@ -1259,6 +1259,11 @@ export namespace Components {
          */
         "modules"?: EditorOptionsType['modules'];
         /**
+          * Input name If not set the value equals the identifier
+          * @default this.identifier
+         */
+        "name": string;
+        /**
           * Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
          */
         "pattern"?: string;
@@ -3943,6 +3948,11 @@ declare namespace LocalJSX {
           * Editor modules configuration
          */
         "modules"?: EditorOptionsType['modules'];
+        /**
+          * Input name If not set the value equals the identifier
+          * @default this.identifier
+         */
+        "name"?: string;
         /**
           * Emited event when checking validity
          */
