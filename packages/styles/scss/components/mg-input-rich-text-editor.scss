@@ -3,28 +3,54 @@
 @use '../base/anchor';
 
 /* Component Custom Style */
+.mg-c-input.mg-c-input--rich-text-editor {
+  .mg-c-input {
+    &__wrapper {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+    }
 
-.mg-c-input__wrapper {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  border-width: var(--mg-c-input-border-width);
-  border-style: solid;
-  border-color: var(--mg-c-input-color-border);
-  border-radius: var(--mg-c-input-border-radius);
-  background-color: var(--mg-b-color-light);
+    &__container {
+      position: relative;
+      z-index: 1;
+      border: var(--mg-c-input-border-width) solid var(--mg-c-input-color-border);
+      border-radius: var(--mg-c-input-border-radius);
+      background-color: var(--mg-b-color-light);
 
-  &:focus-within {
-    box-shadow: 0 0 var(--mg-b-size-4) var(--mg-c-input-color-box-shadow-focus);
-    outline: Highlight auto 0.1rem;
-    outline: -webkit-focus-ring-color auto 0.1rem;
+      &:focus-within {
+        box-shadow: 0 0 var(--mg-b-size-4) var(--mg-c-input-color-box-shadow-focus);
+        outline: Highlight auto 0.1rem;
+        outline: -webkit-focus-ring-color auto 0.1rem;
+      }
+    }
+
+    &__toolbar-box {
+      position: relative;
+      z-index: -1;
+    }
+
+    &__workplace {
+      background-color: transparent;
+    }
+
+    &__wysiwyg,
+    &__readonly-value {
+      > * {
+        margin: 0;
+
+        & + * {
+          margin-top: 1em;
+        }
+      }
+    }
   }
 
-  .mg-c-input--has-error & {
+  &.mg-c-input--has-error .mg-c-input__container {
     border-color: var(--mg-b-color-danger);
   }
 
-  .mg-c-input--disabled & {
+  &.mg-c-input--disabled .mg-c-input__wrapper {
     opacity: var(--mg-b-opacity-element-disabled);
   }
 }

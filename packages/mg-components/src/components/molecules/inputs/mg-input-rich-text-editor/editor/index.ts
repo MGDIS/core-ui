@@ -212,6 +212,17 @@ export const defineEditor: IdefineEditor = (wrapperElement, { value, modules, re
   // Initialize Jodit editor
   const joditInstance = Jodit.make(editorElement, joditConfig as Parameters<typeof Jodit.make>[1]);
 
+  // Add custom classes
+  // These classes are added to Jodit's DOM elements for styling purposes
+  const addCustomClass = (selector: string, className: string): void => {
+    wrapperElement.querySelector(selector).classList.add(className);
+  };
+
+  addCustomClass('.jodit-container', 'mg-c-input__container');
+  addCustomClass('.jodit-toolbar__box', 'mg-c-input__toolbar-box');
+  addCustomClass('.jodit-workplace', 'mg-c-input__workplace');
+  addCustomClass('.jodit-wysiwyg', 'mg-c-input__wysiwyg');
+
   // Set initial value
   if (isValidString(value)) {
     joditInstance.value = value;
