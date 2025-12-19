@@ -63,7 +63,7 @@ For more advanced configurations, refer to the [Jodit documentation](https://xds
 
 - When content is received via the `value` prop (initial value)
 - When content is emitted via the `value-change` event
-- When content is retrieved via the `getHTML()` method
+- When content is retrieved via the `getEditorHTML()` method
 - When content is displayed in readonly mode
 
 The sanitizer is configured by default to allow commonly used tags and attributes in a rich text editor (headings, lists, tables, links, images, formatting tags, etc.) while blocking potentially dangerous content like `<script>` tags or inline JavaScript attributes.
@@ -106,8 +106,8 @@ The height value is applied to the entire editor container, including the toolba
 
 The component provides several methods to retrieve content in different formats:
 
-- `getHTML()`: Retrieves the content in HTML format (automatically sanitized)
-- `getText()`: Retrieves the content in plain text format
+- `getEditorHTML()`: Retrieves the content in HTML format (automatically sanitized)
+- `getEditorText()`: Retrieves the content in plain text format
 
 <!-- Auto Generated Below -->
 

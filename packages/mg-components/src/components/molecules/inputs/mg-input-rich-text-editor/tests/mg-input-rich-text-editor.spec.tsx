@@ -226,7 +226,7 @@ describe('mg-input-rich-text-editor', () => {
       expect(result).toEqual(expectedValue);
     });
 
-    test('getText should return empty string when textContent is null', async () => {
+    test('getEditorText should return empty string when textContent is null', async () => {
       const page = await getPage({ label: 'label', identifier: 'identifier', value: '<img src="test.jpg">' });
       const { element, editor } = await waitForEditor(page);
 
@@ -704,7 +704,7 @@ describe('mg-input-rich-text-editor', () => {
       setReadOnlySpy.mockRestore();
     });
 
-    test('getText should return empty string when textContent is null or undefined', async () => {
+    test('getEditorText should return empty string when textContent is null or undefined', async () => {
       const page = await getPage({ label: 'label', identifier: 'identifier', value: '<img src="test.jpg">' });
       const { editor } = await waitForEditor(page);
 
