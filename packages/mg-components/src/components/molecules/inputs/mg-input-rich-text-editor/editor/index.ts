@@ -10,12 +10,13 @@ import type { IJodit, ButtonsOption } from 'jodit/esm/types';
  */
 export type EditorOptionsType = {
   value: string;
-  handleTextChange: () => void;
-  handleFocus: () => void;
-  handleBlur: () => void;
   readOnly?: boolean;
   placeholder?: string;
   modules?: ButtonsOption;
+  editorHeight?: number;
+  handleTextChange: () => void;
+  handleFocus: () => void;
+  handleBlur: () => void;
 };
 
 /**
@@ -128,7 +129,7 @@ const createEditorWrapper = (joditInstance: IJodit): EditorType => {
  * @param config - Editor configuration options
  * @returns Configured Jodit editor instance
  */
-export const defineEditor: IdefineEditor = (wrapperElement, { value, modules, readOnly, placeholder, handleTextChange, handleFocus, handleBlur }) => {
+export const defineEditor: IdefineEditor = (wrapperElement, { value, modules, readOnly, placeholder, editorHeight, handleTextChange, handleFocus, handleBlur }) => {
   // Get the shadow root if the element is inside a Shadow DOM
   const shadowRoot = wrapperElement.getRootNode() instanceof ShadowRoot ? (wrapperElement.getRootNode() as ShadowRoot) : null;
 
@@ -188,7 +189,10 @@ export const defineEditor: IdefineEditor = (wrapperElement, { value, modules, re
     // Provide ownerDocument and ownerWindow to ensure Jodit uses the correct context
     ownerDocument: ownerDocument,
     ownerWindow: ownerWindow,
-    globalFullSize: false, // Prevent fullscreen from breaking component's shadow root isolation
+    // Prevent fullscreen from breaking component's shadow root isolation
+    globalFullSize: false,
+    // Set min-height based on editorHeight property (in pixels)
+    minHeight: `${editorHeight}px`,
     // Resizer configuration
     allowResizeTags: new Set(['img', 'table']),
     resizer: {

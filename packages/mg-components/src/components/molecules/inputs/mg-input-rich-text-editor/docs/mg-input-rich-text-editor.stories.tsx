@@ -14,7 +14,7 @@ export default {
  * @returns HTMLElement
  */
 const Template = (args: MgInputRichTextEditorType): HTMLMgInputRichTextEditorElement => (
-  <mg-input-rich-text-editor {...filterArgs(args, { rows: 5, tooltipPosition: 'input' })}></mg-input-rich-text-editor>
+  <mg-input-rich-text-editor {...filterArgs(args, { tooltipPosition: 'input' })}></mg-input-rich-text-editor>
 );
 
 export const MgInputRichTextEditor = {
@@ -26,7 +26,6 @@ export const MgInputRichTextEditor = {
     labelOnTop: false,
     labelHide: false,
     placeholder: 'Saisissez votre texte ici...',
-    rows: 5,
     required: false,
     readonly: false,
     disabled: false,

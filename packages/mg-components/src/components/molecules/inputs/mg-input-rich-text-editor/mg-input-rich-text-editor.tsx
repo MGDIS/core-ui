@@ -71,9 +71,9 @@ export class MgInputRichTextEditor {
   @Prop() placeholder?: string;
 
   /**
-   * Define the number of visible text lines for the control
+   * Define the height of the editor in pixels
    */
-  @Prop() rows = 5;
+  @Prop() editorHeight = 200;
 
   /**
    * Define if input is required
@@ -420,7 +420,6 @@ export class MgInputRichTextEditor {
 
     // Get locales
     this.messages = initLocales(this.element as unknown as HTMLElement).messages;
-    this.element.style.setProperty('--mg-c-input-rich-text-editor-rows', this.rows.toString());
     // Validate
     this.validatePattern(this.pattern);
     this.validatePattern(this.patternErrorMessage);
@@ -446,6 +445,7 @@ export class MgInputRichTextEditor {
         readOnly: this.readonly || this.disabled,
         placeholder: this.placeholder,
         value: this.sanitizer.sanitize(this.value),
+        editorHeight: this.editorHeight,
         handleTextChange: this.handleTextChange,
         handleBlur: this.handleBlur,
         handleFocus: this.handleFocus,
