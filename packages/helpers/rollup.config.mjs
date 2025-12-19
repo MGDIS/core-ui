@@ -45,7 +45,7 @@ export default async () => {
             },
           ],
           plugins: [nodeResolve(), commonjs(), typescript()],
-          external: ['@playwright/test', 'vue', 'vue-template-compiler'],
+          external: ['@playwright/test', 'vue'],
         },
         {
           input,
