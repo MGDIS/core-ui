@@ -4,6 +4,10 @@ import { VNode } from '@stencil/core';
 import jsonDocs from '../../../json-doc.test.json';
 import { JsonDocs } from '@stencil/core/internal';
 
+vi.mock('@stencil/core/internal/client', () => ({
+  renderVdom: vi.fn(),
+}));
+
 describe('stencil', () => {
   describe('filterArgs', () => {
     test('Should get renderable args, case filtred default args', () => {

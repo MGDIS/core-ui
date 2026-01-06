@@ -1,7 +1,11 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import { webTypesGenerator, vsCodeGenerator, vsCodeCssGenerator } from '.';
 import { JsonDocs } from '@stencil/core/internal';
 import jsonDocs from '../../../json-doc.test.json';
+
+vi.mock('@stencil/core/internal/client', () => ({
+  renderVdom: vi.fn(),
+}));
 
 describe('ide', () => {
   describe('webTypesGenerator', () => {
