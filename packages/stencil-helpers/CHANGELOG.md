@@ -1,5 +1,14 @@
 # @mgdis/stencil-helpers
 
+## 3.2.9
+
+### Patch Changes
+
+- 143f9d0: update dependencies
+- Updated dependencies [76206e1]
+- Updated dependencies [143f9d0]
+  - @mgdis/core-ui-helpers@1.0.7
+
 ## 3.2.8
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 2.5.4
+
+### Patch Changes
+
+- 143f9d0: update dependencies
+
 ## 2.5.3
 
 ### Patch Changes

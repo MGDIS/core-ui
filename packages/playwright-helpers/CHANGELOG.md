@@ -1,5 +1,14 @@
 # @mgdis/playwright-helpers
 
+## 1.1.12
+
+### Patch Changes
+
+- 76206e1: `renderAttributes` helper should render "false" attributes to avoid unassigned values.
+- Updated dependencies [76206e1]
+- Updated dependencies [143f9d0]
+  - @mgdis/core-ui-helpers@1.0.7
+
 ## 1.1.11
 
 ### Patch Changes
