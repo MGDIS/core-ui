@@ -221,27 +221,15 @@ describe('mg-input-rich-text-editor', () => {
       expect(page.root).toMatchSnapshot();
 
       const result = await element[method]();
-      jest.runOnlyPendingTimers();
 
       expect(result).toEqual(expectedValue);
     });
 
-    test('getEditorText should return empty string when textContent is null', async () => {
+    test('getEditorText should return empty string when editor contains only images', async () => {
       const page = await getPage({ label: 'label', identifier: 'identifier', value: '<img src="test.jpg">' });
-      const { element, editor } = await waitForEditor(page);
+      const { element } = await waitForEditor(page);
 
-      // Mock getText to return null textContent to test the fallback
-      jest.spyOn(editor, 'getText').mockImplementation(() => {
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = editor.value;
-        // Simulate null textContent
-        Object.defineProperty(tempDiv, 'textContent', {
-          get: () => null,
-          configurable: true,
-        });
-        return tempDiv.textContent?.trim() || '';
-      });
-
+      // When editor contains only images, getText() returns empty string
       const result = await element.getEditorText();
       expect(result).toEqual('');
     });
@@ -290,52 +278,19 @@ describe('mg-input-rich-text-editor', () => {
     });
 
     describe.each([true, false])('Should return validity with isValid method, readonly: %s', required => {
-    test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
-      "Should display override error with setError component's public method (%s)",
-      async ({ valid, lock }) => {
-        const getErrorMessage = (element: HTMLMgInputRichTextEditorElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
+      test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
+        "Should display override error with setError component's public method (%s)",
+        async ({ valid, lock }) => {
+          const getErrorMessage = (element: HTMLMgInputRichTextEditorElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
 
-        const customErrorMessage = 'Override error';
+          const customErrorMessage = 'Override error';
           const page = await getPage({ label: 'label', identifier: 'identifier', required });
-        const { element, input } = await waitForEditor(page);
+          const { element, input } = await waitForEditor(page);
 
-        expect(page.root).toMatchSnapshot();
+          expect(page.root).toMatchSnapshot();
 
           // Mock validity
           let currentValidity = valid;
-          input.checkValidity = jest.fn(() => currentValidity);
-        Object.defineProperty(input, 'validity', {
-            get: () => ({
-              valueMissing: !currentValidity,
-            }),
-            configurable: true,
-        });
-
-        await element.setError(valid, customErrorMessage, lock);
-          await page.waitForChanges();
-
-          input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
-        await page.waitForChanges();
-
-          currentValidity = false;
-          input.checkValidity = jest.fn(() => currentValidity);
-        input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
-        await page.waitForChanges();
-
-        if (lock && !valid) {
-          expect(getErrorMessage(element)).toEqual(customErrorMessage);
-          } else if (valid) {
-            expect(getErrorMessage(element)).toEqual(undefined);
-        } else {
-            const errorMsg = getErrorMessage(element);
-            expect(errorMsg).toBeDefined();
-            expect(['Override error', 'This field is required.']).toContain(errorMsg);
-        }
-        expect(page.root).toMatchSnapshot();
-
-          // Mock validity
-          currentValidity = true;
-        element.value = 'batman';
           input.checkValidity = jest.fn(() => currentValidity);
           Object.defineProperty(input, 'validity', {
             get: () => ({
@@ -343,21 +298,54 @@ describe('mg-input-rich-text-editor', () => {
             }),
             configurable: true,
           });
-        input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
-        await page.waitForChanges();
 
-        if (lock && !valid) {
-          expect(getErrorMessage(element)).toEqual(customErrorMessage);
-        } else {
+          await element.setError(valid, customErrorMessage, lock);
+          await page.waitForChanges();
+
+          input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+          await page.waitForChanges();
+
+          currentValidity = false;
+          input.checkValidity = jest.fn(() => currentValidity);
+          input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+          await page.waitForChanges();
+
+          if (lock && !valid) {
+            expect(getErrorMessage(element)).toEqual(customErrorMessage);
+          } else if (valid) {
+            expect(getErrorMessage(element)).toEqual(undefined);
+          } else {
+            const errorMsg = getErrorMessage(element);
+            expect(errorMsg).toBeDefined();
+            expect(['Override error', 'This field is required.']).toContain(errorMsg);
+          }
+          expect(page.root).toMatchSnapshot();
+
+          // Mock validity
+          currentValidity = true;
+          element.value = 'batman';
+          input.checkValidity = jest.fn(() => currentValidity);
+          Object.defineProperty(input, 'validity', {
+            get: () => ({
+              valueMissing: !currentValidity,
+            }),
+            configurable: true,
+          });
+          input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+          await page.waitForChanges();
+
+          if (lock && !valid) {
+            expect(getErrorMessage(element)).toEqual(customErrorMessage);
+          } else {
             const errorMsg = getErrorMessage(element);
             if (valid) {
               expect(errorMsg).toEqual(undefined);
             } else {
               expect([undefined, customErrorMessage]).toContain(errorMsg);
             }
-        }
-      },
-    );
+          }
+        },
+      );
     });
 
     test.each([
@@ -607,7 +595,10 @@ describe('mg-input-rich-text-editor', () => {
 
       // Simulate text change
       const htmlContent = '<p>Test content</p>';
-      jest.spyOn(editor, 'getSemanticHTML').mockReturnValue(htmlContent);
+      Object.defineProperty(editor, 'value', {
+        get: () => htmlContent,
+        configurable: true,
+      });
 
       // Trigger change event using Jodit's events API
       editor.events.fire('change');
@@ -655,196 +646,202 @@ describe('mg-input-rich-text-editor', () => {
   });
 
   describe('Editor', () => {
-    test('Should handle custom editor modules', async () => {
-      const customModules = ['bold', 'italic'] as ButtonsOption;
+    describe('Configuration', () => {
+      test('Should handle custom editor modules', async () => {
+        const customModules = ['bold', 'italic'] as ButtonsOption;
 
-      const page = await getPage({
-        label: 'label',
-        identifier: 'identifier',
-        modules: customModules,
+        const page = await getPage({
+          label: 'label',
+          identifier: 'identifier',
+          modules: customModules,
+        });
+
+        const { editor } = await waitForEditor(page);
+        expect(editor.options.buttons).toEqual(customModules);
       });
-
-      const { editor } = await waitForEditor(page);
-      expect(editor.options.buttons).toEqual(customModules);
-  });
-
-    test('Should call setReadOnly(false) when enable is called', async () => {
-      const page = await getPage({
-        label: 'label',
-        identifier: 'identifier',
-      });
-
-      const { editor } = await waitForEditor(page);
-
-      // Spy on setReadOnly before calling enable
-      const setReadOnlySpy = jest.spyOn(editor, 'setReadOnly');
-
-      // Call enable which should call setReadOnly(false)
-      editor.enable();
-
-      expect(setReadOnlySpy).toHaveBeenCalledWith(false);
-      setReadOnlySpy.mockRestore();
     });
 
-    test('Should call setReadOnly(true) when disable is called', async () => {
-      const page = await getPage({
-        label: 'label',
-        identifier: 'identifier',
+    describe('Wrapper methods', () => {
+      test('Should call setReadOnly(false) when enable is called', async () => {
+        const page = await getPage({
+          label: 'label',
+          identifier: 'identifier',
+        });
+
+        const { editor } = await waitForEditor(page);
+
+        // Spy on setReadOnly before calling enable
+        const setReadOnlySpy = jest.spyOn(editor, 'setReadOnly');
+
+        // Call enable which should call setReadOnly(false)
+        editor.enable();
+
+        expect(setReadOnlySpy).toHaveBeenCalledWith(false);
+        setReadOnlySpy.mockRestore();
       });
 
-      const { editor } = await waitForEditor(page);
+      test('Should call setReadOnly(true) when disable is called', async () => {
+        const page = await getPage({
+          label: 'label',
+          identifier: 'identifier',
+        });
 
-      // Spy on setReadOnly before calling disable
-      const setReadOnlySpy = jest.spyOn(editor, 'setReadOnly');
+        const { editor } = await waitForEditor(page);
 
-      // Call disable which should call setReadOnly(true)
-      editor.disable();
+        // Spy on setReadOnly before calling disable
+        const setReadOnlySpy = jest.spyOn(editor, 'setReadOnly');
 
-      expect(setReadOnlySpy).toHaveBeenCalledWith(true);
-      setReadOnlySpy.mockRestore();
-    });
+        // Call disable which should call setReadOnly(true)
+        editor.disable();
 
-    test('getEditorText should return empty string when textContent is null or undefined', async () => {
-      const page = await getPage({ label: 'label', identifier: 'identifier', value: '<img src="test.jpg">' });
-      const { editor } = await waitForEditor(page);
-
-      // Test the actual getText implementation
-      // When editor.value contains only an image, textContent should be empty
-      const result = editor.getText();
-      expect(result).toEqual('');
-
-      // Test with empty value
-      editor.value = '';
-      const resultEmpty = editor.getText();
-      expect(resultEmpty).toEqual('');
-
-      // Test with value that has only whitespace
-      editor.value = '   ';
-      const resultWhitespace = editor.getText();
-      expect(resultWhitespace).toEqual('');
-
-      // Test with value that has actual text content
-      editor.value = '<p>Test content</p>';
-      const resultWithContent = editor.getText();
-      expect(resultWithContent).toEqual('Test content');
-    });
-
-    test('defineEditor should handle element not in ShadowRoot', async () => {
-      // Import defineEditor to test it directly
-      const { defineEditor } = await import('../editor');
-
-      // Create a regular DOM element
-      const wrapperElement = document.createElement('div');
-      document.body.appendChild(wrapperElement);
-
-      const handleTextChange = jest.fn();
-      const handleFocus = jest.fn();
-      const handleBlur = jest.fn();
-
-      const editor = defineEditor(wrapperElement, {
-        value: '<p>Test</p>',
-        handleTextChange,
-        handleFocus,
-        handleBlur,
-        readOnly: false,
-        placeholder: 'Test placeholder',
+        expect(setReadOnlySpy).toHaveBeenCalledWith(true);
+        setReadOnlySpy.mockRestore();
       });
 
-      expect(editor).toBeDefined();
-      expect(editor.value).toBe('<p>Test</p>');
+      test('getText should return correct text content', async () => {
+        const page = await getPage({ label: 'label', identifier: 'identifier', value: '<img src="test.jpg">' });
+        const { editor } = await waitForEditor(page);
 
-      // Clean up
-      document.body.removeChild(wrapperElement);
+        // Test the actual getText implementation
+        // When editor.value contains only an image, textContent should be empty
+        const result = editor.getText();
+        expect(result).toEqual('');
+
+        // Test with empty value
+        editor.value = '';
+        const resultEmpty = editor.getText();
+        expect(resultEmpty).toEqual('');
+
+        // Test with value that has only whitespace
+        editor.value = '   ';
+        const resultWhitespace = editor.getText();
+        expect(resultWhitespace).toEqual('');
+
+        // Test with value that has actual text content
+        editor.value = '<p>Test content</p>';
+        const resultWithContent = editor.getText();
+        expect(resultWithContent).toEqual('Test content');
+      });
     });
 
-    test('defineEditor should handle element in ShadowRoot', async () => {
-      // Import defineEditor to test it directly
-      const { defineEditor } = await import('../editor');
+    describe('defineEditor', () => {
+      test('Should handle element not in ShadowRoot', async () => {
+        // Import defineEditor to test it directly
+        const { defineEditor } = await import('../editor');
 
-      // Create a ShadowRoot element
-      const hostElement = document.createElement('div');
-      document.body.appendChild(hostElement);
-      const shadowRoot = hostElement.attachShadow({ mode: 'open' });
-      const wrapperElement = document.createElement('div');
-      shadowRoot.appendChild(wrapperElement);
+        // Create a regular DOM element
+        const wrapperElement = document.createElement('div');
+        document.body.appendChild(wrapperElement);
 
-      const handleTextChange = jest.fn();
-      const handleFocus = jest.fn();
-      const handleBlur = jest.fn();
+        const handleTextChange = jest.fn();
+        const handleFocus = jest.fn();
+        const handleBlur = jest.fn();
 
-      const editor = defineEditor(wrapperElement, {
-        value: '<p>Test in ShadowRoot</p>',
-        handleTextChange,
-        handleFocus,
-        handleBlur,
-        readOnly: false,
-        placeholder: 'Test placeholder',
+        const editor = defineEditor(wrapperElement, {
+          value: '<p>Test</p>',
+          handleTextChange,
+          handleFocus,
+          handleBlur,
+          readOnly: false,
+          placeholder: 'Test placeholder',
+        });
+
+        expect(editor).toBeDefined();
+        expect(editor.value).toBe('<p>Test</p>');
+
+        // Clean up
+        document.body.removeChild(wrapperElement);
       });
 
-      expect(editor).toBeDefined();
-      expect(editor.value).toBe('<p>Test in ShadowRoot</p>');
+      test('Should handle element in ShadowRoot', async () => {
+        // Import defineEditor to test it directly
+        const { defineEditor } = await import('../editor');
 
-      // Clean up
-      document.body.removeChild(hostElement);
-    });
+        // Create a ShadowRoot element
+        const hostElement = document.createElement('div');
+        document.body.appendChild(hostElement);
+        const shadowRoot = hostElement.attachShadow({ mode: 'open' });
+        const wrapperElement = document.createElement('div');
+        shadowRoot.appendChild(wrapperElement);
 
-    test('defineEditor should handle empty value', async () => {
-      // Import defineEditor to test it directly
-      const { defineEditor } = await import('../editor');
+        const handleTextChange = jest.fn();
+        const handleFocus = jest.fn();
+        const handleBlur = jest.fn();
 
-      // Create a regular DOM element
-      const wrapperElement = document.createElement('div');
-      document.body.appendChild(wrapperElement);
+        const editor = defineEditor(wrapperElement, {
+          value: '<p>Test in ShadowRoot</p>',
+          handleTextChange,
+          handleFocus,
+          handleBlur,
+          readOnly: false,
+          placeholder: 'Test placeholder',
+        });
 
-      const handleTextChange = jest.fn();
-      const handleFocus = jest.fn();
-      const handleBlur = jest.fn();
+        expect(editor).toBeDefined();
+        expect(editor.value).toBe('<p>Test in ShadowRoot</p>');
 
-      const editor = defineEditor(wrapperElement, {
-        value: '',
-        handleTextChange,
-        handleFocus,
-        handleBlur,
-        readOnly: false,
-        placeholder: 'Test placeholder',
+        // Clean up
+        document.body.removeChild(hostElement);
       });
 
-      expect(editor).toBeDefined();
-      expect(editor.value).toBe('');
+      test('Should handle empty value', async () => {
+        // Import defineEditor to test it directly
+        const { defineEditor } = await import('../editor');
 
-      // Clean up
-      document.body.removeChild(wrapperElement);
-    });
+        // Create a regular DOM element
+        const wrapperElement = document.createElement('div');
+        document.body.appendChild(wrapperElement);
 
-    test('defineEditor should add custom CSS classes to Jodit elements', async () => {
-      // Import defineEditor to test it directly
-      const { defineEditor } = await import('../editor');
+        const handleTextChange = jest.fn();
+        const handleFocus = jest.fn();
+        const handleBlur = jest.fn();
 
-      // Create a regular DOM element
-      const wrapperElement = document.createElement('div');
-      document.body.appendChild(wrapperElement);
+        const editor = defineEditor(wrapperElement, {
+          value: '',
+          handleTextChange,
+          handleFocus,
+          handleBlur,
+          readOnly: false,
+          placeholder: 'Test placeholder',
+        });
 
-      const handleTextChange = jest.fn();
-      const handleFocus = jest.fn();
-      const handleBlur = jest.fn();
+        expect(editor).toBeDefined();
+        expect(editor.value).toBe('');
 
-      defineEditor(wrapperElement, {
-        value: '<p>Test</p>',
-        handleTextChange,
-        handleFocus,
-        handleBlur,
-        readOnly: false,
-        placeholder: 'Test placeholder',
+        // Clean up
+        document.body.removeChild(wrapperElement);
       });
 
-      // Verify that custom classes are added to Jodit elements
-      expect(wrapperElement.querySelector('.jodit-container')?.classList.contains('mg-c-input__container')).toBe(true);
-      expect(wrapperElement.querySelector('.jodit-toolbar__box')?.classList.contains('mg-c-input__toolbar-box')).toBe(true);
-      expect(wrapperElement.querySelector('.jodit-workplace')?.classList.contains('mg-c-input__workplace')).toBe(true);
-      expect(wrapperElement.querySelector('.jodit-wysiwyg')?.classList.contains('mg-c-input__wysiwyg')).toBe(true);
+      test('Should add custom CSS classes to Jodit elements', async () => {
+        // Import defineEditor to test it directly
+        const { defineEditor } = await import('../editor');
 
-      // Clean up
-      document.body.removeChild(wrapperElement);
+        // Create a regular DOM element
+        const wrapperElement = document.createElement('div');
+        document.body.appendChild(wrapperElement);
+
+        const handleTextChange = jest.fn();
+        const handleFocus = jest.fn();
+        const handleBlur = jest.fn();
+
+        defineEditor(wrapperElement, {
+          value: '<p>Test</p>',
+          handleTextChange,
+          handleFocus,
+          handleBlur,
+          readOnly: false,
+          placeholder: 'Test placeholder',
+        });
+
+        // Verify that custom classes are added to Jodit elements
+        expect(wrapperElement.querySelector('.jodit-container')?.classList.contains('mg-c-input__container')).toBe(true);
+        expect(wrapperElement.querySelector('.jodit-toolbar__box')?.classList.contains('mg-c-input__toolbar-box')).toBe(true);
+        expect(wrapperElement.querySelector('.jodit-workplace')?.classList.contains('mg-c-input__workplace')).toBe(true);
+        expect(wrapperElement.querySelector('.jodit-wysiwyg')?.classList.contains('mg-c-input__wysiwyg')).toBe(true);
+
+        // Clean up
+        document.body.removeChild(wrapperElement);
+      });
     });
   });
 });

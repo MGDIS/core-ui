@@ -26,22 +26,10 @@ export type EditorOptionsType = {
  */
 export interface EditorInterface {
   /**
-   * Get editor content as semantic HTML
-   * @returns HTML content
-   */
-  getSemanticHTML(): string;
-
-  /**
    * Get editor content as plain text
    * @returns Plain text content
    */
   getText(): string;
-
-  /**
-   * Set editor content as plain text
-   * @param text - Text content to set
-   */
-  setText(text: string): void;
 
   /**
    * Set focus on the editor
@@ -80,29 +68,12 @@ const createEditorWrapper = (joditInstance: IJodit): EditorType => {
   const editor = joditInstance as EditorType;
 
   /**
-   * Get editor content as semantic HTML
-   * Jodit's value property returns the HTML content
-   * @returns HTML content
-   */
-  editor.getSemanticHTML = (): string => {
-    return editor.value;
-  };
-
-  /**
    * Get editor content as plain text
    * Uses Jodit's editor element textContent property to extract plain text
    * @returns Plain text content
    */
   editor.getText = (): string => {
     return editor.editor.textContent.trim();
-  };
-
-  /**
-   * Set editor content as plain text
-   * @param text - Text content to set
-   */
-  editor.setText = (text: string): void => {
-    editor.value = text;
   };
 
   /**

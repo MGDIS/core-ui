@@ -81,42 +81,39 @@ class MockJodit implements Partial<IJodit> {
     }
 
     // Create Jodit DOM structure to match real Jodit behavior
-    const wrapperElement = element.parentElement;
-    if (wrapperElement !== null) {
-      // Create .jodit-container
-      const container = document.createElement('div');
-      container.className = 'jodit-container';
-      wrapperElement.appendChild(container);
+    const wrapperElement = element.parentElement ?? document.body;
+    // Create .jodit-container
+    const container = document.createElement('div');
+    container.className = 'jodit-container';
+    wrapperElement.appendChild(container);
 
-      // Create .jodit-toolbar__box
-      const toolbarBox = document.createElement('div');
-      toolbarBox.className = 'jodit-toolbar__box';
-      container.appendChild(toolbarBox);
+    // Create .jodit-toolbar__box
+    const toolbarBox = document.createElement('div');
+    toolbarBox.className = 'jodit-toolbar__box';
+    container.appendChild(toolbarBox);
 
-      // Create .jodit-workplace
-      const workplace = document.createElement('div');
-      workplace.className = 'jodit-workplace';
-      container.appendChild(workplace);
+    // Create .jodit-workplace
+    const workplace = document.createElement('div');
+    workplace.className = 'jodit-workplace';
+    container.appendChild(workplace);
 
-      // Create .jodit-wysiwyg
-      const wysiwyg = document.createElement('div');
-      wysiwyg.className = 'jodit-wysiwyg';
-      workplace.appendChild(wysiwyg);
+    // Create .jodit-wysiwyg
+    const wysiwyg = document.createElement('div');
+    wysiwyg.className = 'jodit-wysiwyg';
+    workplace.appendChild(wysiwyg);
 
-      // Set the editor element to the wysiwyg element
-      this._editorElement = wysiwyg;
-      // Synchronize editor element content with initial value
-      if (this._value !== '') {
-        this._editorElement.innerHTML = this._value;
-      }
-    } else {
-      // Fallback: create a simple editor element if parentElement is not available
-      // This should not happen in normal usage, but ensures the mock doesn't break
-      this._editorElement = document.createElement('div');
-      if (this._value !== '') {
-        this._editorElement.innerHTML = this._value;
-      }
-    }
+    // Set the editor element to the wysiwyg element
+    this._editorElement = wysiwyg;
+    // Synchronize editor element content with initial value
+    this._syncEditorContent();
+  }
+
+  /**
+   * Synchronize editor element content with value
+   * This ensures getText() works correctly by using editor.textContent
+   */
+  private _syncEditorContent(): void {
+    this._editorElement.innerHTML = this._value;
   }
 
   get value(): string {
@@ -126,7 +123,8 @@ class MockJodit implements Partial<IJodit> {
   set value(newValue: string) {
     this._value = newValue;
     // Synchronize editor element content with value
-    this._editorElement.innerHTML = newValue;
+    // This ensures getText() works correctly by using editor.textContent
+    this._syncEditorContent();
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

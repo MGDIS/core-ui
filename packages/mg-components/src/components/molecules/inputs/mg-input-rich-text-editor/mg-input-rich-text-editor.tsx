@@ -213,12 +213,8 @@ export class MgInputRichTextEditor {
    * @returns HTML content of the editor (sanitized)
    */
   @Method()
-  getEditorHTML(): Promise<string> {
-    return new Promise(resolve => {
-      requestAnimationFrame(() => {
-        resolve(this.sanitizer.sanitize(this.editor.getSemanticHTML()));
-      });
-    });
+  async getEditorHTML(): Promise<string> {
+    return this.sanitizer.sanitize(this.editor.value);
   }
 
   /**
@@ -227,11 +223,7 @@ export class MgInputRichTextEditor {
    */
   @Method()
   async getEditorText(): Promise<string> {
-    return new Promise(resolve => {
-      requestAnimationFrame(() => {
-        resolve(this.editor.getText());
-      });
-    });
+    return this.editor.getText();
   }
 
   /**
@@ -288,7 +280,7 @@ export class MgInputRichTextEditor {
   async reset(): Promise<void> {
     if (!this.readonly) {
       this.value = '';
-      this.editor.setText('');
+      this.editor.value = '';
       // Use `Promise` as requested for stencil method
       // Use `requestAnimationFrame` to ensure:
       // - DOM is fully updated before validation
@@ -313,21 +305,19 @@ export class MgInputRichTextEditor {
    * @returns truthy is value is invalid
    */
   private isEmpty = (): boolean => {
-    const textContent = this.getTextContent();
+    const textContent = this.editor.getText();
     return !(isValidString(textContent) && textContent !== '\n');
   };
-
-  /**
-   * Extract the text without HTML tags from value
-   * @returns text content
-   */
-  private getTextContent = (): string => this.value.replace(/<[^>]*>/g, '').trim();
 
   /**
    * Get pattern validity
    * @returns is pattern valid
    */
-  private getPatternValidity = (): boolean => this.pattern === undefined || new RegExp(`^${this.pattern}$`, 'u').test(this.getTextContent());
+  private getPatternValidity = (): boolean => {
+    if (this.pattern === undefined) return true;
+    const textContent = this.editor.getText();
+    return new RegExp(`^${this.pattern}$`, 'u').test(textContent);
+  };
 
   /**
    * Method to set validity values
@@ -363,9 +353,9 @@ export class MgInputRichTextEditor {
       // Does have a new custom error message OR does have a custom error message locked
       if (fromSetErrorContext || (this.customErrorMessage.lock && this.customErrorMessage.message !== undefined)) {
         this.errorMessage = this.customErrorMessage.message;
-      } else if (this.required && this.isEmpty()) {
+      } else if (!this.readonly && !this.disabled && this.required && this.isEmpty()) {
         this.errorMessage = this.messages.errors.required;
-      } else if (!this.getPatternValidity()) {
+      } else if (!this.readonly && !this.disabled && !this.getPatternValidity()) {
         this.errorMessage = this.patternErrorMessage;
       }
     }
@@ -400,7 +390,7 @@ export class MgInputRichTextEditor {
    */
   private handleTextChange = (): void => {
     // Get HTML content and sanitize before storing and emitting
-    this.value = this.sanitizer.sanitize(this.editor.getSemanticHTML());
+    this.value = this.sanitizer.sanitize(this.editor.value);
 
     // Emit the sanitized HTML content for form compatibility
     this.valueChange.emit(this.value);
@@ -479,7 +469,7 @@ export class MgInputRichTextEditor {
         errorMessage={this.hasDisplayedError ? this.errorMessage : undefined}
       >
         {this.readonly ? (
-          <div class="mg-c-input__readonly-value" innerHTML={this.sanitizer.sanitize(this.value)}></div>
+          <div class="mg-c-input__readonly-value" innerHTML={this.value}></div>
         ) : (
           <div
             ref={el => {
