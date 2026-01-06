@@ -552,16 +552,19 @@ export class MgInputCombobox {
   /**
    * Handle `blur` event
    */
-  private handleFilterBlur = (): void => {
-    // skip process if popover is displayed
-    if (this.popoverDisplay) return;
-
-    // Display Error
-    this.handlerInProgress = 'blur';
-    this.displayError().finally(() => {
-      // reset guard
-      this.handlerInProgress = undefined;
-    });
+  private handleFilterBlur = (event: FocusEvent & { target: HTMLInputElement }): void => {
+    if (this.popoverDisplay) {
+      // prevent blur event to bubble up and reset input focus process when popover is open
+      event.stopImmediatePropagation();
+      this.input.focus();
+    } else {
+      // Display Error
+      this.handlerInProgress = 'blur';
+      this.displayError().finally(() => {
+        // reset guard
+        this.handlerInProgress = undefined;
+      });
+    }
   };
 
   /**
