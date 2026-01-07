@@ -7,7 +7,11 @@ import { Sanitizer, type SanitizerOptions } from '@mgdis/sanitize-html';
 
 @Component({
   tag: 'mg-input-rich-text-editor',
-  styleUrls: ['editor/editor.scss', '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-rich-text-editor.css'],
+  styleUrls: [
+    './editor/custom-properties.scss',
+    '../../../../../node_modules/jodit/es2021/jodit.css',
+    '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-rich-text-editor.css',
+  ],
   shadow: true,
 })
 export class MgInputRichTextEditor {
