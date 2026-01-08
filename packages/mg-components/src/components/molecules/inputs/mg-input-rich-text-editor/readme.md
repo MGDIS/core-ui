@@ -23,10 +23,6 @@ The component automatically detects the type of content received via the `value`
 
 The component emits the modified content via the `value-change` event. To ensure compatibility with forms, the content is always emitted in HTML format, regardless of how it was initially received.
 
-### Form integration
-
-The component integrates seamlessly with HTML forms. When used inside a `<form>` element, the component automatically participates in form submission via `FormData`. The content is automatically included in the form data using the `name` attribute.
-
 ### Toolbar configuration
 
 The component provides a default toolbar with commonly used formatting options. You can customize the toolbar by using the `modules` prop, which accepts a Jodit `ButtonsOption` configuration.
