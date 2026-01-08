@@ -1214,11 +1214,6 @@ export namespace Components {
          */
         "displayError": () => Promise<void>;
         /**
-          * Define the height of the editor in pixels
-          * @default 200
-         */
-        "editorHeight": number;
-        /**
           * Get editor content as HTML
           * @returns HTML content of the editor (sanitized)
          */
@@ -1289,6 +1284,11 @@ export namespace Components {
           * Reset value, validity and error state
          */
         "reset": () => Promise<void>;
+        /**
+          * Define the number of visible text lines for the control
+          * @default 5
+         */
+        "rows": number;
         /**
           * Sanitizer configuration options Allows to customize which tags and attributes are disallowed in the sanitized HTML
          */
@@ -3914,11 +3914,6 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Define the height of the editor in pixels
-          * @default 200
-         */
-        "editorHeight"?: number;
-        /**
           * Add a help text under the input, usually expected data format and example
          */
         "helpText"?: string;
@@ -3983,6 +3978,11 @@ declare namespace LocalJSX {
           * @default false
          */
         "required"?: boolean;
+        /**
+          * Define the number of visible text lines for the control
+          * @default 5
+         */
+        "rows"?: number;
         /**
           * Sanitizer configuration options Allows to customize which tags and attributes are disallowed in the sanitized HTML
          */

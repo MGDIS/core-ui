@@ -168,7 +168,7 @@ export const defineEditor: IdefineEditor = (wrapperElement, { value, name, modul
     ownerWindow: ownerWindow,
     // Prevent fullscreen from breaking component's shadow root isolation
     globalFullSize: false,
-    // Set min-height based on editorHeight property (in pixels)
+    // Set min-height based on editorHeight (calculated from rows property, includes wysiwyg + toolbar + borders)
     minHeight: `${editorHeight}px`,
     // Resizer configuration
     allowResizeTags: new Set(['img', 'table']),

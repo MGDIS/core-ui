@@ -81,9 +81,9 @@ export class MgInputRichTextEditor {
   @Prop() placeholder?: string;
 
   /**
-   * Define the height of the editor in pixels
+   * Define the number of visible text lines for the control
    */
-  @Prop() editorHeight = 200;
+  @Prop() rows = 5;
 
   /**
    * Define if input is required
@@ -406,6 +406,55 @@ export class MgInputRichTextEditor {
     }
   };
 
+  /**
+   * Calculate editor height from rows
+   * Uses CSS variables to compute height: font-size * line-height * rows + padding
+   * Falls back to default values if CSS variables are not available
+   * @param rows - Number of rows
+   * @returns Calculated height in pixels (wysiwyg area + toolbar height of 40px + 2px borders)
+   */
+  private calculateEditorHeightFromRows(rows: number): number {
+    // Get CSS variables from the document root
+    const root = document.documentElement;
+    const computedStyle = getComputedStyle(root);
+
+    // Get font-size and line-height values with fallbacks
+    // Default values: font-size = 1.3rem, line-height = 1.4
+    const fontSizeValue = computedStyle.getPropertyValue('--mg-b-font-size').trim() || '1.3rem';
+    const lineHeightValue = computedStyle.getPropertyValue('--mg-b-line-height').trim() || '1.4';
+
+    // Parse rem values (remove 'rem' suffix)
+    const fontSizeRem = parseFloat(fontSizeValue.replace('rem', ''));
+    const lineHeight = parseFloat(lineHeightValue);
+
+    // Get html font-size to convert rem to pixels
+    const htmlFontSize = parseFloat(getComputedStyle(root).fontSize);
+
+    // Convert rem to pixels
+    const fontSizePx = fontSizeRem * htmlFontSize;
+
+    // Calculate line height in pixels
+    const lineHeightPx = fontSizePx * lineHeight;
+
+    // Use 0.8rem (--mg-b-size-8) for vertical padding
+    const paddingVertical = 0.8 * htmlFontSize;
+
+    // Calculate wysiwyg area height: content height + padding (top and bottom)
+    const contentHeight = lineHeightPx * rows;
+    const wysiwygHeight = contentHeight + paddingVertical * 2;
+
+    // Toolbar minimum height: 40px
+    const toolbarHeight = 40;
+
+    // Border height: 2px (1px top + 1px bottom)
+    const borderHeight = 2;
+
+    // Total height: wysiwyg area + toolbar + borders
+    const totalHeight = wysiwygHeight + toolbarHeight + borderHeight;
+
+    return Math.round(totalHeight);
+  }
+
   /*************
    * Lifecycle *
    *************/
@@ -446,7 +495,7 @@ export class MgInputRichTextEditor {
         readOnly: this.readonly || this.disabled,
         placeholder: this.placeholder,
         value: this.sanitizer.sanitize(this.value),
-        editorHeight: this.editorHeight,
+        editorHeight: this.calculateEditorHeightFromRows(this.rows),
         handleTextChange: this.handleTextChange,
         handleBlur: this.handleBlur,
         handleFocus: this.handleFocus,

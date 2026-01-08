@@ -92,20 +92,20 @@ The `sanitizerOptions` prop accepts a `SanitizerOptions` object with the followi
 
 ### Editor height
 
-The component allows you to control the height of the editor using the `editor-height` property. This property defines the minimum height of the editor in pixels and is passed directly to Jodit's `minHeight` configuration option.
+The component allows you to control the height of the editor using the `rows` property. The `rows` property defines the number of visible text lines for the control. The height is automatically calculated based on the font size and line height values.
 
-**Default value**: `200` pixels
+**Default value**: `5` rows
 
 **Example:**
 
 ```html
 <mg-input-rich-text-editor
-  editor-height="300"
+  rows="5"
   ...
 ></mg-input-rich-text-editor>
 ```
 
-The height value is applied to the entire editor container, including the toolbar and the content area. The editor will maintain this minimum height while allowing the content to grow if needed.
+The calculated height value is applied to the entire editor container, including the toolbar and the content area. The editor will maintain this minimum height while allowing the content to grow if needed.
 
 ### Utility methods
 
@@ -122,7 +122,6 @@ The component provides several methods to retrieve content in different formats:
 | Property                  | Attribute               | Description                                                                                                                                                          | Type                                                                                                                                            | Default           |
 | ------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
 | `disabled`                | `disabled`              | Define if input is disabled                                                                                                                                          | `boolean`                                                                                                                                       | `false`           |
-| `editorHeight`            | `editor-height`         | Define the height of the editor in pixels                                                                                                                            | `number`                                                                                                                                        | `200`             |
 | `helpText`                | `help-text`             | Add a help text under the input, usually expected data format and example                                                                                            | `string`                                                                                                                                        | `undefined`       |
 | `identifier` _(required)_ | `identifier`            | Identifier is used for the element ID (id is a reserved prop in Stencil.js)                                                                                          | `string`                                                                                                                                        | `undefined`       |
 | `invalid`                 | `invalid`               | Define input invalid state                                                                                                                                           | `boolean`                                                                                                                                       | `undefined`       |
@@ -136,6 +135,7 @@ The component provides several methods to retrieve content in different formats:
 | `placeholder`             | `placeholder`           | Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.                       | `string`                                                                                                                                        | `undefined`       |
 | `readonly`                | `readonly`              | Define if the editor is readonly                                                                                                                                     | `boolean`                                                                                                                                       | `false`           |
 | `required`                | `required`              | Define if input is required                                                                                                                                          | `boolean`                                                                                                                                       | `false`           |
+| `rows`                    | `rows`                  | Define the number of visible text lines for the control                                                                                                              | `number`                                                                                                                                        | `5`               |
 | `sanitizerOptions`        | --                      | Sanitizer configuration options Allows to customize which tags and attributes are disallowed in the sanitized HTML                                                   | `{ disallowAttributes?: Record<string, string[]>; disallowTags?: string[]; }`                                                                   | `undefined`       |
 | `tooltip`                 | `tooltip`               | Add a tooltip message next to the input                                                                                                                              | `string`                                                                                                                                        | `undefined`       |
 | `tooltipPosition`         | `tooltip-position`      | Define tooltip position                                                                                                                                              | `"input" \| "label"`                                                                                                                            | `'input'`         |
