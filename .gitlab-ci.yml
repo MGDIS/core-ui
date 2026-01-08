@@ -419,7 +419,7 @@ mg-components:npmjs:
   script:
     - !reference [.mg-components:build, script]
     - cd packages/mg-components
-    - pnpm publish --no-git-checks --access public --tag stable
+    - pnpm publish --no-git-checks --access public
 
 #######################
 # notification-center #
@@ -501,7 +501,7 @@ img:npmjs:
     - .npmjs
   script:
     - !reference [.img:build, script]
-    - pnpm publish --no-git-checks --access public --tag stable
+    - pnpm publish --no-git-checks --access public
 
 ##########
 # styles #
@@ -530,7 +530,7 @@ styles:npmjs:
     - .npmjs
   script:
     - !reference [.styles:build, script]
-    - pnpm publish --no-git-checks --access public --tag stable
+    - pnpm publish --no-git-checks --access public
 
 ######################
 # Playwright helpers #
@@ -577,7 +577,7 @@ helpers:npmjs:
     - .npmjs
   script:
     - !reference [.helpers, script]
-    - pnpm publish --no-git-checks --access public --tag stable
+    - pnpm publish --no-git-checks --access public
 
 ###################
 # Stencil helpers #
@@ -606,7 +606,7 @@ stencil-helpers:npmjs:
     - .npmjs
   script:
     - !reference [.stencil-helpers, script]
-    - pnpm publish --no-git-checks --access public --tag stable
+    - pnpm publish --no-git-checks --access public
 
 ##################
 # linting-styles #
