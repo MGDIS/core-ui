@@ -46,8 +46,11 @@
     }
   }
 
-  &.mg-c-input--has-error .mg-c-input__container {
-    border-color: var(--mg-b-color-danger);
+  &.mg-c-input--has-error {
+    .mg-c-input__container,
+    .mg-c-input__toolbar-box {
+      border-color: var(--mg-b-color-danger);
+    }
   }
 
   &.mg-c-input--disabled .mg-c-input__wrapper {
