@@ -22,6 +22,7 @@ export class MgInputRichTextEditor {
   // editor
   private editor: EditorType;
   private wrapperElement: HTMLDivElement;
+  private toolbarButtons?: EditorOptionsType['modules'];
 
   // Sanitizer
   private sanitizer: Sanitizer;
@@ -165,8 +166,25 @@ export class MgInputRichTextEditor {
 
   /**
    * Editor modules configuration
+   * Must be passed as an HTML attribute with a comma-separated list (e.g., modules="bold, italic, |, ul, ol")
    */
-  @Prop() modules?: EditorOptionsType['modules'];
+  @Prop() modules?: string;
+
+  /**
+   * Parse modules prop from string to array
+   */
+  private parseModules(): void {
+    if (this.modules === undefined) {
+      this.toolbarButtons = undefined;
+      return;
+    }
+
+    // Parse comma-separated string: "bold, italic, |, ul, ol"
+    this.toolbarButtons = this.modules
+      .split(',')
+      .map(item => item.trim())
+      .filter(item => item.length > 0) as EditorOptionsType['modules'];
+  }
 
   /**
    * Sanitizer configuration options
@@ -475,6 +493,8 @@ export class MgInputRichTextEditor {
     // Watch
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
+    // Parse modules configuration
+    this.parseModules();
 
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
@@ -490,7 +510,7 @@ export class MgInputRichTextEditor {
   componentDidLoad(): void {
     if (!this.readonly) {
       this.editor = defineEditor(this.wrapperElement, {
-        modules: this.modules,
+        modules: this.toolbarButtons,
         name: this.name,
         readOnly: this.readonly || this.disabled,
         placeholder: this.placeholder,

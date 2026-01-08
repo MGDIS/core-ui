@@ -19,7 +19,6 @@ import { Direction, Option, Option as ToggleOption } from "./types";
 import { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
-import { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
 import { SanitizerOptions } from "@mgdis/sanitize-html";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
@@ -51,7 +50,6 @@ export { Direction, Option, Option as ToggleOption } from "./types";
 export { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
-export { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
 export { SanitizerOptions } from "@mgdis/sanitize-html";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
@@ -1250,9 +1248,9 @@ export namespace Components {
          */
         "labelOnTop": boolean;
         /**
-          * Editor modules configuration
+          * Editor modules configuration Must be passed as an HTML attribute with a comma-separated list (e.g., modules="bold, italic, |, ul, ol")
          */
-        "modules"?: EditorOptionsType['modules'];
+        "modules"?: string;
         /**
           * Input name If not set the value equals the identifier
           * @default this.identifier
@@ -3940,9 +3938,9 @@ declare namespace LocalJSX {
          */
         "labelOnTop"?: boolean;
         /**
-          * Editor modules configuration
+          * Editor modules configuration Must be passed as an HTML attribute with a comma-separated list (e.g., modules="bold, italic, |, ul, ol")
          */
-        "modules"?: EditorOptionsType['modules'];
+        "modules"?: string;
         /**
           * Input name If not set the value equals the identifier
           * @default this.identifier

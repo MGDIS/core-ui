@@ -653,7 +653,7 @@ describe('mg-input-rich-text-editor', () => {
         const page = await getPage({
           label: 'label',
           identifier: 'identifier',
-          modules: customModules,
+          modules: 'bold, italic',
         });
 
         const { editor } = await waitForEditor(page);

@@ -157,13 +157,8 @@ test.describe('mg-input-rich-text-editor', () => {
   });
 
   test('Should render with custom toolbar options', async ({ page }) => {
-    const html = createHTML({ ...baseArgs });
+    const html = createHTML({ ...baseArgs, modules: 'bold, italic, eraser' });
     await page.setContent(html);
-
-    await page.evaluate(() => {
-      const editor = document.querySelector('mg-input-rich-text-editor');
-      editor.modules = ['bold', 'italic', 'eraser'];
-    });
 
     await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
 
