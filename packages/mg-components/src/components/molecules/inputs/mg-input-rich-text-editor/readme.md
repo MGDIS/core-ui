@@ -71,18 +71,28 @@ The sanitizer is configured by default to allow commonly used tags and attribute
 
 #### Customizing sanitization
 
-You can customize the sanitization behavior using the `sanitizerOptions` prop. This allows you to restrict specific tags or attributes that would otherwise be allowed by default:
+You can customize the sanitization behavior using two HTML attributes to restrict specific tags or attributes that would otherwise be allowed by default:
+
+- `sanitizer-disallow-tags`: Comma-separated list of tag names to remove from the sanitized HTML
+- `sanitizer-disallow-attributes`: Format `tag:attr1,attr2;tag2:attr3` where:
+  - Use `*` as tag name to apply to all tags
+  - Separate tag:attributes pairs with semicolons (`;`)
+  - Separate multiple attributes for the same tag with commas (`,`)
+
+**Example:**
 
 ```html
 <mg-input-rich-text-editor
-  sanitizer-options='{"disallowTags": ["img"], "disallowAttributes": {"*": ["style"]}}'
+  sanitizer-disallow-tags="img,script"
+  sanitizer-disallow-attributes="*:style;a:target"
   ...
 ></mg-input-rich-text-editor>
 ```
 
-The `sanitizerOptions` prop accepts a `SanitizerOptions` object with the following properties:
-- `disallowTags`: Array of tag names to remove from the sanitized HTML
-- `disallowAttributes`: Object mapping tag names (or `"*"` for all tags) to arrays of attribute names to remove
+This example will:
+- Remove all `<img>` and `<script>` tags from the sanitized HTML
+- Remove `style` attributes from all tags
+- Remove `target` attributes from `<a>` tags
 
 **Note**: The sanitizer options only allow to restrict what is allowed by default. You cannot add tags or attributes that are not already allowed in the default configuration. This is intentional to enforce a secure configuration.
 
@@ -115,28 +125,29 @@ The component provides several methods to retrieve content in different formats:
 
 ## Properties
 
-| Property                  | Attribute               | Description                                                                                                                                                          | Type                                                                          | Default           |
-| ------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------- |
-| `disabled`                | `disabled`              | Define if input is disabled                                                                                                                                          | `boolean`                                                                     | `false`           |
-| `helpText`                | `help-text`             | Add a help text under the input, usually expected data format and example                                                                                            | `string`                                                                      | `undefined`       |
-| `identifier` _(required)_ | `identifier`            | Identifier is used for the element ID (id is a reserved prop in Stencil.js)                                                                                          | `string`                                                                      | `undefined`       |
-| `invalid`                 | `invalid`               | Define input invalid state                                                                                                                                           | `boolean`                                                                     | `undefined`       |
-| `label` _(required)_      | `label`                 | Input label                                                                                                                                                          | `string`                                                                      | `undefined`       |
-| `labelHide`               | `label-hide`            | Define if label is visible                                                                                                                                           | `boolean`                                                                     | `false`           |
-| `labelOnTop`              | `label-on-top`          | Define if label is displayed on top                                                                                                                                  | `boolean`                                                                     | `false`           |
-| `modules`                 | `modules`               | Editor modules configuration Must be passed as an HTML attribute with a comma-separated list (e.g., modules="bold, italic, \|, ul, ol")                              | `string`                                                                      | `undefined`       |
-| `name`                    | `name`                  | Input name If not set the value equals the identifier                                                                                                                | `string`                                                                      | `this.identifier` |
-| `pattern`                 | `pattern`               | Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components. | `string`                                                                      | `undefined`       |
-| `patternErrorMessage`     | `pattern-error-message` | Define input pattern error message                                                                                                                                   | `string`                                                                      | `undefined`       |
-| `placeholder`             | `placeholder`           | Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.                       | `string`                                                                      | `undefined`       |
-| `readonly`                | `readonly`              | Define if the editor is readonly                                                                                                                                     | `boolean`                                                                     | `false`           |
-| `required`                | `required`              | Define if input is required                                                                                                                                          | `boolean`                                                                     | `false`           |
-| `rows`                    | `rows`                  | Define the number of visible text lines for the control                                                                                                              | `number`                                                                      | `5`               |
-| `sanitizerOptions`        | --                      | Sanitizer configuration options Allows to customize which tags and attributes are disallowed in the sanitized HTML                                                   | `{ disallowAttributes?: Record<string, string[]>; disallowTags?: string[]; }` | `undefined`       |
-| `tooltip`                 | `tooltip`               | Add a tooltip message next to the input                                                                                                                              | `string`                                                                      | `undefined`       |
-| `tooltipPosition`         | `tooltip-position`      | Define tooltip position                                                                                                                                              | `"input" \| "label"`                                                          | `'input'`         |
-| `valid`                   | `valid`                 | Define input valid state                                                                                                                                             | `boolean`                                                                     | `undefined`       |
-| `value`                   | `value`                 | Define the value of the editor Can be either HTML string or plain text                                                                                               | `string`                                                                      | `''`              |
+| Property                      | Attribute                       | Description                                                                                                                                                                                                              | Type                 | Default           |
+| ----------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- | ----------------- |
+| `disabled`                    | `disabled`                      | Define if input is disabled                                                                                                                                                                                              | `boolean`            | `false`           |
+| `helpText`                    | `help-text`                     | Add a help text under the input, usually expected data format and example                                                                                                                                                | `string`             | `undefined`       |
+| `identifier` _(required)_     | `identifier`                    | Identifier is used for the element ID (id is a reserved prop in Stencil.js)                                                                                                                                              | `string`             | `undefined`       |
+| `invalid`                     | `invalid`                       | Define input invalid state                                                                                                                                                                                               | `boolean`            | `undefined`       |
+| `label` _(required)_          | `label`                         | Input label                                                                                                                                                                                                              | `string`             | `undefined`       |
+| `labelHide`                   | `label-hide`                    | Define if label is visible                                                                                                                                                                                               | `boolean`            | `false`           |
+| `labelOnTop`                  | `label-on-top`                  | Define if label is displayed on top                                                                                                                                                                                      | `boolean`            | `false`           |
+| `modules`                     | `modules`                       | Editor modules configuration Must be passed as an HTML attribute with a comma-separated list (e.g., modules="bold, italic, \|, ul, ol")                                                                                  | `string`             | `undefined`       |
+| `name`                        | `name`                          | Input name If not set the value equals the identifier                                                                                                                                                                    | `string`             | `this.identifier` |
+| `pattern`                     | `pattern`                       | Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.                                                     | `string`             | `undefined`       |
+| `patternErrorMessage`         | `pattern-error-message`         | Define input pattern error message                                                                                                                                                                                       | `string`             | `undefined`       |
+| `placeholder`                 | `placeholder`                   | Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.                                                                           | `string`             | `undefined`       |
+| `readonly`                    | `readonly`                      | Define if the editor is readonly                                                                                                                                                                                         | `boolean`            | `false`           |
+| `required`                    | `required`                      | Define if input is required                                                                                                                                                                                              | `boolean`            | `false`           |
+| `rows`                        | `rows`                          | Define the number of visible text lines for the control                                                                                                                                                                  | `number`             | `5`               |
+| `sanitizerDisallowAttributes` | `sanitizer-disallow-attributes` | Attributes to disallow in sanitized HTML Must be passed as an HTML attribute with format: "tag:attr1,attr2;tag2:attr3" (e.g., sanitizer-disallow-attributes="*:style;a:target") Use "*" as tag name to apply to all tags | `string`             | `undefined`       |
+| `sanitizerDisallowTags`       | `sanitizer-disallow-tags`       | Tags to disallow in sanitized HTML Must be passed as an HTML attribute with a comma-separated list (e.g., sanitizer-disallow-tags="img,script")                                                                          | `string`             | `undefined`       |
+| `tooltip`                     | `tooltip`                       | Add a tooltip message next to the input                                                                                                                                                                                  | `string`             | `undefined`       |
+| `tooltipPosition`             | `tooltip-position`              | Define tooltip position                                                                                                                                                                                                  | `"input" \| "label"` | `'input'`         |
+| `valid`                       | `valid`                         | Define input valid state                                                                                                                                                                                                 | `boolean`            | `undefined`       |
+| `value`                       | `value`                         | Define the value of the editor Can be either HTML string or plain text                                                                                                                                                   | `string`             | `''`              |
 
 
 ## Events

@@ -19,7 +19,6 @@ import { Direction, Option, Option as ToggleOption } from "./types";
 import { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
-import { SanitizerOptions } from "@mgdis/sanitize-html";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
@@ -50,7 +49,6 @@ export { Direction, Option, Option as ToggleOption } from "./types";
 export { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
-export { SanitizerOptions } from "@mgdis/sanitize-html";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
@@ -1288,9 +1286,13 @@ export namespace Components {
          */
         "rows": number;
         /**
-          * Sanitizer configuration options Allows to customize which tags and attributes are disallowed in the sanitized HTML
+          * Attributes to disallow in sanitized HTML Must be passed as an HTML attribute with format: "tag:attr1,attr2;tag2:attr3" (e.g., sanitizer-disallow-attributes="*:style;a:target") Use "*" as tag name to apply to all tags
          */
-        "sanitizerOptions"?: SanitizerOptions;
+        "sanitizerDisallowAttributes"?: string;
+        /**
+          * Tags to disallow in sanitized HTML Must be passed as an HTML attribute with a comma-separated list (e.g., sanitizer-disallow-tags="img,script")
+         */
+        "sanitizerDisallowTags"?: string;
         /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
@@ -3982,9 +3984,13 @@ declare namespace LocalJSX {
          */
         "rows"?: number;
         /**
-          * Sanitizer configuration options Allows to customize which tags and attributes are disallowed in the sanitized HTML
+          * Attributes to disallow in sanitized HTML Must be passed as an HTML attribute with format: "tag:attr1,attr2;tag2:attr3" (e.g., sanitizer-disallow-attributes="*:style;a:target") Use "*" as tag name to apply to all tags
          */
-        "sanitizerOptions"?: SanitizerOptions;
+        "sanitizerDisallowAttributes"?: string;
+        /**
+          * Tags to disallow in sanitized HTML Must be passed as an HTML attribute with a comma-separated list (e.g., sanitizer-disallow-tags="img,script")
+         */
+        "sanitizerDisallowTags"?: string;
         /**
           * Add a tooltip message next to the input
          */

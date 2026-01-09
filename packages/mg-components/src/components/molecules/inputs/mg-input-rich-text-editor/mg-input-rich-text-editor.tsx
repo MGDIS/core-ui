@@ -187,10 +187,89 @@ export class MgInputRichTextEditor {
   }
 
   /**
-   * Sanitizer configuration options
-   * Allows to customize which tags and attributes are disallowed in the sanitized HTML
+   * Tags to disallow in sanitized HTML
+   * Must be passed as an HTML attribute with a comma-separated list (e.g., sanitizer-disallow-tags="img,script")
    */
-  @Prop({ attribute: 'sanitizer-options' }) sanitizerOptions?: SanitizerOptions;
+  @Prop() sanitizerDisallowTags?: string;
+
+  /**
+   * Attributes to disallow in sanitized HTML
+   * Must be passed as an HTML attribute with format: "tag:attr1,attr2;tag2:attr3" (e.g., sanitizer-disallow-attributes="*:style;a:target")
+   * Use "*" as tag name to apply to all tags
+   */
+  @Prop() sanitizerDisallowAttributes?: string;
+
+  /**
+   * Parse sanitizer disallow tags from comma-separated string
+   * @returns Array of tag names
+   */
+  private parseSanitizerDisallowTags(): string[] | undefined {
+    if (this.sanitizerDisallowTags === undefined || this.sanitizerDisallowTags.trim() === '') {
+      return undefined;
+    }
+
+    return this.sanitizerDisallowTags
+      .split(',')
+      .map(tag => tag.trim())
+      .filter(tag => tag.length > 0);
+  }
+
+  /**
+   * Parse sanitizer disallow attributes from string format: "tag:attr1,attr2;tag2:attr3"
+   * @returns Record mapping tag names to arrays of attribute names
+   */
+  private parseSanitizerDisallowAttributes(): Record<string, string[]> | undefined {
+    if (this.sanitizerDisallowAttributes === undefined || this.sanitizerDisallowAttributes.trim() === '') {
+      return undefined;
+    }
+
+    const result: Record<string, string[]> = {};
+
+    // Split by semicolon to get tag:attributes pairs
+    this.sanitizerDisallowAttributes.split(';').forEach(part => {
+      const trimmedPart = part.trim();
+      if (trimmedPart === '') return;
+
+      // Split by colon to separate tag and attributes
+      const colonIndex = trimmedPart.indexOf(':');
+      if (colonIndex === -1) return;
+
+      const tag = trimmedPart.substring(0, colonIndex).trim();
+      const attrsString = trimmedPart.substring(colonIndex + 1).trim();
+
+      if (tag === '' || attrsString === '') return;
+
+      // Split attributes by comma
+      const attrs = attrsString
+        .split(',')
+        .map(attr => attr.trim())
+        .filter(attr => attr.length > 0);
+
+      if (attrs.length > 0) {
+        result[tag] = attrs;
+      }
+    });
+
+    return Object.keys(result).length > 0 ? result : undefined;
+  }
+
+  /**
+   * Build SanitizerOptions from parsed string attributes
+   * @returns SanitizerOptions object
+   */
+  private buildSanitizerOptions(): SanitizerOptions | undefined {
+    const disallowTags = this.parseSanitizerDisallowTags();
+    const disallowAttributes = this.parseSanitizerDisallowAttributes();
+
+    if (disallowTags === undefined && disallowAttributes === undefined) {
+      return undefined;
+    }
+
+    return {
+      ...(disallowTags && { disallowTags }),
+      ...(disallowAttributes && { disallowAttributes }),
+    };
+  }
 
   /**
    * Define input valid state
@@ -483,7 +562,7 @@ export class MgInputRichTextEditor {
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Initialize sanitizer with optional configuration
-    this.sanitizer = new Sanitizer(this.sanitizerOptions);
+    this.sanitizer = new Sanitizer(this.buildSanitizerOptions());
 
     // Get locales
     this.messages = initLocales(this.element as unknown as HTMLElement).messages;

@@ -844,4 +844,201 @@ describe('mg-input-rich-text-editor', () => {
       });
     });
   });
+
+  describe('Sanitization', () => {
+    test('getEditorHTML should sanitize HTML content by default', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        value: '<p>Test</p><script>alert("xss")</script>',
+      });
+      const { element } = await waitForEditor(page);
+
+      const result = await element.getEditorHTML();
+
+      // Script tags should be removed
+      expect(result).not.toContain('<script>');
+      expect(result).toContain('<p>Test</p>');
+    });
+
+    test('getEditorHTML should remove disallowed tags when sanitizerDisallowTags is set', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        sanitizerDisallowTags: 'img,script',
+        value: '<p>Test</p><img src="test.jpg"><script>alert("xss")</script>',
+      });
+      const { element } = await waitForEditor(page);
+
+      const result = await element.getEditorHTML();
+
+      // img and script tags should be removed
+      expect(result).not.toContain('<img');
+      expect(result).not.toContain('<script>');
+      expect(result).toContain('<p>Test</p>');
+    });
+
+    test('getEditorHTML should remove disallowed attributes when sanitizerDisallowAttributes is set', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        sanitizerDisallowAttributes: '*:style;a:target',
+        value: '<p style="color: red">Test</p><a href="#" target="_blank">Link</a>',
+      });
+      const { element } = await waitForEditor(page);
+
+      const result = await element.getEditorHTML();
+
+      // style attribute should be removed from all tags
+      expect(result).not.toContain('style="color: red"');
+      // target attribute should be removed from <a> tags
+      expect(result).not.toContain('target="_blank"');
+      // But href should remain
+      expect(result).toContain('href="#');
+      expect(result).toContain('<p>Test</p>');
+    });
+
+    test('getEditorHTML should handle both disallowTags and disallowAttributes together', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        sanitizerDisallowTags: 'img',
+        sanitizerDisallowAttributes: '*:style',
+        value: '<p style="color: red">Test</p><img src="test.jpg" style="width: 100px">',
+      });
+      const { element } = await waitForEditor(page);
+
+      const result = await element.getEditorHTML();
+
+      // img tag should be removed
+      expect(result).not.toContain('<img');
+      // style attributes should be removed
+      expect(result).not.toContain('style=');
+      expect(result).toContain('<p>Test</p>');
+    });
+
+    test('getEditorHTML should handle empty sanitizerDisallowTags', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        sanitizerDisallowTags: '',
+        value: '<p>Test</p><img src="test.jpg">',
+      });
+      const { element } = await waitForEditor(page);
+
+      const result = await element.getEditorHTML();
+
+      // Empty string should be treated as undefined, so img should remain
+      expect(result).toContain('<img');
+      expect(result).toContain('<p>Test</p>');
+    });
+
+    test('getEditorHTML should handle empty sanitizerDisallowAttributes', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        sanitizerDisallowAttributes: '',
+        value: '<p style="color: red">Test</p>',
+      });
+      const { element } = await waitForEditor(page);
+
+      const result = await element.getEditorHTML();
+
+      // Empty string should be treated as undefined, so style should remain
+      expect(result).toContain('style=');
+      expect(result).toContain('<p');
+    });
+
+    test('value-change event should emit sanitized HTML', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        sanitizerDisallowTags: 'script',
+      });
+      const { element, editor } = await waitForEditor(page);
+
+      const valueChangeSpy = jest.fn();
+      element.addEventListener('value-change', valueChangeSpy);
+
+      // Simulate editor content change with unsafe HTML
+      editor.value = '<p>Test</p><script>alert("xss")</script>';
+      editor.events.fire('change');
+
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+
+      // The emitted value should be sanitized
+      expect(valueChangeSpy).toHaveBeenCalled();
+      const emittedValue = valueChangeSpy.mock.calls[0][0].detail;
+      expect(emittedValue).not.toContain('<script>');
+      expect(emittedValue).toContain('<p>Test</p>');
+    });
+
+    test('Initial value should be sanitized when sanitizerDisallowTags is set', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        sanitizerDisallowTags: 'img',
+        value: '<p>Test</p><img src="test.jpg">',
+      });
+      const { element } = await waitForEditor(page);
+
+      // The initial value should be sanitized
+      const result = await element.getEditorHTML();
+      expect(result).not.toContain('<img');
+      expect(result).toContain('<p>Test</p>');
+    });
+
+    test('getEditorHTML should handle sanitizerDisallowAttributes with spaces and edge cases', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        sanitizerDisallowAttributes: ' * : style ; a : target , href ',
+        value: '<p style="color: red">Test</p><a href="#" target="_blank">Link</a>',
+      });
+      const { element } = await waitForEditor(page);
+
+      const result = await element.getEditorHTML();
+
+      // Should handle spaces correctly
+      expect(result).not.toContain('style=');
+      expect(result).not.toContain('target=');
+      expect(result).not.toContain('href=');
+      expect(result).toContain('<p>Test</p>');
+    });
+
+    test('getEditorHTML should handle sanitizerDisallowAttributes with empty parts between semicolons', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        sanitizerDisallowAttributes: '*:style;;a:target; ;img:alt',
+        value: '<p style="color: red">Test</p><a href="#" target="_blank">Link</a><img src="test.jpg" alt="test">',
+      });
+      const { element } = await waitForEditor(page);
+
+      const result = await element.getEditorHTML();
+
+      // Empty parts between semicolons should be ignored
+      expect(result).not.toContain('style=');
+      expect(result).not.toContain('target=');
+      expect(result).not.toContain('alt=');
+      expect(result).toContain('<p>Test</p>');
+    });
+
+    test('getEditorHTML should ignore invalid sanitizerDisallowAttributes format', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        sanitizerDisallowAttributes: 'invalid-format;:;another-invalid',
+        value: '<p style="color: red">Test</p>',
+      });
+      const { element } = await waitForEditor(page);
+
+      const result = await element.getEditorHTML();
+
+      // Invalid format should be ignored, so style should remain
+      expect(result).toContain('style=');
+      expect(result).toContain('<p');
+    });
+  });
 });
