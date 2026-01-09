@@ -69,9 +69,9 @@ class MyComponent {
 
 ## CSS Custom Properties
 
-| Name                     | Description                                                                                |
-| ------------------------ | ------------------------------------------------------------------------------------------ |
-| `--mg-c-details-spacing` | Defines the spacing between the summary and the details. Default value: \`--mg-b-size-8\`. |
+| Name                     | Description                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
+| `--mg-c-details-spacing` | Defines the spacing between the summary and the details. Default value: `--mg-b-size-8`. |
 
 
 ## Dependencies

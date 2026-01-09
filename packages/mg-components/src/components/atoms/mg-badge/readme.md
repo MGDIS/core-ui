@@ -19,11 +19,11 @@ The badge displays a number (which can be followed by the `+` character) or a pu
 
 ## CSS Custom Properties
 
-| Name                      | Description                                                                                                                                         |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--mg-c-badge-color-text` | Defines the font color of the badge when used with the \`text-color\` variant and without \`outline\`. The default value is \`--mg-b-color-light\`. |
-| `--mg-c-badge-font-size`  | Defines the font size of the badge. The default value is \`--mg-b-font-size-small\`.                                                                |
-| `--mg-c-badge-size`       | Defines the height and minimum width of the badge. The default value is \`--mg-b-size-16\`.                                                         |
+| Name                      | Description                                                                                                                                   |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--mg-c-badge-color-text` | Defines the font color of the badge when used with the `text-color` variant and without `outline`. The default value is `--mg-b-color-light`. |
+| `--mg-c-badge-font-size`  | Defines the font size of the badge. The default value is `--mg-b-font-size-small`.                                                            |
+| `--mg-c-badge-size`       | Defines the height and minimum width of the badge. The default value is `--mg-b-size-16`.                                                     |
 
 
 ## Dependencies

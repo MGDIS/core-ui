@@ -30,10 +30,10 @@
 
 ## CSS Custom Properties
 
-| Name                     | Description                                                                                           |
-| ------------------------ | ----------------------------------------------------------------------------------------------------- |
-| `--mg-c-tabs-color`      | Defines tabs global color, used for bottom line and active tabs. Default value: \`--mg-b-color-app\`. |
-| `--mg-c-tabs-color-text` | Defines tabs text color. Unset by default, fallback on \`--mg-b-color-dark\`.                         |
+| Name                     | Description                                                                                         |
+| ------------------------ | --------------------------------------------------------------------------------------------------- |
+| `--mg-c-tabs-color`      | Defines tabs global color, used for bottom line and active tabs. Default value: `--mg-b-color-app`. |
+| `--mg-c-tabs-color-text` | Defines tabs text color. Unset by default, fallback on `--mg-b-color-dark`.                         |
 
 
 ## Dependencies
