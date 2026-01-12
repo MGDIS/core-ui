@@ -3,36 +3,8 @@
  * This mock simulates the Jodit API used in the component
  */
 
-// Mock types for Jodit
-export type ButtonsOption = string | Array<string | { name: string; [key: string]: unknown }>;
-
-export interface IJodit {
-  value: string;
-  options: { buttons?: ButtonsOption; [key: string]: unknown };
-  events: {
-    on: (event: string, handler: () => void) => void;
-    fire: (event: string) => void;
-    off: (event: string, handler: () => void) => void;
-  };
-  setReadOnly: (readonly: boolean) => void;
-  focus: () => void;
-  editor: HTMLElement;
-}
-
-// Export other types that might be needed
-// These types are exported for compatibility but parameters are not used
-// @ts-expect-error - Type parameters are unused but needed for type compatibility
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/ban-types
-export type IControlType<T = unknown, U = unknown> = unknown;
-// @ts-expect-error - Type parameter is unused but needed for type compatibility
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/ban-types
-export type IViewBased<T = unknown> = unknown;
-export type IViewOptions = unknown;
-// @ts-expect-error - Type parameter is unused but needed for type compatibility
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/ban-types
-export type IFileBrowser<T = unknown> = unknown;
-export type IFileBrowserOptions = unknown;
-export type IToolbarButton = unknown;
+// Import Jodit types from editor configuration
+import type { IJodit, ButtonsOption } from '../../editor/editor.conf';
 
 // Mock event emitter
 class MockEventEmitter {
@@ -62,13 +34,14 @@ class MockEventEmitter {
 }
 
 // Mock Jodit instance
-class MockJodit implements Partial<IJodit> {
+// Partial implementation of IJodit interface for testing purposes
+class MockJodit {
   /** Editor value */
   private _value = '';
   /** Editor options */
-  public options: { buttons?: ButtonsOption; [key: string]: unknown } = {};
+  public options = {} as Partial<IJodit['options']> & { buttons?: ButtonsOption };
   /** Event emitter */
-  public events = new MockEventEmitter();
+  public events = new MockEventEmitter() as unknown as IJodit['events'];
   private _element: HTMLElement;
   private _editorElement: HTMLElement;
 
@@ -146,8 +119,8 @@ class MockJodit implements Partial<IJodit> {
 
 // Mock Jodit class
 export class Jodit {
-  static make(element: HTMLElement, config?: Record<string, unknown>): MockJodit {
-    return new MockJodit(element, config);
+  static make(element: HTMLElement, config?: Record<string, unknown>): IJodit {
+    return new MockJodit(element, config) as unknown as IJodit;
   }
 
   static atom<T>(items: T[]): T[] {

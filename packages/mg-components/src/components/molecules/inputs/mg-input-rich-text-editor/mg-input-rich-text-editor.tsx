@@ -2,7 +2,8 @@ import { Component, Element, h, Prop, Watch, State, Event, EventEmitter, Method 
 import { ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
-import { defineEditor, type EditorType, type EditorOptionsType } from './editor';
+import { defineEditor } from './editor';
+import type { ButtonsOption, IJodit } from './editor/editor.conf';
 import { Sanitizer, type SanitizerOptions } from '@mgdis/sanitize-html';
 
 @Component({
@@ -20,9 +21,9 @@ export class MgInputRichTextEditor {
    ************/
 
   // editor
-  private editor: EditorType;
+  private editor: IJodit;
   private wrapperElement: HTMLDivElement;
-  private toolbarButtons?: EditorOptionsType['modules'];
+  private toolbarButtons?: ButtonsOption;
 
   // Sanitizer
   private sanitizer: Sanitizer;
@@ -109,10 +110,10 @@ export class MgInputRichTextEditor {
   watchDisabled(newValue: MgInputRichTextEditor['disabled']): void {
     if (newValue) {
       this.classCollection.add(classDisabled);
-      this.editor?.disable();
+      this.editor?.setReadOnly(true);
     } else {
       this.classCollection.delete(classDisabled);
-      this.editor?.enable();
+      this.editor?.setReadOnly(false);
     }
   }
 
@@ -183,7 +184,7 @@ export class MgInputRichTextEditor {
     this.toolbarButtons = this.modules
       .split(',')
       .map(item => item.trim())
-      .filter(item => item.length > 0) as EditorOptionsType['modules'];
+      .filter(item => item.length > 0) as ButtonsOption;
   }
 
   /**
@@ -324,7 +325,7 @@ export class MgInputRichTextEditor {
    */
   @Method()
   async getEditorText(): Promise<string> {
-    return this.editor.getText();
+    return this.editor.editor.textContent.trim();
   }
 
   /**
@@ -406,7 +407,7 @@ export class MgInputRichTextEditor {
    * @returns truthy is value is invalid
    */
   private isEmpty = (): boolean => {
-    const textContent = this.editor.getText();
+    const textContent = this.editor.editor.textContent.trim();
     return !(isValidString(textContent) && textContent !== '\n');
   };
 
@@ -416,7 +417,7 @@ export class MgInputRichTextEditor {
    */
   private getPatternValidity = (): boolean => {
     if (this.pattern === undefined) return true;
-    const textContent = this.editor.getText();
+    const textContent = this.editor.editor.textContent.trim();
     return new RegExp(`^${this.pattern}$`, 'u').test(textContent);
   };
 
@@ -588,7 +589,7 @@ export class MgInputRichTextEditor {
    */
   componentDidLoad(): void {
     if (!this.readonly) {
-      this.editor = defineEditor(this.wrapperElement, {
+      this.editor = defineEditor(this.element, this.wrapperElement, {
         modules: this.toolbarButtons,
         name: this.name,
         readOnly: this.readonly || this.disabled,

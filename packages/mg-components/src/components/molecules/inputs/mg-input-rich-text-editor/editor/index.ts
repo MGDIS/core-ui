@@ -13,108 +13,20 @@ import 'jodit/esm/plugins/delete/delete.js';
 import 'jodit/esm/plugins/file/file.js';
 import 'jodit/esm/plugins/print/print.js';
 import 'jodit/esm/plugins/source/source.js';
-// Import Jodit types
-import type { IJodit, ButtonsOption } from 'jodit/esm/types';
-
-/**
- * Editor options type extending Jodit configuration
- */
-export type EditorOptionsType = {
-  value: string;
-  name?: string;
-  readOnly?: boolean;
-  placeholder?: string;
-  modules?: ButtonsOption;
-  editorHeight?: number;
-  handleTextChange: () => void;
-  handleFocus: () => void;
-  handleBlur: () => void;
-};
-
-/**
- * Editor interface matching the component's expectations
- * This wrapper ensures compatibility with the component while using Jodit internally
- */
-export interface EditorInterface {
-  /**
-   * Get editor content as plain text
-   * @returns Plain text content
-   */
-  getText(): string;
-
-  /**
-   * Set focus on the editor
-   */
-  focus(): void;
-
-  /**
-   * Enable the editor
-   */
-  enable(): void;
-
-  /**
-   * Disable the editor
-   */
-  disable(): void;
-}
-
-/**
- * Editor type - Jodit instance wrapped with EditorInterface
- */
-export type EditorType = IJodit & EditorInterface;
-
-/**
- * Interface for the defineEditor function
- */
-interface IdefineEditor {
-  (wrapperElement: HTMLElement, config: EditorOptionsType): EditorType;
-}
-
-/**
- * Creates a wrapper around Jodit instance to match the expected EditorInterface
- * @param joditInstance - Jodit instance
- * @returns Editor instance with all required methods
- */
-const createEditorWrapper = (joditInstance: IJodit): EditorType => {
-  const editor = joditInstance as EditorType;
-
-  /**
-   * Get editor content as plain text
-   * Uses Jodit's editor element textContent property to extract plain text
-   * @returns Plain text content
-   */
-  editor.getText = (): string => {
-    return editor.editor.textContent.trim();
-  };
-
-  /**
-   * Enable the editor
-   * Sets readonly to false
-   */
-  editor.enable = (): void => {
-    editor.setReadOnly(false);
-  };
-
-  /**
-   * Disable the editor
-   * Sets readonly to true
-   */
-  editor.disable = (): void => {
-    editor.setReadOnly(true);
-  };
-
-  return editor;
-};
+// Import editor types
+import type { DefineEditorConfig, IJodit } from './editor.conf';
 
 /**
  * Configures Jodit editor
+ * @param element - Component element (HTMLMgInputRichTextEditorElement)
  * @param wrapperElement - Container element for the editor
  * @param config - Editor configuration options
  * @returns Configured Jodit editor instance
  */
-export const defineEditor: IdefineEditor = (wrapperElement, { value, name, modules, readOnly, placeholder, editorHeight, handleTextChange, handleFocus, handleBlur }) => {
-  // Get the shadow root if the element is inside a Shadow DOM
-  const shadowRoot = wrapperElement.getRootNode() instanceof ShadowRoot ? (wrapperElement.getRootNode() as ShadowRoot) : null;
+export const defineEditor = (element: HTMLMgInputRichTextEditorElement, wrapperElement: HTMLDivElement, config: DefineEditorConfig): IJodit => {
+  const { value, name, modules, readOnly, placeholder, editorHeight, handleTextChange, handleFocus, handleBlur } = config;
+  // Get the shadow root directly from the component element
+  const shadowRoot = element.shadowRoot;
 
   // Get the owner document from the shadow root or fallback to global
   const ownerDocument = shadowRoot !== null ? shadowRoot.ownerDocument : document;
@@ -134,6 +46,8 @@ export const defineEditor: IdefineEditor = (wrapperElement, { value, name, modul
 
   // Configure Jodit
   // Using default toolbar configuration or custom modules if provided
+  // Note: Using Record<string, unknown> to avoid TypeScript complexity issues with Jodit's deeply nested Config type
+  // The actual configuration follows Jodit's Config interface from jodit/esm/types
   const joditConfig: Record<string, unknown> = {
     readonly: readOnly || false,
     placeholder: placeholder || '',
@@ -223,6 +137,6 @@ export const defineEditor: IdefineEditor = (wrapperElement, { value, name, modul
   joditInstance.events.on('focus', handleFocus);
   joditInstance.events.on('blur', handleBlur);
 
-  // Create and return the wrapped editor instance
-  return createEditorWrapper(joditInstance);
+  // Return the Jodit instance directly
+  return joditInstance;
 };

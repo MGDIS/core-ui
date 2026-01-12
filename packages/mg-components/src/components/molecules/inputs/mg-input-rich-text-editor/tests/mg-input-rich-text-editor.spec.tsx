@@ -4,13 +4,13 @@ import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { setupMutationObserverMock, setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/dist/tests';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
 import messages from '../../../../../locales/en/messages.json';
-import { type EditorType } from '../editor';
-import type { ButtonsOption } from 'jodit/esm/types';
+import type { IJodit } from '../editor/editor.conf';
+import type { ButtonsOption } from '../editor/editor.conf';
 import { MgInputRichTextEditor } from '../mg-input-rich-text-editor';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 
-type EditorTypeMock = EditorType & { editorElement: HTMLElement; events: { fire: (event: string) => void } };
+type EditorTypeMock = IJodit & { editorElement: HTMLElement; events: { fire: (event: string) => void } };
 
 type HTMLinput = HTMLElement & {
   checkValidity: () => boolean;
@@ -177,9 +177,10 @@ describe('mg-input-rich-text-editor', () => {
           })),
         });
 
-        // Mock editor methods
-        editor.disable = jest.fn();
-        editor.enable = jest.fn();
+        // Mock editor method (only used for disabled prop)
+        if (prop === 'disabled') {
+          editor.setReadOnly = jest.fn();
+        }
 
         await element.displayError();
         await page.waitForChanges();
@@ -187,17 +188,24 @@ describe('mg-input-rich-text-editor', () => {
 
         // Test initial state
         expect(mgInput.classList.contains(`mg-c-input--${prop}`)).toBeFalsy();
-        expect(editor.disable).not.toHaveBeenCalled();
-        expect(editor.enable).not.toHaveBeenCalled();
+        if (prop === 'disabled') {
+          expect(editor.setReadOnly).not.toHaveBeenCalled();
+        }
 
-        // Test readonly changes
+        // Test prop changes
         element[prop] = true;
         await page.waitForChanges();
         expect(mgInput.classList.contains(`mg-c-input--${prop}`)).toBeTruthy();
+        if (prop === 'disabled') {
+          expect(editor.setReadOnly).toHaveBeenCalledWith(true);
+        }
 
         element[prop] = false;
         await page.waitForChanges();
         expect(mgInput.classList.contains(`mg-c-input--${prop}`)).toBeFalsy();
+        if (prop === 'disabled') {
+          expect(editor.setReadOnly).toHaveBeenCalledWith(false);
+        }
       });
     });
   });
@@ -662,7 +670,7 @@ describe('mg-input-rich-text-editor', () => {
     });
 
     describe('Wrapper methods', () => {
-      test('Should call setReadOnly(false) when enable is called', async () => {
+      test('Should call setReadOnly(false) to enable the editor', async () => {
         const page = await getPage({
           label: 'label',
           identifier: 'identifier',
@@ -670,17 +678,17 @@ describe('mg-input-rich-text-editor', () => {
 
         const { editor } = await waitForEditor(page);
 
-        // Spy on setReadOnly before calling enable
+        // Spy on setReadOnly before calling it
         const setReadOnlySpy = jest.spyOn(editor, 'setReadOnly');
 
-        // Call enable which should call setReadOnly(false)
-        editor.enable();
+        // Call setReadOnly(false) to enable the editor
+        editor.setReadOnly(false);
 
         expect(setReadOnlySpy).toHaveBeenCalledWith(false);
         setReadOnlySpy.mockRestore();
       });
 
-      test('Should call setReadOnly(true) when disable is called', async () => {
+      test('Should call setReadOnly(true) to disable the editor', async () => {
         const page = await getPage({
           label: 'label',
           identifier: 'identifier',
@@ -688,38 +696,38 @@ describe('mg-input-rich-text-editor', () => {
 
         const { editor } = await waitForEditor(page);
 
-        // Spy on setReadOnly before calling disable
+        // Spy on setReadOnly before calling it
         const setReadOnlySpy = jest.spyOn(editor, 'setReadOnly');
 
-        // Call disable which should call setReadOnly(true)
-        editor.disable();
+        // Call setReadOnly(true) to disable the editor
+        editor.setReadOnly(true);
 
         expect(setReadOnlySpy).toHaveBeenCalledWith(true);
         setReadOnlySpy.mockRestore();
       });
 
-      test('getText should return correct text content', async () => {
+      test('editor.editor.textContent should return correct text content', async () => {
         const page = await getPage({ label: 'label', identifier: 'identifier', value: '<img src="test.jpg">' });
         const { editor } = await waitForEditor(page);
 
-        // Test the actual getText implementation
+        // Test textContent extraction
         // When editor.value contains only an image, textContent should be empty
-        const result = editor.getText();
+        const result = editor.editor.textContent.trim();
         expect(result).toEqual('');
 
         // Test with empty value
         editor.value = '';
-        const resultEmpty = editor.getText();
+        const resultEmpty = editor.editor.textContent.trim();
         expect(resultEmpty).toEqual('');
 
         // Test with value that has only whitespace
         editor.value = '   ';
-        const resultWhitespace = editor.getText();
+        const resultWhitespace = editor.editor.textContent.trim();
         expect(resultWhitespace).toEqual('');
 
         // Test with value that has actual text content
         editor.value = '<p>Test content</p>';
-        const resultWithContent = editor.getText();
+        const resultWithContent = editor.editor.textContent.trim();
         expect(resultWithContent).toEqual('Test content');
       });
     });
@@ -729,6 +737,16 @@ describe('mg-input-rich-text-editor', () => {
         // Import defineEditor to test it directly
         const { defineEditor } = await import('../editor');
 
+        // Create a mock component element without shadowRoot
+        const mockElement = document.createElement('mg-input-rich-text-editor') as HTMLMgInputRichTextEditorElement;
+        // shadowRoot is read-only, so we need to use Object.defineProperty to mock it
+        Object.defineProperty(mockElement, 'shadowRoot', {
+          value: null,
+          writable: false,
+          configurable: true,
+        });
+        document.body.appendChild(mockElement);
+
         // Create a regular DOM element
         const wrapperElement = document.createElement('div');
         document.body.appendChild(wrapperElement);
@@ -737,7 +755,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleFocus = jest.fn();
         const handleBlur = jest.fn();
 
-        const editor = defineEditor(wrapperElement, {
+        const editor = defineEditor(mockElement, wrapperElement, {
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -750,6 +768,7 @@ describe('mg-input-rich-text-editor', () => {
         expect(editor.value).toBe('<p>Test</p>');
 
         // Clean up
+        document.body.removeChild(mockElement);
         document.body.removeChild(wrapperElement);
       });
 
@@ -757,10 +776,11 @@ describe('mg-input-rich-text-editor', () => {
         // Import defineEditor to test it directly
         const { defineEditor } = await import('../editor');
 
-        // Create a ShadowRoot element
-        const hostElement = document.createElement('div');
-        document.body.appendChild(hostElement);
-        const shadowRoot = hostElement.attachShadow({ mode: 'open' });
+        // Create a mock component element with shadowRoot
+        const mockElement = document.createElement('mg-input-rich-text-editor') as HTMLMgInputRichTextEditorElement;
+        const shadowRoot = mockElement.attachShadow({ mode: 'open' });
+        document.body.appendChild(mockElement);
+
         const wrapperElement = document.createElement('div');
         shadowRoot.appendChild(wrapperElement);
 
@@ -768,7 +788,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleFocus = jest.fn();
         const handleBlur = jest.fn();
 
-        const editor = defineEditor(wrapperElement, {
+        const editor = defineEditor(mockElement, wrapperElement, {
           value: '<p>Test in ShadowRoot</p>',
           handleTextChange,
           handleFocus,
@@ -781,12 +801,22 @@ describe('mg-input-rich-text-editor', () => {
         expect(editor.value).toBe('<p>Test in ShadowRoot</p>');
 
         // Clean up
-        document.body.removeChild(hostElement);
+        document.body.removeChild(mockElement);
       });
 
       test('Should handle empty value', async () => {
         // Import defineEditor to test it directly
         const { defineEditor } = await import('../editor');
+
+        // Create a mock component element without shadowRoot
+        const mockElement = document.createElement('mg-input-rich-text-editor') as HTMLMgInputRichTextEditorElement;
+        // shadowRoot is read-only, so we need to use Object.defineProperty to mock it
+        Object.defineProperty(mockElement, 'shadowRoot', {
+          value: null,
+          writable: false,
+          configurable: true,
+        });
+        document.body.appendChild(mockElement);
 
         // Create a regular DOM element
         const wrapperElement = document.createElement('div');
@@ -796,7 +826,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleFocus = jest.fn();
         const handleBlur = jest.fn();
 
-        const editor = defineEditor(wrapperElement, {
+        const editor = defineEditor(mockElement, wrapperElement, {
           value: '',
           handleTextChange,
           handleFocus,
@@ -809,12 +839,23 @@ describe('mg-input-rich-text-editor', () => {
         expect(editor.value).toBe('');
 
         // Clean up
+        document.body.removeChild(mockElement);
         document.body.removeChild(wrapperElement);
       });
 
       test('Should add custom CSS classes to Jodit elements', async () => {
         // Import defineEditor to test it directly
         const { defineEditor } = await import('../editor');
+
+        // Create a mock component element without shadowRoot
+        const mockElement = document.createElement('mg-input-rich-text-editor') as HTMLMgInputRichTextEditorElement;
+        // shadowRoot is read-only, so we need to use Object.defineProperty to mock it
+        Object.defineProperty(mockElement, 'shadowRoot', {
+          value: null,
+          writable: false,
+          configurable: true,
+        });
+        document.body.appendChild(mockElement);
 
         // Create a regular DOM element
         const wrapperElement = document.createElement('div');
@@ -824,7 +865,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleFocus = jest.fn();
         const handleBlur = jest.fn();
 
-        defineEditor(wrapperElement, {
+        defineEditor(mockElement, wrapperElement, {
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -840,6 +881,7 @@ describe('mg-input-rich-text-editor', () => {
         expect(wrapperElement.querySelector('.jodit-wysiwyg')?.classList.contains('mg-c-input__wysiwyg')).toBe(true);
 
         // Clean up
+        document.body.removeChild(mockElement);
         document.body.removeChild(wrapperElement);
       });
     });
