@@ -22,7 +22,7 @@ export class MgInputRichTextEditor {
 
   // editor
   private editor: IJodit;
-  private wrapperElement: HTMLDivElement;
+  private editorElement: HTMLTextAreaElement;
   private toolbarButtons?: ButtonsOption;
 
   // Sanitizer
@@ -589,9 +589,8 @@ export class MgInputRichTextEditor {
    */
   componentDidLoad(): void {
     if (!this.readonly) {
-      this.editor = defineEditor(this.element, this.wrapperElement, {
+      this.editor = defineEditor(this.element, this.editorElement, {
         modules: this.toolbarButtons,
-        name: this.name,
         readOnly: this.readonly || this.disabled,
         placeholder: this.placeholder,
         value: this.sanitizer.sanitize(this.value),
@@ -624,13 +623,14 @@ export class MgInputRichTextEditor {
         {this.readonly ? (
           <div class="mg-c-input__readonly-value" innerHTML={this.value}></div>
         ) : (
-          <div
-            ref={el => {
-              this.wrapperElement = el;
-            }}
-            id={this.identifier}
-            class="mg-c-input__wrapper"
-          ></div>
+          <div id={this.identifier} class="mg-c-input__wrapper">
+            <textarea
+              name={this.name}
+              ref={(el: HTMLTextAreaElement) => {
+                if (el !== null) this.editorElement = el;
+              }}
+            ></textarea>
+          </div>
         )}
       </mg-input>
     );

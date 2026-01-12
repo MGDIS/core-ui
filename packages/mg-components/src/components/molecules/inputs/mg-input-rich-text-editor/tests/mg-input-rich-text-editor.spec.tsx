@@ -749,13 +749,15 @@ describe('mg-input-rich-text-editor', () => {
 
         // Create a regular DOM element
         const wrapperElement = document.createElement('div');
+        const editorElement = document.createElement('textarea');
+        wrapperElement.appendChild(editorElement);
         document.body.appendChild(wrapperElement);
 
         const handleTextChange = jest.fn();
         const handleFocus = jest.fn();
         const handleBlur = jest.fn();
 
-        const editor = defineEditor(mockElement, wrapperElement, {
+        const editor = defineEditor(mockElement, editorElement, {
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -782,13 +784,15 @@ describe('mg-input-rich-text-editor', () => {
         document.body.appendChild(mockElement);
 
         const wrapperElement = document.createElement('div');
+        const editorElement = document.createElement('textarea');
+        wrapperElement.appendChild(editorElement);
         shadowRoot.appendChild(wrapperElement);
 
         const handleTextChange = jest.fn();
         const handleFocus = jest.fn();
         const handleBlur = jest.fn();
 
-        const editor = defineEditor(mockElement, wrapperElement, {
+        const editor = defineEditor(mockElement, editorElement, {
           value: '<p>Test in ShadowRoot</p>',
           handleTextChange,
           handleFocus,
@@ -820,13 +824,15 @@ describe('mg-input-rich-text-editor', () => {
 
         // Create a regular DOM element
         const wrapperElement = document.createElement('div');
+        const editorElement = document.createElement('textarea');
+        wrapperElement.appendChild(editorElement);
         document.body.appendChild(wrapperElement);
 
         const handleTextChange = jest.fn();
         const handleFocus = jest.fn();
         const handleBlur = jest.fn();
 
-        const editor = defineEditor(mockElement, wrapperElement, {
+        const editor = defineEditor(mockElement, editorElement, {
           value: '',
           handleTextChange,
           handleFocus,
@@ -859,13 +865,15 @@ describe('mg-input-rich-text-editor', () => {
 
         // Create a regular DOM element
         const wrapperElement = document.createElement('div');
+        const editorElement = document.createElement('textarea');
+        wrapperElement.appendChild(editorElement);
         document.body.appendChild(wrapperElement);
 
         const handleTextChange = jest.fn();
         const handleFocus = jest.fn();
         const handleBlur = jest.fn();
 
-        defineEditor(mockElement, wrapperElement, {
+        defineEditor(mockElement, editorElement, {
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,

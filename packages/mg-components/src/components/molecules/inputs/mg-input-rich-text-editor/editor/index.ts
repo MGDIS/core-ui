@@ -19,12 +19,12 @@ import type { DefineEditorConfig, IJodit } from './editor.conf';
 /**
  * Configures Jodit editor
  * @param element - Component element (HTMLMgInputRichTextEditorElement)
- * @param wrapperElement - Container element for the editor
+ * @param editorElement - Textarea element for the editor
  * @param config - Editor configuration options
  * @returns Configured Jodit editor instance
  */
-export const defineEditor = (element: HTMLMgInputRichTextEditorElement, wrapperElement: HTMLDivElement, config: DefineEditorConfig): IJodit => {
-  const { value, name, modules, readOnly, placeholder, editorHeight, handleTextChange, handleFocus, handleBlur } = config;
+export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorElement: HTMLTextAreaElement, config: DefineEditorConfig): IJodit => {
+  const { value, modules, readOnly, placeholder, editorHeight, handleTextChange, handleFocus, handleBlur } = config;
   // Get the shadow root directly from the component element
   const shadowRoot = element.shadowRoot;
 
@@ -32,17 +32,6 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, wrapperE
   const ownerDocument = shadowRoot !== null ? shadowRoot.ownerDocument : document;
   // Shadow DOM shares the same window as the main document
   const ownerWindow = window;
-
-  // Create textarea element for Jodit editor using the correct document
-  const editorElement = ownerDocument.createElement('textarea');
-
-  // Set name attribute for form integration
-  if (name !== undefined) {
-    editorElement.setAttribute('name', name);
-  }
-
-  // Append textarea to wrapper
-  wrapperElement.appendChild(editorElement);
 
   // Configure Jodit
   // Using default toolbar configuration or custom modules if provided
@@ -118,6 +107,7 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, wrapperE
 
   // Add custom classes
   // These classes are added to Jodit's DOM elements for styling purposes
+  const wrapperElement = editorElement.parentElement as HTMLDivElement;
   const addCustomClass = (selector: string, className: string): void => {
     wrapperElement.querySelector(selector).classList.add(className);
   };

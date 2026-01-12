@@ -7,7 +7,6 @@ import type { IJodit, ButtonsOption } from 'jodit/esm/types';
  */
 export type DefineEditorConfig = {
   value: string;
-  name?: string;
   readOnly?: boolean;
   placeholder?: string;
   modules?: ButtonsOption;
