@@ -28,8 +28,8 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
   // Get the shadow root directly from the component element
   const shadowRoot = element.shadowRoot;
 
-  // Get the owner document from the shadow root or fallback to global
-  const ownerDocument = shadowRoot !== null ? shadowRoot.ownerDocument : document;
+  // Get the owner document from the shadow root
+  const ownerDocument = shadowRoot.ownerDocument;
   // Shadow DOM shares the same window as the main document
   const ownerWindow = window;
 
@@ -103,7 +103,7 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
   };
 
   // Initialize Jodit editor
-  const joditInstance = Jodit.make(editorElement, joditConfig as Parameters<typeof Jodit.make>[1]);
+  const joditInstance = Jodit.make(editorElement, joditConfig);
 
   // Add custom classes
   // These classes are added to Jodit's DOM elements for styling purposes

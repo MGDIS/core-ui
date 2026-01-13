@@ -455,9 +455,9 @@ export class MgInputRichTextEditor {
       // Does have a new custom error message OR does have a custom error message locked
       if (fromSetErrorContext || (this.customErrorMessage.lock && this.customErrorMessage.message !== undefined)) {
         this.errorMessage = this.customErrorMessage.message;
-      } else if (!this.readonly && !this.disabled && this.required && this.isEmpty()) {
+      } else if (this.required && this.isEmpty()) {
         this.errorMessage = this.messages.errors.required;
-      } else if (!this.readonly && !this.disabled && !this.getPatternValidity()) {
+      } else if (!this.getPatternValidity()) {
         this.errorMessage = this.patternErrorMessage;
       }
     }

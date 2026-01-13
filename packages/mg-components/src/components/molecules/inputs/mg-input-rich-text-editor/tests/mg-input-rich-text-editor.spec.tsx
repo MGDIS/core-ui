@@ -10,11 +10,8 @@ import { MgInputRichTextEditor } from '../mg-input-rich-text-editor';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 
-type EditorTypeMock = IJodit & { editorElement: HTMLElement; events: { fire: (event: string) => void } };
-
 type HTMLinput = HTMLElement & {
   checkValidity: () => boolean;
-  validatePattern: () => void;
 };
 
 const getPage = async (args: Partial<MgInputRichTextEditor> & Pick<MgInputRichTextEditor, 'identifier' | 'label'>) => {
@@ -29,7 +26,7 @@ const getPage = async (args: Partial<MgInputRichTextEditor> & Pick<MgInputRichTe
   return page;
 };
 
-const waitForEditor = async (page): Promise<{ element: HTMLMgInputRichTextEditorElement; editor: EditorTypeMock; input: HTMLinput }> => {
+const waitForEditor = async (page): Promise<{ element: HTMLMgInputRichTextEditorElement; editor: IJodit; input: HTMLinput }> => {
   const element = page.doc.querySelector('mg-input-rich-text-editor');
   const editor = page.rootInstance.editor;
 
@@ -733,47 +730,6 @@ describe('mg-input-rich-text-editor', () => {
     });
 
     describe('defineEditor', () => {
-      test('Should handle element not in ShadowRoot', async () => {
-        // Import defineEditor to test it directly
-        const { defineEditor } = await import('../editor');
-
-        // Create a mock component element without shadowRoot
-        const mockElement = document.createElement('mg-input-rich-text-editor') as HTMLMgInputRichTextEditorElement;
-        // shadowRoot is read-only, so we need to use Object.defineProperty to mock it
-        Object.defineProperty(mockElement, 'shadowRoot', {
-          value: null,
-          writable: false,
-          configurable: true,
-        });
-        document.body.appendChild(mockElement);
-
-        // Create a regular DOM element
-        const wrapperElement = document.createElement('div');
-        const editorElement = document.createElement('textarea');
-        wrapperElement.appendChild(editorElement);
-        document.body.appendChild(wrapperElement);
-
-        const handleTextChange = jest.fn();
-        const handleFocus = jest.fn();
-        const handleBlur = jest.fn();
-
-        const editor = defineEditor(mockElement, editorElement, {
-          value: '<p>Test</p>',
-          handleTextChange,
-          handleFocus,
-          handleBlur,
-          readOnly: false,
-          placeholder: 'Test placeholder',
-        });
-
-        expect(editor).toBeDefined();
-        expect(editor.value).toBe('<p>Test</p>');
-
-        // Clean up
-        document.body.removeChild(mockElement);
-        document.body.removeChild(wrapperElement);
-      });
-
       test('Should handle element in ShadowRoot', async () => {
         // Import defineEditor to test it directly
         const { defineEditor } = await import('../editor');
@@ -812,21 +768,15 @@ describe('mg-input-rich-text-editor', () => {
         // Import defineEditor to test it directly
         const { defineEditor } = await import('../editor');
 
-        // Create a mock component element without shadowRoot
+        // Create a mock component element with shadowRoot (as in real usage)
         const mockElement = document.createElement('mg-input-rich-text-editor') as HTMLMgInputRichTextEditorElement;
-        // shadowRoot is read-only, so we need to use Object.defineProperty to mock it
-        Object.defineProperty(mockElement, 'shadowRoot', {
-          value: null,
-          writable: false,
-          configurable: true,
-        });
+        const shadowRoot = mockElement.attachShadow({ mode: 'open' });
         document.body.appendChild(mockElement);
 
-        // Create a regular DOM element
         const wrapperElement = document.createElement('div');
         const editorElement = document.createElement('textarea');
         wrapperElement.appendChild(editorElement);
-        document.body.appendChild(wrapperElement);
+        shadowRoot.appendChild(wrapperElement);
 
         const handleTextChange = jest.fn();
         const handleFocus = jest.fn();
@@ -846,28 +796,21 @@ describe('mg-input-rich-text-editor', () => {
 
         // Clean up
         document.body.removeChild(mockElement);
-        document.body.removeChild(wrapperElement);
       });
 
       test('Should add custom CSS classes to Jodit elements', async () => {
         // Import defineEditor to test it directly
         const { defineEditor } = await import('../editor');
 
-        // Create a mock component element without shadowRoot
+        // Create a mock component element with shadowRoot (as in real usage)
         const mockElement = document.createElement('mg-input-rich-text-editor') as HTMLMgInputRichTextEditorElement;
-        // shadowRoot is read-only, so we need to use Object.defineProperty to mock it
-        Object.defineProperty(mockElement, 'shadowRoot', {
-          value: null,
-          writable: false,
-          configurable: true,
-        });
+        const shadowRoot = mockElement.attachShadow({ mode: 'open' });
         document.body.appendChild(mockElement);
 
-        // Create a regular DOM element
         const wrapperElement = document.createElement('div');
         const editorElement = document.createElement('textarea');
         wrapperElement.appendChild(editorElement);
-        document.body.appendChild(wrapperElement);
+        shadowRoot.appendChild(wrapperElement);
 
         const handleTextChange = jest.fn();
         const handleFocus = jest.fn();
@@ -890,7 +833,6 @@ describe('mg-input-rich-text-editor', () => {
 
         // Clean up
         document.body.removeChild(mockElement);
-        document.body.removeChild(wrapperElement);
       });
     });
   });

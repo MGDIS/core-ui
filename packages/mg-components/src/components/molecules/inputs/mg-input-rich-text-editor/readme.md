@@ -25,7 +25,7 @@ The component emits the modified content via the `value-change` event. To ensure
 
 ### Toolbar configuration
 
-The component provides a default toolbar with commonly used formatting options. You can customize the toolbar by using the `modules` prop, which accepts a Jodit `ButtonsOption` configuration.
+The component provides a default toolbar with commonly used formatting options. You can customize the toolbar by using the `modules` HTML attribute, which accepts a comma-separated list of button names.
 
 #### Default toolbar
 
@@ -55,7 +55,7 @@ You can customize the toolbar by passing a custom configuration to the `modules`
 ></mg-input-rich-text-editor>
 ```
 
-For more advanced configurations, refer to the [Jodit documentation](https://xdsoft.net/jodit/docs/) on toolbar configuration. The `modules` prop accepts the same `ButtonsOption` type that Jodit uses for its `buttons` configuration.
+For the complete list of available buttons and advanced configuration options, refer to the [Jodit playground](https://xdsoft.net/jodit/play.html?currentTab=Buttons).
 
 ### HTML security and sanitization
 
@@ -112,13 +112,6 @@ The component allows you to control the height of the editor using the `rows` pr
 ```
 
 The calculated height value is applied to the entire editor container, including the toolbar and the content area. The editor will maintain this minimum height while allowing the content to grow if needed.
-
-### Utility methods
-
-The component provides several methods to retrieve content in different formats:
-
-- `getEditorHTML()`: Retrieves the content in HTML format (automatically sanitized)
-- `getEditorText()`: Retrieves the content in plain text format
 
 <!-- Auto Generated Below -->
 
