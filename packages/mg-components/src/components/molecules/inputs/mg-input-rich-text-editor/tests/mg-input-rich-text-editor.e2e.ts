@@ -10,11 +10,14 @@ const baseArgs = { identifier: 'identifier', label: 'label' };
 const sampleContent =
   '<p>Each episode of Paw Patrol follows a similar pattern. Episodes normally open with a scene depicting the dogs going about their everyday lives in Adventure Bay, often playing with dog toys or going to the local playground.</p><p>Ryder, a ten-year-old boy, is advised of a problem by receiving a call for help or by witnessing a situation himself.</p>';
 
+// Jodit editor wysiwyg selector
+const JODIT_WYSIWYG_SELECTOR = '.jodit-wysiwyg';
+
 /**
  * Inserts content into the Jodit editor and triggers input event to update placeholder state
  */
 const setEditorContent = async (page: Page, content: string): Promise<void> => {
-  await page.locator('.jodit-wysiwyg').evaluate((element, htmlContent) => {
+  await page.locator(JODIT_WYSIWYG_SELECTOR).evaluate((element, htmlContent) => {
     element.innerHTML = htmlContent;
     // Trigger input event to notify Jodit of content change (updates placeholder state)
     element.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
@@ -38,7 +41,7 @@ test.describe('mg-input-rich-text-editor', () => {
       await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
 
       // Wait for the editor to be initialized
-      await page.locator('.jodit-wysiwyg').waitFor();
+      await page.locator(JODIT_WYSIWYG_SELECTOR).waitFor();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -93,9 +96,9 @@ test.describe('mg-input-rich-text-editor', () => {
       await page.setContent(html);
 
       await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
-      await page.locator('.jodit-wysiwyg').waitFor();
+      await page.locator(JODIT_WYSIWYG_SELECTOR).waitFor();
 
-      await page.locator('.jodit-wysiwyg').click();
+      await page.locator(JODIT_WYSIWYG_SELECTOR).click();
       await page.locator('body').click();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -129,7 +132,7 @@ test.describe('mg-input-rich-text-editor', () => {
       await page.setContent(html);
 
       await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
-      await page.locator('.jodit-wysiwyg').waitFor();
+      await page.locator(JODIT_WYSIWYG_SELECTOR).waitFor();
 
       // Set an error message
       await page.evaluate(lock => {
@@ -170,18 +173,15 @@ test.describe('mg-input-rich-text-editor', () => {
     await page.setContent(html);
 
     await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
-    await page.locator('.jodit-wysiwyg').waitFor();
+    await page.locator(JODIT_WYSIWYG_SELECTOR).waitFor();
 
     await setEditorContent(page, sampleContent);
 
     // Select specific text
     await page.evaluate(() => {
       const editor = document.querySelector('mg-input-rich-text-editor');
-      if (editor === null) throw new Error('Editor not found');
-
       // Access Jodit editor via jodit-wysiwyg class
-      const joditEditor = editor.shadowRoot?.querySelector('.jodit-wysiwyg');
-      if (joditEditor === null) throw new Error('Jodit editor not found');
+      const joditEditor = editor.shadowRoot.querySelector(JODIT_WYSIWYG_SELECTOR);
 
       const textToSelect = 'Paw Patrol follows a similar pattern';
       const range = document.createRange();
@@ -189,11 +189,9 @@ test.describe('mg-input-rich-text-editor', () => {
 
       // Find the first paragraph in Jodit editor
       const firstP = joditEditor.querySelector('p');
-      if (firstP === null) throw new Error('First paragraph not found');
 
       // Find text node containing our phrase
       const textNode = Array.from(firstP.childNodes).find(node => node.nodeType === Node.TEXT_NODE && node.textContent?.includes(textToSelect));
-      if (textNode === undefined) throw new Error('Text node not found');
 
       const startIndex = textNode.textContent.indexOf(textToSelect);
       range.setStart(textNode, startIndex);
@@ -222,18 +220,15 @@ test.describe('mg-input-rich-text-editor', () => {
     await page.setContent(html);
 
     await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
-    await page.locator('.jodit-wysiwyg').waitFor();
+    await page.locator(JODIT_WYSIWYG_SELECTOR).waitFor();
 
     await setEditorContent(page, sampleContent);
 
     // Select specific text
     await page.evaluate(() => {
       const editor = document.querySelector('mg-input-rich-text-editor');
-      if (editor === null) throw new Error('Editor not found');
-
       // Access Jodit editor via jodit-wysiwyg class
-      const joditEditor = editor.shadowRoot?.querySelector('.jodit-wysiwyg');
-      if (joditEditor === null) throw new Error('Jodit editor not found');
+      const joditEditor = editor.shadowRoot.querySelector(JODIT_WYSIWYG_SELECTOR);
 
       const textToSelect = 'Paw Patrol follows a similar pattern';
       const range = document.createRange();
@@ -241,11 +236,9 @@ test.describe('mg-input-rich-text-editor', () => {
 
       // Find the first paragraph in Jodit editor
       const firstP = joditEditor.querySelector('p');
-      if (firstP === null) throw new Error('First paragraph not found');
 
       // Find text node containing our phrase
       const textNode = Array.from(firstP.childNodes).find(node => node.nodeType === Node.TEXT_NODE && node.textContent?.includes(textToSelect));
-      if (textNode === undefined) throw new Error('Text node not found');
 
       const startIndex = textNode.textContent.indexOf(textToSelect);
       range.setStart(textNode, startIndex);
