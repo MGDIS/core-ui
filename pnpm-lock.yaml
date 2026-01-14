@@ -516,8 +516,8 @@ importers:
   packages/linting-angularjs:
     dependencies:
       '@babel/eslint-parser':
-        specifier: 7.28.5
-        version: 7.28.5(@babel/core@7.28.5)(eslint@8.57.1)
+        specifier: 7.28.6
+        version: 7.28.6(@babel/core@7.28.5)(eslint@8.57.1)
       '@html-eslint/eslint-plugin':
         specifier: 0.45.0
         version: 0.45.0(eslint@8.57.1)
@@ -591,8 +591,8 @@ importers:
   packages/linting-vue2:
     dependencies:
       '@babel/eslint-parser':
-        specifier: 7.28.5
-        version: 7.28.5(@babel/core@7.28.5)(eslint@8.57.1)
+        specifier: 7.28.6
+        version: 7.28.6(@babel/core@7.28.5)(eslint@8.57.1)
       '@mgdis/eslint-plugin-vue':
         specifier: workspace:*
         version: link:../eslint-plugin-vue
@@ -987,8 +987,8 @@ packages:
     resolution: {integrity: sha512-e7jT4DxYvIDLk1ZHmU/m/mB19rex9sv0c2ftBtjSBv+kVM/902eh0fINUzD7UwLLNR+jU585GxUJ8/EBfAM5fw==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/eslint-parser@7.28.5':
-    resolution: {integrity: sha512-fcdRcWahONYo+JRnJg1/AekOacGvKx12Gu0qXJXFi2WBqQA1i7+O5PaxRB7kxE/Op94dExnCiiar6T09pvdHpA==}
+  '@babel/eslint-parser@7.28.6':
+    resolution: {integrity: sha512-QGmsKi2PBO/MHSQk+AAgA9R6OHQr+VqnniFE0eMWZcVcfBZoA2dKn2hUsl3Csg/Plt9opRUWdY7//VXsrIlEiA==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': ^7.11.0
@@ -8095,7 +8095,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/eslint-parser@7.28.5(@babel/core@7.28.5)(eslint@8.57.1)':
+  '@babel/eslint-parser@7.28.6(@babel/core@7.28.5)(eslint@8.57.1)':
     dependencies:
       '@babel/core': 7.28.5
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
