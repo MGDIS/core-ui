@@ -38,8 +38,8 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
   // Note: Using Record<string, unknown> to avoid TypeScript complexity issues with Jodit's deeply nested Config type
   // The actual configuration follows Jodit's Config interface from jodit/esm/types
   const joditConfig: Record<string, unknown> = {
-    readonly: readOnly || false,
-    placeholder: placeholder || '',
+    readonly: readOnly === true,
+    placeholder: placeholder || '', // Avoid `Type something...` placeholder by default
     buttons: modules || [
       'bold',
       'italic',
