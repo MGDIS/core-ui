@@ -170,11 +170,8 @@ export class MgInputRichTextEditor {
    * Must be passed as an HTML attribute with a comma-separated list (e.g., modules="bold, italic, |, ul, ol")
    */
   @Prop() modules?: string;
-
-  /**
-   * Parse modules prop from string to array
-   */
-  private parseModules(): void {
+  @Watch('modules')
+  watchModules(): void {
     if (this.modules === undefined) {
       this.toolbarButtons = undefined;
       return;
@@ -184,7 +181,7 @@ export class MgInputRichTextEditor {
     this.toolbarButtons = this.modules
       .split(',')
       .map(item => item.trim())
-      .filter(item => item.length > 0) as ButtonsOption;
+      .filter(item => item.length > 0);
   }
 
   /**
@@ -573,8 +570,7 @@ export class MgInputRichTextEditor {
     // Watch
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
-    // Parse modules configuration
-    this.parseModules();
+    this.watchModules();
 
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
