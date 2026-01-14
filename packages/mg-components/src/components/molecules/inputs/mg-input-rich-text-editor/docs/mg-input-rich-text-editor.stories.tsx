@@ -6,6 +6,7 @@ export default {
   component: 'mg-input-rich-text-editor',
   title: 'Molecules/Inputs/mg-input-rich-text-editor',
   tags: ['beta'],
+  parameters: { actions: { handles: ['value-change', 'input-valid'] } },
 };
 
 /**
