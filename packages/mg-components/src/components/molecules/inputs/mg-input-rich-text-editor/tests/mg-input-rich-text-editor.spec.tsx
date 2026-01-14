@@ -909,36 +909,26 @@ describe('mg-input-rich-text-editor', () => {
       expect(result).toContain('<p>Test</p>');
     });
 
-    test('getEditorHTML should handle empty sanitizerDisallowTags', async () => {
-      const page = await getPage({
-        label: 'label',
-        identifier: 'identifier',
-        sanitizerDisallowTags: '',
-        value: '<p>Test</p><img src="test.jpg">',
-      });
-      const { element } = await waitForEditor(page);
-
-      const result = await element.getEditorHTML();
-
-      // Empty string should be treated as undefined, so img should remain
-      expect(result).toContain('<img');
-      expect(result).toContain('<p>Test</p>');
+    test('getEditorHTML should throw error when sanitizerDisallowTags is empty string', async () => {
+      await expect(
+        getPage({
+          label: 'label',
+          identifier: 'identifier',
+          sanitizerDisallowTags: '',
+          value: '<p>Test</p><img src="test.jpg">',
+        }),
+      ).rejects.toThrow('prop "sanitizerDisallowTags" must be a string');
     });
 
-    test('getEditorHTML should handle empty sanitizerDisallowAttributes', async () => {
-      const page = await getPage({
-        label: 'label',
-        identifier: 'identifier',
-        sanitizerDisallowAttributes: '',
-        value: '<p style="color: red">Test</p>',
-      });
-      const { element } = await waitForEditor(page);
-
-      const result = await element.getEditorHTML();
-
-      // Empty string should be treated as undefined, so style should remain
-      expect(result).toContain('style=');
-      expect(result).toContain('<p');
+    test('getEditorHTML should throw error when sanitizerDisallowAttributes is empty string', async () => {
+      await expect(
+        getPage({
+          label: 'label',
+          identifier: 'identifier',
+          sanitizerDisallowAttributes: '',
+          value: '<p style="color: red">Test</p>',
+        }),
+      ).rejects.toThrow('prop "sanitizerDisallowAttributes" must be a string');
     });
 
     test('value-change event should emit sanitized HTML', async () => {
@@ -1031,6 +1021,52 @@ describe('mg-input-rich-text-editor', () => {
       // Invalid format should be ignored, so style should remain
       expect(result).toContain('style=');
       expect(result).toContain('<p');
+    });
+
+    test('getEditorHTML should reinitialize sanitizer when sanitizerDisallowTags changes after initialization', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        value: '<p>Test</p><img src="test.jpg">',
+      });
+      const { element } = await waitForEditor(page);
+
+      // Initially, img should be present
+      let result = await element.getEditorHTML();
+      expect(result).toContain('<img');
+
+      // Change sanitizerDisallowTags prop after initialization
+      element.sanitizerDisallowTags = 'img';
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+
+      // Now img should be removed
+      result = await element.getEditorHTML();
+      expect(result).not.toContain('<img');
+      expect(result).toContain('<p>Test</p>');
+    });
+
+    test('getEditorHTML should reinitialize sanitizer when sanitizerDisallowAttributes changes after initialization', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        value: '<p style="color: red">Test</p>',
+      });
+      const { element } = await waitForEditor(page);
+
+      // Initially, style should be present
+      let result = await element.getEditorHTML();
+      expect(result).toContain('style=');
+
+      // Change sanitizerDisallowAttributes prop after initialization
+      element.sanitizerDisallowAttributes = '*:style';
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+
+      // Now style should be removed
+      result = await element.getEditorHTML();
+      expect(result).not.toContain('style=');
+      expect(result).toContain('<p>Test</p>');
     });
   });
 });
