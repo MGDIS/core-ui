@@ -40,6 +40,9 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
   const joditConfig: Record<string, unknown> = {
     readonly: readOnly === true,
     placeholder: placeholder || '', // Avoid `Type something...` placeholder by default
+    // Set tabIndex to 0 to enable keyboard navigation with Tab key
+    // Default is -1 which prevents the editor from receiving focus via Tab navigation
+    tabIndex: 0,
     buttons: modules || [
       'bold',
       'italic',
