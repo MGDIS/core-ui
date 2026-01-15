@@ -26,6 +26,7 @@ export const MgInputRichTextEditor = {
     label: 'Label',
     labelOnTop: false,
     labelHide: false,
+    rows: 5,
     placeholder: 'Saisissez votre texte ici...',
     required: false,
     readonly: false,
