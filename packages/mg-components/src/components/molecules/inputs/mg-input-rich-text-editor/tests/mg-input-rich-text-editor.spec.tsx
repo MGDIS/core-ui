@@ -3,12 +3,11 @@ import { newSpecPage } from '@stencil/core/testing';
 import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { setupMutationObserverMock, setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/dist/tests';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
-import messages from '../../../../../locales/en/messages.json';
-import type { IJodit } from '../editor/editor.conf';
-import type { ButtonsOption } from '../editor/editor.conf';
 import { MgInputRichTextEditor } from '../mg-input-rich-text-editor';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
+import messages from '../../../../../locales/en/messages.json';
+import type { IJodit, ButtonsOption } from '../editor/editor.conf';
 
 type HTMLinput = HTMLElement & {
   checkValidity: () => boolean;

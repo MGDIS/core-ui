@@ -1,5 +1,7 @@
 // Import Jodit types
 import type { IJodit, ButtonsOption } from 'jodit/esm/types';
+// Import Sanitizer type
+import type { Sanitizer } from '@mgdis/sanitize-html';
 
 /**
  * Configuration options for defineEditor function
@@ -16,5 +18,12 @@ export type DefineEditorConfig = {
   handleBlur: () => void;
 };
 
-// Re-export Jodit types for external use
+// Export Jodit types for external use
 export type { IJodit, ButtonsOption };
+
+// Export Sanitizer type for external use
+export type { Sanitizer };
+
+// Type aliases for tags and attributes
+export type TagList = string[];
+export type TagAttributes = Record<string, string[]>;

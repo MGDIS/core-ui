@@ -3,8 +3,8 @@ import { ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/
 import { classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import { defineEditor } from './editor';
-import type { ButtonsOption, IJodit } from './editor/editor.conf';
-import { parseTags, parseTagAttributes, createSanitizer, type Sanitizer, type TagList, type TagAttributes } from './editor/sanitizer';
+import { parseTags, parseTagAttributes, createSanitizer } from './editor/sanitizer';
+import type { ButtonsOption, IJodit, Sanitizer } from './editor/editor.conf';
 
 @Component({
   tag: 'mg-input-rich-text-editor',
@@ -20,21 +20,20 @@ export class MgInputRichTextEditor {
    * Internal *
    ************/
 
-  // editor
+  // Editor
   private editor: IJodit;
   private editorElement: HTMLTextAreaElement;
-  private toolbarButtons?: ButtonsOption;
+  private toolbarModules?: ButtonsOption;
 
   // Sanitizer
   private sanitizer: Sanitizer;
-  private sanitizerDisallowTagsParsed?: TagList;
-  private sanitizerDisallowAttributesParsed?: TagAttributes;
 
   // Locales
   private messages;
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  // Custom error message
   private customErrorMessage: { lock: boolean; message?: string } = { lock: false };
 
   /**************
@@ -175,12 +174,12 @@ export class MgInputRichTextEditor {
   @Watch('modules')
   watchModules(): void {
     if (this.modules === undefined) {
-      this.toolbarButtons = undefined;
+      this.toolbarModules = undefined;
       return;
     }
 
     // Parse comma-separated string: "bold, italic, |, ul, ol"
-    this.toolbarButtons = this.modules
+    this.toolbarModules = this.modules
       .split(',')
       .map(item => item.trim())
       .filter(item => item.length > 0);
@@ -191,21 +190,6 @@ export class MgInputRichTextEditor {
    * Must be passed as an HTML attribute with a comma-separated list (e.g., sanitizer-disallow-tags="img,script")
    */
   @Prop() sanitizerDisallowTags?: string;
-  @Watch('sanitizerDisallowTags')
-  watchSanitizerDisallowTags(newValue: MgInputRichTextEditor['sanitizerDisallowTags']): void {
-    if (newValue === undefined) {
-      this.sanitizerDisallowTagsParsed = undefined;
-    } else {
-      if (!isValidString(newValue)) {
-        throw new Error(`<mg-input-rich-text-editor> prop "sanitizerDisallowTags" must be a string. Passed value: "${toString(newValue)}".`);
-      }
-      this.sanitizerDisallowTagsParsed = parseTags(newValue);
-    }
-    // Reinitialize sanitizer if component is already loaded
-    if (this.sanitizer !== undefined) {
-      this.sanitizer = createSanitizer(this.sanitizerDisallowTagsParsed, this.sanitizerDisallowAttributesParsed);
-    }
-  }
 
   /**
    * Attributes to disallow in sanitized HTML
@@ -213,19 +197,16 @@ export class MgInputRichTextEditor {
    * Use "*" as tag name to apply to all tags
    */
   @Prop() sanitizerDisallowAttributes?: string;
+  @Watch('sanitizerDisallowTags')
   @Watch('sanitizerDisallowAttributes')
-  watchSanitizerDisallowAttributes(newValue: MgInputRichTextEditor['sanitizerDisallowAttributes']): void {
-    if (newValue === undefined) {
-      this.sanitizerDisallowAttributesParsed = undefined;
-    } else {
-      if (!isValidString(newValue)) {
-        throw new Error(`<mg-input-rich-text-editor> prop "sanitizerDisallowAttributes" must be a string. Passed value: "${toString(newValue)}".`);
-      }
-      this.sanitizerDisallowAttributesParsed = parseTagAttributes(newValue);
+  watchSanitizerConfig(newValue: string | undefined, _oldValue: string | undefined, propName: string): void {
+    // Validate the prop that changed
+    if (newValue !== undefined && !isValidString(newValue)) {
+      throw new Error(`<mg-input-rich-text-editor> prop "${propName}" must be a string. Passed value: "${toString(newValue)}".`);
     }
     // Reinitialize sanitizer if component is already loaded
     if (this.sanitizer !== undefined) {
-      this.sanitizer = createSanitizer(this.sanitizerDisallowTagsParsed, this.sanitizerDisallowAttributesParsed);
+      this.initializeSanitizer();
     }
   }
 
@@ -510,6 +491,15 @@ export class MgInputRichTextEditor {
     return Math.round(totalHeight);
   }
 
+  /**
+   * Initialize sanitizer by parsing props and creating a new instance
+   */
+  private initializeSanitizer = (): void => {
+    const disallowTags = this.sanitizerDisallowTags !== undefined ? parseTags(this.sanitizerDisallowTags) : undefined;
+    const disallowAttributes = this.sanitizerDisallowAttributes !== undefined ? parseTagAttributes(this.sanitizerDisallowAttributes) : undefined;
+    this.sanitizer = createSanitizer(disallowTags, disallowAttributes);
+  };
+
   /*************
    * Lifecycle *
    *************/
@@ -528,10 +518,10 @@ export class MgInputRichTextEditor {
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
     this.watchModules();
-    this.watchSanitizerDisallowTags(this.sanitizerDisallowTags);
-    this.watchSanitizerDisallowAttributes(this.sanitizerDisallowAttributes);
+    this.watchSanitizerConfig(this.sanitizerDisallowTags, undefined, 'sanitizerDisallowTags');
+    this.watchSanitizerConfig(this.sanitizerDisallowAttributes, undefined, 'sanitizerDisallowAttributes');
     // Initialize sanitizer with optional configuration
-    this.sanitizer = createSanitizer(this.sanitizerDisallowTagsParsed, this.sanitizerDisallowAttributesParsed);
+    this.initializeSanitizer();
 
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
@@ -547,7 +537,7 @@ export class MgInputRichTextEditor {
   componentDidLoad(): void {
     if (!this.readonly) {
       this.editor = defineEditor(this.element, this.editorElement, {
-        modules: this.toolbarButtons,
+        modules: this.toolbarModules,
         readOnly: this.readonly || this.disabled,
         placeholder: this.placeholder,
         value: this.sanitizer.sanitize(this.value),

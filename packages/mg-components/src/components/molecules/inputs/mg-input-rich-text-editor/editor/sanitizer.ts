@@ -1,11 +1,5 @@
 import { Sanitizer, type SanitizerOptions } from '@mgdis/sanitize-html';
-
-// Export Sanitizer type for external use
-export type { Sanitizer };
-
-// Type aliases for tags and attributes
-export type TagList = string[];
-export type TagAttributes = Record<string, string[]>;
+import type { TagList, TagAttributes } from './editor.conf';
 
 /**
  * Parse tags from comma-separated string
@@ -25,7 +19,7 @@ export const parseTags = (tagString: string): TagList => {
  * @returns Mapping of tag names to arrays of attribute names
  */
 export const parseTagAttributes = (attributesString: string): TagAttributes => {
-  const result: TagAttributes = {};
+  const tagAttributes: TagAttributes = {};
 
   // Split by semicolon to get tag:attributes pairs
   attributesString.split(';').forEach(part => {
@@ -45,11 +39,11 @@ export const parseTagAttributes = (attributesString: string): TagAttributes => {
     const attrs = parseTags(attrsString);
 
     if (attrs.length > 0) {
-      result[tag] = attrs;
+      tagAttributes[tag] = attrs;
     }
   });
 
-  return result;
+  return tagAttributes;
 };
 
 /**
