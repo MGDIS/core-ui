@@ -476,6 +476,52 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file mg-c-input--has-error">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+            <div aria-live="assertive" class="mg-c-input__error">
+              <slot name="error"></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-describedby="mg-input-file-error" aria-invalid="true" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" required="" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <div id="mg-input-file-error" slot="error">
+          This field is required.
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle required="">
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -852,6 +898,46 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" required="" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle required="">
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--toggle">
@@ -1374,6 +1460,46 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" required="" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle required="">
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -1792,6 +1918,41 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -2205,6 +2366,41 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -2675,6 +2871,41 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -3126,6 +3357,46 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" required="" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle required="">
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -3537,6 +3808,41 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -3943,6 +4249,41 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -4399,6 +4740,41 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -4853,6 +5229,46 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" required="" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle required="">
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -5271,6 +5687,41 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -5684,6 +6135,41 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -6143,6 +6629,41 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -6541,6 +7062,41 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -6812,6 +7368,41 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file readonly="">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--toggle">
@@ -7204,6 +7795,41 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" disabled="" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="true" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--toggle">
@@ -7602,6 +8228,41 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file mg-c-input--label-on-top">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
@@ -7872,6 +8533,41 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--toggle">
@@ -8265,6 +8961,41 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -8663,6 +9394,41 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -9061,6 +9827,41 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -9459,6 +10260,41 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -9857,6 +10693,41 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -10255,6 +11126,41 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -10766,6 +11672,52 @@ exports[`mg-form display error message with locale: fr 1`] = `
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file mg-c-input--has-error">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+            <div aria-live="assertive" class="mg-c-input__error">
+              <slot name="error"></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-describedby="mg-input-file-error" aria-invalid="true" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" required="" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Parcourir…
+          </mg-button>
+        </div>
+        <div id="mg-input-file-error" slot="error">
+          Ce champ est obligatoire.
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle required="">
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">
@@ -11277,6 +12229,52 @@ exports[`mg-form display error message with locale: xx 1`] = `
       </mg-input>
     </template>
   </mg-input-textarea>
+  <mg-input-file>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file mg-c-input--has-error">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+            <div aria-live="assertive" class="mg-c-input__error">
+              <slot name="error"></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-describedby="mg-input-file-error" aria-invalid="true" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" required="" tabindex="-1" type="file">
+          <mg-button aria-controls="mg-input-file" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            Browse…
+          </mg-button>
+        </div>
+        <div id="mg-input-file-error" slot="error">
+          This field is required.
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
   <mg-input-toggle required="">
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--toggle">

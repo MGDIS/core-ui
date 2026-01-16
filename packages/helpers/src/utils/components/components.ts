@@ -136,3 +136,23 @@ export class Paginate<T> {
     });
   };
 }
+
+/**
+ * Convert octets size to string representation
+ * @param size - size in octets
+ * @returns size in string format
+ */
+export const octetsToString = (size: number): string => {
+  if (typeof size !== 'number' || Number.isNaN(size) || size < 0) {
+    throw new Error('octetsToString - size must be a positive number.');
+  }
+
+  const base = 1024;
+  const units = ['octets', 'Ko', 'Mo', 'Go', 'To'];
+
+  // find appropriate unit base on size and base power
+  const unitIndex = units.findIndex((_, key) => size < Math.pow(base, key + 1));
+
+  // convert size to string with unit
+  return `${unitIndex < 1 ? size : (size / Math.pow(base, unitIndex)).toFixed(unitIndex > 1 ? 2 : 0)}${units[unitIndex]}`.replace('.00', '');
+};

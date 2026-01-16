@@ -1,0 +1,60 @@
+@use 'mg-input-readonly';
+@use 'mg-input-box';
+@use '../utils/a11y';
+
+.mg-c-input__file {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mg-b-size-8);
+  }
+
+  &-item {
+    display: inline-flex;
+    min-height: var(--mg-b-size-min-height);
+    align-items: center;
+    padding-left: var(--mg-b-size-8);
+    background-color: var(--mg-b-color-neutral-10);
+    font-weight: 600;
+    gap: var(--mg-b-size-8);
+
+    &-name {
+      word-break: break-all;
+    }
+
+    &-size {
+      font-weight: 400;
+    }
+  }
+
+  &-delete-button {
+    align-self: flex-start;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    gap: var(--mg-b-size-4);
+    list-style: none;
+
+    .mg-c-input__file-item {
+      min-height: unset;
+      padding: var(--mg-b-size-8);
+    }
+
+    &-container {
+      position: relative;
+      padding: var(--mg-b-size-8) calc(var(--mg-b-size-8) + var(--mg-b-size-min-height)) var(--mg-b-size-8) var(--mg-b-size-8);
+      border: var(--mg-b-size-border) solid var(--mg-b-color-neutral-30);
+      border-radius: var(--mg-b-size-4);
+
+      .mg-c-input__file-delete-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+}
