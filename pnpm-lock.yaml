@@ -931,8 +931,8 @@ importers:
         specifier: 24.10.9
         version: 24.10.9
       comment-parser:
-        specifier: 1.4.1
-        version: 1.4.1
+        specifier: 1.4.4
+        version: 1.4.4
       postcss:
         specifier: 8.5.6
         version: 8.5.6
@@ -3922,6 +3922,10 @@ packages:
 
   comment-parser@1.4.1:
     resolution: {integrity: sha512-buhp5kePrmda3vhc5B9t7pUQXAb2Tnd0qgpkIhPhkHXxJpiPJ11H0ZEU0oBpJ2QztSbzG/ZxMj/CHsYJqRHmyg==}
+    engines: {node: '>= 12.0.0'}
+
+  comment-parser@1.4.4:
+    resolution: {integrity: sha512-0D6qSQ5IkeRrGJFHRClzaMOenMeT0gErz3zIw3AprKMqhRN6LNU2jQOdkPG/FZ+8bCgXE1VidrgSzlBBDZRr8A==}
     engines: {node: '>= 12.0.0'}
 
   commondir@1.0.1:
@@ -11339,6 +11343,8 @@ snapshots:
   commander@9.5.0: {}
 
   comment-parser@1.4.1: {}
+
+  comment-parser@1.4.4: {}
 
   commondir@1.0.1: {}
 
