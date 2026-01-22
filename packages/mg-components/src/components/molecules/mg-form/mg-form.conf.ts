@@ -19,3 +19,9 @@ export const requiredMessageStatus = ['default', 'hide'] as const;
  * RequiredMessageStatus type from requiredMessageStatus
  */
 export type RequiredMessageStatusType = (typeof requiredMessageStatus)[number];
+
+/**
+ * Type for partial mutation records used in tests
+ * Allows type to be string (as inferred from test.each) while maintaining compatibility with MutationRecord
+ */
+export type PartialMutationRecord = { type: string } & Partial<Omit<MutationRecord, 'type'>>;

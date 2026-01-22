@@ -15,7 +15,7 @@ import { MgInputToggle } from '../../inputs/mg-input-toggle/mg-input-toggle';
 import { HTMLMgInputsElement } from '../../inputs/mg-input/mg-input.conf';
 import { setUpHTMLInputElementValidity, setupMutationObserverMock, setUpRequestAnimationFrameMock, setupSubmitEventMock } from '@mgdis/core-ui-helpers/dist/tests';
 import { MgInputTitle } from '../../../atoms/internals/mg-input-title/mg-input-title';
-import { requiredMessageStatus, roles } from '../mg-form.conf';
+import { PartialMutationRecord, requiredMessageStatus, roles } from '../mg-form.conf';
 import { MgInput } from '../../inputs/mg-input/mg-input';
 import { MgInputRichTextEditor } from '../../inputs/mg-input-rich-text-editor/mg-input-rich-text-editor';
 import { MgInputCombobox } from '../../inputs/mg-input-combobox/mg-input-combobox';
@@ -132,14 +132,23 @@ const setMgInputChecboxeInvalid = (input: HTMLMgInputCheckboxElement): void => {
 const requiredFields = [undefined, 'one', 'all', 'multiple', 'single'];
 
 describe('mg-form', () => {
-  let fireMo;
+  let fireMo: (mutations: PartialMutationRecord[]) => void;
+  let callbacks: Array<(mutations: MutationRecord[], observer: MutationObserver) => void>;
+  const mockObserver = { disconnect: () => null, observe: () => null, takeRecords: () => [] } as MutationObserver;
 
   beforeEach(() => {
     jest.useFakeTimers({ legacyFakeTimers: true });
+    callbacks = []; // Reset callbacks array
 
     setupMutationObserverMock({
       observe: function () {
-        fireMo = this.cb;
+        callbacks.push(this.cb);
+        // fireMo will trigger all callbacks
+        fireMo = (mutations: PartialMutationRecord[]) => {
+          // Convert partial mutations to full MutationRecord[] for callbacks
+          const fullMutations = mutations as MutationRecord[];
+          callbacks.forEach(cb => cb(fullMutations, mockObserver));
+        };
       },
       disconnect: function () {
         return null;

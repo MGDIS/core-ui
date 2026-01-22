@@ -833,6 +833,85 @@ describe('mg-input-rich-text-editor', () => {
         // Clean up
         document.body.removeChild(mockElement);
       });
+
+      test('Should sync aria-describedby changes from textarea to wysiwyg element', async () => {
+        // Override the global mock for this test to capture callbacks
+        const callbacks: Array<(mutations: MutationRecord[], observer: MutationObserver) => void> = [];
+        const mockObserver = { disconnect: () => null, observe: () => null, takeRecords: () => [] } as MutationObserver;
+
+        // Setup a mock that stores callbacks
+        setupMutationObserverMock({
+          observe: function () {
+            callbacks.push(this.cb);
+          },
+          disconnect: function () {
+            return null;
+          },
+          takeRecords: () => [],
+        });
+
+        // Import defineEditor to test it directly
+        const { defineEditor } = await import('../editor');
+
+        // Create a mock component element with shadowRoot (as in real usage)
+        const mockElement = document.createElement('mg-input-rich-text-editor') as HTMLMgInputRichTextEditorElement;
+        const shadowRoot = mockElement.attachShadow({ mode: 'open' });
+        document.body.appendChild(mockElement);
+
+        const wrapperElement = document.createElement('div');
+        wrapperElement.id = 'test-identifier';
+        const editorElement = document.createElement('textarea');
+        wrapperElement.appendChild(editorElement);
+        shadowRoot.appendChild(wrapperElement);
+
+        const handleTextChange = jest.fn();
+        const handleFocus = jest.fn();
+        const handleBlur = jest.fn();
+
+        defineEditor(mockElement, editorElement, {
+          value: '<p>Test</p>',
+          handleTextChange,
+          handleFocus,
+          handleBlur,
+          readOnly: false,
+          placeholder: 'Test placeholder',
+        });
+
+        // Execute requestAnimationFrame callbacks to ensure MutationObserver is set up
+        // This also allows Jodit to initialize and create the wysiwyg element
+        jest.runOnlyPendingTimers();
+
+        const wysiwygElement = wrapperElement.querySelector('.jodit-wysiwyg') as HTMLElement;
+        expect(wysiwygElement).not.toBeNull();
+
+        // Set initial aria-describedby on textarea
+        editorElement.setAttribute('aria-describedby', 'help-text-1');
+        // Execute requestAnimationFrame to sync initial value
+        jest.runOnlyPendingTimers();
+
+        // Change the aria-describedby attribute
+        editorElement.setAttribute('aria-describedby', 'help-text-2');
+
+        // Manually trigger the MutationObserver callback with the mutation
+        const mutation = {
+          type: 'attributes',
+          attributeName: 'aria-describedby',
+          target: editorElement,
+        } as unknown as MutationRecord;
+
+        // Find the callback that observes editorElement and trigger it
+        // The last callback should be the one from defineEditor that syncs aria-describedby
+        const syncCallback = callbacks[callbacks.length - 1];
+        if (syncCallback !== undefined) {
+          syncCallback([mutation], mockObserver);
+        }
+
+        // Verify that aria-describedby was synced to wysiwyg element
+        expect(wysiwygElement.getAttribute('aria-describedby')).toBe('help-text-2');
+
+        // Clean up
+        document.body.removeChild(mockElement);
+      });
     });
   });
 
