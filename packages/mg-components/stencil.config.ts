@@ -80,8 +80,5 @@ export const config: Config = {
     setupFilesAfterEnv: ['./jest.setup.ts'],
     coverageReporters,
     coverageThreshold,
-    moduleNameMapper: {
-      '^jodit(/.*)?$': '<rootDir>/src/components/molecules/inputs/mg-input-rich-text-editor/tests/__mocks__/jodit.mock.ts',
-    },
   },
 };

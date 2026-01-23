@@ -1,3 +1,10 @@
+// Mock Jodit module and plugins - MUST be before any imports
+import { setupJoditMock, getJoditPluginPaths } from '../editor/jodit.mock';
+jest.mock('jodit', () => setupJoditMock());
+getJoditPluginPaths().forEach(pluginPath => {
+  jest.mock(pluginPath, () => ({}));
+});
+
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { toString } from '@mgdis/core-ui-helpers/dist/utils';
