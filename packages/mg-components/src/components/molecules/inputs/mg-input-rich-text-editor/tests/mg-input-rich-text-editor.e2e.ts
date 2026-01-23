@@ -190,10 +190,10 @@ test.describe('mg-input-rich-text-editor', () => {
     await setEditorContent(page, sampleContent);
 
     // Select specific text
-    await page.evaluate(() => {
+    await page.evaluate(joditWysiwygSelector => {
       const editor = document.querySelector('mg-input-rich-text-editor');
       // Access Jodit editor via jodit-wysiwyg class
-      const joditEditor = editor.shadowRoot.querySelector(JODIT_WYSIWYG_SELECTOR);
+      const joditEditor = editor.shadowRoot.querySelector(joditWysiwygSelector);
 
       const textToSelect = 'Paw Patrol follows a similar pattern';
       const range = document.createRange();
@@ -211,7 +211,7 @@ test.describe('mg-input-rich-text-editor', () => {
 
       selection.removeAllRanges();
       selection.addRange(range);
-    });
+    }, JODIT_WYSIWYG_SELECTOR);
 
     // Click on bold button
     await page.evaluate(() => {
@@ -237,10 +237,10 @@ test.describe('mg-input-rich-text-editor', () => {
     await setEditorContent(page, sampleContent);
 
     // Select specific text
-    await page.evaluate(() => {
+    await page.evaluate(joditWysiwygSelector => {
       const editor = document.querySelector('mg-input-rich-text-editor');
       // Access Jodit editor via jodit-wysiwyg class
-      const joditEditor = editor.shadowRoot.querySelector(JODIT_WYSIWYG_SELECTOR);
+      const joditEditor = editor.shadowRoot.querySelector(joditWysiwygSelector);
 
       const textToSelect = 'Paw Patrol follows a similar pattern';
       const range = document.createRange();
@@ -258,7 +258,7 @@ test.describe('mg-input-rich-text-editor', () => {
 
       selection.removeAllRanges();
       selection.addRange(range);
-    });
+    }, JODIT_WYSIWYG_SELECTOR);
 
     // Click on underline button
     await page.evaluate(() => {
