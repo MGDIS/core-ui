@@ -1,9 +1,9 @@
 import { Component, h, Prop, Element, Host, Watch, State } from '@stencil/core';
 import { toString } from '@mgdis/core-ui-helpers/dist/utils';
-import type { IconType, SizeType, SlotLabelType } from './mg-item-more.conf';
+import type { IconType, SlotLabelType } from './mg-item-more.conf';
 import type { MessageType } from '../../../../locales/index.conf';
 import { OverflowBehavior } from '../../../../utils/behaviors.utils';
-import { directions, sizes } from '../../menus/mg-menu/mg-menu.conf';
+import { directions } from '../../menus/mg-menu/mg-menu.conf';
 import { initLocales } from '../../../../locales';
 
 /**
@@ -54,15 +54,6 @@ export class MgItemMore {
   }
 
   /**
-   * Define component child menu size.
-   */
-  @Prop() size?: SizeType;
-  @Watch('size')
-  validateSize(newValue: MgItemMore['size']): void {
-    if (newValue && !sizes.includes(newValue)) throw new Error(`<${this.name}> prop "size" must match MgItemMore['size'] type. Passed value: ${toString(newValue)}.`);
-  }
-
-  /**
    * Define component parent menu.
    */
   @State() parentMenu: HTMLMgMenuElement;
@@ -81,7 +72,6 @@ export class MgItemMore {
     // validate props
     this.validateIcon(this.icon);
     this.validateSlotLabel(this.slotlabel);
-    this.validateSize(this.size);
   }
 
   /**
@@ -120,15 +110,14 @@ export class MgItemMore {
     return (
       <Host role="listitem" data-mg-popover-guard={`${menuItemIdentifier}-popover`}>
         {this.parentMenu && (
-          <mg-menu-item data-overflow-more data-size={this.parentMenu.size} data-style-direction={directions.HORIZONTAL} identifier={menuItemIdentifier}>
-            <mg-icon icon={this.icon.icon} size={this.size} slot="image"></mg-icon>
+          <mg-menu-item data-overflow-more data-style-direction={directions.HORIZONTAL} identifier={menuItemIdentifier} isIcon={!this.slotlabel.display}>
+            <mg-icon icon={this.icon.icon} slot="image"></mg-icon>
             <span class={{ 'mg-u-visually-hidden': !this.slotlabel.display }} slot="label">
               {this.slotlabel.label}
             </span>
             <mg-menu
               direction={directions.VERTICAL}
               label={this.messages.menuLabel}
-              size={this.size}
               ref={ref => {
                 if (ref !== null) this.itemMoreContainer = ref;
               }}

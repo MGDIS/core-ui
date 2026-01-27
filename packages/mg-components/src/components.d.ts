@@ -23,8 +23,8 @@ import { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-t
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
-import { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
-import { ItemMoreType, MenuSizeType } from "./components/molecules/menus/mg-menu/mg-menu.conf";
+import { IconType as IconType2, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
+import { ItemMoreType } from "./components/molecules/menus/mg-menu/mg-menu.conf";
 import { MgMenuStatusType, TargetType } from "./components/molecules/menus/mg-menu-item/mg-menu-item.conf";
 import { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
@@ -34,7 +34,7 @@ import { Placement } from "@popperjs/core";
 import { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 import { ColumnsType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
-import { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
+import { TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
@@ -54,8 +54,8 @@ export { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-t
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
-export { IconType as IconType2, SizeType as SizeType1, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
-export { ItemMoreType, MenuSizeType } from "./components/molecules/menus/mg-menu/mg-menu.conf";
+export { IconType as IconType2, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
+export { ItemMoreType } from "./components/molecules/menus/mg-menu/mg-menu.conf";
 export { MgMenuStatusType, TargetType } from "./components/molecules/menus/mg-menu-item/mg-menu-item.conf";
 export { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
@@ -65,7 +65,7 @@ export { Placement } from "@popperjs/core";
 export { AriaRoleType as AriaRoleType1 } from "./components/molecules/mg-progress/mg-progress.conf";
 export { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 export { ColumnsType, TableSizeType } from "./components/molecules/mg-table/mg-table.conf";
-export { SizeType as SizeType2, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
+export { TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 export { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export namespace Components {
     interface MgActionMore {
@@ -1673,10 +1673,6 @@ export namespace Components {
          */
         "icon"?: IconType2;
         /**
-          * Define component child menu size.
-         */
-        "size"?: SizeType1;
-        /**
           * Define slot label element
           * @default { display: false }
          */
@@ -1707,11 +1703,6 @@ export namespace Components {
           * Menu label. Include short menu description. Required to define accessibility required attribute `aria-label`
          */
         "label": string;
-        /**
-          * Define mg-menu size
-          * @default 'medium'
-         */
-        "size": MenuSizeType;
     }
     interface MgMenuItem {
         /**
@@ -1728,6 +1719,11 @@ export namespace Components {
           * @default createID('mg-menu-item')
          */
         "identifier": string;
+        /**
+          * Define menu-item isIcon style.
+          * @default false
+         */
+        "isIcon"?: boolean;
         /**
           * Define menu-item status.
           * @default 'visible'
@@ -1965,11 +1961,6 @@ export namespace Components {
           * Tabs label. Include short tabs description. Required for accessibility
          */
         "label": string;
-        /**
-          * Define tabs size
-          * @default 'medium'
-         */
-        "size": SizeType2;
     }
     interface MgTag {
         /**
@@ -4205,10 +4196,6 @@ declare namespace LocalJSX {
          */
         "icon"?: IconType2;
         /**
-          * Define component child menu size.
-         */
-        "size"?: SizeType1;
-        /**
           * Define slot label element
           * @default { display: false }
          */
@@ -4239,11 +4226,6 @@ declare namespace LocalJSX {
           * Menu label. Include short menu description. Required to define accessibility required attribute `aria-label`
          */
         "label": string;
-        /**
-          * Define mg-menu size
-          * @default 'medium'
-         */
-        "size"?: MenuSizeType;
     }
     interface MgMenuItem {
         /**
@@ -4260,6 +4242,11 @@ declare namespace LocalJSX {
           * @default createID('mg-menu-item')
          */
         "identifier"?: string;
+        /**
+          * Define menu-item isIcon style.
+          * @default false
+         */
+        "isIcon"?: boolean;
         /**
           * Emited event when item is loaded
          */
@@ -4549,11 +4536,6 @@ declare namespace LocalJSX {
           * Emited event when active tab change
          */
         "onActive-tab-change"?: (event: MgTabsCustomEvent<HTMLMgTabsElement['activeTab']>) => void;
-        /**
-          * Define tabs size
-          * @default 'medium'
-         */
-        "size"?: SizeType2;
     }
     interface MgTag {
         /**

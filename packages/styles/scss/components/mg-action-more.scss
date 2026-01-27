@@ -2,9 +2,10 @@
 @use 'mixins/mg-icon-animation';
 
 :host {
-  --mg-c-popover-padding-vertical: var(--mg-b-size-8);
+  --mg-c-popover-padding-vertical: var(--mg-b-size-4);
   --mg-c-popover-padding-horizontal: 0;
   --mg-c-popover-max-width: unset;
+  --mg-c-popover-overflow: hidden;
 }
 
 .mg-c-action-more {
@@ -14,5 +15,10 @@
 
   &__chevron {
     @include mg-icon-animation.rotate('.mg-c-action-more__chevron', 200ms);
+  }
+
+  mg-menu-item {
+    --mg-c-menu-item-button-spacing: var(--mg-b-size-4);
+    --mg-c-menu-item-height: var(--mg-b-size-min-height);
   }
 }

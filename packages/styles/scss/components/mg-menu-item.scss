@@ -1,52 +1,29 @@
-@use 'sass:map';
 @use '../utils/a11y';
 @use 'mixins/navigation-button';
 @use 'mixins/mg-icon-animation';
 
 /*!
+ * @prop --mg-c-menu-item-height: Defines the height property for the navigation button. Default value: `--mg-b-size-40`.
+ * @prop --mg-c-menu-item-button-spacing: Defines the spacing for the navigation button. Default value: `--mg-b-size-8`.
  * @prop --mg-c-menu-item-color: Defines menu item global color, used for bottom line and active tabs. Default value: `--mg-b-color-app`.
  * @prop --mg-c-menu-item-color-text: Defines the color of the menu item. Unset by default, fallback on `--mg-b-color-dark`.
  * @prop --mg-c-menu-item-navigation-button-max-width: Defines the max-width property for the navigation button. Unset by default.
  */
 
-$navigation-button-sizes: (
-  'medium': (
-    'vertical': var(--mg-b-size-12),
-    'horizontal': var(--mg-b-size-16),
-    'height': var(--mg-b-size-40),
-  ),
-  'large': (
-    'vertical': var(--mg-b-size-12),
-    'horizontal': var(--mg-b-size-32),
-    'height': var(--mg-b-size-48),
-  ),
-  'xlarge': (
-    'vertical': var(--mg-b-size-12),
-    'horizontal': var(--mg-b-size-40),
-    'height': var(--mg-b-size-72),
-  ),
-);
-
-@mixin level($button-sizes) {
-  @each $name, $size in $button-sizes {
-    // Building level from 1 to 6
-    @for $i from 1 through 6 {
-      :host([data-style-direction='vertical'][data-level='#{$i}']) {
-        .mg-c-menu-item__navigation-button.mg-c-menu-item__navigation-button--size-#{$name} {
-          padding-left: calc(#{$i} * #{map.get($size, 'horizontal')});
-        }
-      }
-      :host([data-level='#{$i}']) {
-        .mg-c-menu-item__collapse-container {
-          z-index: #{calc($i * 10)};
-        }
-      }
+@for $i from 1 through 6 {
+  :host([data-style-direction='vertical'][data-level='#{$i}']) {
+    .mg-c-menu-item__navigation-button {
+      padding-left: calc(#{$i} * var(--mg-b-size-12));
+    }
+  }
+  :host([data-level='#{$i}']) {
+    .mg-c-menu-item__collapse-container {
+      z-index: #{calc($i * 10)};
     }
   }
 }
 
-@include navigation-button.navigation-button('mg-c-menu-item', $navigation-button-sizes);
-@include level($navigation-button-sizes);
+@include navigation-button.navigation-button('mg-c-menu-item');
 
 .mg-c-menu-item {
   max-width: var(--mg-c-menu-item-navigation-button-max-width);
@@ -83,6 +60,21 @@ $navigation-button-sizes: (
 
       @include mg-icon-animation.rotate('.mg-c-menu-item__navigation-button-chevron', 200ms);
     }
+
+    &.mg-c-menu-item__navigation-button--is-icon {
+      min-width: var(--mg-b-size-40);
+      justify-content: center;
+      padding: 0.2rem;
+      gap: var(--mg-b-size-4);
+
+      .mg-c-menu-item__navigation-button-text-content-notification {
+        margin-left: 0;
+      }
+
+      &.mg-c-menu-item__navigation-button--active {
+        --mg-c-menu-item-button-spacing: var(--mg-b-size-8);
+      }
+    }
   }
 }
 
@@ -93,6 +85,14 @@ $navigation-button-sizes: (
   --mg-c-popover-padding-vertical: 0;
   --mg-c-popover-padding-horizontal: 0;
   --mg-c-popover-max-width: unset;
+
+  mg-popover {
+    --mg-c-popover-overflow: hidden;
+  }
+
+  mg-popover-content[data-popper-placement^='bottom'][data-arrow-hide] {
+    margin-top: var(--mg-b-size-12) !important; /* stylelint-disable-line declaration-no-important */ // overrride poperjs space
+  }
 }
 
 // vertical item style
@@ -100,10 +100,6 @@ $navigation-button-sizes: (
   flex-direction: column;
 
   .mg-c-menu-item {
-    &__navigation-button {
-      width: 100%;
-    }
-
     &__collapse-container {
       position: unset;
       top: unset;
@@ -117,34 +113,13 @@ $navigation-button-sizes: (
   }
 }
 
-// more menu-item element
-:host([data-overflow-more]) {
-  --mg-c-menu-item-navigation-button-column-gap: 0;
-
-  .mg-c-menu-item__navigation-button {
-    &-chevron {
-      --mg-c-menu-item-chevron-display: none;
-    }
-
-    &-text-content ::slotted([slot='information']) {
-      margin-left: 0;
-    }
-  }
-
-  ::slotted(mg-menu) {
-    --mg-c-menu-item-navigation-button-column-gap: var(--mg-b-size-8);
-  }
-}
-
 // horizontal item style
 :host([data-style-direction='horizontal']),
-:host([data-overflow-more]) {
-  .mg-c-menu-item__collapse-container.mg-c-menu-item__collapse-container--first-level {
-    background-color: var(--mg-b-color-light);
+.mg-c-menu-item__collapse-container.mg-c-menu-item__collapse-container--first-level {
+  background-color: var(--mg-b-color-light);
 
-    ::slotted(mg-menu) {
-      padding: var(--mg-b-size-8) 0;
-    }
+  ::slotted(mg-menu) {
+    padding: var(--mg-b-size-8) 0;
   }
 }
 
@@ -155,6 +130,10 @@ $navigation-button-sizes: (
   text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+::slotted([slot='metadata']) {
+  color: var(--mg-b-color-neutral-90);
 }
 
 ::slotted(*) {

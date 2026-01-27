@@ -1,28 +1,18 @@
 @use 'mixins/navigation-button';
 
 /*!
+ * @prop --mg-c-tabs-item-height: Defines the height property for the navigation button. Default value: `--mg-b-size-40`.
  * @prop --mg-c-tabs-color: Defines tabs global color, used for bottom line and active tabs. Default value: `--mg-b-color-app`.
  * @prop --mg-c-tabs-color-text: Defines tabs text color. Unset by default, fallback on `--mg-b-color-dark`.
  */
 
-$navigation-button-sizes: (
-  'medium': (
-    'vertical': var(--mg-b-size-12),
-    'horizontal': var(--mg-b-size-16),
-  ),
-  'large': (
-    'vertical': var(--mg-b-size-16),
-    'horizontal': var(--mg-b-size-32),
-  ),
-);
-
-@include navigation-button.navigation-button('mg-c-tabs', $navigation-button-sizes);
+@include navigation-button.navigation-button('mg-c-tabs');
 
 .mg-c-tabs {
   &__header {
     display: flex;
     flex-flow: row wrap;
-    border-bottom: var(--mg-b-size-border) solid color-mix(in srgb, var(--mg-c-tabs-color), transparent 90%);
+    border-bottom: var(--mg-b-size-border) solid var(--mg-b-color-neutral-30);
   }
 
   &__content-container:focus-visible {
@@ -31,5 +21,18 @@ $navigation-button-sizes: (
 
   &__navigation-button-text {
     flex: 0 0 content;
+  }
+
+  // navigation button active underline border radius
+  &__navigation-button.mg-c-tabs__navigation-button--horizontal {
+    --mg-c-tabs-height: var(--mg-b-size-24);
+
+    padding-right: var(--mg-b-size-8);
+    padding-left: var(--mg-b-size-8);
+    margin: var(--mg-b-size-8) var(--mg-b-size-4);
+
+    &.mg-c-tabs__navigation-button--active::after {
+      bottom: calc(var(--mg-b-size-8) * -1);
+    }
   }
 }

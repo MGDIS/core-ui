@@ -1,7 +1,7 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
 import { ClassList, createID, isValideID, isValidString, nextTick, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { initLocales } from '../../../../locales';
-import { directions, type MenuSizeType } from '../mg-menu/mg-menu.conf';
+import { directions } from '../mg-menu/mg-menu.conf';
 import { type MgMenuStatusType, Status, targets, type TargetType } from './mg-menu-item.conf';
 import type { MessageType } from '../../../../locales/index.conf';
 import { Direction } from '../../../../types';
@@ -24,7 +24,7 @@ export class MgMenuItem {
    ************/
 
   private readonly name = 'mg-menu-item';
-  private readonly navigationButton = 'mg-c-menu-item__navigation-button';
+  private readonly classNavigationButton = 'mg-c-menu-item__navigation-button';
   private messages: MessageType;
   private popoverIdentifier: string;
 
@@ -77,8 +77,27 @@ export class MgMenuItem {
   @Prop({ reflect: true, mutable: true }) status?: MgMenuStatusType = 'visible';
   @Watch('status')
   watchStatus(newValue: MgMenuItem['status'], oldValue?: MgMenuItem['status']): void {
-    if (oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
-    this.navigationButtonClassList.add(`${this.navigationButton}--${newValue}`);
+    if (oldValue !== undefined) this.classNavigationButtonClassList.delete(`${this.classNavigationButton}--${oldValue}`);
+    this.classNavigationButtonClassList.add(`${this.classNavigationButton}--${newValue}`);
+  }
+
+  /**
+   * Define menu-item isIcon style.
+   */
+  @Prop({ mutable: true }) isIcon?: boolean = false;
+  @Watch('isIcon')
+  watchIsIcon(newValue: MgMenuItem['isIcon']): void {
+    const classIcon = `${this.classNavigationButton}--is-icon`;
+    if (newValue) {
+      // in vertical menu isIcon is not available
+      if (this.direction === 'vertical') {
+        this.isIcon = false;
+      } else {
+        this.classNavigationButtonClassList.add(classIcon);
+      }
+    } else {
+      this.classNavigationButtonClassList.delete(classIcon);
+    }
   }
 
   /**
@@ -117,19 +136,9 @@ export class MgMenuItem {
    *********/
 
   /**
-   * Define menu-item size.
-   */
-  @State() size: MenuSizeType = 'medium';
-  @Watch('size')
-  watchSize(newValue: MgMenuItem['size'], oldValue?: MgMenuItem['size']): void {
-    if (oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--size-${oldValue}`);
-    this.navigationButtonClassList.add(`${this.navigationButton}--size-${newValue}`);
-  }
-
-  /**
    * Component button classes
    */
-  @State() navigationButtonClassList: ClassList = new ClassList([this.navigationButton]);
+  @State() classNavigationButtonClassList: ClassList = new ClassList([this.classNavigationButton]);
 
   /**
    * Parent menu direction
@@ -137,8 +146,8 @@ export class MgMenuItem {
   @State() direction: Direction;
   @Watch('direction')
   validateDirection(newValue: MgMenuItem['direction'], oldValue: MgMenuItem['direction']): void {
-    if (oldValue !== undefined) this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
-    this.navigationButtonClassList.add(`${this.navigationButton}--${newValue}`);
+    if (oldValue !== undefined) this.classNavigationButtonClassList.delete(`${this.classNavigationButton}--${oldValue}`);
+    this.classNavigationButtonClassList.add(`${this.classNavigationButton}--${newValue}`);
     // manage all sub levels child menu-items level with data-level attribut
     Array.from(this.element.querySelectorAll('mg-menu-item')).forEach(item => {
       if (this.isDirection(directions.VERTICAL, newValue)) {
@@ -310,12 +319,6 @@ export class MgMenuItem {
    * @param guard - prevent action with guard
    */
   private updateItem = (guard?: MgMenuItem['status'][]): void => {
-    const menu = this.getParentMenu();
-
-    // define element size
-    if (menu?.size !== undefined && !this.isItemMore) this.size = menu.size;
-    else if (this.isItemMore) this.size = this.element.dataset.size as MgMenuItem['size'];
-
     // when vertical main menu item contain an active item we force expanded
     this.updateExpanded(this.expanded);
     this.updateStatus(guard);
@@ -381,7 +384,7 @@ export class MgMenuItem {
     this.watchExpanded(this.expanded);
     this.watchTarget(this.target);
     this.watchIdentifier(this.identifier);
-    this.watchSize(this.size);
+    this.watchIsIcon(this.isIcon);
   }
 
   /**
@@ -422,6 +425,20 @@ export class MgMenuItem {
   }
 
   /**
+   * Render information slot or notification badge
+   * @returns HTML Element
+   */
+  private renderInformationSlotOrNotification(): HTMLElement {
+    return !this.displayNotificationBadge ? (
+      <slot name="information"></slot>
+    ) : (
+      <span class={`${this.classNavigationButton}-text-content-notification`}>
+        <mg-badge label={this.messages.badgeLabel} value="!" variant="text-color" slot="information"></mg-badge>
+      </span>
+    );
+  }
+
+  /**
    * Render ineractive element
    * @returns HTML Element
    */
@@ -430,7 +447,7 @@ export class MgMenuItem {
     return (
       <TagName
         href={this.href}
-        class={this.navigationButtonClassList.join()}
+        class={this.classNavigationButtonClassList.join()}
         tabindex={[Status.DISABLED, Status.HIDDEN].includes(this.status) ? -1 : undefined}
         disabled={this.status === Status.DISABLED}
         hidden={this.status === Status.HIDDEN}
@@ -440,32 +457,28 @@ export class MgMenuItem {
         onClick={this.handleElementCLick}
       >
         <slot name="image"></slot>
-        <div class={`${this.navigationButton}-center`}>
-          <div class={`${this.navigationButton}-text-content`}>
+        <div class={{ [`${this.classNavigationButton}-center`]: true, 'mg-u-visually-hidden': this.isIcon }}>
+          <div class={`${this.classNavigationButton}-text-content`}>
             <slot name="label"></slot>
-            {!this.displayNotificationBadge && <slot name="information"></slot>}
-            {this.displayNotificationBadge && (
-              <span class={`${this.navigationButton}-text-content-notification`}>
-                <mg-badge label={this.messages.badgeLabel} value="!" variant="text-color" slot="information"></mg-badge>
-              </span>
-            )}
+            {!this.isIcon && this.renderInformationSlotOrNotification()}
             {this.target === '_blank' && [
-              <mg-icon key="icon-new-tab" class={`${this.navigationButton}-new-tab`} icon="arrow-up-right-square"></mg-icon>,
+              <mg-icon key="icon-new-tab" class={`${this.classNavigationButton}-new-tab`} icon="arrow-up-right-square"></mg-icon>,
               <span key="a11y-new-tab" class="mg-u-visually-hidden">
                 {this.messages.openNewTab}
               </span>,
             ]}
           </div>
-          {this.size !== 'medium' && <slot name="metadata"></slot>}
+          {!this.isIcon && <slot name="metadata"></slot>}
         </div>
-        {this.hasChildren && this.href === undefined && (
+        {this.isIcon && this.renderInformationSlotOrNotification()}
+        {this.hasChildren && this.href === undefined && !this.isIcon && (
           <span
             class={{
-              [`${this.navigationButton}-chevron`]: true,
-              [`${this.navigationButton}-chevron--rotate`]: this.expanded === true,
+              [`${this.classNavigationButton}-chevron`]: true,
+              [`${this.classNavigationButton}-chevron--rotate`]: this.expanded === true,
             }}
           >
-            <mg-icon icon="chevron-down"></mg-icon>
+            <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         )}
       </TagName>

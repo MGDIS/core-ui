@@ -1,44 +1,28 @@
-@use 'sass:map';
-
-@mixin navigation-button($prefix, $button-sizes) {
-  @each $name, $size in $button-sizes {
-    .#{$prefix}.#{$prefix}--size-#{$name} .#{$prefix}__navigation-button,
-    .#{$prefix}__navigation-button.#{$prefix}__navigation-button--size-#{$name} {
-      height: #{map.get($size, 'height')};
-      padding: #{map.get($size, 'vertical')} #{map.get($size, 'horizontal')};
-
-      &,
-      ::slotted([slot='label']),
-      ::slotted([slot='metadata']) {
-        @if $name == 'medium' {
-          font-size: var(--mg-b-font-size);
-        } @else {
-          font-size: var(--mg-b-font-size-h4);
-        }
-      }
-      &.#{$prefix}__navigation-button--horizontal {
-        padding-bottom: #{map.get($size, 'vertical')};
-      }
-      &.#{$prefix}__navigation-button--vertical {
-        padding-left: #{map.get($size, 'horizontal')};
-      }
-    }
-  }
-
+@mixin navigation-button($prefix) {
   .#{$prefix}__navigation-button {
+    position: relative;
     display: flex;
+    height: var(--#{$prefix}-height, var(--mg-b-size-40));
     box-sizing: border-box;
     align-items: center;
+    padding: 0.2rem var(--mg-b-size-12);
     border: none;
+    border-radius: var(--mg-b-size-8);
     background-color: unset;
-    color: var(--#{$prefix}-color-text, var(--mg-b-color-dark));
-    column-gap: var(--#{$prefix}-navigation-button-column-gap, var(--mg-b-size-8));
+    color: var(--mg-b-color-dark);
+    column-gap: var(--mg-b-size-8);
     cursor: pointer;
     font-family: var(--mg-b-font-family);
     font-weight: 400;
     line-height: var(--mg-b-line-height);
     text-decoration: none;
     white-space: nowrap;
+
+    &::after {
+      position: absolute;
+      background-color: var(--mg-b-color-app);
+      content: '';
+    }
 
     &:disabled,
     &--disabled {
@@ -49,18 +33,48 @@
     &:focus-visible {
       z-index: 10;
     }
+
     &:hover:not(.#{$prefix}__navigation-button--disabled),
     &:focus-visible:not(.#{$prefix}__navigation-button--disabled) {
-      background-color: color-mix(in srgb, var(--#{$prefix}-color), transparent 90%);
+      background-color: color-mix(in srgb, var(--mg-b-color-dark), white 92%);
     }
+
+    &,
+    ::slotted([slot='label']),
+    ::slotted([slot='metadata']) {
+      font-size: var(--mg-b-font-size);
+    }
+
+    &.#{$prefix}__navigation-button--horizontal {
+      margin-bottom: var(--#{$prefix}-button-spacing, var(--mg-b-size-12));
+    }
+
+    &.#{$prefix}__navigation-button--vertical {
+      margin: 0 var(--#{$prefix}-button-spacing, var(--mg-b-size-8));
+    }
+
     &.#{$prefix}__navigation-button--active {
       color: var(--#{$prefix}-color);
       font-weight: 600;
-      &.#{$prefix}__navigation-button--horizontal {
-        box-shadow: inset 0 calc(-1 * var(--mg-b-size-4)) var(--#{$prefix}-color);
+
+      &.#{$prefix}__navigation-button--horizontal::after {
+        bottom: calc(var(--mg-b-size-12) * -1);
+        left: 50%;
+        width: calc(100% - var(--#{$prefix}-button-spacing, var(--mg-b-size-12)) * 2);
+        height: var(--mg-b-size-4);
+        border-top-left-radius: var(--mg-b-size-8);
+        border-top-right-radius: var(--mg-b-size-8);
+        transform: translateX(-50%);
       }
-      &.#{$prefix}__navigation-button--vertical {
-        box-shadow: inset var(--mg-b-size-4) 0 var(--#{$prefix}-color);
+
+      &.#{$prefix}__navigation-button--vertical::after {
+        top: 50%;
+        left: calc(var(--mg-b-size-8) * -1);
+        width: var(--mg-b-size-4);
+        height: calc(100% - var(--mg-b-size-8) * 2);
+        border-bottom-right-radius: var(--mg-b-size-8);
+        border-top-right-radius: var(--mg-b-size-8);
+        transform: translateY(-50%);
       }
     }
     &.#{$prefix}__navigation-button--hidden {

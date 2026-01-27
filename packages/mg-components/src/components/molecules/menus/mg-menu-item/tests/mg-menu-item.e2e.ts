@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../../utils/playwright.fixture';
 import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
-import { directions, sizes } from '../../mg-menu/mg-menu.conf';
+import { directions } from '../../mg-menu/mg-menu.conf';
 import { Status, targets } from '../mg-menu-item.conf';
 
 const slotContent = '<div><h3>Demo title</h3><p>some content</p></div>';
@@ -50,7 +50,7 @@ test.describe('mg-menu-item', () => {
             .flatMap(submenu => [slotMetadata, ''].map(metadata => ({ label, slot, submenu, metadata })))
             .forEach(({ label, slot, submenu, metadata }) => {
               test(`Should render with slots, props: ${renderAttributes({ slot, submenu, metadata })}`, async ({ page }) => {
-                await page.setContent(createHTML({ label, size: metadata !== '' ? 'large' : 'medium' }, [slot, metadata, submenu].join(''), direction));
+                await page.setContent(createHTML({ label }, [slot, metadata, submenu].join(''), direction));
                 await page.setViewportSize(defaultViewPortSize);
 
                 await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -59,13 +59,11 @@ test.describe('mg-menu-item', () => {
         });
       });
 
-      sizes.forEach(size => {
-        test(`Should renders with prop size="${size}"`, async ({ page }) => {
-          await page.setContent(createHTML({ size }, [slotInformation, slotImage, slotMenuItem].join(''), direction));
-          await page.setViewportSize(defaultViewPortSize);
+      test(`Should renders`, async ({ page }) => {
+        await page.setContent(createHTML({}, [slotInformation, slotImage, slotMenuItem].join(''), direction));
+        await page.setViewportSize(defaultViewPortSize);
 
-          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-        });
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
 
       targets.forEach(target => {
@@ -86,7 +84,7 @@ test.describe('mg-menu-item', () => {
               direction,
             ),
           );
-          await page.setViewportSize(defaultViewPortSize);
+          await page.setViewportSize({ ...defaultViewPortSize, width: 140 });
 
           await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -106,24 +104,10 @@ test.describe('mg-menu-item', () => {
       });
 
       test('Should render slot image only with submenu', async ({ page }) => {
-        await page.setContent(createHTML({ size: 'xlarge' }, slotContent + slotImage, direction));
+        await page.setContent(createHTML({ isIcon: true }, slotContent + slotImage, direction));
         await page.setViewportSize({ ...defaultViewPortSize, width: 170 });
+
         await page.locator('mg-menu-item').first().click();
-
-        await expect(page.locator('body')).toHaveScreenshot();
-
-        // update css variables
-        await page.addStyleTag({
-          content: `
-          mg-menu {
-            --mg-c-menu-item-chevron-display: none;
-            --mg-menu-item-navigation-button-column-gap: 0;
-          }
-          [slot="label"] {
-            display: none;
-          }
-        `,
-        });
 
         await expect(page.locator('body')).toHaveScreenshot();
       });

@@ -15,7 +15,7 @@ export default {
  * @returns HTMLElement
  */
 const Template = (args: MgTabsType): HTMLElement => (
-  <mg-tabs {...filterArgs(args, { size: 'medium' })}>
+  <mg-tabs {...filterArgs(args)}>
     <div slot="tab_content-1">Content 1</div>
     <div slot="tab_content-2">Content 2</div>
     <div slot="tab_content-3">Content 3</div>
@@ -28,7 +28,6 @@ export const MgTabs = {
   args: {
     identifier: undefined,
     label: 'Short tabs description. Needed for accessibility',
-    size: undefined,
     items: ['Tab 1', 'Tab 2', 'Tab 3', 'Tab 4'],
     activeTab: 2,
   },

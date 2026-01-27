@@ -1,6 +1,6 @@
 import { Component, h, Prop, Element, Watch, Host, Listen } from '@stencil/core';
-import { directions, sizes } from './mg-menu.conf';
-import type { MenuSizeType, ItemMoreType } from './mg-menu.conf';
+import { directions } from './mg-menu.conf';
+import type { ItemMoreType } from './mg-menu.conf';
 import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { Direction } from '../../../../types';
 
@@ -64,17 +64,6 @@ export class MgMenu {
       throw new Error(`<${this.name}> prop "itemmore" must be paired with direction ${directions.HORIZONTAL}.`);
     } else if (newValue !== undefined) {
       this.renderMgItemMore();
-    }
-  }
-
-  /**
-   * Define mg-menu size
-   */
-  @Prop() size: MenuSizeType = 'medium';
-  @Watch('size')
-  validateSize(newValue: MgMenu['size']): void {
-    if (!sizes.includes(newValue)) {
-      throw new Error(`<${this.name}> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -159,7 +148,6 @@ export class MgMenu {
     for (const propertie in this.itemmore) {
       itemMoreElement[propertie] = this.itemmore[propertie];
     }
-    if (this.itemmore?.size === undefined) itemMoreElement.size = this.size;
   };
 
   /*************
@@ -173,7 +161,6 @@ export class MgMenu {
     this.validateDirection(this.direction);
     this.validateLabel(this.label);
     this.validateItemMore(this.itemmore);
-    this.validateSize(this.size);
   }
 
   /**

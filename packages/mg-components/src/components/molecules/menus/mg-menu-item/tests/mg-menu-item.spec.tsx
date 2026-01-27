@@ -15,7 +15,7 @@ import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popo
 mockWindowFrames();
 
 type SlotsType = HTMLElement | HTMLElement[];
-type MenuArgs = Pick<MgMenu, 'label'> & Partial<Pick<MgMenu, 'direction' | 'itemmore' | 'size'>>;
+type MenuArgs = Pick<MgMenu, 'label'> & Partial<Pick<MgMenu, 'direction' | 'itemmore'>>;
 type MenuItemArgs = Partial<Pick<MgMenuItem, 'identifier' | 'href' | 'target' | 'expanded' | 'status'>> & {
   label: string;
   metadata?: boolean;
@@ -40,7 +40,7 @@ const MenuItemTemplate: ITemplate<MenuItemArgs, HTMLMgMenuItemElement> = (args, 
   </mg-menu-item>
 );
 
-const ChildMenuWithItemTemplate: ITemplate<MenuItemArgs, HTMLMgMenuElement> = (args, slots) => (
+const VerticalMenuWithItemTemplate: ITemplate<MenuItemArgs, HTMLMgMenuElement> = (args, slots) => (
   <MenuTemplate label={'child menu'} direction={directions.VERTICAL}>
     <MenuItemTemplate {...args}>{slots}</MenuItemTemplate>
   </MenuTemplate>
@@ -108,6 +108,8 @@ describe('mg-menu-item', () => {
       { label: 'Batman', icon: true },
       { label: 'Batman', badge: true },
       { label: 'Batman', metadata: true },
+      { label: 'Batman', isIcon: true },
+      { label: 'Batman', isIcon: true, metadata: true },
       { label: 'Batman', href: '#link' },
       { label: 'Batman', href: '#link', target: '_blank' as MgMenuItem['target'] },
       { label: 'Batman', overflow: true },
@@ -117,18 +119,12 @@ describe('mg-menu-item', () => {
       expect(root).toMatchSnapshot();
     });
 
-    test.each([{ label: 'Batman' }, { label: 'Batman', icon: true }, { label: 'Batman', badge: true }, { label: 'Batman', metadata: true }, { label: 'Batman', href: '#link' }])(
-      'with size large, %s',
-      async args => {
-        const { root } = await getPage(
-          <MenuTemplate label="Batman" size="large">
-            <MenuItemTemplate {...args}></MenuItemTemplate>
-          </MenuTemplate>,
-        );
+    test('Should mute isIcon to false with vertical display', async () => {
+      const args = { label: 'Batman', isIcon: true };
+      const { root } = await getPage(<VerticalMenuWithItemTemplate {...args}></VerticalMenuWithItemTemplate>);
 
-        expect(root).toMatchSnapshot();
-      },
-    );
+      expect(root).toMatchSnapshot();
+    });
 
     test('with 2 menu-items, last items get style modifier', async () => {
       const { root } = await getPage(<TwoMenuItemsTemplate label="Batman"></TwoMenuItemsTemplate>);
@@ -164,7 +160,7 @@ describe('mg-menu-item', () => {
     test.each([undefined, true, false])('with expanded and sub-menu %s', async expanded => {
       const page = await getPage(
         <DefaultTemplate {...{ label: 'Batman', expanded }}>
-          <ChildMenuWithItemTemplate label="level 2 item"></ChildMenuWithItemTemplate>
+          <VerticalMenuWithItemTemplate label="level 2 item"></VerticalMenuWithItemTemplate>
         </DefaultTemplate>,
       );
 
@@ -181,9 +177,9 @@ describe('mg-menu-item', () => {
     test('with vertical sub-menu', async () => {
       const page = await getPage(
         <DefaultTemplate label="Batman">
-          <ChildMenuWithItemTemplate label="level 2 item">
-            <ChildMenuWithItemTemplate label="level 3 item"></ChildMenuWithItemTemplate>
-          </ChildMenuWithItemTemplate>
+          <VerticalMenuWithItemTemplate label="level 2 item">
+            <VerticalMenuWithItemTemplate label="level 3 item"></VerticalMenuWithItemTemplate>
+          </VerticalMenuWithItemTemplate>
         </DefaultTemplate>,
       );
 
@@ -206,7 +202,7 @@ describe('mg-menu-item', () => {
     test('Should update direction from "data-style-direction" attribute update', async () => {
       const page = await getPage(
         <DefaultTemplate label="Batman">
-          <ChildMenuWithItemTemplate label="level 2 item"></ChildMenuWithItemTemplate>
+          <VerticalMenuWithItemTemplate label="level 2 item"></VerticalMenuWithItemTemplate>
         </DefaultTemplate>,
       );
 
@@ -223,7 +219,7 @@ describe('mg-menu-item', () => {
     test.each(['', 'true', undefined])('Should update expanded from "data-has-focus" attributed update', async attr => {
       const page = await getPage(
         <DefaultTemplate label="Batman" expanded={!Boolean(attr)}>
-          <ChildMenuWithItemTemplate label="level 2 item"></ChildMenuWithItemTemplate>
+          <VerticalMenuWithItemTemplate label="level 2 item"></VerticalMenuWithItemTemplate>
         </DefaultTemplate>,
       );
 
@@ -237,11 +233,11 @@ describe('mg-menu-item', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test.each([undefined, 'large'])('Should manage "data-overflow-more" attribute', async size => {
+    test('Should manage "data-overflow-more" attribute', async () => {
       const page = await getPage(
-        <MenuTemplate label="menu" size={size as MgMenu['size']}>
+        <MenuTemplate label="menu">
           <MenuItemTemplate label="identifier-1" overflow={true}></MenuItemTemplate>
-          <ChildMenuWithItemTemplate label="identifier-2"></ChildMenuWithItemTemplate>
+          <VerticalMenuWithItemTemplate label="identifier-2"></VerticalMenuWithItemTemplate>
         </MenuTemplate>,
       );
 
@@ -292,7 +288,7 @@ describe('mg-menu-item', () => {
       try {
         await getPage(
           <DefaultTemplate {...{ label: 'label 1', href: '#link' }}>
-            <ChildMenuWithItemTemplate label="label 2"></ChildMenuWithItemTemplate>
+            <VerticalMenuWithItemTemplate label="label 2"></VerticalMenuWithItemTemplate>
           </DefaultTemplate>,
         );
       } catch (err) {
@@ -326,21 +322,21 @@ describe('mg-menu-item', () => {
     expanded => <DefaultTemplate {...{ label: 'Batman', expanded, href: '#' }}></DefaultTemplate>,
     expanded => (
       <DefaultTemplate {...{ label: 'Batman', expanded }}>
-        <ChildMenuWithItemTemplate {...{ label: 'level 2 item', expanded, href: '#' }}></ChildMenuWithItemTemplate>
+        <VerticalMenuWithItemTemplate {...{ label: 'level 2 item', expanded, href: '#' }}></VerticalMenuWithItemTemplate>
       </DefaultTemplate>
     ),
     expanded => (
       <DefaultTemplate {...{ label: 'Batman', expanded }}>
-        <ChildMenuWithItemTemplate {...{ label: 'level 2 item', expanded }}>
-          <ChildMenuWithItemTemplate {...{ label: 'level 3 item', expanded, href: '#' }}></ChildMenuWithItemTemplate>
-        </ChildMenuWithItemTemplate>
+        <VerticalMenuWithItemTemplate {...{ label: 'level 2 item', expanded }}>
+          <VerticalMenuWithItemTemplate {...{ label: 'level 3 item', expanded, href: '#' }}></VerticalMenuWithItemTemplate>
+        </VerticalMenuWithItemTemplate>
       </DefaultTemplate>
     ),
     expanded => (
       <DefaultTemplate {...{ label: 'Batman', expanded }}>
-        <ChildMenuWithItemTemplate {...{ label: 'level 2 item', expanded }}>
-          <ChildMenuWithItemTemplate {...{ label: 'level 3 item', expanded, href: '#', status: Status.ACTIVE }}></ChildMenuWithItemTemplate>
-        </ChildMenuWithItemTemplate>
+        <VerticalMenuWithItemTemplate {...{ label: 'level 2 item', expanded }}>
+          <VerticalMenuWithItemTemplate {...{ label: 'level 3 item', expanded, href: '#', status: Status.ACTIVE }}></VerticalMenuWithItemTemplate>
+        </VerticalMenuWithItemTemplate>
       </DefaultTemplate>
     ),
     expanded => (
@@ -424,7 +420,7 @@ describe('mg-menu-item', () => {
     describe('click', () => {
       test.each([{}, { child: true }, { status: Status.DISABLED }, { href: '/' }])('should manage prevent click action %s', async props => {
         const page = await getPage(
-          <DefaultTemplate {...{ label: 'Batman', ...props }}>{props.child && <ChildMenuWithItemTemplate label="child item"></ChildMenuWithItemTemplate>}</DefaultTemplate>,
+          <DefaultTemplate {...{ label: 'Batman', ...props }}>{props.child && <VerticalMenuWithItemTemplate label="child item"></VerticalMenuWithItemTemplate>}</DefaultTemplate>,
         );
 
         const element = page.doc.querySelector('[title="Batman"]').closest('mg-menu-item');
@@ -459,7 +455,7 @@ describe('mg-menu-item', () => {
       test.each([true, false])('should toggle expanded from popover display-change event', async display => {
         const page = await getPage(
           <DefaultTemplate {...{ label: 'Batman', expanded: !display }}>
-            <ChildMenuWithItemTemplate label="child item"></ChildMenuWithItemTemplate>
+            <VerticalMenuWithItemTemplate label="child item"></VerticalMenuWithItemTemplate>
           </DefaultTemplate>,
         );
 
@@ -597,7 +593,7 @@ describe('mg-menu-item', () => {
     test('Should update display notifiaction badge with "attribute" mutation', async () => {
       const page = await getPage(
         <DefaultTemplate label="batman">
-          <ChildMenuWithItemTemplate {...{ label: 'submenu', badge: true }}></ChildMenuWithItemTemplate>;
+          <VerticalMenuWithItemTemplate {...{ label: 'submenu', badge: true }}></VerticalMenuWithItemTemplate>;
         </DefaultTemplate>,
       );
 
@@ -620,7 +616,7 @@ describe('mg-menu-item', () => {
     test('Should update item after child nodes update', async () => {
       const page = await getPage(
         <DefaultTemplate label="batman">
-          <ChildMenuWithItemTemplate {...{ label: 'submenu', badge: true }}></ChildMenuWithItemTemplate>;
+          <VerticalMenuWithItemTemplate {...{ label: 'submenu', badge: true }}></VerticalMenuWithItemTemplate>;
         </DefaultTemplate>,
       );
 

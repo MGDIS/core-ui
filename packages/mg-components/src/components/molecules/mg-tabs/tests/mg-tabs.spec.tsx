@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgTabs } from '../mg-tabs';
-import { sizes, Status } from '../mg-tabs.conf';
+import { Status } from '../mg-tabs.conf';
 import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 
 const getPage = (args, slots?) =>
@@ -23,50 +23,48 @@ const badge = { value: 2, label: 'messages' };
 const key = { next: 'ArrowRight', prev: 'ArrowLeft' };
 
 describe('mg-tabs', () => {
-  describe.each(sizes)('template', size => {
-    test.each([
-      [['Batman', 'Joker', 'Bane']],
+  test.each([
+    [['Batman', 'Joker', 'Bane']],
+    [
       [
-        [
-          { label: 'Batman', icon: 'check', badge },
-          { label: 'Joker', icon: 'cross', badge: { ...badge, role: 'information' }, status: Status.DISABLED },
-          { label: 'Bane', icon: 'trash', badge, status: Status.HIDDEN },
-        ],
+        { label: 'Batman', icon: 'check', badge },
+        { label: 'Joker', icon: 'cross', badge: { ...badge, role: 'information' }, status: Status.DISABLED },
+        { label: 'Bane', icon: 'trash', badge, status: Status.HIDDEN },
       ],
-    ])('render', async items => {
-      const { root } = await getPage({ label: 'Sample label', items, identifier: 'identifier', size }, createSlots(3));
-      expect(root).toMatchSnapshot();
-    });
+    ],
+  ])('render', async items => {
+    const { root } = await getPage({ label: 'Sample label', items, identifier: 'identifier' }, createSlots(3));
+    expect(root).toMatchSnapshot();
+  });
 
-    test('display only slots with name "tab_content-*"', async () => {
-      const { root } = await getPage({ label: 'Sample label', items: ['Batman', 'Joker'], identifier: 'identifier' }, [...createSlots(), () => <div>dummy content</div>]);
-      expect(root).toMatchSnapshot();
-    });
+  test('display only slots with name "tab_content-*"', async () => {
+    const { root } = await getPage({ label: 'Sample label', items: ['Batman', 'Joker'], identifier: 'identifier' }, [...createSlots(), () => <div>dummy content</div>]);
+    expect(root).toMatchSnapshot();
+  });
 
-    test.each([
-      {
-        items: ['Tab 1', 'Tab 2', 'Tab 3'],
-        activeTab: 2,
-      },
-      {
-        items: [{ label: 'Batman' }, { label: 'Joker', status: Status.ACTIVE }, { label: 'Bane' }],
-      },
-      {
-        items: [{ label: 'Batman' }, { label: 'Joker' }, { label: 'Bane' }],
-        activeTab: 2,
-      },
-      {
-        items: [{ label: 'Batman' }, { label: 'Joker', status: Status.ACTIVE }, { label: 'Bane' }],
-        activeTab: 2,
-      },
-      {
-        items: [{ label: 'Batman' }, { label: 'Joker', status: Status.ACTIVE }, { label: 'Bane' }],
-        activeTab: 3,
-      },
-    ])(`display ${size} tabs with activeProps set by props`, async props => {
-      const { root } = await getPage({ label: 'Sample label', identifier: 'identifier', ...props }, createSlots(3));
-      expect(root).toMatchSnapshot();
-    });
+  test.each([
+    {
+      items: ['Tab 1', 'Tab 2', 'Tab 3'],
+      activeTab: 2,
+    },
+    {
+      items: [{ label: 'Batman' }, { label: 'Joker', status: Status.ACTIVE }, { label: 'Bane' }],
+    },
+    {
+      items: [{ label: 'Batman' }, { label: 'Joker' }, { label: 'Bane' }],
+      activeTab: 2,
+    },
+    {
+      items: [{ label: 'Batman' }, { label: 'Joker', status: Status.ACTIVE }, { label: 'Bane' }],
+      activeTab: 2,
+    },
+    {
+      items: [{ label: 'Batman' }, { label: 'Joker', status: Status.ACTIVE }, { label: 'Bane' }],
+      activeTab: 3,
+    },
+  ])('display tabs with activeProps set by props', async props => {
+    const { root } = await getPage({ label: 'Sample label', identifier: 'identifier', ...props }, createSlots(3));
+    expect(root).toMatchSnapshot();
   });
 
   describe('errors', () => {
@@ -120,15 +118,6 @@ describe('mg-tabs', () => {
         expect(err.message).toEqual(
           `<mg-tabs> prop "activeTab" must be a number between 1 and 2 and new value must be "activable". Passed value: ${activeTab === 'string' ? NaN : toString(activeTab)}.`,
         );
-      }
-    });
-
-    test('Should trown an error with invalid tabItem props', async () => {
-      expect.assertions(1);
-      try {
-        await getPage({ label: 'Sample label', items: ['Tab 1', 'Tab 2'], size: 'batman' }, createSlots());
-      } catch (err) {
-        expect(err.message).toEqual(`<mg-tabs> prop "size" must be one of: ${sizes.join(', ')}. Passed value: batman.`);
       }
     });
   });

@@ -93,7 +93,7 @@ describe('mg-item-more', () => {
   afterEach(() => jest.runOnlyPendingTimers());
 
   describe('render', () => {
-    test.each([undefined, { icon: { icon: 'user' } }, { slotlabel: { display: true, label: 'more batman menu' } }, { size: 'large' }, { hasId: true }, { submenu: true }])(
+    test.each([undefined, { icon: { icon: 'user' } }, { slotlabel: { display: true, label: 'more batman menu' } }, { hasId: true }, { submenu: true }])(
       'should manage resize with observer, case %s',
       async args => {
         const page = await getPage({ label: 'batman', ...args });
@@ -105,7 +105,6 @@ describe('mg-item-more', () => {
 
   describe('errors', () => {
     test.each([
-      { props: { itemmore: { size: {} } }, error: `<mg-item-more> prop "size" must match MgItemMore[\'size\'] type. Passed value: ${toString({})}.` },
       { props: { itemmore: { icon: '' } }, error: `<mg-item-more> prop "icon" must match MgItemMore[\'icon\'] type. Passed value: .` },
       {
         props: { itemmore: { icon: { icon: undefined } } },
