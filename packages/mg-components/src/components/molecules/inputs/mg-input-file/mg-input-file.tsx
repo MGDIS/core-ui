@@ -99,7 +99,7 @@ export class MgInputFile {
 
   /**
    * Define file accept format
-   * The accept property is an attribute of the file <input> type
+   * The accept property is an attribute of the file `<input>` type
    * that defines the file types the file input should accept
    * (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept).
    */
@@ -445,7 +445,7 @@ export class MgInputFile {
         label={this.messages.input.file.deleteButton}
         type="button"
         disabled={this.disabled}
-        ara-controls={[this.identifier, fileListId].join(' ')}
+        aria-controls={[this.identifier, fileListId].join(' ')}
         onClick={this.handleDeleteFileClick}
       >
         <mg-icon icon="cross"></mg-icon>
