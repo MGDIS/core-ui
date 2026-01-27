@@ -3,4 +3,4 @@
 '@mgdis/core-ui-helpers': minor
 ---
 
-add `octetsToString()` helper
+add `localeByte()` helper

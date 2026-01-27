@@ -1,5 +1,6 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
-import { allItemsAreString, ClassList, isObject, isValidString, octetsToString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { allItemsAreString, ClassList, isObject, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { localeByte } from '@mgdis/core-ui-helpers/dist/locale';
 import { type TooltipPosition, type EventType, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
@@ -22,6 +23,7 @@ export class MgInputFile {
   private fileButtonElement: HTMLMgButtonElement;
 
   // Locales
+  private locale: string;
   private messages;
 
   // hasDisplayedError (triggered by blur event)
@@ -41,7 +43,7 @@ export class MgInputFile {
   /**
    * Component value
    */
-  @Prop({ reflect: true, mutable: true }) value: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  @Prop({ mutable: true }) value: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   @Watch('value')
   watchValue(newValue: MgInputFile['value']): void {
     if (allItemsAreString(newValue)) {
@@ -176,7 +178,7 @@ export class MgInputFile {
     if (!isValidString(this.helpText)) {
       const helpText: string[] = [];
       if (this.maxSize !== undefined) {
-        helpText.push(this.messages.input.file.helpText.maxSize.replace('{{maxSize}}', octetsToString(this.maxSize)));
+        helpText.push(this.messages.input.file.helpText.maxSize.replace('{{maxSize}}', localeByte(this.maxSize, this.locale)));
       }
       if (this.accept !== undefined) {
         helpText.push(this.messages.input.file.helpText.accept.replace('{{accept}}', this.accept));
@@ -385,7 +387,7 @@ export class MgInputFile {
       }
       // Does not match max size
       else if (this.isMaxSizeExceeded()) {
-        this.errorMessage = this.messages.input.file.errors.maxSize.replace('{{maxSize}}', octetsToString(this.maxSize));
+        this.errorMessage = this.messages.input.file.errors.maxSize.replace('{{maxSize}}', localeByte(this.maxSize, this.locale));
       }
       // required
       else if (this.inputElement.validity.valueMissing) {
@@ -412,7 +414,9 @@ export class MgInputFile {
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
-    this.messages = initLocales(this.element).messages;
+    const locales = initLocales(this.element);
+    this.locale = locales.locale;
+    this.messages = locales.messages;
     // Validate
     this.watchValue(this.value);
     this.watchDisabled(this.disabled);
@@ -433,8 +437,17 @@ export class MgInputFile {
    */
   private renderFiles = (): null | HTMLElement | HTMLElement[] => {
     const renderFileName = (file: File): HTMLSpanElement[] => [
-      <span class="mg-c-input__file-item-name">{file.name}</span>,
-      file.size > 0 ? ['', <span class="mg-c-input__file-item-size">{octetsToString(file.size)}</span>] : undefined,
+      <span class="mg-c-input__file-item-name" key={file.name}>
+        {file.name}
+      </span>,
+      file.size > 0
+        ? [
+            '',
+            <span class="mg-c-input__file-item-size" key={file.size}>
+              {localeByte(file.size, this.locale)}
+            </span>,
+          ]
+        : undefined,
     ];
 
     const renderDeleteButton = (): HTMLMgButtonElement => (
@@ -468,7 +481,9 @@ export class MgInputFile {
         <div class="mg-c-input__file-list-container">
           <ul role="list" class={{ 'mg-c-input__file-list': true }} id={fileListId}>
             {Array.from(this.files).map(file => (
-              <li class="mg-c-input__file-item">{renderFileName(file)}</li>
+              <li class="mg-c-input__file-item" key={file.name}>
+                {renderFileName(file)}
+              </li>
             ))}
           </ul>
           {renderDeleteButton()}

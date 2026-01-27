@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest';
-import { Cursor, nextTick, Page, Paginate, octetsToString } from './components';
+import { Cursor, nextTick, Page, Paginate } from './components';
 import { CursorType } from './components.conf';
 
 const initArray = length => new Array(length).fill('').map((_, key) => (key + 1).toString());
@@ -187,32 +187,6 @@ describe('components', () => {
           expect(index).toEqual(0);
         });
       });
-    });
-  });
-
-  describe('octetsToString', () => {
-    test.each([
-      { octets: 0, expected: '0octets' },
-      { octets: 500, expected: '500octets' },
-      { octets: 1024, expected: '1Ko' },
-      { octets: 1536, expected: '2Ko' },
-      { octets: 1048576, expected: '1Mo' },
-      { octets: 1572864, expected: '1.50Mo' },
-      { octets: 1073741824, expected: '1Go' },
-      { octets: 1610612736, expected: '1.50Go' },
-      { octets: 1099511627776, expected: '1To' },
-      { octets: 1649267441664, expected: '1.50To' },
-    ])('Should format $octets octets to string', ({ octets, expected }) => {
-      const res = octetsToString(octets);
-      expect(res).toEqual(expected);
-    });
-
-    test('Should throw error with negative octets', () => {
-      expect(() => octetsToString(-10)).toThrowError('octetsToString - size must be a positive number.');
-    });
-
-    test.each([undefined, null, NaN, []])('Should throw error with %s octets', value => {
-      expect(() => octetsToString(value as number)).toThrowError('octetsToString - size must be a positive number.');
     });
   });
 });
