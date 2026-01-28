@@ -1,5 +1,17 @@
 # @mgdis/styles
 
+## 2.15.0
+
+### Minor Changes
+
+- da5ac70: [**`<mg-input-textarea>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-textarea--docs) Move characterleft to the left to allow input resizing.
+
+### Patch Changes
+
+- 143f9d0: update dependencies
+- 7f30f39: [#592](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/592) mg-input-combobox: see more is not visible when zooming
+- 96f6307: [#592](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/593) mg-input-toggle: Label and toggle button are not vertically aligned
+
 ## 2.14.0
 
 ### Minor Changes
