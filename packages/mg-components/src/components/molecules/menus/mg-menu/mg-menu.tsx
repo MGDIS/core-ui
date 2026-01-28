@@ -54,6 +54,12 @@ export class MgMenu {
   }
 
   /**
+   * Size of the menu items.
+   * @deprecated this prop is deprecated and will be removed in future releases. Please use CSS custom properties to set the size of menu items.
+   */
+  @Prop() size: never;
+
+  /**
    * Customize "mg-item-more" element
    * Used with direction: 'vertical' to manage overflow
    */

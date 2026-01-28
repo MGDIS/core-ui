@@ -1703,6 +1703,11 @@ export namespace Components {
           * Menu label. Include short menu description. Required to define accessibility required attribute `aria-label`
          */
         "label": string;
+        /**
+          * Size of the menu items.
+          * @deprecated this prop is deprecated and will be removed in future releases. Please use CSS custom properties to set the size of menu items.
+         */
+        "size": never;
     }
     interface MgMenuItem {
         /**
@@ -1961,6 +1966,11 @@ export namespace Components {
           * Tabs label. Include short tabs description. Required for accessibility
          */
         "label": string;
+        /**
+          * Size of the tabs items.
+          * @deprecated this prop is deprecated and will be removed in future releases. Please use CSS custom properties to set the size of tabs items.
+         */
+        "size": never;
     }
     interface MgTag {
         /**
@@ -4226,6 +4236,11 @@ declare namespace LocalJSX {
           * Menu label. Include short menu description. Required to define accessibility required attribute `aria-label`
          */
         "label": string;
+        /**
+          * Size of the menu items.
+          * @deprecated this prop is deprecated and will be removed in future releases. Please use CSS custom properties to set the size of menu items.
+         */
+        "size"?: never;
     }
     interface MgMenuItem {
         /**
@@ -4536,6 +4551,11 @@ declare namespace LocalJSX {
           * Emited event when active tab change
          */
         "onActive-tab-change"?: (event: MgTabsCustomEvent<HTMLMgTabsElement['activeTab']>) => void;
+        /**
+          * Size of the tabs items.
+          * @deprecated this prop is deprecated and will be removed in future releases. Please use CSS custom properties to set the size of tabs items.
+         */
+        "size"?: never;
     }
     interface MgTag {
         /**

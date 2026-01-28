@@ -64,6 +64,12 @@ export class MgTabs {
   }
 
   /**
+   * Size of the tabs items.
+   * @deprecated this prop is deprecated and will be removed in future releases. Please use CSS custom properties to set the size of tabs items.
+   */
+  @Prop() size: never;
+
+  /**
    * Tabs items
    */
   @Prop() items!: string[] | TabItem[];

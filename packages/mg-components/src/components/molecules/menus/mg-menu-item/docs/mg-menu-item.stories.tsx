@@ -38,6 +38,7 @@ export const MgMenuItem = {
     'target': undefined,
     'status': undefined,
     'expanded': false,
+    'isIcon': false,
     // Slots
     '': '',
     'image': '',
