@@ -6,7 +6,7 @@ import { defineEditor, type EditorType, type EditorOptionsType } from './editor'
 
 @Component({
   tag: 'mg-input-rich-text-editor',
-  styleUrls: ['./editor/editor.scss', '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-rich-text-editor.css'],
+  styleUrls: ['../../../../../node_modules/quill/dist/quill.snow.css', '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-rich-text-editor.css'],
   shadow: true,
 })
 export class MgInputRichTextEditor {
@@ -193,11 +193,11 @@ export class MgInputRichTextEditor {
   }
 
   /**
-   * Get editor content as HTML
+   * Get editor content in HTML format
    * @returns HTML content of the editor
    */
   @Method()
-  getHTML(): Promise<string> {
+  getEditorHTML(): Promise<string> {
     return new Promise(resolve => {
       requestAnimationFrame(() => {
         resolve(this.editor.getSemanticHTML());
@@ -206,11 +206,11 @@ export class MgInputRichTextEditor {
   }
 
   /**
-   * Get editor content as plain text
+   * Get editor content in plain text format
    * @returns Plain text content of the editor
    */
   @Method()
-  async getText(): Promise<string> {
+  async getEditorText(): Promise<string> {
     return new Promise(resolve => {
       requestAnimationFrame(() => {
         resolve(this.editor.getText());

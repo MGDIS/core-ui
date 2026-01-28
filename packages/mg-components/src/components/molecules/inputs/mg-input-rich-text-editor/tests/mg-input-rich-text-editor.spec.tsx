@@ -191,13 +191,13 @@ describe('mg-input-rich-text-editor', () => {
   describe('Methods', () => {
     test.each([
       {
-        method: 'getHTML',
+        method: 'getEditorHTML',
         mockMethod: 'getSemanticHTML',
         value: '<p>Test content</p>',
         expectedValue: '<p>Test content</p>',
       },
       {
-        method: 'getText',
+        method: 'getEditorText',
         mockMethod: 'getText',
         value: 'Test content',
         expectedValue: 'Test content',

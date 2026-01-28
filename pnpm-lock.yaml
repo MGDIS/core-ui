@@ -98,15 +98,15 @@ importers:
         specifier: workspace:*
         version: link:../../packages/mg-components
       '@stencil/core':
-        specifier: 4.38.0
-        version: 4.38.0
+        specifier: 4.40.1
+        version: 4.40.1
     devDependencies:
       '@mgdis/linting-stencil':
         specifier: workspace:*
         version: link:../../packages/linting-stencil
       '@stencil/sass':
         specifier: 3.2.3
-        version: 3.2.3(@stencil/core@4.38.0)
+        version: 3.2.3(@stencil/core@4.40.1)
       '@types/jest':
         specifier: 29.5.14
         version: 29.5.14
@@ -413,8 +413,8 @@ importers:
         specifier: 1.57.0
         version: 1.57.0
       '@stencil/core':
-        specifier: 4.38.0
-        version: 4.38.0
+        specifier: 4.40.1
+        version: 4.40.1
       lodash:
         specifier: 4.17.23
         version: 4.17.23
@@ -630,8 +630,8 @@ importers:
         specifier: 2.11.8
         version: 2.11.8
       '@stencil/core':
-        specifier: 4.38.0
-        version: 4.38.0
+        specifier: 4.40.1
+        version: 4.40.1
       quill:
         specifier: 2.0.3
         version: 2.0.3
@@ -2763,8 +2763,8 @@ packages:
       eslint-plugin-react: ^7.0.0
       typescript: ^4.9.4 || ^5.0.0
 
-  '@stencil/core@4.38.0':
-    resolution: {integrity: sha512-oC3QFKO0X1yXVvETgc8OLY525MNKhn9vISBrbtKnGoPlokJ6rI8Vk1RK22TevnNrHLI4SExNLbcDnqilKR35JQ==}
+  '@stencil/core@4.40.1':
+    resolution: {integrity: sha512-cTHBvYFLf4h61TVHLibZoJcomYAoC+TNW3oi1VHcZMpWQyp/h/pHG1XQeEpzuSscQc/SJJwOYb5IvQ8vVeeCNg==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
@@ -9958,7 +9958,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@stencil/core@4.38.0':
+  '@stencil/core@4.40.1':
     optionalDependencies:
       '@rollup/rollup-darwin-arm64': 4.34.9
       '@rollup/rollup-darwin-x64': 4.34.9
@@ -9969,9 +9969,9 @@ snapshots:
       '@rollup/rollup-win32-arm64-msvc': 4.34.9
       '@rollup/rollup-win32-x64-msvc': 4.34.9
 
-  '@stencil/sass@3.2.3(@stencil/core@4.38.0)':
+  '@stencil/sass@3.2.3(@stencil/core@4.40.1)':
     dependencies:
-      '@stencil/core': 4.38.0
+      '@stencil/core': 4.40.1
       sass-embedded: 1.93.2
 
   '@storybook/addon-a11y@10.1.11(storybook@10.1.11(@testing-library/dom@10.4.1)(prettier@3.7.4)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
