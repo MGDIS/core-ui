@@ -21,8 +21,8 @@ exports[`mg-input-file Should display error when maxSize is exceeded 1`] = `
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -103,8 +103,8 @@ exports[`mg-input-file Should render with args {
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -144,8 +144,8 @@ exports[`mg-input-file Should render with args { accept: '.pdf' }: 1`] = `
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input accept=".pdf" aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input accept=".pdf" aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -188,8 +188,8 @@ exports[`mg-input-file Should render with args { accept: '.pdf', maxSize: 5000 }
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input accept=".pdf" aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input accept=".pdf" aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -229,8 +229,8 @@ exports[`mg-input-file Should render with args { labelHide: true }: 1`] = `
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -267,8 +267,8 @@ exports[`mg-input-file Should render with args { labelOnTop: true }: 1`] = `
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -308,8 +308,8 @@ exports[`mg-input-file Should render with args { maxSize: 5000 }: 1`] = `
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -349,8 +349,8 @@ exports[`mg-input-file Should render with args { required: true, disabled: true 
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" disabled="" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="true" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" disabled="" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="true" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -387,8 +387,8 @@ exports[`mg-input-file Should render with args { required: true, disabled: true,
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" disabled="" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="true" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" disabled="" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="true" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -453,8 +453,8 @@ exports[`mg-input-file Should render with args { required: true, value: [Array],
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -530,8 +530,8 @@ exports[`mg-input-file Should render with args { tooltip: 'My Tooltip Message' }
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -577,8 +577,8 @@ exports[`mg-input-file Should render with args { tooltip: 'My Tooltip Message', 
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -624,8 +624,8 @@ exports[`mg-input-file Should render with args { tooltip: 'My Tooltip Message', 
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -662,8 +662,8 @@ exports[`mg-input-file Should render with args { value: [Array] }: 1`] = `
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -725,8 +725,8 @@ exports[`mg-input-file Should render with args { value: [Array], multiple: true 
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" multiple="" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" multiple="" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -800,8 +800,8 @@ exports[`mg-input-file Should render with args {}: 1`] = `
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -841,8 +841,8 @@ exports[`mg-input-file Should render with interactive helpText 1`] = `
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -887,8 +887,8 @@ exports[`mg-input-file Should render with interactive helpText 2`] = `
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -933,8 +933,8 @@ exports[`mg-input-file Should render with interactive helpText 3`] = `
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -979,8 +979,8 @@ exports[`mg-input-file Should update in case next state is validity ({ validity:
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1020,8 +1020,8 @@ exports[`mg-input-file Should update in case next state is validity ({ validity:
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" disabled="" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="true" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" disabled="" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="true" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--disabled mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1058,8 +1058,8 @@ exports[`mg-input-file events Should handle delete file button click, ({ value: 
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1096,8 +1096,8 @@ exports[`mg-input-file events Should handle delete file button click, ({ value: 
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" multiple="" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" multiple="" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1134,8 +1134,8 @@ exports[`mg-input-file events Should handle input change event 1`] = `
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1200,8 +1200,8 @@ exports[`mg-input-file methods displayError display error message with locale: f
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1249,8 +1249,8 @@ exports[`mg-input-file methods displayError display error message with locale: x
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1295,8 +1295,8 @@ exports[`mg-input-file methods displayError display error with displayError comp
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1341,8 +1341,8 @@ exports[`mg-input-file methods displayError display error with displayError comp
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1390,8 +1390,8 @@ exports[`mg-input-file methods reset Should reset displayed error, lock false 1`
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1431,8 +1431,8 @@ exports[`mg-input-file methods reset Should reset displayed error, lock false 2`
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1472,8 +1472,8 @@ exports[`mg-input-file methods reset Should reset displayed error, lock true 1`]
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1513,8 +1513,8 @@ exports[`mg-input-file methods reset Should reset displayed error, lock true 2`]
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1551,8 +1551,8 @@ exports[`mg-input-file methods setError Should display override error with setEr
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1597,8 +1597,8 @@ exports[`mg-input-file methods setError Should display override error with setEr
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1646,8 +1646,8 @@ exports[`mg-input-file methods setError Should display override error with setEr
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1692,8 +1692,8 @@ exports[`mg-input-file methods setError Should display override error with setEr
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1738,8 +1738,8 @@ exports[`mg-input-file methods setError Should display override error with setEr
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1787,8 +1787,8 @@ exports[`mg-input-file methods setError Should display override error with setEr
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1833,8 +1833,8 @@ exports[`mg-input-file methods setError Should display override error with setEr
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1876,8 +1876,8 @@ exports[`mg-input-file methods setError Should display override error with setEr
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1922,8 +1922,8 @@ exports[`mg-input-file methods setError Should display override error with setEr
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -1968,8 +1968,8 @@ exports[`mg-input-file methods setError Should display override error with setEr
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -2011,8 +2011,8 @@ exports[`mg-input-file methods setError Should display override error with setEr
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-invalid="false" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">
@@ -2057,8 +2057,8 @@ exports[`mg-input-file methods setError Should display override error with setEr
         </div>
       </template>
       <div class="mg-c-input__file-container">
-        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" tabindex="-1" type="file">
-        <mg-button aria-controls="identifier" aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="0" type="button">
+        <input aria-describedby="identifier-error" aria-invalid="true" class="mg-u-visually-hidden" id="identifier" name="identifier" required="" type="file">
+        <mg-button aria-disabled="false" class="mg-c-input__file-button" role="button" tabindex="-1" type="button">
           <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--medium mg-c-button--secondary">
               <div class="mg-c-button__content">

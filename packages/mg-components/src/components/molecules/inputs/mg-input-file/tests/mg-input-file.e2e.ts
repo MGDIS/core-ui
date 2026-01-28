@@ -19,6 +19,11 @@ test.describe('mg-input-file', () => {
     {},
     { value: ['batman.jpg'] },
     { value: [setFile('batman.jpg')] },
+    {
+      value: [
+        setFile('super long file name that exceeds normal length expectations for testing purposes with some extra characters to ensure it is really long and wraps around.png'),
+      ],
+    },
     { value: [setFile('batman.jpg'), setFile('robin.png')], multiple: true },
     { disabled: true },
     { disabled: true, value: [setFile('batman.jpg')] },
@@ -130,7 +135,7 @@ test.describe('mg-input-file', () => {
       // Focus add button
       await page.keyboard.press('Tab');
 
-      await expect(page.locator('.mg-c-input__file-button')).toBeFocused();
+      await page.locator('.mg-c-input__file-button[data-focus-visible]').waitFor();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });

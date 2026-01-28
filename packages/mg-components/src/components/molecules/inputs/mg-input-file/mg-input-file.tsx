@@ -311,7 +311,7 @@ export class MgInputFile {
    * Method to set validity values
    * @param newValue - valid new value
    */
-  private setValidity(newValue: MgInputFile['valid']) {
+  private setValidity = (newValue: MgInputFile['valid']): void => {
     const oldValue = this.valid;
     if (!this.customErrorMessage.lock || (this.customErrorMessage.message !== undefined && !newValue)) {
       this.valid = newValue;
@@ -321,12 +321,12 @@ export class MgInputFile {
     if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValue)) {
       this.inputValid.emit(this.valid);
     }
-  }
+  };
 
   /**
    * Handle change event
    */
-  private handleChange = (event: InputEvent & { target: HTMLInputElement }): void => {
+  private handleInputChange = (event: InputEvent & { target: HTMLInputElement }): void => {
     this.checkValidity();
     if (this.hasDisplayedError) {
       this.setErrorMessage();
@@ -338,15 +338,37 @@ export class MgInputFile {
   };
 
   /**
-   * Handle blur event
+   * Handle input focus event
    */
-  private handleBlur = (): void => {
+  private handleInputFocus = (): void => {
+    this.fileButtonElement.dataset.focusVisible = '';
+  };
+
+  /**
+   * Handle input blur event
+   */
+  private handleInputBlur = (): void => {
     // Display Error
     this.handlerInProgress = 'blur';
     this.displayError().finally(() => {
       // reset guard
       this.handlerInProgress = undefined;
     });
+    delete this.fileButtonElement.dataset.focusVisible;
+  };
+
+  /**
+   * Handle button blur event
+   */
+  private handleButtonBlur = (): void => {
+    this.inputElement.blur();
+  };
+
+  /**
+   * Handle add file button click
+   */
+  private handleButtonClick = (): void => {
+    this.inputElement.click();
   };
 
   /**
@@ -354,13 +376,6 @@ export class MgInputFile {
    */
   private checkValidity = (): void => {
     this.setValidity(this.disabled || (!this.isMaxSizeExceeded() && this.inputElement.checkValidity()));
-  };
-
-  /**
-   * Handle add file button click
-   */
-  private handleAddFileClick = (): void => {
-    this.inputElement.click();
   };
 
   /**
@@ -436,6 +451,8 @@ export class MgInputFile {
    * @returns formated files.
    */
   private renderFiles = (): null | HTMLElement | HTMLElement[] => {
+    const fileListId = `${this.identifier}-file-list`;
+
     const renderFileName = (file: File): HTMLSpanElement[] => [
       <span class="mg-c-input__file-item-name" key={file.name}>
         {file.name}
@@ -464,8 +481,6 @@ export class MgInputFile {
         <mg-icon icon="cross"></mg-icon>
       </mg-button>
     );
-
-    const fileListId = `${this.identifier}-file-list`;
 
     if (this.files.length === 0) {
       return null;
@@ -521,8 +536,9 @@ export class MgInputFile {
             accept={this.accept}
             disabled={this.disabled}
             required={this.files.length === 0 && this.required}
-            tabIndex={-1}
-            onChange={this.handleChange}
+            onFocus={this.handleInputFocus}
+            onBlur={this.handleInputBlur}
+            onChange={this.handleInputChange}
             aria-invalid={(this.invalid === true).toString()}
             ref={(el: HTMLInputElement) => {
               this.inputElement = el;
@@ -533,9 +549,9 @@ export class MgInputFile {
             class="mg-c-input__file-button"
             type="button"
             disabled={this.disabled}
-            onClick={this.handleAddFileClick}
-            onBlur={this.handleBlur}
-            aria-controls={this.identifier}
+            onClick={this.handleButtonClick}
+            onBlur={this.handleButtonBlur}
+            tabindex="-1"
             ref={(el: HTMLMgButtonElement) => {
               this.fileButtonElement = el;
             }}

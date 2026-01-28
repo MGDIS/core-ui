@@ -264,6 +264,16 @@ export class MgForm {
       if (this.labelOnTop) {
         input.labelOnTop = true;
       }
+
+      // manage special display case for mg-input-file
+      if (input.nodeName === 'MG-INPUT-FILE') {
+        if (this.readonly) {
+          input.setAttribute('hidden', 'true');
+        } else {
+          input.removeAttribute('hidden');
+        }
+      }
+
       if (this.readonly) {
         input.readonly = true;
       } else if (this.disabled) {

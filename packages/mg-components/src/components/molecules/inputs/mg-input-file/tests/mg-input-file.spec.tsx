@@ -227,6 +227,43 @@ describe('mg-input-file', () => {
   });
 
   describe('events', () => {
+    test.each(['blur', 'focus'])('Should handle input %s event', async event => {
+      const page = await getPage({ label: 'label', identifier: 'identifier' });
+      const element = page.doc.querySelector('mg-input-file');
+      const input = element.shadowRoot.querySelector('input');
+      const button = element.shadowRoot.querySelector('mg-button');
+
+      const buttonEventSpy = jest.spyOn(button, event as 'blur' | 'focus');
+
+      // Simulate input focus event
+      input.dispatchEvent(new CustomEvent(event, { bubbles: true }));
+      await page.waitForChanges();
+
+      // Verify button focus method is called
+      expect(buttonEventSpy).not.toHaveBeenCalled();
+      if (event === 'focus') {
+        expect(button).toHaveAttribute('data-focus-visible');
+      } else {
+        expect(button).not.toHaveAttribute('data-focus-visible');
+      }
+    });
+
+    test.each(['blur', 'click'])('Should handle button %s event', async event => {
+      const page = await getPage({ label: 'label', identifier: 'identifier' });
+      const element = page.doc.querySelector('mg-input-file');
+      const input = element.shadowRoot.querySelector('input');
+      const button = element.shadowRoot.querySelector('mg-button');
+
+      const inputEventSpy = jest.spyOn(input, event as 'blur' | 'focus');
+
+      // Simulate input focus event
+      button.dispatchEvent(new CustomEvent(event, { bubbles: true }));
+      await page.waitForChanges();
+
+      // Verify button focus method is called
+      expect(inputEventSpy).toHaveBeenCalled();
+    });
+
     test('Should handle input change event', async () => {
       const page = await getPage({ label: 'label', identifier: 'identifier' });
       const element = page.doc.querySelector('mg-input-file');
