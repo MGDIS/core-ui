@@ -494,7 +494,7 @@ export class MgInputFile {
     } else {
       return (
         <div class="mg-c-input__file-list-container">
-          <ul role="list" class={{ 'mg-c-input__file-list': true }} id={fileListId}>
+          <ul role="list" class="mg-c-input__file-list" id={fileListId}>
             {Array.from(this.files).map(file => (
               <li class="mg-c-input__file-item" key={file.name}>
                 {renderFileName(file)}
