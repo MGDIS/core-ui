@@ -105,6 +105,18 @@ test.describe('mg-input-rich-text-editor', () => {
     });
   });
 
+  test('Should take focus with keyboard navigation', async ({ page }) => {
+    const html = createHTML({ ...baseArgs });
+    await page.setContent(html);
+
+    await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
+
+    // Take focus on the editor using keyboard Tab navigation
+    await page.keyboard.press('Tab');
+
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
+
   test.describe('Responsive', () => {
     [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
       test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
