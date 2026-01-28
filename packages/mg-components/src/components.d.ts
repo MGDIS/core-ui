@@ -783,7 +783,7 @@ export namespace Components {
     }
     interface MgInputFile {
         /**
-          * Define file accept format The accept property is an attribute of the file <input> type that defines the file types the file input should accept (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept).
+          * Define file accept format The accept property is an attribute of the file `<input>` type that defines the file types the file input should accept (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept).
          */
         "accept"?: string;
         /**
@@ -3527,7 +3527,7 @@ declare namespace LocalJSX {
     }
     interface MgInputFile {
         /**
-          * Define file accept format The accept property is an attribute of the file <input> type that defines the file types the file input should accept (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept).
+          * Define file accept format The accept property is an attribute of the file `<input>` type that defines the file types the file input should accept (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept).
          */
         "accept"?: string;
         /**

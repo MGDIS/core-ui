@@ -1,5 +1,3 @@
-# mg-input-file
-
 
 
 <!-- Auto Generated Below -->
@@ -9,7 +7,7 @@
 
 | Property                  | Attribute          | Description                                                                                                                                                                                                                                                                                     | Type                            | Default           |
 | ------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------- |
-| `accept`                  | `accept`           | Define file accept format The accept property is an attribute of the file <input> type that defines the file types the file input should accept (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept).                                                                  | `string`                        | `undefined`       |
+| `accept`                  | `accept`           | Define file accept format The accept property is an attribute of the file `<input>` type that defines the file types the file input should accept (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept).                                                                | `string`                        | `undefined`       |
 | `capture`                 | `capture`          | Define input capture attribute The capture attribute is a Boolean attribute that specifies if the device's camera or microphone should be used to capture media directly, instead of choosing an existing file. (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#capture). | `"" \| "environment" \| "user"` | `undefined`       |
 | `disabled`                | `disabled`         | Define if input is disabled                                                                                                                                                                                                                                                                     | `boolean`                       | `false`           |
 | `helpText`                | `help-text`        | Add a help text under the input, usually expected data format and example                                                                                                                                                                                                                       | `string`                        | `undefined`       |

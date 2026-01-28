@@ -37,9 +37,9 @@ exports[`mg-input-file Should display error when maxSize is exceeded 1`] = `
             batman
           </span>
           <span class="mg-c-input__file-item-size">
-            10octets
+            10 byte
           </span>
-          <mg-button ara-controls="identifier identifier-file-list" aria-disabled="false" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
+          <mg-button aria-controls="identifier identifier-file-list" aria-disabled="false" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                 <div class="mg-c-button__content">
@@ -59,10 +59,10 @@ exports[`mg-input-file Should display error when maxSize is exceeded 1`] = `
         </div>
       </div>
       <div id="identifier-help-text" slot="help-text">
-        Maximum size: 5octets
+        Maximum size: 5 byte
       </div>
       <div id="identifier-error" slot="error">
-        The file size exceeds the maximum allowed size of 5octets
+        The file size exceeds the maximum allowed size of 5 byte
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
@@ -201,7 +201,7 @@ exports[`mg-input-file Should render with args { accept: '.pdf', maxSize: 5000 }
         </mg-button>
       </div>
       <div id="identifier-help-text" slot="help-text">
-        Maximum size: 5Ko. Accepted extensions: .pdf
+        Maximum size: 4.88 kB. Accepted extensions: .pdf
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
@@ -321,7 +321,7 @@ exports[`mg-input-file Should render with args { maxSize: 5000 }: 1`] = `
         </mg-button>
       </div>
       <div id="identifier-help-text" slot="help-text">
-        Maximum size: 5Ko
+        Maximum size: 4.88 kB
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
@@ -403,9 +403,9 @@ exports[`mg-input-file Should render with args { required: true, disabled: true,
             batman
           </span>
           <span class="mg-c-input__file-item-size">
-            12octets
+            12 byte
           </span>
-          <mg-button ara-controls="identifier identifier-file-list" aria-disabled="true" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
+          <mg-button aria-controls="identifier identifier-file-list" aria-disabled="true" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                 <div class="mg-c-button__content">
@@ -468,7 +468,7 @@ exports[`mg-input-file Should render with args { required: true, value: [Array],
           <span class="mg-c-input__file-item-name">
             batman
           </span>
-          <mg-button ara-controls="identifier identifier-file-list" aria-disabled="false" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
+          <mg-button aria-controls="identifier identifier-file-list" aria-disabled="false" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                 <div class="mg-c-button__content">
@@ -678,9 +678,9 @@ exports[`mg-input-file Should render with args { value: [Array] }: 1`] = `
             batman
           </span>
           <span class="mg-c-input__file-item-size">
-            12octets
+            12 byte
           </span>
-          <mg-button ara-controls="identifier identifier-file-list" aria-disabled="false" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
+          <mg-button aria-controls="identifier identifier-file-list" aria-disabled="false" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                 <div class="mg-c-button__content">
@@ -743,7 +743,7 @@ exports[`mg-input-file Should render with args { value: [Array], multiple: true 
                 batman
               </span>
               <span class="mg-c-input__file-item-size">
-                12octets
+                12 byte
               </span>
             </li>
             <li class="mg-c-input__file-item">
@@ -751,11 +751,11 @@ exports[`mg-input-file Should render with args { value: [Array], multiple: true 
                 joker
               </span>
               <span class="mg-c-input__file-item-size">
-                12octets
+                12 byte
               </span>
             </li>
           </ul>
-          <mg-button ara-controls="identifier identifier-file-list" aria-disabled="false" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
+          <mg-button aria-controls="identifier identifier-file-list" aria-disabled="false" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                 <div class="mg-c-button__content">
@@ -1150,9 +1150,9 @@ exports[`mg-input-file events Should handle input change event 1`] = `
             batman
           </span>
           <span class="mg-c-input__file-item-size">
-            12octets
+            12 byte
           </span>
-          <mg-button ara-controls="identifier identifier-file-list" aria-disabled="false" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
+          <mg-button aria-controls="identifier identifier-file-list" aria-disabled="false" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
             <template shadowrootmode="open">
               <div class="mg-c-button mg-c-button--flat mg-c-button--icon mg-c-button--medium">
                 <div class="mg-c-button__content">
