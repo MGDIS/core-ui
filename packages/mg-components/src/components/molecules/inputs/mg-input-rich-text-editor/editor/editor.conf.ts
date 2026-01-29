@@ -10,6 +10,7 @@ import type { Sanitizer } from '@mgdis/sanitize-html';
 export type DefineEditorConfig = {
   value: string;
   readOnly?: boolean;
+  disabled?: boolean;
   placeholder?: string;
   modules?: ButtonsOption;
   editorHeight?: number;

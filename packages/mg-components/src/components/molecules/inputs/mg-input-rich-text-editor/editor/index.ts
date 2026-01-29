@@ -24,7 +24,7 @@ import type { DefineEditorConfig, IJodit } from './editor.conf';
  * @returns Configured Jodit editor instance
  */
 export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorElement: HTMLTextAreaElement, config: DefineEditorConfig): IJodit => {
-  const { value, modules, readOnly, placeholder, editorHeight, handleTextChange, handleFocus, handleBlur } = config;
+  const { value, modules, readOnly, disabled, placeholder, editorHeight, handleTextChange, handleFocus, handleBlur } = config;
   // Get the shadow root directly from the component element
   const shadowRoot = element.shadowRoot;
 
@@ -39,6 +39,10 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
   // The actual configuration follows Jodit's Config interface from jodit/esm/types
   const joditConfig: Record<string, unknown> = {
     readonly: readOnly === true,
+    // When readOnly (readonly or disabled), disable ALL toolbar buttons including plugin buttons (print, source).
+    // By default Jodit keeps source, print, fullsize, about, dots active in read-only mode.
+    // Set to [] so that when setReadOnly(true) is called (now or later), no toolbar buttons stay active.
+    activeButtonsInReadOnly: [],
     placeholder: placeholder || '', // Avoid `Type something...` placeholder by default
     // Set tabIndex to 0 to enable keyboard navigation with Tab key
     // Default is -1 which prevents the editor from receiving focus via Tab navigation
@@ -340,6 +344,13 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
       // Also set role="textbox" and aria-multiline="true" for proper screen reader support
       wysiwygElement.setAttribute('role', 'textbox');
       wysiwygElement.setAttribute('aria-multiline', 'true');
+
+      // Sync disabled state for screen readers (aria-disabled only when true, omitted otherwise)
+      if (disabled === true) {
+        wysiwygElement.setAttribute('aria-disabled', 'true');
+      } else {
+        wysiwygElement.removeAttribute('aria-disabled');
+      }
 
       // Associate the editor with the label for screen readers and label click
       const identifier = element.identifier;

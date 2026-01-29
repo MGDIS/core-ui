@@ -53,7 +53,13 @@
     }
   }
 
-  &.mg-c-input--disabled .mg-c-input__wrapper {
-    opacity: var(--mg-b-opacity-element-disabled);
+  &.mg-c-input--disabled {
+    .mg-c-input__wrapper {
+      opacity: var(--mg-b-opacity-element-disabled);
+    }
+
+    .mg-c-input__toolbar-box {
+      pointer-events: none;
+    }
   }
 }

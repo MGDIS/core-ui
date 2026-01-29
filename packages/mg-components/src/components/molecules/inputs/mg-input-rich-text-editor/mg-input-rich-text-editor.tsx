@@ -116,6 +116,15 @@ export class MgInputRichTextEditor {
       this.classCollection.delete(classDisabled);
       this.editor?.setReadOnly(false);
     }
+    // Propagate aria-disabled to the WYSIWYG element
+    const wysiwygEl = this.editor?.editor as HTMLElement | undefined;
+    if (wysiwygEl !== undefined) {
+      if (newValue) {
+        wysiwygEl.setAttribute('aria-disabled', 'true');
+      } else {
+        wysiwygEl.removeAttribute('aria-disabled');
+      }
+    }
   }
 
   @Watch('required')
@@ -539,6 +548,7 @@ export class MgInputRichTextEditor {
       this.editor = defineEditor(this.element, this.editorElement, {
         modules: this.toolbarModules,
         readOnly: this.readonly || this.disabled,
+        disabled: this.disabled,
         placeholder: this.placeholder,
         value: this.sanitizer.sanitize(this.value),
         editorHeight: this.calculateEditorHeightFromRows(this.rows),
