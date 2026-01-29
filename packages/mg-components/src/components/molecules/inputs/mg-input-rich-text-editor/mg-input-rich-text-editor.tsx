@@ -23,7 +23,6 @@ export class MgInputRichTextEditor {
   // Editor
   private editor: IJodit;
   private editorElement: HTMLTextAreaElement;
-  private toolbarModules?: ButtonsOption;
 
   // Sanitizer
   private sanitizer: Sanitizer;
@@ -181,17 +180,10 @@ export class MgInputRichTextEditor {
    */
   @Prop() modules?: string;
   @Watch('modules')
-  watchModules(): void {
-    if (this.modules === undefined) {
-      this.toolbarModules = undefined;
-      return;
+  watchModules(newValue: MgInputRichTextEditor['modules']): void {
+    if (newValue !== undefined && !isValidString(newValue)) {
+      throw new Error(`<mg-input-rich-text-editor> prop "modules" must be a string. Passed value: "${toString(newValue)}".`);
     }
-
-    // Parse comma-separated string: "bold, italic, |, ul, ol"
-    this.toolbarModules = this.modules
-      .split(',')
-      .map(item => item.trim())
-      .filter(item => item.length > 0);
   }
 
   /**
@@ -501,6 +493,18 @@ export class MgInputRichTextEditor {
   }
 
   /**
+   * Parse comma-separated modules string into toolbar options array
+   * @returns Parsed modules array or undefined if modules prop is not set
+   */
+  private getParsedModules(): ButtonsOption | undefined {
+    if (this.modules === undefined) return undefined;
+    return this.modules
+      .split(',')
+      .map(item => item.trim())
+      .filter(item => item.length > 0);
+  }
+
+  /**
    * Initialize sanitizer by parsing props and creating a new instance
    */
   private initializeSanitizer = (): void => {
@@ -526,7 +530,7 @@ export class MgInputRichTextEditor {
     // Watch
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
-    this.watchModules();
+    this.watchModules(this.modules);
     this.watchSanitizerConfig(this.sanitizerDisallowTags, undefined, 'sanitizerDisallowTags');
     this.watchSanitizerConfig(this.sanitizerDisallowAttributes, undefined, 'sanitizerDisallowAttributes');
     // Initialize sanitizer with optional configuration
@@ -546,7 +550,7 @@ export class MgInputRichTextEditor {
   componentDidLoad(): void {
     if (!this.readonly) {
       this.editor = defineEditor(this.element, this.editorElement, {
-        modules: this.toolbarModules,
+        modules: this.getParsedModules(),
         readOnly: this.readonly || this.disabled,
         disabled: this.disabled,
         placeholder: this.placeholder,

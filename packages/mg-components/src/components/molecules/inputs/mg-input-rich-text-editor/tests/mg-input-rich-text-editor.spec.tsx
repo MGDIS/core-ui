@@ -163,6 +163,15 @@ describe('mg-input-rich-text-editor', () => {
         expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${toString(tooltipPosition)}.`);
       }
     });
+
+    test.each(['', ' ', null])('Should throw error when modules prop is invalid: %s', async modules => {
+      expect.assertions(1);
+      try {
+        await getPage({ identifier: 'identifier', label: 'label', modules: modules as string });
+      } catch (err) {
+        expect(err.message).toEqual(`<mg-input-rich-text-editor> prop "modules" must be a string. Passed value: "${toString(modules)}".`);
+      }
+    });
   });
 
   describe('style', () => {
