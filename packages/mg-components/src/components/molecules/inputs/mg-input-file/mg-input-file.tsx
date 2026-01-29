@@ -457,14 +457,11 @@ export class MgInputFile {
       <span class="mg-c-input__file-item-name" key={file.name}>
         {file.name}
       </span>,
-      file.size > 0
-        ? [
-            '',
-            <span class="mg-c-input__file-item-size" key={file.size}>
-              {localeByte(file.size, this.locale)}
-            </span>,
-          ]
-        : undefined,
+      file.size > 0 ? (
+        <span class="mg-c-input__file-item-size" key={file.size}>
+          {localeByte(file.size, this.locale)}
+        </span>
+      ) : undefined,
     ];
 
     const renderDeleteButton = (): HTMLMgButtonElement => (

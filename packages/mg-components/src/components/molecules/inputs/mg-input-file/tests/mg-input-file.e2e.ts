@@ -45,6 +45,10 @@ test.describe('mg-input-file', () => {
       await page.setContent(html);
       await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
+      if ((args.value[0] as File).name?.includes('super long file name')) {
+        await page.setViewportSize({ width: 400, height: 800 });
+      }
+
       await page.locator('mg-input-file.hydrated').waitFor();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
