@@ -1,5 +1,12 @@
 # @mgdis/core-ui-helpers
 
+## 1.0.7
+
+### Patch Changes
+
+- 76206e1: `renderAttributes` helper should render "false" attributes to avoid unassigned values.
+- 143f9d0: update dependencies
+
 ## 1.0.6
 
 ### Patch Changes

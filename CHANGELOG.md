@@ -1,5 +1,19 @@
 # Changelog
 
+## Release (2026-01-06-14-25_Enthusiastic-Electric-Lime-Eagle)
+
+### Packages released
+
+- [helpers changelog](packages/helpers/CHANGELOG.md)
+- [img changelog](packages/img/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+- [sanitize-html changelog](packages/sanitize-html/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2025-11-19-15-39_Stupid-Scarlet-Sea-Lion)
 
 ### Packages released

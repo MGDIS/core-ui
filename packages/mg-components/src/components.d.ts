@@ -1212,15 +1212,15 @@ export namespace Components {
          */
         "displayError": () => Promise<void>;
         /**
-          * Get editor content as HTML
+          * Get editor content in HTML format
           * @returns HTML content of the editor
          */
-        "getHTML": () => Promise<string>;
+        "getEditorHTML": () => Promise<string>;
         /**
-          * Get editor content as plain text
+          * Get editor content in plain text format
           * @returns Plain text content of the editor
          */
-        "getText": () => Promise<string>;
+        "getEditorText": () => Promise<string>;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -2482,12 +2482,7 @@ declare global {
         "input-valid": boolean;
         "value-change": string;
     }
-    interface HTMLMgInputRichTextEditorElement extends Omit<Components.MgInputRichTextEditor, "getHTML">, HTMLStencilElement {
-        /**
-          * Get editor content as HTML
-          * @returns HTML content of the editor
-         */
-        "getHTML": () => Promise<string>;
+    interface HTMLMgInputRichTextEditorElement extends Components.MgInputRichTextEditor, HTMLStencilElement {
         addEventListener<K extends keyof HTMLMgInputRichTextEditorElementEventMap>(type: K, listener: (this: HTMLMgInputRichTextEditorElement, ev: MgInputRichTextEditorCustomEvent<HTMLMgInputRichTextEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;

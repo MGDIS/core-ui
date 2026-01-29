@@ -1,5 +1,28 @@
 # @mgdis/mg-components
 
+## 6.20.0
+
+### Minor Changes
+
+- da5ac70: [**`<mg-input-textarea>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-textarea--docs) Move characterleft to the left to allow input resizing.
+
+### Patch Changes
+
+- 76206e1: [#591](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/591) mg-input-toggle: valueChange loop between string and boolean values
+- df5c090: [#595](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/595) mg-input-combobox: blur event is triggered too early
+- 76206e1: `renderAttributes` helper should render "false" attributes to avoid unassigned values.
+- 143f9d0: update dependencies
+- 7f30f39: [#592](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/592) mg-input-combobox: see more is not visible when zooming
+- 96f6307: [#592](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/593) mg-input-toggle: Label and toggle button are not vertically aligned
+- Updated dependencies [da5ac70]
+- Updated dependencies [76206e1]
+- Updated dependencies [143f9d0]
+- Updated dependencies [7f30f39]
+- Updated dependencies [96f6307]
+  - @mgdis/styles@2.15.0
+  - @mgdis/core-ui-helpers@1.0.7
+  - @mgdis/img@2.5.4
+
 ## 6.19.0
 
 ### Minor Changes
