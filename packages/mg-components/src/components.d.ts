@@ -1246,7 +1246,7 @@ export namespace Components {
          */
         "labelOnTop": boolean;
         /**
-          * Editor modules configuration Must be passed as an HTML attribute with a comma-separated list (e.g., modules="bold, italic, |, ul, ol")
+          * Editor modules configuration. Must be passed as an HTML attribute with a comma-separated list (e.g., modules="bold, italic, |, ul, ol"). Use `|` for a separator/divider in the toolbar. Available modules: - **Text formatting**: `bold`, `italic`, `underline`, `strikethrough`, `eraser` - **Lists**: `ul` (unordered list), `ol` (ordered list) - **Text positioning**: `superscript`, `subscript` - **Colors**: `brush` (text color/background) - **Media**: `link`, `image`, `file` - **Tables**: `table` - **History**: `undo`, `redo` - **Other**: `print`, `source` (HTML source editor)
          */
         "modules"?: string;
         /**
@@ -1281,16 +1281,16 @@ export namespace Components {
          */
         "reset": () => Promise<void>;
         /**
-          * Define the number of visible text lines for the control
+          * Define the number of visible text lines for the editor. Impacts the editor height. Content can grow beyond this minimum.
           * @default 5
          */
         "rows": number;
         /**
-          * Attributes to disallow in sanitized HTML Must be passed as an HTML attribute with format: "tag:attr1,attr2;tag2:attr3" (e.g., sanitizer-disallow-attributes="*:style;a:target") Use "*" as tag name to apply to all tags
+          * Attributes to disallow in sanitized HTML. Format: "tag:attr1,attr2;tag2:attr3". Use "*" as tag to apply to all tags (e.g., sanitizer-disallow-attributes="*:style;a:target"). Semicolon (;) between tag:attrs pairs, comma (,) between attributes of the same tag.
          */
         "sanitizerDisallowAttributes"?: string;
         /**
-          * Tags to disallow in sanitized HTML Must be passed as an HTML attribute with a comma-separated list (e.g., sanitizer-disallow-tags="img,script")
+          * Tags to disallow in sanitized HTML. Comma-separated list of tag names to remove (e.g., sanitizer-disallow-tags="img,script").
          */
         "sanitizerDisallowTags"?: string;
         /**
@@ -3940,7 +3940,7 @@ declare namespace LocalJSX {
          */
         "labelOnTop"?: boolean;
         /**
-          * Editor modules configuration Must be passed as an HTML attribute with a comma-separated list (e.g., modules="bold, italic, |, ul, ol")
+          * Editor modules configuration. Must be passed as an HTML attribute with a comma-separated list (e.g., modules="bold, italic, |, ul, ol"). Use `|` for a separator/divider in the toolbar. Available modules: - **Text formatting**: `bold`, `italic`, `underline`, `strikethrough`, `eraser` - **Lists**: `ul` (unordered list), `ol` (ordered list) - **Text positioning**: `superscript`, `subscript` - **Colors**: `brush` (text color/background) - **Media**: `link`, `image`, `file` - **Tables**: `table` - **History**: `undo`, `redo` - **Other**: `print`, `source` (HTML source editor)
          */
         "modules"?: string;
         /**
@@ -3979,16 +3979,16 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * Define the number of visible text lines for the control
+          * Define the number of visible text lines for the editor. Impacts the editor height. Content can grow beyond this minimum.
           * @default 5
          */
         "rows"?: number;
         /**
-          * Attributes to disallow in sanitized HTML Must be passed as an HTML attribute with format: "tag:attr1,attr2;tag2:attr3" (e.g., sanitizer-disallow-attributes="*:style;a:target") Use "*" as tag name to apply to all tags
+          * Attributes to disallow in sanitized HTML. Format: "tag:attr1,attr2;tag2:attr3". Use "*" as tag to apply to all tags (e.g., sanitizer-disallow-attributes="*:style;a:target"). Semicolon (;) between tag:attrs pairs, comma (,) between attributes of the same tag.
          */
         "sanitizerDisallowAttributes"?: string;
         /**
-          * Tags to disallow in sanitized HTML Must be passed as an HTML attribute with a comma-separated list (e.g., sanitizer-disallow-tags="img,script")
+          * Tags to disallow in sanitized HTML. Comma-separated list of tag names to remove (e.g., sanitizer-disallow-tags="img,script").
          */
         "sanitizerDisallowTags"?: string;
         /**
