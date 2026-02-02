@@ -73,6 +73,7 @@ export const setupJoditMock = () => {
     };
     private _element: HTMLElement;
     private _editorElement: HTMLElement;
+    private _container: HTMLElement;
 
     constructor(element: HTMLElement, config?: Record<string, unknown>) {
       this._element = element;
@@ -85,9 +86,10 @@ export const setupJoditMock = () => {
       // Create Jodit DOM structure to match real Jodit behavior
       const wrapperElement = element.parentElement ?? document.body;
       // Create .jodit-container
-      const container = document.createElement('div');
-      container.className = 'jodit-container';
-      wrapperElement.appendChild(container);
+      this._container = document.createElement('div');
+      this._container.className = 'jodit-container';
+      wrapperElement.appendChild(this._container);
+      const container = this._container;
 
       // Create .jodit-toolbar__box
       const toolbarBox = document.createElement('div');
@@ -144,6 +146,10 @@ export const setupJoditMock = () => {
     get editor(): HTMLElement {
       return this._editorElement;
     }
+
+    get container(): HTMLElement {
+      return this._container;
+    }
   }
 
   // Mock Jodit class
@@ -156,6 +162,7 @@ export const setupJoditMock = () => {
         setReadOnly: (readonly: boolean) => void;
         focus: () => void;
         editor: HTMLElement;
+        container: HTMLElement;
       };
     }
 

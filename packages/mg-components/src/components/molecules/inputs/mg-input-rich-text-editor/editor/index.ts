@@ -44,9 +44,9 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
     // Set to [] so that when setReadOnly(true) is called (now or later), no toolbar buttons stay active.
     activeButtonsInReadOnly: [],
     placeholder: placeholder || '', // Avoid `Type something...` placeholder by default
-    // Set tabIndex to 0 to enable keyboard navigation with Tab key
-    // Default is -1 which prevents the editor from receiving focus via Tab navigation
-    tabIndex: 0,
+    // Set tabIndex to 0 to enable keyboard navigation with Tab key when enabled
+    // When disabled, use -1 to exclude the editor from Tab navigation
+    tabIndex: disabled === true ? -1 : 0,
     buttons: modules || [
       'bold',
       'italic',

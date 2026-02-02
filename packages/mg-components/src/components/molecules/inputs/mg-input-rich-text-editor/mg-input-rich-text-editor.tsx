@@ -115,14 +115,16 @@ export class MgInputRichTextEditor {
       this.classCollection.delete(classDisabled);
       this.editor?.setReadOnly(false);
     }
-    // Propagate aria-disabled to the WYSIWYG element
-    const wysiwygEl = this.editor?.editor as HTMLElement | undefined;
+    // Propagate aria-disabled and tabIndex to the WYSIWYG element
+    const wysiwygEl = this.editor?.editor;
     if (wysiwygEl !== undefined) {
       if (newValue) {
         wysiwygEl.setAttribute('aria-disabled', 'true');
       } else {
         wysiwygEl.removeAttribute('aria-disabled');
       }
+      // tabIndex -1 when disabled to exclude from Tab navigation
+      wysiwygEl.tabIndex = newValue ? -1 : 0;
     }
   }
 
