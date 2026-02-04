@@ -1,6 +1,6 @@
 ---
 '@mgdis/mg-components': minor
-'@mgdis/sanitize-html': patch
+'@mgdis/sanitize-html': minor
 '@mgdis/styles': patch
 ---
 
