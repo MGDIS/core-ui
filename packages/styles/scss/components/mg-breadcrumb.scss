@@ -1,0 +1,39 @@
+.mg-c-breadcrumb {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    padding: 0;
+    margin: 0;
+    gap: var(--mg-b-size-4) var(--mg-b-size-8);
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    color: var(--mg-b-color-dark);
+    font-weight: 700;
+
+    &:not(:last-child)::after {
+      content: '/';
+      font-weight: 600;
+      margin-inline-start: var(--mg-b-size-8);
+    }
+  }
+
+  &__link {
+    color: currentcolor;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+
+    &[aria-label] {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+}

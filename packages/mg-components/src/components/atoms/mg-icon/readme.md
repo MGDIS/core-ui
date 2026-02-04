@@ -32,6 +32,7 @@
 
  - [mg-action-more](../../molecules/mg-action-more)
  - [mg-alert](../../molecules/mg-alert)
+ - [mg-breadcrumb](../../molecules/mg-breadcrumb)
  - [mg-button](../mg-button)
  - [mg-details](../../molecules/mg-details)
  - [mg-input](../../molecules/inputs/mg-input)
@@ -57,6 +58,7 @@
 graph TD;
   mg-action-more --> mg-icon
   mg-alert --> mg-icon
+  mg-breadcrumb --> mg-icon
   mg-button --> mg-icon
   mg-details --> mg-icon
   mg-input --> mg-icon

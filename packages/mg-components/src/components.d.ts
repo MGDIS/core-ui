@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 import { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
+import { BreadcrumbItem } from "./components/molecules/mg-breadcrumb/mg-breadcrumb.conf";
 import { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 import { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
 import { labelHeading, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
@@ -40,6 +41,7 @@ import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
+export { BreadcrumbItem } from "./components/molecules/mg-breadcrumb/mg-breadcrumb.conf";
 export { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 export { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
 export { labelHeading, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
@@ -125,6 +127,16 @@ export namespace Components {
           * @default 'info'
          */
         "variant"?: BadgeVariantType;
+    }
+    interface MgBreadcrumb {
+        /**
+          * Breadcrumb items (hierarchical order: root → current page). Can be set as a JavaScript array (property) or as a JSON string (HTML attribute).
+         */
+        "items": BreadcrumbItem[] | string;
+        /**
+          * Landmark label for accessibility. If absent, uses i18n message.
+         */
+        "label"?: string;
     }
     interface MgButton {
         /**
@@ -2132,6 +2144,10 @@ export interface MgAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgAlertElement;
 }
+export interface MgBreadcrumbCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMgBreadcrumbElement;
+}
 export interface MgButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgButtonElement;
@@ -2255,6 +2271,23 @@ declare global {
     var HTMLMgBadgeElement: {
         prototype: HTMLMgBadgeElement;
         new (): HTMLMgBadgeElement;
+    };
+    interface HTMLMgBreadcrumbElementEventMap {
+        "item-click": { href: string; label: string; event: MouseEvent };
+    }
+    interface HTMLMgBreadcrumbElement extends Components.MgBreadcrumb, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgBreadcrumbElementEventMap>(type: K, listener: (this: HTMLMgBreadcrumbElement, ev: MgBreadcrumbCustomEvent<HTMLMgBreadcrumbElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgBreadcrumbElementEventMap>(type: K, listener: (this: HTMLMgBreadcrumbElement, ev: MgBreadcrumbCustomEvent<HTMLMgBreadcrumbElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLMgBreadcrumbElement: {
+        prototype: HTMLMgBreadcrumbElement;
+        new (): HTMLMgBreadcrumbElement;
     };
     interface HTMLMgButtonElementEventMap {
         "disabled-change": HTMLMgButtonElement['disabled'];
@@ -2784,6 +2817,7 @@ declare global {
         "mg-action-more": HTMLMgActionMoreElement;
         "mg-alert": HTMLMgAlertElement;
         "mg-badge": HTMLMgBadgeElement;
+        "mg-breadcrumb": HTMLMgBreadcrumbElement;
         "mg-button": HTMLMgButtonElement;
         "mg-card": HTMLMgCardElement;
         "mg-character-left": HTMLMgCharacterLeftElement;
@@ -2895,6 +2929,20 @@ declare namespace LocalJSX {
           * @default 'info'
          */
         "variant"?: BadgeVariantType;
+    }
+    interface MgBreadcrumb {
+        /**
+          * Breadcrumb items (hierarchical order: root → current page). Can be set as a JavaScript array (property) or as a JSON string (HTML attribute).
+         */
+        "items"?: BreadcrumbItem[] | string;
+        /**
+          * Landmark label for accessibility. If absent, uses i18n message.
+         */
+        "label"?: string;
+        /**
+          * Emitted when a link is clicked (e.g. for routing without full page reload). The native event is included so preventDefault() can be called in a single listener.
+         */
+        "onItem-click"?: (event: MgBreadcrumbCustomEvent<{ href: string; label: string; event: MouseEvent }>) => void;
     }
     interface MgButton {
         /**
@@ -4827,6 +4875,7 @@ declare namespace LocalJSX {
         "mg-action-more": MgActionMore;
         "mg-alert": MgAlert;
         "mg-badge": MgBadge;
+        "mg-breadcrumb": MgBreadcrumb;
         "mg-button": MgButton;
         "mg-card": MgCard;
         "mg-character-left": MgCharacterLeft;
@@ -4877,6 +4926,7 @@ declare module "@stencil/core" {
             "mg-action-more": LocalJSX.MgActionMore & JSXBase.HTMLAttributes<HTMLMgActionMoreElement>;
             "mg-alert": LocalJSX.MgAlert & JSXBase.HTMLAttributes<HTMLMgAlertElement>;
             "mg-badge": LocalJSX.MgBadge & JSXBase.HTMLAttributes<HTMLMgBadgeElement>;
+            "mg-breadcrumb": LocalJSX.MgBreadcrumb & JSXBase.HTMLAttributes<HTMLMgBreadcrumbElement>;
             "mg-button": LocalJSX.MgButton & JSXBase.HTMLAttributes<HTMLMgButtonElement>;
             "mg-card": LocalJSX.MgCard & JSXBase.HTMLAttributes<HTMLMgCardElement>;
             "mg-character-left": LocalJSX.MgCharacterLeft & JSXBase.HTMLAttributes<HTMLMgCharacterLeftElement>;
