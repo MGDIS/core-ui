@@ -41,6 +41,7 @@ export type HTMLMgInputsElement =
   | HTMLMgInputNumericElement
   | HTMLMgInputPasswordElement
   | HTMLMgInputRadioElement
+  | HTMLMgInputRichTextEditorElement
   | HTMLMgInputSelectElement
   | HTMLMgInputTextElement
   | HTMLMgInputTextareaElement
