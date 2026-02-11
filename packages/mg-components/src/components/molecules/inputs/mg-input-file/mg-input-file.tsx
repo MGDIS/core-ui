@@ -219,12 +219,12 @@ export class MgInputFile {
   }
 
   /**
-   * Emited event when value change
+   * Emitted event when value change
    */
   @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputFileElement['value']>;
 
   /**
-   * Emited event when checking validity
+   * Emitted event when checking validity
    */
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputFileElement['valid']>;
 
@@ -297,7 +297,7 @@ export class MgInputFile {
     // - Keep everything in sync both inside and outside the component
     return new Promise(resolve => {
       requestAnimationFrame(() => {
-        // unlock validity check by reseting customErrorMessage
+        // unlock validity check by resetting customErrorMessage
         this.customErrorMessage = { lock: false };
         this.checkValidity();
         this.errorMessage = undefined;
