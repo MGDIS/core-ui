@@ -13,7 +13,7 @@ export type DefineEditorConfig = {
   disabled?: boolean;
   placeholder?: string;
   modules?: ButtonsOption;
-  editorHeight?: number;
+  rows?: number;
   handleTextChange: () => void;
   handleFocus: () => void;
   handleBlur: () => void;

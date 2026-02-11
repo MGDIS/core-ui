@@ -16,6 +16,49 @@ import 'jodit/esm/plugins/source/source.js';
 // Import editor types
 import type { DefineEditorConfig, IJodit } from './editor.conf';
 
+const DEFAULT_ROWS = 5;
+
+/**
+ * Calculate Jodit editor min-height from rows.
+ * Uses CSS variables --mg-b-font-size and --mg-b-line-height to compute height.
+ * @param rows - Number of rows
+ * @returns Calculated height in pixels (wysiwyg area + toolbar height of 40px + 2px borders)
+ * @throws If required CSS variables (--mg-b-font-size, --mg-b-line-height) are missing
+ */
+export const calculateEditorHeightFromRows = (rows: number): number => {
+  const root = document.documentElement;
+  const computedStyle = getComputedStyle(root);
+
+  const fontSizeValue = computedStyle.getPropertyValue('--mg-b-font-size').trim();
+  const lineHeightValue = computedStyle.getPropertyValue('--mg-b-line-height').trim();
+
+  if (fontSizeValue === '') {
+    throw new Error('mg-input-rich-text-editor: CSS variable --mg-b-font-size is not defined.');
+  }
+  if (lineHeightValue === '') {
+    throw new Error('mg-input-rich-text-editor: CSS variable --mg-b-line-height is not defined.');
+  }
+
+  const fontSizeRem = parseFloat(fontSizeValue.replace('rem', ''));
+  const lineHeight = parseFloat(lineHeightValue);
+
+  const htmlFontSize = parseFloat(getComputedStyle(root).fontSize);
+
+  const fontSizePx = fontSizeRem * htmlFontSize;
+  const lineHeightPx = fontSizePx * lineHeight;
+
+  const paddingVertical = 0.8 * htmlFontSize;
+
+  const contentHeight = lineHeightPx * rows;
+  const wysiwygHeight = contentHeight + paddingVertical * 2;
+
+  const toolbarHeight = 40;
+  const borderHeight = 2;
+  const totalHeight = wysiwygHeight + toolbarHeight + borderHeight;
+
+  return Math.round(totalHeight);
+};
+
 /**
  * Configures Jodit editor
  * @param element - Component element (HTMLMgInputRichTextEditorElement)
@@ -24,7 +67,8 @@ import type { DefineEditorConfig, IJodit } from './editor.conf';
  * @returns Configured Jodit editor instance
  */
 export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorElement: HTMLTextAreaElement, config: DefineEditorConfig): IJodit => {
-  const { value, modules, readOnly, disabled, placeholder, editorHeight, handleTextChange, handleFocus, handleBlur } = config;
+  const { value, modules, readOnly, disabled, placeholder, rows = DEFAULT_ROWS, handleTextChange, handleFocus, handleBlur } = config;
+  const editorHeight = calculateEditorHeightFromRows(rows);
   // Get the shadow root directly from the component element
   const shadowRoot = element.shadowRoot;
 
@@ -121,10 +165,20 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
 
   /**
    * Helpers for Jodit toolbar accessibility.
+   * @returns Toolbar element or null if not found
    */
   const getJoditToolbarElement = (): HTMLElement | null => wrapperElement.querySelector('.jodit-toolbar__box');
+
+  /**
+   * Get the WYSIWYG editor element.
+   * @returns WYSIWYG element or null if not found
+   */
   const getJoditWysiwygElement = (): HTMLElement | null => wrapperElement.querySelector('.jodit-wysiwyg');
 
+  /**
+   * Get focusable toolbar buttons.
+   * @returns Array of focusable toolbar buttons
+   */
   const getFocusableToolbarButtons = (toolbarEl: HTMLElement | null): HTMLButtonElement[] => {
     if (toolbarEl === null) return [];
 
@@ -163,7 +217,7 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
 
     /**
      * Get all focusable buttons in the toolbar
-     * Jodit toolbar buttons are typically in .jodit-toolbar-button > button or direct button elements
+     * @returns Array of focusable toolbar buttons
      */
     const getToolbarButtons = (): HTMLButtonElement[] => getFocusableToolbarButtons(toolbarElement);
 
