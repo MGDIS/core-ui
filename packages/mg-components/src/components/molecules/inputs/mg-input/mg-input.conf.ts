@@ -44,7 +44,15 @@ export type HTMLMgInputsElement =
   | HTMLMgInputSelectElement
   | HTMLMgInputTextElement
   | HTMLMgInputTextareaElement
+  | HTMLMgInputFileElement
   | (HTMLMgInputToggleElement & InputBaseMethods);
+
+/**
+ * Is HTMLMgInputElement an HTMLMgInputFileElement
+ * @param input - input element
+ * @returns true if input is an mg-input-file element
+ */
+export const isMgInputFile = (input: HTMLMgInputsElement): input is HTMLMgInputFileElement => input.nodeName === 'MG-INPUT-FILE';
 
 /**
  * Available WindowEvent types

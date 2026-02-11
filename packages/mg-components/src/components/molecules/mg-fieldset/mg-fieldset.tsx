@@ -1,6 +1,6 @@
 import { Component, Element, h, Method, Prop, State, Watch } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/core-ui-helpers/dist/utils';
-import { classReadonly, HTMLMgInputsElement, labelHeading } from '../inputs/mg-input/mg-input.conf';
+import { classReadonly, HTMLMgInputsElement, isMgInputFile, labelHeading } from '../inputs/mg-input/mg-input.conf';
 
 @Component({
   tag: 'mg-fieldset',
@@ -151,7 +151,7 @@ export class MgFieldset {
     // Set inputs readonly or disabled based on form configuration
     // Othewise listen to events
     this.mgInputs.forEach(input => {
-      if (this.readonly) {
+      if (this.readonly && !isMgInputFile(input)) {
         input.readonly = true;
       } else if (this.disabled) {
         input.disabled = true;

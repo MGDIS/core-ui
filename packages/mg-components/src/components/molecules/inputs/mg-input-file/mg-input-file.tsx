@@ -453,16 +453,12 @@ export class MgInputFile {
   private renderFiles = (): null | HTMLElement | HTMLElement[] => {
     const fileListId = `${this.identifier}-file-list`;
 
-    const renderFileName = (file: File): HTMLSpanElement[] => [
-      <span class="mg-c-input__file-item-name" key={file.name}>
+    const renderFileName = (file: File): HTMLSpanElement => (
+      <span class="mg-c-input__file-item-name">
         {file.name}
-      </span>,
-      file.size > 0 ? (
-        <span class="mg-c-input__file-item-size" key={file.size}>
-          {localeByte(file.size, this.locale)}
-        </span>
-      ) : undefined,
-    ];
+        {file.size > 0 ? <span class="mg-c-input__file-item-size">{` ${localeByte(file.size, this.locale)}`}</span> : undefined}
+      </span>
+    );
 
     const renderDeleteButton = (): HTMLMgButtonElement => (
       <mg-button
@@ -492,8 +488,8 @@ export class MgInputFile {
       return (
         <div class="mg-c-input__file-list-container">
           <ul role="list" class="mg-c-input__file-list" id={fileListId}>
-            {Array.from(this.files).map(file => (
-              <li class="mg-c-input__file-item" key={file.name}>
+            {Array.from(this.files).map((file, index) => (
+              <li class="mg-c-input__file-item" key={`${file.name}-${index}`}>
                 {renderFileName(file)}
               </li>
             ))}

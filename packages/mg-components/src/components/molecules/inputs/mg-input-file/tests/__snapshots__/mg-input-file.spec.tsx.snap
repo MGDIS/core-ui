@@ -35,9 +35,9 @@ exports[`mg-input-file Should display error when maxSize is exceeded 1`] = `
         <div class="mg-c-input__file-item">
           <span class="mg-c-input__file-item-name">
             batman
-          </span>
-          <span class="mg-c-input__file-item-size">
-            10 bytes
+            <span class="mg-c-input__file-item-size">
+              10 bytes
+            </span>
           </span>
           <mg-button aria-controls="identifier identifier-file-list" aria-disabled="false" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
             <template shadowrootmode="open">
@@ -401,9 +401,9 @@ exports[`mg-input-file Should render with args { required: true, disabled: true,
         <div class="mg-c-input__file-item">
           <span class="mg-c-input__file-item-name">
             batman
-          </span>
-          <span class="mg-c-input__file-item-size">
-            12 bytes
+            <span class="mg-c-input__file-item-size">
+              12 bytes
+            </span>
           </span>
           <mg-button aria-controls="identifier identifier-file-list" aria-disabled="true" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
             <template shadowrootmode="open">
@@ -676,9 +676,9 @@ exports[`mg-input-file Should render with args { value: [Array] }: 1`] = `
         <div class="mg-c-input__file-item">
           <span class="mg-c-input__file-item-name">
             batman
-          </span>
-          <span class="mg-c-input__file-item-size">
-            12 bytes
+            <span class="mg-c-input__file-item-size">
+              12 bytes
+            </span>
           </span>
           <mg-button aria-controls="identifier identifier-file-list" aria-disabled="false" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
             <template shadowrootmode="open">
@@ -741,17 +741,17 @@ exports[`mg-input-file Should render with args { value: [Array], multiple: true 
             <li class="mg-c-input__file-item">
               <span class="mg-c-input__file-item-name">
                 batman
-              </span>
-              <span class="mg-c-input__file-item-size">
-                12 bytes
+                <span class="mg-c-input__file-item-size">
+                  12 bytes
+                </span>
               </span>
             </li>
             <li class="mg-c-input__file-item">
               <span class="mg-c-input__file-item-name">
                 joker
-              </span>
-              <span class="mg-c-input__file-item-size">
-                12 bytes
+                <span class="mg-c-input__file-item-size">
+                  12 bytes
+                </span>
               </span>
             </li>
           </ul>
@@ -1148,9 +1148,9 @@ exports[`mg-input-file events Should handle input change event 1`] = `
         <div class="mg-c-input__file-item">
           <span class="mg-c-input__file-item-name">
             batman
-          </span>
-          <span class="mg-c-input__file-item-size">
-            12 bytes
+            <span class="mg-c-input__file-item-size">
+              12 bytes
+            </span>
           </span>
           <mg-button aria-controls="identifier identifier-file-list" aria-disabled="false" aria-label="Delete file" class="mg-c-input__file-delete-button" is-icon="" role="button" tabindex="0" type="button">
             <template shadowrootmode="open">
