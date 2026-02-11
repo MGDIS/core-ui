@@ -7,6 +7,7 @@ import { parseTags, parseTagAttributes, createSanitizer } from './editor/sanitiz
 // ButtonsOption is used as type for @Prop() modules
 // eslint-disable-next-line @typescript-eslint/no-unused-vars -- type-only usage in decorator
 import type { ButtonsOption, IJodit, Sanitizer } from './editor/editor.conf';
+import { DEFAULT_MODULES } from './mg-input-rich-text-editor.conf';
 
 @Component({
   tag: 'mg-input-rich-text-editor',
@@ -504,7 +505,7 @@ export class MgInputRichTextEditor {
   componentDidLoad(): void {
     if (!this.readonly) {
       this.editor = defineEditor(this.element, this.editorElement, {
-        modules: this.modules,
+        modules: this.modules ?? DEFAULT_MODULES,
         readOnly: this.readonly || this.disabled,
         disabled: this.disabled,
         placeholder: this.placeholder,

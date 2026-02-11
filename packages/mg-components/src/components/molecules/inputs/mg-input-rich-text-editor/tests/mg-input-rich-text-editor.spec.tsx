@@ -10,6 +10,7 @@ import { newSpecPage } from '@stencil/core/testing';
 import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { setupMutationObserverMock, setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/dist/tests';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
+import { DEFAULT_MODULES } from '../mg-input-rich-text-editor.conf';
 import { MgInputRichTextEditor } from '../mg-input-rich-text-editor';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
@@ -766,6 +767,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         const editor = defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test in ShadowRoot</p>',
           handleTextChange,
           handleFocus,
@@ -796,6 +798,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         const editor = defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '',
           handleTextChange,
           handleFocus,
@@ -826,6 +829,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -864,6 +868,7 @@ describe('mg-input-rich-text-editor', () => {
         shadowRoot.appendChild(wrapperElement);
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange: jest.fn(),
           handleFocus: jest.fn(),
@@ -905,6 +910,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -994,6 +1000,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -1059,6 +1066,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -1125,6 +1133,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -1180,6 +1189,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         const editor = defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -1216,6 +1226,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -1264,6 +1275,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -1308,6 +1320,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -1356,6 +1369,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -1400,6 +1414,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -1445,6 +1460,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -1486,6 +1502,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -1540,6 +1557,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -1582,6 +1600,7 @@ describe('mg-input-rich-text-editor', () => {
         shadowRoot.appendChild(wrapperElement);
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange: jest.fn(),
           handleFocus: jest.fn(),
@@ -1631,6 +1650,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,
@@ -1672,6 +1692,7 @@ describe('mg-input-rich-text-editor', () => {
         shadowRoot.appendChild(wrapperElement);
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange: jest.fn(),
           handleFocus: jest.fn(),
@@ -1699,6 +1720,7 @@ describe('mg-input-rich-text-editor', () => {
         shadowRoot.appendChild(wrapperElement);
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange: jest.fn(),
           handleFocus: jest.fn(),
@@ -1728,6 +1750,7 @@ describe('mg-input-rich-text-editor', () => {
         shadowRoot.appendChild(titleElement);
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange: jest.fn(),
           handleFocus: jest.fn(),
@@ -1767,6 +1790,7 @@ describe('mg-input-rich-text-editor', () => {
         const handleBlur = jest.fn();
 
         defineEditor(mockElement, editorElement, {
+          modules: DEFAULT_MODULES,
           value: '<p>Test</p>',
           handleTextChange,
           handleFocus,

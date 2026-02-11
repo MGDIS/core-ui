@@ -12,7 +12,7 @@ export type DefineEditorConfig = {
   readOnly?: boolean;
   disabled?: boolean;
   placeholder?: string;
-  modules?: ButtonsOption;
+  modules: ButtonsOption;
   rows?: number;
   handleTextChange: () => void;
   handleFocus: () => void;

@@ -78,7 +78,6 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
   const ownerWindow = window;
 
   // Configure Jodit
-  // Using default toolbar configuration or custom modules if provided
   // Note: Using Record<string, unknown> to avoid TypeScript complexity issues with Jodit's deeply nested Config type
   // The actual configuration follows Jodit's Config interface from jodit/esm/types
   const joditConfig: Record<string, unknown> = {
@@ -91,34 +90,7 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
     // Set tabIndex to 0 to enable keyboard navigation with Tab key when enabled
     // When disabled, use -1 to exclude the editor from Tab navigation
     tabIndex: disabled === true ? -1 : 0,
-    buttons: modules || [
-      'bold',
-      'italic',
-      'underline',
-      'strikethrough',
-      'eraser',
-      '|',
-      'ul',
-      'ol',
-      '|',
-      'superscript',
-      'subscript',
-      '|',
-      'brush',
-      '|',
-      'link',
-      'image',
-      'file',
-      '|',
-      'table',
-      '|',
-      'undo',
-      'redo',
-      '|',
-      'print',
-      '|',
-      'source',
-    ],
+    buttons: modules,
     // Disable features we don't want
     showXPathInStatusbar: false,
     showCharsCounter: false,
