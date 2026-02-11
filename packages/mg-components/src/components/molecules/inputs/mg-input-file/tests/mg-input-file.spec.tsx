@@ -222,7 +222,7 @@ describe('mg-input-file', () => {
     await page.waitForChanges();
 
     // Verify error message is displayed
-    expect(page.rootInstance.errorMessage).toEqual(messages.input.file.errors.maxSize.replace('{{maxSize}}', '5 byte'));
+    expect(page.rootInstance.errorMessage).toEqual(messages.input.file.errors.maxSize.replace('{{maxSize}}', '5 bytes'));
     expect(page.root).toMatchSnapshot();
   });
 

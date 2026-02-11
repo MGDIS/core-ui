@@ -100,7 +100,7 @@ export const localeByte = (number: number, locale: string): string => {
     minimumFractionDigits: 0,
     maximumFractionDigits: 2,
     unit: units[unitIndex],
-    unitDisplay: 'short',
+    unitDisplay: units[unitIndex] === 'byte' ? 'long' : 'short',
     style: 'unit',
   }).format(number / Math.pow(base, unitIndex));
 };

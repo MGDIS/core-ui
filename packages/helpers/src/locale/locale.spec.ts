@@ -175,15 +175,22 @@ describe('locale', () => {
         {
           octets: 0,
           expected: {
-            fr: '0\u202fo',
-            en: '0 byte',
+            fr: '0\u00A0octet',
+            en: '0 bytes',
+          },
+        },
+        {
+          octets: 1,
+          expected: {
+            fr: '1\u00A0octet',
+            en: '1 byte',
           },
         },
         {
           octets: 500,
           expected: {
-            fr: '500\u202fo',
-            en: '500 byte',
+            fr: '500\u00A0octets',
+            en: '500 bytes',
           },
         },
         {
