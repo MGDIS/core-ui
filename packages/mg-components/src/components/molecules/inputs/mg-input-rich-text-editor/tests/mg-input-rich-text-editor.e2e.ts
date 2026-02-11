@@ -1,6 +1,6 @@
 import { expect, type Page } from '@playwright/test';
 import { test } from '../../../../../utils/playwright.fixture';
-import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
+import { renderAttributes, renderProperties } from '@mgdis/core-ui-helpers/dist/playwright';
 
 const createHTML = props => {
   return `<mg-input-rich-text-editor ${renderAttributes(props)}></mg-input-rich-text-editor>`;
@@ -172,8 +172,11 @@ test.describe('mg-input-rich-text-editor', () => {
   });
 
   test('Should render with custom toolbar options', async ({ page }) => {
-    const html = createHTML({ ...baseArgs, modules: 'bold, italic, eraser' });
-    await page.setContent(html);
+    const componentsProps = { ...baseArgs, modules: ['bold', 'italic', 'eraser'] };
+    await page.setContent(createHTML(baseArgs));
+    await page.addScriptTag({
+      content: renderProperties(componentsProps, 'mg-input-rich-text-editor'),
+    });
 
     await page.locator('mg-input-rich-text-editor.hydrated').waitFor();
 

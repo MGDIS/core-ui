@@ -4,6 +4,8 @@ import { classReadonly, type TooltipPosition, classDisabled } from '../mg-input/
 import { initLocales } from '../../../../locales';
 import { defineEditor } from './editor';
 import { parseTags, parseTagAttributes, createSanitizer } from './editor/sanitizer';
+// ButtonsOption is used as type for @Prop() modules
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- type-only usage in decorator
 import type { ButtonsOption, IJodit, Sanitizer } from './editor/editor.conf';
 
 @Component({
@@ -179,7 +181,7 @@ export class MgInputRichTextEditor {
 
   /**
    * Editor modules configuration.
-   * Must be passed as an HTML attribute with a comma-separated list (e.g., modules="bold, italic, |, ul, ol").
+   * Must be passed as an array (e.g. modules=['bold', 'italic', '|', 'ul', 'ol']).
    * Use `|` for a separator/divider in the toolbar.
    * Available modules:
    * - **Text formatting**: `bold`, `italic`, `underline`, `strikethrough`, `eraser`
@@ -191,11 +193,11 @@ export class MgInputRichTextEditor {
    * - **History**: `undo`, `redo`
    * - **Other**: `print`, `source` (HTML source editor)
    */
-  @Prop() modules?: string;
+  @Prop() modules?: ButtonsOption;
   @Watch('modules')
   watchModules(newValue: MgInputRichTextEditor['modules']): void {
-    if (newValue !== undefined && !isValidString(newValue)) {
-      throw new Error(`<mg-input-rich-text-editor> prop "modules" must be a string. Passed value: "${toString(newValue)}".`);
+    if (newValue !== undefined && (!Array.isArray(newValue) || newValue.length === 0 || newValue.some(item => typeof item !== 'string'))) {
+      throw new Error(`<mg-input-rich-text-editor> prop "modules" must be a non-empty array of strings. Passed value: "${toString(newValue)}".`);
     }
   }
 
@@ -457,18 +459,6 @@ export class MgInputRichTextEditor {
   };
 
   /**
-   * Parse comma-separated modules string into toolbar options array
-   * @returns Parsed modules array or undefined if modules prop is not set
-   */
-  private getParsedModules(): ButtonsOption | undefined {
-    if (this.modules === undefined) return undefined;
-    return this.modules
-      .split(',')
-      .map(item => item.trim())
-      .filter(item => item.length > 0);
-  }
-
-  /**
    * Initialize sanitizer by parsing props and creating a new instance
    */
   private initializeSanitizer = (): void => {
@@ -514,7 +504,7 @@ export class MgInputRichTextEditor {
   componentDidLoad(): void {
     if (!this.readonly) {
       this.editor = defineEditor(this.element, this.editorElement, {
-        modules: this.getParsedModules(),
+        modules: this.modules,
         readOnly: this.readonly || this.disabled,
         disabled: this.disabled,
         placeholder: this.placeholder,

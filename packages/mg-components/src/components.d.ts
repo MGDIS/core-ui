@@ -19,6 +19,7 @@ import { Direction, Option, Option as ToggleOption } from "./types";
 import { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
+import { ButtonsOption } from "./components/molecules/inputs/mg-input-rich-text-editor/editor/editor.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
@@ -49,6 +50,7 @@ export { Direction, Option, Option as ToggleOption } from "./types";
 export { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
+export { ButtonsOption } from "./components/molecules/inputs/mg-input-rich-text-editor/editor/editor.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
@@ -1246,9 +1248,9 @@ export namespace Components {
          */
         "labelOnTop": boolean;
         /**
-          * Editor modules configuration. Must be passed as an HTML attribute with a comma-separated list (e.g., modules="bold, italic, |, ul, ol"). Use `|` for a separator/divider in the toolbar. Available modules: - **Text formatting**: `bold`, `italic`, `underline`, `strikethrough`, `eraser` - **Lists**: `ul` (unordered list), `ol` (ordered list) - **Text positioning**: `superscript`, `subscript` - **Colors**: `brush` (text color/background) - **Media**: `link`, `image`, `file` - **Tables**: `table` - **History**: `undo`, `redo` - **Other**: `print`, `source` (HTML source editor)
+          * Editor modules configuration. Must be passed as an array (e.g. modules=['bold', 'italic', '|', 'ul', 'ol']). Use `|` for a separator/divider in the toolbar. Available modules: - **Text formatting**: `bold`, `italic`, `underline`, `strikethrough`, `eraser` - **Lists**: `ul` (unordered list), `ol` (ordered list) - **Text positioning**: `superscript`, `subscript` - **Colors**: `brush` (text color/background) - **Media**: `link`, `image`, `file` - **Tables**: `table` - **History**: `undo`, `redo` - **Other**: `print`, `source` (HTML source editor)
          */
-        "modules"?: string;
+        "modules"?: ButtonsOption;
         /**
           * Input name If not set the value equals the identifier
           * @default this.identifier
@@ -3940,9 +3942,9 @@ declare namespace LocalJSX {
          */
         "labelOnTop"?: boolean;
         /**
-          * Editor modules configuration. Must be passed as an HTML attribute with a comma-separated list (e.g., modules="bold, italic, |, ul, ol"). Use `|` for a separator/divider in the toolbar. Available modules: - **Text formatting**: `bold`, `italic`, `underline`, `strikethrough`, `eraser` - **Lists**: `ul` (unordered list), `ol` (ordered list) - **Text positioning**: `superscript`, `subscript` - **Colors**: `brush` (text color/background) - **Media**: `link`, `image`, `file` - **Tables**: `table` - **History**: `undo`, `redo` - **Other**: `print`, `source` (HTML source editor)
+          * Editor modules configuration. Must be passed as an array (e.g. modules=['bold', 'italic', '|', 'ul', 'ol']). Use `|` for a separator/divider in the toolbar. Available modules: - **Text formatting**: `bold`, `italic`, `underline`, `strikethrough`, `eraser` - **Lists**: `ul` (unordered list), `ol` (ordered list) - **Text positioning**: `superscript`, `subscript` - **Colors**: `brush` (text color/background) - **Media**: `link`, `image`, `file` - **Tables**: `table` - **History**: `undo`, `redo` - **Other**: `print`, `source` (HTML source editor)
          */
-        "modules"?: string;
+        "modules"?: ButtonsOption;
         /**
           * Input name If not set the value equals the identifier
           * @default this.identifier

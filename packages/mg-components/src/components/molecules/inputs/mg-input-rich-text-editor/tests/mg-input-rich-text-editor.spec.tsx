@@ -164,13 +164,16 @@ describe('mg-input-rich-text-editor', () => {
       }
     });
 
-    test.each(['', ' ', null])('Should throw error when modules prop is invalid: %s', async modules => {
-      expect.assertions(1);
-      try {
-        await getPage({ identifier: 'identifier', label: 'label', modules: modules as string });
-      } catch (err) {
-        expect(err.message).toEqual(`<mg-input-rich-text-editor> prop "modules" must be a string. Passed value: "${toString(modules)}".`);
-      }
+    test('Should throw error when modules prop is invalid (empty array)', async () => {
+      await expect(getPage({ identifier: 'identifier', label: 'label', modules: [] as never })).rejects.toThrow(
+        '<mg-input-rich-text-editor> prop "modules" must be a non-empty array of strings.',
+      );
+    });
+
+    test('Should throw error when modules prop is invalid (array with non-string)', async () => {
+      await expect(getPage({ identifier: 'identifier', label: 'label', modules: ['bold', 123] as never })).rejects.toThrow(
+        '<mg-input-rich-text-editor> prop "modules" must be a non-empty array of strings.',
+      );
     });
   });
 
@@ -673,7 +676,7 @@ describe('mg-input-rich-text-editor', () => {
         const page = await getPage({
           label: 'label',
           identifier: 'identifier',
-          modules: 'bold, italic',
+          modules: customModules,
         });
 
         const { editor } = await waitForEditor(page);
