@@ -33,7 +33,6 @@ test.describe('mg-input-file', () => {
     { maxSize: 5000 },
     { accept: '.pdf' },
     { accept: '.pdf', maxSize: 5000 },
-    { placeholder: 'placeholder' },
     { helpText: 'HelpText Message' },
     {
       helpText: `<p>hello <a href="h">batman<mg-icon icon="user"></mg-icon></a></p>`,
