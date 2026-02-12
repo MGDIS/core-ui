@@ -160,12 +160,6 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
     });
   };
 
-  const setRovingTabindex = (buttons: HTMLButtonElement[], activeButton: HTMLButtonElement): void => {
-    buttons.forEach(button => {
-      button.setAttribute('tabindex', button === activeButton ? '0' : '-1');
-    });
-  };
-
   addCustomClass('.jodit-container', 'mg-c-input__container');
   addCustomClass('.jodit-toolbar__box', 'mg-c-input__toolbar-box');
   addCustomClass('.jodit-workplace', 'mg-c-input__workplace');
@@ -179,46 +173,6 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
     // This helps screen readers understand the toolbar's purpose and enables proper keyboard navigation
     toolbarElement.setAttribute('role', 'toolbar');
     toolbarElement.setAttribute('aria-label', 'Text formatting toolbar');
-
-    /**
-     * Initialize roving tabindex pattern
-     * Sets all buttons to tabindex="-1" to remove them from normal tab order
-     * The toolbar should be accessible via Shift+Tab from the editor, not via normal Tab navigation
-     */
-    const initializeRovingTabindex = (): void => {
-      const buttons = getFocusableToolbarButtons(toolbarElement);
-      if (buttons.length === 0) return;
-
-      // Set all buttons to tabindex="-1" to exclude them from normal tab order
-      // This ensures the editor receives focus first, not the toolbar
-      // Shift+Tab from editor will be intercepted to activate toolbar navigation
-      buttons.forEach(button => {
-        button.setAttribute('tabindex', '-1');
-      });
-    };
-
-    /**
-     * Activate roving tabindex when entering the toolbar
-     * Sets tabindex="0" on the first button (or last focused) and "-1" on others
-     */
-    const activateRovingTabindex = (targetButton?: HTMLButtonElement): void => {
-      const buttons = getFocusableToolbarButtons(toolbarElement);
-      if (buttons.length === 0) return;
-
-      // If a target button is provided, use it; otherwise use the first button
-      const buttonToFocus = targetButton && buttons.includes(targetButton) ? targetButton : buttons[0];
-
-      setRovingTabindex(buttons, buttonToFocus);
-    };
-
-    /**
-     * Move focus to a specific button and update roving tabindex
-     */
-    const focusButton = (targetButton: HTMLButtonElement): void => {
-      const buttons = getFocusableToolbarButtons(toolbarElement);
-      setRovingTabindex(buttons, targetButton);
-      targetButton.focus();
-    };
 
     /**
      * Handle keyboard navigation within the toolbar
@@ -245,7 +199,7 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
           event.stopPropagation();
           // Move to previous button, wrap to last if at first
           targetIndex = currentIndex > 0 ? currentIndex - 1 : buttons.length - 1;
-          focusButton(buttons[targetIndex]);
+          buttons[targetIndex].focus();
           break;
 
         case 'ArrowRight':
@@ -253,26 +207,25 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
           event.stopPropagation();
           // Move to next button, wrap to first if at last
           targetIndex = currentIndex < buttons.length - 1 ? currentIndex + 1 : 0;
-          focusButton(buttons[targetIndex]);
+          buttons[targetIndex].focus();
           break;
 
         case 'Home':
           event.preventDefault();
           event.stopPropagation();
           // Move to first button
-          focusButton(buttons[0]);
+          buttons[0].focus();
           break;
 
         case 'End':
           event.preventDefault();
           event.stopPropagation();
           // Move to last button
-          focusButton(buttons[buttons.length - 1]);
+          buttons[buttons.length - 1].focus();
           break;
 
         case 'Tab':
           // Allow Tab to work normally (exit toolbar)
-          // Roving tabindex reset is handled by handleToolbarFocusOut when focus leaves toolbar
           break;
 
         default:
@@ -282,55 +235,25 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
     };
 
     /**
-     * Handle focus events to activate roving tabindex when entering the toolbar
-     * This happens when user uses Shift+Tab from the editor to enter the toolbar
+     * Hide SVG icons from screen readers in toolbar buttons.
+     * Toolbar buttons already have aria-label, so SVG icons are purely decorative.
+     * Without aria-hidden, VoiceOver announces them as images.
      */
-    const handleToolbarFocus = (event: FocusEvent & { target: HTMLElement }): void => {
-      const target = event.target;
-      if (!toolbarElement.contains(target) || target.tagName !== 'BUTTON') {
-        return;
-      }
-
-      const buttons = getFocusableToolbarButtons(toolbarElement);
-      if (buttons.length === 0) {
-        activateRovingTabindex();
-        return;
-      }
-
-      // When a button receives focus (e.g., via Shift+Tab from editor), activate roving tabindex
-      if (buttons.includes(target as HTMLButtonElement)) {
-        activateRovingTabindex(target as HTMLButtonElement);
-      } else {
-        activateRovingTabindex();
-      }
+    const hideToolbarSvgsFromScreenReaders = (): void => {
+      toolbarElement.querySelectorAll('svg').forEach(svg => {
+        svg.setAttribute('aria-hidden', 'true');
+      });
     };
 
-    /**
-     * Handle focusout events to reset roving tabindex when leaving the toolbar
-     * This ensures toolbar buttons are not in tab order when re-entering the component
-     */
-    const handleToolbarFocusOut = (event: FocusEvent): void => {
-      const relatedTarget = event.relatedTarget as HTMLElement | null;
-      const wysiwygElement = getJoditWysiwygElement();
-
-      // If focus is moving to the editor (WYSIWYG area), reset roving tabindex
-      // This prevents toolbar from being focused when re-entering component via Tab
-      if (wysiwygElement !== null && relatedTarget !== null && wysiwygElement.contains(relatedTarget)) {
-        initializeRovingTabindex();
-      }
-    };
-
-    // Initialize roving tabindex on first render (all buttons with tabindex="-1")
-    initializeRovingTabindex();
+    // Hide SVG icons from screen readers on first render
+    hideToolbarSvgsFromScreenReaders();
 
     // Set up event listeners for keyboard navigation
     toolbarElement.addEventListener('keydown', handleToolbarKeyDown, true);
-    toolbarElement.addEventListener('focusin', handleToolbarFocus, true);
-    toolbarElement.addEventListener('focusout', handleToolbarFocusOut, true);
 
-    // Re-initialize roving tabindex when toolbar content changes (buttons can be added/removed dynamically)
+    // Hide SVGs when toolbar content changes (buttons can be added/removed dynamically)
     const toolbarObserver = new MutationObserver(() => {
-      initializeRovingTabindex();
+      hideToolbarSvgsFromScreenReaders();
     });
 
     toolbarObserver.observe(toolbarElement, {
@@ -420,10 +343,7 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
           event.preventDefault();
           event.stopPropagation();
 
-          // Set tabindex="0" on first button to make it focusable
-          // handleToolbarFocus will handle the full roving tabindex activation when focus arrives
-          buttons[0].setAttribute('tabindex', '0');
-          // Focus first button - handleToolbarFocus will complete the roving tabindex setup
+          // Focus first toolbar button directly
           buttons[0].focus();
         }
       };
