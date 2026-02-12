@@ -199,7 +199,7 @@ export class MgInputRichTextEditor {
   @Prop() modules?: ButtonsOption;
   @Watch('modules')
   watchModules(newValue: MgInputRichTextEditor['modules']): void {
-    if (newValue !== undefined && (!Array.isArray(newValue) || newValue.length === 0 || newValue.some(item => typeof item !== 'string'))) {
+    if (newValue !== undefined && (!Array.isArray(newValue) || newValue.length === 0 || !newValue.every(isValidString))) {
       throw new Error(`<mg-input-rich-text-editor> prop "modules" must be a non-empty array of strings. Passed value: "${toString(newValue)}".`);
     }
   }
