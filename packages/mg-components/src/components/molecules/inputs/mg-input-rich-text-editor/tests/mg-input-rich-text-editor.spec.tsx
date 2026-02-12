@@ -758,6 +758,33 @@ describe('mg-input-rich-text-editor', () => {
       expect(wysiwygElement.id).toBe('editor-id');
       expect(element.shadowRoot.querySelector('mg-input-title')).not.toBeNull();
     });
+
+    test('Should re-apply click handler on mg-input-title after it is recreated by a re-render', async () => {
+      const page = await getPage({ label: 'label', identifier: 'identifier' });
+      const { element, editor } = await waitForEditor(page);
+
+      // Spy on editor.focus
+      const focusSpy = jest.fn();
+      editor.focus = focusSpy;
+
+      // Toggle disabled to trigger a re-render that causes mg-input.renderLabel()
+      // to destroy and recreate mg-input-title, losing the original click handler
+      element.disabled = true;
+      await page.waitForChanges();
+
+      // componentDidRender should have detected the recreated mg-input-title
+      // and re-applied the click handler
+      const titleElement = element.shadowRoot.querySelector('mg-input-title');
+      expect(titleElement).not.toBeNull();
+
+      // Click the recreated title to verify the click handler was re-applied
+      titleElement.click();
+      expect(focusSpy).toHaveBeenCalled();
+
+      // Test safety guard: click handler should not throw when editor is undefined
+      page.rootInstance.editor = undefined;
+      expect(() => titleElement.click()).not.toThrow();
+    });
   });
 
   describe('Sanitization', () => {

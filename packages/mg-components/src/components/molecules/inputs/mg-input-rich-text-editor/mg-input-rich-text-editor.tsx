@@ -26,6 +26,8 @@ export class MgInputRichTextEditor {
   // Editor
   private editor: IJodit;
   private editorElement: HTMLTextAreaElement;
+  // Track the mg-input-title element reference to detect when mg-input.renderLabel() recreates it
+  private currentTitleElement: HTMLElement;
 
   // Sanitizer
   private sanitizer: Sanitizer;
@@ -503,6 +505,28 @@ export class MgInputRichTextEditor {
         handleBlur: this.handleBlur,
         handleFocus: this.handleFocus,
       });
+      // Track the initial title element set up by defineEditor
+      this.currentTitleElement = this.element.shadowRoot.querySelector<HTMLElement>('mg-input-title');
+    }
+  }
+
+  /**
+   * Re-apply accessibility attributes after re-renders.
+   * When state changes (disabled, readonly, etc.) trigger a re-render,
+   * mg-input's renderLabel() may destroy and recreate mg-input-title,
+   * which loses the id and click handler needed for aria-labelledby.
+   */
+  componentDidRender(): void {
+    if (this.editor !== undefined && !this.readonly) {
+      const titleElement = this.element.shadowRoot.querySelector<HTMLElement>('mg-input-title');
+      if (titleElement !== null && titleElement !== this.currentTitleElement) {
+        const titleId = `${this.identifier}-title`;
+        titleElement.id = titleId;
+        titleElement.addEventListener('click', () => {
+          this.editor?.focus();
+        });
+        this.currentTitleElement = titleElement;
+      }
     }
   }
 
