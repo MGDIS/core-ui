@@ -2,11 +2,11 @@ import { Component, Element, h, Prop, Watch, State, Event, EventEmitter, Method 
 import { ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
+import { Sanitizer, type SanitizerOptions } from '@mgdis/sanitize-html';
 import { defineEditor } from './editor';
-import { parseTags, parseTagAttributes, createSanitizer } from './editor/sanitizer';
 // ButtonsOption is used as type for @Prop() modules
 // eslint-disable-next-line @typescript-eslint/no-unused-vars -- type-only usage in decorator
-import type { ButtonsOption, IJodit, Sanitizer } from './editor/editor.conf';
+import type { ButtonsOption, IJodit } from './editor/editor.conf';
 import { DEFAULT_MODULES } from './mg-input-rich-text-editor.conf';
 
 @Component({
@@ -203,25 +203,16 @@ export class MgInputRichTextEditor {
   }
 
   /**
-   * Tags to disallow in sanitized HTML.
-   * Comma-separated list of tag names to remove (e.g., sanitizer-disallow-tags="img,script").
+   * Sanitizer configuration in native format.
+   * Use disallowTags (array of tag names) and/or disallowAttributes (object mapping tag names to string arrays).
+   * Use "*" as tag key to disallow attributes on all tags.
    */
-  @Prop() sanitizerDisallowTags?: string;
-
-  /**
-   * Attributes to disallow in sanitized HTML.
-   * Format: "tag:attr1,attr2;tag2:attr3". Use "*" as tag to apply to all tags (e.g., sanitizer-disallow-attributes="*:style;a:target").
-   * Semicolon (;) between tag:attrs pairs, comma (,) between attributes of the same tag.
-   */
-  @Prop() sanitizerDisallowAttributes?: string;
-  @Watch('sanitizerDisallowTags')
-  @Watch('sanitizerDisallowAttributes')
-  watchSanitizerConfig(newValue: string | undefined, _oldValue: string | undefined, propName: string): void {
-    // Validate the prop that changed
-    if (newValue !== undefined && !isValidString(newValue)) {
-      throw new Error(`<mg-input-rich-text-editor> prop "${propName}" must be a string. Passed value: "${toString(newValue)}".`);
+  @Prop() sanitizerOptions?: SanitizerOptions;
+  @Watch('sanitizerOptions')
+  watchSanitizerOptions(newValue: MgInputRichTextEditor['sanitizerOptions']): void {
+    if (newValue !== undefined && (typeof newValue !== 'object' || newValue === null || Array.isArray(newValue))) {
+      throw new Error(`<mg-input-rich-text-editor> prop "sanitizerOptions" must be an object. Passed value: "${toString(newValue)}".`);
     }
-    // Reinitialize sanitizer if component is already loaded
     if (this.sanitizer !== undefined) {
       this.initializeSanitizer();
     }
@@ -460,12 +451,10 @@ export class MgInputRichTextEditor {
   };
 
   /**
-   * Initialize sanitizer by parsing props and creating a new instance
+   * Initialize sanitizer with current sanitizerOptions
    */
   private initializeSanitizer = (): void => {
-    const disallowTags = this.sanitizerDisallowTags !== undefined ? parseTags(this.sanitizerDisallowTags) : undefined;
-    const disallowAttributes = this.sanitizerDisallowAttributes !== undefined ? parseTagAttributes(this.sanitizerDisallowAttributes) : undefined;
-    this.sanitizer = createSanitizer(disallowTags, disallowAttributes);
+    this.sanitizer = new Sanitizer(this.sanitizerOptions);
   };
 
   /*************
@@ -486,8 +475,7 @@ export class MgInputRichTextEditor {
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
     this.watchModules(this.modules);
-    this.watchSanitizerConfig(this.sanitizerDisallowTags, undefined, 'sanitizerDisallowTags');
-    this.watchSanitizerConfig(this.sanitizerDisallowAttributes, undefined, 'sanitizerDisallowAttributes');
+    this.watchSanitizerOptions(this.sanitizerOptions);
     // Initialize sanitizer with optional configuration
     this.initializeSanitizer();
 

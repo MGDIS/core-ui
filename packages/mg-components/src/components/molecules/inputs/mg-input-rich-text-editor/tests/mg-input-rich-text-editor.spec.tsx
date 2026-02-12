@@ -1842,11 +1842,11 @@ describe('mg-input-rich-text-editor', () => {
       expect(result).toContain('<p>Test</p>');
     });
 
-    test('getEditorHTML should remove disallowed tags when sanitizerDisallowTags is set', async () => {
+    test('getEditorHTML should remove disallowed tags when sanitizerOptions.disallowTags is set', async () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
-        sanitizerDisallowTags: 'img,script',
+        sanitizerOptions: { disallowTags: ['img', 'script'] },
         value: '<p>Test</p><img src="test.jpg"><script>alert("xss")</script>',
       });
       const { element } = await waitForEditor(page);
@@ -1859,11 +1859,11 @@ describe('mg-input-rich-text-editor', () => {
       expect(result).toContain('<p>Test</p>');
     });
 
-    test('getEditorHTML should remove disallowed attributes when sanitizerDisallowAttributes is set', async () => {
+    test('getEditorHTML should remove disallowed attributes when sanitizerOptions.disallowAttributes is set', async () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
-        sanitizerDisallowAttributes: '*:style;a:target',
+        sanitizerOptions: { disallowAttributes: { '*': ['style'], 'a': ['target'] } },
         value: '<p style="color: red">Test</p><a href="#" target="_blank">Link</a>',
       });
       const { element } = await waitForEditor(page);
@@ -1883,8 +1883,7 @@ describe('mg-input-rich-text-editor', () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
-        sanitizerDisallowTags: 'img',
-        sanitizerDisallowAttributes: '*:style',
+        sanitizerOptions: { disallowTags: ['img'], disallowAttributes: { '*': ['style'] } },
         value: '<p style="color: red">Test</p><img src="test.jpg" style="width: 100px">',
       });
       const { element } = await waitForEditor(page);
@@ -1898,33 +1897,22 @@ describe('mg-input-rich-text-editor', () => {
       expect(result).toContain('<p>Test</p>');
     });
 
-    test('getEditorHTML should throw error when sanitizerDisallowTags is empty string', async () => {
+    test('getEditorHTML should throw error when sanitizerOptions is not an object', async () => {
       await expect(
         getPage({
           label: 'label',
           identifier: 'identifier',
-          sanitizerDisallowTags: '',
-          value: '<p>Test</p><img src="test.jpg">',
+          sanitizerOptions: 'invalid' as never,
+          value: '<p>Test</p>',
         }),
-      ).rejects.toThrow('prop "sanitizerDisallowTags" must be a string');
-    });
-
-    test('getEditorHTML should throw error when sanitizerDisallowAttributes is empty string', async () => {
-      await expect(
-        getPage({
-          label: 'label',
-          identifier: 'identifier',
-          sanitizerDisallowAttributes: '',
-          value: '<p style="color: red">Test</p>',
-        }),
-      ).rejects.toThrow('prop "sanitizerDisallowAttributes" must be a string');
+      ).rejects.toThrow('prop "sanitizerOptions" must be an object');
     });
 
     test('value-change event should emit sanitized HTML', async () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
-        sanitizerDisallowTags: 'script',
+        sanitizerOptions: { disallowTags: ['script'] },
       });
       const { element, editor } = await waitForEditor(page);
 
@@ -1945,11 +1933,11 @@ describe('mg-input-rich-text-editor', () => {
       expect(emittedValue).toContain('<p>Test</p>');
     });
 
-    test('Initial value should be sanitized when sanitizerDisallowTags is set', async () => {
+    test('Initial value should be sanitized when sanitizerOptions.disallowTags is set', async () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
-        sanitizerDisallowTags: 'img',
+        sanitizerOptions: { disallowTags: ['img'] },
         value: '<p>Test</p><img src="test.jpg">',
       });
       const { element } = await waitForEditor(page);
@@ -1960,59 +1948,7 @@ describe('mg-input-rich-text-editor', () => {
       expect(result).toContain('<p>Test</p>');
     });
 
-    test('getEditorHTML should handle sanitizerDisallowAttributes with spaces and edge cases', async () => {
-      const page = await getPage({
-        label: 'label',
-        identifier: 'identifier',
-        sanitizerDisallowAttributes: ' * : style ; a : target , href ',
-        value: '<p style="color: red">Test</p><a href="#" target="_blank">Link</a>',
-      });
-      const { element } = await waitForEditor(page);
-
-      const result = await element.getEditorHTML();
-
-      // Should handle spaces correctly
-      expect(result).not.toContain('style=');
-      expect(result).not.toContain('target=');
-      expect(result).not.toContain('href=');
-      expect(result).toContain('<p>Test</p>');
-    });
-
-    test('getEditorHTML should handle sanitizerDisallowAttributes with empty parts between semicolons', async () => {
-      const page = await getPage({
-        label: 'label',
-        identifier: 'identifier',
-        sanitizerDisallowAttributes: '*:style;;a:target; ;img:alt',
-        value: '<p style="color: red">Test</p><a href="#" target="_blank">Link</a><img src="test.jpg" alt="test">',
-      });
-      const { element } = await waitForEditor(page);
-
-      const result = await element.getEditorHTML();
-
-      // Empty parts between semicolons should be ignored
-      expect(result).not.toContain('style=');
-      expect(result).not.toContain('target=');
-      expect(result).not.toContain('alt=');
-      expect(result).toContain('<p>Test</p>');
-    });
-
-    test('getEditorHTML should ignore invalid sanitizerDisallowAttributes format', async () => {
-      const page = await getPage({
-        label: 'label',
-        identifier: 'identifier',
-        sanitizerDisallowAttributes: 'invalid-format;:;another-invalid',
-        value: '<p style="color: red">Test</p>',
-      });
-      const { element } = await waitForEditor(page);
-
-      const result = await element.getEditorHTML();
-
-      // Invalid format should be ignored, so style should remain
-      expect(result).toContain('style=');
-      expect(result).toContain('<p');
-    });
-
-    test('getEditorHTML should reinitialize sanitizer when sanitizerDisallowTags changes after initialization', async () => {
+    test('getEditorHTML should reinitialize sanitizer when sanitizerOptions changes after initialization', async () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
@@ -2024,37 +1960,14 @@ describe('mg-input-rich-text-editor', () => {
       let result = await element.getEditorHTML();
       expect(result).toContain('<img');
 
-      // Change sanitizerDisallowTags prop after initialization
-      element.sanitizerDisallowTags = 'img';
+      // Change sanitizerOptions prop after initialization
+      element.sanitizerOptions = { disallowTags: ['img'] };
       await page.waitForChanges();
       jest.runOnlyPendingTimers();
 
       // Now img should be removed
       result = await element.getEditorHTML();
       expect(result).not.toContain('<img');
-      expect(result).toContain('<p>Test</p>');
-    });
-
-    test('getEditorHTML should reinitialize sanitizer when sanitizerDisallowAttributes changes after initialization', async () => {
-      const page = await getPage({
-        label: 'label',
-        identifier: 'identifier',
-        value: '<p style="color: red">Test</p>',
-      });
-      const { element } = await waitForEditor(page);
-
-      // Initially, style should be present
-      let result = await element.getEditorHTML();
-      expect(result).toContain('style=');
-
-      // Change sanitizerDisallowAttributes prop after initialization
-      element.sanitizerDisallowAttributes = '*:style';
-      await page.waitForChanges();
-      jest.runOnlyPendingTimers();
-
-      // Now style should be removed
-      result = await element.getEditorHTML();
-      expect(result).not.toContain('style=');
       expect(result).toContain('<p>Test</p>');
     });
   });
