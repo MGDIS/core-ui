@@ -1,6 +1,32 @@
 /* istanbul ignore file */
 
 /**
+ * Mock getComputedStyle globally to return CSS variables required by calculateEditorHeightFromRows.
+ * JSDOM does not support CSS custom properties via getComputedStyle, so we override it.
+ *
+ * Must be called at module level (before any test runs) to ensure the mock is applied.
+ * @example
+ * ```
+ * setupGetComputedStyleMock();
+ * ```
+ */
+export const setupGetComputedStyleMock = (): void => {
+  const originalGetComputedStyle = globalThis.getComputedStyle;
+  globalThis.getComputedStyle = (...args: Parameters<typeof getComputedStyle>): CSSStyleDeclaration => {
+    const result = originalGetComputedStyle(...args);
+    return {
+      ...result,
+      fontSize: '16px',
+      getPropertyValue: (name: string) => {
+        if (name === '--mg-b-font-size') return '1rem';
+        if (name === '--mg-b-line-height') return '1.5';
+        return result.getPropertyValue(name);
+      },
+    } as unknown as CSSStyleDeclaration;
+  };
+};
+
+/**
  * List of Jodit plugins that need to be mocked
  * @returns Array of plugin paths to mock
  */

@@ -1,9 +1,10 @@
-// Mock Jodit module and plugins - MUST be before any imports
-import { setupJoditMock, getJoditPluginPaths } from '../../inputs/mg-input-rich-text-editor/editor/jodit.mock';
+// Mock Jodit module, plugins, and getComputedStyle - MUST be before any imports
+import { setupJoditMock, getJoditPluginPaths, setupGetComputedStyleMock } from '../../inputs/mg-input-rich-text-editor/editor/tests/jodit.mock';
 jest.mock('jodit', () => setupJoditMock());
 getJoditPluginPaths().forEach(pluginPath => {
   jest.mock(pluginPath, () => ({}));
 });
+setupGetComputedStyleMock();
 
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
