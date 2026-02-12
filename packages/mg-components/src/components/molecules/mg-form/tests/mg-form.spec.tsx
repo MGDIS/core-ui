@@ -152,10 +152,8 @@ describe('mg-form', () => {
       observe: function () {
         callbacks.push(this.cb);
         // fireMo will trigger all callbacks
-        fireMo = mutations => {
-          // Convert partial mutations to full MutationRecord[] for callbacks
-          const fullMutations = mutations as MutationRecord[];
-          callbacks.forEach(cb => cb(fullMutations, mockObserver));
+        fireMo = (mutations: MutationRecord[]) => {
+          callbacks.forEach(cb => cb(mutations, mockObserver));
         };
       },
       disconnect: function () {
