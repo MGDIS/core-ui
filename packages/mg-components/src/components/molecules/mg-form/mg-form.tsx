@@ -268,7 +268,7 @@ export class MgForm {
       // manage special display case for mg-input-file
       if (input.nodeName === 'MG-INPUT-FILE') {
         if (this.readonly) {
-          input.setAttribute('hidden', 'true');
+          input.setAttribute('hidden', '');
         } else {
           input.removeAttribute('hidden');
         }
