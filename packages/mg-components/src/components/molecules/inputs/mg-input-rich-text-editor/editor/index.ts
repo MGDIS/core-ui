@@ -69,13 +69,6 @@ export const calculateEditorHeightFromRows = (rows: number): number => {
 export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorElement: HTMLTextAreaElement, config: DefineEditorConfig): IJodit => {
   const { value, modules, readOnly, disabled, placeholder, rows = DEFAULT_ROWS, handleTextChange, handleFocus, handleBlur } = config;
   const editorHeight = calculateEditorHeightFromRows(rows);
-  // Get the shadow root directly from the component element
-  const shadowRoot = element.shadowRoot;
-
-  // Get the owner document from the shadow root
-  const ownerDocument = shadowRoot.ownerDocument;
-  // Shadow DOM shares the same window as the main document
-  const ownerWindow = window;
 
   // Configure Jodit
   // Note: Using Record<string, unknown> to avoid TypeScript complexity issues with Jodit's deeply nested Config type
@@ -99,10 +92,10 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
     // Configure source editor mode
     sourceEditor: 'area',
     // This ensures tooltips and popups are created inside the component's shadow root
-    shadowRoot: shadowRoot,
+    shadowRoot: element.shadowRoot,
     // Provide ownerDocument and ownerWindow to ensure Jodit uses the correct context
-    ownerDocument: ownerDocument,
-    ownerWindow: ownerWindow,
+    ownerDocument: element.shadowRoot.ownerDocument,
+    ownerWindow: window,
     // Prevent fullscreen from breaking component's shadow root isolation
     globalFullSize: false,
     // Set min-height based on editorHeight (calculated from rows property, includes wysiwyg + toolbar + borders)
@@ -151,8 +144,8 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
    * Get focusable toolbar buttons.
    * @returns Array of focusable toolbar buttons
    */
-  const getFocusableToolbarButtons = (toolbarEl: HTMLElement | null): HTMLButtonElement[] => {
-    if (toolbarEl === null) return [];
+  const getFocusableToolbarButtons = (toolbarEl: HTMLElement | null): HTMLButtonElement[] | null => {
+    if (toolbarEl === null) return null;
 
     // Find all buttons within the toolbar, excluding disabled ones
     const buttons = Array.from(toolbarEl.querySelectorAll<HTMLButtonElement>('button:not([disabled])'));
@@ -188,18 +181,12 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
     toolbarElement.setAttribute('aria-label', 'Text formatting toolbar');
 
     /**
-     * Get all focusable buttons in the toolbar
-     * @returns Array of focusable toolbar buttons
-     */
-    const getToolbarButtons = (): HTMLButtonElement[] => getFocusableToolbarButtons(toolbarElement);
-
-    /**
      * Initialize roving tabindex pattern
      * Sets all buttons to tabindex="-1" to remove them from normal tab order
      * The toolbar should be accessible via Shift+Tab from the editor, not via normal Tab navigation
      */
     const initializeRovingTabindex = (): void => {
-      const buttons = getToolbarButtons();
+      const buttons = getFocusableToolbarButtons(toolbarElement);
       if (buttons.length === 0) return;
 
       // Set all buttons to tabindex="-1" to exclude them from normal tab order
@@ -215,7 +202,7 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
      * Sets tabindex="0" on the first button (or last focused) and "-1" on others
      */
     const activateRovingTabindex = (targetButton?: HTMLButtonElement): void => {
-      const buttons = getToolbarButtons();
+      const buttons = getFocusableToolbarButtons(toolbarElement);
       if (buttons.length === 0) return;
 
       // If a target button is provided, use it; otherwise use the first button
@@ -228,7 +215,7 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
      * Move focus to a specific button and update roving tabindex
      */
     const focusButton = (targetButton: HTMLButtonElement): void => {
-      const buttons = getToolbarButtons();
+      const buttons = getFocusableToolbarButtons(toolbarElement);
       setRovingTabindex(buttons, targetButton);
       targetButton.focus();
     };
@@ -237,15 +224,15 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
      * Handle keyboard navigation within the toolbar
      * Implements ARIA toolbar pattern: ArrowLeft/Right for navigation, Home/End for first/last
      */
-    const handleToolbarKeyDown = (event: KeyboardEvent): void => {
+    const handleToolbarKeyDown = (event: KeyboardEvent & { target: HTMLElement }): void => {
       // Only handle keys when focus is within the toolbar
-      const target = event.target as HTMLElement;
+      const target = event.target;
       if (!toolbarElement.contains(target) || target.tagName !== 'BUTTON') {
         return;
       }
 
-      const buttons = getToolbarButtons();
-      if (buttons.length === 0) return;
+      const buttons = getFocusableToolbarButtons(toolbarElement);
+      if (buttons === null || buttons.length === 0) return;
 
       const currentIndex = buttons.indexOf(target as HTMLButtonElement);
       if (currentIndex === -1) return;
@@ -298,13 +285,13 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
      * Handle focus events to activate roving tabindex when entering the toolbar
      * This happens when user uses Shift+Tab from the editor to enter the toolbar
      */
-    const handleToolbarFocus = (event: FocusEvent): void => {
-      const target = event.target as HTMLElement;
+    const handleToolbarFocus = (event: FocusEvent & { target: HTMLElement }): void => {
+      const target = event.target;
       if (!toolbarElement.contains(target) || target.tagName !== 'BUTTON') {
         return;
       }
 
-      const buttons = getToolbarButtons();
+      const buttons = getFocusableToolbarButtons(toolbarElement);
       if (buttons.length === 0) {
         activateRovingTabindex();
         return;
@@ -428,7 +415,7 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
 
         const buttons = getFocusableToolbarButtons(getJoditToolbarElement());
 
-        if (buttons.length > 0) {
+        if (buttons !== null && buttons.length > 0) {
           // Prevent default Tab behavior to intercept navigation
           event.preventDefault();
           event.stopPropagation();

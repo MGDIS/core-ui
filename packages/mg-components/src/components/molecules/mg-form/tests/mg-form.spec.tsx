@@ -141,7 +141,7 @@ const requiredFields = [undefined, 'one', 'all', 'multiple', 'single'];
 describe('mg-form', () => {
   let fireMo: (mutations: Array<{ type: string } & Partial<Omit<MutationRecord, 'type'>>>) => void;
   let callbacks: Array<(mutations: MutationRecord[], observer: MutationObserver) => void>;
-  const mockObserver = { disconnect: () => null, observe: () => null, takeRecords: () => [] } as MutationObserver;
+  const mockObserver: MutationObserver = { disconnect: () => null, observe: () => null, takeRecords: () => [] };
 
   beforeEach(() => {
     jest.useFakeTimers({ legacyFakeTimers: true });
