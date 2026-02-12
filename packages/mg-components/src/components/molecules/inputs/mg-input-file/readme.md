@@ -28,10 +28,10 @@
 
 ## Events
 
-| Event          | Description                         | Type                   |
-| -------------- | ----------------------------------- | ---------------------- |
-| `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>` |
-| `value-change` | Emited event when value change      | `CustomEvent<any>`     |
+| Event          | Description                          | Type                   |
+| -------------- | ------------------------------------ | ---------------------- |
+| `input-valid`  | Emitted event when checking validity | `CustomEvent<boolean>` |
+| `value-change` | Emitted event when value change      | `CustomEvent<any>`     |
 
 
 ## Methods

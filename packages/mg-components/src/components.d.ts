@@ -3575,11 +3575,11 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emited event when checking validity
+          * Emitted event when checking validity
          */
         "onInput-valid"?: (event: MgInputFileCustomEvent<HTMLMgInputFileElement['valid']>) => void;
         /**
-          * Emited event when value change
+          * Emitted event when value change
          */
         "onValue-change"?: (event: MgInputFileCustomEvent<HTMLMgInputFileElement['value']>) => void;
         /**
