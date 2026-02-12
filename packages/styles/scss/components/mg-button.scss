@@ -194,7 +194,8 @@
   }
 }
 
-:host(:focus-visible) {
+:host(:focus-visible),
+:host([data-focus-visible]) {
   outline: 0;
 
   // same style as chrome

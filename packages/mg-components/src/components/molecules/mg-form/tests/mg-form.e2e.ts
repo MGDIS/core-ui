@@ -29,6 +29,7 @@ const inputs = `<mg-input-checkbox identifier="mg-input-checkbox" label="mg-inpu
 <mg-input-rich-text-editor identifier="mg-input-rich-text-editor" label='mg-input-rich-text-editor label'></mg-input-rich-text-editor>
 <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>
 <mg-input-textarea identifier="mg-input-textarea" label="mg-input-textarea label"></mg-input-textarea>
+<mg-input-file identifier="mg-input-file" label="mg-input-file label"></mg-input-file>
 <mg-input-toggle identifier="mg-input-toggle" label="mg-input-toggle label">
   <span slot="item-1">non</span>
   <span slot="item-2">oui</span>
@@ -43,6 +44,7 @@ const inputsScript = `const mgInputCheckbox = document.querySelector('mg-input-c
   const mgInputRadio = document.querySelector('mg-input-radio');
   const mgInputSelect = document.querySelector('mg-input-select');
   const mgInputText = document.querySelector('mg-input-text');
+  const mgInputFile = document.querySelector('mg-input-file');
   const mgInputRichTextEditor = document.querySelector('mg-input-rich-text-editor');
   const mgInputTextarea = document.querySelector('mg-input-textarea');
   const mgInputToggle = document.querySelector('mg-input-toggle');
@@ -64,6 +66,7 @@ const inputsScriptSetValues = `
   ];
   mgInputCombobox.value = mgInputCombobox.items[0];
   mgInputDate.value = '2022-04-15';
+  mgInputFile.value = ['batman.jpg'];
   mgInputNumeric.value = 1234567890;
   mgInputPassword.value = 'p455w0rD';
   mgInputRadio.value = mgInputRadio.items[0];
@@ -77,6 +80,7 @@ const inputsScriptSetValues = `
 const inputsScriptSetValuesExceptCheckbox = `
   mgInputCombobox.value = mgInputCombobox.items[0];
   mgInputDate.value = '2022-04-15';
+  mgInputFile.value = ['batman.jpg'];
   mgInputNumeric.value = 1234567890;
   mgInputPassword.value = 'p455w0rD';
   mgInputRadio.value = mgInputRadio.items[0];
@@ -100,6 +104,7 @@ const inputsScriptSetLongValues = `
   ];
   mgInputCombobox.value = mgInputCombobox.items[0]
   mgInputDate.value = '2022-04-15';
+  mgInputFile.value = ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.jpg'];
   mgInputNumeric.value = 1234567890123;
   mgInputPassword.value = 'p455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rD';
   mgInputRadio.value = mgInputRadio.items[0];
@@ -114,6 +119,7 @@ const inputsScriptRequiredAll = `
   mgInputCheckbox.required = true;
   mgInputCombobox.required = true;
   mgInputDate.required = true;
+  mgInputFile.required = true;
   mgInputNumeric.required = true;
   mgInputPassword.required = true;
   mgInputRadio.required = true;
@@ -132,6 +138,7 @@ const inputsScriptTooltipAll = `
   mgInputCheckbox.tooltip = 'tooltip';
   mgInputCombobox.tooltip = 'tooltip';
   mgInputDate.tooltip = 'tooltip';
+  mgInputFile.tooltip = 'tooltip';
   mgInputNumeric.tooltip = 'tooltip';
   mgInputPassword.tooltip = 'tooltip';
   mgInputRadio.tooltip = 'tooltip';
@@ -161,6 +168,7 @@ const inputsScriptDisabledAll = `
   mgInputCheckbox.disabled = true;
   mgInputCombobox.disabled = true;
   mgInputDate.disabled = true;
+  mgInputFile.value = true;
   mgInputNumeric.disabled = true;
   mgInputPassword.disabled = true;
   mgInputRadio.disabled = true;

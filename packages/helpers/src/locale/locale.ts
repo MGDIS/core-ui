@@ -79,6 +79,33 @@ export const localeNumber = (number: number, locale: string, decimalLength: numb
   new Intl.NumberFormat(locale, { minimumFractionDigits: decimalLength }).format(Number(number));
 
 /**
+ * Convert bytes number to locale string representation
+ * @param number - size in bytes
+ * @param locale - locale to apply
+ * @returns bytes in locale string format
+ */
+export const localeByte = (number: number, locale: string): string => {
+  if (typeof number !== 'number' || Number.isNaN(number) || number < 0) {
+    throw new Error('localeByte - size must be a positive number.');
+  }
+
+  const base = 1024;
+  const units: string[] = ['byte', 'kilobyte', 'megabyte', 'gigabyte', 'terabyte'];
+
+  // find appropriate unit base on size and base power
+  const unitIndex = units.findIndex((_, key) => number < Math.pow(base, key + 1));
+
+  // convert number to string with unit
+  return Intl.NumberFormat(locale, {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+    unit: units[unitIndex],
+    unitDisplay: units[unitIndex] === 'byte' ? 'long' : 'short',
+    style: 'unit',
+  }).format(number / Math.pow(base, unitIndex));
+};
+
+/**
  * Format number as percentage based on locale
  * @param number - number to format
  * @param locale - locale to apply

@@ -136,6 +136,7 @@ When we enter in an input field with an error its state is checked everytime the
  - [mg-input-checkbox](../mg-input-checkbox)
  - [mg-input-combobox](../mg-input-combobox)
  - [mg-input-date](../mg-input-date)
+ - [mg-input-file](../mg-input-file)
  - [mg-input-numeric](../mg-input-numeric)
  - [mg-input-password](../mg-input-password)
  - [mg-input-radio](../mg-input-radio)
@@ -162,6 +163,7 @@ graph TD;
   mg-input-checkbox --> mg-input
   mg-input-combobox --> mg-input
   mg-input-date --> mg-input
+  mg-input-file --> mg-input
   mg-input-numeric --> mg-input
   mg-input-password --> mg-input
   mg-input-radio --> mg-input

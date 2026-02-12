@@ -1,7 +1,7 @@
 import { Component, Element, Event, EventEmitter, h, Method, Prop, State, Watch } from '@stencil/core';
 import { createID, ClassList, toString, isValideID } from '@mgdis/core-ui-helpers/dist/utils';
 import { initLocales } from '../../../locales';
-import { HTMLMgInputsElement } from '../inputs/mg-input/mg-input.conf';
+import { HTMLMgInputsElement, isMgInputFile } from '../inputs/mg-input/mg-input.conf';
 import { AriaRoleType, requiredMessageStatus, RequiredMessageStatusType, roles } from './mg-form.conf';
 
 /**
@@ -264,7 +264,17 @@ export class MgForm {
       if (this.labelOnTop) {
         input.labelOnTop = true;
       }
-      if (this.readonly) {
+
+      // manage special display case for mg-input-file
+      if (input.nodeName === 'MG-INPUT-FILE') {
+        if (this.readonly) {
+          input.setAttribute('hidden', '');
+        } else {
+          input.removeAttribute('hidden');
+        }
+      }
+
+      if (this.readonly && !isMgInputFile(input)) {
         input.readonly = true;
       } else if (this.disabled) {
         input.disabled = true;

@@ -20,6 +20,7 @@ import { MgInput } from '../../inputs/mg-input/mg-input';
 import { MgInputRichTextEditor } from '../../inputs/mg-input-rich-text-editor/mg-input-rich-text-editor';
 import { MgInputCombobox } from '../../inputs/mg-input-combobox/mg-input-combobox';
 import { MgFieldset } from '../../mg-fieldset/mg-fieldset';
+import { MgInputFile } from '../../inputs/mg-input-file/mg-input-file';
 
 const getPage = async (args, content?) => {
   const page = await newSpecPage({
@@ -28,6 +29,7 @@ const getPage = async (args, content?) => {
       MgInputCheckbox,
       MgInputCombobox,
       MgInputDate,
+      MgInputFile,
       MgInputNumeric,
       MgInputPassword,
       MgInputRadio,
@@ -89,6 +91,7 @@ const getSlottedContent = () => [
   <mg-input-rich-text-editor identifier="mg-input-rich-text-editor" label="mg-input-rich-text-editor label"></mg-input-rich-text-editor>,
   <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
   <mg-input-textarea identifier="mg-input-textarea" label="mg-input-textarea label"></mg-input-textarea>,
+  <mg-input-file identifier="mg-input-file" label="mg-input-file label"></mg-input-file>,
   <mg-input-toggle
     identifier="mg-input-toggle"
     label="mg-input-toggle label"
