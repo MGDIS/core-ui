@@ -149,8 +149,18 @@ export class MgFieldset {
     // Get slotted mgInputs
     this.mgInputs = Array.from(this.element.querySelectorAll('*')).filter((node: Node) => node.nodeName.startsWith('MG-INPUT')) as (HTMLMgInputsElement & { disabled: boolean })[];
     // Set inputs readonly or disabled based on form configuration
+
     // Othewise listen to events
     this.mgInputs.forEach(input => {
+      // manage special display case for mg-input-file
+      if (input.nodeName === 'MG-INPUT-FILE') {
+        if (this.readonly) {
+          input.setAttribute('hidden', 'true');
+        } else {
+          input.removeAttribute('hidden');
+        }
+      }
+
       if (this.readonly && !isMgInputFile(input)) {
         input.readonly = true;
       } else if (this.disabled) {

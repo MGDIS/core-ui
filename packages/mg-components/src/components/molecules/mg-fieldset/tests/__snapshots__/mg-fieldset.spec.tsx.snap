@@ -1012,6 +1012,106 @@ exports[`mg-fieldset render Should render with args {}: 1`] = `
 </mg-fieldset>
 `;
 
+exports[`mg-fieldset render Should update input file visibility when readonly attribute % change 1`] = `
+<mg-fieldset>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--readonly">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <span class="mg-c-input__input-group">
+        <slot></slot>
+      </span>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" id="identifier-title">
+          legend
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </template>
+  <mg-input-radio>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="true" required="false" slot="label">
+          <!---->
+          <span class="mg-c-input-title" id="mg-input-radio-title">
+            mg-input-radio label
+          </span>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-radio>
+  <mg-input-text>
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--display-character-left mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="true" required="false" slot="label">
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-text">
+            mg-input-text label
+          </span>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-text>
+  <mg-input-file hidden="true">
+    <template shadowrootmode="open">
+      <mg-input class="mg-c-input mg-c-input--file">
+        <template shadowrootmode="open">
+          <div class="mg-c-input__title">
+            <slot name="label"></slot>
+          </div>
+          <div class="mg-c-input__input-container">
+            <div class="mg-c-input__input">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        <div class="mg-c-input__file-container">
+          <input aria-invalid="false" class="mg-u-visually-hidden" id="mg-input-file" name="mg-input-file" type="file">
+          <mg-button class="mg-c-input__file-button" tabindex="-1" type="button" variant="secondary">
+            Browse…
+          </mg-button>
+        </div>
+        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-file">
+            mg-input-file label
+          </label>
+        </mg-input-title>
+      </mg-input>
+    </template>
+  </mg-input-file>
+</mg-fieldset>
+`;
+
 exports[`mg-fieldset validity Should display components errors (readonly: false) 1`] = `
 <mg-fieldset>
   <template shadowrootmode="open">
