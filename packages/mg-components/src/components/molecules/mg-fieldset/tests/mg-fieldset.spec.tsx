@@ -7,6 +7,7 @@ import { MgInputRadio } from '../../inputs/mg-input-radio/mg-input-radio';
 import { MgInputTitle } from '../../../atoms/internals/mg-input-title/mg-input-title';
 import { setupMutationObserverMock } from '@mgdis/core-ui-helpers/dist/tests';
 import { HTMLMgInputsElement } from '../../inputs/mg-input/mg-input.conf';
+import { MgInputFile } from '../../inputs/mg-input-file/mg-input-file';
 
 const baseArgs = {
   legend: 'legend',
@@ -40,7 +41,7 @@ const setCheckValitidy = (input: HTMLMgInputsElement): void => {
 
 const getPage = async (args, slot) => {
   const page = await newSpecPage({
-    components: [MgFieldset, MgInputTitle, MgInput, MgInputText, MgInputRadio],
+    components: [MgFieldset, MgInputTitle, MgInput, MgInputText, MgInputRadio, MgInputFile],
     template: () => <mg-fieldset {...args}>{slot}</mg-fieldset>,
   });
 
@@ -114,6 +115,22 @@ describe('mg-fieldset', () => {
       await page.waitForChanges();
 
       expect(page.rootInstance.setMgInputs).toHaveBeenCalled();
+    });
+
+    test('Should update input file visibility when readonly attribute % change', async () => {
+      const slot = getSlottedContent();
+      const page = await getPage(baseArgs, [...slot, <mg-input-file identifier="mg-input-file" label="mg-input-file label"></mg-input-file>]);
+      const mgFieldset = page.doc.querySelector('mg-fieldset');
+
+      jest.spyOn(page.rootInstance, 'setMgInputs');
+
+      expect(page.rootInstance.setMgInputs).not.toHaveBeenCalled();
+
+      mgFieldset.readonly = true;
+      await page.waitForChanges();
+
+      expect(page.rootInstance.setMgInputs).toHaveBeenCalled();
+      expect(page.root).toMatchSnapshot();
     });
   });
 
