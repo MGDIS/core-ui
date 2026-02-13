@@ -1800,8 +1800,8 @@ export namespace Components {
          */
         "label": string;
         /**
-          * Size of the menu items.
-          * @deprecated this prop is deprecated and will be removed in future releases. Please use CSS custom properties to set the size of menu items.
+          * Size of the menu items
+          * @deprecated this prop is deprecated and will be removed in future releases
          */
         "size": never;
     }
@@ -4436,8 +4436,8 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * Size of the menu items.
-          * @deprecated this prop is deprecated and will be removed in future releases. Please use CSS custom properties to set the size of menu items.
+          * Size of the menu items
+          * @deprecated this prop is deprecated and will be removed in future releases
          */
         "size"?: never;
     }

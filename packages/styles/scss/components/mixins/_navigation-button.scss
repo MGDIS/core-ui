@@ -46,6 +46,7 @@
     }
 
     &.#{$prefix}__navigation-button--horizontal {
+      margin-top: var(--#{$prefix}-button-spacing, var(--mg-b-size-12));
       margin-bottom: var(--#{$prefix}-button-spacing, var(--mg-b-size-12));
     }
 
