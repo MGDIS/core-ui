@@ -1,0 +1,1 @@
+const t=[2,4,16,"full"],a=["input","label"],l=["h1","h2","h3","h4","h5","h6"],c=s=>s.nodeName==="MG-INPUT-FILE",i="mg-c-input--fieldset",e="mg-c-input--disabled",n="mg-c-input--readonly",o="mg-c-input--vertical-list",d="mg-c-input--display-character-left";export{e as a,i as b,n as c,o as d,d as e,c as i,l,a as t,t as w};
