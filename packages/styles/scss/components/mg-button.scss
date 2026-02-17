@@ -58,7 +58,8 @@
   }
 
   // Only apply if not disabled
-  :host(:hover) .mg-c-button.mg-c-button--#{$name}:not(.mg-c-button--disabled) {
+  :host(:hover) .mg-c-button.mg-c-button--#{$name}:not(.mg-c-button--disabled),
+  .mg-c-button.mg-c-button--#{$name}:hover:not(.mg-c-button--disabled, :disabled, [aria-disabled='true']) {
     background: var(--mg-c-button-color-background-#{$name});
   }
 }
@@ -104,7 +105,9 @@
   }
 
   // Disabled style
-  &.mg-c-button--disabled {
+  &.mg-c-button--disabled,
+  &[aria-disabled='true'],
+  &:disabled {
     cursor: default;
     opacity: var(--mg-b-opacity-element-disabled);
   }
@@ -176,6 +179,7 @@
   // full-width style
   &.mg-c-button--full-width {
     display: flex;
+    width: 100%;
     justify-content: center;
   }
 
