@@ -1,5 +1,11 @@
 # @mgdis/core-ui-helpers
 
+## 1.1.0
+
+### Minor Changes
+
+- 5464ea7: add `localeByte()` helper
+
 ## 1.0.7
 
 ### Patch Changes

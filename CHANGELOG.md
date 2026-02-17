@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2026-02-17-17-46_Clean-Cornflower-Coyote)
+
+### Packages released
+
+- [helpers changelog](packages/helpers/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2026-01-06-14-25_Enthusiastic-Electric-Lime-Eagle)
 
 ### Packages released
