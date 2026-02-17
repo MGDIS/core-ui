@@ -47,6 +47,10 @@ const setPageContent = async (page, args: PropsType, slot: SlotType) => {
   const props = getProps(args);
   await page.setContent(createHTML(props, slot.html));
   await page.addScriptTag({ content: slot.script });
+
+  // Wait for component to be rendered
+  await page.locator('mg-input-checkbox.hydrated').waitFor();
+  await page.locator('mg-input-text.hydrated').waitFor();
   await page.locator('mg-fieldset.hydrated').waitFor();
 };
 

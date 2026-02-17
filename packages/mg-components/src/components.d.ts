@@ -781,6 +781,102 @@ export namespace Components {
          */
         "value": string;
     }
+    interface MgInputFile {
+        /**
+          * Define file accept format The accept property is an attribute of the file `<input>` type that defines the file types the file input should accept (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept).
+         */
+        "accept"?: string;
+        /**
+          * Define input capture attribute The capture attribute is a Boolean attribute that specifies if the device's camera or microphone should be used to capture media directly, instead of choosing an existing file. (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#capture).
+         */
+        "capture"?: 'user' | 'environment' | '';
+        /**
+          * Define if input is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Display input error if it exists.
+         */
+        "displayError": () => Promise<void>;
+        /**
+          * Add a help text under the input, usually expected data format and example
+         */
+        "helpText"?: string;
+        /**
+          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
+         */
+        "identifier": string;
+        /**
+          * Define input invalid state
+         */
+        "invalid": boolean;
+        /**
+          * Input label
+         */
+        "label": string;
+        /**
+          * Define if label is visible
+          * @default false
+         */
+        "labelHide": boolean;
+        /**
+          * Define if label is displayed on top
+          * @default false
+         */
+        "labelOnTop": boolean;
+        /**
+          * Define max file size (in octets)
+         */
+        "maxSize"?: number;
+        /**
+          * Define multiple files When the multiple Boolean attribute is specified, the file input allows the user to select more than one file. (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple).
+          * @default false
+         */
+        "multiple": boolean;
+        /**
+          * Input name If not set the value equals the identifier
+          * @default this.identifier
+         */
+        "name": string;
+        /**
+          * Define if input is required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * Reset value, validity and error state
+         */
+        "reset": () => Promise<void>;
+        /**
+          * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+          * @param valid - value indicating the validity
+          * @param errorMessage - the error message to display
+          * @param errorMessageLock - lock the error message and validity state
+         */
+        "setError": (valid: MgInputFile["valid"], errorMessage?: string, errorMessageLock?: boolean) => Promise<void>;
+        /**
+          * Set focus on input add file button
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * Add a tooltip message next to the input
+         */
+        "tooltip"?: string;
+        /**
+          * Define tooltip position
+          * @default 'input'
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
+          * Define input valid state
+         */
+        "valid": boolean;
+        /**
+          * Component value
+         */
+        "value": any;
+    }
     interface MgInputNumeric {
         /**
           * Define currency
@@ -2049,6 +2145,10 @@ export interface MgInputDateCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgInputDateElement;
 }
+export interface MgInputFileCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMgInputFileElement;
+}
 export interface MgInputNumericCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgInputNumericElement;
@@ -2305,6 +2405,24 @@ declare global {
     var HTMLMgInputDateElement: {
         prototype: HTMLMgInputDateElement;
         new (): HTMLMgInputDateElement;
+    };
+    interface HTMLMgInputFileElementEventMap {
+        "value-change": HTMLMgInputFileElement['value'];
+        "input-valid": HTMLMgInputFileElement['valid'];
+    }
+    interface HTMLMgInputFileElement extends Components.MgInputFile, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgInputFileElementEventMap>(type: K, listener: (this: HTMLMgInputFileElement, ev: MgInputFileCustomEvent<HTMLMgInputFileElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgInputFileElementEventMap>(type: K, listener: (this: HTMLMgInputFileElement, ev: MgInputFileCustomEvent<HTMLMgInputFileElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLMgInputFileElement: {
+        prototype: HTMLMgInputFileElement;
+        new (): HTMLMgInputFileElement;
     };
     interface HTMLMgInputNumericElementEventMap {
         "value-change": number;
@@ -2669,6 +2787,7 @@ declare global {
         "mg-input-checkbox-paginated": HTMLMgInputCheckboxPaginatedElement;
         "mg-input-combobox": HTMLMgInputComboboxElement;
         "mg-input-date": HTMLMgInputDateElement;
+        "mg-input-file": HTMLMgInputFileElement;
         "mg-input-numeric": HTMLMgInputNumericElement;
         "mg-input-password": HTMLMgInputPasswordElement;
         "mg-input-radio": HTMLMgInputRadioElement;
@@ -3400,6 +3519,91 @@ declare namespace LocalJSX {
           * Component value
          */
         "value"?: string;
+    }
+    interface MgInputFile {
+        /**
+          * Define file accept format The accept property is an attribute of the file `<input>` type that defines the file types the file input should accept (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept).
+         */
+        "accept"?: string;
+        /**
+          * Define input capture attribute The capture attribute is a Boolean attribute that specifies if the device's camera or microphone should be used to capture media directly, instead of choosing an existing file. (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#capture).
+         */
+        "capture"?: 'user' | 'environment' | '';
+        /**
+          * Define if input is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Add a help text under the input, usually expected data format and example
+         */
+        "helpText"?: string;
+        /**
+          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
+         */
+        "identifier": string;
+        /**
+          * Define input invalid state
+         */
+        "invalid"?: boolean;
+        /**
+          * Input label
+         */
+        "label": string;
+        /**
+          * Define if label is visible
+          * @default false
+         */
+        "labelHide"?: boolean;
+        /**
+          * Define if label is displayed on top
+          * @default false
+         */
+        "labelOnTop"?: boolean;
+        /**
+          * Define max file size (in octets)
+         */
+        "maxSize"?: number;
+        /**
+          * Define multiple files When the multiple Boolean attribute is specified, the file input allows the user to select more than one file. (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple).
+          * @default false
+         */
+        "multiple"?: boolean;
+        /**
+          * Input name If not set the value equals the identifier
+          * @default this.identifier
+         */
+        "name"?: string;
+        /**
+          * Emitted event when checking validity
+         */
+        "onInput-valid"?: (event: MgInputFileCustomEvent<HTMLMgInputFileElement['valid']>) => void;
+        /**
+          * Emitted event when value change
+         */
+        "onValue-change"?: (event: MgInputFileCustomEvent<HTMLMgInputFileElement['value']>) => void;
+        /**
+          * Define if input is required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * Add a tooltip message next to the input
+         */
+        "tooltip"?: string;
+        /**
+          * Define tooltip position
+          * @default 'input'
+         */
+        "tooltipPosition"?: TooltipPosition;
+        /**
+          * Define input valid state
+         */
+        "valid"?: boolean;
+        /**
+          * Component value
+         */
+        "value"?: any;
     }
     interface MgInputNumeric {
         /**
@@ -4617,6 +4821,7 @@ declare namespace LocalJSX {
         "mg-input-checkbox-paginated": MgInputCheckboxPaginated;
         "mg-input-combobox": MgInputCombobox;
         "mg-input-date": MgInputDate;
+        "mg-input-file": MgInputFile;
         "mg-input-numeric": MgInputNumeric;
         "mg-input-password": MgInputPassword;
         "mg-input-radio": MgInputRadio;
@@ -4669,6 +4874,7 @@ declare module "@stencil/core" {
             "mg-input-checkbox-paginated": LocalJSX.MgInputCheckboxPaginated & JSXBase.HTMLAttributes<HTMLMgInputCheckboxPaginatedElement>;
             "mg-input-combobox": LocalJSX.MgInputCombobox & JSXBase.HTMLAttributes<HTMLMgInputComboboxElement>;
             "mg-input-date": LocalJSX.MgInputDate & JSXBase.HTMLAttributes<HTMLMgInputDateElement>;
+            "mg-input-file": LocalJSX.MgInputFile & JSXBase.HTMLAttributes<HTMLMgInputFileElement>;
             "mg-input-numeric": LocalJSX.MgInputNumeric & JSXBase.HTMLAttributes<HTMLMgInputNumericElement>;
             "mg-input-password": LocalJSX.MgInputPassword & JSXBase.HTMLAttributes<HTMLMgInputPasswordElement>;
             "mg-input-radio": LocalJSX.MgInputRadio & JSXBase.HTMLAttributes<HTMLMgInputRadioElement>;

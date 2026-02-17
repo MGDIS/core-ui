@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { defineLocales, localeCurrency, localeDate, localeDatePattern, localeNumber, localePercent, localeUnit } from '.';
+import { defineLocales, localeByte, localeCurrency, localeDate, localeDatePattern, localeNumber, localePercent, localeUnit } from '.';
 
 describe('locale', () => {
   test('import', () => {
@@ -9,6 +9,7 @@ describe('locale', () => {
     expect(localePercent).toBeDefined();
     expect(localeUnit).toBeDefined();
     expect(localeDate).toBeDefined();
+    expect(localeByte).toBeDefined();
     expect(defineLocales).toBeDefined();
   });
 });

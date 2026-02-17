@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { localeCurrency, localeNumber, localeDate, localePercent, localeUnit, defineLocales, localeDatePattern } from './locale';
+import { localeCurrency, localeNumber, localeDate, localePercent, localeUnit, defineLocales, localeDatePattern, localeByte } from './locale';
 
 const messagesFr = { lang: 'fr' };
 const messagesEn = { lang: 'en' };
@@ -167,6 +167,99 @@ describe('locale', () => {
       test('Should use default unitDisplay when only decimalLength is provided', () => {
         expect(localeUnit(1234.567, 'en', 'kilometer', undefined, 2).replace(/\s/g, ' ')).toBe('1,234.57 km');
         expect(localeUnit(1234.567, 'fr', 'kilometer', undefined, 2).replace(/\s/g, ' ')).toBe('1 234,57 km');
+      });
+    });
+
+    describe('localeByte', () => {
+      test.each([
+        {
+          octets: 0,
+          expected: {
+            fr: '0\u00A0octet',
+            en: '0 bytes',
+          },
+        },
+        {
+          octets: 1,
+          expected: {
+            fr: '1\u00A0octet',
+            en: '1 byte',
+          },
+        },
+        {
+          octets: 500,
+          expected: {
+            fr: '500\u00A0octets',
+            en: '500 bytes',
+          },
+        },
+        {
+          octets: 1024,
+          expected: {
+            fr: '1\u202fko',
+            en: '1 kB',
+          },
+        },
+        {
+          octets: 1536,
+          expected: {
+            fr: '1,5\u202fko',
+            en: '1.5 kB',
+          },
+        },
+        {
+          octets: 1048576,
+          expected: {
+            fr: '1\u202fMo',
+            en: '1 MB',
+          },
+        },
+        {
+          octets: 1572864,
+          expected: {
+            fr: '1,5\u202fMo',
+            en: '1.5 MB',
+          },
+        },
+        {
+          octets: 1073741824,
+          expected: {
+            fr: '1\u202fGo',
+            en: '1 GB',
+          },
+        },
+        {
+          octets: 1610612736,
+          expected: {
+            fr: '1,5\u202fGo',
+            en: '1.5 GB',
+          },
+        },
+        {
+          octets: 1099511627776,
+          expected: {
+            fr: '1\u202fTo',
+            en: '1 TB',
+          },
+        },
+        {
+          octets: 1649267441664,
+          expected: {
+            fr: '1,5\u202fTo',
+            en: '1.5 TB',
+          },
+        },
+      ])('Should format $octets octets to string', ({ octets, expected }) => {
+        const res = localeByte(octets, locale);
+        expect(res).toEqual(expected[locale as 'en' | 'fr']);
+      });
+
+      test('Should throw error with negative octets', () => {
+        expect(() => localeByte(-10, locale)).toThrowError('localeByte - size must be a positive number.');
+      });
+
+      test.each([undefined, null, NaN, []])('Should throw error with %s octets', value => {
+        expect(() => localeByte(value as number, locale)).toThrowError('localeByte - size must be a positive number.');
       });
     });
   });
