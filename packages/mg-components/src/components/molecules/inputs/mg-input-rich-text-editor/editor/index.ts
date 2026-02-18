@@ -295,7 +295,7 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
 
         // Make label click focus the editor like a native input.
         const titleId = `${identifier}-title`;
-        const titleElement = element.shadowRoot.querySelector<HTMLElement>('mg-input-title');
+        const titleElement = element.shadowRoot.querySelector<HTMLMgInputTitleElement>('mg-input-title');
 
         if (titleElement !== null && titleElement !== undefined) {
           if (titleElement.id !== titleId) {

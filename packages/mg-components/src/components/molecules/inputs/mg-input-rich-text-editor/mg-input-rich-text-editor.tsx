@@ -25,7 +25,7 @@ export class MgInputRichTextEditor {
   private editor: IJodit;
   private editorElement: HTMLTextAreaElement;
   // Track the mg-input-title element reference to detect when mg-input.renderLabel() recreates it
-  private currentTitleElement: HTMLElement;
+  private currentTitleElement: HTMLMgInputTitleElement | undefined;
 
   // Sanitizer
   private sanitizer: Sanitizer;
@@ -504,7 +504,7 @@ export class MgInputRichTextEditor {
         handleFocus: this.handleFocus,
       });
       // Track the initial title element set up by defineEditor
-      this.currentTitleElement = this.element.shadowRoot.querySelector<HTMLElement>('mg-input-title');
+      this.currentTitleElement = this.element.shadowRoot.querySelector<HTMLMgInputTitleElement>('mg-input-title') ?? undefined;
     }
   }
 
@@ -516,7 +516,7 @@ export class MgInputRichTextEditor {
    */
   componentDidRender(): void {
     if (this.editor !== undefined && !this.readonly) {
-      const titleElement = this.element.shadowRoot.querySelector<HTMLElement>('mg-input-title');
+      const titleElement = this.element.shadowRoot.querySelector<HTMLMgInputTitleElement>('mg-input-title');
       if (titleElement !== null && titleElement !== this.currentTitleElement) {
         const titleId = `${this.identifier}-title`;
         titleElement.id = titleId;
