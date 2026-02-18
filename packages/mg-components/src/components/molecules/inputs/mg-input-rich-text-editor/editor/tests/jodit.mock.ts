@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 
 /**
- * Mock getComputedStyle globally to return CSS variables required by calculateEditorHeightFromRows.
+ * Mock getComputedStyle globally to return CSS variables required by rowsToEditorHeight.
  * JSDOM does not support CSS custom properties via getComputedStyle, so we override it.
  *
  * Must be called at module level (before any test runs) to ensure the mock is applied.

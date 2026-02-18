@@ -19,13 +19,13 @@ import type { DefineEditorConfig, IJodit } from './editor.conf';
 const DEFAULT_ROWS = 5;
 
 /**
- * Calculate Jodit editor min-height from rows.
+ * Converts rows count to Jodit editor min-height CSS value.
  * Uses CSS variables --mg-b-font-size and --mg-b-line-height to compute height.
  * @param rows - Number of rows
- * @returns Calculated height in pixels (wysiwyg area + toolbar height of 40px + 2px borders)
+ * @returns Height as CSS value in pixels (wysiwyg area + toolbar height of 40px + 2px borders)
  * @throws If required CSS variables (--mg-b-font-size, --mg-b-line-height) are missing
  */
-export const calculateEditorHeightFromRows = (rows: number): number => {
+export const rowsToEditorHeight = (rows: number): string => {
   const root = document.documentElement;
   const computedStyle = getComputedStyle(root);
 
@@ -56,7 +56,7 @@ export const calculateEditorHeightFromRows = (rows: number): number => {
   const borderHeight = 2;
   const totalHeight = wysiwygHeight + toolbarHeight + borderHeight;
 
-  return Math.round(totalHeight);
+  return `${Math.round(totalHeight)}px`;
 };
 
 /**
@@ -68,7 +68,6 @@ export const calculateEditorHeightFromRows = (rows: number): number => {
  */
 export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorElement: HTMLTextAreaElement, config: DefineEditorConfig): IJodit => {
   const { value, modules, readOnly, disabled, placeholder, rows = DEFAULT_ROWS, handleTextChange, handleFocus, handleBlur } = config;
-  const editorHeight = calculateEditorHeightFromRows(rows);
 
   // Configure Jodit
   // Note: Using Record<string, unknown> to avoid TypeScript complexity issues with Jodit's deeply nested Config type
@@ -98,8 +97,8 @@ export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorEl
     ownerWindow: window,
     // Prevent fullscreen from breaking component's shadow root isolation
     globalFullSize: false,
-    // Set min-height based on editorHeight (calculated from rows property, includes wysiwyg + toolbar + borders)
-    minHeight: `${editorHeight}px`,
+    // Set min-height from rows (wysiwyg + toolbar + borders)
+    minHeight: rowsToEditorHeight(rows),
     // Resizer configuration
     allowResizeTags: new Set(['img', 'table']),
     resizer: {

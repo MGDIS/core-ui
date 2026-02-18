@@ -26,9 +26,9 @@ describe('editor', () => {
     jest.runOnlyPendingTimers();
   });
 
-  describe('calculateEditorHeightFromRows', () => {
+  describe('rowsToEditorHeight', () => {
     test('Should throw error when --mg-b-font-size is not defined', async () => {
-      const { calculateEditorHeightFromRows } = await import('..');
+      const { rowsToEditorHeight } = await import('..');
 
       const mockedGetComputedStyle = globalThis.getComputedStyle;
       globalThis.getComputedStyle = () =>
@@ -41,13 +41,13 @@ describe('editor', () => {
           },
         }) as unknown as CSSStyleDeclaration;
 
-      expect(() => calculateEditorHeightFromRows(5)).toThrow('mg-input-rich-text-editor: CSS variable --mg-b-font-size is not defined.');
+      expect(() => rowsToEditorHeight(5)).toThrow('mg-input-rich-text-editor: CSS variable --mg-b-font-size is not defined.');
 
       globalThis.getComputedStyle = mockedGetComputedStyle;
     });
 
     test('Should throw error when --mg-b-line-height is not defined', async () => {
-      const { calculateEditorHeightFromRows } = await import('..');
+      const { rowsToEditorHeight } = await import('..');
 
       const mockedGetComputedStyle = globalThis.getComputedStyle;
       globalThis.getComputedStyle = () =>
@@ -60,7 +60,7 @@ describe('editor', () => {
           },
         }) as unknown as CSSStyleDeclaration;
 
-      expect(() => calculateEditorHeightFromRows(5)).toThrow('mg-input-rich-text-editor: CSS variable --mg-b-line-height is not defined.');
+      expect(() => rowsToEditorHeight(5)).toThrow('mg-input-rich-text-editor: CSS variable --mg-b-line-height is not defined.');
 
       globalThis.getComputedStyle = mockedGetComputedStyle;
     });
