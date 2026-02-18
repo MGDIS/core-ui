@@ -4,8 +4,6 @@ import { classReadonly, type TooltipPosition, classDisabled } from '../mg-input/
 import { initLocales } from '../../../../locales';
 import { Sanitizer, type SanitizerOptions } from '@mgdis/sanitize-html';
 import { defineEditor } from './editor';
-// ButtonsOption is used as type for @Prop() modules
-// eslint-disable-next-line @typescript-eslint/no-unused-vars -- type-only usage in decorator
 import type { ButtonsOption, IJodit } from './editor/editor.conf';
 import { DEFAULT_MODULES } from './mg-input-rich-text-editor.conf';
 
