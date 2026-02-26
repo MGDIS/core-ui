@@ -130,13 +130,9 @@ export namespace Components {
     }
     interface MgBreadcrumb {
         /**
-          * Breadcrumb items (hierarchical order: root → current page). Can be set as a JavaScript array (property) or as a JSON string (HTML attribute).
+          * Breadcrumb items (hierarchical order: root → current page). Must be set via JavaScript (property only). Passing via HTML attribute is not supported.
          */
-        "items": BreadcrumbItem[] | string;
-        /**
-          * Landmark label for accessibility. If absent, uses i18n message.
-         */
-        "label"?: string;
+        "items": BreadcrumbItem[];
     }
     interface MgButton {
         /**
@@ -2273,7 +2269,7 @@ declare global {
         new (): HTMLMgBadgeElement;
     };
     interface HTMLMgBreadcrumbElementEventMap {
-        "item-click": { href: string; label: string; event: MouseEvent };
+        "item-click": { href: string; event: MouseEvent };
     }
     interface HTMLMgBreadcrumbElement extends Components.MgBreadcrumb, HTMLStencilElement {
         addEventListener<K extends keyof HTMLMgBreadcrumbElementEventMap>(type: K, listener: (this: HTMLMgBreadcrumbElement, ev: MgBreadcrumbCustomEvent<HTMLMgBreadcrumbElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2932,17 +2928,13 @@ declare namespace LocalJSX {
     }
     interface MgBreadcrumb {
         /**
-          * Breadcrumb items (hierarchical order: root → current page). Can be set as a JavaScript array (property) or as a JSON string (HTML attribute).
+          * Breadcrumb items (hierarchical order: root → current page). Must be set via JavaScript (property only). Passing via HTML attribute is not supported.
          */
-        "items"?: BreadcrumbItem[] | string;
-        /**
-          * Landmark label for accessibility. If absent, uses i18n message.
-         */
-        "label"?: string;
+        "items"?: BreadcrumbItem[];
         /**
           * Emitted when a link is clicked (e.g. for routing without full page reload). The native event is included so preventDefault() can be called in a single listener.
          */
-        "onItem-click"?: (event: MgBreadcrumbCustomEvent<{ href: string; label: string; event: MouseEvent }>) => void;
+        "onItem-click"?: (event: MgBreadcrumbCustomEvent<{ href: string; event: MouseEvent }>) => void;
     }
     interface MgButton {
         /**

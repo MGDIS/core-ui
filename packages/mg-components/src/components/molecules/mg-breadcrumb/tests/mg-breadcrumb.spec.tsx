@@ -22,28 +22,23 @@ describe('mg-breadcrumb', () => {
     expect(root).toMatchSnapshot();
   });
 
-  test('Should render with items as JSON string (HTML attribute)', async () => {
-    const itemsJson = JSON.stringify([{ label: 'Home', href: '/', icon: 'home-outline' }, { label: 'Lorem ipsum dolor sit amet', href: '/lorem' }, { label: 'Current page' }]);
-    const { root } = await getPage({ items: itemsJson });
-    expect(root).toMatchSnapshot();
+  test.each([{ items: [] }, { items: [{ label: '' }] }, { items: [{ label: '   ' }] }])('Should throw error with invalid items: %s', async args => {
+    expect.assertions(1);
+    try {
+      await getPage(args);
+    } catch (err) {
+      expect((err as Error).message).toBe('<mg-breadcrumb> prop "items": Cannot be empty and each item must have a non-empty label.');
+    }
   });
 
-  test.each([{}, { items: [] }, { items: [{ label: '' }] }, { items: [{ label: '   ' }] }, { items: 'invalid' }, { items: '{"not": "an array"}' }])(
-    'Should throw error with invalid items: %s',
-    async args => {
-      expect.assertions(1);
-      try {
-        await getPage(args);
-      } catch (err) {
-        const msg = err.message as string;
-        const expectedMessages = [
-          '<mg-breadcrumb> prop "items": Cannot be empty and each item must have a non-empty label.',
-          '<mg-breadcrumb> prop "items": Invalid JSON in attribute.',
-        ];
-        expect(expectedMessages.some(m => msg === m)).toBe(true);
-      }
-    },
-  );
+  test('Should throw error when items is passed via HTML attribute (string)', async () => {
+    expect.assertions(1);
+    try {
+      await getPage({ items: '[{"label":"Home","href":"/"}]' });
+    } catch (err) {
+      expect((err as Error).message).toBe('<mg-breadcrumb> prop "items": Must be set via JavaScript (property), not via HTML attribute.');
+    }
+  });
 
   test('Should emit item-click when link is clicked', async () => {
     const page = await getPage({
@@ -54,7 +49,6 @@ describe('mg-breadcrumb', () => {
 
     const mgBreadcrumb = page.doc.querySelector('mg-breadcrumb');
     const firstLink = mgBreadcrumb.shadowRoot.querySelector('a');
-    const spyBlur = jest.spyOn(firstLink, 'blur');
 
     const clickEvent = new MouseEvent('click', { bubbles: true });
     Object.defineProperty(clickEvent, 'currentTarget', { value: firstLink, configurable: true });
@@ -62,10 +56,9 @@ describe('mg-breadcrumb', () => {
 
     await page.waitForChanges();
 
-    expect(spyItemClick).toHaveBeenCalledWith(expect.objectContaining({ href: '/', label: 'Home' }));
-    const emitted = spyItemClick.mock.calls[0][0] as { href: string; label: string; event: MouseEvent };
+    expect(spyItemClick).toHaveBeenCalledWith(expect.objectContaining({ href: '/' }));
+    const emitted = spyItemClick.mock.calls[0][0] as { href: string; event: MouseEvent };
     expect(emitted.event).toBeInstanceOf(MouseEvent);
-    expect(spyBlur).toHaveBeenCalled();
   });
 
   test('Should not emit item-click when clicked element has no valid href', async () => {
@@ -79,48 +72,6 @@ describe('mg-breadcrumb', () => {
     Object.defineProperty(clickEvent, 'currentTarget', { value: mockAnchor, configurable: true });
     (page.rootInstance as BreadcrumbTestInstance).handleLinkClick(clickEvent);
     expect(spyItemClick).not.toHaveBeenCalled();
-  });
-
-  test('Should emit item-click with empty label when link has no aria-label and no text content', async () => {
-    const page = await getPage({
-      items: [{ label: 'Home', href: '/' }, { label: 'Current page' }],
-    });
-    const spyItemClick = jest.spyOn(page.rootInstance.itemClick, 'emit');
-    const mockAnchor = document.createElement('a');
-    mockAnchor.setAttribute('href', '/');
-    const clickEvent = new MouseEvent('click', { bubbles: true });
-    Object.defineProperty(clickEvent, 'currentTarget', { value: mockAnchor, configurable: true });
-    (page.rootInstance as BreadcrumbTestInstance).handleLinkClick(clickEvent);
-    expect(spyItemClick).toHaveBeenCalledWith(expect.objectContaining({ href: '/', label: '' }));
-  });
-
-  test('Should emit item-click with empty label when link has null textContent (covers optional chaining branch)', async () => {
-    const page = await getPage({
-      items: [{ label: 'Home', href: '/' }, { label: 'Current page' }],
-    });
-    const spyItemClick = jest.spyOn(page.rootInstance.itemClick, 'emit');
-    const mockAnchor = {
-      getAttribute(name: string): string | null {
-        return name === 'href' ? '/' : null;
-      },
-      get textContent(): string | null {
-        return null;
-      },
-      blur(): void {},
-    };
-    const clickEvent = new MouseEvent('click', { bubbles: true });
-    Object.defineProperty(clickEvent, 'currentTarget', { value: mockAnchor, configurable: true });
-    (page.rootInstance as BreadcrumbTestInstance).handleLinkClick(clickEvent);
-    expect(spyItemClick).toHaveBeenCalledWith(expect.objectContaining({ href: '/', label: '' }));
-  });
-
-  test('Should use custom label when provided', async () => {
-    const page = await getPage({
-      items: [{ label: 'Home', href: '/' }, { label: 'Current page' }],
-      label: 'Custom breadcrumb',
-    });
-    const nav = page.doc.querySelector('mg-breadcrumb').shadowRoot.querySelector('nav');
-    expect(nav.getAttribute('aria-label')).toBe('Custom breadcrumb');
   });
 
   test('Should emit item-click when text link (no icon) is clicked', async () => {
@@ -138,7 +89,7 @@ describe('mg-breadcrumb', () => {
     textLink.dispatchEvent(clickEvent);
     await page.waitForChanges();
 
-    expect(spyItemClick).toHaveBeenCalledWith(expect.objectContaining({ href: '/lorem', label: 'Lorem ipsum dolor sit amet' }));
+    expect(spyItemClick).toHaveBeenCalledWith(expect.objectContaining({ href: '/lorem' }));
   });
 
   test('Should set aria-label on link when item has icon', async () => {
@@ -186,7 +137,7 @@ describe('mg-breadcrumb', () => {
     const mgBreadcrumb = page.doc.querySelector('mg-breadcrumb');
     const listBefore = mgBreadcrumb.shadowRoot.querySelector('ol');
     expect(listBefore.querySelectorAll('li')).toHaveLength(2);
-    expect(listBefore.querySelector('.mg-c-breadcrumb__current').textContent.trim()).toBe('Current page');
+    expect(listBefore.querySelector('span[aria-current="page"]').textContent.trim()).toBe('Current page');
 
     const newItems = [{ label: 'Home', href: '/' }, { label: 'Section', href: '/section' }, { label: 'New current' }];
     mgBreadcrumb.items = newItems;
@@ -194,6 +145,6 @@ describe('mg-breadcrumb', () => {
 
     const listAfter = mgBreadcrumb.shadowRoot.querySelector('ol');
     expect(listAfter.querySelectorAll('li')).toHaveLength(3);
-    expect(listAfter.querySelector('.mg-c-breadcrumb__current').textContent.trim()).toBe('New current');
+    expect(listAfter.querySelector('span[aria-current="page"]').textContent.trim()).toBe('New current');
   });
 });

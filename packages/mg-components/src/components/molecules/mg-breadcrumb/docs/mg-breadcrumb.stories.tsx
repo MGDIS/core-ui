@@ -6,12 +6,6 @@ export default {
   component: 'mg-breadcrumb',
   title: 'Molecules/mg-breadcrumb',
   parameters: { actions: { handles: ['item-click'] } },
-  argTypes: {
-    // Set object control so Storybook passes an array, not a string (component accepts both for HTML attribute usage)
-    items: {
-      control: { type: 'object' },
-    },
-  },
 };
 
 /**

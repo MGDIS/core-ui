@@ -4,19 +4,7 @@ The breadcrumb displays the user's location in the hierarchy and allows navigati
 
 ## Code example
 
-You can set `items` via HTML attribute (JSON string) or via JavaScript (array):
-
-```html
-<mg-breadcrumb
-  items='[
-    { "label": "Home", "href": "/", "icon": "home-outline" },
-    { "label": "Lorem ipsum dolor sit amet", "href": "/lorem" },
-    { "label": "Current page" }
-  ]'
-></mg-breadcrumb>
-```
-
-Or with a script:
+You must set `items` via JavaScript (property only, no HTML attribute):
 
 ```html
 <mg-breadcrumb></mg-breadcrumb>
@@ -46,17 +34,16 @@ document.querySelector('mg-breadcrumb').addEventListener('item-click', (e) => {
 
 ## Properties
 
-| Property | Attribute | Description                                                                                                                                   | Type                         | Default     |
-| -------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ----------- |
-| `items`  | `items`   | Breadcrumb items (hierarchical order: root → current page). Can be set as a JavaScript array (property) or as a JSON string (HTML attribute). | `BreadcrumbItem[] \| string` | `undefined` |
-| `label`  | `label`   | Landmark label for accessibility. If absent, uses i18n message.                                                                               | `string`                     | `undefined` |
+| Property | Attribute | Description                                                                                                                                          | Type               | Default     |
+| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
+| `items`  | --        | Breadcrumb items (hierarchical order: root → current page). Must be set via JavaScript (property only). Passing via HTML attribute is not supported. | `BreadcrumbItem[]` | `undefined` |
 
 
 ## Events
 
-| Event        | Description                                                                                                                                                      | Type                                                               |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| `item-click` | Emitted when a link is clicked (e.g. for routing without full page reload). The native event is included so preventDefault() can be called in a single listener. | `CustomEvent<{ href: string; label: string; event: MouseEvent; }>` |
+| Event        | Description                                                                                                                                                      | Type                                                |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| `item-click` | Emitted when a link is clicked (e.g. for routing without full page reload). The native event is included so preventDefault() can be called in a single listener. | `CustomEvent<{ href: string; event: MouseEvent; }>` |
 
 
 ## Dependencies

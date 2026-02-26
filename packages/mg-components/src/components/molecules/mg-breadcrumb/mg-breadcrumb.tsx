@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Prop, State, Watch } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
 import { BreadcrumbItem } from './mg-breadcrumb.conf';
 import { initLocales } from '../../../locales';
 import { isValidString } from '@mgdis/core-ui-helpers/dist/utils';
@@ -9,6 +9,12 @@ import { isValidString } from '@mgdis/core-ui-helpers/dist/utils';
   shadow: true,
 })
 export class MgBreadcrumb {
+  /************
+   * Internal *
+   ************/
+
+  private messages: { breadcrumb: { label: string } };
+
   /**************
    * Decorators *
    **************/
@@ -20,97 +26,39 @@ export class MgBreadcrumb {
 
   /**
    * Breadcrumb items (hierarchical order: root → current page).
-   * Can be set as a JavaScript array (property) or as a JSON string (HTML attribute).
+   * Must be set via JavaScript (property only). Passing via HTML attribute is not supported.
    */
-  @Prop() items: BreadcrumbItem[] | string;
+  @Prop() items: BreadcrumbItem[];
   @Watch('items')
-  watchItems(): void {
-    this.syncResolvedItems();
+  validateItems(items: BreadcrumbItem[]): void {
+    if (items !== undefined) {
+      if (typeof items === 'string') {
+        throw new Error(`<mg-breadcrumb> prop "items": Must be set via JavaScript (property), not via HTML attribute.`);
+      }
+      if (items.length === 0 || items.some(item => !isValidString(item.label) || item.label.trim() === '')) {
+        throw new Error(`<mg-breadcrumb> prop "items": Cannot be empty and each item must have a non-empty label.`);
+      }
+    }
   }
-
-  /**
-   * Landmark label for accessibility. If absent, uses i18n message.
-   */
-  @Prop() label?: string;
 
   /**
    * Emitted when a link is clicked (e.g. for routing without full page reload).
    * The native event is included so preventDefault() can be called in a single listener.
    */
-  @Event({ eventName: 'item-click' }) itemClick: EventEmitter<{ href: string; label: string; event: MouseEvent }>;
-
-  /************
-   * Internal *
-   ************/
-
-  private messages: { breadcrumb: { label: string } };
-
-  /**
-   * Items ready for render: parsed from the `items` prop (array or JSON string) and validated.
-   * Updated only when `items` is set or changes, via syncResolvedItems().
-   */
-  @State() private resolvedItems: BreadcrumbItem[] = [];
+  @Event({ eventName: 'item-click' }) itemClick: EventEmitter<{ href: string; event: MouseEvent }>;
 
   /***********
    * Methods *
    **********/
 
   /**
-   * Normalize items: return the array as-is or parse JSON from the items attribute.
-   * @param raw - The items prop (array or JSON string)
-   * @returns Normalized breadcrumb items array
-   */
-  private normalizeItems(raw: BreadcrumbItem[] | string): BreadcrumbItem[] {
-    if (Array.isArray(raw)) return raw;
-    if (typeof raw === 'string') {
-      try {
-        const parsed = JSON.parse(raw) as unknown;
-        return Array.isArray(parsed) ? parsed : [];
-      } catch {
-        throw new Error(`<mg-breadcrumb> prop "items": Invalid JSON in attribute.`);
-      }
-    }
-    return [];
-  }
-
-  /**
-   * Validate items array: non-empty and each item must have a non-empty label.
-   * @param list - The normalized items array
-   */
-  private validateItemsList(list: BreadcrumbItem[]): void {
-    if (list.length === 0 || list.some(item => !isValidString(item.label) || item.label.trim() === '')) {
-      throw new Error(`<mg-breadcrumb> prop "items": Cannot be empty and each item must have a non-empty label.`);
-    }
-  }
-
-  /**
-   * Parse and validate the `items` prop, then update `resolvedItems`.
-   * Called on init and whenever `items` changes so the rendered list stays in sync.
-   */
-  private syncResolvedItems(): void {
-    const list = this.normalizeItems(this.items);
-    this.validateItemsList(list);
-    this.resolvedItems = list;
-  }
-
-  /**
-   * Get nav aria-label: prop label or i18n
-   * @returns The nav aria-label string
-   */
-  private getNavLabel(): string {
-    return isValidString(this.label) ? this.label : this.messages.breadcrumb.label;
-  }
-
-  /**
-   * Handle link click and emit item-click event (href and label read from the clicked anchor)
+   * Handle link click and emit item-click event (href + native event for preventDefault).
    */
   private handleLinkClick = (event: MouseEvent): void => {
     const anchor = event.currentTarget as HTMLAnchorElement;
     const href = anchor.getAttribute('href');
     if (!isValidString(href)) return;
-    const label = anchor.getAttribute('aria-label') ?? anchor.textContent?.trim() ?? '';
-    anchor.blur();
-    this.itemClick.emit({ href, label, event });
+    this.itemClick.emit({ href, event });
   };
 
   /**
@@ -123,20 +71,16 @@ export class MgBreadcrumb {
     const isLink = isValidString(item.href);
 
     if (isLink) {
-      const linkContent = item.icon !== undefined ? <mg-icon icon={item.icon} aria-hidden="true"></mg-icon> : item.label;
+      const linkContent = item.icon !== undefined ? <mg-icon icon={item.icon}></mg-icon> : item.label;
       const ariaLabel = item.icon !== undefined ? item.label : undefined;
       return (
-        <a href={item.href} class="mg-c-breadcrumb__link" aria-label={ariaLabel} aria-current={isLast ? 'page' : undefined} onClick={this.handleLinkClick}>
+        <a href={item.href} aria-label={ariaLabel} aria-current={isLast ? 'page' : undefined} onClick={this.handleLinkClick}>
           {linkContent}
         </a>
       );
     }
 
-    return (
-      <span class="mg-c-breadcrumb__current" aria-current="page">
-        {item.label}
-      </span>
-    );
+    return <span aria-current="page">{item.label}</span>;
   }
 
   /*************
@@ -144,20 +88,17 @@ export class MgBreadcrumb {
    *************/
 
   componentWillLoad(): void {
-    this.syncResolvedItems();
+    this.validateItems(this.items);
     this.messages = initLocales(this.element).messages as { breadcrumb: { label: string } };
   }
 
   render(): HTMLElement {
-    const navLabel = this.getNavLabel();
-    const list = this.resolvedItems;
-
     return (
-      <nav role="navigation" aria-label={navLabel} class="mg-c-breadcrumb">
+      <nav aria-label={this.messages.breadcrumb.label} class="mg-c-breadcrumb">
         <ol class="mg-c-breadcrumb__list">
-          {list.map((item, index) => (
+          {this.items.map((item, index) => (
             <li key={index} class="mg-c-breadcrumb__item">
-              {this.renderItem(item, index === list.length - 1)}
+              {this.renderItem(item, index === this.items.length - 1)}
             </li>
           ))}
         </ol>
