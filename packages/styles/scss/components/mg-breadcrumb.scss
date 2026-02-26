@@ -1,3 +1,5 @@
+@use '../base/anchor';
+
 .mg-c-breadcrumb {
   display: block;
 
@@ -16,16 +18,6 @@
       content: '/';
       font-weight: 600;
       margin-inline: var(--mg-b-size-8);
-    }
-  }
-
-  &__link {
-    color: currentcolor;
-    text-decoration: underline;
-
-    &:hover,
-    &:focus {
-      text-decoration: none;
     }
 
     mg-icon {
