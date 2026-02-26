@@ -2,22 +2,6 @@
 
 The breadcrumb displays the user's location in the hierarchy and allows navigation to parent levels. The last item is the current page.
 
-## Code example
-
-You must set `items` via JavaScript (property only, no HTML attribute):
-
-```html
-<mg-breadcrumb></mg-breadcrumb>
-
-<script>
-  document.querySelector('mg-breadcrumb').items = [
-    { label: 'Home', href: '/', icon: 'home-outline' },
-    { label: 'Lorem ipsum dolor sit amet', href: '/lorem' },
-    { label: 'Current page' }
-  ];
-</script>
-```
-
 ## Implementation with a router
 
 If your app uses a client-side router, listen to the `item-click` event. The detail includes the native `event` so you can call `preventDefault()` and handle navigation in a single listener:
