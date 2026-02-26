@@ -40,6 +40,24 @@ describe('mg-breadcrumb', () => {
     }
   });
 
+  test.each([
+    {
+      items: [{ label: 'Home' }, { label: 'Section', href: '/section' }, { label: 'Current page' }],
+      expectedIndex: 0,
+    },
+    {
+      items: [{ label: 'Home', href: '/' }, { label: 'Section' }, { label: 'Current page', href: '/current' }],
+      expectedIndex: 1,
+    },
+  ])('Should throw error when a non-last item has no href', async ({ items, expectedIndex }) => {
+    expect.assertions(1);
+    try {
+      await getPage({ items });
+    } catch (err) {
+      expect((err as Error).message).toBe(`<mg-breadcrumb> prop "items": Only the last item may have no href (current page). Item at index ${expectedIndex} has no href.`);
+    }
+  });
+
   test('Should emit item-click when link is clicked', async () => {
     const page = await getPage({
       items: [{ label: 'Home', href: '/', icon: 'home-outline' }, { label: 'Lorem ipsum dolor sit amet', href: '/lorem' }, { label: 'Current page' }],

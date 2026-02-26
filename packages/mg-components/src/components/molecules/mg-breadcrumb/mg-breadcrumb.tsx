@@ -38,6 +38,10 @@ export class MgBreadcrumb {
       if (items.length === 0 || items.some(item => !isValidString(item.label) || item.label.trim() === '')) {
         throw new Error(`<mg-breadcrumb> prop "items": Cannot be empty and each item must have a non-empty label.`);
       }
+      const itemWithoutHref = items.findIndex((item, index) => index < items.length - 1 && !isValidString(item.href));
+      if (itemWithoutHref !== -1) {
+        throw new Error(`<mg-breadcrumb> prop "items": Only the last item may have no href (current page). Item at index ${itemWithoutHref} has no href.`);
+      }
     }
   }
 
