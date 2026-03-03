@@ -2,11 +2,18 @@ import { Component, Element, h, Prop, Watch, State, Event, EventEmitter, Method 
 import { ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
-import { defineEditor, type EditorType, type EditorOptionsType } from './editor';
+import { Sanitizer, type SanitizerOptions } from '@mgdis/sanitize-html';
+import { defineEditor } from './editor';
+import type { ButtonsOption, IJodit } from './editor/editor.conf';
+import { DEFAULT_MODULES } from './mg-input-rich-text-editor.conf';
 
 @Component({
   tag: 'mg-input-rich-text-editor',
-  styleUrls: ['../../../../../node_modules/quill/dist/quill.snow.css', '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-rich-text-editor.css'],
+  styleUrls: [
+    './editor/custom-properties.scss',
+    '../../../../../node_modules/jodit/es2021/jodit.css',
+    '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-rich-text-editor.css',
+  ],
   shadow: true,
 })
 export class MgInputRichTextEditor {
@@ -14,15 +21,21 @@ export class MgInputRichTextEditor {
    * Internal *
    ************/
 
-  // editor
-  private editor: EditorType;
-  private wrapperElement: HTMLDivElement;
+  // Editor
+  private editor: IJodit;
+  private editorElement: HTMLTextAreaElement;
+  // Track the mg-input-title element reference to detect when mg-input.renderLabel() recreates it
+  private currentTitleElement: HTMLMgInputTitleElement | null;
+
+  // Sanitizer
+  private sanitizer: Sanitizer;
 
   // Locales
   private messages;
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  // Custom error message
   private customErrorMessage: { lock: boolean; message?: string } = { lock: false };
 
   /**************
@@ -46,6 +59,12 @@ export class MgInputRichTextEditor {
   @Prop() identifier!: string;
 
   /**
+   * Input name
+   * If not set the value equals the identifier
+   */
+  @Prop() name: string = this.identifier;
+
+  /**
    * Input label
    */
   @Prop() label!: string;
@@ -67,7 +86,8 @@ export class MgInputRichTextEditor {
   @Prop() placeholder?: string;
 
   /**
-   * Define the number of visible text lines for the control
+   * Define the number of visible text lines for the editor.
+   * Impacts the editor height. Content can grow beyond this minimum.
    */
   @Prop() rows = 5;
 
@@ -94,10 +114,21 @@ export class MgInputRichTextEditor {
   watchDisabled(newValue: MgInputRichTextEditor['disabled']): void {
     if (newValue) {
       this.classCollection.add(classDisabled);
-      this.editor?.disable();
+      this.editor?.setReadOnly(true);
     } else {
       this.classCollection.delete(classDisabled);
-      this.editor?.enable();
+      this.editor?.setReadOnly(false);
+    }
+    // Propagate aria-disabled and tabIndex to the WYSIWYG element
+    const wysiwygEl = this.editor?.editor;
+    if (wysiwygEl !== undefined) {
+      if (newValue) {
+        wysiwygEl.setAttribute('aria-disabled', 'true');
+      } else {
+        wysiwygEl.removeAttribute('aria-disabled');
+      }
+      // tabIndex -1 when disabled to exclude from Tab navigation
+      wysiwygEl.tabIndex = newValue ? -1 : 0;
     }
   }
 
@@ -150,9 +181,42 @@ export class MgInputRichTextEditor {
   @Prop() helpText?: string;
 
   /**
-   * Editor modules configuration
+   * Editor modules configuration.
+   * Must be passed as an array (e.g. modules=['bold', 'italic', '|', 'ul', 'ol']).
+   * Use `|` for a separator/divider in the toolbar.
+   * Available modules:
+   * - **Text formatting**: `bold`, `italic`, `underline`, `strikethrough`, `eraser`
+   * - **Lists**: `ul` (unordered list), `ol` (ordered list)
+   * - **Text positioning**: `superscript`, `subscript`
+   * - **Colors**: `brush` (text color/background)
+   * - **Media**: `link`, `image`, `file`
+   * - **Tables**: `table`
+   * - **History**: `undo`, `redo`
+   * - **Other**: `print`, `source` (HTML source editor)
    */
-  @Prop() modules?: EditorOptionsType['modules'];
+  @Prop() modules?: ButtonsOption;
+  @Watch('modules')
+  watchModules(newValue: MgInputRichTextEditor['modules']): void {
+    if (newValue !== undefined && (!Array.isArray(newValue) || newValue.length === 0 || !newValue.every(isValidString))) {
+      throw new Error(`<mg-input-rich-text-editor> prop "modules" must be a non-empty array of strings. Passed value: "${toString(newValue)}".`);
+    }
+  }
+
+  /**
+   * Sanitizer configuration in native format.
+   * Use disallowTags (array of tag names) and/or disallowAttributes (object mapping tag names to string arrays).
+   * Use "*" as tag key to disallow attributes on all tags.
+   */
+  @Prop() sanitizerOptions?: SanitizerOptions;
+  @Watch('sanitizerOptions')
+  watchSanitizerOptions(newValue: MgInputRichTextEditor['sanitizerOptions']): void {
+    if (newValue !== undefined && (typeof newValue !== 'object' || newValue === null || Array.isArray(newValue))) {
+      throw new Error(`<mg-input-rich-text-editor> prop "sanitizerOptions" must be an object. Passed value: "${toString(newValue)}".`);
+    }
+    if (this.sanitizer !== undefined) {
+      this.initializeSanitizer();
+    }
+  }
 
   /**
    * Define input valid state
@@ -193,16 +257,12 @@ export class MgInputRichTextEditor {
   }
 
   /**
-   * Get editor content in HTML format
-   * @returns HTML content of the editor
+   * Get editor content as HTML
+   * @returns HTML content of the editor (sanitized)
    */
   @Method()
-  getEditorHTML(): Promise<string> {
-    return new Promise(resolve => {
-      requestAnimationFrame(() => {
-        resolve(this.editor.getSemanticHTML());
-      });
-    });
+  async getEditorHTML(): Promise<string> {
+    return this.sanitizer.sanitize(this.editor.value);
   }
 
   /**
@@ -211,11 +271,7 @@ export class MgInputRichTextEditor {
    */
   @Method()
   async getEditorText(): Promise<string> {
-    return new Promise(resolve => {
-      requestAnimationFrame(() => {
-        resolve(this.editor.getText());
-      });
-    });
+    return this.editor.editor.textContent.trim();
   }
 
   /**
@@ -272,7 +328,7 @@ export class MgInputRichTextEditor {
   async reset(): Promise<void> {
     if (!this.readonly) {
       this.value = '';
-      this.editor.setText('');
+      this.editor.value = '';
       // Use `Promise` as requested for stencil method
       // Use `requestAnimationFrame` to ensure:
       // - DOM is fully updated before validation
@@ -297,21 +353,19 @@ export class MgInputRichTextEditor {
    * @returns truthy is value is invalid
    */
   private isEmpty = (): boolean => {
-    const textContent = this.getTextContent();
+    const textContent = this.editor.editor.textContent.trim();
     return !(isValidString(textContent) && textContent !== '\n');
   };
-
-  /**
-   * Extract the text without HTML tags from value
-   * @returns text content
-   */
-  private getTextContent = (): string => this.value.replace(/<[^>]*>/g, '').trim();
 
   /**
    * Get pattern validity
    * @returns is pattern valid
    */
-  private getPatternValidity = (): boolean => this.pattern === undefined || new RegExp(`^${this.pattern}$`, 'u').test(this.getTextContent());
+  private getPatternValidity = (): boolean => {
+    if (this.pattern === undefined) return true;
+    const textContent = this.editor.editor.textContent.trim();
+    return new RegExp(`^${this.pattern}$`, 'u').test(textContent);
+  };
 
   /**
    * Method to set validity values
@@ -383,18 +437,24 @@ export class MgInputRichTextEditor {
    * Handle `text-change` event
    */
   private handleTextChange = (): void => {
-    // Get HTML content
-    const htmlContent = this.editor.getSemanticHTML();
-    this.value = htmlContent;
+    // Get HTML content and sanitize before storing and emitting
+    this.value = this.sanitizer.sanitize(this.editor.value);
 
-    // Emit the HTML content for form compatibility
-    this.valueChange.emit(htmlContent);
+    // Emit the sanitized HTML content for form compatibility
+    this.valueChange.emit(this.value);
 
     // Check validity but do not display the error message if the error message is already displayed
     this.checkValidity();
     if (this.hasDisplayedError) {
       this.setErrorMessage();
     }
+  };
+
+  /**
+   * Initialize sanitizer with current sanitizerOptions
+   */
+  private initializeSanitizer = (): void => {
+    this.sanitizer = new Sanitizer(this.sanitizerOptions);
   };
 
   /*************
@@ -408,13 +468,16 @@ export class MgInputRichTextEditor {
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
     this.messages = initLocales(this.element as unknown as HTMLElement).messages;
-    this.element.style.setProperty('--mg-c-input-rich-text-editor-rows', this.rows.toString());
     // Validate
     this.validatePattern(this.pattern);
     this.validatePattern(this.patternErrorMessage);
     // Watch
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
+    this.watchModules(this.modules);
+    this.watchSanitizerOptions(this.sanitizerOptions);
+    // Initialize sanitizer with optional configuration
+    this.initializeSanitizer();
 
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
@@ -425,20 +488,43 @@ export class MgInputRichTextEditor {
   }
 
   /**
-   * add listeners and render editor element
+   * Add listeners and render editor element
    */
   componentDidLoad(): void {
     if (!this.readonly) {
-      this.editor = defineEditor(this.wrapperElement, {
-        theme: 'snow',
-        modules: this.modules,
+      this.editor = defineEditor(this.element, this.editorElement, {
+        modules: this.modules ?? DEFAULT_MODULES,
         readOnly: this.readonly || this.disabled,
+        disabled: this.disabled,
         placeholder: this.placeholder,
-        value: this.value,
+        value: this.sanitizer.sanitize(this.value),
+        rows: this.rows,
         handleTextChange: this.handleTextChange,
         handleBlur: this.handleBlur,
         handleFocus: this.handleFocus,
       });
+      // Track the initial title element set up by defineEditor
+      this.currentTitleElement = this.element.shadowRoot.querySelector<HTMLMgInputTitleElement>('mg-input-title');
+    }
+  }
+
+  /**
+   * Re-apply accessibility attributes after re-renders.
+   * When state changes (disabled, readonly, etc.) trigger a re-render,
+   * mg-input's renderLabel() may destroy and recreate mg-input-title,
+   * which loses the id and click handler needed for aria-labelledby.
+   */
+  componentDidRender(): void {
+    if (this.editor !== undefined && !this.readonly) {
+      const titleElement = this.element.shadowRoot.querySelector<HTMLMgInputTitleElement>('mg-input-title');
+      if (titleElement !== null && titleElement !== this.currentTitleElement) {
+        const titleId = `${this.identifier}-title`;
+        titleElement.id = titleId;
+        titleElement.addEventListener('click', () => {
+          this.editor?.focus();
+        });
+        this.currentTitleElement = titleElement;
+      }
     }
   }
 
@@ -463,14 +549,13 @@ export class MgInputRichTextEditor {
         {this.readonly ? (
           <div class="mg-c-input__readonly-value" innerHTML={this.value}></div>
         ) : (
-          <div
-            ref={el => {
-              this.wrapperElement = el;
-            }}
-            id={this.identifier}
-            class="mg-c-input__wrapper"
-          >
-            <div></div>
+          <div id={this.identifier} class="mg-c-input__wrapper">
+            <textarea
+              name={this.name}
+              ref={(el: HTMLTextAreaElement) => {
+                if (el !== null) this.editorElement = el;
+              }}
+            ></textarea>
           </div>
         )}
       </mg-input>

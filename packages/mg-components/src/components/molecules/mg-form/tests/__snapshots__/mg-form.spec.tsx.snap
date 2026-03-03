@@ -364,7 +364,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -380,15 +380,18 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea aria-describedby="mg-input-rich-text-editor-error" name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
         <div id="mg-input-rich-text-editor-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -831,7 +834,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -1366,7 +1369,7 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -1379,12 +1382,15 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -1839,7 +1845,7 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -1852,12 +1858,15 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -2287,7 +2296,7 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -2300,12 +2309,15 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -2792,7 +2804,7 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -2805,12 +2817,15 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -3263,7 +3278,7 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -3276,12 +3291,15 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -3729,7 +3747,7 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -3742,12 +3760,15 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -4170,7 +4191,7 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -4183,12 +4204,15 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -4661,7 +4685,7 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -4674,12 +4698,15 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -5135,7 +5162,7 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -5148,12 +5175,15 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -5608,7 +5638,7 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -5621,12 +5651,15 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -6056,7 +6089,7 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -6069,12 +6102,15 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -6550,7 +6586,7 @@ exports[`mg-form Should render with args {
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -6563,12 +6599,15 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -6983,7 +7022,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -6996,12 +7035,15 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -7301,7 +7343,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -7716,7 +7758,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -7729,12 +7771,15 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-disabled="true" aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -8149,7 +8194,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -8162,12 +8207,15 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -8466,7 +8514,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -8882,7 +8930,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -8895,12 +8943,15 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -9315,7 +9366,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -9328,12 +9379,15 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -9748,7 +9802,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -9761,12 +9815,15 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -10181,7 +10238,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -10194,12 +10251,15 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -10614,7 +10674,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -10627,12 +10687,15 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -11047,7 +11110,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -11060,12 +11123,15 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -11560,7 +11626,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -11576,15 +11642,18 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea aria-describedby="mg-input-rich-text-editor-error" name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
         <div id="mg-input-rich-text-editor-error" slot="error">
           Ce champ est obligatoire.
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -12117,7 +12186,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
       </mg-input>
     </template>
   </mg-input-select>
-  <mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+  <mg-input-rich-text-editor>
     <template shadowrootmode="open">
       <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
         <template shadowrootmode="open">
@@ -12133,15 +12202,18 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </div>
           </div>
         </template>
-        <div class="mg-c-input__wrapper" id="mg-input-rich-text-editor">
-          <div class="ql-editor">
-            <div></div>
+        <div class="mg-c-input__wrapper"><textarea aria-describedby="mg-input-rich-text-editor-error" name="mg-input-rich-text-editor"></textarea>
+          <div class="jodit-container mg-c-input__container">
+            <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+            <div class="jodit-workplace mg-c-input__workplace">
+              <div aria-labelledby="mg-input-rich-text-editor-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="mg-input-rich-text-editor" role="textbox"></div>
+            </div>
           </div>
         </div>
         <div id="mg-input-rich-text-editor-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label

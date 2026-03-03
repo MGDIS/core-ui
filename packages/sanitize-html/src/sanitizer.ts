@@ -1,5 +1,7 @@
 import sanitizeHtml from 'sanitize-html';
-import { SanitizerOptions } from './types';
+import type { SanitizerOptions } from './types';
+
+export type { SanitizerOptions };
 
 const DEFAULT_ALLOWED_TAGS = [...sanitizeHtml.defaults.allowedTags, 'img', 'mg-icon'];
 const DEFAULT_ALLOWED_ATTRIBUTES = {

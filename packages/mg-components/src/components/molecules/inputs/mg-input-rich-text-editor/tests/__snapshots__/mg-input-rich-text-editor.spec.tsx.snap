@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`mg-input-rich-text-editor Events Should manage focus and blur events 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -17,15 +17,18 @@ exports[`mg-input-rich-text-editor Events Should manage focus and blur events 1`
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea aria-describedby="identifier-help-text" name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-describedby="identifier-help-text" aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -37,7 +40,7 @@ exports[`mg-input-rich-text-editor Events Should manage focus and blur events 1`
 `;
 
 exports[`mg-input-rich-text-editor Events Should manage focus and blur events 2`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -53,15 +56,18 @@ exports[`mg-input-rich-text-editor Events Should manage focus and blur events 2`
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea aria-describedby="identifier-help-text" name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-describedby="identifier-help-text" aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -73,7 +79,7 @@ exports[`mg-input-rich-text-editor Events Should manage focus and blur events 2`
 `;
 
 exports[`mg-input-rich-text-editor Events Should manage focus and blur events 3`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -89,15 +95,18 @@ exports[`mg-input-rich-text-editor Events Should manage focus and blur events 3`
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea aria-describedby="identifier-help-text" name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-describedby="identifier-help-text" aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -114,7 +123,7 @@ exports[`mg-input-rich-text-editor Events Should manage focus and blur events 3`
 `;
 
 exports[`mg-input-rich-text-editor Events Should manage focus and blur events 4`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -133,9 +142,12 @@ exports[`mg-input-rich-text-editor Events Should manage focus and blur events 4`
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea aria-describedby="identifier-help-text identifier-error" name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-describedby="identifier-help-text" aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
       <div id="identifier-help-text" slot="help-text">
@@ -144,7 +156,7 @@ exports[`mg-input-rich-text-editor Events Should manage focus and blur events 4`
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -161,7 +173,7 @@ exports[`mg-input-rich-text-editor Events Should manage focus and blur events 4`
 `;
 
 exports[`mg-input-rich-text-editor Events Should render with interactive helpText 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -177,9 +189,12 @@ exports[`mg-input-rich-text-editor Events Should render with interactive helpTex
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea aria-describedby="identifier-help-text" name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-describedby="identifier-help-text" aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
       <div id="identifier-help-text" slot="help-text">
@@ -187,7 +202,7 @@ exports[`mg-input-rich-text-editor Events Should render with interactive helpTex
           My help text
         </a>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -199,7 +214,7 @@ exports[`mg-input-rich-text-editor Events Should render with interactive helpTex
 `;
 
 exports[`mg-input-rich-text-editor Events Should render with interactive helpText 2`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -215,9 +230,12 @@ exports[`mg-input-rich-text-editor Events Should render with interactive helpTex
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea aria-describedby="identifier-help-text" name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-describedby="identifier-help-text" aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
       <div id="identifier-help-text" slot="help-text">
@@ -225,7 +243,7 @@ exports[`mg-input-rich-text-editor Events Should render with interactive helpTex
           My help text
         </a>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -237,7 +255,7 @@ exports[`mg-input-rich-text-editor Events Should render with interactive helpTex
 `;
 
 exports[`mg-input-rich-text-editor Events Should render with interactive helpText 3`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -253,9 +271,12 @@ exports[`mg-input-rich-text-editor Events Should render with interactive helpTex
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea aria-describedby="identifier-help-text" name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-describedby="identifier-help-text" aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
       <div id="identifier-help-text" slot="help-text">
@@ -263,7 +284,7 @@ exports[`mg-input-rich-text-editor Events Should render with interactive helpTex
           My help text
         </a>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -274,8 +295,8 @@ exports[`mg-input-rich-text-editor Events Should render with interactive helpTex
 </mg-input-rich-text-editor>
 `;
 
-exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: false, lock: false }) 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: false Should display override error with setError component's public method ({ valid: false, lock: false }) 1`] = `
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -288,20 +309,18 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
         </label>
       </mg-input-title>
     </mg-input>
@@ -309,8 +328,8 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
 </mg-input-rich-text-editor>
 `;
 
-exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: false, lock: false }) 2`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: false Should display override error with setError component's public method ({ valid: false, lock: false }) 2`] = `
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -326,23 +345,21 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea aria-describedby="identifier-error" name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
       <div id="identifier-error" slot="error">
         Override error
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
         </label>
       </mg-input-title>
     </mg-input>
@@ -350,49 +367,8 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
 </mg-input-rich-text-editor>
 `;
 
-exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: false, lock: false }) 3`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
-  <template shadowrootmode="open">
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-          <div aria-live="assertive" class="mg-c-input__error">
-            <slot name="error"></slot>
-          </div>
-        </div>
-      </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
-        </div>
-      </div>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-rich-text-editor>
-`;
-
-exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: false, lock: true }) 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: false Should display override error with setError component's public method ({ valid: false, lock: true }) 1`] = `
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -405,20 +381,18 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
         </label>
       </mg-input-title>
     </mg-input>
@@ -426,8 +400,8 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
 </mg-input-rich-text-editor>
 `;
 
-exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: false, lock: true }) 2`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: false Should display override error with setError component's public method ({ valid: false, lock: true }) 2`] = `
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -443,15 +417,183 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea aria-describedby="identifier-error" name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
       <div id="identifier-error" slot="error">
         Override error
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: false Should display override error with setError component's public method ({ valid: true, lock: false }) 1`] = `
+<mg-input-rich-text-editor>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
+        </div>
+      </div>
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: false Should display override error with setError component's public method ({ valid: true, lock: false }) 2`] = `
+<mg-input-rich-text-editor>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
+        </div>
+      </div>
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: false Should display override error with setError component's public method ({ valid: true, lock: true }) 1`] = `
+<mg-input-rich-text-editor>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
+        </div>
+      </div>
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: false Should display override error with setError component's public method ({ valid: true, lock: true }) 2`] = `
+<mg-input-rich-text-editor>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
+        </div>
+      </div>
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: true Should display override error with setError component's public method ({ valid: false, lock: false }) 1`] = `
+<mg-input-rich-text-editor>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
+        </div>
+      </div>
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -467,8 +609,8 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
 </mg-input-rich-text-editor>
 `;
 
-exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: false, lock: true }) 3`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: true Should display override error with setError component's public method ({ valid: false, lock: false }) 2`] = `
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -484,15 +626,18 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea aria-describedby="identifier-error" name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
       <div id="identifier-error" slot="error">
         Override error
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -508,8 +653,8 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
 </mg-input-rich-text-editor>
 `;
 
-exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: true, lock: false }) 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: true Should display override error with setError component's public method ({ valid: false, lock: true }) 1`] = `
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -522,47 +667,15 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
-        </div>
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-rich-text-editor>
-`;
-
-exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: true, lock: false }) 2`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
-  <template shadowrootmode="open">
-    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
           </div>
         </div>
-      </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
-        </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -578,8 +691,8 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
 </mg-input-rich-text-editor>
 `;
 
-exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: true, lock: false }) 3`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: true Should display override error with setError component's public method ({ valid: false, lock: true }) 2`] = `
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -595,15 +708,18 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea aria-describedby="identifier-error" name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
       <div id="identifier-error" slot="error">
-        This field is required.
+        Override error
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -619,8 +735,8 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
 </mg-input-rich-text-editor>
 `;
 
-exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: true, lock: true }) 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: true Should display override error with setError component's public method ({ valid: true, lock: false }) 1`] = `
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -633,12 +749,15 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -654,8 +773,8 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
 </mg-input-rich-text-editor>
 `;
 
-exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: true, lock: true }) 2`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: true Should display override error with setError component's public method ({ valid: true, lock: false }) 2`] = `
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -668,12 +787,15 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -689,10 +811,10 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
 </mg-input-rich-text-editor>
 `;
 
-exports[`mg-input-rich-text-editor Methods Should display override error with setError component's public method ({ valid: true, lock: true }) 3`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: true Should display override error with setError component's public method ({ valid: true, lock: true }) 1`] = `
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--rich-text-editor">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -701,20 +823,55 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
           <div class="mg-c-input__input">
             <slot></slot>
           </div>
-          <div aria-live="assertive" class="mg-c-input__error">
-            <slot name="error"></slot>
+        </div>
+      </template>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
+        </div>
+      </div>
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          label
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-rich-text-editor>
+`;
+
+exports[`mg-input-rich-text-editor Methods Should return validity with isValid method, readonly: true Should display override error with setError component's public method ({ valid: true, lock: true }) 2`] = `
+<mg-input-rich-text-editor>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--rich-text-editor">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -731,7 +888,7 @@ exports[`mg-input-rich-text-editor Methods Should display override error with se
 `;
 
 exports[`mg-input-rich-text-editor Methods getEditorHTML should return correct content 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -744,14 +901,19 @@ exports[`mg-input-rich-text-editor Methods getEditorHTML should return correct c
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <p>
-            Test content
-          </p>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox">
+              <p>
+                Test content
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -763,7 +925,7 @@ exports[`mg-input-rich-text-editor Methods getEditorHTML should return correct c
 `;
 
 exports[`mg-input-rich-text-editor Methods getEditorText should return correct content 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -776,12 +938,17 @@ exports[`mg-input-rich-text-editor Methods getEditorText should return correct c
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          Test content
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox">
+              Test content
+            </div>
+          </div>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -797,7 +964,7 @@ exports[`mg-input-rich-text-editor Should render with args {
   tooltip: 'Tooltip message',
   tooltipPosition: 'input'
 }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -831,7 +998,7 @@ exports[`mg-input-rich-text-editor Should render with args {
   tooltipPosition: 'input',
   value: '<p>Content</p>'
 }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -869,7 +1036,7 @@ exports[`mg-input-rich-text-editor Should render with args {
   value: '<p>Content</p>',
   helpText: 'My help text'
 }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -885,17 +1052,22 @@ exports[`mg-input-rich-text-editor Should render with args {
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <p>
-            Content
-          </p>
+      <div class="mg-c-input__wrapper"><textarea aria-describedby="identifier-help-text" name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-describedby="identifier-help-text" aria-disabled="true" aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox">
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -912,7 +1084,7 @@ exports[`mg-input-rich-text-editor Should render with args {
   value: '<p>Content</p>',
   helpText: 'My help text'
 }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -946,7 +1118,7 @@ exports[`mg-input-rich-text-editor Should render with args {
   tooltipPosition: 'input',
   labelOnTop: true
 }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -962,12 +1134,15 @@ exports[`mg-input-rich-text-editor Should render with args {
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -979,7 +1154,7 @@ exports[`mg-input-rich-text-editor Should render with args {
 `;
 
 exports[`mg-input-rich-text-editor Should render with args { labelHide: true }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -992,12 +1167,15 @@ exports[`mg-input-rich-text-editor Should render with args { labelHide: true }: 
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -1009,7 +1187,7 @@ exports[`mg-input-rich-text-editor Should render with args { labelHide: true }: 
 `;
 
 exports[`mg-input-rich-text-editor Should render with args { labelOnTop: true }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -1022,12 +1200,15 @@ exports[`mg-input-rich-text-editor Should render with args { labelOnTop: true }:
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -1039,7 +1220,7 @@ exports[`mg-input-rich-text-editor Should render with args { labelOnTop: true }:
 `;
 
 exports[`mg-input-rich-text-editor Should render with args { readonly: true }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -1065,7 +1246,7 @@ exports[`mg-input-rich-text-editor Should render with args { readonly: true }: 1
 `;
 
 exports[`mg-input-rich-text-editor Should render with args { readonly: true, labelOnTop: true, tooltip: 'Tooltip message' }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--readonly mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -1094,7 +1275,7 @@ exports[`mg-input-rich-text-editor Should render with args { readonly: true, lab
 `;
 
 exports[`mg-input-rich-text-editor Should render with args { readonly: true, value: '<p>Content</p>' }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -1124,7 +1305,7 @@ exports[`mg-input-rich-text-editor Should render with args { readonly: true, val
 `;
 
 exports[`mg-input-rich-text-editor Should render with args { readonly: true, value: 'Content' }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -1152,7 +1333,7 @@ exports[`mg-input-rich-text-editor Should render with args { readonly: true, val
 `;
 
 exports[`mg-input-rich-text-editor Should render with args { required: true, value: '<p>Content</p>', helpText: 'My help text' }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -1168,17 +1349,22 @@ exports[`mg-input-rich-text-editor Should render with args { required: true, val
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <p>
-            Content
-          </p>
+      <div class="mg-c-input__wrapper"><textarea aria-describedby="identifier-help-text" name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-describedby="identifier-help-text" aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox">
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -1195,7 +1381,7 @@ exports[`mg-input-rich-text-editor Should render with args { required: true, val
 `;
 
 exports[`mg-input-rich-text-editor Should render with args { tooltip: 'My Tooltip Message' }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -1211,12 +1397,15 @@ exports[`mg-input-rich-text-editor Should render with args { tooltip: 'My Toolti
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -1228,7 +1417,7 @@ exports[`mg-input-rich-text-editor Should render with args { tooltip: 'My Toolti
 `;
 
 exports[`mg-input-rich-text-editor Should render with args { tooltip: 'My Tooltip Message', labelOnTop: true }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -1244,12 +1433,15 @@ exports[`mg-input-rich-text-editor Should render with args { tooltip: 'My Toolti
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -1261,7 +1453,7 @@ exports[`mg-input-rich-text-editor Should render with args { tooltip: 'My Toolti
 `;
 
 exports[`mg-input-rich-text-editor Should render with args { tooltip: 'My Tooltip Message', tooltipPosition: 'label' }: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -1277,12 +1469,15 @@ exports[`mg-input-rich-text-editor Should render with args { tooltip: 'My Toolti
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label
@@ -1294,7 +1489,7 @@ exports[`mg-input-rich-text-editor Should render with args { tooltip: 'My Toolti
 `;
 
 exports[`mg-input-rich-text-editor Should render with args {}: 1`] = `
-<mg-input-rich-text-editor style="--mg-c-input-rich-text-editor-rows: 5;">
+<mg-input-rich-text-editor>
   <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--rich-text-editor">
       <template shadowrootmode="open">
@@ -1307,12 +1502,15 @@ exports[`mg-input-rich-text-editor Should render with args {}: 1`] = `
           </div>
         </div>
       </template>
-      <div class="mg-c-input__wrapper" id="identifier">
-        <div class="ql-editor">
-          <div></div>
+      <div class="mg-c-input__wrapper"><textarea name="identifier"></textarea>
+        <div class="jodit-container mg-c-input__container">
+          <div aria-label="Text formatting toolbar" class="jodit-toolbar__box mg-c-input__toolbar-box" role="toolbar"></div>
+          <div class="jodit-workplace mg-c-input__workplace">
+            <div aria-labelledby="identifier-title" aria-multiline="true" class="jodit-wysiwyg mg-c-input__wysiwyg" id="identifier" role="textbox"></div>
+          </div>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title id="identifier-title" identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
           label

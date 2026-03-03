@@ -19,7 +19,8 @@ import { Direction, Option, Option as ToggleOption } from "./types";
 import { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
-import { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
+import { ButtonsOption } from "./components/molecules/inputs/mg-input-rich-text-editor/editor/editor.conf";
+import { SanitizerOptions } from "@mgdis/sanitize-html";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
@@ -50,7 +51,8 @@ export { Direction, Option, Option as ToggleOption } from "./types";
 export { RequestMappingType, ResponseMappingType } from "./components/molecules/inputs/mg-input-combobox/mg-input-combobox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
-export { EditorOptionsType } from "./components/molecules/inputs/mg-input-rich-text-editor/editor";
+export { ButtonsOption } from "./components/molecules/inputs/mg-input-rich-text-editor/editor/editor.conf";
+export { SanitizerOptions } from "@mgdis/sanitize-html";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { OptionType, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
@@ -1212,8 +1214,8 @@ export namespace Components {
          */
         "displayError": () => Promise<void>;
         /**
-          * Get editor content in HTML format
-          * @returns HTML content of the editor
+          * Get editor content as HTML
+          * @returns HTML content of the editor (sanitized)
          */
         "getEditorHTML": () => Promise<string>;
         /**
@@ -1248,9 +1250,14 @@ export namespace Components {
          */
         "labelOnTop": boolean;
         /**
-          * Editor modules configuration
+          * Editor modules configuration. Must be passed as an array (e.g. modules=['bold', 'italic', '|', 'ul', 'ol']). Use `|` for a separator/divider in the toolbar. Available modules: - **Text formatting**: `bold`, `italic`, `underline`, `strikethrough`, `eraser` - **Lists**: `ul` (unordered list), `ol` (ordered list) - **Text positioning**: `superscript`, `subscript` - **Colors**: `brush` (text color/background) - **Media**: `link`, `image`, `file` - **Tables**: `table` - **History**: `undo`, `redo` - **Other**: `print`, `source` (HTML source editor)
          */
-        "modules"?: EditorOptionsType['modules'];
+        "modules"?: ButtonsOption;
+        /**
+          * Input name If not set the value equals the identifier
+          * @default this.identifier
+         */
+        "name": string;
         /**
           * Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
          */
@@ -1278,10 +1285,14 @@ export namespace Components {
          */
         "reset": () => Promise<void>;
         /**
-          * Define the number of visible text lines for the control
+          * Define the number of visible text lines for the editor. Impacts the editor height. Content can grow beyond this minimum.
           * @default 5
          */
         "rows": number;
+        /**
+          * Sanitizer configuration in native format. Use disallowTags (array of tag names) and/or disallowAttributes (object mapping tag names to string arrays). Use "*" as tag key to disallow attributes on all tags.
+         */
+        "sanitizerOptions"?: SanitizerOptions;
         /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
@@ -3929,9 +3940,14 @@ declare namespace LocalJSX {
          */
         "labelOnTop"?: boolean;
         /**
-          * Editor modules configuration
+          * Editor modules configuration. Must be passed as an array (e.g. modules=['bold', 'italic', '|', 'ul', 'ol']). Use `|` for a separator/divider in the toolbar. Available modules: - **Text formatting**: `bold`, `italic`, `underline`, `strikethrough`, `eraser` - **Lists**: `ul` (unordered list), `ol` (ordered list) - **Text positioning**: `superscript`, `subscript` - **Colors**: `brush` (text color/background) - **Media**: `link`, `image`, `file` - **Tables**: `table` - **History**: `undo`, `redo` - **Other**: `print`, `source` (HTML source editor)
          */
-        "modules"?: EditorOptionsType['modules'];
+        "modules"?: ButtonsOption;
+        /**
+          * Input name If not set the value equals the identifier
+          * @default this.identifier
+         */
+        "name"?: string;
         /**
           * Emited event when checking validity
          */
@@ -3963,10 +3979,14 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * Define the number of visible text lines for the control
+          * Define the number of visible text lines for the editor. Impacts the editor height. Content can grow beyond this minimum.
           * @default 5
          */
         "rows"?: number;
+        /**
+          * Sanitizer configuration in native format. Use disallowTags (array of tag names) and/or disallowAttributes (object mapping tag names to string arrays). Use "*" as tag key to disallow attributes on all tags.
+         */
+        "sanitizerOptions"?: SanitizerOptions;
         /**
           * Add a tooltip message next to the input
          */
