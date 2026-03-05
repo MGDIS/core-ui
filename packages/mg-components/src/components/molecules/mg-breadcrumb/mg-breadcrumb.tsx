@@ -88,13 +88,7 @@ export class MgBreadcrumb {
       <nav aria-label={this.messages.breadcrumb.label} class="mg-c-breadcrumb">
         <ol class="mg-c-breadcrumb__list">
           {this.items.map((item, index) => (
-            <li
-              key={this.items
-                .slice(0, index + 1)
-                .map(i => i.label)
-                .join(' / ')}
-              class="mg-c-breadcrumb__list-item"
-            >
+            <li key={`${index}-${item.href ?? item.label}`} class="mg-c-breadcrumb__list-item">
               {this.renderItem(item, index === this.items.length - 1)}
             </li>
           ))}
