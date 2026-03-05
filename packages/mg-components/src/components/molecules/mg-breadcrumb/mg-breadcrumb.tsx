@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
+import { Component, Element, h, Prop, Watch } from '@stencil/core';
 import { BreadcrumbItem } from './mg-breadcrumb.conf';
 import { initLocales } from '../../../locales';
 import { isValidString } from '@mgdis/core-ui-helpers/dist/utils';
@@ -45,25 +45,9 @@ export class MgBreadcrumb {
     }
   }
 
-  /**
-   * Emitted when a link is clicked (e.g. for routing without full page reload).
-   * The native event is included so preventDefault() can be called in a single listener.
-   */
-  @Event({ eventName: 'item-click' }) itemClick: EventEmitter<{ href: string; event: MouseEvent }>;
-
   /***********
    * Methods *
    **********/
-
-  /**
-   * Handle link click and emit item-click event (href + native event for preventDefault).
-   */
-  private handleLinkClick = (event: MouseEvent): void => {
-    const anchor = event.currentTarget as HTMLAnchorElement;
-    const href = anchor.getAttribute('href');
-    if (!isValidString(href)) return;
-    this.itemClick.emit({ href, event });
-  };
 
   /**
    * Render a single breadcrumb item (link or current page)
@@ -78,7 +62,7 @@ export class MgBreadcrumb {
       const linkContent = item.icon !== undefined ? <mg-icon icon={item.icon}></mg-icon> : item.label;
       const ariaLabel = item.icon !== undefined ? item.label : undefined;
       return (
-        <a href={item.href} aria-label={ariaLabel} aria-current={isLast ? 'page' : undefined} onClick={this.handleLinkClick}>
+        <a href={item.href} aria-label={ariaLabel} aria-current={isLast ? 'page' : undefined}>
           {linkContent}
         </a>
       );

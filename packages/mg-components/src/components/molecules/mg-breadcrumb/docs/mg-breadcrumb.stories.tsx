@@ -5,7 +5,6 @@ import type { MgBreadcrumb as MgBreadcrumbType } from '../mg-breadcrumb';
 export default {
   component: 'mg-breadcrumb',
   title: 'Molecules/mg-breadcrumb',
-  parameters: { actions: { handles: ['item-click'] } },
 };
 
 /**
