@@ -12,6 +12,8 @@ const getPage = args =>
 
 const expectedItemsError = (value: unknown) => `<mg-breadcrumb> prop "items" is required and all values must be the same type, BreadcrumbItem. Passed value: ${toString(value)}.`;
 
+const isError = (err: unknown): err is Error => err instanceof Error;
+
 describe('mg-breadcrumb', () => {
   test('with args %s', async () => {
     const { root } = await getPage({
@@ -25,7 +27,8 @@ describe('mg-breadcrumb', () => {
     try {
       await getPage(args);
     } catch (err) {
-      expect((err as Error).message).toBe(expectedItemsError(args.items));
+      if (isError(err)) expect(err.message).toBe(expectedItemsError(args.items));
+      else throw err;
     }
   });
 
@@ -35,7 +38,8 @@ describe('mg-breadcrumb', () => {
     try {
       await getPage({ items });
     } catch (err) {
-      expect((err as Error).message).toBe(expectedItemsError(items));
+      if (isError(err)) expect(err.message).toBe(expectedItemsError(items));
+      else throw err;
     }
   });
 
@@ -51,7 +55,8 @@ describe('mg-breadcrumb', () => {
     try {
       await getPage({ items });
     } catch (err) {
-      expect((err as Error).message).toBe(expectedItemsError(items));
+      if (isError(err)) expect(err.message).toBe(expectedItemsError(items));
+      else throw err;
     }
   });
 
