@@ -2915,7 +2915,7 @@ declare namespace LocalJSX {
         /**
           * Breadcrumb items (hierarchical order: root → current page). Must be set via JavaScript (property only). Passing via HTML attribute is not supported.
          */
-        "items"?: BreadcrumbItem[];
+        "items": BreadcrumbItem[];
     }
     interface MgButton {
         /**

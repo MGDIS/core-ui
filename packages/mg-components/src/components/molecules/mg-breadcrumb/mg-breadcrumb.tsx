@@ -1,7 +1,19 @@
 import { Component, Element, h, Prop, Watch } from '@stencil/core';
 import { BreadcrumbItem } from './mg-breadcrumb.conf';
 import { initLocales } from '../../../locales';
-import { isValidString } from '@mgdis/core-ui-helpers/dist/utils';
+import { isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+
+/**
+ * Type guard for BreadcrumbItem[]
+ * @param items - value to check
+ * @returns true if items is a non-empty array of valid BreadcrumbItem (label required, href required except for last item)
+ */
+const isBreadcrumbItems = (items: unknown): items is BreadcrumbItem[] =>
+  Array.isArray(items) &&
+  items.length > 0 &&
+  items.every(
+    (item, index) => typeof item === 'object' && item !== null && isValidString(item.label) && item.label.trim() !== '' && (index === items.length - 1 || isValidString(item.href)),
+  );
 
 @Component({
   tag: 'mg-breadcrumb',
@@ -28,20 +40,11 @@ export class MgBreadcrumb {
    * Breadcrumb items (hierarchical order: root → current page).
    * Must be set via JavaScript (property only). Passing via HTML attribute is not supported.
    */
-  @Prop() items: BreadcrumbItem[];
+  @Prop() items!: BreadcrumbItem[];
   @Watch('items')
-  validateItems(items: BreadcrumbItem[]): void {
-    if (items !== undefined) {
-      if (typeof items === 'string') {
-        throw new Error(`<mg-breadcrumb> prop "items": Must be set via JavaScript (property), not via HTML attribute.`);
-      }
-      if (items.length === 0 || items.some(item => !isValidString(item.label) || item.label.trim() === '')) {
-        throw new Error(`<mg-breadcrumb> prop "items": Cannot be empty and each item must have a non-empty label.`);
-      }
-      const itemWithoutHref = items.findIndex((item, index) => index < items.length - 1 && !isValidString(item.href));
-      if (itemWithoutHref !== -1) {
-        throw new Error(`<mg-breadcrumb> prop "items": Only the last item may have no href (current page). Item at index ${itemWithoutHref} has no href.`);
-      }
+  validateItems(newValue: MgBreadcrumb['items']): void {
+    if (newValue === undefined || !isBreadcrumbItems(newValue)) {
+      throw new Error(`<mg-breadcrumb> prop "items" is required and all values must be the same type, BreadcrumbItem. Passed value: ${toString(newValue)}.`);
     }
   }
 

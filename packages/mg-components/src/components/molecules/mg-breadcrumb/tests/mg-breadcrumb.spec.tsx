@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
+import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { MgBreadcrumb } from '../mg-breadcrumb';
 import { MgIcon } from '../../../atoms/mg-icon/mg-icon';
 
@@ -8,6 +9,8 @@ const getPage = args =>
     components: [MgBreadcrumb, MgIcon],
     template: () => <mg-breadcrumb {...args}></mg-breadcrumb>,
   });
+
+const expectedItemsError = (value: unknown) => `<mg-breadcrumb> prop "items" is required and all values must be the same type, BreadcrumbItem. Passed value: ${toString(value)}.`;
 
 describe('mg-breadcrumb', () => {
   test('with args %s', async () => {
@@ -22,34 +25,33 @@ describe('mg-breadcrumb', () => {
     try {
       await getPage(args);
     } catch (err) {
-      expect((err as Error).message).toBe('<mg-breadcrumb> prop "items": Cannot be empty and each item must have a non-empty label.');
+      expect((err as Error).message).toBe(expectedItemsError(args.items));
     }
   });
 
   test('Should throw error when items is passed via HTML attribute (string)', async () => {
     expect.assertions(1);
+    const items = '[{"label":"Home","href":"/"}]';
     try {
-      await getPage({ items: '[{"label":"Home","href":"/"}]' });
+      await getPage({ items });
     } catch (err) {
-      expect((err as Error).message).toBe('<mg-breadcrumb> prop "items": Must be set via JavaScript (property), not via HTML attribute.');
+      expect((err as Error).message).toBe(expectedItemsError(items));
     }
   });
 
   test.each([
     {
       items: [{ label: 'Home' }, { label: 'Section', href: '/section' }, { label: 'Current page' }],
-      expectedIndex: 0,
     },
     {
       items: [{ label: 'Home', href: '/' }, { label: 'Section' }, { label: 'Current page', href: '/current' }],
-      expectedIndex: 1,
     },
-  ])('Should throw error when a non-last item has no href', async ({ items, expectedIndex }) => {
+  ])('Should throw error when a non-last item has no href', async ({ items }) => {
     expect.assertions(1);
     try {
       await getPage({ items });
     } catch (err) {
-      expect((err as Error).message).toBe(`<mg-breadcrumb> prop "items": Only the last item may have no href (current page). Item at index ${expectedIndex} has no href.`);
+      expect((err as Error).message).toBe(expectedItemsError(items));
     }
   });
 
