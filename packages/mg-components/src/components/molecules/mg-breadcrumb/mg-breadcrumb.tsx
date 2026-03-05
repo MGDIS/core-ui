@@ -93,7 +93,7 @@ export class MgBreadcrumb {
                 .slice(0, index + 1)
                 .map(i => i.label)
                 .join(' / ')}
-              class="mg-c-breadcrumb__item"
+              class="mg-c-breadcrumb__list-item"
             >
               {this.renderItem(item, index === this.items.length - 1)}
             </li>

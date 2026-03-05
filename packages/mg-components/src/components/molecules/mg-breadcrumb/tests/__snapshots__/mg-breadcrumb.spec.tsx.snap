@@ -5,7 +5,7 @@ exports[`mg-breadcrumb with args %s 1`] = `
   <template shadowrootmode="open">
     <nav aria-label="Breadcrumb" class="mg-c-breadcrumb">
       <ol class="mg-c-breadcrumb__list">
-        <li class="mg-c-breadcrumb__item">
+        <li class="mg-c-breadcrumb__list-item">
           <a aria-label="Home" href="/">
             <mg-icon>
               <template shadowrootmode="open">
@@ -16,12 +16,12 @@ exports[`mg-breadcrumb with args %s 1`] = `
             </mg-icon>
           </a>
         </li>
-        <li class="mg-c-breadcrumb__item">
+        <li class="mg-c-breadcrumb__list-item">
           <a href="/lorem">
             Lorem ipsum dolor sit amet
           </a>
         </li>
-        <li class="mg-c-breadcrumb__item">
+        <li class="mg-c-breadcrumb__list-item">
           <span aria-current="page">
             Current page
           </span>
