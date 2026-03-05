@@ -2,6 +2,7 @@ import { Component, Element, h, Prop, Watch } from '@stencil/core';
 import { BreadcrumbItem } from './mg-breadcrumb.conf';
 import { initLocales } from '../../../locales';
 import { isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import type { MessageType } from '../../../locales/index.conf';
 
 /**
  * Type guard for BreadcrumbItem[]
@@ -25,7 +26,7 @@ export class MgBreadcrumb {
    * Internal *
    ************/
 
-  private messages: { breadcrumb: { label: string } };
+  private messages: MessageType;
 
   /**************
    * Decorators *
@@ -80,12 +81,12 @@ export class MgBreadcrumb {
 
   componentWillLoad(): void {
     this.validateItems(this.items);
-    this.messages = initLocales(this.element).messages as { breadcrumb: { label: string } };
+    this.messages = initLocales(this.element).messages.breadcrumb as MessageType;
   }
 
   render(): HTMLElement {
     return (
-      <nav aria-label={this.messages.breadcrumb.label} class="mg-c-breadcrumb">
+      <nav aria-label={this.messages.label} class="mg-c-breadcrumb">
         <ol class="mg-c-breadcrumb__list">
           {this.items.map((item, index) => (
             <li key={`${index}-${item.href ?? item.label}`} class="mg-c-breadcrumb__list-item">
