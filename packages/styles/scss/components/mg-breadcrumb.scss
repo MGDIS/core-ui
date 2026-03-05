@@ -20,8 +20,13 @@
       margin-inline: var(--mg-b-size-8);
     }
 
+    &:has(mg-icon) a {
+      padding: var(--mg-b-size-4);
+      margin: calc(var(--mg-b-size-4) * -1);
+    }
+
     mg-icon {
-      margin-block-start: 0.15rem;
+      margin-block-start: 0.2rem;
       vertical-align: top;
     }
   }
