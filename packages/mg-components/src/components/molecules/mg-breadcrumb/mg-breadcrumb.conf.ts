@@ -3,7 +3,7 @@ import type { IconType } from '../../atoms/mg-icon/mg-icon.conf';
 /**
  * Breadcrumb item type
  */
-export type BreadcrumbItem = {
+export type BreadcrumbItemType = {
   /** Displayed label (link text or current page text). Always required. */
   label: string;
   /**

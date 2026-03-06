@@ -1,15 +1,15 @@
 import { Component, Element, h, Prop, Watch } from '@stencil/core';
-import { BreadcrumbItem } from './mg-breadcrumb.conf';
+import { BreadcrumbItemType } from './mg-breadcrumb.conf';
 import { initLocales } from '../../../locales';
 import { isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import type { MessageType } from '../../../locales/index.conf';
 
 /**
- * Type guard for BreadcrumbItem[]
+ * Type guard for BreadcrumbItemType[]
  * @param items - value to check
- * @returns true if items is a non-empty array of valid BreadcrumbItem (label required, href required except for last item)
+ * @returns true if items is a non-empty array of valid BreadcrumbItemType (label required, href required except for last item)
  */
-const isBreadcrumbItems = (items: unknown): items is BreadcrumbItem[] =>
+const isBreadcrumbItems = (items: unknown): items is BreadcrumbItemType[] =>
   Array.isArray(items) &&
   items.length > 0 &&
   items.every(
@@ -41,11 +41,11 @@ export class MgBreadcrumb {
    * Breadcrumb items (hierarchical order: root → current page).
    * Must be set via JavaScript (property only). Passing via HTML attribute is not supported.
    */
-  @Prop() items!: BreadcrumbItem[];
+  @Prop() items!: BreadcrumbItemType[];
   @Watch('items')
   validateItems(newValue: MgBreadcrumb['items']): void {
     if (newValue === undefined || !isBreadcrumbItems(newValue)) {
-      throw new Error(`<mg-breadcrumb> prop "items" is required and all values must be the same type, BreadcrumbItem. Passed value: ${toString(newValue)}.`);
+      throw new Error(`<mg-breadcrumb> prop "items" is required and all values must be the same type, BreadcrumbItemType. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -59,15 +59,11 @@ export class MgBreadcrumb {
    * @param isLast - Whether this item is the last in the list
    * @returns The rendered link or span element
    */
-  private renderItem(item: BreadcrumbItem, isLast: boolean): HTMLElement {
-    const isLink = isValidString(item.href);
-
-    if (isLink) {
-      const linkContent = item.icon !== undefined ? <mg-icon icon={item.icon}></mg-icon> : item.label;
-      const ariaLabel = item.icon !== undefined ? item.label : undefined;
+  private renderItem(item: BreadcrumbItemType, isLast: boolean): HTMLElement {
+    if (isValidString(item.href)) {
       return (
-        <a href={item.href} aria-label={ariaLabel} aria-current={isLast ? 'page' : undefined}>
-          {linkContent}
+        <a href={item.href} aria-label={item.icon !== undefined ? item.label : undefined} aria-current={isLast ? 'page' : undefined}>
+          {item.icon !== undefined ? <mg-icon icon={item.icon}></mg-icon> : item.label}
         </a>
       );
     }

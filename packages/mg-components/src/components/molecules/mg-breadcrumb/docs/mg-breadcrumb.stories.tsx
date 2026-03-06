@@ -12,7 +12,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgBreadcrumbType): HTMLElement => <mg-breadcrumb {...filterArgs(args)}></mg-breadcrumb>;
+const Template = (args: MgBreadcrumbType): HTMLMgBreadcrumbElement => <mg-breadcrumb {...filterArgs(args)}></mg-breadcrumb>;
 
 export const MgBreadcrumb = {
   render: Template,

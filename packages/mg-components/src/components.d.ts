@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 import { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
-import { BreadcrumbItem } from "./components/molecules/mg-breadcrumb/mg-breadcrumb.conf";
+import { BreadcrumbItemType } from "./components/molecules/mg-breadcrumb/mg-breadcrumb.conf";
 import { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 import { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
 import { labelHeading, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
@@ -41,7 +41,7 @@ import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
-export { BreadcrumbItem } from "./components/molecules/mg-breadcrumb/mg-breadcrumb.conf";
+export { BreadcrumbItemType } from "./components/molecules/mg-breadcrumb/mg-breadcrumb.conf";
 export { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 export { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
 export { labelHeading, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
@@ -132,7 +132,7 @@ export namespace Components {
         /**
           * Breadcrumb items (hierarchical order: root → current page). Must be set via JavaScript (property only). Passing via HTML attribute is not supported.
          */
-        "items": BreadcrumbItem[];
+        "items": BreadcrumbItemType[];
     }
     interface MgButton {
         /**
@@ -2915,7 +2915,7 @@ declare namespace LocalJSX {
         /**
           * Breadcrumb items (hierarchical order: root → current page). Must be set via JavaScript (property only). Passing via HTML attribute is not supported.
          */
-        "items": BreadcrumbItem[];
+        "items": BreadcrumbItemType[];
     }
     interface MgButton {
         /**

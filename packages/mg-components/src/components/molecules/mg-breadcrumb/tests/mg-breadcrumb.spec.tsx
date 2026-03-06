@@ -10,37 +10,33 @@ const getPage = args =>
     template: () => <mg-breadcrumb {...args}></mg-breadcrumb>,
   });
 
-const expectedItemsError = (value: unknown) => `<mg-breadcrumb> prop "items" is required and all values must be the same type, BreadcrumbItem. Passed value: ${toString(value)}.`;
+const expectedItemsError = (value: unknown) =>
+  `<mg-breadcrumb> prop "items" is required and all values must be the same type, BreadcrumbItemType. Passed value: ${toString(value)}.`;
 
-const isError = (err: unknown): err is Error => err instanceof Error;
+const expectGetPageToThrowErrorMessage = async (args: unknown, expectedMessage: string) => {
+  const promise = Promise.resolve().then(() => getPage(args));
+  await expect(promise).rejects.toBeInstanceOf(Error);
+  await expect(promise).rejects.toHaveProperty('message', expectedMessage);
+};
 
 describe('mg-breadcrumb', () => {
   test('with args %s', async () => {
-    const { root } = await getPage({
-      items: [{ label: 'Home', href: '/', icon: 'home-outline' }, { label: 'Lorem ipsum dolor sit amet', href: '/lorem' }, { label: 'Current page' }],
-    });
-    expect(root).toMatchSnapshot();
+    expect(
+      (
+        await getPage({
+          items: [{ label: 'Home', href: '/', icon: 'home-outline' }, { label: 'Lorem ipsum dolor sit amet', href: '/lorem' }, { label: 'Current page' }],
+        })
+      ).root,
+    ).toMatchSnapshot();
   });
 
   test.each([{ items: [] }, { items: [{ label: '' }] }, { items: [{ label: '   ' }] }])('Should throw error with invalid items: %s', async args => {
-    expect.assertions(1);
-    try {
-      await getPage(args);
-    } catch (err) {
-      if (isError(err)) expect(err.message).toBe(expectedItemsError(args.items));
-      else throw err;
-    }
+    await expectGetPageToThrowErrorMessage(args, expectedItemsError(args.items));
   });
 
   test('Should throw error when items is passed via HTML attribute (string)', async () => {
-    expect.assertions(1);
     const items = '[{"label":"Home","href":"/"}]';
-    try {
-      await getPage({ items });
-    } catch (err) {
-      if (isError(err)) expect(err.message).toBe(expectedItemsError(items));
-      else throw err;
-    }
+    await expectGetPageToThrowErrorMessage({ items }, expectedItemsError(items));
   });
 
   test.each([
@@ -51,13 +47,7 @@ describe('mg-breadcrumb', () => {
       items: [{ label: 'Home', href: '/' }, { label: 'Section' }, { label: 'Current page', href: '/current' }],
     },
   ])('Should throw error when a non-last item has no href', async ({ items }) => {
-    expect.assertions(1);
-    try {
-      await getPage({ items });
-    } catch (err) {
-      if (isError(err)) expect(err.message).toBe(expectedItemsError(items));
-      else throw err;
-    }
+    await expectGetPageToThrowErrorMessage({ items }, expectedItemsError(items));
   });
 
   test('Should set aria-label on link when item has icon', async () => {
@@ -65,10 +55,7 @@ describe('mg-breadcrumb', () => {
       items: [{ label: 'Home', href: '/', icon: 'home' }, { label: 'Current page' }],
     });
 
-    const mgBreadcrumb = page.doc.querySelector('mg-breadcrumb');
-    const linkWithIcon = mgBreadcrumb.shadowRoot.querySelector('a');
-
-    expect(linkWithIcon.getAttribute('aria-label')).toBe('Home');
+    expect(page.doc.querySelector('mg-breadcrumb').shadowRoot.querySelector('a').getAttribute('aria-label')).toBe('Home');
   });
 
   test('Should set aria-current="page" on last link when last item has href', async () => {
@@ -79,11 +66,8 @@ describe('mg-breadcrumb', () => {
       ],
     });
 
-    const mgBreadcrumb = page.doc.querySelector('mg-breadcrumb');
-    const links = mgBreadcrumb.shadowRoot.querySelectorAll('a');
-    const lastLink = links[links.length - 1];
-
-    expect(lastLink.getAttribute('aria-current')).toBe('page');
+    const links = page.doc.querySelector('mg-breadcrumb').shadowRoot.querySelectorAll('a');
+    expect(links[links.length - 1].getAttribute('aria-current')).toBe('page');
   });
 
   test('Should not set aria-label on link when item has no icon', async () => {
@@ -91,11 +75,8 @@ describe('mg-breadcrumb', () => {
       items: [{ label: 'Home', href: '/', icon: 'home' }, { label: 'Lorem ipsum dolor sit amet', href: '/lorem' }, { label: 'Current page' }],
     });
 
-    const mgBreadcrumb = page.doc.querySelector('mg-breadcrumb');
-    const links = mgBreadcrumb.shadowRoot.querySelectorAll('a');
-    const textLink = links[1];
-
-    expect(textLink.hasAttribute('aria-label')).toBe(false);
+    const links = page.doc.querySelector('mg-breadcrumb').shadowRoot.querySelectorAll('a');
+    expect(links[1].hasAttribute('aria-label')).toBe(false);
   });
 
   test('Should update rendered list when items prop changes', async () => {

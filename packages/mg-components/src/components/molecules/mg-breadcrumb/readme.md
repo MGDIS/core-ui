@@ -7,9 +7,9 @@ The breadcrumb displays the user's location in the hierarchy and allows navigati
 
 ## Properties
 
-| Property             | Attribute | Description                                                                                                                                          | Type               | Default     |
-| -------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
-| `items` _(required)_ | --        | Breadcrumb items (hierarchical order: root → current page). Must be set via JavaScript (property only). Passing via HTML attribute is not supported. | `BreadcrumbItem[]` | `undefined` |
+| Property             | Attribute | Description                                                                                                                                          | Type                   | Default     |
+| -------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
+| `items` _(required)_ | --        | Breadcrumb items (hierarchical order: root → current page). Must be set via JavaScript (property only). Passing via HTML attribute is not supported. | `BreadcrumbItemType[]` | `undefined` |
 
 
 ## Dependencies
