@@ -45,6 +45,8 @@ const getValues = (length?: number): CheckboxValue[] =>
       }))
     : getDefaultValues();
 
+const getInputsList = (element: HTMLMgInputCheckboxElement): HTMLInputElement[] => Array.from(element.shadowRoot.querySelectorAll('input'));
+
 describe('mg-input-checkbox', () => {
   beforeEach(() => {
     jest.useFakeTimers({ legacyFakeTimers: true });
@@ -147,7 +149,7 @@ describe('mg-input-checkbox', () => {
       const value = getValues().map((item, index) => ({ ...item, value: index === 0 ? !validity : false }));
       const page = await getPage({ label: 'label', type, identifier: 'identifier', value, required: true });
       const element = page.doc.querySelector('mg-input-checkbox');
-      const allInputs: HTMLInputElement[] = Array.from(element.shadowRoot.querySelectorAll('input'));
+      const allInputs: HTMLInputElement[] = getInputsList(element);
 
       // define spys
       jest.spyOn(page.rootInstance.valueChange, 'emit');
@@ -300,7 +302,7 @@ describe('mg-input-checkbox', () => {
         expect(page.root).toMatchSnapshot();
 
         const element = page.doc.querySelector('mg-input-checkbox');
-        const inputs = Array.from(element.shadowRoot.querySelectorAll('input'));
+        const inputs = getInputsList(element);
         let validity = false;
 
         //mock validity
@@ -565,7 +567,7 @@ describe('mg-input-checkbox', () => {
     test('Should NOT manage keyboard "tab" navigation on "checkbox" type', async () => {
       const page = await getPage({ label: 'label', identifier: 'identifier', value: getValues(), type: 'checkbox', tooltip: 'Tooltip message' });
       const element = page.doc.querySelector('mg-input-checkbox');
-      const allInputs = Array.from(element.shadowRoot.querySelectorAll('input'));
+      const allInputs = getInputsList(element);
 
       allInputs.forEach(input => input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab' })));
       jest.runOnlyPendingTimers();
@@ -583,7 +585,7 @@ describe('mg-input-checkbox', () => {
     test('Should render error when uncheck from label click', async () => {
       const page = await getPage({ label: 'label', identifier: 'identifier', value: getValues(), type: 'checkbox', tooltip: 'Tooltip message', required: true });
       const element = page.doc.querySelector('mg-input-checkbox');
-      const allInputs = Array.from(element.shadowRoot.querySelectorAll('input'));
+      const allInputs = getInputsList(element);
       const label = element.shadowRoot.querySelector('label');
       const input = allInputs[0];
 
@@ -628,7 +630,7 @@ describe('mg-input-checkbox', () => {
         tooltip: 'Tooltip message',
       });
       const element = page.doc.querySelector('mg-input-checkbox');
-      const allInputs = Array.from(element.shadowRoot.querySelectorAll('input'));
+      const allInputs = getInputsList(element);
       const button = element.shadowRoot.querySelector('mg-button');
       const popover = element.shadowRoot.querySelector('mg-popover');
 
@@ -685,7 +687,6 @@ describe('mg-input-checkbox', () => {
   describe('multi search', () => {
     test('Should enable return search result and update pagination', async () => {
       const value = getValues(21);
-      const getResultList = (mgInputCheckbox: HTMLMgInputCheckboxElement) => Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('li'));
       const page = await getPage({ label: 'label', identifier: 'identifier', value });
       expect(page.root).toMatchSnapshot();
 
@@ -697,28 +698,28 @@ describe('mg-input-checkbox', () => {
       await page.waitForChanges();
       jest.runOnlyPendingTimers();
 
-      let resultList = getResultList(mgInputCheckbox);
+      let resultList = getInputsList(mgInputCheckbox);
 
       expect(resultList.length).toEqual(10);
 
       searchInput.dispatchEvent(new CustomEvent('value-change', { detail: '2' }));
       await page.waitForChanges();
 
-      resultList = getResultList(mgInputCheckbox);
+      resultList = getInputsList(mgInputCheckbox);
       expect(resultList.length).toEqual(4);
       expect(page.root).toMatchSnapshot();
 
       searchInput.dispatchEvent(new CustomEvent('value-change', { detail: '11' }));
       await page.waitForChanges();
 
-      resultList = getResultList(mgInputCheckbox);
+      resultList = getInputsList(mgInputCheckbox);
       expect(resultList.length).toEqual(1);
       expect(page.root).toMatchSnapshot();
 
       searchInput.dispatchEvent(new CustomEvent('value-change', { detail: '111' }));
       await page.waitForChanges();
 
-      resultList = getResultList(mgInputCheckbox);
+      resultList = getInputsList(mgInputCheckbox);
       expect(resultList.length).toEqual(0);
       expect(page.root).toMatchSnapshot();
 
@@ -792,7 +793,6 @@ describe('mg-input-checkbox', () => {
 
     test('Should load-more items when button is clicked', async () => {
       const value = getValues(21);
-      const getResultList = (mgInputCheckbox: HTMLMgInputCheckboxElement) => Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('li'));
       const page = await getPage({ label: 'label', identifier: 'identifier', value });
       expect(page.root).toMatchSnapshot();
 
@@ -804,21 +804,21 @@ describe('mg-input-checkbox', () => {
       await page.waitForChanges();
       jest.runOnlyPendingTimers();
 
-      let resultList = getResultList(mgInputCheckbox);
+      let resultList = getInputsList(mgInputCheckbox);
 
       expect(resultList.length).toEqual(10);
 
       loadMoreButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
-      resultList = getResultList(mgInputCheckbox);
+      resultList = getInputsList(mgInputCheckbox);
       expect(resultList.length).toEqual(20);
       expect(page.root).toMatchSnapshot();
 
       loadMoreButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
-      resultList = getResultList(mgInputCheckbox);
+      resultList = getInputsList(mgInputCheckbox);
       expect(resultList.length).toEqual(21);
       expect(page.root).toMatchSnapshot();
     });

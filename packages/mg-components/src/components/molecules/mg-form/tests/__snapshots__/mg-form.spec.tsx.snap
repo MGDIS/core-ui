@@ -31,20 +31,20 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-checkbox-error" aria-invalid="true" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-checkbox-error" aria-invalid="true" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <div id="mg-input-checkbox-error" slot="error">
           This field is required.
         </div>
@@ -271,32 +271,32 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-radio-error" id="mg-input-radio_0" name="mg-input-radio" required="" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-radio-error" id="mg-input-radio_1" name="mg-input-radio" required="" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-radio-error" id="mg-input-radio_2" name="mg-input-radio" required="" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-radio-error" id="mg-input-radio_3" name="mg-input-radio" required="" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <div id="mg-input-radio-error" slot="error">
           This field is required.
         </div>
@@ -604,32 +604,32 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
               </div>
             </div>
           </template>
-          <ul class="mg-c-input__input-group-container" role="list">
-            <li class="mg-c-input__input-group">
+          <div class="mg-c-input__input-group-container">
+            <div class="mg-c-input__input-group">
               <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
               <label htmlfor="mg-input-radio_0">
                 batman
               </label>
-            </li>
-            <li class="mg-c-input__input-group">
+            </div>
+            <div class="mg-c-input__input-group">
               <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
               <label htmlfor="mg-input-radio_1">
                 robin
               </label>
-            </li>
-            <li class="mg-c-input__input-group">
+            </div>
+            <div class="mg-c-input__input-group">
               <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
               <label htmlfor="mg-input-radio_2">
                 joker
               </label>
-            </li>
-            <li class="mg-c-input__input-group">
+            </div>
+            <div class="mg-c-input__input-group">
               <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
               <label htmlfor="mg-input-radio_3">
                 bane
               </label>
-            </li>
-          </ul>
+            </div>
+          </div>
           <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
             <!---->
             <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -1075,20 +1075,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -1285,32 +1285,32 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" required="" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" required="" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" required="" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" required="" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -1576,20 +1576,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -1771,32 +1771,32 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -2032,20 +2032,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -2222,32 +2222,32 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -2483,20 +2483,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -2545,20 +2545,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -2730,32 +2730,32 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -2984,20 +2984,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -3194,32 +3194,32 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" required="" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" required="" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" required="" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" required="" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -3478,20 +3478,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -3673,32 +3673,32 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -3927,20 +3927,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -4117,32 +4117,32 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -4371,20 +4371,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -4426,20 +4426,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -4611,32 +4611,32 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -4868,20 +4868,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -5078,32 +5078,32 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" required="" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" required="" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" required="" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" required="" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -5369,20 +5369,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -5564,32 +5564,32 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -5825,20 +5825,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -6015,32 +6015,32 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -6272,20 +6272,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -6327,20 +6327,20 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -6512,32 +6512,32 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -6763,20 +6763,20 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -6948,32 +6948,32 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -7499,20 +7499,20 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group mg-c-input__input-group--disabled">
             <input aria-invalid="false" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          </div>
+          <div class="mg-c-input__input-group mg-c-input__input-group--disabled">
             <input aria-invalid="false" disabled="" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -7684,32 +7684,32 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group mg-c-input__input-group--disabled">
             <input disabled="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          </div>
+          <div class="mg-c-input__input-group mg-c-input__input-group--disabled">
             <input disabled="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          </div>
+          <div class="mg-c-input__input-group mg-c-input__input-group--disabled">
             <input disabled="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          </div>
+          <div class="mg-c-input__input-group mg-c-input__input-group--disabled">
             <input disabled="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -7935,20 +7935,20 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -8120,32 +8120,32 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -8671,20 +8671,20 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -8856,32 +8856,32 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -9107,20 +9107,20 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -9292,32 +9292,32 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -9543,20 +9543,20 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -9728,32 +9728,32 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -9979,20 +9979,20 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -10164,32 +10164,32 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -10415,20 +10415,20 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -10600,32 +10600,32 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -10851,20 +10851,20 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -11036,32 +11036,32 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -11293,20 +11293,20 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-checkbox-error" aria-invalid="true" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-checkbox-error" aria-invalid="true" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <div id="mg-input-checkbox-error" slot="error">
           Ce champ est obligatoire.
         </div>
@@ -11533,32 +11533,32 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-radio-error" id="mg-input-radio_0" name="mg-input-radio" required="" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-radio-error" id="mg-input-radio_1" name="mg-input-radio" required="" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-radio-error" id="mg-input-radio_2" name="mg-input-radio" required="" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-radio-error" id="mg-input-radio_3" name="mg-input-radio" required="" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <div id="mg-input-radio-error" slot="error">
           Ce champ est obligatoire.
         </div>
@@ -11853,20 +11853,20 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container" id="checkboxes-list">
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-checkbox-error" aria-invalid="true" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_0">
               oui
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-checkbox-error" aria-invalid="true" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
             <label htmlfor="mg-input-checkbox_1">
               non
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <div id="mg-input-checkbox-error" slot="error">
           This field is required.
         </div>
@@ -12093,32 +12093,32 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </div>
           </div>
         </template>
-        <ul class="mg-c-input__input-group-container" role="list">
-          <li class="mg-c-input__input-group">
+        <div class="mg-c-input__input-group-container">
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-radio-error" id="mg-input-radio_0" name="mg-input-radio" required="" type="radio" value="0">
             <label htmlfor="mg-input-radio_0">
               blu
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-radio-error" id="mg-input-radio_1" name="mg-input-radio" required="" type="radio" value="1">
             <label htmlfor="mg-input-radio_1">
               bli
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-radio-error" id="mg-input-radio_2" name="mg-input-radio" required="" type="radio" value="2">
             <label htmlfor="mg-input-radio_2">
               bla
             </label>
-          </li>
-          <li class="mg-c-input__input-group">
+          </div>
+          <div class="mg-c-input__input-group">
             <input aria-describedby="mg-input-radio-error" id="mg-input-radio_3" name="mg-input-radio" required="" type="radio" value="3">
             <label htmlfor="mg-input-radio_3">
               blo
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
         <div id="mg-input-radio-error" slot="error">
           This field is required.
         </div>
