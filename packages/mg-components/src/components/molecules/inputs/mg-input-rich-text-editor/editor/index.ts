@@ -1,142 +1,367 @@
 import { isValidString } from '@mgdis/core-ui-helpers/dist/utils';
-import Quill, { type QuillOptions } from 'quill';
+import { Jodit } from 'jodit';
+// Import Jodit plugins
+import 'jodit/esm/plugins/select/select.js';
+import 'jodit/esm/plugins/resizer/resizer.js';
+import 'jodit/esm/plugins/table/table.js';
+import 'jodit/esm/plugins/select-cells/select-cells.js';
+import 'jodit/esm/plugins/resize-cells/resize-cells.js';
+import 'jodit/esm/plugins/table-keyboard-navigation/table-keyboard-navigation.js';
+import 'jodit/esm/plugins/inline-popup/inline-popup.js';
+import 'jodit/esm/plugins/clean-html/clean-html.js';
+import 'jodit/esm/plugins/delete/delete.js';
+import 'jodit/esm/plugins/file/file.js';
+import 'jodit/esm/plugins/print/print.js';
+import 'jodit/esm/plugins/source/source.js';
+// Import editor types
+import type { DefineEditorConfig, IJodit } from './editor.conf';
 
-export type EditorOptionsType = QuillOptions & {
-  value: string;
-  handleTextChange: () => void;
-  handleFocus: () => void;
-  handleBlur: () => void;
-};
-
-export type EditorType = Quill;
-
-type ExtendSelection = Selection & { getComposedRanges?: (root: Node) => Range[] };
-
-type ExtendedShadowRoot = ShadowRoot & { getSelection(): ExtendSelection };
-
-interface IdefineEditor {
-  (wrapperElement: HTMLElement, config: EditorOptionsType): EditorType;
-}
-
-/**
- * HTML element type guard
- * @param element - element to test
- * @returns truthy if element is an HTMLElement
- */
-const isHtmlElement = (element: unknown): element is HTMLElement => Boolean((element as HTMLElement).tagName);
+const DEFAULT_ROWS = 5;
 
 /**
- * Implements the range API properly in Native Shadow
- * @param rootNode - root node
- * @returns selection
+ * Converts rows count to Jodit editor min-height CSS value.
+ * Uses CSS variables --mg-b-font-size and --mg-b-line-height to compute height.
+ * @param rows - Number of rows
+ * @returns Height as CSS value in pixels (wysiwyg area + toolbar height of 40px + 2px borders)
+ * @throws If required CSS variables (--mg-b-font-size, --mg-b-line-height) are missing
  */
-const getNativeRange = (rootNode: ExtendedShadowRoot | Document) => {
-  try {
-    if (typeof (document.createElement('div').attachShadow({ mode: 'open' }) as ExtendedShadowRoot).getSelection === 'function') {
-      // In Chromium, the shadow root has a getSelection function which returns the range
-      return rootNode.getSelection().getRangeAt(0);
-    }
-    const selection: ExtendSelection = window.getSelection();
-    // Webkit range retrieval is done with getComposedRanges (see: https://bugs.webkit.org/show_bug.cgi?id=163921)
-    if (typeof selection.getComposedRanges === 'function') {
-      return selection.getComposedRanges(rootNode)[0];
-    }
-    // Gecko implements the range API properly in Native Shadow: https://developer.mozilla.org/en-US/docs/Web/API/Selection/getRangeAt
-    return selection.getRangeAt(0);
-  } catch {
-    return null;
+export const rowsToEditorHeight = (rows: number): string => {
+  const root = document.documentElement;
+  const computedStyle = getComputedStyle(root);
+
+  const fontSizeValue = computedStyle.getPropertyValue('--mg-b-font-size').trim();
+  const lineHeightValue = computedStyle.getPropertyValue('--mg-b-line-height').trim();
+
+  if (fontSizeValue === '') {
+    throw new Error('mg-input-rich-text-editor: CSS variable --mg-b-font-size is not defined.');
   }
-};
-
-/**
- * Quill overrides to support shadow dom
- * https://github.com/slab/quill/issues/2961#issuecomment-1775999845
- * @param editor - Quill instance
- */
-const setQuillOverrides = (editor: EditorType): void => {
-  const getRootNode = () => editor.root.getRootNode() as ExtendedShadowRoot;
-
-  // Original implementation uses document.active element but with an imlplementation in web-component with shadow root we need compare with it.
-  editor.selection.hasFocus = () => getRootNode().activeElement === editor.root;
-
-  // Original implementation uses document.getSelection which does not work in Native Shadow.
-  // Replace document.getSelection with shadow dom equivalent (different for each browser)
-  editor.selection.getNativeRange = () => {
-    const nativeRange = getNativeRange(getRootNode());
-    return Boolean(nativeRange) ? editor.selection.normalizeNative(nativeRange) : null;
-  };
-
-  // Original implementation relies on Selection.addRange to programatically set the range, which does not work in Webkit with Native Shadow. Selection.addRange works fine in Chromium and Gecko.
-  editor.selection.setNativeRange = (startContainer, startOffset, endContainer = startContainer, endOffset = startOffset, force = false) => {
-    if ([startContainer?.parentNode, editor.root.parentNode, endContainer?.parentNode].some(node => node == null)) {
-      return;
-    }
-
-    const selection = window.getSelection();
-
-    if (!editor.selection.hasFocus()) editor.root.focus();
-
-    const native = (editor.selection.getNativeRange() || {}).native;
-    if (
-      !Boolean(native) ||
-      force ||
-      startContainer !== native.startContainer ||
-      startOffset !== native.startOffset ||
-      endContainer !== native.endContainer ||
-      endOffset !== native.endOffset
-    ) {
-      if (isHtmlElement(startContainer) && startContainer.tagName === 'BR') {
-        startOffset = [].indexOf.call(startContainer.parentNode.childNodes, startContainer);
-        startContainer = startContainer.parentNode;
-      }
-      if (isHtmlElement(endContainer) && endContainer.tagName === 'BR') {
-        endOffset = [].indexOf.call(endContainer.parentNode.childNodes, endContainer);
-        endContainer = endContainer.parentNode;
-      }
-
-      selection.setBaseAndExtent(startContainer, startOffset, endContainer, endOffset);
-    }
-  };
-
-  // Subscribe to selection change separately, because emitter in Quill doesn't catch this event in Shadow DOM
-  document.addEventListener('selectionchange', () => {
-    editor.selection.update();
-  });
-};
-
-/**
- * Fixes for handling text selection in Quill when used within the Shadow DOM.
- * - Fixes focus detection
- * - Adapts native range handling to work with the Shadow DOM
- * - Correctly manages text selection across Shadow DOM boundaries
- * - Sets up selection change events
- * @returns Quill instance
- */
-export const defineEditor: IdefineEditor = (wrapperElement, { value, modules, readOnly, placeholder, handleTextChange, handleFocus, handleBlur }) => {
-  const toolbarOptions = {
-    toolbar: [['bold', 'italic', 'underline'], [{ list: 'ordered' }, { list: 'bullet' }], ['link'], ['clean']],
-  };
-  const editor = new Quill(wrapperElement.querySelector('div'), {
-    theme: 'snow',
-    modules: modules || toolbarOptions,
-    readOnly,
-    placeholder,
-  });
-
-  if (isValidString(value) && /<[a-z][\s\S]*>/i.test(value)) {
-    editor.clipboard.dangerouslyPasteHTML(value);
-  } else if (isValidString(value)) {
-    editor.setText(value);
+  if (lineHeightValue === '') {
+    throw new Error('mg-input-rich-text-editor: CSS variable --mg-b-line-height is not defined.');
   }
 
-  const editorContent = wrapperElement.querySelector('.ql-editor');
-  editorContent.addEventListener('focus', handleFocus);
-  editorContent.addEventListener('blur', handleBlur);
+  const fontSizeRem = parseFloat(fontSizeValue.replace('rem', ''));
+  const lineHeight = parseFloat(lineHeightValue);
 
-  // Add an event listener for the text-change event
-  editor.on('text-change', handleTextChange);
+  const htmlFontSize = parseFloat(getComputedStyle(root).fontSize);
 
-  setQuillOverrides(editor);
+  const fontSizePx = fontSizeRem * htmlFontSize;
+  const lineHeightPx = fontSizePx * lineHeight;
 
-  return editor;
+  const paddingVertical = 0.8 * htmlFontSize;
+
+  const contentHeight = lineHeightPx * rows;
+  const wysiwygHeight = contentHeight + paddingVertical * 2;
+
+  const toolbarHeight = 40;
+  const borderHeight = 2;
+  const totalHeight = wysiwygHeight + toolbarHeight + borderHeight;
+
+  return `${Math.round(totalHeight)}px`;
+};
+
+/**
+ * Configures Jodit editor
+ * @param element - Component element (HTMLMgInputRichTextEditorElement)
+ * @param editorElement - Textarea element for the editor
+ * @param config - Editor configuration options
+ * @returns Configured Jodit editor instance
+ */
+export const defineEditor = (element: HTMLMgInputRichTextEditorElement, editorElement: HTMLTextAreaElement, config: DefineEditorConfig): IJodit => {
+  const { value, modules, readOnly, disabled, placeholder, rows = DEFAULT_ROWS, handleTextChange, handleFocus, handleBlur } = config;
+
+  // Configure Jodit
+  // Note: Using Record<string, unknown> to avoid TypeScript complexity issues with Jodit's deeply nested Config type
+  // The actual configuration follows Jodit's Config interface from jodit/esm/types
+  const joditConfig: Record<string, unknown> = {
+    readonly: readOnly === true,
+    // When readOnly (readonly or disabled), disable ALL toolbar buttons including plugin buttons (print, source).
+    // By default Jodit keeps source, print, fullsize, about, dots active in read-only mode.
+    // Set to [] so that when setReadOnly(true) is called (now or later), no toolbar buttons stay active.
+    activeButtonsInReadOnly: [],
+    placeholder: placeholder || '', // Avoid `Type something...` placeholder by default
+    // Set tabIndex to 0 to enable keyboard navigation with Tab key when enabled
+    // When disabled, use -1 to exclude the editor from Tab navigation
+    tabIndex: disabled === true ? -1 : 0,
+    buttons: modules,
+    // Disable features we don't want
+    showXPathInStatusbar: false,
+    showCharsCounter: false,
+    showWordsCounter: false,
+    toolbarAdaptive: false,
+    // Configure source editor mode
+    sourceEditor: 'area',
+    // This ensures tooltips and popups are created inside the component's shadow root
+    shadowRoot: element.shadowRoot,
+    // Provide ownerDocument and ownerWindow to ensure Jodit uses the correct context
+    ownerDocument: element.shadowRoot.ownerDocument,
+    ownerWindow: window,
+    // Prevent fullscreen from breaking component's shadow root isolation
+    globalFullSize: false,
+    // Set min-height from rows (wysiwyg + toolbar + borders)
+    minHeight: rowsToEditorHeight(rows),
+    // Resizer configuration
+    allowResizeTags: new Set(['img', 'table']),
+    resizer: {
+      showSize: true,
+      hideSizeTimeout: 1000,
+      useAspectRatio: new Set(['img']), // Preserve aspect ratio for images only
+      forImageChangeAttributes: true,
+      min_width: 10,
+      min_height: 10,
+    },
+    // Inline toolbar configuration
+    toolbarInline: true,
+    tableAllowCellSelection: true,
+    popup: {
+      a: Jodit.atom(['link', 'unlink', 'delete']),
+    },
+  };
+
+  // Initialize Jodit editor
+  const joditInstance = Jodit.make(editorElement, joditConfig);
+
+  // Add custom classes
+  // These classes are added to Jodit's DOM elements for styling purposes
+  const wrapperElement = editorElement.parentElement as HTMLDivElement;
+  const addCustomClass = (selector: string, className: string): void => {
+    wrapperElement.querySelector(selector).classList.add(className);
+  };
+
+  /**
+   * Helpers for Jodit toolbar accessibility.
+   * @returns Toolbar element or null if not found
+   */
+  const getJoditToolbarElement = (): HTMLElement | null => wrapperElement.querySelector('.jodit-toolbar__box');
+
+  /**
+   * Get the WYSIWYG editor element.
+   * @returns WYSIWYG element or null if not found
+   */
+  const getJoditWysiwygElement = (): HTMLElement | null => wrapperElement.querySelector('.jodit-wysiwyg');
+
+  /**
+   * Get focusable toolbar buttons.
+   * @returns Array of focusable toolbar buttons
+   */
+  const getFocusableToolbarButtons = (toolbarEl: HTMLElement | null): HTMLButtonElement[] | null => {
+    if (toolbarEl === null) return null;
+
+    // Find all buttons within the toolbar, excluding disabled ones
+    const buttons = Array.from(toolbarEl.querySelectorAll<HTMLButtonElement>('button:not([disabled])'));
+
+    // Filter out buttons that are not visible or are in popups/dropdowns
+    return buttons.filter(button => {
+      const isVisible = button.offsetParent !== null;
+      const isInToolbar = toolbarEl.contains(button);
+      // Exclude buttons in popups or dropdowns (they have their own navigation)
+      const isInPopup = button.closest('.jodit-popup, .jodit-dropdown') !== null;
+      return isVisible && isInToolbar && !isInPopup;
+    });
+  };
+
+  addCustomClass('.jodit-container', 'mg-c-input__container');
+  addCustomClass('.jodit-toolbar__box', 'mg-c-input__toolbar-box');
+  addCustomClass('.jodit-workplace', 'mg-c-input__workplace');
+  addCustomClass('.jodit-wysiwyg', 'mg-c-input__wysiwyg');
+
+  // Improve toolbar accessibility
+  // Add ARIA attributes and keyboard navigation to the toolbar container for better screen reader support
+  const toolbarElement = getJoditToolbarElement();
+  if (toolbarElement !== null) {
+    // Set role="toolbar" to identify this as a toolbar widget
+    // This helps screen readers understand the toolbar's purpose and enables proper keyboard navigation
+    toolbarElement.setAttribute('role', 'toolbar');
+    toolbarElement.setAttribute('aria-label', 'Text formatting toolbar');
+
+    /**
+     * Handle keyboard navigation within the toolbar
+     * Implements ARIA toolbar pattern: ArrowLeft/Right for navigation, Home/End for first/last
+     */
+    const handleToolbarKeyDown = (event: KeyboardEvent & { target: HTMLElement }): void => {
+      // Only handle keys when focus is within the toolbar
+      const target = event.target;
+      if (!toolbarElement.contains(target) || target.tagName !== 'BUTTON') {
+        return;
+      }
+
+      const buttons = getFocusableToolbarButtons(toolbarElement);
+      if (buttons === null || buttons.length === 0) return;
+
+      const currentIndex = buttons.indexOf(target as HTMLButtonElement);
+      if (currentIndex === -1) return;
+
+      let targetIndex = currentIndex;
+
+      switch (event.key) {
+        case 'ArrowLeft':
+          event.preventDefault();
+          event.stopPropagation();
+          // Move to previous button, wrap to last if at first
+          targetIndex = currentIndex > 0 ? currentIndex - 1 : buttons.length - 1;
+          buttons[targetIndex].focus();
+          break;
+
+        case 'ArrowRight':
+          event.preventDefault();
+          event.stopPropagation();
+          // Move to next button, wrap to first if at last
+          targetIndex = currentIndex < buttons.length - 1 ? currentIndex + 1 : 0;
+          buttons[targetIndex].focus();
+          break;
+
+        case 'Home':
+          event.preventDefault();
+          event.stopPropagation();
+          // Move to first button
+          buttons[0].focus();
+          break;
+
+        case 'End':
+          event.preventDefault();
+          event.stopPropagation();
+          // Move to last button
+          buttons[buttons.length - 1].focus();
+          break;
+
+        case 'Tab':
+          // Allow Tab to work normally (exit toolbar)
+          break;
+
+        default:
+          // Let other keys work normally (Enter, Space, etc.)
+          return;
+      }
+    };
+
+    /**
+     * Hide SVG icons from screen readers in toolbar buttons.
+     * Toolbar buttons already have aria-label, so SVG icons are purely decorative.
+     * Without aria-hidden, VoiceOver announces them as images.
+     */
+    const hideToolbarSvgsFromScreenReaders = (): void => {
+      toolbarElement.querySelectorAll('svg').forEach(svg => {
+        svg.setAttribute('aria-hidden', 'true');
+      });
+    };
+
+    // Hide SVG icons from screen readers on first render
+    hideToolbarSvgsFromScreenReaders();
+
+    // Set up event listeners for keyboard navigation
+    toolbarElement.addEventListener('keydown', handleToolbarKeyDown, true);
+
+    // Hide SVGs when toolbar content changes (buttons can be added/removed dynamically)
+    const toolbarObserver = new MutationObserver(() => {
+      hideToolbarSvgsFromScreenReaders();
+    });
+
+    toolbarObserver.observe(toolbarElement, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['disabled'],
+    });
+  }
+
+  // Transfer accessibility attributes from the hidden textarea to the WYSIWYG editor
+  // The textarea is hidden by Jodit (display: none), so its aria-describedby is not accessible.
+  // We need to transfer it to the actual editable element (.jodit-wysiwyg) so screen readers
+  // can properly announce help text and error messages.
+  if (getJoditWysiwygElement() !== null) {
+    const wysiwygElement = getJoditWysiwygElement();
+    if (wysiwygElement !== null) {
+      // mg-input sets aria-describedby on the textarea in its componentDidLoad (child runs before parent)
+      const ariaDescribedBy = editorElement.getAttribute('aria-describedby');
+      if (ariaDescribedBy !== null) {
+        wysiwygElement.setAttribute('aria-describedby', ariaDescribedBy);
+      }
+
+      // Also set role="textbox" and aria-multiline="true" for proper screen reader support
+      wysiwygElement.setAttribute('role', 'textbox');
+      wysiwygElement.setAttribute('aria-multiline', 'true');
+
+      // Sync disabled state for screen readers (aria-disabled only when true, omitted otherwise)
+      if (disabled === true) {
+        wysiwygElement.setAttribute('aria-disabled', 'true');
+      } else {
+        wysiwygElement.removeAttribute('aria-disabled');
+      }
+
+      // Associate the editor with the label for screen readers and label click
+      const identifier = element.identifier;
+      if (identifier !== '') {
+        wrapperElement.removeAttribute('id');
+        wysiwygElement.id = identifier;
+
+        // Make label click focus the editor like a native input.
+        const titleId = `${identifier}-title`;
+        const titleElement = element.shadowRoot.querySelector<HTMLMgInputTitleElement>('mg-input-title');
+
+        if (titleElement !== null && titleElement !== undefined) {
+          if (titleElement.id !== titleId) {
+            titleElement.id = titleId;
+          }
+
+          titleElement.addEventListener('click', () => {
+            joditInstance.focus();
+          });
+        }
+
+        // Link to the label for screen readers
+        wysiwygElement.setAttribute('aria-labelledby', titleId);
+      }
+
+      // Set up a MutationObserver to sync aria-describedby changes from textarea to wysiwyg
+      // This handles dynamic updates when error messages appear/disappear
+      const observer = new MutationObserver(() => {
+        const updatedAriaDescribedBy = editorElement.getAttribute('aria-describedby');
+        if (updatedAriaDescribedBy !== null) {
+          wysiwygElement.setAttribute('aria-describedby', updatedAriaDescribedBy);
+        } else {
+          wysiwygElement.removeAttribute('aria-describedby');
+        }
+      });
+
+      observer.observe(editorElement, {
+        attributes: true,
+        attributeFilter: ['aria-describedby'],
+      });
+
+      // Set up Shift+Tab interception on the wysiwyg element (contenteditable)
+      // This intercepts Shift+Tab from the editor to redirect to the first toolbar button
+      const handleWysiwygShiftTab = (event: KeyboardEvent): void => {
+        // Only handle Shift+Tab (backward navigation)
+        if (event.key !== 'Tab' || !event.shiftKey) {
+          return;
+        }
+
+        const buttons = getFocusableToolbarButtons(getJoditToolbarElement());
+
+        if (buttons !== null && buttons.length > 0) {
+          // Prevent default Tab behavior to intercept navigation
+          event.preventDefault();
+          event.stopPropagation();
+
+          // Focus first toolbar button directly
+          buttons[0].focus();
+        }
+      };
+
+      // Listen for keydown events directly on the wysiwyg element
+      wysiwygElement.addEventListener('keydown', handleWysiwygShiftTab, true);
+    }
+  }
+
+  // Set initial value
+  if (isValidString(value)) {
+    joditInstance.value = value;
+  }
+
+  // Set up event listeners
+  joditInstance.events.on('change', handleTextChange);
+  joditInstance.events.on('focus', handleFocus);
+  joditInstance.events.on('blur', handleBlur);
+
+  // Return the Jodit instance directly
+  return joditInstance;
 };

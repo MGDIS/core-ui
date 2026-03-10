@@ -27,43 +27,43 @@ pnpm build "$@"
 
 # Prepare root package.json
 prepare_package "package.json" '{
-  name, 
+  name,
   packageManager,
   "scripts": {
     "apps:mg-components": .scripts."apps:mg-components",
     "apps:notification-center": .scripts."apps:notification-center",
     "test:e2e": .scripts."test:e2e"
-  }, 
-  "devDependencies": { "turbo": .devDependencies.turbo } 
+  },
+  "devDependencies": { "turbo": .devDependencies.turbo }
 }'
 
 # Prepare packages/mg-components/package.json
 prepare_package "packages/mg-components/package.json" '{
   name,
-  module: .module, 
-  types, 
-  files, 
-  "scripts": { 
+  module: .module,
+  types,
+  files,
+  "scripts": {
     prebuild: .scripts.prebuild,
     start: .scripts.start,
     "test:e2e": .scripts."test:e2e:docker"
-  }, 
-  "dependencies": { 
+  },
+  "dependencies": {
     "@mgdis/core-ui-helpers": .dependencies."@mgdis/core-ui-helpers",
     "@stencil/core": .dependencies."@stencil/core",
     "@popperjs/core": .dependencies."@popperjs/core",
-    "quill": .dependencies."quill"
+    "jodit": .dependencies."jodit"
   }
 }'
 
 # Prepare packages/notification-center/package.json
 prepare_package "packages/notification-center/package.json" '{
   name,
-  module, 
-  types, 
-  files, 
-  exports, 
-  "scripts": { 
+  module,
+  types,
+  files,
+  exports,
+  "scripts": {
     "test:e2e": .scripts."test:e2e:docker"
   },
   "devDependencies": { "@mgdis/core-ui-helpers": .devDependencies."@mgdis/core-ui-helpers" }
@@ -71,19 +71,19 @@ prepare_package "packages/notification-center/package.json" '{
 
 # Prepare packages/styles/package.json
 prepare_package "packages/styles/package.json" '{
-  name, 
+  name,
   "scripts": { "test:e2e": .scripts."test:e2e:docker" },
   "devDependencies": { "@mgdis/core-ui-helpers": .devDependencies."@mgdis/core-ui-helpers" }
 }'
 
 # Prepare apps/notification-center/package.json
 prepare_package "apps/notification-center/package.json" '{
-  name, 
+  name,
   "scripts": { dev: .scripts.dev },
-  "dependencies": { 
+  "dependencies": {
     "@mgdis/mg-components": .dependencies."@mgdis/mg-components",
     "@mgdis/notification-center": .dependencies."@mgdis/notification-center",
-  }, 
+  },
   "devDependencies": {
     typescript: .devDependencies.typescript,
     vite: .devDependencies.vite,
@@ -92,10 +92,10 @@ prepare_package "apps/notification-center/package.json" '{
 
 # Prepare packages/playwright-helpers/package.json
 prepare_package "packages/playwright-helpers/package.json" '{
-  name, 
+  name,
   main,
   types,
-  "dependencies": { 
+  "dependencies": {
     "@mgdis/core-ui-helpers": .dependencies."@mgdis/core-ui-helpers",
   }
 }'
@@ -104,25 +104,25 @@ prepare_package "packages/playwright-helpers/package.json" '{
 # Prepare packages/mg-components-helpers/package.json
 prepare_package "packages/mg-components-helpers/package.json" '{
   name,
-  "dependencies": { 
+  "dependencies": {
     "@mgdis/core-ui-helpers": .dependencies."@mgdis/core-ui-helpers",
   }
 }'
 
 # Prepare packages/stencil-helpers/package.json
 prepare_package "packages/stencil-helpers/package.json" '{
-  name, 
+  name,
   main,
   types,
-  "dependencies": { 
+  "dependencies": {
     "@mgdis/core-ui-helpers": .dependencies."@mgdis/core-ui-helpers",
   }
 }'
 
 # Prepare packages/helpers/package.json
 prepare_package "packages/helpers/package.json" '{
-  name, 
-  exports, 
+  name,
+  exports,
 }'
 
 # Create turbo.json

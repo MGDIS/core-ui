@@ -1,5 +1,22 @@
 # @mgdis/mg-components
 
+## 6.21.0
+
+### Minor Changes
+
+- 88c5ce2: [**`<mg-modal>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-modal--docs) update backdrop color
+- 5464ea7: [**`<mg-input-file>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-file--docs): new component
+- 5464ea7: add `localeByte()` helper
+
+### Patch Changes
+
+- Updated dependencies [88c5ce2]
+- Updated dependencies [b98d5da]
+- Updated dependencies [5464ea7]
+- Updated dependencies [5464ea7]
+  - @mgdis/styles@2.16.0
+  - @mgdis/core-ui-helpers@1.1.0
+
 ## 6.20.0
 
 ### Minor Changes

@@ -1,0 +1,31 @@
+import type { ButtonsOption } from './editor/editor.conf';
+
+/** Default toolbar modules when the modules prop is not set. */
+export const DEFAULT_MODULES: ButtonsOption = [
+  'bold',
+  'italic',
+  'underline',
+  'strikethrough',
+  'eraser',
+  '|',
+  'ul',
+  'ol',
+  '|',
+  'superscript',
+  'subscript',
+  '|',
+  'brush',
+  '|',
+  'link',
+  'image',
+  'file',
+  '|',
+  'table',
+  '|',
+  'undo',
+  'redo',
+  '|',
+  'print',
+  '|',
+  'source',
+];

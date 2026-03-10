@@ -1,5 +1,13 @@
 # @mgdis/styles
 
+## 2.16.0
+
+### Minor Changes
+
+- 88c5ce2: [**`<mg-modal>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-modal--docs) update backdrop color
+- b98d5da: Add `mg-button` styles.
+- 5464ea7: [**`<mg-input-file>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-file--docs): new component
+
 ## 2.15.0
 
 ### Minor Changes

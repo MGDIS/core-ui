@@ -1,3 +1,11 @@
+// Mock Jodit module, plugins, and getComputedStyle - MUST be before any imports
+import { setupJoditMock, getJoditPluginPaths, setupGetComputedStyleMock } from '../../inputs/mg-input-rich-text-editor/editor/tests/jodit.mock';
+jest.mock('jodit', () => setupJoditMock());
+getJoditPluginPaths().forEach(pluginPath => {
+  jest.mock(pluginPath, () => ({}));
+});
+setupGetComputedStyleMock();
+
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgForm } from '../mg-form';
@@ -132,14 +140,21 @@ const setMgInputChecboxeInvalid = (input: HTMLMgInputCheckboxElement): void => {
 const requiredFields = [undefined, 'one', 'all', 'multiple', 'single'];
 
 describe('mg-form', () => {
-  let fireMo;
+  let fireMo: (mutations: Array<{ type: string } & Partial<Omit<MutationRecord, 'type'>>>) => void;
+  let callbacks: Array<(mutations: MutationRecord[], observer: MutationObserver) => void>;
+  const mockObserver: MutationObserver = { disconnect: () => null, observe: () => null, takeRecords: () => [] };
 
   beforeEach(() => {
     jest.useFakeTimers({ legacyFakeTimers: true });
+    callbacks = []; // Reset callbacks array
 
     setupMutationObserverMock({
       observe: function () {
-        fireMo = this.cb;
+        callbacks.push(this.cb);
+        // fireMo will trigger all callbacks
+        fireMo = (mutations: MutationRecord[]) => {
+          callbacks.forEach(cb => cb(mutations, mockObserver));
+        };
       },
       disconnect: function () {
         return null;

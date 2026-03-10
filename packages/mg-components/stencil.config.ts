@@ -80,8 +80,5 @@ export const config: Config = {
     setupFilesAfterEnv: ['./jest.setup.ts'],
     coverageReporters,
     coverageThreshold,
-    moduleNameMapper: {
-      '^quill$': '<rootDir>/src/components/molecules/inputs/mg-input-rich-text-editor/editor/tests/__mocks__/quill.ts',
-    },
   },
 };

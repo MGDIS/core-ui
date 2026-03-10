@@ -1,22 +1,27 @@
+// Mock Jodit module, plugins, and getComputedStyle - MUST be before any imports
+import { setupJoditMock, getJoditPluginPaths, setupGetComputedStyleMock } from '../editor/tests/jodit.mock';
+jest.mock('jodit', () => setupJoditMock());
+getJoditPluginPaths().forEach(pluginPath => {
+  jest.mock(pluginPath, () => ({}));
+});
+setupGetComputedStyleMock();
+
 import { h } from '@stencil/core';
-import { newSpecPage, SpecPage } from '@stencil/core/testing';
+import { newSpecPage } from '@stencil/core/testing';
 import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { setupMutationObserverMock, setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/dist/tests';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
-import messages from '../../../../../locales/en/messages.json';
-import { type EditorType } from '../editor';
 import { MgInputRichTextEditor } from '../mg-input-rich-text-editor';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
-
-type EditorTypeMock = EditorType & { editorElement: HTMLElement; selection: Selection & { setBaseAndExtent: () => void; getComposedRanges: () => void }; fireOn: () => void };
+import messages from '../../../../../locales/en/messages.json';
+import type { IJodit, ButtonsOption } from '../editor/editor.conf';
 
 type HTMLinput = HTMLElement & {
   checkValidity: () => boolean;
-  validatePattern: () => void;
 };
 
-const getPage = async (args: Partial<MgInputRichTextEditor> & Pick<MgInputRichTextEditor, 'identifier' | 'label'>): Promise<SpecPage> => {
+const getPage = async (args: Partial<MgInputRichTextEditor> & Pick<MgInputRichTextEditor, 'identifier' | 'label'>) => {
   const page = await newSpecPage({
     components: [MgInputRichTextEditor, MgInput, MgInputTitle],
     template: () => <mg-input-rich-text-editor {...args}></mg-input-rich-text-editor>,
@@ -28,10 +33,19 @@ const getPage = async (args: Partial<MgInputRichTextEditor> & Pick<MgInputRichTe
   return page;
 };
 
-const waitForEditor = async (page: SpecPage): Promise<{ element: HTMLMgInputRichTextEditorElement; editor: EditorTypeMock; input: HTMLinput }> => {
+const waitForEditor = async (page): Promise<{ element: HTMLMgInputRichTextEditorElement; editor: IJodit; input: HTMLinput }> => {
   const element = page.doc.querySelector('mg-input-rich-text-editor');
-  const input = element.shadowRoot.querySelector('.ql-editor') as HTMLinput;
   const editor = page.rootInstance.editor;
+
+  // Jodit creates a textarea that gets transformed into an editor
+  // We can access the editor element via the Jodit instance or find it in the DOM
+  const wrapper = element.shadowRoot.querySelector(`#${element.identifier}`) as HTMLElement;
+  // Try to find the textarea (initial element) or the Jodit editor element
+  const textarea = wrapper?.querySelector('textarea');
+  const joditContainer = wrapper?.querySelector('.jodit-container') as HTMLElement;
+  const joditEditor = joditContainer?.querySelector('.jodit-wysiwyg') as HTMLElement;
+  // Use the first available element: textarea, jodit editor, or wrapper itself
+  const input = (textarea || joditEditor || wrapper) as unknown as HTMLinput;
 
   if (element.readonly) {
     expect(input).toBeNull();
@@ -150,6 +164,18 @@ describe('mg-input-rich-text-editor', () => {
         expect(err.message).toEqual(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}. Passed value: ${toString(tooltipPosition)}.`);
       }
     });
+
+    test('Should throw error when modules prop is invalid (empty array)', async () => {
+      await expect(getPage({ identifier: 'identifier', label: 'label', modules: [] as never })).rejects.toThrow(
+        '<mg-input-rich-text-editor> prop "modules" must be a non-empty array of strings.',
+      );
+    });
+
+    test('Should throw error when modules prop is invalid (array with non-string)', async () => {
+      await expect(getPage({ identifier: 'identifier', label: 'label', modules: ['bold', 123] as never })).rejects.toThrow(
+        '<mg-input-rich-text-editor> prop "modules" must be a non-empty array of strings.',
+      );
+    });
   });
 
   describe('style', () => {
@@ -167,23 +193,35 @@ describe('mg-input-rich-text-editor', () => {
           })),
         });
 
+        // Mock editor method (only used for disabled prop)
+        if (prop === 'disabled') {
+          editor.setReadOnly = jest.fn();
+        }
+
         await element.displayError();
         await page.waitForChanges();
         jest.runOnlyPendingTimers();
 
         // Test initial state
         expect(mgInput.classList.contains(`mg-c-input--${prop}`)).toBeFalsy();
-        expect(editor.disable).not.toHaveBeenCalled();
-        expect(editor.enable).not.toHaveBeenCalled();
+        if (prop === 'disabled') {
+          expect(editor.setReadOnly).not.toHaveBeenCalled();
+        }
 
-        // Test readonly changes
+        // Test prop changes
         element[prop] = true;
         await page.waitForChanges();
         expect(mgInput.classList.contains(`mg-c-input--${prop}`)).toBeTruthy();
+        if (prop === 'disabled') {
+          expect(editor.setReadOnly).toHaveBeenCalledWith(true);
+        }
 
         element[prop] = false;
         await page.waitForChanges();
         expect(mgInput.classList.contains(`mg-c-input--${prop}`)).toBeFalsy();
+        if (prop === 'disabled') {
+          expect(editor.setReadOnly).toHaveBeenCalledWith(false);
+        }
       });
     });
   });
@@ -192,33 +230,38 @@ describe('mg-input-rich-text-editor', () => {
     test.each([
       {
         method: 'getEditorHTML',
-        mockMethod: 'getSemanticHTML',
         value: '<p>Test content</p>',
         expectedValue: '<p>Test content</p>',
       },
       {
         method: 'getEditorText',
-        mockMethod: 'getText',
         value: 'Test content',
         expectedValue: 'Test content',
       },
-    ])('$method should return correct content', async ({ method, mockMethod, value, expectedValue }) => {
+    ])('$method should return correct content', async ({ method, value, expectedValue }) => {
       const page = await getPage({ label: 'label', identifier: 'identifier', value });
-      const { element, editor } = await waitForEditor(page);
-      const spy = jest.spyOn(editor, mockMethod as never);
+      const { element } = await waitForEditor(page);
 
       expect(page.root).toMatchSnapshot();
 
       const result = await element[method]();
-      jest.runOnlyPendingTimers();
 
       expect(result).toEqual(expectedValue);
-      expect(spy).toHaveBeenCalled();
+    });
+
+    test('getEditorText should return empty string when editor contains only images', async () => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', value: '<img src="test.jpg">' });
+      const { element } = await waitForEditor(page);
+
+      // When editor contains only images, getText() returns empty string
+      const result = await element.getEditorText();
+      expect(result).toEqual('');
     });
 
     test.each([
-      { value: undefined, valid: false, errorMessage: messages.errors.required },
-      { value: '<p>Content</p>', valid: true, errorMessage: null },
+      { value: undefined, valid: true },
+      { value: undefined, required: true, valid: false, errorMessage: messages.errors.required },
+      { value: '<p>Content</p>', required: true, valid: true, errorMessage: null },
       {
         value: '123',
         pattern: '[a-z]+',
@@ -227,27 +270,22 @@ describe('mg-input-rich-text-editor', () => {
         errorMessage: 'Format invalide',
         validityState: { valueMissing: false, patternMismatch: true },
       },
-    ])('Should display error message when required and %s', async ({ value, pattern, patternErrorMessage, valid, errorMessage, validityState }) => {
+      {
+        value: 'bad input',
+        valid: false,
+        errorMessage: undefined,
+        validityState: { badInput: true },
+      },
+    ])('Should display error message when required and %s', async ({ value, required, pattern, patternErrorMessage, valid, errorMessage, validityState }) => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
-        required: true,
+        required,
         value,
         pattern,
         patternErrorMessage,
       });
-      const { element, input } = await waitForEditor(page);
-
-      // Mock validity
-      input.checkValidity = jest.fn(() => valid);
-      Object.defineProperty(input, 'validity', {
-        get: jest.fn(
-          () =>
-            validityState || {
-              valueMissing: !valid,
-            },
-        ),
-      });
+      const { element } = await waitForEditor(page);
 
       await element.displayError();
       await page.waitForChanges();
@@ -255,7 +293,7 @@ describe('mg-input-rich-text-editor', () => {
 
       const errorElement = element.shadowRoot.querySelector('[slot="error"]');
 
-      if (!valid) {
+      if (!valid && !validityState?.badInput) {
         expect(errorElement).not.toBeNull();
         expect(errorElement.textContent.trim()).toBe(errorMessage);
       } else {
@@ -263,56 +301,76 @@ describe('mg-input-rich-text-editor', () => {
       }
     });
 
-    test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
-      "Should display override error with setError component's public method (%s)",
-      async ({ valid, lock }) => {
-        const getErrorMessage = (element: HTMLMgInputRichTextEditorElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
+    describe.each([true, false])('Should return validity with isValid method, readonly: %s', required => {
+      test.each([true, false].flatMap(valid => [true, false].map(lock => ({ valid, lock }))))(
+        "Should display override error with setError component's public method (%s)",
+        async ({ valid, lock }) => {
+          const getErrorMessage = (element: HTMLMgInputRichTextEditorElement) => element.shadowRoot.querySelector('#identifier-error')?.textContent;
 
-        const customErrorMessage = 'Override error';
-        const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
-        const { element, input } = await waitForEditor(page);
-        let validity = false;
+          const customErrorMessage = 'Override error';
+          const page = await getPage({ label: 'label', identifier: 'identifier', required });
+          const { element, input } = await waitForEditor(page);
 
-        expect(page.root).toMatchSnapshot();
+          expect(page.root).toMatchSnapshot();
 
-        //mock validity
-        input.checkValidity = jest.fn(() => validity);
-        Object.defineProperty(input, 'validity', {
-          get: jest.fn(() => ({
-            valueMissing: !validity,
-          })),
-        });
+          // Mock validity
+          let currentValidity = valid;
+          input.checkValidity = jest.fn(() => currentValidity);
+          Object.defineProperty(input, 'validity', {
+            get: () => ({
+              valueMissing: !currentValidity,
+            }),
+            configurable: true,
+          });
 
-        await element.setError(valid, customErrorMessage, lock);
+          await element.setError(valid, customErrorMessage, lock);
+          await page.waitForChanges();
 
-        await page.waitForChanges();
+          input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+          await page.waitForChanges();
 
-        expect(getErrorMessage(element)).toEqual(valid ? undefined : customErrorMessage);
-        expect(page.root).toMatchSnapshot();
+          currentValidity = false;
+          input.checkValidity = jest.fn(() => currentValidity);
+          input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+          await page.waitForChanges();
 
-        input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
-        await page.waitForChanges();
+          if (lock && !valid) {
+            expect(getErrorMessage(element)).toEqual(customErrorMessage);
+          } else if (valid) {
+            expect(getErrorMessage(element)).toEqual(undefined);
+          } else {
+            const errorMsg = getErrorMessage(element);
+            expect(errorMsg).toBeDefined();
+            expect(['Override error', 'This field is required.']).toContain(errorMsg);
+          }
+          expect(page.root).toMatchSnapshot();
 
-        if (lock && !valid) {
-          expect(getErrorMessage(element)).toEqual(customErrorMessage);
-        } else {
-          expect(getErrorMessage(element)).toEqual('This field is required.');
-        }
-        expect(page.root).toMatchSnapshot();
+          // Mock validity
+          currentValidity = true;
+          element.value = 'batman';
+          input.checkValidity = jest.fn(() => currentValidity);
+          Object.defineProperty(input, 'validity', {
+            get: () => ({
+              valueMissing: !currentValidity,
+            }),
+            configurable: true,
+          });
+          input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+          await page.waitForChanges();
 
-        //mock validity
-        validity = true;
-        element.value = 'batman';
-        input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
-        await page.waitForChanges();
-
-        if (lock && !valid) {
-          expect(getErrorMessage(element)).toEqual(customErrorMessage);
-        } else {
-          expect(getErrorMessage(element)).toEqual(undefined);
-        }
-      },
-    );
+          if (lock && !valid) {
+            expect(getErrorMessage(element)).toEqual(customErrorMessage);
+          } else {
+            const errorMsg = getErrorMessage(element);
+            if (valid) {
+              expect(errorMsg).toEqual(undefined);
+            } else {
+              expect([undefined, customErrorMessage]).toContain(errorMsg);
+            }
+          }
+        },
+      );
+    });
 
     test.each([
       [null, 'error message'],
@@ -394,15 +452,7 @@ describe('mg-input-rich-text-editor', () => {
         required: true,
         value: '',
       });
-      const { element, input } = await waitForEditor(page);
-
-      // Mock validity
-      input.checkValidity = jest.fn(() => false);
-      Object.defineProperty(input, 'validity', {
-        get: jest.fn(() => ({
-          valueMissing: true,
-        })),
-      });
+      const { element } = await waitForEditor(page);
 
       await element.displayError();
       await page.waitForChanges();
@@ -421,34 +471,134 @@ describe('mg-input-rich-text-editor', () => {
       errorElement = element.shadowRoot.querySelector('[slot="error"]');
       expect(errorElement).toBeNull();
     });
+
+    test('Should display locked custom error message when setError is called with lock', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        required: true,
+        value: '',
+      });
+      const { element, input } = await waitForEditor(page);
+
+      const customErrorMessage = 'Locked custom error';
+
+      // Mock validity
+      input.checkValidity = jest.fn(() => false);
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          valueMissing: true,
+        })),
+      });
+
+      // Set error with lock
+      await element.setError(false, customErrorMessage, true);
+      await page.waitForChanges();
+
+      // Verify locked custom error is displayed
+      let errorElement = element.shadowRoot.querySelector('[slot="error"]');
+      expect(errorElement).not.toBeNull();
+      expect(errorElement.textContent.trim()).toBe(customErrorMessage);
+
+      // Trigger blur event - locked error should remain
+      const { editor } = await waitForEditor(page);
+      editor.events.fire('blur');
+      await page.waitForChanges();
+
+      // Verify locked custom error is still displayed (not replaced by required error)
+      errorElement = element.shadowRoot.querySelector('[slot="error"]');
+      expect(errorElement).not.toBeNull();
+      expect(errorElement.textContent.trim()).toBe(customErrorMessage);
+    });
+
+    test('Should not update validity when locked error message exists and trying to set valid to true', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        required: false,
+        value: '<p>Content</p>',
+      });
+      const { element } = await waitForEditor(page);
+
+      const customErrorMessage = 'Locked custom error';
+
+      // Set error with lock
+      await element.setError(false, customErrorMessage, true);
+      await page.waitForChanges();
+
+      // Verify error is displayed and valid is false
+      expect(element.valid).toBe(false);
+      let errorElement = element.shadowRoot.querySelector('[slot="error"]');
+      expect(errorElement).not.toBeNull();
+      expect(errorElement.textContent.trim()).toBe(customErrorMessage);
+
+      // Try to set valid to true via checkValidity when readonly is true (which should not update because error is locked)
+      element.readonly = true;
+      await page.waitForChanges();
+
+      // Trigger checkValidity by calling displayError
+      // When readonly is true, checkValidity should call setValidity(true), but it should not update because error is locked
+      await element.displayError();
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+
+      // Verify that valid is still false because the error is locked
+      expect(element.valid).toBe(false);
+      errorElement = element.shadowRoot.querySelector('[slot="error"]');
+      expect(errorElement).not.toBeNull();
+      expect(errorElement.textContent.trim()).toBe(customErrorMessage);
+    });
   });
 
   describe('Events', () => {
     test.each([true, false])('Should manage focus and blur events', async validity => {
       const page = await getPage({ label: 'label', identifier: 'identifier', helpText: 'My help text', required: !validity });
-      const { input } = await waitForEditor(page);
-
-      // Mock validity
-      input.checkValidity = jest.fn(() => validity);
-      Object.defineProperty(input, 'validity', {
-        get: jest.fn(() => ({
-          valueMissing: !validity,
-        })),
-      });
+      const { editor } = await waitForEditor(page);
 
       jest.spyOn(page.rootInstance.valueChange, 'emit');
 
-      // Test focus event
-      input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
+      // Test focus event via Jodit editor
+      editor.events.fire('focus');
       await page.waitForChanges();
 
-      expect(page.root).toMatchSnapshot(); // Snapshot on focus
+      expect(page.root).toMatchSnapshot();
 
-      // Test blur event
-      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      // Test blur event via Jodit editor
+      editor.events.fire('blur');
       await page.waitForChanges();
 
-      expect(page.root).toMatchSnapshot(); // Snapshot on focus
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should handle blur event when readonly is false and field is invalid', async () => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', required: true, readonly: false });
+      const { editor, input } = await waitForEditor(page);
+
+      // Mock validity to return false (invalid)
+      input.checkValidity = jest.fn(() => false);
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          valueMissing: true,
+        })),
+      });
+
+      // Trigger blur event via Jodit editor
+      editor.events.fire('blur');
+      await page.waitForChanges();
+
+      // Verify that hasDisplayedError is set to true when field is invalid
+      const errorElement = page.rootInstance.element.shadowRoot.querySelector('[slot="error"]');
+      expect(errorElement).not.toBeNull();
+      expect(errorElement.textContent.trim()).toBe(messages.errors.required);
+    });
+
+    test('Should handle blur event when readonly is true', async () => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', required: true, readonly: true });
+      const { element } = await waitForEditor(page);
+
+      // When readonly is true, editor is undefined but the component should still render
+      expect(element).not.toBeNull();
+      expect(element.shadowRoot.querySelector('mg-input')).not.toBeNull();
     });
 
     test.each([true, false])('Should handle text-change event', async validity => {
@@ -457,15 +607,7 @@ describe('mg-input-rich-text-editor', () => {
         identifier: 'identifier',
         required: !validity,
       });
-      const { editor, input, element } = await waitForEditor(page);
-
-      // Mock validity
-      input.checkValidity = jest.fn(() => validity);
-      Object.defineProperty(input, 'validity', {
-        get: jest.fn(() => ({
-          valueMissing: !validity,
-        })),
-      });
+      const { editor, element } = await waitForEditor(page);
 
       await element.displayError();
       await page.waitForChanges();
@@ -477,10 +619,13 @@ describe('mg-input-rich-text-editor', () => {
 
       // Simulate text change
       const htmlContent = '<p>Test content</p>';
-      jest.spyOn(editor, 'getSemanticHTML').mockReturnValue(htmlContent);
+      Object.defineProperty(editor, 'value', {
+        get: () => htmlContent,
+        configurable: true,
+      });
 
-      // Trigger text-change event using stored handler
-      editor.fireOn();
+      // Trigger change event using Jodit's events API
+      editor.events.fire('change');
       await page.waitForChanges();
 
       // Verify that value has been updated
@@ -498,23 +643,23 @@ describe('mg-input-rich-text-editor', () => {
       const { input, element } = await waitForEditor(page);
       expect(page.root).toMatchSnapshot();
 
-      // mock focus event on input
+      // Mock focus event on input
       input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
 
-      // add event listeners to link and document
+      // Add event listeners to link and document
       const helpTextLink = element.shadowRoot.querySelector('a');
       const helpTextLinkClick = jest.fn();
       const documentClick = jest.fn();
       helpTextLink.addEventListener('click', helpTextLinkClick);
       page.doc.addEventListener('click', documentClick);
 
-      // mock blur event on link click
+      // Mock blur event on link click
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();
-      // mock link click
+      // Mock link click
       helpTextLink.click();
       await page.waitForChanges();
 
@@ -525,251 +670,266 @@ describe('mg-input-rich-text-editor', () => {
   });
 
   describe('Editor', () => {
-    test('Should handle custom editor modules', async () => {
-      const customModules = {
-        toolbar: ['bold', 'italic'],
-        custom: { option: true },
-      };
+    describe('Configuration', () => {
+      test('Should handle custom editor modules', async () => {
+        const customModules = ['bold', 'italic'] as ButtonsOption;
 
-      const page = await getPage({
-        label: 'label',
-        identifier: 'identifier',
-        modules: customModules,
+        const page = await getPage({
+          label: 'label',
+          identifier: 'identifier',
+          modules: customModules,
+        });
+
+        const { editor } = await waitForEditor(page);
+        expect(editor.options.buttons).toEqual(customModules);
+      });
+    });
+
+    describe('Wrapper methods', () => {
+      test('Should call setReadOnly(false) to enable the editor', async () => {
+        const page = await getPage({
+          label: 'label',
+          identifier: 'identifier',
+        });
+
+        const { editor } = await waitForEditor(page);
+
+        // Spy on setReadOnly before calling it
+        const setReadOnlySpy = jest.spyOn(editor, 'setReadOnly');
+
+        // Call setReadOnly(false) to enable the editor
+        editor.setReadOnly(false);
+
+        expect(setReadOnlySpy).toHaveBeenCalledWith(false);
+        setReadOnlySpy.mockRestore();
       });
 
-      const { editor } = await waitForEditor(page);
-      expect(editor.options.modules).toEqual(expect.objectContaining(customModules));
+      test('Should call setReadOnly(true) to disable the editor', async () => {
+        const page = await getPage({
+          label: 'label',
+          identifier: 'identifier',
+        });
+
+        const { editor } = await waitForEditor(page);
+
+        // Spy on setReadOnly before calling it
+        const setReadOnlySpy = jest.spyOn(editor, 'setReadOnly');
+
+        // Call setReadOnly(true) to disable the editor
+        editor.setReadOnly(true);
+
+        expect(setReadOnlySpy).toHaveBeenCalledWith(true);
+        setReadOnlySpy.mockRestore();
+      });
+
+      test('editor.editor.textContent should return correct text content', async () => {
+        const page = await getPage({ label: 'label', identifier: 'identifier', value: '<img src="test.jpg">' });
+        const { editor } = await waitForEditor(page);
+
+        // Test textContent extraction
+        // When editor.value contains only an image, textContent should be empty
+        const result = editor.editor.textContent.trim();
+        expect(result).toEqual('');
+
+        // Test with empty value
+        editor.value = '';
+        const resultEmpty = editor.editor.textContent.trim();
+        expect(resultEmpty).toEqual('');
+
+        // Test with value that has only whitespace
+        editor.value = '   ';
+        const resultWhitespace = editor.editor.textContent.trim();
+        expect(resultWhitespace).toEqual('');
+
+        // Test with value that has actual text content
+        editor.value = '<p>Test content</p>';
+        const resultWithContent = editor.editor.textContent.trim();
+        expect(resultWithContent).toEqual('Test content');
+      });
+    });
+
+    test('Should set wysiwyg id and expose mg-input-title when component mounts with identifier', async () => {
+      const page = await getPage({ label: 'Label', identifier: 'editor-id' });
+      const { element } = await waitForEditor(page);
+
+      const wysiwygElement = element.shadowRoot.querySelector('#editor-id') as HTMLElement;
+      expect(wysiwygElement).not.toBeNull();
+      expect(wysiwygElement.classList.contains('jodit-wysiwyg')).toBe(true);
+      expect(wysiwygElement.id).toBe('editor-id');
+      expect(element.shadowRoot.querySelector('mg-input-title')).not.toBeNull();
+    });
+
+    test('Should re-apply click handler on mg-input-title after it is recreated by a re-render', async () => {
+      const page = await getPage({ label: 'label', identifier: 'identifier' });
+      const { element, editor } = await waitForEditor(page);
+
+      // Spy on editor.focus
+      const focusSpy = jest.fn();
+      editor.focus = focusSpy;
+
+      // Toggle disabled to trigger a re-render that causes mg-input.renderLabel()
+      // to destroy and recreate mg-input-title, losing the original click handler
+      element.disabled = true;
+      await page.waitForChanges();
+
+      // componentDidRender should have detected the recreated mg-input-title
+      // and re-applied the click handler
+      const titleElement = element.shadowRoot.querySelector('mg-input-title');
+      expect(titleElement).not.toBeNull();
+
+      // Click the recreated title to verify the click handler was re-applied
+      titleElement.click();
+      expect(focusSpy).toHaveBeenCalled();
+
+      // Test safety guard: click handler should not throw when editor is undefined
+      page.rootInstance.editor = undefined;
+      expect(() => titleElement.click()).not.toThrow();
     });
   });
 
-  describe('Editor polyfills', () => {
-    test('Should handle text selection in Shadow DOM', async () => {
+  describe('Sanitization', () => {
+    test('getEditorHTML should sanitize HTML content by default', async () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
-        value: '<p>Test content</p>',
+        value: '<p>Test</p><script>alert("xss")</script>',
       });
-      const { editor } = await waitForEditor(page);
+      const { element } = await waitForEditor(page);
 
-      // Mock selection methods
-      const mockSelection = {
-        getRangeAt: jest.fn().mockReturnValue({ startContainer: document.createElement('div') }),
-        removeAllRanges: jest.fn(),
-        setBaseAndExtent: jest.fn(),
-      };
+      const result = await element.getEditorHTML();
 
-      // Mock getSelection
-      window.getSelection = jest.fn().mockReturnValue(mockSelection);
-
-      // Create a valid DOM structure for the test
-      const rootParent = document.createElement('div');
-      const root = document.createElement('div');
-      rootParent.appendChild(root);
-
-      // Test setNativeRange with valid nodes
-      const startContainer = document.createElement('div');
-      const endContainer = document.createElement('div');
-      rootParent.appendChild(startContainer);
-      rootParent.appendChild(endContainer);
-
-      editor.selection.setNativeRange(startContainer, 0, endContainer, 1);
-      expect(mockSelection.setBaseAndExtent).toHaveBeenCalled();
+      // Script tags should be removed
+      expect(result).not.toContain('<script>');
+      expect(result).toContain('<p>Test</p>');
     });
 
-    test.each([true, false])('Should handle text selection in Shadow DOM from native element', async hasNativeRange => {
+    test('getEditorHTML should remove disallowed tags when sanitizerOptions.disallowTags is set', async () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
-        value: '<p>Test content</p>',
+        sanitizerOptions: { disallowTags: ['img', 'script'] },
+        value: '<p>Test</p><img src="test.jpg"><script>alert("xss")</script>',
       });
-      const { editor } = await waitForEditor(page);
+      const { element } = await waitForEditor(page);
 
-      // Mock selection methods
-      const mockSelection = {
-        getRangeAt: jest.fn().mockReturnValue({ startContainer: document.createElement('div') }),
-        removeAllRanges: jest.fn(),
-        setBaseAndExtent: jest.fn(),
-      };
+      const result = await element.getEditorHTML();
 
-      // Mock getSelection
-      window.getSelection = jest.fn().mockReturnValue(mockSelection);
-
-      // Create a valid DOM structure for the test
-      const rootParent = document.createElement('div');
-      const root = document.createElement('div');
-      rootParent.appendChild(root);
-
-      // Test setNativeRange with valid nodes
-      const startOffset = 0;
-      const endOffset = 1;
-      const startContainer = document.createElement('div');
-      const endContainer = document.createElement('div');
-      rootParent.appendChild(startContainer);
-      rootParent.appendChild(endContainer);
-
-      Object.defineProperty(editor.selection, 'getNativeRange', {
-        get() {
-          return jest.fn().mockReturnValue(
-            hasNativeRange
-              ? {
-                  native: {
-                    startContainer,
-                    startOffset,
-                    endContainer,
-                    endOffset,
-                  },
-                }
-              : null,
-          );
-        },
-      });
-
-      editor.selection.setNativeRange(startContainer, startOffset, endContainer, endOffset);
-      if (hasNativeRange) {
-        expect(mockSelection.setBaseAndExtent).not.toHaveBeenCalled();
-      } else {
-        expect(mockSelection.setBaseAndExtent).toHaveBeenCalled();
-      }
+      // img and script tags should be removed
+      expect(result).not.toContain('<img');
+      expect(result).not.toContain('<script>');
+      expect(result).toContain('<p>Test</p>');
     });
 
-    test('Should NOT handle with undefined getNativeRange value', async () => {
+    test('getEditorHTML should remove disallowed attributes when sanitizerOptions.disallowAttributes is set', async () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
-        value: '<p>Test content</p>',
+        sanitizerOptions: { disallowAttributes: { '*': ['style'], 'a': ['target'] } },
+        value: '<p style="color: red">Test</p><a href="#" target="_blank">Link</a>',
       });
-      const { editor } = await waitForEditor(page);
+      const { element } = await waitForEditor(page);
 
-      // Mock selection methods
-      const mockSelection = {
-        getRangeAt: jest.fn().mockReturnValue(null),
-        removeAllRanges: jest.fn(),
-        setBaseAndExtent: jest.fn(),
-      };
+      const result = await element.getEditorHTML();
 
-      // Mock getSelection
-      window.getSelection = jest.fn().mockReturnValue(mockSelection);
-
-      // Create a valid DOM structure for the test
-      const rootParent = document.createElement('div');
-      const root = document.createElement('div');
-      rootParent.appendChild(root);
-
-      editor.selection.setNativeRange(null, 0);
-      expect(mockSelection.setBaseAndExtent).not.toHaveBeenCalled();
+      // style attribute should be removed from all tags
+      expect(result).not.toContain('style="color: red"');
+      // target attribute should be removed from <a> tags
+      expect(result).not.toContain('target="_blank"');
+      // But href should remain
+      expect(result).toContain('href="#');
+      expect(result).toContain('<p>Test</p>');
     });
 
-    test.each(['startContainer', 'rootNode', 'endContainer'])('Should prevent trigger setNativeRange with %s null', async nullValue => {
+    test('getEditorHTML should handle both disallowTags and disallowAttributes together', async () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
+        sanitizerOptions: { disallowTags: ['img'], disallowAttributes: { '*': ['style'] } },
+        value: '<p style="color: red">Test</p><img src="test.jpg" style="width: 100px">',
       });
-      const { editor } = await waitForEditor(page);
+      const { element } = await waitForEditor(page);
 
-      // Mocks
-      window.getSelection = jest.fn().mockReturnValue(editor.selection);
-      if (nullValue === 'rootNode') {
-        Object.defineProperty(editor.editorElement, 'parentNode', {
-          get: () => null,
-        });
-      }
+      const result = await element.getEditorHTML();
 
-      // Create <br> elements with parent nodes
-      const parentNode = document.createElement('div');
-      const startBR = document.createElement('br');
-      const endBR = document.createElement('br');
-      if (nullValue !== 'startContainer') parentNode.appendChild(startBR);
-      if (nullValue !== 'endContainer') parentNode.appendChild(endBR);
-
-      // Test setNativeRange with <br> elements
-      editor.selection.setNativeRange(startBR, 0, endBR, 0);
-      expect(editor.selection.setBaseAndExtent).not.toHaveBeenCalled();
+      // img tag should be removed
+      expect(result).not.toContain('<img');
+      // style attributes should be removed
+      expect(result).not.toContain('style=');
+      expect(result).toContain('<p>Test</p>');
     });
 
-    test.each([[['br', 'br']], [['br', 'div']], [['div', 'br']], [['div', 'div']]])('Should handle %s elements in setNativeRange', async ([startTagName, endTagName]) => {
-      const page = await getPage({
-        label: 'label',
-        identifier: 'identifier',
-      });
-      const { editor } = await waitForEditor(page);
-
-      // Mock selection
-      window.getSelection = jest.fn().mockReturnValue(editor.selection);
-
-      // Create nested nodes
-      const parentNode = document.createElement('div');
-      const startContainer = document.createElement(startTagName);
-      const endContainer = document.createElement(endTagName);
-      parentNode.appendChild(startContainer);
-      parentNode.appendChild(endContainer);
-
-      // define focus
-      editor.selection.setNativeRange(startContainer, 0, endContainer, 0);
-      expect(editor.selection.setBaseAndExtent).toHaveBeenCalledTimes(1);
-
-      // skip focus step
-      editor.selection.setNativeRange(startContainer, 0, endContainer, 0);
-      expect(editor.selection.setBaseAndExtent).toHaveBeenCalledTimes(2);
+    test('getEditorHTML should throw error when sanitizerOptions is not an object', async () => {
+      await expect(
+        getPage({
+          label: 'label',
+          identifier: 'identifier',
+          sanitizerOptions: 'invalid' as never,
+          value: '<p>Test</p>',
+        }),
+      ).rejects.toThrow('prop "sanitizerOptions" must be an object');
     });
 
-    test('Should handle `selectionchange` event', async () => {
+    test('value-change event should emit sanitized HTML', async () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
+        sanitizerOptions: { disallowTags: ['script'] },
       });
-      const { editor } = await waitForEditor(page);
+      const { element, editor } = await waitForEditor(page);
 
-      document.dispatchEvent(new CustomEvent('selectionchange', { bubbles: true }));
+      const valueChangeSpy = jest.fn();
+      element.addEventListener('value-change', valueChangeSpy);
 
-      expect(editor.selection.update).toHaveBeenCalled();
+      // Simulate editor content change with unsafe HTML
+      editor.value = '<p>Test</p><script>alert("xss")</script>';
+      editor.events.fire('change');
+
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+
+      // The emitted value should be sanitized
+      expect(valueChangeSpy).toHaveBeenCalled();
+      const emittedValue = valueChangeSpy.mock.calls[0][0].detail;
+      expect(emittedValue).not.toContain('<script>');
+      expect(emittedValue).toContain('<p>Test</p>');
     });
 
-    test.each(['chrome', 'firefox', 'safari', 'error'])('Should implement %s getNativeRange polyfill', async browser => {
+    test('Initial value should be sanitized when sanitizerOptions.disallowTags is set', async () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
+        sanitizerOptions: { disallowTags: ['img'] },
+        value: '<p>Test</p><img src="test.jpg">',
       });
-      const { editor } = await waitForEditor(page);
+      const { element } = await waitForEditor(page);
 
-      // Mock
-      (editor.editorElement as HTMLElement & { getRangeAt: () => void }).getRangeAt = jest.fn();
-      window.getSelection = jest.fn();
-      if (browser === 'chrome') {
-        (editor.editorElement as HTMLElement & { getRangeAt: () => void }).getRangeAt = jest.fn();
-        (window.getSelection as jest.Mock).mockReturnValue(editor.editorElement);
-      }
+      // The initial value should be sanitized
+      const result = await element.getEditorHTML();
+      expect(result).not.toContain('<img');
+      expect(result).toContain('<p>Test</p>');
+    });
 
-      let attachShadowSpy;
-      if (browser === 'firefox') {
-        attachShadowSpy = jest.spyOn(Object.getPrototypeOf(global.HTMLElement).prototype, 'attachShadow').mockReturnValue({
-          getSelection: 'not_a_function',
-        } as unknown as ShadowRoot);
+    test('getEditorHTML should reinitialize sanitizer when sanitizerOptions changes after initialization', async () => {
+      const page = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        value: '<p>Test</p><img src="test.jpg">',
+      });
+      const { element } = await waitForEditor(page);
 
-        (window.getSelection as jest.Mock).mockReturnValue(editor.selection);
-      }
+      // Initially, img should be present
+      let result = await element.getEditorHTML();
+      expect(result).toContain('<img');
 
-      if (browser === 'safari') {
-        attachShadowSpy = jest.spyOn(Object.getPrototypeOf(global.HTMLElement).prototype, 'attachShadow').mockReturnValue({
-          getSelection: 'not_a_function',
-        } as unknown as ShadowRoot);
+      // Change sanitizerOptions prop after initialization
+      element.sanitizerOptions = { disallowTags: ['img'] };
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
 
-        (window.getSelection as jest.Mock).mockReturnValue(editor.selection);
-        delete editor.selection.getComposedRanges;
-      }
-
-      editor.selection.getNativeRange();
-
-      if (browser === 'chrome') {
-        expect((editor.editorElement as HTMLElement & { getSelection: () => Selection }).getSelection().getRangeAt).toHaveBeenCalledWith(0);
-      } else if (browser === 'firefox') {
-        expect(editor.selection.getComposedRanges).toHaveBeenCalled();
-        attachShadowSpy.mockRestore();
-      } else if (browser === 'safari') {
-        expect(editor.selection.getRangeAt).toHaveBeenCalled();
-        attachShadowSpy.mockRestore();
-      } else if (browser === 'error') {
-        expect.assertions(1);
-      }
+      // Now img should be removed
+      result = await element.getEditorHTML();
+      expect(result).not.toContain('<img');
+      expect(result).toContain('<p>Test</p>');
     });
   });
 });

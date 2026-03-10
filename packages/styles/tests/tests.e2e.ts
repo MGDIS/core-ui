@@ -10,6 +10,12 @@ test('Base', async ({ page }) => {
   await expect(page).toHaveScreenshot({ fullPage: true });
 });
 
+test('Components', async ({ page }) => {
+  page.goto(`file://${__dirname}/components.html`);
+  await page.locator('h1').first().waitFor({ state: 'visible' });
+  await expect(page).toHaveScreenshot({ fullPage: true });
+});
+
 test('Layout', async ({ page }) => {
   page.goto(`file://${__dirname}/layout.html`);
   await page.locator('h1').first().waitFor({ state: 'visible' });
