@@ -22,16 +22,10 @@
     flex: 0 0 content;
   }
 
-  // navigation button active underline border radius
   &__navigation-button.mg-c-tabs__navigation-button--horizontal {
     --mg-c-tabs-height: var(--mg-b-size-24);
-
-    padding-right: var(--mg-b-size-8);
-    padding-left: var(--mg-b-size-8);
-    margin: var(--mg-b-size-8) var(--mg-b-size-4);
-
-    &.mg-c-tabs__navigation-button--active::after {
-      bottom: calc(var(--mg-b-size-8) * -1);
-    }
+    --mg-c-tabs-button-spacing-y: var(--mg-b-size-8);
+    --mg-c-tabs-button-outer-spacing-x: var(--mg-b-size-4);
+    --mg-c-tabs-button-inner-spacing-x: var(--mg-b-size-8);
   }
 }

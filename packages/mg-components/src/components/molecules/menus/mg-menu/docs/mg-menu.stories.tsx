@@ -42,7 +42,7 @@ const menuItem = (args: MenuItemArg): HTMLMgMenuItemElement => {
     <mg-menu-item {...filterArgs(mgMenuItemArgs, { status: 'visible' })}>
       {args.label && <span slot="label">{args.label}</span>}
       {args.metadata && <span slot="metadata">{args.metadata}</span>}
-      {args.icon && <mg-icon slot="image" icon={args.icon}></mg-icon>}
+      {args.icon && <mg-icon slot="image" icon={args.icon} size="large"></mg-icon>}
       {args.badge && <mg-badge slot="information" label="information" value="1" variant="text-color"></mg-badge>}
       {args.content && (
         <div>

@@ -82,7 +82,7 @@ test.describe('mg-menu', () => {
         expect(await item.locator('button').first().getAttribute('aria-expanded')).toEqual(expanded);
       }
 
-      const body = page.locator('body');
+      const body = page.locator('.e2e-screenshot');
       // menu-item close
       await body.evaluate(elm => {
         elm.dispatchEvent(new MouseEvent('click', { bubbles: true }));

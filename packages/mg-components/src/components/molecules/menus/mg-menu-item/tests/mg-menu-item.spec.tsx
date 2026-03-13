@@ -121,9 +121,9 @@ describe('mg-menu-item', () => {
 
     test('Should mute isIcon to false with vertical display', async () => {
       const args = { label: 'Batman', isIcon: true };
-      const { root } = await getPage(<VerticalMenuWithItemTemplate {...args}></VerticalMenuWithItemTemplate>);
+      const page = await getPage(<VerticalMenuWithItemTemplate {...args}></VerticalMenuWithItemTemplate>);
 
-      expect(root).toMatchSnapshot();
+      expect(page.root).toMatchSnapshot();
     });
 
     test('with 2 menu-items, last items get style modifier', async () => {

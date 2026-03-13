@@ -187,6 +187,7 @@ export class MgMenuItem {
   @Watch('data-style-direction')
   watchDataStyleDirection(newValue: Direction): void {
     this.direction = newValue;
+    this.watchIsIcon(this.isIcon);
   }
 
   /**

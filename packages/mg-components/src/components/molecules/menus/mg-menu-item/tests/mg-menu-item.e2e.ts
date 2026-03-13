@@ -9,7 +9,8 @@ const slotMenuItem = '<mg-menu label="submenu"><mg-menu-item><span slot="label">
 const slotImage = '<mg-icon icon="user" slot="image"></mg-icon>';
 const slotInformation = '<mg-badge value="2" label="hello" slot="information"></mg-badge>';
 const slotMetadata = '<span slot="metadata">is a hero</span>';
-const defaultViewPortSize = { width: 130, height: 200 };
+const defaultViewPortSize = { width: 130, height: 50 };
+const popoverContentViewPortSize = { ...defaultViewPortSize, height: 180 };
 const createHTML = (args, slot = '', direction = directions.HORIZONTAL) => `
 <mg-menu ${renderAttributes({ label: 'batmenu', direction, ...args })}">
   <mg-menu-item ${renderAttributes(args)}>
@@ -29,7 +30,7 @@ test.describe('mg-menu-item', () => {
               [true, false].forEach(submenu => {
                 test(`submenu="${submenu}"`, async ({ page }) => {
                   await page.setContent(createHTML({ status, href }, submenu ? slotMenuItem : '', direction));
-                  await page.setViewportSize({ width: 100, height: 38 });
+                  await page.setViewportSize(defaultViewPortSize);
 
                   await expect(page.locator(status === Status.HIDDEN ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
                 });
@@ -59,6 +60,15 @@ test.describe('mg-menu-item', () => {
         });
       });
 
+      [true, false].forEach(isIcon => {
+        test(`Should render with isIcon="${isIcon}"`, async ({ page }) => {
+          await page.setContent(createHTML({ label: 'Batman', isIcon }, slotImage, direction));
+          await page.setViewportSize(defaultViewPortSize);
+
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        });
+      });
+
       test(`Should renders`, async ({ page }) => {
         await page.setContent(createHTML({}, [slotInformation, slotImage, slotMenuItem].join(''), direction));
         await page.setViewportSize(defaultViewPortSize);
@@ -84,7 +94,7 @@ test.describe('mg-menu-item', () => {
               direction,
             ),
           );
-          await page.setViewportSize({ ...defaultViewPortSize, width: 140 });
+          await page.setViewportSize(popoverContentViewPortSize);
 
           await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -96,7 +106,7 @@ test.describe('mg-menu-item', () => {
 
       test('Should render content slot', async ({ page }) => {
         await page.setContent(createHTML({}, slotContent, direction));
-        await page.setViewportSize(defaultViewPortSize);
+        await page.setViewportSize(popoverContentViewPortSize);
 
         await page.locator('mg-menu-item').first().click();
 
@@ -105,7 +115,7 @@ test.describe('mg-menu-item', () => {
 
       test('Should render slot image only with submenu', async ({ page }) => {
         await page.setContent(createHTML({ isIcon: true }, slotContent + slotImage, direction));
-        await page.setViewportSize({ ...defaultViewPortSize, width: 170 });
+        await page.setViewportSize(popoverContentViewPortSize);
 
         await page.locator('mg-menu-item').first().click();
 
@@ -115,7 +125,7 @@ test.describe('mg-menu-item', () => {
       [Status.ACTIVE, Status.VISIBLE, Status.HIDDEN, Status.DISABLED].forEach(status => {
         test(`Should manage keyboard navigation, case status="${status}"`, async ({ page }) => {
           await page.setContent(createHTML({ status }, slotMenuItem, direction));
-          await page.setViewportSize(defaultViewPortSize);
+          await page.setViewportSize(popoverContentViewPortSize);
 
           await expect(page.locator(status === Status.HIDDEN ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
 

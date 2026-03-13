@@ -2,14 +2,16 @@
   .#{$prefix}__navigation-button {
     position: relative;
     display: flex;
-    height: var(--#{$prefix}-height, var(--mg-b-size-40));
+    height: calc(var(--#{$prefix}-button-spacing-y) * 2 + var(--#{$prefix}-height));
     box-sizing: border-box;
     align-items: center;
-    padding: 0.2rem var(--mg-b-size-12);
+    padding: var(--#{$prefix}-button-spacing-y) calc(var(--#{$prefix}-button-outer-spacing-x) + var(--#{$prefix}-button-inner-spacing-x)) var(--#{$prefix}-button-spacing-y)
+      calc(var(--#{$prefix}-button-outer-spacing-x) + var(--#{$prefix}-button-inner-spacing-x)); // outer spacing + inner spacing for active state // outer spacing + inner spacing for active state // outer spacing + inner spacing for active state // outer spacing + inner spacing for active state
+
     border: none;
     border-radius: var(--mg-b-size-8);
     background-color: unset;
-    color: var(--mg-b-color-dark);
+    color: var(--#{$prefix}-color-text, var(--mg-b-color-dark));
     column-gap: var(--mg-b-size-8);
     cursor: pointer;
     font-family: var(--mg-b-font-family);
@@ -30,13 +32,24 @@
       opacity: var(--mg-b-opacity-element-disabled);
     }
 
+    &:hover,
     &:focus-visible {
       z-index: 10;
-    }
 
-    &:hover:not(.#{$prefix}__navigation-button--disabled),
-    &:focus-visible:not(.#{$prefix}__navigation-button--disabled) {
-      background-color: color-mix(in srgb, var(--mg-b-color-dark), white 92%);
+      &:not(.#{$prefix}__navigation-button--disabled)::before {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: stretch;
+        height: var(--#{$prefix}-height);
+        box-sizing: border-box;
+        border-radius: var(--mg-b-size-8);
+        margin-right: var(--#{$prefix}-button-outer-spacing-x);
+        margin-left: var(--#{$prefix}-button-outer-spacing-x);
+        background-color: color-mix(in srgb, var(--mg-c-menu-item-color-text, var(--mg-b-color-dark)), transparent 90%); // use text color to ensure sufficient contrast
+        content: '';
+      }
     }
 
     &,
@@ -45,13 +58,20 @@
       font-size: var(--mg-b-font-size);
     }
 
-    &.#{$prefix}__navigation-button--horizontal {
-      margin-top: var(--#{$prefix}-button-spacing, var(--mg-b-size-12));
-      margin-bottom: var(--#{$prefix}-button-spacing, var(--mg-b-size-12));
-    }
+    &:not(.#{$prefix}__navigation-button--disabled) {
+      &.#{$prefix}__navigation-button--horizontal::before {
+        margin: var(--#{$prefix}-button-spacing-y) var(--#{$prefix}-button-outer-spacing-x);
+      }
 
+      &.#{$prefix}__navigation-button--vertical::before {
+        height: 100%;
+        margin: 0 var(--#{$prefix}-button-outer-spacing-x);
+      }
+    }
     &.#{$prefix}__navigation-button--vertical {
-      margin: 0 var(--#{$prefix}-button-spacing, var(--mg-b-size-8));
+      --#{$prefix}-height: var(--mg-b-size-24);
+      --#{$prefix}-button-outer-spacing-x: var(--mg-b-size-8);
+      --#{$prefix}-button-inner-spacing-x: var(--mg-b-size-12);
     }
 
     &.#{$prefix}__navigation-button--active {
@@ -59,23 +79,25 @@
       font-weight: 600;
 
       &.#{$prefix}__navigation-button--horizontal::after {
-        bottom: calc(var(--mg-b-size-12) * -1);
+        bottom: 0;
         left: 50%;
-        width: calc(100% - var(--#{$prefix}-button-spacing, var(--mg-b-size-12)) * 2);
+        width: calc(100% - (var(--#{$prefix}-button-outer-spacing-x) + var(--mg-b-size-8)) * 2);
         height: var(--mg-b-size-4);
         border-top-left-radius: var(--mg-b-size-8);
         border-top-right-radius: var(--mg-b-size-8);
         transform: translateX(-50%);
       }
 
-      &.#{$prefix}__navigation-button--vertical::after {
-        top: 50%;
-        left: calc(var(--mg-b-size-8) * -1);
-        width: var(--mg-b-size-4);
-        height: calc(100% - var(--mg-b-size-8) * 2);
-        border-bottom-right-radius: var(--mg-b-size-8);
-        border-top-right-radius: var(--mg-b-size-8);
-        transform: translateY(-50%);
+      &.#{$prefix}__navigation-button--vertical {
+        &::after {
+          top: 50%;
+          left: 0;
+          width: var(--mg-b-size-4);
+          height: calc(100% - var(--mg-b-size-8) * 2);
+          border-bottom-right-radius: var(--mg-b-size-8);
+          border-top-right-radius: var(--mg-b-size-8);
+          transform: translateY(-50%);
+        }
       }
     }
     &.#{$prefix}__navigation-button--hidden {
