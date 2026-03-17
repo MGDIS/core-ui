@@ -13,12 +13,6 @@ const getPage = args =>
 const expectedItemsError = (value: unknown) =>
   `<mg-breadcrumb> prop "items" is required and all values must be the same type, BreadcrumbItemType. Passed value: ${toString(value)}.`;
 
-const expectGetPageToThrowErrorMessage = async (args: unknown, expectedMessage: string) => {
-  const promise = Promise.resolve().then(() => getPage(args));
-  await expect(promise).rejects.toBeInstanceOf(Error);
-  await expect(promise).rejects.toHaveProperty('message', expectedMessage);
-};
-
 describe('mg-breadcrumb', () => {
   test('with args %s', async () => {
     expect(
@@ -31,12 +25,22 @@ describe('mg-breadcrumb', () => {
   });
 
   test.each([{ items: [] }, { items: [{ label: '' }] }, { items: [{ label: '   ' }] }])('Should throw error with invalid items: %s', async args => {
-    await expectGetPageToThrowErrorMessage(args, expectedItemsError(args.items));
+    expect.assertions(1);
+    try {
+      await getPage(args);
+    } catch (err) {
+      expect(err.message).toEqual(expectedItemsError(args.items));
+    }
   });
 
   test('Should throw error when items is passed via HTML attribute (string)', async () => {
     const items = '[{"label":"Home","href":"/"}]';
-    await expectGetPageToThrowErrorMessage({ items }, expectedItemsError(items));
+    expect.assertions(1);
+    try {
+      await getPage({ items });
+    } catch (err) {
+      expect(err.message).toEqual(expectedItemsError(items));
+    }
   });
 
   test.each([
@@ -47,7 +51,12 @@ describe('mg-breadcrumb', () => {
       items: [{ label: 'Home', href: '/' }, { label: 'Section' }, { label: 'Current page', href: '/current' }],
     },
   ])('Should throw error when a non-last item has no href', async ({ items }) => {
-    await expectGetPageToThrowErrorMessage({ items }, expectedItemsError(items));
+    expect.assertions(1);
+    try {
+      await getPage({ items });
+    } catch (err) {
+      expect(err.message).toEqual(expectedItemsError(items));
+    }
   });
 
   test('Should set aria-label on link when item has icon', async () => {
