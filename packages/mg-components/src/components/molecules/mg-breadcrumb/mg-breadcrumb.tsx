@@ -65,7 +65,7 @@ export class MgBreadcrumb {
       );
     }
 
-    return <span aria-current="page">{item.label}</span>;
+    return <span>{item.label}</span>;
   }
 
   /*************

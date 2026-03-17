@@ -95,7 +95,7 @@ describe('mg-breadcrumb', () => {
     const mgBreadcrumb = page.doc.querySelector('mg-breadcrumb');
     const listBefore = mgBreadcrumb.shadowRoot.querySelector('ol');
     expect(listBefore.querySelectorAll('li')).toHaveLength(2);
-    expect(listBefore.querySelector('span[aria-current="page"]').textContent.trim()).toBe('Current page');
+    expect(listBefore.querySelector('span').textContent.trim()).toBe('Current page');
 
     const newItems = [{ label: 'Home', href: '/' }, { label: 'Section', href: '/section' }, { label: 'New current' }];
     mgBreadcrumb.items = newItems;
@@ -103,6 +103,6 @@ describe('mg-breadcrumb', () => {
 
     const listAfter = mgBreadcrumb.shadowRoot.querySelector('ol');
     expect(listAfter.querySelectorAll('li')).toHaveLength(3);
-    expect(listAfter.querySelector('span[aria-current="page"]').textContent.trim()).toBe('New current');
+    expect(listAfter.querySelector('span').textContent.trim()).toBe('New current');
   });
 });
