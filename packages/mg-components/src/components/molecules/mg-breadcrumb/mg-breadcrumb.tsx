@@ -11,9 +11,7 @@ import { isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 const isBreadcrumbItems = (items: unknown): items is BreadcrumbItemType[] =>
   Array.isArray(items) &&
   items.length > 0 &&
-  items.every(
-    (item, index) => typeof item === 'object' && item !== null && isValidString(item.label) && item.label.trim() !== '' && (index === items.length - 1 || isValidString(item.href)),
-  );
+  items.every((item, index) => typeof item === 'object' && item !== null && isValidString(item.label) && (index === items.length - 1 || isValidString(item.href)));
 
 @Component({
   tag: 'mg-breadcrumb',
