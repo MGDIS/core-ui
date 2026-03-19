@@ -243,8 +243,8 @@ importers:
         specifier: 3.2.6
         version: 3.2.6(typescript@5.9.3)
       vue3-snapshot-serializer:
-        specifier: 2.13.0
-        version: 2.13.0
+        specifier: 2.13.1
+        version: 2.13.1
 
   configs/eslint-config-custom:
     dependencies:
@@ -4016,8 +4016,8 @@ packages:
   cheerio-select@2.1.0:
     resolution: {integrity: sha512-9v9kG0LvzrlcungtnJtpGNxY+fzECQKhK4EGJX2vByejiMX84MFNQw4UxPJl3bFbTMw+Dfs37XaIkCwTZfLh4g==}
 
-  cheerio@1.1.2:
-    resolution: {integrity: sha512-IkxPpb5rS/d1IiLbHMgfPuS0FgiWTtFIm/Nj+2woXDLTZ7fOT2eqzgYbdMlLweqlHbsZjxEChoVK+7iph7jyQg==}
+  cheerio@1.2.0:
+    resolution: {integrity: sha512-WDrybc/gKFpTYQutKIK6UvfcuxijIZfMfXaYm8NMsPQxSYvf+13fXUJ4rztGGbJcBQ/GF55gvrZ0Bc0bj/mqvg==}
     engines: {node: '>=20.18.1'}
 
   chokidar@4.0.3:
@@ -5524,9 +5524,6 @@ packages:
 
   htmlfy@1.0.1:
     resolution: {integrity: sha512-M85PmyEpWUDqhlEknsnvqmqGLq67h8e86WuKLMdXQdUl8iyvOSDbAAyv0tv0IVmIfh7Py1Vsot/IU1skdswt6g==}
-
-  htmlparser2@10.0.0:
-    resolution: {integrity: sha512-TwAZM+zE5Tq3lrEHvOlvwgj1XLWQCtaaibSN11Q+gGBAS7Y1uZSWwXXRe4iF6OXnaq1riyQAPFOBtYc77Mxq0g==}
 
   htmlparser2@10.1.0:
     resolution: {integrity: sha512-VTZkM9GWRAtEpveh7MSF6SjjrpNVNNVJfFup7xTY3UpFtm67foy9HDVXneLtFVt4pMz5kZtgNcvCniNFb1hlEQ==}
@@ -7843,8 +7840,8 @@ packages:
   undici-types@7.16.0:
     resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
 
-  undici@7.16.0:
-    resolution: {integrity: sha512-QEg3HPMll0o3t2ourKwOeUAZ159Kn9mx5pnzHRQO8+Wixmh88YdZRiIwat0iNzNNXn0yoEtXJqFpyW7eM8BV7g==}
+  undici@7.24.5:
+    resolution: {integrity: sha512-3IWdCpjgxp15CbJnsi/Y9TCDE7HWVN19j1hmzVhoAkY/+CJx449tVxT5wZc1Gwg8J+P0LWvzlBzxYRnHJ+1i7Q==}
     engines: {node: '>=20.18.1'}
 
   universalify@0.1.2:
@@ -8034,8 +8031,8 @@ packages:
     peerDependencies:
       typescript: '>=5.0.0'
 
-  vue3-snapshot-serializer@2.13.0:
-    resolution: {integrity: sha512-/v4x+2nDsKtty/wwBsmzLV12DamZFFi7jp7hBB3ZVtxWSNH9/+D9/+yVPdECyKGbyMQJIHyCzWKIhumUCW1PIA==}
+  vue3-snapshot-serializer@2.13.1:
+    resolution: {integrity: sha512-3AQAyDDcbGXNLiOp4rNNinRqwT0Uy/ahodk25r0OL/lV4+/P4nwLi6s2OeG/lkFfePgyFSaFMJTyp9+mp8loMw==}
 
   vue@2.7.16:
     resolution: {integrity: sha512-4gCtFXaAA3zYZdTp5s4Hl2sozuySsgz4jy1EnpBHNfpMa9dK1ZCG7viqBPCwXtmgc8nHqUsAu3G4gtmXkkY3Sw==}
@@ -11764,18 +11761,18 @@ snapshots:
       domhandler: 5.0.3
       domutils: 3.2.2
 
-  cheerio@1.1.2:
+  cheerio@1.2.0:
     dependencies:
       cheerio-select: 2.1.0
       dom-serializer: 2.0.0
       domhandler: 5.0.3
       domutils: 3.2.2
       encoding-sniffer: 0.2.1
-      htmlparser2: 10.0.0
+      htmlparser2: 10.1.0
       parse5: 7.3.0
       parse5-htmlparser2-tree-adapter: 7.1.0
       parse5-parser-stream: 7.1.2
-      undici: 7.16.0
+      undici: 7.24.5
       whatwg-mimetype: 4.0.0
 
   chokidar@4.0.3:
@@ -13085,13 +13082,6 @@ snapshots:
   html-tags@3.3.1: {}
 
   htmlfy@1.0.1: {}
-
-  htmlparser2@10.0.0:
-    dependencies:
-      domelementtype: 2.3.0
-      domhandler: 5.0.3
-      domutils: 3.2.2
-      entities: 6.0.1
 
   htmlparser2@10.1.0:
     dependencies:
@@ -15782,7 +15772,7 @@ snapshots:
 
   undici-types@7.16.0: {}
 
-  undici@7.16.0: {}
+  undici@7.24.5: {}
 
   universalify@0.1.2: {}
 
@@ -16087,10 +16077,10 @@ snapshots:
       '@vue/language-core': 3.2.6
       typescript: 5.9.3
 
-  vue3-snapshot-serializer@2.13.0:
+  vue3-snapshot-serializer@2.13.1:
     dependencies:
-      cheerio: 1.1.2
-      htmlparser2: 10.0.0
+      cheerio: 1.2.0
+      htmlparser2: 10.1.0
       js-beautify: 1.15.4
 
   vue@2.7.16:
