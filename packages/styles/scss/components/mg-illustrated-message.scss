@@ -4,24 +4,23 @@
 
 .mg-c-illustrated-message {
   display: flex;
-  max-width: calc(60 * var(--mg-b-size-8)); // 480px;
   box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
   padding: var(--mg-c-illustrated-message-spacing-vertical) var(--mg-b-size-16);
   margin: auto;
   gap: var(--mg-b-size-16) var(--mg-b-size-64);
+  max-inline-size: calc(60 * var(--mg-b-size-8)); // 480px;
   text-align: center;
 
   &__illustration {
-    max-height: calc(15 * var(--mg-b-size-8)); // 120px;
+    max-block-size: calc(15 * var(--mg-b-size-8)); // 120px;
 
     ::slotted([slot='illustration']) {
-      width: 100%;
-      max-width: 100%;
-      max-width: calc(15 * var(--mg-b-size-8)); // 120px;
-      height: auto;
-      max-height: calc(15 * var(--mg-b-size-8)); // 120px;
+      block-size: auto;
+      inline-size: 100%;
+      max-block-size: calc(15 * var(--mg-b-size-8)); // 120px;
+      max-inline-size: calc(15 * var(--mg-b-size-8)); // 120px;
     }
   }
 
@@ -53,20 +52,22 @@
     }
 
     .mg-c-illustrated-message__illustration {
-      max-height: var(--mg-b-size-64);
+      max-block-size: var(--mg-b-size-64);
 
       ::slotted([slot='illustration']) {
-        max-height: var(--mg-b-size-64);
+        max-block-size: var(--mg-b-size-64);
+        max-inline-size: var(--mg-b-size-64);
       }
     }
   }
 
   &.mg-c-illustrated-message--size-large {
     .mg-c-illustrated-message__illustration {
-      max-height: calc(23 * var(--mg-b-size-8)); // 184px;
+      max-block-size: calc(23 * var(--mg-b-size-8)); // 184px;
 
       ::slotted([slot='illustration']) {
-        max-height: calc(23 * var(--mg-b-size-8)); // 184px;
+        max-block-size: calc(23 * var(--mg-b-size-8)); // 184px;
+        max-inline-size: calc(23 * var(--mg-b-size-8)); // 184px;
       }
     }
   }
@@ -75,10 +76,10 @@
    * Directions
    */
   &.mg-c-illustrated-message--direction-horizontal {
-    max-width: unset;
+    max-inline-size: unset;
 
     .mg-c-illustrated-message__slots {
-      max-width: calc(60 * var(--mg-b-size-8)); // 480px;
+      max-inline-size: calc(60 * var(--mg-b-size-8)); // 480px;
     }
   }
 
@@ -90,12 +91,12 @@
       text-align: left;
 
       .mg-c-illustrated-message__slots {
-        max-width: unset;
+        max-inline-size: unset;
       }
 
       .mg-c-illustrated-message__illustration {
-        max-width: fit-content;
         flex: 1 0 auto;
+        max-inline-size: fit-content;
       }
 
       &.mg-c-illustrated-message--size-small {
