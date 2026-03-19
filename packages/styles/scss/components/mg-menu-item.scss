@@ -13,7 +13,7 @@
 @for $i from 1 through 6 {
   :host([data-style-direction='vertical'][data-level='#{$i}']) {
     .mg-c-menu-item__navigation-button {
-      padding-left: calc(#{$i} * var(--mg-b-size-12));
+      padding-left: calc(#{$i} * var(--mg-c-menu-item-button-inner-spacing-x) + var(--mg-c-menu-item-button-outer-spacing-x));
     }
   }
   :host([data-level='#{$i}']) {
