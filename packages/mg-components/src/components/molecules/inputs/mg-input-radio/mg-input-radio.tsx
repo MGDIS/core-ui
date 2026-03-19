@@ -410,9 +410,9 @@ export class MgInputRadio {
         {this.readonly ? (
           this.readonlyValue && <b class="mg-c-input__readonly-value">{this.readonlyValue}</b>
         ) : (
-          <ul class="mg-c-input__input-group-container" role="list">
+          <div class="mg-c-input__input-group-container">
             {this.options.map((input, index) => (
-              <li key={input.title} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': this.disabled || input.disabled }}>
+              <div key={input.title} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': this.disabled || input.disabled }}>
                 <input
                   type="radio"
                   id={this.identifier + '_' + index}
@@ -428,9 +428,9 @@ export class MgInputRadio {
                   }}
                 />
                 <label htmlFor={this.identifier + '_' + index}>{input.title}</label>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         )}
       </mg-input>
     );

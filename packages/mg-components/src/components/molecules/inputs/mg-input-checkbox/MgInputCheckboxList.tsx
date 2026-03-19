@@ -7,9 +7,9 @@ import { MgInputCheckboxListProps } from './mg-input-checkbox.conf';
  * @returns input template
  */
 export const MgInputCheckboxList: FunctionalComponent<MgInputCheckboxListProps> = (props: MgInputCheckboxListProps): VNode[] => (
-  <ul class="mg-c-input__input-group-container" role="list" aria-labelledby={props.labelledby} id={props.id}>
+  <div class="mg-c-input__input-group-container" aria-labelledby={props.labelledby} id={props.id}>
     {props.checkboxes.map(input => (
-      <li key={input._id} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': props.disabled || input.disabled }}>
+      <div key={input._id} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': props.disabled || input.disabled }}>
         <input
           type="checkbox"
           id={input._id}
@@ -25,7 +25,7 @@ export const MgInputCheckboxList: FunctionalComponent<MgInputCheckboxListProps> 
           onKeyDown={input._handleKeydown}
         />
         <label htmlFor={input._id}>{input.title}</label>
-      </li>
+      </div>
     ))}
-  </ul>
+  </div>
 );
