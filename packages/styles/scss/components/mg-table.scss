@@ -9,7 +9,6 @@
   // TODO: put variables in components custom properties after beta
   --mg-c-table-cell-spacing: var(--mg-b-size-8) var(--mg-b-size-16);
   --mg-c-table-cell-height: var(--mg-b-size-40);
-  --mg-c-table-header-cell-height: calc(var(--mg-b-size-min-height) + 2 * var(--mg-b-size-8));
 
   overflow: hidden;
   border: var(--mg-b-size-border) solid var(--mg-b-color-neutral-30);
@@ -70,17 +69,15 @@
   &.mg-c-table--size-small {
     --mg-c-table-cell-spacing: var(--mg-b-size-4) var(--mg-b-size-16);
     --mg-c-table-cell-height: var(--mg-b-size-32);
-    --mg-c-table-header-cell-height: var(--mg-b-size-32);
   }
 
   &.mg-c-table--size-large {
-    --mg-c-table-cell-height: var(--mg-c-table-header-cell-height);
+    --mg-c-table-cell-height: calc(var(--mg-b-size-min-height) + 2 * var(--mg-b-size-8));
   }
 
   &.mg-c-table--size-xlarge {
     --mg-c-table-cell-spacing: var(--mg-b-size-12) var(--mg-b-size-16);
     --mg-c-table-cell-height: var(--mg-b-size-64);
-    --mg-c-table-header-cell-height: var(--mg-b-size-64);
   }
 
   /**
