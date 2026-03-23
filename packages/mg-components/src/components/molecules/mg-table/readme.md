@@ -28,11 +28,12 @@ For currency values, you can also use the `datatype` property set to `"numeric"`
 
 ## Properties
 
-| Property    | Attribute    | Description                             | Type                                                                                                                             | Default     |
-| ----------- | ------------ | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `columns`   | --           | Define column properties                | `{ [key: number]: { align?: "center" \| "right" \| "left"; sortable?: boolean; datatype?: "string" \| "numeric" \| "date"; }; }` | `undefined` |
-| `fullWidth` | `full-width` | Define if table fits its parent element | `boolean`                                                                                                                        | `false`     |
-| `size`      | `size`       | Define table size                       | `"large" \| "medium" \| "small" \| "xlarge"`                                                                                     | `'medium'`  |
+| Property     | Attribute     | Description                             | Type                                                                                                                             | Default     |
+| ------------ | ------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `borderHide` | `border-hide` | Define if table has no outer border     | `boolean`                                                                                                                        | `false`     |
+| `columns`    | --            | Define column properties                | `{ [key: number]: { align?: "center" \| "right" \| "left"; sortable?: boolean; datatype?: "string" \| "numeric" \| "date"; }; }` | `undefined` |
+| `fullWidth`  | `full-width`  | Define if table fits its parent element | `boolean`                                                                                                                        | `false`     |
+| `size`       | `size`        | Define table size                       | `"large" \| "medium" \| "small" \| "xlarge"`                                                                                     | `'medium'`  |
 
 
 ## Slots

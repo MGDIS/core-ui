@@ -86,6 +86,89 @@ exports[`mg-table Should link table to caption 1`] = `
 </mg-table>
 `;
 
+exports[`mg-table Should render with args { borderHide: true }: 1`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--border-hide mg-c-table--size-medium">
+        <thead>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
 exports[`mg-table Should render with args { columns: { '2': { align: 'center' } } }: 1`] = `
 <mg-table>
   <template shadowrootmode="open">
@@ -834,6 +917,172 @@ exports[`mg-table Should update mg-table classes on props change 2`] = `
 `;
 
 exports[`mg-table Should update mg-table classes on props change 3`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--full-width mg-c-table--size-xlarge">
+        <thead>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Should update mg-table classes on props change 4`] = `
+<mg-table>
+  <template shadowrootmode="open">
+    <div class="mg-c-table-wrapper" role="region" tabindex="0">
+      <table class="mg-c-table mg-c-table--border-hide mg-c-table--full-width mg-c-table--size-xlarge">
+        <thead>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Age
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Test signature
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              Simon
+            </th>
+            <td data-sort="1982-06-02">
+              02/06/1982
+            </td>
+            <td>
+              42
+            </td>
+            <td>
+              Archi
+            </td>
+            <td>
+              Blu / Daron Crew
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nico
+            </th>
+            <td data-sort="1990-10-31">
+              31/10/1990
+            </td>
+            <td>
+              35
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              DC Comics (Batman, Jocker, etc.)
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Guirec
+            </th>
+            <td data-sort="1985-12-30">
+              30/12/1985
+            </td>
+            <td>
+              39
+            </td>
+            <td>
+              Dev front-end
+            </td>
+            <td>
+              Pat'Patrouille
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</mg-table>
+`;
+
+exports[`mg-table Should update mg-table classes on props change 5`] = `
 <mg-table>
   <template shadowrootmode="open">
     <div class="mg-c-table-wrapper" role="region" tabindex="0">

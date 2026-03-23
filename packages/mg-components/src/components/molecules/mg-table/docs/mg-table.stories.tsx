@@ -19,6 +19,7 @@ const Template = (args: MgTableType & { slotContent: string }): HTMLElement => (
       args,
       {
         size: 'medium',
+        borderHide: false,
       },
       [''],
     )}

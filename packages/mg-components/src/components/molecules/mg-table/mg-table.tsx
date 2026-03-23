@@ -69,6 +69,7 @@ export class MgTable {
   private readonly componentClass = 'mg-c-table';
   private readonly componentWrapperClass = 'mg-c-table-wrapper';
   private readonly classFullWidth = 'mg-c-table--full-width';
+  private readonly classBorderHide = 'mg-c-table--border-hide';
 
   // Alignment stylesheet
   private alignmentStylesheet = new CSSStyleSheet();
@@ -108,6 +109,19 @@ export class MgTable {
       this.classCollection.add(this.classFullWidth);
     } else {
       this.classCollection.delete(this.classFullWidth);
+    }
+  }
+
+  /**
+   * Define if table has no outer border
+   */
+  @Prop() borderHide = false;
+  @Watch('borderHide')
+  watchBorderHide(newValue: MgTable['borderHide']): void {
+    if (newValue) {
+      this.classCollection.add(this.classBorderHide);
+    } else {
+      this.classCollection.delete(this.classBorderHide);
     }
   }
 
@@ -311,6 +325,7 @@ export class MgTable {
   componentDidLoad(): void {
     this.watchSize(this.size);
     this.watchFullWidth(this.fullWidth);
+    this.watchBorderHide(this.borderHide);
     this.watchColumns(this.columns);
     this.renderTable(this.element.querySelector('table'));
   }

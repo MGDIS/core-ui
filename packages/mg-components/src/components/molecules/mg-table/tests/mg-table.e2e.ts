@@ -6,21 +6,28 @@ import { tableWithHeaderCellsInTheTopRowOnly, tableSortable, tables, tableWithHe
 const createHTML = (args, slot) => `<mg-table ${renderAttributes(args)}>${slot}</mg-table>`;
 
 test.describe('mg-table', () => {
-  [{}, { size: 'small' }, { size: 'large' }, { size: 'xlarge' }, { fullWidth: true }, { columns: { 2: { align: 'center' } } }, { columns: { 3: { datatype: 'numeric' } } }].forEach(
-    args => {
-      test(`Should render with args ${JSON.stringify(args)}`, async ({ page }) => {
-        const html = createHTML(args, tableWithHeaderCellsInTheTopRowOnly);
-        await page.setContent(html);
-        if (args.columns !== undefined) {
-          await page.addScriptTag({ content: renderProperties(args, 'mg-table') });
-        }
-        if (args.fullWidth) {
-          await page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
-        }
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
-    },
-  );
+  [
+    {},
+    { size: 'small' },
+    { size: 'large' },
+    { size: 'xlarge' },
+    { borderHide: true },
+    { fullWidth: true },
+    { columns: { 2: { align: 'center' } } },
+    { columns: { 3: { datatype: 'numeric' } } },
+  ].forEach(args => {
+    test(`Should render with args ${JSON.stringify(args)}`, async ({ page }) => {
+      const html = createHTML(args, tableWithHeaderCellsInTheTopRowOnly);
+      await page.setContent(html);
+      if (args.columns !== undefined) {
+        await page.addScriptTag({ content: renderProperties(args, 'mg-table') });
+      }
+      if (args.fullWidth) {
+        await page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
+      }
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
 
   tables.forEach((table, index) => {
     test(`Should render w3c table ${index}`, async ({ page }) => {

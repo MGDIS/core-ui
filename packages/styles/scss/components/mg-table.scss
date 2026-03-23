@@ -75,10 +75,18 @@
   }
 
   /**
-  * full width
+  * Full width
   */
   &.mg-c-table--full-width {
     width: 100%;
+  }
+
+  /**
+  * Border hide
+  */
+  &.mg-c-table--border-hide {
+    border: unset;
+    border-radius: unset;
   }
 
   &-wrapper {

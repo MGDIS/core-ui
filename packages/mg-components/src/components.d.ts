@@ -2048,6 +2048,11 @@ export namespace Components {
     }
     interface MgTable {
         /**
+          * Define if table has no outer border
+          * @default false
+         */
+        "borderHide": boolean;
+        /**
           * Define column properties
          */
         "columns": ColumnsType;
@@ -4752,6 +4757,11 @@ declare namespace LocalJSX {
         "onGo-to-anchor"?: (event: MgSkipLinksCustomEvent<string>) => void;
     }
     interface MgTable {
+        /**
+          * Define if table has no outer border
+          * @default false
+         */
+        "borderHide"?: boolean;
         /**
           * Define column properties
          */
