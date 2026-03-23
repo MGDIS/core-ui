@@ -43,6 +43,13 @@ For currency values, you can also use the `datatype` property set to `"numeric"`
 |      | Table content |
 
 
+## CSS Custom Properties
+
+| Name                                      | Description                                                                                                                                                                             |
+| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--mg-c-table-color-head-foot-background` | Background color for thead and tfoot. Unset by default, fallback on `--mg-b-color-neutral-10`. Override on `mg-table` (e.g. `var(--mg-b-color-light)` to align with the table surface). |
+
+
 ## Dependencies
 
 ### Depends on

@@ -1,6 +1,10 @@
 @use '../utils/a11y';
 @use '../base/typography';
 
+/*!
+ * @prop --mg-c-table-color-head-foot-background: Background color for thead and tfoot. Unset by default, fallback on `--mg-b-color-neutral-10`. Override on `mg-table` (e.g. `var(--mg-b-color-light)` to align with the table surface).
+ */
+
 .mg-c-table {
   // TODO: put variables in components custom properties after beta
   --mg-c-table-cell-spacing: var(--mg-b-size-8) var(--mg-b-size-16);
@@ -28,7 +32,7 @@
 
   thead,
   tfoot {
-    background-color: var(--mg-b-color-neutral-10);
+    background-color: var(--mg-c-table-color-head-foot-background, var(--mg-b-color-neutral-10));
   }
 
   // Font weight for headers

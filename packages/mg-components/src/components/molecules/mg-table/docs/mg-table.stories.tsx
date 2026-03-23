@@ -27,14 +27,7 @@ const Template = (args: MgTableType & { slotContent: string }): HTMLElement => (
   ></mg-table>
 );
 
-export const MGTable = {
-  render: Template,
-  args: {
-    'size': undefined,
-    'fullWidth': false,
-    'columns': { 1: { sortable: true }, 2: { datatype: 'date', sortable: true }, 3: { datatype: 'numeric', sortable: true } },
-    // Slots
-    '': `<table>
+const tableSlotSortable = `<table>
   <thead>
     <tr>
       <th>Name</th>
@@ -67,6 +60,46 @@ export const MGTable = {
       <td>Pat'Patrouille</td>
     </tr>
   </tbody>
-</table>`,
+</table>`;
+
+/**
+ * Same as default table with `--mg-c-table-color-head-foot-background` set to light (header/footer match table body).
+ * @param args - component arguments
+ * @returns HTMLElement
+ */
+const TemplateHeadFootLightBackground = (args: MgTableType & { slotContent: string }): HTMLElement => (
+  <mg-table
+    {...filterArgs(
+      args,
+      {
+        size: 'medium',
+      },
+      [''],
+    )}
+    style={{
+      '--mg-c-table-color-head-foot-background': 'var(--mg-b-color-light)',
+    }}
+    innerHTML={args['']}
+  ></mg-table>
+);
+
+export const MGTable = {
+  render: Template,
+  args: {
+    'size': undefined,
+    'fullWidth': false,
+    'columns': { 1: { sortable: true }, 2: { datatype: 'date', sortable: true }, 3: { datatype: 'numeric', sortable: true } },
+    // Slots
+    '': tableSlotSortable,
+  },
+};
+
+export const MGTableHeadFootLightBackground = {
+  render: TemplateHeadFootLightBackground,
+  args: {
+    'size': undefined,
+    'fullWidth': false,
+    'columns': { 1: { sortable: true }, 2: { datatype: 'date', sortable: true }, 3: { datatype: 'numeric', sortable: true } },
+    '': tableSlotSortable,
   },
 };
