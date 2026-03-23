@@ -33,6 +33,11 @@
   thead,
   tfoot {
     background-color: var(--mg-c-table-color-head-foot-background, var(--mg-b-color-neutral-10));
+    color: var(--mg-b-color-neutral-90);
+  }
+
+  tfoot tr:first-of-type :where(th, td) {
+    border-block-start: var(--mg-b-size-border) solid var(--mg-b-color-neutral-30);
   }
 
   // Font weight for headers
