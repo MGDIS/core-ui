@@ -22,7 +22,7 @@
 
     &::after {
       position: absolute;
-      background-color: var(--mg-b-color-app);
+      background-color: var(--#{$prefix}-color);
       content: '';
     }
 
@@ -47,7 +47,7 @@
         border-radius: var(--mg-b-size-8);
         margin-right: var(--#{$prefix}-button-outer-spacing-x);
         margin-left: var(--#{$prefix}-button-outer-spacing-x);
-        background-color: color-mix(in srgb, var(--mg-c-menu-item-color-text, var(--mg-b-color-dark)), transparent 90%); // use text color to ensure sufficient contrast
+        background-color: color-mix(in srgb, var(--#{$prefix}-color-text, var(--mg-b-color-dark)), transparent 90%); // use text color to ensure sufficient contrast
         content: '';
       }
     }

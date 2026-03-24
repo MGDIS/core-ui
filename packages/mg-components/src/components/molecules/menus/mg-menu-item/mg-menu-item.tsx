@@ -348,9 +348,7 @@ export class MgMenuItem {
     if (!this.isInteractiveItem()) {
       const closePopover = (element: HTMLMgMenuItemElement): void => {
         if (element === null) return;
-        else if (element !== this.element && element.expanded && element.shadowRoot.querySelector('mg-popover') !== null) {
-          element.expanded = false;
-        } else {
+        else {
           closePopover(element.parentElement.closest('mg-menu-item'));
         }
       };
@@ -400,7 +398,6 @@ export class MgMenuItem {
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
     return setTimeout(() => {
       this.watchDataStyleDirection(this.element.dataset.styleDirection as Direction);
-      this.watchDataHasFocus(this.element.dataset.hasFocus);
       this.updateItem([Status.ACTIVE]);
 
       // emit loaded event when component is fully loaded

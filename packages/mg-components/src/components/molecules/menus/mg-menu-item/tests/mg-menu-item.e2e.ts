@@ -14,7 +14,7 @@ const slotMetadata = '<span slot="metadata">is a hero</span>';
 const getViewPortSize = (direction: Direction, expanded?: boolean): ViewportSize => ({ width: 130, height: expanded ? 180 : direction === directions.VERTICAL ? 40 : 50 });
 
 const createHTML = (args, slot = '', direction = directions.HORIZONTAL) => `
-<mg-menu ${renderAttributes({ label: 'batmenu', direction, ...args })}">
+<mg-menu ${renderAttributes({ label: 'batmenu', direction, ...args })}>
   <mg-menu-item ${renderAttributes(args)}>
     <span slot="label">${args.label ? args.label : 'batman'} ${args.href ? 'link' : ''}</span>
     ${slot}
@@ -96,9 +96,13 @@ test.describe('mg-menu-item', () => {
               direction,
             ),
           );
+
+          if (expanded && direction === directions.HORIZONTAL) {
+            await page.locator('mg-popover-content').first().waitFor({ state: 'visible' });
+          }
           await page.setViewportSize(getViewPortSize(direction, true));
 
-          await expect(page.locator(expanded ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
+          await expect(page.locator(direction === directions.VERTICAL || expanded ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
 
           await page.locator('mg-menu-item').first().click();
 

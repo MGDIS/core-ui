@@ -4,7 +4,6 @@
 
 /*!
  * @prop --mg-c-menu-item-height: Defines the height property for the navigation button. Default value: `--mg-b-size-40`.
- * @prop --mg-c-menu-item-button-spacing: Defines the spacing for the navigation button. Default value: `--mg-b-size-8`.
  * @prop --mg-c-menu-item-color: Defines menu item global color, used for bottom line and active tabs. Default value: `--mg-b-color-app`.
  * @prop --mg-c-menu-item-color-text: Defines the color of the menu item. Unset by default, fallback on `--mg-b-color-dark`.
  * @prop --mg-c-menu-item-navigation-button-max-width: Defines the max-width property for the navigation button. Unset by default.
@@ -73,10 +72,6 @@
 
       .mg-c-menu-item__navigation-button-text-content-notification {
         margin-left: 0;
-      }
-
-      &.mg-c-menu-item__navigation-button--active {
-        --mg-c-menu-item-button-spacing: var(--mg-b-size-8);
       }
     }
   }

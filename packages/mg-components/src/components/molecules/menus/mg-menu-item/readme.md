@@ -78,7 +78,6 @@ Sub-items add to their left spacing the spacing between left border and content 
 
 | Name                                           | Description                                                                                              |
 | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `--mg-c-menu-item-button-spacing`              | Defines the spacing for the navigation button. Default value: `--mg-b-size-8`.                           |
 | `--mg-c-menu-item-color`                       | Defines menu item global color, used for bottom line and active tabs. Default value: `--mg-b-color-app`. |
 | `--mg-c-menu-item-color-text`                  | Defines the color of the menu item. Unset by default, fallback on `--mg-b-color-dark`.                   |
 | `--mg-c-menu-item-height`                      | Defines the height property for the navigation button. Default value: `--mg-b-size-40`.                  |
