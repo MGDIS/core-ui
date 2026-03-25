@@ -97,9 +97,10 @@
 
 // vertical item style
 :host([data-style-direction='vertical']) {
-  --mg-c-menu-item-button-spacing-y: var(--mg-b-size-8);
-  --mg-c-menu-item-button-outer-spacing-x: var(--mg-b-size-4);
+  --mg-c-menu-item-height: var(--mg-b-size-24);
+  --mg-c-menu-item-button-outer-spacing-x: var(--mg-b-size-8);
   --mg-c-menu-item-button-inner-spacing-x: var(--mg-b-size-12);
+  --mg-c-menu-item-button-spacing-y: var(--mg-b-size-8);
 
   flex-direction: column;
 

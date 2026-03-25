@@ -68,11 +68,6 @@
         margin: 0 var(--#{$prefix}-button-outer-spacing-x);
       }
     }
-    &.#{$prefix}__navigation-button--vertical {
-      --#{$prefix}-height: var(--mg-b-size-24);
-      --#{$prefix}-button-outer-spacing-x: var(--mg-b-size-8);
-      --#{$prefix}-button-inner-spacing-x: var(--mg-b-size-12);
-    }
 
     &.#{$prefix}__navigation-button--active {
       color: var(--#{$prefix}-color);
@@ -81,7 +76,7 @@
       &.#{$prefix}__navigation-button--horizontal::after {
         bottom: 0;
         left: 50%;
-        width: calc(100% - (var(--#{$prefix}-button-outer-spacing-x) + var(--mg-b-size-8)) * 2);
+        width: calc(100% - var(--mg-b-size-12) * 2);
         height: var(--mg-b-size-4);
         border-top-left-radius: var(--mg-b-size-8);
         border-top-right-radius: var(--mg-b-size-8);
