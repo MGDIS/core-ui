@@ -7,11 +7,6 @@ import type { Size, Variant, VariantStyle } from '../../../types';
 export type IconType = keyof typeof icons;
 
 /**
- * List of icon names (for tests and stories)
- */
-export const iconList = Object.keys(icons) as IconType[];
-
-/**
  * List of all possibles sizes
  */
 export const sizes = ['small', 'medium', 'large', 'xlarge', 'xxlarge'] as const;
