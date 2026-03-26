@@ -1,0 +1,33 @@
+@use '../base/anchor';
+
+.mg-c-breadcrumb {
+  display: block;
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__list-item {
+    display: inline;
+    color: var(--mg-b-color-dark);
+    font-weight: 700;
+
+    &:not(:last-child)::after {
+      content: '/';
+      font-weight: 600;
+      margin-inline: var(--mg-b-size-8);
+    }
+
+    &:has(mg-icon) a {
+      padding: var(--mg-b-size-4);
+      margin: calc(var(--mg-b-size-4) * -1);
+    }
+
+    mg-icon {
+      margin-block-start: 0.2rem;
+      vertical-align: top;
+    }
+  }
+}
