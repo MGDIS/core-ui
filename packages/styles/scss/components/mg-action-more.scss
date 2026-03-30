@@ -2,15 +2,15 @@
 @use 'mixins/mg-icon-animation';
 
 :host {
-  --mg-c-popover-padding-vertical: var(--mg-b-size-4);
-  --mg-c-popover-padding-horizontal: 0;
+  --mg-c-popover-spacing-vertical: var(--mg-b-size-4);
+  --mg-c-popover-spacing-horizontal: 0;
   --mg-c-popover-max-width: unset;
   --mg-c-popover-overflow: hidden;
 }
 
 .mg-c-action-more {
   &__divider {
-    --mg-c-divider-spacing-vertical: var(--mg-b-size-4);
+    --mg-c-divider-spacing-vertical: 0.2rem;
   }
 
   &__chevron {
@@ -18,6 +18,6 @@
   }
 
   mg-menu-item {
-    --mg-c-menu-item-button-outer-spacing-x: var(--mg-b-size-4);
+    --mg-c-menu-item-button-margin-horizontal: var(--mg-b-size-4);
   }
 }

@@ -12,7 +12,7 @@
 @for $i from 1 through 6 {
   :host([data-style-direction='vertical'][data-level='#{$i}']) {
     .mg-c-menu-item__navigation-button {
-      padding-left: calc(#{$i} * var(--mg-c-menu-item-button-inner-spacing-x) + var(--mg-c-menu-item-button-outer-spacing-x));
+      padding-left: calc(#{$i} * var(--mg-c-menu-item-button-padding-horizontal) + var(--mg-c-menu-item-button-margin-horizontal));
     }
   }
   :host([data-level='#{$i}']) {
@@ -61,7 +61,7 @@
     }
 
     &.mg-c-menu-item__navigation-button--is-icon {
-      min-width: calc(var(--mg-c-menu-item-height) + var(--mg-c-menu-item-button-outer-spacing-x) * 2);
+      min-width: calc(var(--mg-c-menu-item-height) + var(--mg-c-menu-item-button-margin-horizontal) * 2);
       justify-content: center;
       padding: 0.2rem;
       gap: var(--mg-b-size-4);
@@ -81,8 +81,8 @@
   position: relative;
   display: flex;
 
-  --mg-c-popover-padding-vertical: 0;
-  --mg-c-popover-padding-horizontal: 0;
+  --mg-c-popover-spacing-vertical: 0;
+  --mg-c-popover-spacing-horizontal: 0;
   --mg-c-popover-max-width: unset;
   --mg-c-menu-item-height: var(--mg-b-size-40);
 
@@ -98,9 +98,9 @@
 // vertical item style
 :host([data-style-direction='vertical']) {
   --mg-c-menu-item-height: var(--mg-b-size-24);
-  --mg-c-menu-item-button-outer-spacing-x: var(--mg-b-size-8);
-  --mg-c-menu-item-button-inner-spacing-x: var(--mg-b-size-12);
-  --mg-c-menu-item-button-spacing-y: var(--mg-b-size-8);
+  --mg-c-menu-item-button-margin-horizontal: var(--mg-b-size-8);
+  --mg-c-menu-item-button-padding-horizontal: var(--mg-b-size-12);
+  --mg-c-menu-item-button-spacing-vertical: var(--mg-b-size-8);
 
   flex-direction: column;
 
@@ -119,9 +119,9 @@
 }
 
 :host([data-style-direction='horizontal']) {
-  --mg-c-menu-item-button-outer-spacing-x: var(--mg-b-size-4);
-  --mg-c-menu-item-button-inner-spacing-x: var(--mg-b-size-12);
-  --mg-c-menu-item-button-spacing-y: var(--mg-b-size-12);
+  --mg-c-menu-item-button-margin-horizontal: var(--mg-b-size-4);
+  --mg-c-menu-item-button-padding-horizontal: var(--mg-b-size-12);
+  --mg-c-menu-item-button-spacing-vertical: var(--mg-b-size-12);
 }
 
 :host([data-style-direction='horizontal']),

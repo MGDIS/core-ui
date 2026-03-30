@@ -2,11 +2,11 @@
   .#{$prefix}__navigation-button {
     position: relative;
     display: flex;
-    height: calc(var(--#{$prefix}-button-spacing-y) * 2 + var(--#{$prefix}-height));
+    height: calc(var(--#{$prefix}-button-spacing-vertical) * 2 + var(--#{$prefix}-height));
     box-sizing: border-box;
     align-items: center;
-    padding: var(--#{$prefix}-button-spacing-y) calc(var(--#{$prefix}-button-outer-spacing-x) + var(--#{$prefix}-button-inner-spacing-x)) var(--#{$prefix}-button-spacing-y)
-      calc(var(--#{$prefix}-button-outer-spacing-x) + var(--#{$prefix}-button-inner-spacing-x)); // outer spacing + inner spacing for active state // outer spacing + inner spacing for active state // outer spacing + inner spacing for active state // outer spacing + inner spacing for active state
+    padding: var(--#{$prefix}-button-spacing-vertical) calc(var(--#{$prefix}-button-margin-horizontal) + var(--#{$prefix}-button-padding-horizontal))
+      var(--#{$prefix}-button-spacing-vertical) calc(var(--#{$prefix}-button-margin-horizontal) + var(--#{$prefix}-button-padding-horizontal)); // outer spacing + inner spacing for active state // outer spacing + inner spacing for active state // outer spacing + inner spacing for active state // outer spacing + inner spacing for active state
 
     border: none;
     border-radius: var(--mg-b-size-8);
@@ -45,8 +45,8 @@
         height: var(--#{$prefix}-height);
         box-sizing: border-box;
         border-radius: var(--mg-b-size-8);
-        margin-right: var(--#{$prefix}-button-outer-spacing-x);
-        margin-left: var(--#{$prefix}-button-outer-spacing-x);
+        margin-right: var(--#{$prefix}-button-margin-horizontal);
+        margin-left: var(--#{$prefix}-button-margin-horizontal);
         background-color: color-mix(in srgb, var(--#{$prefix}-color-text, var(--mg-b-color-dark)), transparent 90%); // use text color to ensure sufficient contrast
         content: '';
       }
@@ -60,12 +60,12 @@
 
     &:not(.#{$prefix}__navigation-button--disabled) {
       &.#{$prefix}__navigation-button--horizontal::before {
-        margin: var(--#{$prefix}-button-spacing-y) var(--#{$prefix}-button-outer-spacing-x);
+        margin: var(--#{$prefix}-button-spacing-vertical) var(--#{$prefix}-button-margin-horizontal);
       }
 
       &.#{$prefix}__navigation-button--vertical::before {
         height: 100%;
-        margin: 0 var(--#{$prefix}-button-outer-spacing-x);
+        margin: 0 var(--#{$prefix}-button-margin-horizontal);
       }
     }
 
