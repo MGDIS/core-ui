@@ -1,8 +1,10 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
+import { icons } from '../../../../assets/icons';
 import { MgIcon } from '../mg-icon';
-import { sizes, variantStyles, variants } from '../mg-icon.conf';
-import iconList from '@mgdis/img/dist/icons/index.json';
+import { type IconType, sizes, variantStyles, variants } from '../mg-icon.conf';
+
+const iconList = Object.keys(icons) as IconType[];
 
 const getPage = args =>
   newSpecPage({

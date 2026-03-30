@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 import { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
+import { BreadcrumbItemType } from "./components/molecules/mg-breadcrumb/mg-breadcrumb.conf";
 import { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 import { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
 import { labelHeading, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
@@ -40,6 +41,7 @@ import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
+export { BreadcrumbItemType } from "./components/molecules/mg-breadcrumb/mg-breadcrumb.conf";
 export { ButtonType, SizeType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 export { RadiusSizeType } from "./components/atoms/mg-card/mg-card.conf";
 export { labelHeading, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
@@ -125,6 +127,12 @@ export namespace Components {
           * @default 'info'
          */
         "variant"?: BadgeVariantType;
+    }
+    interface MgBreadcrumb {
+        /**
+          * Breadcrumb items (hierarchical order: root → current page). Must be set via JavaScript (property only). Passing via HTML attribute is not supported.
+         */
+        "items": BreadcrumbItemType[];
     }
     interface MgButton {
         /**
@@ -2257,6 +2265,12 @@ declare global {
         prototype: HTMLMgBadgeElement;
         new (): HTMLMgBadgeElement;
     };
+    interface HTMLMgBreadcrumbElement extends Components.MgBreadcrumb, HTMLStencilElement {
+    }
+    var HTMLMgBreadcrumbElement: {
+        prototype: HTMLMgBreadcrumbElement;
+        new (): HTMLMgBreadcrumbElement;
+    };
     interface HTMLMgButtonElementEventMap {
         "disabled-change": HTMLMgButtonElement['disabled'];
     }
@@ -2785,6 +2799,7 @@ declare global {
         "mg-action-more": HTMLMgActionMoreElement;
         "mg-alert": HTMLMgAlertElement;
         "mg-badge": HTMLMgBadgeElement;
+        "mg-breadcrumb": HTMLMgBreadcrumbElement;
         "mg-button": HTMLMgButtonElement;
         "mg-card": HTMLMgCardElement;
         "mg-character-left": HTMLMgCharacterLeftElement;
@@ -2896,6 +2911,12 @@ declare namespace LocalJSX {
           * @default 'info'
          */
         "variant"?: BadgeVariantType;
+    }
+    interface MgBreadcrumb {
+        /**
+          * Breadcrumb items (hierarchical order: root → current page). Must be set via JavaScript (property only). Passing via HTML attribute is not supported.
+         */
+        "items": BreadcrumbItemType[];
     }
     interface MgButton {
         /**
@@ -4829,6 +4850,7 @@ declare namespace LocalJSX {
         "mg-action-more": MgActionMore;
         "mg-alert": MgAlert;
         "mg-badge": MgBadge;
+        "mg-breadcrumb": MgBreadcrumb;
         "mg-button": MgButton;
         "mg-card": MgCard;
         "mg-character-left": MgCharacterLeft;
@@ -4879,6 +4901,7 @@ declare module "@stencil/core" {
             "mg-action-more": LocalJSX.MgActionMore & JSXBase.HTMLAttributes<HTMLMgActionMoreElement>;
             "mg-alert": LocalJSX.MgAlert & JSXBase.HTMLAttributes<HTMLMgAlertElement>;
             "mg-badge": LocalJSX.MgBadge & JSXBase.HTMLAttributes<HTMLMgBadgeElement>;
+            "mg-breadcrumb": LocalJSX.MgBreadcrumb & JSXBase.HTMLAttributes<HTMLMgBreadcrumbElement>;
             "mg-button": LocalJSX.MgButton & JSXBase.HTMLAttributes<HTMLMgButtonElement>;
             "mg-card": LocalJSX.MgCard & JSXBase.HTMLAttributes<HTMLMgCardElement>;
             "mg-character-left": LocalJSX.MgCharacterLeft & JSXBase.HTMLAttributes<HTMLMgCharacterLeftElement>;
