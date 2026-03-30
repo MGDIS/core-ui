@@ -123,6 +123,7 @@ const downloadOptimizeAndWriteIcon = async (
 
     pathColorElements.forEach(pathColorElement => {
       pathColorElement.classList.add(dynamicColorClass);
+      pathColorElement.setAttribute('style', 'fill: var(--mg-b-color-app)');
     });
   }
 
