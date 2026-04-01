@@ -130,7 +130,7 @@ export namespace Components {
     }
     interface MgBreadcrumb {
         /**
-          * Breadcrumb items (hierarchical order: root → current page). Must be set via JavaScript (property only). Passing via HTML attribute is not supported.
+          * Breadcrumb items (hierarchical order: root → current page).
          */
         "items": BreadcrumbItemType[];
     }
@@ -2918,7 +2918,7 @@ declare namespace LocalJSX {
     }
     interface MgBreadcrumb {
         /**
-          * Breadcrumb items (hierarchical order: root → current page). Must be set via JavaScript (property only). Passing via HTML attribute is not supported.
+          * Breadcrumb items (hierarchical order: root → current page).
          */
         "items": BreadcrumbItemType[];
     }
