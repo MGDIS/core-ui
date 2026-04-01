@@ -58,8 +58,8 @@
 
   // Common irregular-table pattern: a rowgroup header spanning to the last row.
   // Remove its bottom border so it doesn't visually "double" with the table outer border.
-  tfoot :where(th, td)[rowspan],
-  tbody:last-of-type :where(th, td)[rowspan] {
+  tfoot :where(th, td)[rowspan][scope='rowgroup'],
+  tbody:last-of-type :where(th, td)[rowspan][scope='rowgroup'] {
     border-block-end: none;
   }
 
