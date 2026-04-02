@@ -2849,6 +2849,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
+
     interface MgActionMore {
         /**
           * Define button properties
@@ -4856,106 +4858,546 @@ declare namespace LocalJSX {
          */
         "message": string;
     }
+
+    interface MgActionMoreAttributes {
+        "displayChevron": boolean;
+    }
+    interface MgAlertAttributes {
+        "delay": number;
+        "variant": VariantType;
+        "variantStyle": VariantStyleType;
+    }
+    interface MgBadgeAttributes {
+        "value": string;
+        "label": string;
+        "variant": BadgeVariantType;
+        "outline": boolean;
+    }
+    interface MgButtonAttributes {
+        "variant": VariantType;
+        "label": string;
+        "type": ButtonType;
+        "size": SizeType;
+        "fullWidth": boolean;
+        "form": string;
+        "disabled": boolean;
+        "isIcon": boolean;
+        "disableOnClick": boolean;
+    }
+    interface MgCardAttributes {
+        "shadow": boolean;
+        "radiusSize": RadiusSizeType;
+    }
+    interface MgCharacterLeftAttributes {
+        "identifier": string;
+        "characters": string;
+        "maxlength": number;
+    }
+    interface MgDetailsAttributes {
+        "toggleClosed": string;
+        "toggleOpened": string;
+        "hideSummary": boolean;
+        "expanded": boolean;
+    }
+    interface MgDividerAttributes {
+        "fullWidth": boolean;
+    }
+    interface MgFieldsetAttributes {
+        "identifier": string;
+        "name": string;
+        "legend": string;
+        "legendHide": boolean;
+        "legendHeading": labelHeading;
+        "legendBorderDisplay": boolean;
+        "readonly": boolean;
+        "disabled": boolean;
+        "tooltip": string;
+        "helpText": string;
+    }
+    interface MgFormAttributes {
+        "identifier": string;
+        "name": string;
+        "readonly": boolean;
+        "requiredMessage": RequiredMessageStatusType;
+        "ariaRole": AriaRoleType;
+        "labelOnTop": boolean;
+        "disabled": boolean;
+        "valid": boolean;
+        "invalid": boolean;
+    }
+    interface MgIconAttributes {
+        "icon": IconType;
+        "size": IconSizeType;
+        "variant": IconVariantType;
+        "variantStyle": IconVariantStyleType;
+        "spin": boolean;
+    }
+    interface MgIllustratedMessageAttributes {
+        "size": IllustratedMessageSizeType;
+        "direction": IllustratedMessageDirectionType;
+    }
+    interface MgInputAttributes {
+        "identifier": string;
+        "label": string;
+        "labelOnTop": boolean;
+        "labelHide": boolean;
+        "labelHeading": labelHeading;
+        "labelBorderDisplay": boolean;
+        "tooltip": string;
+        "tooltipPosition": TooltipPosition;
+        "required": boolean;
+        "errorMessage": string;
+        "helpText": string;
+        "inputsOnBottom": boolean;
+        "ariaDescribedbyIDs": string[] | string;
+    }
+    interface MgInputCheckboxAttributes {
+        "type": CheckboxType;
+        "identifier": string;
+        "name": string;
+        "label": string;
+        "labelOnTop": boolean;
+        "labelHide": boolean;
+        "inputVerticalList": boolean;
+        "required": boolean;
+        "readonly": boolean;
+        "displaySelectedValues": boolean;
+        "disabled": boolean;
+        "tooltip": string;
+        "tooltipPosition": TooltipPosition;
+        "helpText": string;
+        "valid": boolean;
+        "invalid": boolean;
+        "editButtonMessage": string;
+        "showButtonMessage": string;
+        "selectButtonMessage": string;
+    }
+    interface MgInputCheckboxPaginatedAttributes {
+        "readonly": boolean;
+        "disabled": boolean;
+        "name": string;
+        "invalid": boolean;
+    }
+    interface MgInputComboboxAttributes {
+        "value": string | Option;
+        "itemsLabel": string;
+        "identifier": string;
+        "name": string;
+        "label": string;
+        "labelOnTop": boolean;
+        "labelHide": boolean;
+        "placeholder": string;
+        "required": boolean;
+        "readonly": boolean;
+        "disabled": boolean;
+        "mgWidth": string;
+        "tooltip": string;
+        "tooltipPosition": TooltipPosition;
+        "helpText": string;
+        "fetchurl": string | URL;
+        "valid": boolean;
+        "invalid": boolean;
+    }
+    interface MgInputDateAttributes {
+        "value": string;
+        "identifier": string;
+        "name": string;
+        "label": string;
+        "labelOnTop": boolean;
+        "labelHide": boolean;
+        "required": boolean;
+        "readonly": boolean;
+        "min": string;
+        "max": string;
+        "disabled": boolean;
+        "tooltip": string;
+        "tooltipPosition": TooltipPosition;
+        "helpText": string;
+        "valid": boolean;
+        "invalid": boolean;
+    }
+    interface MgInputFileAttributes {
+        "value": string;
+        "identifier": string;
+        "name": string;
+        "label": string;
+        "labelOnTop": boolean;
+        "labelHide": boolean;
+        "multiple": boolean;
+        "accept": string;
+        "maxSize": number;
+        "capture": 'user' | 'environment' | '';
+        "required": boolean;
+        "disabled": boolean;
+        "tooltip": string;
+        "tooltipPosition": TooltipPosition;
+        "helpText": string;
+        "valid": boolean;
+        "invalid": boolean;
+    }
+    interface MgInputNumericAttributes {
+        "value": string;
+        "identifier": string;
+        "name": string;
+        "label": string;
+        "labelOnTop": boolean;
+        "labelHide": boolean;
+        "placeholder": string;
+        "required": boolean;
+        "readonly": boolean;
+        "max": number;
+        "min": number;
+        "disabled": boolean;
+        "mgWidth": string;
+        "tooltip": string;
+        "tooltipPosition": TooltipPosition;
+        "helpText": string;
+        "type": NumericType;
+        "format": Format;
+        "currency": string;
+        "unit": Intl.NumberFormatOptions['unit'];
+        "unitDisplay": Intl.NumberFormatOptions['unitDisplay'];
+        "integerLength": number;
+        "decimalLength": number;
+        "valid": boolean;
+        "invalid": boolean;
+    }
+    interface MgInputPasswordAttributes {
+        "value": string;
+        "identifier": string;
+        "name": string;
+        "label": string;
+        "labelOnTop": boolean;
+        "labelHide": boolean;
+        "placeholder": string;
+        "maxlength": number;
+        "required": boolean;
+        "readonly": boolean;
+        "disabled": boolean;
+        "mgWidth": string;
+        "tooltip": string;
+        "tooltipPosition": TooltipPosition;
+        "helpText": string;
+        "valid": boolean;
+        "invalid": boolean;
+    }
+    interface MgInputRadioAttributes {
+        "value": string;
+        "identifier": string;
+        "name": string;
+        "label": string;
+        "labelOnTop": boolean;
+        "labelHide": boolean;
+        "inputVerticalList": boolean;
+        "required": boolean;
+        "readonly": boolean;
+        "disabled": boolean;
+        "tooltip": string;
+        "tooltipPosition": TooltipPosition;
+        "helpText": string;
+        "valid": boolean;
+        "invalid": boolean;
+    }
+    interface MgInputRichTextEditorAttributes {
+        "value": string;
+        "identifier": string;
+        "name": string;
+        "label": string;
+        "labelOnTop": boolean;
+        "labelHide": boolean;
+        "placeholder": string;
+        "rows": number;
+        "required": boolean;
+        "readonly": boolean;
+        "disabled": boolean;
+        "pattern": string;
+        "patternErrorMessage": string;
+        "tooltip": string;
+        "tooltipPosition": TooltipPosition;
+        "helpText": string;
+        "modules": ButtonsOption;
+        "valid": boolean;
+        "invalid": boolean;
+    }
+    interface MgInputSelectAttributes {
+        "value": string;
+        "identifier": string;
+        "name": string;
+        "label": string;
+        "labelOnTop": boolean;
+        "labelHide": boolean;
+        "placeholder": string;
+        "placeholderHide": boolean;
+        "placeholderDisabled": boolean;
+        "required": boolean;
+        "readonly": boolean;
+        "disabled": boolean;
+        "mgWidth": string;
+        "tooltip": string;
+        "tooltipPosition": TooltipPosition;
+        "helpText": string;
+        "valid": boolean;
+        "invalid": boolean;
+    }
+    interface MgInputTextAttributes {
+        "value": string;
+        "identifier": string;
+        "name": string;
+        "label": string;
+        "labelOnTop": boolean;
+        "labelHide": boolean;
+        "type": TextType;
+        "icon": IconType;
+        "placeholder": string;
+        "maxlength": number;
+        "required": boolean;
+        "readonly": boolean;
+        "disabled": boolean;
+        "mgWidth": string;
+        "pattern": string;
+        "patternErrorMessage": string;
+        "tooltip": string;
+        "tooltipPosition": TooltipPosition;
+        "characterLeftHide": boolean;
+        "helpText": string;
+        "valid": boolean;
+        "invalid": boolean;
+    }
+    interface MgInputTextareaAttributes {
+        "value": string;
+        "identifier": string;
+        "name": string;
+        "label": string;
+        "labelOnTop": boolean;
+        "labelHide": boolean;
+        "placeholder": string;
+        "maxlength": number;
+        "required": boolean;
+        "readonly": boolean;
+        "disabled": boolean;
+        "mgWidth": string;
+        "pattern": string;
+        "patternErrorMessage": string;
+        "rows": number;
+        "tooltip": string;
+        "tooltipPosition": TooltipPosition;
+        "characterLeftHide": boolean;
+        "helpText": string;
+        "resizable": 'none' | 'both' | 'horizontal' | 'vertical';
+        "valid": boolean;
+        "invalid": boolean;
+    }
+    interface MgInputTitleAttributes {
+        "identifier": string;
+        "required": boolean;
+        "readonly": boolean;
+        "isLegend": boolean;
+    }
+    interface MgInputToggleAttributes {
+        "identifier": string;
+        "name": string;
+        "label": string;
+        "labelOnTop": boolean;
+        "labelHide": boolean;
+        "isOnOff": boolean;
+        "isIcon": boolean;
+        "readonly": boolean;
+        "disabled": boolean;
+        "tooltip": string;
+        "tooltipPosition": TooltipPosition;
+        "helpText": string;
+    }
+    interface MgLoaderAttributes {
+        "message": string;
+        "messageHide": boolean;
+    }
+    interface MgMenuAttributes {
+        "label": string;
+        "direction": Direction;
+    }
+    interface MgMenuItemAttributes {
+        "identifier": string;
+        "href": string;
+        "target": TargetType;
+        "status": MgMenuStatusType;
+        "isIcon": boolean;
+        "expanded": boolean;
+    }
+    interface MgMessageAttributes {
+        "variant": VariantType;
+        "variantStyle": VariantStyleType;
+    }
+    interface MgModalAttributes {
+        "identifier": string;
+        "dialogRole": DialogRoleType;
+        "modalTitle": string;
+        "closeButton": boolean;
+        "open": boolean;
+    }
+    interface MgPaginationAttributes {
+        "identifier": string;
+        "label": string;
+        "hideNavigationLabels": boolean;
+        "hidePageCount": boolean;
+        "totalPages": number;
+        "currentPage": number;
+    }
+    interface MgPanelAttributes {
+        "identifier": string;
+        "panelTitle": string;
+        "titlePattern": string;
+        "titlePatternErrorMessage": string;
+        "titleEditable": boolean;
+        "titlePosition": TitlePositionType;
+        "expanded": boolean;
+        "expandToggleDisplay": ExpandToggleDisplayType;
+        "expandToggleDisabled": boolean;
+        "shadow": boolean;
+    }
+    interface MgPopoverAttributes {
+        "identifier": string;
+        "placement": Placement;
+        "arrowHide": boolean;
+        "closeButton": boolean;
+        "display": boolean;
+        "disabled": boolean;
+    }
+    interface MgPopoverContentAttributes {
+        "closeButton": boolean;
+    }
+    interface MgProgressAttributes {
+        "label": string;
+        "ariaRole": AriaRoleType;
+        "value": number;
+        "min": number;
+        "max": number;
+    }
+    interface MgTableAttributes {
+        "size": TableSizeType;
+        "fullWidth": boolean;
+        "borderHide": boolean;
+    }
+    interface MgTabsAttributes {
+        "identifier": string;
+        "label": string;
+        "activeTab": number;
+    }
+    interface MgTagAttributes {
+        "variant": TagVariantType;
+        "outline": boolean;
+        "soft": boolean;
+    }
+    interface MgTooltipAttributes {
+        "identifier": string;
+        "message": string;
+        "placement": Placement;
+        "display": boolean;
+        "disabled": boolean;
+    }
+    interface MgTooltipContentAttributes {
+        "message": string;
+    }
+
     interface IntrinsicElements {
-        "mg-action-more": MgActionMore;
-        "mg-alert": MgAlert;
-        "mg-badge": MgBadge;
+        "mg-action-more": Omit<MgActionMore, keyof MgActionMoreAttributes> & { [K in keyof MgActionMore & keyof MgActionMoreAttributes]?: MgActionMore[K] } & { [K in keyof MgActionMore & keyof MgActionMoreAttributes as `attr:${K}`]?: MgActionMoreAttributes[K] } & { [K in keyof MgActionMore & keyof MgActionMoreAttributes as `prop:${K}`]?: MgActionMore[K] };
+        "mg-alert": Omit<MgAlert, keyof MgAlertAttributes> & { [K in keyof MgAlert & keyof MgAlertAttributes]?: MgAlert[K] } & { [K in keyof MgAlert & keyof MgAlertAttributes as `attr:${K}`]?: MgAlertAttributes[K] } & { [K in keyof MgAlert & keyof MgAlertAttributes as `prop:${K}`]?: MgAlert[K] };
+        "mg-badge": Omit<MgBadge, keyof MgBadgeAttributes> & { [K in keyof MgBadge & keyof MgBadgeAttributes]?: MgBadge[K] } & { [K in keyof MgBadge & keyof MgBadgeAttributes as `attr:${K}`]?: MgBadgeAttributes[K] } & { [K in keyof MgBadge & keyof MgBadgeAttributes as `prop:${K}`]?: MgBadge[K] } & OneOf<"value", MgBadge["value"], MgBadgeAttributes["value"]> & OneOf<"label", MgBadge["label"], MgBadgeAttributes["label"]>;
         "mg-breadcrumb": MgBreadcrumb;
-        "mg-button": MgButton;
-        "mg-card": MgCard;
-        "mg-character-left": MgCharacterLeft;
-        "mg-details": MgDetails;
-        "mg-divider": MgDivider;
-        "mg-fieldset": MgFieldset;
-        "mg-form": MgForm;
-        "mg-icon": MgIcon;
-        "mg-illustrated-message": MgIllustratedMessage;
-        "mg-input": MgInput;
-        "mg-input-checkbox": MgInputCheckbox;
-        "mg-input-checkbox-paginated": MgInputCheckboxPaginated;
-        "mg-input-combobox": MgInputCombobox;
-        "mg-input-date": MgInputDate;
-        "mg-input-file": MgInputFile;
-        "mg-input-numeric": MgInputNumeric;
-        "mg-input-password": MgInputPassword;
-        "mg-input-radio": MgInputRadio;
-        "mg-input-rich-text-editor": MgInputRichTextEditor;
-        "mg-input-select": MgInputSelect;
-        "mg-input-text": MgInputText;
-        "mg-input-textarea": MgInputTextarea;
-        "mg-input-title": MgInputTitle;
-        "mg-input-toggle": MgInputToggle;
+        "mg-button": Omit<MgButton, keyof MgButtonAttributes> & { [K in keyof MgButton & keyof MgButtonAttributes]?: MgButton[K] } & { [K in keyof MgButton & keyof MgButtonAttributes as `attr:${K}`]?: MgButtonAttributes[K] } & { [K in keyof MgButton & keyof MgButtonAttributes as `prop:${K}`]?: MgButton[K] };
+        "mg-card": Omit<MgCard, keyof MgCardAttributes> & { [K in keyof MgCard & keyof MgCardAttributes]?: MgCard[K] } & { [K in keyof MgCard & keyof MgCardAttributes as `attr:${K}`]?: MgCardAttributes[K] } & { [K in keyof MgCard & keyof MgCardAttributes as `prop:${K}`]?: MgCard[K] };
+        "mg-character-left": Omit<MgCharacterLeft, keyof MgCharacterLeftAttributes> & { [K in keyof MgCharacterLeft & keyof MgCharacterLeftAttributes]?: MgCharacterLeft[K] } & { [K in keyof MgCharacterLeft & keyof MgCharacterLeftAttributes as `attr:${K}`]?: MgCharacterLeftAttributes[K] } & { [K in keyof MgCharacterLeft & keyof MgCharacterLeftAttributes as `prop:${K}`]?: MgCharacterLeft[K] } & OneOf<"maxlength", MgCharacterLeft["maxlength"], MgCharacterLeftAttributes["maxlength"]>;
+        "mg-details": Omit<MgDetails, keyof MgDetailsAttributes> & { [K in keyof MgDetails & keyof MgDetailsAttributes]?: MgDetails[K] } & { [K in keyof MgDetails & keyof MgDetailsAttributes as `attr:${K}`]?: MgDetailsAttributes[K] } & { [K in keyof MgDetails & keyof MgDetailsAttributes as `prop:${K}`]?: MgDetails[K] } & OneOf<"toggleClosed", MgDetails["toggleClosed"], MgDetailsAttributes["toggleClosed"]> & OneOf<"toggleOpened", MgDetails["toggleOpened"], MgDetailsAttributes["toggleOpened"]>;
+        "mg-divider": Omit<MgDivider, keyof MgDividerAttributes> & { [K in keyof MgDivider & keyof MgDividerAttributes]?: MgDivider[K] } & { [K in keyof MgDivider & keyof MgDividerAttributes as `attr:${K}`]?: MgDividerAttributes[K] } & { [K in keyof MgDivider & keyof MgDividerAttributes as `prop:${K}`]?: MgDivider[K] };
+        "mg-fieldset": Omit<MgFieldset, keyof MgFieldsetAttributes> & { [K in keyof MgFieldset & keyof MgFieldsetAttributes]?: MgFieldset[K] } & { [K in keyof MgFieldset & keyof MgFieldsetAttributes as `attr:${K}`]?: MgFieldsetAttributes[K] } & { [K in keyof MgFieldset & keyof MgFieldsetAttributes as `prop:${K}`]?: MgFieldset[K] } & OneOf<"identifier", MgFieldset["identifier"], MgFieldsetAttributes["identifier"]> & OneOf<"legend", MgFieldset["legend"], MgFieldsetAttributes["legend"]>;
+        "mg-form": Omit<MgForm, keyof MgFormAttributes> & { [K in keyof MgForm & keyof MgFormAttributes]?: MgForm[K] } & { [K in keyof MgForm & keyof MgFormAttributes as `attr:${K}`]?: MgFormAttributes[K] } & { [K in keyof MgForm & keyof MgFormAttributes as `prop:${K}`]?: MgForm[K] };
+        "mg-icon": Omit<MgIcon, keyof MgIconAttributes> & { [K in keyof MgIcon & keyof MgIconAttributes]?: MgIcon[K] } & { [K in keyof MgIcon & keyof MgIconAttributes as `attr:${K}`]?: MgIconAttributes[K] } & { [K in keyof MgIcon & keyof MgIconAttributes as `prop:${K}`]?: MgIcon[K] } & OneOf<"icon", MgIcon["icon"], MgIconAttributes["icon"]>;
+        "mg-illustrated-message": Omit<MgIllustratedMessage, keyof MgIllustratedMessageAttributes> & { [K in keyof MgIllustratedMessage & keyof MgIllustratedMessageAttributes]?: MgIllustratedMessage[K] } & { [K in keyof MgIllustratedMessage & keyof MgIllustratedMessageAttributes as `attr:${K}`]?: MgIllustratedMessageAttributes[K] } & { [K in keyof MgIllustratedMessage & keyof MgIllustratedMessageAttributes as `prop:${K}`]?: MgIllustratedMessage[K] };
+        "mg-input": Omit<MgInput, keyof MgInputAttributes> & { [K in keyof MgInput & keyof MgInputAttributes]?: MgInput[K] } & { [K in keyof MgInput & keyof MgInputAttributes as `attr:${K}`]?: MgInputAttributes[K] } & { [K in keyof MgInput & keyof MgInputAttributes as `prop:${K}`]?: MgInput[K] } & OneOf<"identifier", MgInput["identifier"], MgInputAttributes["identifier"]> & OneOf<"label", MgInput["label"], MgInputAttributes["label"]>;
+        "mg-input-checkbox": Omit<MgInputCheckbox, keyof MgInputCheckboxAttributes> & { [K in keyof MgInputCheckbox & keyof MgInputCheckboxAttributes]?: MgInputCheckbox[K] } & { [K in keyof MgInputCheckbox & keyof MgInputCheckboxAttributes as `attr:${K}`]?: MgInputCheckboxAttributes[K] } & { [K in keyof MgInputCheckbox & keyof MgInputCheckboxAttributes as `prop:${K}`]?: MgInputCheckbox[K] } & OneOf<"identifier", MgInputCheckbox["identifier"], MgInputCheckboxAttributes["identifier"]> & OneOf<"label", MgInputCheckbox["label"], MgInputCheckboxAttributes["label"]>;
+        "mg-input-checkbox-paginated": Omit<MgInputCheckboxPaginated, keyof MgInputCheckboxPaginatedAttributes> & { [K in keyof MgInputCheckboxPaginated & keyof MgInputCheckboxPaginatedAttributes]?: MgInputCheckboxPaginated[K] } & { [K in keyof MgInputCheckboxPaginated & keyof MgInputCheckboxPaginatedAttributes as `attr:${K}`]?: MgInputCheckboxPaginatedAttributes[K] } & { [K in keyof MgInputCheckboxPaginated & keyof MgInputCheckboxPaginatedAttributes as `prop:${K}`]?: MgInputCheckboxPaginated[K] };
+        "mg-input-combobox": Omit<MgInputCombobox, keyof MgInputComboboxAttributes> & { [K in keyof MgInputCombobox & keyof MgInputComboboxAttributes]?: MgInputCombobox[K] } & { [K in keyof MgInputCombobox & keyof MgInputComboboxAttributes as `attr:${K}`]?: MgInputComboboxAttributes[K] } & { [K in keyof MgInputCombobox & keyof MgInputComboboxAttributes as `prop:${K}`]?: MgInputCombobox[K] } & OneOf<"itemsLabel", MgInputCombobox["itemsLabel"], MgInputComboboxAttributes["itemsLabel"]> & OneOf<"identifier", MgInputCombobox["identifier"], MgInputComboboxAttributes["identifier"]> & OneOf<"label", MgInputCombobox["label"], MgInputComboboxAttributes["label"]>;
+        "mg-input-date": Omit<MgInputDate, keyof MgInputDateAttributes> & { [K in keyof MgInputDate & keyof MgInputDateAttributes]?: MgInputDate[K] } & { [K in keyof MgInputDate & keyof MgInputDateAttributes as `attr:${K}`]?: MgInputDateAttributes[K] } & { [K in keyof MgInputDate & keyof MgInputDateAttributes as `prop:${K}`]?: MgInputDate[K] } & OneOf<"identifier", MgInputDate["identifier"], MgInputDateAttributes["identifier"]> & OneOf<"label", MgInputDate["label"], MgInputDateAttributes["label"]>;
+        "mg-input-file": Omit<MgInputFile, keyof MgInputFileAttributes> & { [K in keyof MgInputFile & keyof MgInputFileAttributes]?: MgInputFile[K] } & { [K in keyof MgInputFile & keyof MgInputFileAttributes as `attr:${K}`]?: MgInputFileAttributes[K] } & { [K in keyof MgInputFile & keyof MgInputFileAttributes as `prop:${K}`]?: MgInputFile[K] } & OneOf<"identifier", MgInputFile["identifier"], MgInputFileAttributes["identifier"]> & OneOf<"label", MgInputFile["label"], MgInputFileAttributes["label"]>;
+        "mg-input-numeric": Omit<MgInputNumeric, keyof MgInputNumericAttributes> & { [K in keyof MgInputNumeric & keyof MgInputNumericAttributes]?: MgInputNumeric[K] } & { [K in keyof MgInputNumeric & keyof MgInputNumericAttributes as `attr:${K}`]?: MgInputNumericAttributes[K] } & { [K in keyof MgInputNumeric & keyof MgInputNumericAttributes as `prop:${K}`]?: MgInputNumeric[K] } & OneOf<"identifier", MgInputNumeric["identifier"], MgInputNumericAttributes["identifier"]> & OneOf<"label", MgInputNumeric["label"], MgInputNumericAttributes["label"]>;
+        "mg-input-password": Omit<MgInputPassword, keyof MgInputPasswordAttributes> & { [K in keyof MgInputPassword & keyof MgInputPasswordAttributes]?: MgInputPassword[K] } & { [K in keyof MgInputPassword & keyof MgInputPasswordAttributes as `attr:${K}`]?: MgInputPasswordAttributes[K] } & { [K in keyof MgInputPassword & keyof MgInputPasswordAttributes as `prop:${K}`]?: MgInputPassword[K] } & OneOf<"identifier", MgInputPassword["identifier"], MgInputPasswordAttributes["identifier"]> & OneOf<"label", MgInputPassword["label"], MgInputPasswordAttributes["label"]>;
+        "mg-input-radio": Omit<MgInputRadio, keyof MgInputRadioAttributes> & { [K in keyof MgInputRadio & keyof MgInputRadioAttributes]?: MgInputRadio[K] } & { [K in keyof MgInputRadio & keyof MgInputRadioAttributes as `attr:${K}`]?: MgInputRadioAttributes[K] } & { [K in keyof MgInputRadio & keyof MgInputRadioAttributes as `prop:${K}`]?: MgInputRadio[K] } & OneOf<"identifier", MgInputRadio["identifier"], MgInputRadioAttributes["identifier"]> & OneOf<"label", MgInputRadio["label"], MgInputRadioAttributes["label"]>;
+        "mg-input-rich-text-editor": Omit<MgInputRichTextEditor, keyof MgInputRichTextEditorAttributes> & { [K in keyof MgInputRichTextEditor & keyof MgInputRichTextEditorAttributes]?: MgInputRichTextEditor[K] } & { [K in keyof MgInputRichTextEditor & keyof MgInputRichTextEditorAttributes as `attr:${K}`]?: MgInputRichTextEditorAttributes[K] } & { [K in keyof MgInputRichTextEditor & keyof MgInputRichTextEditorAttributes as `prop:${K}`]?: MgInputRichTextEditor[K] } & OneOf<"identifier", MgInputRichTextEditor["identifier"], MgInputRichTextEditorAttributes["identifier"]> & OneOf<"label", MgInputRichTextEditor["label"], MgInputRichTextEditorAttributes["label"]>;
+        "mg-input-select": Omit<MgInputSelect, keyof MgInputSelectAttributes> & { [K in keyof MgInputSelect & keyof MgInputSelectAttributes]?: MgInputSelect[K] } & { [K in keyof MgInputSelect & keyof MgInputSelectAttributes as `attr:${K}`]?: MgInputSelectAttributes[K] } & { [K in keyof MgInputSelect & keyof MgInputSelectAttributes as `prop:${K}`]?: MgInputSelect[K] } & OneOf<"identifier", MgInputSelect["identifier"], MgInputSelectAttributes["identifier"]> & OneOf<"label", MgInputSelect["label"], MgInputSelectAttributes["label"]>;
+        "mg-input-text": Omit<MgInputText, keyof MgInputTextAttributes> & { [K in keyof MgInputText & keyof MgInputTextAttributes]?: MgInputText[K] } & { [K in keyof MgInputText & keyof MgInputTextAttributes as `attr:${K}`]?: MgInputTextAttributes[K] } & { [K in keyof MgInputText & keyof MgInputTextAttributes as `prop:${K}`]?: MgInputText[K] } & OneOf<"identifier", MgInputText["identifier"], MgInputTextAttributes["identifier"]> & OneOf<"label", MgInputText["label"], MgInputTextAttributes["label"]>;
+        "mg-input-textarea": Omit<MgInputTextarea, keyof MgInputTextareaAttributes> & { [K in keyof MgInputTextarea & keyof MgInputTextareaAttributes]?: MgInputTextarea[K] } & { [K in keyof MgInputTextarea & keyof MgInputTextareaAttributes as `attr:${K}`]?: MgInputTextareaAttributes[K] } & { [K in keyof MgInputTextarea & keyof MgInputTextareaAttributes as `prop:${K}`]?: MgInputTextarea[K] } & OneOf<"identifier", MgInputTextarea["identifier"], MgInputTextareaAttributes["identifier"]> & OneOf<"label", MgInputTextarea["label"], MgInputTextareaAttributes["label"]>;
+        "mg-input-title": Omit<MgInputTitle, keyof MgInputTitleAttributes> & { [K in keyof MgInputTitle & keyof MgInputTitleAttributes]?: MgInputTitle[K] } & { [K in keyof MgInputTitle & keyof MgInputTitleAttributes as `attr:${K}`]?: MgInputTitleAttributes[K] } & { [K in keyof MgInputTitle & keyof MgInputTitleAttributes as `prop:${K}`]?: MgInputTitle[K] } & OneOf<"identifier", MgInputTitle["identifier"], MgInputTitleAttributes["identifier"]>;
+        "mg-input-toggle": Omit<MgInputToggle, keyof MgInputToggleAttributes> & { [K in keyof MgInputToggle & keyof MgInputToggleAttributes]?: MgInputToggle[K] } & { [K in keyof MgInputToggle & keyof MgInputToggleAttributes as `attr:${K}`]?: MgInputToggleAttributes[K] } & { [K in keyof MgInputToggle & keyof MgInputToggleAttributes as `prop:${K}`]?: MgInputToggle[K] } & OneOf<"identifier", MgInputToggle["identifier"], MgInputToggleAttributes["identifier"]> & OneOf<"label", MgInputToggle["label"], MgInputToggleAttributes["label"]>;
         "mg-item-more": MgItemMore;
-        "mg-loader": MgLoader;
-        "mg-menu": MgMenu;
-        "mg-menu-item": MgMenuItem;
-        "mg-message": MgMessage;
-        "mg-modal": MgModal;
-        "mg-pagination": MgPagination;
-        "mg-panel": MgPanel;
-        "mg-popover": MgPopover;
-        "mg-popover-content": MgPopoverContent;
-        "mg-progress": MgProgress;
+        "mg-loader": Omit<MgLoader, keyof MgLoaderAttributes> & { [K in keyof MgLoader & keyof MgLoaderAttributes]?: MgLoader[K] } & { [K in keyof MgLoader & keyof MgLoaderAttributes as `attr:${K}`]?: MgLoaderAttributes[K] } & { [K in keyof MgLoader & keyof MgLoaderAttributes as `prop:${K}`]?: MgLoader[K] };
+        "mg-menu": Omit<MgMenu, keyof MgMenuAttributes> & { [K in keyof MgMenu & keyof MgMenuAttributes]?: MgMenu[K] } & { [K in keyof MgMenu & keyof MgMenuAttributes as `attr:${K}`]?: MgMenuAttributes[K] } & { [K in keyof MgMenu & keyof MgMenuAttributes as `prop:${K}`]?: MgMenu[K] } & OneOf<"label", MgMenu["label"], MgMenuAttributes["label"]>;
+        "mg-menu-item": Omit<MgMenuItem, keyof MgMenuItemAttributes> & { [K in keyof MgMenuItem & keyof MgMenuItemAttributes]?: MgMenuItem[K] } & { [K in keyof MgMenuItem & keyof MgMenuItemAttributes as `attr:${K}`]?: MgMenuItemAttributes[K] } & { [K in keyof MgMenuItem & keyof MgMenuItemAttributes as `prop:${K}`]?: MgMenuItem[K] };
+        "mg-message": Omit<MgMessage, keyof MgMessageAttributes> & { [K in keyof MgMessage & keyof MgMessageAttributes]?: MgMessage[K] } & { [K in keyof MgMessage & keyof MgMessageAttributes as `attr:${K}`]?: MgMessageAttributes[K] } & { [K in keyof MgMessage & keyof MgMessageAttributes as `prop:${K}`]?: MgMessage[K] };
+        "mg-modal": Omit<MgModal, keyof MgModalAttributes> & { [K in keyof MgModal & keyof MgModalAttributes]?: MgModal[K] } & { [K in keyof MgModal & keyof MgModalAttributes as `attr:${K}`]?: MgModalAttributes[K] } & { [K in keyof MgModal & keyof MgModalAttributes as `prop:${K}`]?: MgModal[K] } & OneOf<"modalTitle", MgModal["modalTitle"], MgModalAttributes["modalTitle"]>;
+        "mg-pagination": Omit<MgPagination, keyof MgPaginationAttributes> & { [K in keyof MgPagination & keyof MgPaginationAttributes]?: MgPagination[K] } & { [K in keyof MgPagination & keyof MgPaginationAttributes as `attr:${K}`]?: MgPaginationAttributes[K] } & { [K in keyof MgPagination & keyof MgPaginationAttributes as `prop:${K}`]?: MgPagination[K] };
+        "mg-panel": Omit<MgPanel, keyof MgPanelAttributes> & { [K in keyof MgPanel & keyof MgPanelAttributes]?: MgPanel[K] } & { [K in keyof MgPanel & keyof MgPanelAttributes as `attr:${K}`]?: MgPanelAttributes[K] } & { [K in keyof MgPanel & keyof MgPanelAttributes as `prop:${K}`]?: MgPanel[K] };
+        "mg-popover": Omit<MgPopover, keyof MgPopoverAttributes> & { [K in keyof MgPopover & keyof MgPopoverAttributes]?: MgPopover[K] } & { [K in keyof MgPopover & keyof MgPopoverAttributes as `attr:${K}`]?: MgPopoverAttributes[K] } & { [K in keyof MgPopover & keyof MgPopoverAttributes as `prop:${K}`]?: MgPopover[K] };
+        "mg-popover-content": Omit<MgPopoverContent, keyof MgPopoverContentAttributes> & { [K in keyof MgPopoverContent & keyof MgPopoverContentAttributes]?: MgPopoverContent[K] } & { [K in keyof MgPopoverContent & keyof MgPopoverContentAttributes as `attr:${K}`]?: MgPopoverContentAttributes[K] } & { [K in keyof MgPopoverContent & keyof MgPopoverContentAttributes as `prop:${K}`]?: MgPopoverContent[K] };
+        "mg-progress": Omit<MgProgress, keyof MgProgressAttributes> & { [K in keyof MgProgress & keyof MgProgressAttributes]?: MgProgress[K] } & { [K in keyof MgProgress & keyof MgProgressAttributes as `attr:${K}`]?: MgProgressAttributes[K] } & { [K in keyof MgProgress & keyof MgProgressAttributes as `prop:${K}`]?: MgProgress[K] } & OneOf<"label", MgProgress["label"], MgProgressAttributes["label"]>;
         "mg-skip-links": MgSkipLinks;
-        "mg-table": MgTable;
-        "mg-tabs": MgTabs;
-        "mg-tag": MgTag;
-        "mg-tooltip": MgTooltip;
-        "mg-tooltip-content": MgTooltipContent;
+        "mg-table": Omit<MgTable, keyof MgTableAttributes> & { [K in keyof MgTable & keyof MgTableAttributes]?: MgTable[K] } & { [K in keyof MgTable & keyof MgTableAttributes as `attr:${K}`]?: MgTableAttributes[K] } & { [K in keyof MgTable & keyof MgTableAttributes as `prop:${K}`]?: MgTable[K] };
+        "mg-tabs": Omit<MgTabs, keyof MgTabsAttributes> & { [K in keyof MgTabs & keyof MgTabsAttributes]?: MgTabs[K] } & { [K in keyof MgTabs & keyof MgTabsAttributes as `attr:${K}`]?: MgTabsAttributes[K] } & { [K in keyof MgTabs & keyof MgTabsAttributes as `prop:${K}`]?: MgTabs[K] } & OneOf<"label", MgTabs["label"], MgTabsAttributes["label"]>;
+        "mg-tag": Omit<MgTag, keyof MgTagAttributes> & { [K in keyof MgTag & keyof MgTagAttributes]?: MgTag[K] } & { [K in keyof MgTag & keyof MgTagAttributes as `attr:${K}`]?: MgTagAttributes[K] } & { [K in keyof MgTag & keyof MgTagAttributes as `prop:${K}`]?: MgTag[K] };
+        "mg-tooltip": Omit<MgTooltip, keyof MgTooltipAttributes> & { [K in keyof MgTooltip & keyof MgTooltipAttributes]?: MgTooltip[K] } & { [K in keyof MgTooltip & keyof MgTooltipAttributes as `attr:${K}`]?: MgTooltipAttributes[K] } & { [K in keyof MgTooltip & keyof MgTooltipAttributes as `prop:${K}`]?: MgTooltip[K] } & OneOf<"message", MgTooltip["message"], MgTooltipAttributes["message"]>;
+        "mg-tooltip-content": Omit<MgTooltipContent, keyof MgTooltipContentAttributes> & { [K in keyof MgTooltipContent & keyof MgTooltipContentAttributes]?: MgTooltipContent[K] } & { [K in keyof MgTooltipContent & keyof MgTooltipContentAttributes as `attr:${K}`]?: MgTooltipContentAttributes[K] } & { [K in keyof MgTooltipContent & keyof MgTooltipContentAttributes as `prop:${K}`]?: MgTooltipContent[K] } & OneOf<"message", MgTooltipContent["message"], MgTooltipContentAttributes["message"]>;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "mg-action-more": LocalJSX.MgActionMore & JSXBase.HTMLAttributes<HTMLMgActionMoreElement>;
-            "mg-alert": LocalJSX.MgAlert & JSXBase.HTMLAttributes<HTMLMgAlertElement>;
-            "mg-badge": LocalJSX.MgBadge & JSXBase.HTMLAttributes<HTMLMgBadgeElement>;
-            "mg-breadcrumb": LocalJSX.MgBreadcrumb & JSXBase.HTMLAttributes<HTMLMgBreadcrumbElement>;
-            "mg-button": LocalJSX.MgButton & JSXBase.HTMLAttributes<HTMLMgButtonElement>;
-            "mg-card": LocalJSX.MgCard & JSXBase.HTMLAttributes<HTMLMgCardElement>;
-            "mg-character-left": LocalJSX.MgCharacterLeft & JSXBase.HTMLAttributes<HTMLMgCharacterLeftElement>;
-            "mg-details": LocalJSX.MgDetails & JSXBase.HTMLAttributes<HTMLMgDetailsElement>;
-            "mg-divider": LocalJSX.MgDivider & JSXBase.HTMLAttributes<HTMLMgDividerElement>;
-            "mg-fieldset": LocalJSX.MgFieldset & JSXBase.HTMLAttributes<HTMLMgFieldsetElement>;
-            "mg-form": LocalJSX.MgForm & JSXBase.HTMLAttributes<HTMLMgFormElement>;
-            "mg-icon": LocalJSX.MgIcon & JSXBase.HTMLAttributes<HTMLMgIconElement>;
-            "mg-illustrated-message": LocalJSX.MgIllustratedMessage & JSXBase.HTMLAttributes<HTMLMgIllustratedMessageElement>;
-            "mg-input": LocalJSX.MgInput & JSXBase.HTMLAttributes<HTMLMgInputElement>;
-            "mg-input-checkbox": LocalJSX.MgInputCheckbox & JSXBase.HTMLAttributes<HTMLMgInputCheckboxElement>;
+            "mg-action-more": LocalJSX.IntrinsicElements["mg-action-more"] & JSXBase.HTMLAttributes<HTMLMgActionMoreElement>;
+            "mg-alert": LocalJSX.IntrinsicElements["mg-alert"] & JSXBase.HTMLAttributes<HTMLMgAlertElement>;
+            "mg-badge": LocalJSX.IntrinsicElements["mg-badge"] & JSXBase.HTMLAttributes<HTMLMgBadgeElement>;
+            "mg-breadcrumb": LocalJSX.IntrinsicElements["mg-breadcrumb"] & JSXBase.HTMLAttributes<HTMLMgBreadcrumbElement>;
+            "mg-button": LocalJSX.IntrinsicElements["mg-button"] & JSXBase.HTMLAttributes<HTMLMgButtonElement>;
+            "mg-card": LocalJSX.IntrinsicElements["mg-card"] & JSXBase.HTMLAttributes<HTMLMgCardElement>;
+            "mg-character-left": LocalJSX.IntrinsicElements["mg-character-left"] & JSXBase.HTMLAttributes<HTMLMgCharacterLeftElement>;
+            "mg-details": LocalJSX.IntrinsicElements["mg-details"] & JSXBase.HTMLAttributes<HTMLMgDetailsElement>;
+            "mg-divider": LocalJSX.IntrinsicElements["mg-divider"] & JSXBase.HTMLAttributes<HTMLMgDividerElement>;
+            "mg-fieldset": LocalJSX.IntrinsicElements["mg-fieldset"] & JSXBase.HTMLAttributes<HTMLMgFieldsetElement>;
+            "mg-form": LocalJSX.IntrinsicElements["mg-form"] & JSXBase.HTMLAttributes<HTMLMgFormElement>;
+            "mg-icon": LocalJSX.IntrinsicElements["mg-icon"] & JSXBase.HTMLAttributes<HTMLMgIconElement>;
+            "mg-illustrated-message": LocalJSX.IntrinsicElements["mg-illustrated-message"] & JSXBase.HTMLAttributes<HTMLMgIllustratedMessageElement>;
+            "mg-input": LocalJSX.IntrinsicElements["mg-input"] & JSXBase.HTMLAttributes<HTMLMgInputElement>;
+            "mg-input-checkbox": LocalJSX.IntrinsicElements["mg-input-checkbox"] & JSXBase.HTMLAttributes<HTMLMgInputCheckboxElement>;
             /**
              * Internal component use to manage sections instances
              */
-            "mg-input-checkbox-paginated": LocalJSX.MgInputCheckboxPaginated & JSXBase.HTMLAttributes<HTMLMgInputCheckboxPaginatedElement>;
-            "mg-input-combobox": LocalJSX.MgInputCombobox & JSXBase.HTMLAttributes<HTMLMgInputComboboxElement>;
-            "mg-input-date": LocalJSX.MgInputDate & JSXBase.HTMLAttributes<HTMLMgInputDateElement>;
-            "mg-input-file": LocalJSX.MgInputFile & JSXBase.HTMLAttributes<HTMLMgInputFileElement>;
-            "mg-input-numeric": LocalJSX.MgInputNumeric & JSXBase.HTMLAttributes<HTMLMgInputNumericElement>;
-            "mg-input-password": LocalJSX.MgInputPassword & JSXBase.HTMLAttributes<HTMLMgInputPasswordElement>;
-            "mg-input-radio": LocalJSX.MgInputRadio & JSXBase.HTMLAttributes<HTMLMgInputRadioElement>;
-            "mg-input-rich-text-editor": LocalJSX.MgInputRichTextEditor & JSXBase.HTMLAttributes<HTMLMgInputRichTextEditorElement>;
-            "mg-input-select": LocalJSX.MgInputSelect & JSXBase.HTMLAttributes<HTMLMgInputSelectElement>;
-            "mg-input-text": LocalJSX.MgInputText & JSXBase.HTMLAttributes<HTMLMgInputTextElement>;
-            "mg-input-textarea": LocalJSX.MgInputTextarea & JSXBase.HTMLAttributes<HTMLMgInputTextareaElement>;
-            "mg-input-title": LocalJSX.MgInputTitle & JSXBase.HTMLAttributes<HTMLMgInputTitleElement>;
-            "mg-input-toggle": LocalJSX.MgInputToggle & JSXBase.HTMLAttributes<HTMLMgInputToggleElement>;
-            "mg-item-more": LocalJSX.MgItemMore & JSXBase.HTMLAttributes<HTMLMgItemMoreElement>;
-            "mg-loader": LocalJSX.MgLoader & JSXBase.HTMLAttributes<HTMLMgLoaderElement>;
-            "mg-menu": LocalJSX.MgMenu & JSXBase.HTMLAttributes<HTMLMgMenuElement>;
-            "mg-menu-item": LocalJSX.MgMenuItem & JSXBase.HTMLAttributes<HTMLMgMenuItemElement>;
-            "mg-message": LocalJSX.MgMessage & JSXBase.HTMLAttributes<HTMLMgMessageElement>;
-            "mg-modal": LocalJSX.MgModal & JSXBase.HTMLAttributes<HTMLMgModalElement>;
-            "mg-pagination": LocalJSX.MgPagination & JSXBase.HTMLAttributes<HTMLMgPaginationElement>;
-            "mg-panel": LocalJSX.MgPanel & JSXBase.HTMLAttributes<HTMLMgPanelElement>;
-            "mg-popover": LocalJSX.MgPopover & JSXBase.HTMLAttributes<HTMLMgPopoverElement>;
-            "mg-popover-content": LocalJSX.MgPopoverContent & JSXBase.HTMLAttributes<HTMLMgPopoverContentElement>;
-            "mg-progress": LocalJSX.MgProgress & JSXBase.HTMLAttributes<HTMLMgProgressElement>;
-            "mg-skip-links": LocalJSX.MgSkipLinks & JSXBase.HTMLAttributes<HTMLMgSkipLinksElement>;
-            "mg-table": LocalJSX.MgTable & JSXBase.HTMLAttributes<HTMLMgTableElement>;
-            "mg-tabs": LocalJSX.MgTabs & JSXBase.HTMLAttributes<HTMLMgTabsElement>;
-            "mg-tag": LocalJSX.MgTag & JSXBase.HTMLAttributes<HTMLMgTagElement>;
-            "mg-tooltip": LocalJSX.MgTooltip & JSXBase.HTMLAttributes<HTMLMgTooltipElement>;
-            "mg-tooltip-content": LocalJSX.MgTooltipContent & JSXBase.HTMLAttributes<HTMLMgTooltipContentElement>;
+            "mg-input-checkbox-paginated": LocalJSX.IntrinsicElements["mg-input-checkbox-paginated"] & JSXBase.HTMLAttributes<HTMLMgInputCheckboxPaginatedElement>;
+            "mg-input-combobox": LocalJSX.IntrinsicElements["mg-input-combobox"] & JSXBase.HTMLAttributes<HTMLMgInputComboboxElement>;
+            "mg-input-date": LocalJSX.IntrinsicElements["mg-input-date"] & JSXBase.HTMLAttributes<HTMLMgInputDateElement>;
+            "mg-input-file": LocalJSX.IntrinsicElements["mg-input-file"] & JSXBase.HTMLAttributes<HTMLMgInputFileElement>;
+            "mg-input-numeric": LocalJSX.IntrinsicElements["mg-input-numeric"] & JSXBase.HTMLAttributes<HTMLMgInputNumericElement>;
+            "mg-input-password": LocalJSX.IntrinsicElements["mg-input-password"] & JSXBase.HTMLAttributes<HTMLMgInputPasswordElement>;
+            "mg-input-radio": LocalJSX.IntrinsicElements["mg-input-radio"] & JSXBase.HTMLAttributes<HTMLMgInputRadioElement>;
+            "mg-input-rich-text-editor": LocalJSX.IntrinsicElements["mg-input-rich-text-editor"] & JSXBase.HTMLAttributes<HTMLMgInputRichTextEditorElement>;
+            "mg-input-select": LocalJSX.IntrinsicElements["mg-input-select"] & JSXBase.HTMLAttributes<HTMLMgInputSelectElement>;
+            "mg-input-text": LocalJSX.IntrinsicElements["mg-input-text"] & JSXBase.HTMLAttributes<HTMLMgInputTextElement>;
+            "mg-input-textarea": LocalJSX.IntrinsicElements["mg-input-textarea"] & JSXBase.HTMLAttributes<HTMLMgInputTextareaElement>;
+            "mg-input-title": LocalJSX.IntrinsicElements["mg-input-title"] & JSXBase.HTMLAttributes<HTMLMgInputTitleElement>;
+            "mg-input-toggle": LocalJSX.IntrinsicElements["mg-input-toggle"] & JSXBase.HTMLAttributes<HTMLMgInputToggleElement>;
+            "mg-item-more": LocalJSX.IntrinsicElements["mg-item-more"] & JSXBase.HTMLAttributes<HTMLMgItemMoreElement>;
+            "mg-loader": LocalJSX.IntrinsicElements["mg-loader"] & JSXBase.HTMLAttributes<HTMLMgLoaderElement>;
+            "mg-menu": LocalJSX.IntrinsicElements["mg-menu"] & JSXBase.HTMLAttributes<HTMLMgMenuElement>;
+            "mg-menu-item": LocalJSX.IntrinsicElements["mg-menu-item"] & JSXBase.HTMLAttributes<HTMLMgMenuItemElement>;
+            "mg-message": LocalJSX.IntrinsicElements["mg-message"] & JSXBase.HTMLAttributes<HTMLMgMessageElement>;
+            "mg-modal": LocalJSX.IntrinsicElements["mg-modal"] & JSXBase.HTMLAttributes<HTMLMgModalElement>;
+            "mg-pagination": LocalJSX.IntrinsicElements["mg-pagination"] & JSXBase.HTMLAttributes<HTMLMgPaginationElement>;
+            "mg-panel": LocalJSX.IntrinsicElements["mg-panel"] & JSXBase.HTMLAttributes<HTMLMgPanelElement>;
+            "mg-popover": LocalJSX.IntrinsicElements["mg-popover"] & JSXBase.HTMLAttributes<HTMLMgPopoverElement>;
+            "mg-popover-content": LocalJSX.IntrinsicElements["mg-popover-content"] & JSXBase.HTMLAttributes<HTMLMgPopoverContentElement>;
+            "mg-progress": LocalJSX.IntrinsicElements["mg-progress"] & JSXBase.HTMLAttributes<HTMLMgProgressElement>;
+            "mg-skip-links": LocalJSX.IntrinsicElements["mg-skip-links"] & JSXBase.HTMLAttributes<HTMLMgSkipLinksElement>;
+            "mg-table": LocalJSX.IntrinsicElements["mg-table"] & JSXBase.HTMLAttributes<HTMLMgTableElement>;
+            "mg-tabs": LocalJSX.IntrinsicElements["mg-tabs"] & JSXBase.HTMLAttributes<HTMLMgTabsElement>;
+            "mg-tag": LocalJSX.IntrinsicElements["mg-tag"] & JSXBase.HTMLAttributes<HTMLMgTagElement>;
+            "mg-tooltip": LocalJSX.IntrinsicElements["mg-tooltip"] & JSXBase.HTMLAttributes<HTMLMgTooltipElement>;
+            "mg-tooltip-content": LocalJSX.IntrinsicElements["mg-tooltip-content"] & JSXBase.HTMLAttributes<HTMLMgTooltipContentElement>;
         }
     }
 }
