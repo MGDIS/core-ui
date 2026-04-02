@@ -18,6 +18,7 @@ import { type TooltipPosition, type Width, type EventType, widths, classReadonly
 import type { Option } from '../../../../types';
 import { initLocales } from '../../../../locales';
 import { Keys } from '../../../../utils/events.utils';
+import { MgIcon } from '../../../atoms/mg-icon/mg-icon';
 
 /**
  * Check if object is an item
@@ -1066,7 +1067,7 @@ export class MgInputCombobox {
                 </mg-button>
               ) : (
                 <mg-button class="mg-c-input__box-append" variant="flat" is-icon label={this.itemsLabel} tabindex="-1" disabled={this.disabled}>
-                  <mg-icon icon={`chevron-${this.popoverDisplay ? 'up' : 'down'}`}></mg-icon>
+                  <mg-icon icon={`chevron-${this.popoverDisplay ? 'up' : 'down'}` as MgIcon['icon']}></mg-icon>
                 </mg-button>
               )}
             </div>

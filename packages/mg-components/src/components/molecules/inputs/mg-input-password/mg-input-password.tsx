@@ -2,6 +2,7 @@ import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch 
 import { ClassList, isValidString } from '@mgdis/core-ui-helpers/dist/utils';
 import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
+import { MgIcon } from '../../../atoms/mg-icon/mg-icon';
 
 @Component({
   tag: 'mg-input-password',
@@ -404,7 +405,7 @@ export class MgInputPassword {
               onClick={this.toggleDisplayPassword}
               aria-controls={this.identifier}
             >
-              <mg-icon class="mg-c-input__input-icon" icon={this.displayPassword ? 'eye-slash' : 'eye'}></mg-icon>
+              <mg-icon class="mg-c-input__input-icon" icon={(this.displayPassword ? 'eye-slash' : 'eye') as MgIcon['icon']}></mg-icon>
             </mg-button>
           </span>
         )}
