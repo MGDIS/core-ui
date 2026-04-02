@@ -6,6 +6,10 @@ export default {
   component: 'mg-table',
   title: 'Molecules/mg-table',
   tags: ['beta'],
+  args: {
+    borderHide: false,
+    fullWidth: false,
+  },
 };
 
 /**
@@ -13,27 +17,9 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgTableType & { slotContent: string }): HTMLElement => (
-  <mg-table
-    {...filterArgs(
-      args,
-      {
-        size: 'medium',
-      },
-      [''],
-    )}
-    innerHTML={args['']}
-  ></mg-table>
-);
+const Template = (args: MgTableType & { slotContent: string }): HTMLElement => <mg-table {...filterArgs(args, {}, [''])} innerHTML={args['']}></mg-table>;
 
-export const MGTable = {
-  render: Template,
-  args: {
-    'size': undefined,
-    'fullWidth': false,
-    'columns': { 1: { sortable: true }, 2: { datatype: 'date', sortable: true }, 3: { datatype: 'numeric', sortable: true } },
-    // Slots
-    '': `<table>
+const tableSlotSortable = `<table>
   <thead>
     <tr>
       <th>Name</th>
@@ -66,6 +52,49 @@ export const MGTable = {
       <td>Pat'Patrouille</td>
     </tr>
   </tbody>
-</table>`,
+</table>`;
+
+/**
+ * Same as default table with `--mg-c-table-color-head-foot-background` set to light (header/footer match table body).
+ * @param args - component arguments
+ * @returns HTMLMgTableElement
+ */
+const TemplateHeadFootLightBackground = (args: MgTableType & { 'slotContent': string; '--mg-c-table-color-head-foot-background'?: string }): HTMLElement => {
+  const { '--mg-c-table-color-head-foot-background': headFootBackground = 'var(--mg-b-color-light)', ...tableArgs } = args;
+  return (
+    <mg-table
+      {...filterArgs(tableArgs, {}, ['', '--mg-c-table-color-head-foot-background'])}
+      style={{
+        '--mg-c-table-color-head-foot-background': headFootBackground,
+      }}
+      innerHTML={args['']}
+    ></mg-table>
+  );
+};
+
+export const MGTable = {
+  render: Template,
+  args: {
+    'columns': { 1: { sortable: true }, 2: { datatype: 'date', sortable: true }, 3: { datatype: 'numeric', sortable: true } },
+    // Slots
+    '': tableSlotSortable,
+  },
+};
+
+export const MGTableHeadFootLightBackground = {
+  render: TemplateHeadFootLightBackground,
+  args: {
+    '--mg-c-table-color-head-foot-background': 'var(--mg-b-color-light)',
+    'columns': { 1: { sortable: true }, 2: { datatype: 'date', sortable: true }, 3: { datatype: 'numeric', sortable: true } },
+    '': tableSlotSortable,
+  },
+  argTypes: {
+    '--mg-c-table-color-head-foot-background': {
+      name: '--mg-c-table-color-head-foot-background',
+      control: { type: 'text' },
+      table: {
+        category: 'custom properties',
+      },
+    },
   },
 };

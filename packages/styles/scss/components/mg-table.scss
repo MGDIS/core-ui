@@ -1,11 +1,14 @@
 @use '../utils/a11y';
 @use '../base/typography';
 
+/*!
+ * @prop --mg-c-table-color-head-foot-background: Background color for thead and tfoot. Unset by default, fallback on `--mg-b-color-neutral-10`. Override on `mg-table` (e.g. `var(--mg-b-color-light)` to align with the table surface).
+ */
+
 .mg-c-table {
   // TODO: put variables in components custom properties after beta
   --mg-c-table-cell-spacing: var(--mg-b-size-8) var(--mg-b-size-16);
   --mg-c-table-cell-height: var(--mg-b-size-40);
-  --mg-c-table-header-cell-height: calc(var(--mg-b-size-min-height) + 2 * var(--mg-b-size-8));
 
   overflow: hidden;
   border: var(--mg-b-size-border) solid var(--mg-b-color-neutral-30);
@@ -28,7 +31,12 @@
 
   thead,
   tfoot {
-    background-color: var(--mg-b-color-neutral-10);
+    background-color: var(--mg-c-table-color-head-foot-background, var(--mg-b-color-neutral-10));
+    color: var(--mg-b-color-neutral-90);
+  }
+
+  tfoot tr:first-of-type :where(th, td) {
+    border-block-start: var(--mg-b-size-border) solid var(--mg-b-color-neutral-30);
   }
 
   // Font weight for headers
@@ -38,18 +46,21 @@
     font-weight: 600;
   }
 
-  tr {
-    th,
-    td {
-      border-block-end: var(--mg-b-size-border) solid var(--mg-b-color-neutral-30);
-    }
+  tr :where(th, td) {
+    border-block-end: var(--mg-b-size-border) solid var(--mg-b-color-neutral-30);
   }
 
-  tfoot tr:last-of-type {
-    th,
-    td {
-      border-block-end: none;
-    }
+  // Only remove the bottom border at the visual end of the table.
+  tbody:last-of-type tr:last-of-type :where(th, td),
+  tfoot tr:last-of-type :where(th, td) {
+    border-block-end: none;
+  }
+
+  // Common irregular-table pattern: a rowgroup header spanning to the last row.
+  // Remove its bottom border so it doesn't visually "double" with the table outer border.
+  tfoot :where(th, td)[rowspan][scope='rowgroup'],
+  tbody:last-of-type :where(th, td)[rowspan][scope='rowgroup'] {
+    border-block-end: none;
   }
 
   /**
@@ -58,24 +69,30 @@
   &.mg-c-table--size-small {
     --mg-c-table-cell-spacing: var(--mg-b-size-4) var(--mg-b-size-16);
     --mg-c-table-cell-height: var(--mg-b-size-32);
-    --mg-c-table-header-cell-height: var(--mg-b-size-32);
   }
 
   &.mg-c-table--size-large {
-    --mg-c-table-cell-height: var(--mg-c-table-header-cell-height);
+    --mg-c-table-cell-height: calc(var(--mg-b-size-min-height) + 2 * var(--mg-b-size-8));
   }
 
   &.mg-c-table--size-xlarge {
     --mg-c-table-cell-spacing: var(--mg-b-size-12) var(--mg-b-size-16);
     --mg-c-table-cell-height: var(--mg-b-size-64);
-    --mg-c-table-header-cell-height: var(--mg-b-size-64);
   }
 
   /**
-  * full width
+  * Full width
   */
   &.mg-c-table--full-width {
     width: 100%;
+  }
+
+  /**
+  * Border hide
+  */
+  &.mg-c-table--border-hide {
+    border: unset;
+    border-radius: unset;
   }
 
   &-wrapper {

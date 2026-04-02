@@ -55,6 +55,7 @@ describe('mg-table', () => {
     { size: 'small' },
     { size: 'large' },
     { size: 'xlarge' },
+    { borderHide: true },
     { fullWidth: true },
     { columns: { 2: { align: 'center' } } },
     { columns: { 2: { datatype: 'numeric' } } },
@@ -106,8 +107,20 @@ describe('mg-table', () => {
 
     expect(page.root).toMatchSnapshot();
 
-    // Change size
+    // Change fullWidth
     mgTable.fullWidth = true;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    // Hide border
+    mgTable.borderHide = true;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    // Re-enable border
+    mgTable.borderHide = false;
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
