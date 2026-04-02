@@ -1,5 +1,12 @@
 # eslint-config-stencil
 
+## 2.0.1
+
+### Patch Changes
+
+- Updated dependencies [de9a68a]
+  - @core-ui/eslint-config-custom@1.0.20
+
 ## 2.0.0
 
 ### Major Changes

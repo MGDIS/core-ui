@@ -1,5 +1,15 @@
 # @mgdis/sanitize-html
 
+## 1.1.0
+
+### Minor Changes
+
+- bc57cf4: [**`<mg-input-rich-text-editor>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-rich-text-editor--docs) Migrated from Quill to Jodit editor. Added automatic HTML sanitization.
+
+### Patch Changes
+
+- de9a68a: Update dependencies
+
 ## 1.0.11
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @mgdis/img
 
+## 2.6.0
+
+### Minor Changes
+
+- 3097211: [**`<mg-illustrated-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-illustrated-message--docs) update style
+
+### Patch Changes
+
+- de9a68a: Update dependencies
+
 ## 2.5.4
 
 ### Patch Changes

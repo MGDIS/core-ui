@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.1.16
+
+### Patch Changes
+
+- Updated dependencies [de9a68a]
+  - @mgdis/eslint-plugin-vue@4.1.13
+
 ## 4.1.15
 
 ### Patch Changes

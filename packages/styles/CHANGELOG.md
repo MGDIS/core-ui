@@ -1,5 +1,22 @@
 # @mgdis/styles
 
+## 2.17.0
+
+### Minor Changes
+
+- 3097211: [**`<mg-illustrated-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-illustrated-message--docs) update style
+- a5fd5d8: [**`<mg-menu-item>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-menus-mg-menu-item--docs) update style
+  [**`<mg-action-more>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-action-more--docs) update style
+  [**`<mg-tabs>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-tabs--docs) update style
+  [**`<mg-menu>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-menus-mg-menu--docs) remove size props
+- ffe65fe: [**`<mg-table>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-table--docs) Add `border-hide` prop and update style
+- 2fb1b1a: [**`<mg-breadcrumb>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-breadcrumb--docs) new component
+
+### Patch Changes
+
+- bc57cf4: [**`<mg-input-rich-text-editor>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-rich-text-editor--docs) Migrated from Quill to Jodit editor. Added automatic HTML sanitization.
+- de9a68a: Update dependencies
+
 ## 2.16.0
 
 ### Minor Changes
