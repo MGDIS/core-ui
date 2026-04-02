@@ -38,6 +38,7 @@ export const MgMenuItem = {
     'target': undefined,
     'status': undefined,
     'expanded': false,
+    'isIcon': false,
     // Slots
     '': '',
     'image': '',
@@ -73,6 +74,17 @@ export const MgMenuItemWhitIcon = {
   },
 };
 
+export const MgMenuItemIsIcon = {
+  render: Template,
+  args: {
+    ...MgMenuItem.args,
+    // Slots
+    label: `<span slot="label">My label</span>`,
+    image: `<mg-icon icon="user" slot="image"></mg-icon>`,
+    isIcon: true,
+  },
+};
+
 export const MgMenuItemWhitBadge = {
   render: Template,
   args: {
@@ -98,11 +110,9 @@ export const MgMenuItemWhitMetadata = {
   render: Template,
   args: {
     ...MgMenuItem.args,
-    'data-overflow-more': true,
-    'data-size': 'large',
     // Slot
-    'label': `<span slot="label">My label</span>`,
-    'metadata': `<span slot="metadata">My metadata</span>`,
+    label: `<span slot="label">My label</span>`,
+    metadata: `<span slot="metadata">My metadata</span>`,
   },
 };
 

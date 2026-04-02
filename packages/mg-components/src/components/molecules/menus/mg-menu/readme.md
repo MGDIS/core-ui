@@ -54,12 +54,12 @@ With a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attribut
 
 ## Properties
 
-| Property             | Attribute   | Description                                                                                                  | Type                                                                                      | Default        |
-| -------------------- | ----------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- | -------------- |
-| `direction`          | `direction` | Component display direction.                                                                                 | `"horizontal" \| "vertical"`                                                              | `'horizontal'` |
-| `itemmore`           | --          | Customize "mg-item-more" element Used with direction: 'vertical' to manage overflow                          | `{ size?: "medium" \| "large" \| "xlarge"; icon?: IconType; slotlabel?: SlotLabelType; }` | `undefined`    |
-| `label` _(required)_ | `label`     | Menu label. Include short menu description. Required to define accessibility required attribute `aria-label` | `string`                                                                                  | `undefined`    |
-| `size`               | `size`      | Define mg-menu size                                                                                          | `"large" \| "medium" \| "xlarge"`                                                         | `'medium'`     |
+| Property             | Attribute   | Description                                                                                                                                    | Type                                              | Default        |
+| -------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------- |
+| `direction`          | `direction` | Component display direction.                                                                                                                   | `"horizontal" \| "vertical"`                      | `'horizontal'` |
+| `itemmore`           | --          | Customize "mg-item-more" element Used with direction: 'horizontal' to manage overflow                                                          | `{ icon?: IconType; slotlabel?: SlotLabelType; }` | `undefined`    |
+| `label` _(required)_ | `label`     | Menu label. Include short menu description. Required to define accessibility required attribute `aria-label`                                   | `string`                                          | `undefined`    |
+| `size`               | --          | <span style="color:red">**[DEPRECATED]**</span> this prop is deprecated and will be removed in future releases<br/><br/>Size of the menu items | `never`                                           | `undefined`    |
 
 
 ## Slots

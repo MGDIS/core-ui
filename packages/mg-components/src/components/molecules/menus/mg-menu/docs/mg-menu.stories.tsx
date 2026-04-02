@@ -4,6 +4,7 @@ import type { MgMenuItem as MgMenuItemType } from '../../mg-menu-item/mg-menu-it
 import type { MgMenu as MgMenuType } from '../mg-menu';
 import { directions } from '../mg-menu.conf';
 import { Status } from '../../mg-menu-item/mg-menu-item.conf';
+import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
 
 export default {
   component: 'mg-menu',
@@ -17,13 +18,14 @@ export default {
 type MenuItemArg = Pick<MgMenuItemType, 'status' | 'href'> & {
   label: string;
   metadata?: string;
-  icon?: boolean;
+  icon?: MgIcon['icon'];
   badge?: boolean;
   content?: boolean;
   submenu?: number;
+  isIcon?: boolean;
 };
 
-type MenuArg = MgMenuType & {
+type MenuArg = Pick<MgMenuType, 'label' | 'direction' | 'itemmore'> & {
   storyItems: MenuItemArg[];
 };
 
@@ -35,12 +37,12 @@ const depth = 2;
  * @returns rendered mg-menu-item
  */
 const menuItem = (args: MenuItemArg): HTMLMgMenuItemElement => {
-  const mgMenuItemArgs = { href: args.href, status: args.status };
+  const mgMenuItemArgs = { href: args.href, status: args.status, isIcon: args.isIcon };
   return (
     <mg-menu-item {...filterArgs(mgMenuItemArgs, { status: 'visible' })}>
       {args.label && <span slot="label">{args.label}</span>}
       {args.metadata && <span slot="metadata">{args.metadata}</span>}
-      {args.icon && <mg-icon slot="image" icon="user"></mg-icon>}
+      {args.icon && <mg-icon slot="image" icon={args.icon} size="large"></mg-icon>}
       {args.badge && <mg-badge slot="information" label="information" value="1" variant="text-color"></mg-badge>}
       {args.content && (
         <div>
@@ -48,7 +50,7 @@ const menuItem = (args: MenuItemArg): HTMLMgMenuItemElement => {
           <p>some content</p>
         </div>
       )}
-      {args.submenu > 0 && menu(getMenuArgs(directions.VERTICAL, args.submenu - 1, 'medium'))}
+      {args.submenu > 0 && menu(getMenuArgs(directions.VERTICAL, args.submenu - 1))}
     </mg-menu-item>
   );
 };
@@ -61,40 +63,42 @@ const menuItem = (args: MenuItemArg): HTMLMgMenuItemElement => {
  * Format menu args from given params
  * @param direction - menu direction
  * @param level - menu level. Default: 0.
- * @param size - menu size. Default: 'medium'
  * @returns menu formated args object
  */
-const getMenuArgs = (direction: MgMenuType['direction'], level = 0, size: MgMenuType['size'] = 'xlarge') => ({
+const getMenuArgs = (direction: MgMenuType['direction'], level = 0): MenuArg => ({
   label: 'Batman menu',
   direction,
-  size,
-  itemmore: level === depth && direction === directions.HORIZONTAL ? { size } : undefined,
   storyItems: [
     {
       href: '#',
-      label: 'label 1',
+      label: 'With link',
     },
     {
       status: Status.DISABLED,
-      label: 'label 2',
+      label: 'Disabled item',
     },
     {
       badge: true,
-      label: 'label 3 with long text',
-      icon: true,
+      label: 'With a longer text',
+      icon: 'pen',
     },
     {
       status: Status.ACTIVE,
-      label: 'label 4',
+      label: 'With submenu',
       badge: true,
-      icon: true,
+      icon: 'star',
       submenu: level,
     },
     {
-      label: 'label 5',
-      icon: true,
-      metadata: 'my metadata',
+      label: 'Mon user',
+      icon: 'user',
+      metadata: 'Design campany',
       content: true,
+    },
+    {
+      label: 'Notification',
+      icon: 'bell',
+      isIcon: true,
     },
   ],
 });
@@ -104,13 +108,12 @@ const getMenuArgs = (direction: MgMenuType['direction'], level = 0, size: MgMenu
  * @param args - mg-menu args
  * @returns rendered mg-menu
  */
-const menu = (args): HTMLMgMenuElement => {
-  const mgMenuArgs = { label: args.label, direction: args.direction, itemmore: args.itemmore, size: args.size };
+const menu = (args: MenuArg): HTMLMgMenuElement => {
+  const mgMenuArgs = { label: args.label, direction: args.direction, itemmore: args.itemmore };
   return (
     <mg-menu
       {...filterArgs(mgMenuArgs, {
         direction: directions.HORIZONTAL,
-        size: 'medium',
       })}
     >
       {args.storyItems.map(menuItem)}

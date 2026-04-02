@@ -1,6 +1,5 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
-import { sizes } from '../mg-tabs.conf';
 import { renderAttributes, renderProperties } from '@mgdis/core-ui-helpers/dist/playwright';
 
 const defaultArgs = {
@@ -26,52 +25,47 @@ enum Key {
 const createHTML = args => `<mg-tabs ${renderAttributes(args)}">${createSlot(args.items)}</mg-tabs>`;
 
 test.describe('mg-tabs', () => {
-  sizes.forEach(size => {
-    test.describe(`size ${size}`, () => {
-      [
-        { items: ['Batman', 'Joker', 'Bane'] },
-        {
-          items: [
-            { label: 'Batman', icon: 'check' },
-            { label: 'Joker', icon: 'cross', status: 'disabled' },
-            { label: 'Bane', icon: 'cross', status: 'hidden' },
-          ],
-        },
-        {
-          items: [
-            { label: 'Batman', badge: { label: 'count', value: 1 } },
-            { label: 'Joker', badge: { label: 'count', value: 1 }, status: 'disabled' },
-            { label: 'Bane', icon: 'cross', status: 'hidden' },
-          ],
-        },
-        {
-          items: [
-            { label: 'Batman', icon: 'check', badge: { label: 'count', value: 99 } },
-            { label: 'Joker', icon: 'cross', badge: { label: 'count', value: 99 }, status: 'disabled' },
-            { label: 'Bane', icon: 'cross', status: 'hidden' },
-          ],
-        },
-        {
-          items: [
-            { label: 'Batman', icon: 'check', badge: { label: 'count', value: 99, role: 'notification' } },
-            { label: 'Joker', icon: 'cross', badge: { label: 'count', value: 99, role: 'information' }, status: 'disabled' },
-            { label: 'Bane', icon: 'cross', status: 'hidden' },
-          ],
-        },
-      ].forEach((args, index) => {
-        test(`render ${index + 1}`, async ({ page }) => {
-          const componentArgs = {
-            ...defaultArgs,
-            ...args,
-            size,
-          };
-          const html = createHTML(componentArgs);
-          await page.setContent(html);
-          await page.addScriptTag({ content: renderProperties(componentArgs, `mg-tabs`) });
+  [
+    { items: ['Batman', 'Joker', 'Bane'] },
+    {
+      items: [
+        { label: 'Batman', icon: 'check' },
+        { label: 'Joker', icon: 'cross', status: 'disabled' },
+        { label: 'Bane', icon: 'cross', status: 'hidden' },
+      ],
+    },
+    {
+      items: [
+        { label: 'Batman', badge: { label: 'count', value: 1 } },
+        { label: 'Joker', badge: { label: 'count', value: 1 }, status: 'disabled' },
+        { label: 'Bane', icon: 'cross', status: 'hidden' },
+      ],
+    },
+    {
+      items: [
+        { label: 'Batman', icon: 'check', badge: { label: 'count', value: 99 } },
+        { label: 'Joker', icon: 'cross', badge: { label: 'count', value: 99 }, status: 'disabled' },
+        { label: 'Bane', icon: 'cross', status: 'hidden' },
+      ],
+    },
+    {
+      items: [
+        { label: 'Batman', icon: 'check', badge: { label: 'count', value: 99, role: 'notification' } },
+        { label: 'Joker', icon: 'cross', badge: { label: 'count', value: 99, role: 'information' }, status: 'disabled' },
+        { label: 'Bane', icon: 'cross', status: 'hidden' },
+      ],
+    },
+  ].forEach((args, index) => {
+    test(`render ${index + 1}`, async ({ page }) => {
+      const componentArgs = {
+        ...defaultArgs,
+        ...args,
+      };
+      const html = createHTML(componentArgs);
+      await page.setContent(html);
+      await page.addScriptTag({ content: renderProperties(componentArgs, `mg-tabs`) });
 
-          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-        });
-      });
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 

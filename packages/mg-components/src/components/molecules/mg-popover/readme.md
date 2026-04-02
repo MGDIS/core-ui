@@ -57,8 +57,8 @@ The click on button with ’popovertargetaction="hide"’ will hide a shown popo
 | `--mg-c-popover-max-width`          | Defines the max-width of the popover. Default value: `--mg-b-size-floating-element-max-width`.       |
 | `--mg-c-popover-min-width`          | Defines the min-width of the popover. Default value: `unset`.                                        |
 | `--mg-c-popover-overflow`           | Defines the overflow property for the popover. Unset by default, fallback on `--mg-c-card-overflow`. |
-| `--mg-c-popover-padding-horizontal` | Defines the horizontal padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`. |
-| `--mg-c-popover-padding-vertical`   | Defines the vertical padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`.   |
+| `--mg-c-popover-spacing-horizontal` | Defines the horizontal padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`. |
+| `--mg-c-popover-spacing-vertical`   | Defines the vertical padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`.   |
 | `--mg-c-popover-title-font-size`    | Defines the font size of the popover title. Default value: `--mg-b-font-size-h5`.                    |
 
 

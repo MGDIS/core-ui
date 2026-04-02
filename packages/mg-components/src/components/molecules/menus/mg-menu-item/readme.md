@@ -50,6 +50,7 @@ Sub-items add to their left spacing the spacing between left border and content 
 | `expanded`   | `expanded`   | Define menu-item content expanded.                                               | `boolean`                                         | `false`                    |
 | `href`       | `href`       | Define menu-item href when defined menu-item contain an anchor instead of button | `string`                                          | `undefined`                |
 | `identifier` | `identifier` | Identifier is used to control mg-popover                                         | `string`                                          | `createID('mg-menu-item')` |
+| `isIcon`     | `is-icon`    | Define menu-item isIcon style.                                                   | `boolean`                                         | `false`                    |
 | `status`     | `status`     | Define menu-item status.                                                         | `"active" \| "disabled" \| "hidden" \| "visible"` | `'visible'`                |
 | `target`     | `target`     | Define target type                                                               | `"_blank" \| "_parent" \| "_self" \| "_top"`      | `undefined`                |
 
@@ -79,6 +80,7 @@ Sub-items add to their left spacing the spacing between left border and content 
 | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | `--mg-c-menu-item-color`                       | Defines menu item global color, used for bottom line and active tabs. Default value: `--mg-b-color-app`. |
 | `--mg-c-menu-item-color-text`                  | Defines the color of the menu item. Unset by default, fallback on `--mg-b-color-dark`.                   |
+| `--mg-c-menu-item-height`                      | Defines the height property for the navigation button. Default value: `--mg-b-size-40`.                  |
 | `--mg-c-menu-item-navigation-button-max-width` | Defines the max-width property for the navigation button. Unset by default.                              |
 
 

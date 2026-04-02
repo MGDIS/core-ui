@@ -2,8 +2,8 @@
  * @prop --mg-c-popover-color-background: Defines the background color of the popover. Default value: `--mg-b-color-light`.
  * @prop --mg-c-popover-color-text: Defines the font color of the popover. Default value: `--mg-b-color-font-dark`.
  * @prop --mg-c-popover-title-font-size: Defines the font size of the popover title. Default value: `--mg-b-font-size-h5`.
- * @prop --mg-c-popover-padding-vertical: Defines the vertical padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`.
- * @prop --mg-c-popover-padding-horizontal: Defines the horizontal padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`.
+ * @prop --mg-c-popover-spacing-vertical: Defines the vertical padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`.
+ * @prop --mg-c-popover-spacing-horizontal: Defines the horizontal padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`.
  * @prop --mg-c-popover-max-width: Defines the max-width of the popover. Default value: `--mg-b-size-floating-element-max-width`.
  * @prop --mg-c-popover-max-height: Defines the max-height of the popover. Default value: `unset`.
  * @prop --mg-c-popover-overflow: Defines the overflow property for the popover. Unset by default, fallback on `--mg-c-card-overflow`.
@@ -12,7 +12,7 @@
  */
 
 :host {
-  --mg-c-card-spacing: var(--mg-c-popover-padding-vertical, var(--mg-b-size-16)) var(--mg-c-popover-padding-horizontal, var(--mg-b-size-16));
+  --mg-c-card-spacing: var(--mg-c-popover-spacing-vertical, var(--mg-b-size-16)) var(--mg-c-popover-spacing-horizontal, var(--mg-b-size-16));
   --mg-c-card-border: none;
   --mg-c-card-border-radius: var(--mg-c-popover-border-radius);
   --mg-c-card-color-background: var(--mg-c-popover-color-background);

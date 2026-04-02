@@ -5,24 +5,13 @@
  * @prop --mg-c-tabs-color-text: Defines tabs text color. Unset by default, fallback on `--mg-b-color-dark`.
  */
 
-$navigation-button-sizes: (
-  'medium': (
-    'vertical': var(--mg-b-size-12),
-    'horizontal': var(--mg-b-size-16),
-  ),
-  'large': (
-    'vertical': var(--mg-b-size-16),
-    'horizontal': var(--mg-b-size-32),
-  ),
-);
-
-@include navigation-button.navigation-button('mg-c-tabs', $navigation-button-sizes);
+@include navigation-button.navigation-button('mg-c-tabs');
 
 .mg-c-tabs {
   &__header {
     display: flex;
     flex-flow: row wrap;
-    border-bottom: var(--mg-b-size-border) solid color-mix(in srgb, var(--mg-c-tabs-color), transparent 90%);
+    border-bottom: var(--mg-b-size-border) solid var(--mg-b-color-neutral-30);
   }
 
   &__content-container:focus-visible {
@@ -31,5 +20,12 @@ $navigation-button-sizes: (
 
   &__navigation-button-text {
     flex: 0 0 content;
+  }
+
+  &__navigation-button.mg-c-tabs__navigation-button--horizontal {
+    --mg-c-tabs-height: var(--mg-b-size-24);
+    --mg-c-tabs-button-spacing-vertical: var(--mg-b-size-8);
+    --mg-c-tabs-button-margin-horizontal: var(--mg-b-size-4);
+    --mg-c-tabs-button-padding-horizontal: var(--mg-b-size-8);
   }
 }

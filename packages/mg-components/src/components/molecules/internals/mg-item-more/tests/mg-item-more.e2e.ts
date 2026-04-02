@@ -2,31 +2,19 @@ import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { test } from '../../../../../utils/playwright.fixture';
 import { Status } from '../../../menus/mg-menu-item/mg-menu-item.conf';
-import { directions, type MenuSizeType, sizes } from '../../../menus/mg-menu/mg-menu.conf';
+import { directions } from '../../../menus/mg-menu/mg-menu.conf';
 
-const verticalFrameSizes = {
-  medium: {
-    height: 200,
-    width: 180,
-  },
-  large: {
-    height: 300,
-    width: 180,
-  },
-  xlarge: {
-    height: 400,
-    width: 180,
-  },
+const verticalFrameSize = {
+  height: 200,
+  width: 180,
 };
-
-const getSubMenuSize = (size: MenuSizeType) => (size === 'medium' ? 'large' : 'medium');
 
 const createHTML = args => `
   <header class="menu-container menu-container--${args.direction}-small">
     <mg-menu ${renderAttributes({ label: 'menu', ...args })}>
       <mg-menu-item>
         <span slot="label">1 - head-1</span>
-        <mg-menu ${renderAttributes({ label: 'sub-menu 1', direction: directions.VERTICAL, size: getSubMenuSize(args?.size) })}>
+        <mg-menu ${renderAttributes({ label: 'sub-menu 1', direction: directions.VERTICAL })}>
           <mg-menu-item status="active"><span slot="label">Batman begins</span></mg-menu-item>
         </mg-menu>
       </mg-menu-item>
@@ -44,7 +32,7 @@ const createHTML = args => `
         <span slot="label">1 - head-5</span>
         <mg-icon icon='user' slot='image'></mg-icon>
         ${args?.badge ? "<mg-badge value='2' label='hello' slot='information'></mg-badge>" : ''} 
-        <mg-menu ${renderAttributes({ label: 'sub-menu 2', direction: directions.VERTICAL, size: getSubMenuSize(args?.size) })}>
+        <mg-menu ${renderAttributes({ label: 'sub-menu 2', direction: directions.VERTICAL })}>
           <mg-menu-item><span slot="label">Batman begins with a longer title to go outide screen</span></mg-menu-item>
         </mg-menu>
       </mg-menu-item>
@@ -60,7 +48,7 @@ const createHTML = args => `
   </style>
   `;
 
-const setPageContent = async (page, args, viewPortSize) => {
+const setPageContent = async (page, args, viewPortSize = verticalFrameSize) => {
   await page.setContent(createHTML(args));
   await page.addStyleTag({ content: 'body{padding-left: 2rem;}' });
   await page.setViewportSize(viewPortSize);
@@ -69,12 +57,10 @@ const setPageContent = async (page, args, viewPortSize) => {
 
 test.describe('mg-item-more', () => {
   test.describe('mg-menu', () => {
-    sizes.forEach(size => {
-      test(`should renders, case direction ${directions.VERTICAL} size="${size}" with small screen`, async ({ page }) => {
-        await setPageContent(page, { direction: directions.VERTICAL, size }, verticalFrameSizes[size]);
+    test(`should renders, case direction ${directions.VERTICAL} with small screen`, async ({ page }) => {
+      await setPageContent(page, { direction: directions.VERTICAL });
 
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
     [true, false].forEach(badge => {

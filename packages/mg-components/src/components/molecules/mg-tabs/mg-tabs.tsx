@@ -1,6 +1,6 @@
 import { Component, Event, EventEmitter, h, Prop, State, Element, Watch } from '@stencil/core';
 import { createID, ClassList, allItemsAreString, isValidString, nextTick, toString, isValideID } from '@mgdis/core-ui-helpers/dist/utils';
-import { TabItem, sizes, Status, SizeType } from './mg-tabs.conf';
+import { TabItem, Status } from './mg-tabs.conf';
 import { Keys } from '../../../utils/events.utils';
 
 /**
@@ -64,16 +64,10 @@ export class MgTabs {
   }
 
   /**
-   * Define tabs size
+   * Size of the tabs items.
+   * @deprecated this prop is deprecated and will be removed in future releases. Please use CSS custom properties to set the size of tabs items.
    */
-  @Prop() size: SizeType = 'medium';
-  @Watch('size')
-  validateSize(newValue: MgTabs['size']): void {
-    if (!sizes.includes(newValue)) {
-      throw new Error(`<mg-tabs> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${toString(newValue)}.`);
-    }
-    this.classCollection.add(`mg-c-tabs--size-${this.size}`);
-  }
+  @Prop() size: never;
 
   /**
    * Tabs items
@@ -262,7 +256,6 @@ export class MgTabs {
     this.validateLabel(this.label);
     this.validateItems(this.items);
     this.validateActiveTab(this.activeTab);
-    this.validateSize(this.size);
     this.validateSlots();
   }
 
@@ -308,7 +301,7 @@ export class MgTabs {
               onKeyDown={this.handleKeydown}
               data-index={this.getTabItemIndex(index)}
             >
-              {tab.icon !== undefined && <mg-icon icon={tab.icon}></mg-icon>}
+              {tab.icon !== undefined && <mg-icon icon={tab.icon} size="small"></mg-icon>}
               {tab.label}
               {tab.badge !== undefined && <mg-badge variant="text-color" value={tab.badge.value} label={tab.badge.label} outline={tab.badge.role === 'information'}></mg-badge>}
             </button>

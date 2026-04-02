@@ -1,4 +1,4 @@
-import type { Size, Status as StatusType } from '../../../types';
+import type { Status as StatusType } from '../../../types';
 import type { MgBadge } from '../../atoms/mg-badge/mg-badge';
 import type { MgIcon } from '../../atoms/mg-icon/mg-icon';
 
@@ -22,13 +22,3 @@ export type TabItem = {
   badge?: Pick<MgBadge, 'value' | 'variant' | 'label'> & { role: 'notification' | 'information' };
   status: StatusType;
 };
-
-/**
- * List of all possibles sizes
- */
-export const sizes = ['medium', 'large'] as const;
-
-/**
- * Variant type from variants
- */
-export type SizeType = Size & (typeof sizes)[number];

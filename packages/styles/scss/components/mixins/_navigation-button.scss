@@ -1,38 +1,18 @@
-@use 'sass:map';
-
-@mixin navigation-button($prefix, $button-sizes) {
-  @each $name, $size in $button-sizes {
-    .#{$prefix}.#{$prefix}--size-#{$name} .#{$prefix}__navigation-button,
-    .#{$prefix}__navigation-button.#{$prefix}__navigation-button--size-#{$name} {
-      height: #{map.get($size, 'height')};
-      padding: #{map.get($size, 'vertical')} #{map.get($size, 'horizontal')};
-
-      &,
-      ::slotted([slot='label']),
-      ::slotted([slot='metadata']) {
-        @if $name == 'medium' {
-          font-size: var(--mg-b-font-size);
-        } @else {
-          font-size: var(--mg-b-font-size-h4);
-        }
-      }
-      &.#{$prefix}__navigation-button--horizontal {
-        padding-bottom: #{map.get($size, 'vertical')};
-      }
-      &.#{$prefix}__navigation-button--vertical {
-        padding-left: #{map.get($size, 'horizontal')};
-      }
-    }
-  }
-
+@mixin navigation-button($prefix) {
   .#{$prefix}__navigation-button {
+    position: relative;
     display: flex;
+    height: calc(var(--#{$prefix}-button-spacing-vertical) * 2 + var(--#{$prefix}-height));
     box-sizing: border-box;
     align-items: center;
+    padding: var(--#{$prefix}-button-spacing-vertical) calc(var(--#{$prefix}-button-margin-horizontal) + var(--#{$prefix}-button-padding-horizontal))
+      var(--#{$prefix}-button-spacing-vertical) calc(var(--#{$prefix}-button-margin-horizontal) + var(--#{$prefix}-button-padding-horizontal)); // outer spacing + inner spacing for active state // outer spacing + inner spacing for active state // outer spacing + inner spacing for active state // outer spacing + inner spacing for active state
+
     border: none;
+    border-radius: var(--mg-b-size-8);
     background-color: unset;
     color: var(--#{$prefix}-color-text, var(--mg-b-color-dark));
-    column-gap: var(--#{$prefix}-navigation-button-column-gap, var(--mg-b-size-8));
+    column-gap: var(--mg-b-size-8);
     cursor: pointer;
     font-family: var(--mg-b-font-family);
     font-weight: 400;
@@ -40,27 +20,79 @@
     text-decoration: none;
     white-space: nowrap;
 
+    &::after {
+      position: absolute;
+      background-color: var(--#{$prefix}-color);
+      content: '';
+    }
+
     &:disabled,
     &--disabled {
       cursor: default;
       opacity: var(--mg-b-opacity-element-disabled);
     }
 
+    &:hover,
     &:focus-visible {
       z-index: 10;
+
+      &:not(.#{$prefix}__navigation-button--disabled)::before {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: stretch;
+        height: var(--#{$prefix}-height);
+        box-sizing: border-box;
+        border-radius: var(--mg-b-size-8);
+        margin-right: var(--#{$prefix}-button-margin-horizontal);
+        margin-left: var(--#{$prefix}-button-margin-horizontal);
+        background-color: color-mix(in srgb, var(--#{$prefix}-color-text, var(--mg-b-color-dark)), transparent 90%); // use text color to ensure sufficient contrast
+        content: '';
+      }
     }
-    &:hover:not(.#{$prefix}__navigation-button--disabled),
-    &:focus-visible:not(.#{$prefix}__navigation-button--disabled) {
-      background-color: color-mix(in srgb, var(--#{$prefix}-color), transparent 90%);
+
+    &,
+    ::slotted([slot='label']),
+    ::slotted([slot='metadata']) {
+      font-size: var(--mg-b-font-size);
     }
+
+    &:not(.#{$prefix}__navigation-button--disabled) {
+      &.#{$prefix}__navigation-button--horizontal::before {
+        margin: var(--#{$prefix}-button-spacing-vertical) var(--#{$prefix}-button-margin-horizontal);
+      }
+
+      &.#{$prefix}__navigation-button--vertical::before {
+        height: 100%;
+        margin: 0 var(--#{$prefix}-button-margin-horizontal);
+      }
+    }
+
     &.#{$prefix}__navigation-button--active {
       color: var(--#{$prefix}-color);
       font-weight: 600;
-      &.#{$prefix}__navigation-button--horizontal {
-        box-shadow: inset 0 calc(-1 * var(--mg-b-size-4)) var(--#{$prefix}-color);
+
+      &.#{$prefix}__navigation-button--horizontal::after {
+        bottom: 0;
+        left: 50%;
+        width: calc(100% - var(--mg-b-size-12) * 2);
+        height: var(--mg-b-size-4);
+        border-top-left-radius: var(--mg-b-size-8);
+        border-top-right-radius: var(--mg-b-size-8);
+        transform: translateX(-50%);
       }
+
       &.#{$prefix}__navigation-button--vertical {
-        box-shadow: inset var(--mg-b-size-4) 0 var(--#{$prefix}-color);
+        &::after {
+          top: 50%;
+          left: 0;
+          width: var(--mg-b-size-4);
+          height: calc(100% - var(--mg-b-size-8) * 2);
+          border-bottom-right-radius: var(--mg-b-size-8);
+          border-top-right-radius: var(--mg-b-size-8);
+          transform: translateY(-50%);
+        }
       }
     }
     &.#{$prefix}__navigation-button--hidden {

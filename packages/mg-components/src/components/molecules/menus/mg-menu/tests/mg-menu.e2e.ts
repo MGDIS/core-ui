@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { test } from '../../../../../utils/playwright.fixture';
-import { directions, MenuSizeType, sizes } from '../mg-menu.conf';
+import { directions } from '../mg-menu.conf';
 import { Direction } from '../../../../../types';
 
 enum Position {
@@ -15,19 +15,15 @@ enum Key {
   ENTER = 'Enter',
 }
 
-const getSubMenuSize = (size: MenuSizeType): MenuSizeType => (size === 'large' ? 'large' : 'medium');
-
-const getViewportSize = (direction: Direction, size?: MenuSizeType): { width: number; height: number } =>
-  direction === directions.VERTICAL
-    ? { width: 400, height: ['large', 'xlarge'].includes(size) ? 400 : 250 }
-    : { width: ['large', 'xlarge'].includes(size) ? 1200 : 800, height: 200 };
+const getViewportSize = (direction: Direction): { width: number; height: number } =>
+  direction === directions.VERTICAL ? { width: 400, height: 250 } : { width: 800, height: 200 };
 
 const createHTML = (args, containerSize?): string => `
   <header class="menu-container menu-container--${containerSize}">
     <mg-menu ${renderAttributes({ label: 'menu', ...args })}>
       <mg-menu-item status="active">
         <span slot="label">1 - head-1</span>
-        <mg-menu ${renderAttributes({ label: 'sub-menu 1', direction: directions.VERTICAL, size: getSubMenuSize(args?.size) })}>
+        <mg-menu ${renderAttributes({ label: 'sub-menu 1', direction: directions.VERTICAL })}>
           <mg-menu-item><span slot="label">Batman begins</span></mg-menu-item>
         </mg-menu>
       </mg-menu-item>
@@ -45,7 +41,7 @@ const createHTML = (args, containerSize?): string => `
         <span slot="label">1 - head-5</span>
         <mg-icon icon='user' slot='image'></mg-icon>
         ${args?.badge ? "<mg-badge value='2' label='hello' slot='information'></mg-badge>" : ''} 
-        <mg-menu ${renderAttributes({ label: 'sub-menu 2', direction: directions.VERTICAL, size: getSubMenuSize(args?.size) })}>
+        <mg-menu ${renderAttributes({ label: 'sub-menu 2', direction: directions.VERTICAL })}>
           <mg-menu-item><span slot="label">Batman begins with a longer title to go outide screen</span></mg-menu-item>
         </mg-menu>
       </mg-menu-item>
@@ -62,12 +58,10 @@ const setPageContent = async (page, args, viewport) => {
 test.describe('mg-menu', () => {
   [directions.HORIZONTAL, directions.VERTICAL].forEach(direction => {
     test.describe(`direction="${direction}"`, () => {
-      sizes.forEach(size => {
-        test(`should renders size="${size}" with large screen`, async ({ page }) => {
-          await setPageContent(page, { direction, size, badge: true }, getViewportSize(direction, size));
+      test(`should renders with large screen`, async ({ page }) => {
+        await setPageContent(page, { direction, badge: true }, getViewportSize(direction));
 
-          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-        });
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
     });
   });
@@ -88,7 +82,7 @@ test.describe('mg-menu', () => {
         expect(await item.locator('button').first().getAttribute('aria-expanded')).toEqual(expanded);
       }
 
-      const body = page.locator('body');
+      const body = page.locator('.e2e-screenshot');
       // menu-item close
       await body.evaluate(elm => {
         elm.dispatchEvent(new MouseEvent('click', { bubbles: true }));

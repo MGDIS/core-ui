@@ -5,13 +5,13 @@
 
 ## Properties
 
-| Property             | Attribute    | Description                                                                                                 | Type                    | Default               |
-| -------------------- | ------------ | ----------------------------------------------------------------------------------------------------------- | ----------------------- | --------------------- |
-| `activeTab`          | `active-tab` | Active tab number                                                                                           | `number`                | `undefined`           |
-| `identifier`         | `identifier` | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`                | `createID('mg-tabs')` |
-| `items` _(required)_ | --           | Tabs items                                                                                                  | `TabItem[] \| string[]` | `undefined`           |
-| `label` _(required)_ | `label`      | Tabs label. Include short tabs description. Required for accessibility                                      | `string`                | `undefined`           |
-| `size`               | `size`       | Define tabs size                                                                                            | `"large" \| "medium"`   | `'medium'`            |
+| Property             | Attribute    | Description                                                                                                                                                                                                      | Type                    | Default               |
+| -------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | --------------------- |
+| `activeTab`          | `active-tab` | Active tab number                                                                                                                                                                                                | `number`                | `undefined`           |
+| `identifier`         | `identifier` | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.                                                                                                      | `string`                | `createID('mg-tabs')` |
+| `items` _(required)_ | --           | Tabs items                                                                                                                                                                                                       | `TabItem[] \| string[]` | `undefined`           |
+| `label` _(required)_ | `label`      | Tabs label. Include short tabs description. Required for accessibility                                                                                                                                           | `string`                | `undefined`           |
+| `size`               | --           | <span style="color:red">**[DEPRECATED]**</span> this prop is deprecated and will be removed in future releases. Please use CSS custom properties to set the size of tabs items.<br/><br/>Size of the tabs items. | `never`                 | `undefined`           |
 
 
 ## Events
