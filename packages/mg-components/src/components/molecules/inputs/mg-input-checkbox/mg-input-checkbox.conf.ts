@@ -1,8 +1,8 @@
 /**
- * interface CheckboxValue
+ * interface ICheckboxValue
  * use to match returned value
  */
-export interface CheckboxValue {
+export interface ICheckboxValue {
   title: string;
   value: boolean | null;
   disabled?: boolean;
@@ -10,10 +10,10 @@ export interface CheckboxValue {
 }
 
 /**
- * interface CheckboxItem
+ * interface ICheckboxItem
  * use to match checkbox attributes
  */
-export interface CheckboxItem extends CheckboxValue {
+export interface ICheckboxItem extends ICheckboxValue {
   _id: string;
   _handleInput: (event: InputEvent & { target: HTMLInputElement }) => void;
   _handleBlur: () => void;
@@ -33,14 +33,15 @@ export type CheckboxType = (typeof checkboxTypes)[number];
 /**
  * mg-input-checkbox-paginated section kind type
  */
-export type SectionKindType = 'selected' | 'not-selected';
+export type SectionKindType = Record<string, number>;
 
 /**
  * mg-input-checkbox-paginated section kind value
  */
-export const SectionKind: Record<string, SectionKindType> = {
-  SELECTED: 'selected',
-  NOT_SELECTED: 'not-selected',
+export const SectionKind: Record<string, number> = {
+  NOT_SELECTED: 0,
+  SELECTED: 1,
+  SEARCH: 2,
 };
 
 /**
@@ -50,13 +51,22 @@ export interface IMgInputCheckboxBase {
   disabled?: boolean;
   name?: string;
   invalid?: boolean;
+  checkboxes: ICheckboxItem[];
+}
+
+export interface IMgInputCheckboxPaginatedProps extends IMgInputCheckboxBase {
+  readonly: boolean;
+  messages: Record<string, string>;
+  key: number;
+  limit: number;
+  handleLoadMore: () => void;
+  handleMassAction?: () => void;
 }
 
 /**
  * mg-input-checkbox-list interface
  */
-export interface MgInputCheckboxListProps extends IMgInputCheckboxBase {
-  checkboxes: CheckboxItem[];
+export interface IMgInputCheckboxListProps extends IMgInputCheckboxBase {
   id: string;
   labelledby?: string;
 }

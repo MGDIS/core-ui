@@ -1,18 +1,27 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { ClassList, cleanString, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
-import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SectionKindType } from './mg-input-checkbox.conf';
+import {
+  ICheckboxItem,
+  CheckboxType,
+  ICheckboxValue,
+  checkboxTypes,
+  SectionKind,
+  IMgInputCheckboxListProps,
+  IMgInputCheckboxPaginatedProps,
+  SectionKindType,
+} from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
 import { classDisabled, type TooltipPosition, classReadonly, classFieldset, classVerticalList } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import { Status, type TabItem } from '../../mg-tabs/mg-tabs.conf';
-import { type MgInputCheckboxPaginated } from './mg-input-checkbox-paginated/mg-input-checkbox-paginated';
+import { MgInputCheckboxPaginated } from './MgInputCheckboxPaginated';
 
 /**
- * type CheckboxItem validation function
+ * type ICheckboxItem validation function
  * @param items - Checkbox item
  * @returns match item type
  */
-const isCheckboxItems = (items: unknown): items is CheckboxItem[] =>
+const isCheckboxItems = (items: unknown): items is ICheckboxItem[] =>
   Array.isArray(items) &&
   items.every(item => typeof item === 'object' && typeof item.title === 'string' && (item.value === null || typeof item.value === 'boolean') && item.value !== undefined);
 
@@ -21,7 +30,7 @@ const isCheckboxItems = (items: unknown): items is CheckboxItem[] =>
   styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-checkbox.css',
   shadow: true,
 })
-export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'checkboxes' | 'messages'> {
+export class MgInputCheckbox implements Omit<IMgInputCheckboxListProps, 'id' | 'checkboxes' | 'messages'> {
   /************
    * Internal *
    ************/
@@ -48,6 +57,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   // "multi" setup
   private readonly multiStart = 5;
   private readonly searchStart = 10;
+  private readonly paginatedStep = 10;
 
   // popover variables
   private hasOpenedPopover = false;
@@ -66,7 +76,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Component value
    * If item.value is `null`, checkbox will be indeterminate by default
    */
-  @Prop({ mutable: true }) value!: CheckboxValue[];
+  @Prop({ mutable: true }) value!: ICheckboxValue[];
   @Watch('value')
   validateValue(newValue: MgInputCheckbox['value']): void {
     if (isCheckboxItems(newValue)) {
@@ -79,7 +89,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       }));
       this.valueChange.emit(newValue);
     } else {
-      throw new Error(`<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem. Passed value: ${toString(newValue)}.`);
+      throw new Error(`<mg-input-checkbox> prop "value" is required and all values must be the same type, ICheckboxItem. Passed value: ${toString(newValue)}.`);
     }
   }
 
@@ -251,7 +261,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Formated value to display in list
    */
-  @State() checkboxItems: CheckboxItem[] = [];
+  @State() checkboxItems: ICheckboxItem[] = [];
   @Watch('checkboxItems')
   validateCheckboxItems(newValue: MgInputCheckbox['checkboxItems']): void {
     // For the 'auto' mode we update the type depending on the new value's length.
@@ -286,7 +296,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Search current page
    */
-  @State() searchResults: CheckboxItem[] = [];
+  @State() searchResults: ICheckboxItem[] = [];
 
   /**
    * Select values button text local key
@@ -297,6 +307,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Define <mg-tabs> active-tab
    */
   @State() activeTab = 1;
+
+  /**
+   * Paginated sections limit per key
+   */
+  @State() paginatedLimits: Record<number, number> = {};
 
   /**
    * Emitted event when value change
@@ -452,8 +467,9 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @param event - input value-change event
    */
   private handleSearchChange = (event: CustomEvent): void => {
-    this.searchValue = event.detail;
     event.stopPropagation();
+    event.preventDefault();
+    this.searchValue = event.detail;
   };
 
   /**
@@ -506,7 +522,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @param newValue - value to update with
    * @param condition - condtion to applu change on item
    */
-  private updateCheckboxItems(key: string, newValue: unknown, condition?: (item: CheckboxItem) => boolean): void {
+  private updateCheckboxItems(key: string, newValue: unknown, condition?: (item: ICheckboxItem) => boolean): void {
     this.checkboxItems = this.checkboxItems.map(item => {
       if ((typeof condition === 'function' && condition(item)) || condition === undefined) item[key] = newValue;
       return item;
@@ -598,21 +614,30 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Manage items to display depending on the search state
    * @returns items to display
    */
-  private getDisplayItems = (): CheckboxItem[] => (this.searchValue.length > 0 ? this.searchResults : this.checkboxItems);
+  private getDisplayItems = (): ICheckboxItem[] => (this.searchValue.length > 0 ? this.searchResults : this.checkboxItems);
 
   /**
    * get list of selected checkboxItems
    * @returns selected checkboxItems
    */
-  private getSelectedItems = (): CheckboxItem[] => this.checkboxItems.filter(({ value }) => value);
+  private getSelectedItems = (): ICheckboxItem[] => this.checkboxItems.filter(({ value }) => value);
 
   /**
    * Reset <mg-input-checkbox-paginated> limit state
    */
-  private resetTabsLimit = () => {
-    Array.from(this.element.shadowRoot.querySelectorAll('mg-input-checkbox-paginated')).forEach(component => {
-      component.resetLimit();
-    });
+  private resetTabsLimit = (): void => {
+    this.paginatedLimits = {};
+  };
+
+  /**
+   * Handle load-more action for a paginated section
+   * @param key - section key
+   */
+  private handlePaginatedLoadMore = (key: number): void => {
+    this.paginatedLimits = {
+      ...this.paginatedLimits,
+      [key]: (this.paginatedLimits[key] ?? this.paginatedStep) + this.paginatedStep,
+    };
   };
 
   /*************
@@ -660,8 +685,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @param checkboxes - checkboxes to render
    * @returns render sections of checkboxes
    */
-  private renderCheckboxTabs(checkboxes: CheckboxItem[], checkboxPaginatedProps: Partial<MgInputCheckboxPaginated>): HTMLMgTabsElement {
-    const handleMassAction = (kind: SectionKindType) => (): void => {
+  private renderCheckboxTabs(props: Pick<IMgInputCheckboxPaginatedProps, 'checkboxes' | 'disabled' | 'readonly'>): HTMLMgTabsElement {
+    const handleMassAction = (kind: SectionKindType[number]) => (): void => {
       const displayItems = this.getDisplayItems();
 
       // update only displayed items
@@ -672,7 +697,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       });
       this.updateValues();
     };
-    const [checkedValues, notCheckedValues] = checkboxes.reduce(
+
+    const [checkedValues, notCheckedValues] = props.checkboxes.reduce(
       (acc, curr) => {
         acc[curr.value ? 0 : 1].push(curr);
         return acc;
@@ -682,15 +708,17 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
     const sections = [
       {
-        ...checkboxPaginatedProps,
+        ...props,
         checkboxes: notCheckedValues,
         messages: { ...this.messages.input.checkbox.sections.notSelected, showMore: this.messages.input.showMore },
+        key: SectionKind.NOT_SELECTED,
         handleMassAction: handleMassAction(SectionKind.NOT_SELECTED),
       },
       {
-        ...checkboxPaginatedProps,
+        ...props,
         checkboxes: checkedValues,
         messages: { ...this.messages.input.checkbox.sections.selected, showMore: this.messages.input.showMore },
+        key: SectionKind.SELECTED,
         handleMassAction: handleMassAction(SectionKind.SELECTED),
       },
     ];
@@ -708,16 +736,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         activeTab={this.activeTab}
         onActive-tab-change={this.handleActiveTabChange}
       >
-        {sections.map((section, key) => (
-          <mg-input-checkbox-paginated class="mg-c-input__tab" slot={`tab_content-${key + 1}`} {...section} key={section.messages.title}>
-            {section.checkboxes.length > 0 && section.checkboxes.some(checkbox => checkbox.disabled !== true) && (
-              <mg-tooltip slot="header-action" class="mg-c-input__tabs-action" message={section.messages.tooltip}>
-                <mg-button variant="link" onClick={section.handleMassAction}>
-                  {section.messages.action}
-                </mg-button>
-              </mg-tooltip>
-            )}
-          </mg-input-checkbox-paginated>
+        {sections.map(section => (
+          <MgInputCheckboxPaginated
+            {...section}
+            limit={this.paginatedLimits[section.key] ?? this.paginatedStep}
+            handleLoadMore={() => this.handlePaginatedLoadMore(section.key)}
+          ></MgInputCheckboxPaginated>
         ))}
       </mg-tabs>
     );
@@ -729,11 +753,18 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    */
   private renderCheckboxMulti(): HTMLElement {
     const selectedValuesNb = this.getSelectedItems().length;
-    const checkboxes = this.getDisplayItems();
-    const checkboxPaginatedProps = {
+    const props = {
       readonly: this.readonly,
       disabled: this.disabled,
-      identifier: this.identifier,
+      checkboxes: this.getDisplayItems(),
+    };
+
+    const checkboxesPaginatedSearchProps = {
+      ...props,
+      messages: { ...this.messages.input.checkbox.sections.search, showMore: this.messages.input.showMore },
+      key: SectionKind.SEARCH,
+      limit: this.paginatedLimits[SectionKind.SEARCH] ?? this.paginatedStep,
+      handleLoadMore: () => this.handlePaginatedLoadMore(SectionKind.SEARCH),
     };
 
     return (
@@ -768,20 +799,10 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
                   name="q"
                   onValue-change={this.handleSearchChange}
                 ></mg-input-text>,
-                this.searchValue.length > 0 ? (
-                  <mg-input-checkbox-paginated
-                    class="mg-c-input__tab"
-                    {...checkboxPaginatedProps}
-                    messages={{ ...this.messages.input.checkbox.sections.search, showMore: this.messages.input.showMore }}
-                    checkboxes={checkboxes}
-                    key="search"
-                  ></mg-input-checkbox-paginated>
-                ) : (
-                  this.renderCheckboxTabs(checkboxes, checkboxPaginatedProps)
-                ),
+                this.searchValue.length > 0 ? <MgInputCheckboxPaginated {...checkboxesPaginatedSearchProps}></MgInputCheckboxPaginated> : this.renderCheckboxTabs(props),
               ]
             ) : (
-              <MgInputCheckboxList checkboxes={checkboxes} id={this.checkboxesId} disabled={this.disabled} name={this.name} invalid={this.invalid}></MgInputCheckboxList>
+              <MgInputCheckboxList {...props} id={this.checkboxesId} name={this.name} invalid={this.invalid}></MgInputCheckboxList>
             )}
           </div>
         </mg-popover>

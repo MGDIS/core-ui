@@ -1,12 +1,12 @@
 import { FunctionalComponent, h, VNode } from '@stencil/core';
-import { MgInputCheckboxListProps } from './mg-input-checkbox.conf';
+import { IMgInputCheckboxListProps } from './mg-input-checkbox.conf';
 
 /**
  * Get checkboxes list template
  * @param props - MgInputCheckboxList Interface Props
  * @returns input template
  */
-export const MgInputCheckboxList: FunctionalComponent<MgInputCheckboxListProps> = (props: MgInputCheckboxListProps): VNode[] => (
+export const MgInputCheckboxList: FunctionalComponent<IMgInputCheckboxListProps> = (props: IMgInputCheckboxListProps): VNode[] => (
   <div class="mg-c-input__input-group-container" aria-labelledby={props.labelledby} id={props.id}>
     {props.checkboxes.map(input => (
       <div key={input._id} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': props.disabled || input.disabled }}>

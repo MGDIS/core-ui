@@ -145,7 +145,6 @@ In cases where the disabled status is also managed by business rules, you can do
  - [mg-action-more](../../molecules/mg-action-more)
  - [mg-alert](../../molecules/mg-alert)
  - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
- - mg-input-checkbox-paginated
  - [mg-input-combobox](../../molecules/inputs/mg-input-combobox)
  - [mg-input-file](../../molecules/inputs/mg-input-file)
  - [mg-input-password](../../molecules/inputs/mg-input-password)
@@ -165,7 +164,6 @@ graph TD;
   mg-action-more --> mg-button
   mg-alert --> mg-button
   mg-input-checkbox --> mg-button
-  mg-input-checkbox-paginated --> mg-button
   mg-input-combobox --> mg-button
   mg-input-file --> mg-button
   mg-input-password --> mg-button

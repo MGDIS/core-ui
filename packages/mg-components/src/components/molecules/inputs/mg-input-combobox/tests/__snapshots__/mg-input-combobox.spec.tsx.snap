@@ -55,7 +55,7 @@ exports[`mg-input-combobox Components methods displayError() display error with 
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -73,7 +73,7 @@ exports[`mg-input-combobox Components methods displayError() display error with 
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -145,7 +145,7 @@ exports[`mg-input-combobox Components methods displayError() display error with 
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -166,7 +166,7 @@ exports[`mg-input-combobox Components methods displayError() display error with 
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -238,7 +238,7 @@ exports[`mg-input-combobox Components methods reset() Should reset displayed err
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -259,7 +259,7 @@ exports[`mg-input-combobox Components methods reset() Should reset displayed err
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -323,7 +323,7 @@ exports[`mg-input-combobox Components methods reset() Should reset displayed err
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -341,7 +341,7 @@ exports[`mg-input-combobox Components methods reset() Should reset displayed err
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -408,7 +408,7 @@ exports[`mg-input-combobox Components methods reset() Should reset displayed err
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -429,7 +429,7 @@ exports[`mg-input-combobox Components methods reset() Should reset displayed err
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -493,7 +493,7 @@ exports[`mg-input-combobox Components methods reset() Should reset displayed err
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -511,7 +511,7 @@ exports[`mg-input-combobox Components methods reset() Should reset displayed err
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -575,7 +575,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -593,7 +593,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -665,7 +665,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -686,7 +686,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -758,7 +758,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -779,7 +779,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -848,7 +848,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -866,7 +866,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -938,7 +938,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -959,7 +959,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -1031,7 +1031,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -1052,7 +1052,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -1121,7 +1121,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -1139,7 +1139,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -1208,7 +1208,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -1226,7 +1226,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -1298,7 +1298,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -1319,7 +1319,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -1388,7 +1388,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -1406,7 +1406,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -1475,7 +1475,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -1493,7 +1493,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -1565,7 +1565,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -1586,7 +1586,7 @@ exports[`mg-input-combobox Components methods setError() Should display override
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -1658,7 +1658,7 @@ exports[`mg-input-combobox Locales display error message with locale: fr 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -1679,7 +1679,7 @@ exports[`mg-input-combobox Locales display error message with locale: fr 1`] = `
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -1751,7 +1751,7 @@ exports[`mg-input-combobox Locales display error message with locale: xx 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -1772,7 +1772,7 @@ exports[`mg-input-combobox Locales display error message with locale: xx 1`] = `
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -1841,7 +1841,7 @@ exports[`mg-input-combobox Locales display load-more message with locale: fr 1`]
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="20" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -1897,7 +1897,7 @@ exports[`mg-input-combobox Locales display load-more message with locale: fr 1`]
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -1961,7 +1961,7 @@ exports[`mg-input-combobox Locales display load-more message with locale: xx 1`]
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="20" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -2017,7 +2017,7 @@ exports[`mg-input-combobox Locales display load-more message with locale: xx 1`]
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -2085,7 +2085,7 @@ exports[`mg-input-combobox Should render with args {
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -2103,7 +2103,7 @@ exports[`mg-input-combobox Should render with args {
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -2171,7 +2171,7 @@ exports[`mg-input-combobox Should render with args {
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="{&quot;title&quot;:&quot;batman&quot;,&quot;value&quot;:&quot;1&quot;}" id="title-batman-value-1" role="option">
@@ -2189,7 +2189,7 @@ exports[`mg-input-combobox Should render with args {
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -2343,7 +2343,7 @@ exports[`mg-input-combobox Should render with args {
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" data-value="batman" id="batman" role="option">
@@ -2365,7 +2365,7 @@ exports[`mg-input-combobox Should render with args {
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -2475,7 +2475,7 @@ exports[`mg-input-combobox Should render with args {
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -2493,7 +2493,7 @@ exports[`mg-input-combobox Should render with args {
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -2557,7 +2557,7 @@ exports[`mg-input-combobox Should render with args { characterLeftHide: true }: 
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -2575,7 +2575,7 @@ exports[`mg-input-combobox Should render with args { characterLeftHide: true }: 
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -2639,7 +2639,7 @@ exports[`mg-input-combobox Should render with args { items: [] }: 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notavailable">
               No value available
@@ -2649,7 +2649,7 @@ exports[`mg-input-combobox Should render with args { items: [] }: 1`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -2713,7 +2713,7 @@ exports[`mg-input-combobox Should render with args { items: [Array] }: 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="30" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -2769,7 +2769,7 @@ exports[`mg-input-combobox Should render with args { items: [Array] }: 1`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -2833,7 +2833,7 @@ exports[`mg-input-combobox Should render with args { items: [Array] }: 2`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -2851,7 +2851,7 @@ exports[`mg-input-combobox Should render with args { items: [Array] }: 2`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -2915,7 +2915,7 @@ exports[`mg-input-combobox Should render with args { items: [Array] }: 3`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -2933,7 +2933,7 @@ exports[`mg-input-combobox Should render with args { items: [Array] }: 3`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -2998,7 +2998,7 @@ exports[`mg-input-combobox Should render with args { items: [Array], value: 'jok
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" data-value="joker" id="joker" role="option">
@@ -3017,7 +3017,7 @@ exports[`mg-input-combobox Should render with args { items: [Array], value: 'jok
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -3082,7 +3082,7 @@ exports[`mg-input-combobox Should render with args { items: [Array], value: [Obj
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" data-value="2" id="2" role="option">
@@ -3101,7 +3101,7 @@ exports[`mg-input-combobox Should render with args { items: [Array], value: [Obj
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -3165,7 +3165,7 @@ exports[`mg-input-combobox Should render with args { items: undefined, fetchurl:
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -3183,7 +3183,7 @@ exports[`mg-input-combobox Should render with args { items: undefined, fetchurl:
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -3247,7 +3247,7 @@ exports[`mg-input-combobox Should render with args { labelHide: true }: 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -3265,7 +3265,7 @@ exports[`mg-input-combobox Should render with args { labelHide: true }: 1`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -3329,7 +3329,7 @@ exports[`mg-input-combobox Should render with args { labelOnTop: true }: 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -3347,7 +3347,7 @@ exports[`mg-input-combobox Should render with args { labelOnTop: true }: 1`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -3468,7 +3468,7 @@ exports[`mg-input-combobox Should render with args { required: true, value: 'bat
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" data-value="batman" id="batman" role="option">
@@ -3490,7 +3490,7 @@ exports[`mg-input-combobox Should render with args { required: true, value: 'bat
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -3568,7 +3568,7 @@ exports[`mg-input-combobox Should render with args { tooltip: 'My Tooltip Messag
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -3586,7 +3586,7 @@ exports[`mg-input-combobox Should render with args { tooltip: 'My Tooltip Messag
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -3659,7 +3659,7 @@ exports[`mg-input-combobox Should render with args { tooltip: 'My Tooltip Messag
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -3677,7 +3677,7 @@ exports[`mg-input-combobox Should render with args { tooltip: 'My Tooltip Messag
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -3750,7 +3750,7 @@ exports[`mg-input-combobox Should render with args { tooltip: 'My Tooltip Messag
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -3768,7 +3768,7 @@ exports[`mg-input-combobox Should render with args { tooltip: 'My Tooltip Messag
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -3832,7 +3832,7 @@ exports[`mg-input-combobox Should render with args {}: 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -3850,7 +3850,7 @@ exports[`mg-input-combobox Should render with args {}: 1`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -3914,7 +3914,7 @@ exports[`mg-input-combobox Should update disabled props 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -3932,7 +3932,7 @@ exports[`mg-input-combobox Should update disabled props 1`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -3996,7 +3996,7 @@ exports[`mg-input-combobox Should update mg-width 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -4014,7 +4014,7 @@ exports[`mg-input-combobox Should update mg-width 1`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -4078,7 +4078,7 @@ exports[`mg-input-combobox Should update mg-width 2`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -4096,7 +4096,7 @@ exports[`mg-input-combobox Should update mg-width 2`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -4160,7 +4160,7 @@ exports[`mg-input-combobox Should update mg-width 3`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -4178,7 +4178,7 @@ exports[`mg-input-combobox Should update mg-width 3`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -4242,7 +4242,7 @@ exports[`mg-input-combobox Should update mg-width 4`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -4260,7 +4260,7 @@ exports[`mg-input-combobox Should update mg-width 4`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -4324,7 +4324,7 @@ exports[`mg-input-combobox Should update readonly props 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -4342,7 +4342,7 @@ exports[`mg-input-combobox Should update readonly props 1`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -4406,7 +4406,7 @@ exports[`mg-input-combobox Should update required props 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -4424,7 +4424,7 @@ exports[`mg-input-combobox Should update required props 1`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -4489,7 +4489,7 @@ exports[`mg-input-combobox Should update value without case sensitivity 1`] = `
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="4" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -4511,7 +4511,7 @@ exports[`mg-input-combobox Should update value without case sensitivity 1`] = `
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -4578,7 +4578,7 @@ exports[`mg-input-combobox input errors validity, case next state is disabled va
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -4599,7 +4599,7 @@ exports[`mg-input-combobox input errors validity, case next state is disabled va
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -4668,7 +4668,7 @@ exports[`mg-input-combobox input errors validity, case next state is disabled va
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -4686,7 +4686,7 @@ exports[`mg-input-combobox input errors validity, case next state is disabled va
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -4753,7 +4753,7 @@ exports[`mg-input-combobox input errors validity, case next state is readonly va
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -4774,7 +4774,7 @@ exports[`mg-input-combobox input errors validity, case next state is readonly va
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
           <span class="mg-c-input-title__required">
             <span class="mg-u-is-asterisk">
@@ -4868,7 +4868,7 @@ exports[`mg-input-combobox input events Should handle load-more with button and 
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item mg-c-input__input-list-item--focus-visible" data-value="1" id="1" role="option">
@@ -4993,7 +4993,7 @@ exports[`mg-input-combobox input events Should handle load-more with button and 
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -5057,7 +5057,7 @@ exports[`mg-input-combobox input events Should handle load-more with button and 
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item mg-c-input__input-list-item--focus-visible" data-value="1" id="1" role="option">
@@ -5173,7 +5173,7 @@ exports[`mg-input-combobox input events Should handle load-more with button and 
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -5283,7 +5283,7 @@ exports[`mg-input-combobox input events Should render with interactive helpText 
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -5306,7 +5306,7 @@ exports[`mg-input-combobox input events Should render with interactive helpText 
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -5373,7 +5373,7 @@ exports[`mg-input-combobox input events Should render with interactive helpText 
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -5396,7 +5396,7 @@ exports[`mg-input-combobox input events Should render with interactive helpText 
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -5463,7 +5463,7 @@ exports[`mg-input-combobox input events Should render with interactive helpText 
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="3" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="batman" id="batman" role="option">
@@ -5486,7 +5486,7 @@ exports[`mg-input-combobox input events Should render with interactive helpText 
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -5550,7 +5550,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowDown"
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notavailable">
               No value available
@@ -5560,7 +5560,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowDown"
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -5624,7 +5624,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowDown"
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -5680,7 +5680,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowDown"
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -5744,7 +5744,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowDown"
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -5800,7 +5800,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowDown"
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -5864,7 +5864,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowDown"
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -5920,7 +5920,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowDown"
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -5984,7 +5984,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -6040,7 +6040,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -6104,7 +6104,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -6160,7 +6160,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -6224,7 +6224,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notfound">
               No value matches your input
@@ -6234,7 +6234,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -6298,7 +6298,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -6354,7 +6354,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -6418,7 +6418,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -6474,7 +6474,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -6538,7 +6538,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -6594,7 +6594,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowLeft"
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -6658,7 +6658,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -6714,7 +6714,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -6778,7 +6778,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -6834,7 +6834,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -6898,7 +6898,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notfound">
               No value matches your input
@@ -6908,7 +6908,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -6972,7 +6972,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -7028,7 +7028,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -7092,7 +7092,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -7148,7 +7148,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -7212,7 +7212,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -7268,7 +7268,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowRight
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -7332,7 +7332,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowUp" k
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notavailable">
               No value available
@@ -7342,7 +7342,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowUp" k
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -7406,7 +7406,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowUp" k
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -7462,7 +7462,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowUp" k
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -7526,7 +7526,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowUp" k
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -7582,7 +7582,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowUp" k
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -7646,7 +7646,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowUp" k
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -7702,7 +7702,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "ArrowUp" k
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -7766,7 +7766,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "DOWN" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -7820,7 +7820,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "DOWN" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -7884,7 +7884,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Down" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -7940,7 +7940,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Down" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -8004,7 +8004,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Down" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -8060,7 +8060,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Down" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -8124,7 +8124,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Down" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -8180,7 +8180,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Down" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -8244,7 +8244,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -8300,7 +8300,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -8364,7 +8364,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -8420,7 +8420,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -8484,7 +8484,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notfound">
               No value matches your input
@@ -8494,7 +8494,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -8558,7 +8558,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -8614,7 +8614,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -8678,7 +8678,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -8734,7 +8734,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -8798,7 +8798,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -8854,7 +8854,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "End" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -8919,7 +8919,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" data-value="1" id="1" role="option">
@@ -8956,7 +8956,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -9021,7 +9021,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" data-value="1" id="1" role="option">
@@ -9058,7 +9058,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -9122,7 +9122,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notavailable">
               No value available
@@ -9132,7 +9132,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -9196,7 +9196,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notavailable">
               No value available
@@ -9206,7 +9206,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -9270,7 +9270,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -9326,7 +9326,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -9390,7 +9390,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -9446,7 +9446,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -9510,7 +9510,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -9566,7 +9566,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Enter" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -9630,7 +9630,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -9686,7 +9686,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -9750,7 +9750,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -9806,7 +9806,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -9870,7 +9870,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -9926,7 +9926,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -9990,7 +9990,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -10046,7 +10046,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -10110,7 +10110,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -10166,7 +10166,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Esc" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -10230,7 +10230,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -10286,7 +10286,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -10350,7 +10350,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -10406,7 +10406,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -10470,7 +10470,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -10526,7 +10526,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -10590,7 +10590,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -10646,7 +10646,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -10710,7 +10710,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -10766,7 +10766,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Escape" ke
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -10830,7 +10830,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -10886,7 +10886,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -10950,7 +10950,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -11006,7 +11006,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -11070,7 +11070,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notfound">
               No value matches your input
@@ -11080,7 +11080,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -11144,7 +11144,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -11200,7 +11200,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -11264,7 +11264,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -11320,7 +11320,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -11384,7 +11384,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -11440,7 +11440,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Home" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -11504,7 +11504,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -11560,7 +11560,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -11624,7 +11624,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -11680,7 +11680,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -11744,7 +11744,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notfound">
               No value matches your input
@@ -11754,7 +11754,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -11818,7 +11818,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -11874,7 +11874,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -11938,7 +11938,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -11994,7 +11994,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -12058,7 +12058,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -12114,7 +12114,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Left" keyb
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -12178,7 +12178,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "NumpadEnte
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -12234,7 +12234,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "NumpadEnte
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -12298,7 +12298,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "NumpadEnte
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -12354,7 +12354,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "NumpadEnte
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -12418,7 +12418,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "NumpadEnte
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -12474,7 +12474,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "NumpadEnte
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -12538,7 +12538,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -12594,7 +12594,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -12658,7 +12658,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -12714,7 +12714,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -12778,7 +12778,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notfound">
               No value matches your input
@@ -12788,7 +12788,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -12852,7 +12852,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -12908,7 +12908,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -12972,7 +12972,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -13028,7 +13028,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -13092,7 +13092,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -13148,7 +13148,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Right" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -13212,7 +13212,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Space" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -13268,7 +13268,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Space" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -13332,7 +13332,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Space" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -13388,7 +13388,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Space" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -13452,7 +13452,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Space" key
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -13508,7 +13508,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Space" key
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -13573,7 +13573,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" data-value="1" id="1" role="option">
@@ -13610,7 +13610,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -13675,7 +13675,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" data-value="1" id="1" role="option">
@@ -13712,7 +13712,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -13776,7 +13776,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notavailable">
               No value available
@@ -13786,7 +13786,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -13850,7 +13850,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notavailable">
               No value available
@@ -13860,7 +13860,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -13924,7 +13924,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -13980,7 +13980,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -14044,7 +14044,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -14100,7 +14100,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -14164,7 +14164,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -14220,7 +14220,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Tab" keybo
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -14284,7 +14284,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Up" keyboa
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notavailable">
               No value available
@@ -14294,7 +14294,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Up" keyboa
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -14358,7 +14358,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Up" keyboa
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -14414,7 +14414,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Up" keyboa
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -14478,7 +14478,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Up" keyboa
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -14534,7 +14534,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Up" keyboa
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -14598,7 +14598,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Up" keyboa
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -14654,7 +14654,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "Up" keyboa
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -14719,7 +14719,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "h" keyboar
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" data-value="1" id="1" role="option">
@@ -14756,7 +14756,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "h" keyboar
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -14821,7 +14821,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "h" keyboar
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="true" class="mg-c-input__input-list-item mg-c-input__input-list-item--selected" data-value="1" id="1" role="option">
@@ -14858,7 +14858,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "h" keyboar
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -14922,7 +14922,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "undefined"
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <p class="mg-c-input__popover-info" id="notavailable">
               No value available
@@ -14932,7 +14932,7 @@ exports[`mg-input-combobox input events keyboard Should handle input "undefined"
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -14996,7 +14996,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item mg-c-input__input-list-item--focus-visible" data-value="1" id="1" role="option">
@@ -15052,7 +15052,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -15116,7 +15116,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item mg-c-input__input-list-item--focus-visible" data-value="1" id="1" role="option">
@@ -15172,7 +15172,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -15236,7 +15236,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -15292,7 +15292,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -15356,7 +15356,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -15412,7 +15412,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -15476,7 +15476,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -15532,7 +15532,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -15596,7 +15596,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -15652,7 +15652,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -15716,7 +15716,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -15772,7 +15772,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -15836,7 +15836,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -15892,7 +15892,7 @@ exports[`mg-input-combobox input events keyboard altKey: false Should handle inp
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -15956,7 +15956,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -16012,7 +16012,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -16076,7 +16076,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -16132,7 +16132,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -16196,7 +16196,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -16252,7 +16252,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -16316,7 +16316,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -16372,7 +16372,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -16436,7 +16436,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -16492,7 +16492,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -16556,7 +16556,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -16612,7 +16612,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -16676,7 +16676,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -16732,7 +16732,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>
@@ -16796,7 +16796,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
             </mg-card>
             <slot name="arrow"></slot>
           </template>
-          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
           <div class="mg-c-input__popover-container" slot="content">
             <ul aria-label="Dc Comics" aria-setsize="15" class="mg-c-input__input-list" id="identifier-list" role="listbox">
               <li aria-selected="false" class="mg-c-input__input-list-item" data-value="1" id="1" role="option">
@@ -16852,7 +16852,7 @@ exports[`mg-input-combobox input events keyboard altKey: true Should handle inpu
       </mg-popover>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <label class="mg-c-input-title" for="identifier">
           label
         </label>
       </mg-input-title>

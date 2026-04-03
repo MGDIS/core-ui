@@ -37,7 +37,6 @@
  - [mg-details](../../molecules/mg-details)
  - [mg-input](../../molecules/inputs/mg-input)
  - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
- - mg-input-checkbox-paginated
  - [mg-input-combobox](../../molecules/inputs/mg-input-combobox)
  - [mg-input-file](../../molecules/inputs/mg-input-file)
  - [mg-input-password](../../molecules/inputs/mg-input-password)
@@ -63,7 +62,6 @@ graph TD;
   mg-details --> mg-icon
   mg-input --> mg-icon
   mg-input-checkbox --> mg-icon
-  mg-input-checkbox-paginated --> mg-icon
   mg-input-combobox --> mg-icon
   mg-input-file --> mg-icon
   mg-input-password --> mg-icon
