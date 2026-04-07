@@ -25,7 +25,7 @@ exports[`mg-input render Should render with args {
   </div>
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -80,7 +80,7 @@ exports[`mg-input render Should render with args {
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -102,7 +102,7 @@ exports[`mg-input render Should render with args { ariaDescribedbyIDs: 'hello ba
   <input aria-describedby="hello batman" id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -124,7 +124,7 @@ exports[`mg-input render Should render with args { ariaDescribedbyIDs: [Array] }
   <input aria-describedby="hello batman" id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -146,7 +146,7 @@ exports[`mg-input render Should render with args { ariaDescribedbyIDs: [Array] }
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -168,7 +168,7 @@ exports[`mg-input render Should render with args { class: '' }: 1`] = `
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -190,7 +190,7 @@ exports[`mg-input render Should render with args { class: 'mg-c-input--disabled'
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -215,7 +215,7 @@ exports[`mg-input render Should render with args { class: 'mg-c-input--disabled'
   </div>
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -431,7 +431,7 @@ exports[`mg-input render Should render with args { errorMessage: 'This is an err
   </div>
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -459,7 +459,7 @@ exports[`mg-input render Should render with args { helpText: 'Hello joker' }: 1`
   </div>
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -481,7 +481,7 @@ exports[`mg-input render Should render with args { labelHide: true }: 1`] = `
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -503,7 +503,7 @@ exports[`mg-input render Should render with args { labelOnTop: true }: 1`] = `
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -525,7 +525,7 @@ exports[`mg-input render Should render with args { required: true }: 1`] = `
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
       <span class="mg-c-input-title__required">
         <span class="mg-u-is-asterisk">
@@ -555,7 +555,7 @@ exports[`mg-input render Should render with args { tooltip: 'Batman is a DC Comi
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -580,7 +580,7 @@ exports[`mg-input render Should render with args { tooltip: 'Batman is a DC Comi
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -602,7 +602,7 @@ exports[`mg-input render Should render with args {}: 1`] = `
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -630,7 +630,7 @@ exports[`mg-input render Should update "error" slot 1`] = `
   </div>
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -652,7 +652,7 @@ exports[`mg-input render Should update "error" slot 2`] = `
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -729,7 +729,7 @@ exports[`mg-input render Should update "help-text" slot 1`] = `
   <input aria-describedby="identifier-help-text" id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -754,7 +754,7 @@ exports[`mg-input render Should update "help-text" slot 2`] = `
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       label
     </label>
   </mg-input-title>
@@ -828,7 +828,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "fieldset" prop 1`
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       batman
     </label>
   </mg-input-title>
@@ -930,7 +930,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "label" slot ({}) 
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       batman
     </label>
   </mg-input-title>
@@ -952,7 +952,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "label" slot ({}) 
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       joker
     </label>
   </mg-input-title>
@@ -974,7 +974,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "readonly" prop 1`
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       batman
     </label>
   </mg-input-title>
@@ -1018,7 +1018,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "required" prop 1`
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       batman
       <span class="mg-c-input-title__required">
         <span class="mg-u-is-asterisk">
@@ -1045,7 +1045,7 @@ exports[`mg-input render Should update "mg-input-title" slot, "required" prop 2`
   <input id="identifier" type="file">
   <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
     <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
+    <label class="mg-c-input-title" for="identifier">
       batman
     </label>
   </mg-input-title>

@@ -33,7 +33,7 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 | `tooltipPosition`         | `tooltip-position`        | Define tooltip position                                                                                                                                                                                                                                                          | `"input" \| "label"`    | `'input'`         |
 | `type`                    | `type`                    | Define checkbox type When it's undefined the type is dynamic: - With 0-5 items type is 'checkbox' - With 5-10 items type is 'multi' When it set the type is locked to the defined value. When type is dynamic OR with 'multi' type AND Over 10 items "search" feature is enabled | `"checkbox" \| "multi"` | `undefined`       |
 | `valid`                   | `valid`                   | Define input valid state                                                                                                                                                                                                                                                         | `boolean`               | `undefined`       |
-| `value` _(required)_      | --                        | Component value If item.value is `null`, checkbox will be indeterminate by default                                                                                                                                                                                               | `CheckboxValue[]`       | `undefined`       |
+| `value` _(required)_      | --                        | Component value If item.value is `null`, checkbox will be indeterminate by default                                                                                                                                                                                               | `ICheckboxValue[]`      | `undefined`       |
 
 
 ## Events
@@ -103,41 +103,37 @@ Type: `Promise<void>`
 ### Depends on
 
 - [mg-tabs](../../mg-tabs)
-- mg-input-checkbox-paginated
-- [mg-tooltip](../../../atoms/mg-tooltip)
-- [mg-button](../../../atoms/mg-button)
 - [mg-popover](../../mg-popover)
+- [mg-button](../../../atoms/mg-button)
 - [mg-icon](../../../atoms/mg-icon)
 - [mg-input-text](../mg-input-text)
 - [mg-input](../mg-input)
+- [mg-tooltip](../../../atoms/mg-tooltip)
 
 ### Graph
 ```mermaid
 graph TD;
   mg-input-checkbox --> mg-tabs
-  mg-input-checkbox --> mg-input-checkbox-paginated
-  mg-input-checkbox --> mg-tooltip
-  mg-input-checkbox --> mg-button
   mg-input-checkbox --> mg-popover
+  mg-input-checkbox --> mg-button
   mg-input-checkbox --> mg-icon
   mg-input-checkbox --> mg-input-text
   mg-input-checkbox --> mg-input
+  mg-input-checkbox --> mg-tooltip
   mg-tabs --> mg-icon
   mg-tabs --> mg-badge
-  mg-input-checkbox-paginated --> mg-button
-  mg-input-checkbox-paginated --> mg-icon
-  mg-button --> mg-icon
-  mg-tooltip --> mg-tooltip-content
   mg-popover --> mg-popover-content
   mg-popover-content --> mg-card
   mg-popover-content --> mg-button
   mg-popover-content --> mg-icon
+  mg-button --> mg-icon
   mg-input-text --> mg-input
   mg-input-text --> mg-icon
   mg-input-text --> mg-character-left
   mg-input --> mg-tooltip
   mg-input --> mg-icon
   mg-input --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   style mg-input-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

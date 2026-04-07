@@ -16,7 +16,7 @@ exports[`mg-tooltip Should NOT update button wrapper when MutationRecord not mat
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -37,7 +37,7 @@ exports[`mg-tooltip Should NOT update button wrapper when MutationRecord not mat
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -67,7 +67,7 @@ exports[`mg-tooltip Should NOT update mg-button wrapper when MutationRecord not 
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -97,7 +97,7 @@ exports[`mg-tooltip Should NOT update mg-button wrapper when MutationRecord not 
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -118,7 +118,7 @@ exports[`mg-tooltip Should keep displayed tooltip when hover it 1`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -149,7 +149,7 @@ exports[`mg-tooltip Should manage disconnectedCallback hook 1`] = `
         </span>
         <slot name="arrow"></slot>
       </template>
-      <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+      <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
     </mg-tooltip-content>
   </mg-tooltip>
 </body>
@@ -183,7 +183,7 @@ exports[`mg-tooltip Should manage disconnectedCallback hook without window conte
         </span>
         <slot name="arrow"></slot>
       </template>
-      <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+      <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
     </mg-tooltip-content>
   </mg-tooltip>
 </body>
@@ -207,7 +207,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -228,7 +228,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -253,7 +253,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -281,7 +281,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -311,7 +311,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -332,7 +332,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -353,7 +353,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -378,7 +378,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -406,7 +406,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -436,7 +436,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -457,7 +457,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -478,7 +478,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -503,7 +503,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -531,7 +531,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -561,7 +561,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -582,7 +582,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -603,7 +603,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -628,7 +628,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -656,7 +656,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -686,7 +686,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -707,7 +707,7 @@ exports[`mg-tooltip Should render with element with given placement 1`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -726,7 +726,7 @@ exports[`mg-tooltip Should set popper strategy to absolute 1`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div aria-describedby="identifier" data-popper-arrow role="button" slot="arrow" tabindex="0" style="position: absolute;"></div>
+    <div aria-describedby="identifier" data-popper-arrow role="button" slot="arrow" tabindex="0" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -747,7 +747,7 @@ exports[`mg-tooltip Should toggle tooltip from prop display, case display false 
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -768,7 +768,7 @@ exports[`mg-tooltip Should toggle tooltip from prop display, case display false 
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -789,7 +789,7 @@ exports[`mg-tooltip Should toggle tooltip from prop display, case display true 1
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -810,7 +810,7 @@ exports[`mg-tooltip Should toggle tooltip from prop display, case display true 2
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -831,7 +831,7 @@ exports[`mg-tooltip Should update button wrapper dynamically 1`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -852,7 +852,7 @@ exports[`mg-tooltip Should update button wrapper dynamically 2`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -882,7 +882,7 @@ exports[`mg-tooltip Should update mg-button wrapper dynamically 1`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -936,7 +936,7 @@ exports[`mg-tooltip Should update mg-tooltip-content id when "identifier" is upd
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -966,7 +966,7 @@ exports[`mg-tooltip Should update mg-tooltip-content id when "identifier" is upd
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -994,7 +994,7 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1030,7 +1030,7 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1058,7 +1058,7 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1086,7 +1086,7 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1107,7 +1107,7 @@ exports[`mg-tooltip render Should render with tooltip 1`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1128,7 +1128,7 @@ exports[`mg-tooltip render Should render with tooltip 2`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1149,7 +1149,7 @@ exports[`mg-tooltip render Should render with tooltip 3`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1170,7 +1170,7 @@ exports[`mg-tooltip render Should render with tooltip 4`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1191,7 +1191,7 @@ exports[`mg-tooltip render Should render with tooltip 5`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1212,7 +1212,7 @@ exports[`mg-tooltip render Should render with tooltip 6`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1233,7 +1233,7 @@ exports[`mg-tooltip render Should render with tooltip 7`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1254,7 +1254,7 @@ exports[`mg-tooltip render Should render with tooltip 8`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1275,7 +1275,7 @@ exports[`mg-tooltip render Should render with tooltip 9`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1296,7 +1296,7 @@ exports[`mg-tooltip render Should render with tooltip 10`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1317,7 +1317,7 @@ exports[`mg-tooltip render Should render with tooltip 11`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1338,7 +1338,7 @@ exports[`mg-tooltip render Should render with tooltip 12`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1363,7 +1363,7 @@ exports[`mg-tooltip render Should render with tooltip 13`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1388,7 +1388,7 @@ exports[`mg-tooltip render Should render with tooltip 14`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1413,7 +1413,7 @@ exports[`mg-tooltip render Should render with tooltip 15`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1438,7 +1438,7 @@ exports[`mg-tooltip render Should render with tooltip 16`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1463,7 +1463,7 @@ exports[`mg-tooltip render Should render with tooltip 17`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1488,7 +1488,7 @@ exports[`mg-tooltip render Should render with tooltip 18`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1516,7 +1516,7 @@ exports[`mg-tooltip render Should render with tooltip 19`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1544,7 +1544,7 @@ exports[`mg-tooltip render Should render with tooltip 20`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1572,7 +1572,7 @@ exports[`mg-tooltip render Should render with tooltip 21`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1600,7 +1600,7 @@ exports[`mg-tooltip render Should render with tooltip 22`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1628,7 +1628,7 @@ exports[`mg-tooltip render Should render with tooltip 23`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1656,7 +1656,7 @@ exports[`mg-tooltip render Should render with tooltip 24`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1686,7 +1686,7 @@ exports[`mg-tooltip render Should render with tooltip 25`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1716,7 +1716,7 @@ exports[`mg-tooltip render Should render with tooltip 26`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1746,7 +1746,7 @@ exports[`mg-tooltip render Should render with tooltip 27`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1776,7 +1776,7 @@ exports[`mg-tooltip render Should render with tooltip 28`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1806,7 +1806,7 @@ exports[`mg-tooltip render Should render with tooltip 29`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1836,7 +1836,7 @@ exports[`mg-tooltip render Should render with tooltip 30`] = `
       </span>
       <slot name="arrow"></slot>
     </template>
-    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <div data-popper-arrow slot="arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
