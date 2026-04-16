@@ -423,8 +423,7 @@ export class MgInputSelect {
     if (allItemsAreString(this.items)) return item.title === this.input.value;
 
     // Object items use stringified values.
-    // Also support raw string values for unknown inputs that are temporarily added as disabled options.
-    return toString(item.value) === this.input.value || (typeof item.value === 'string' && item.value === this.input.value);
+    return toString(item.value) === this.input.value;
   };
 
   /**
