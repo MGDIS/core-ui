@@ -20,6 +20,18 @@ export const isValidString = (value: unknown): value is string => typeof value =
 export const toString = (value: unknown): string => (typeof value === 'object' ? JSON.stringify(value) : String(value));
 
 /**
+ * Serialize a value for DOM attributes that must be strings (e.g. `<option value>`).
+ * Prefixing with the JS type helps avoid collisions like `1` vs `"1"` and `null` vs `"null"`.
+ * @param value - value to serialize
+ * @returns DOM-safe string
+ */
+export const toDomValue = (value: unknown): string => {
+  if (value === undefined) return 'undefined:';
+  if (value === null) return 'null:';
+  return `${typeof value}:${toString(value)}`;
+};
+
+/**
  * Cleans string characters by removing special characters and converting to lowercase.
  * @param text - text to clean
  * @returns cleaned string
