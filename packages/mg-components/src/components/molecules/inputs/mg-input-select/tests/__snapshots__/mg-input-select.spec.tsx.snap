@@ -1100,16 +1100,16 @@ exports[`mg-input-select Should render with args { items: [Array] }: 2`] = `
         <option value="">
           Select a value
         </option>
-        <option value="string:u">
+        <option value="u">
           blu
         </option>
-        <option value="string:i">
+        <option value="i">
           bli
         </option>
-        <option value="string:o">
+        <option value="o">
           blo
         </option>
-        <option value="string:a">
+        <option value="a">
           bla
         </option>
       </select>
@@ -1143,19 +1143,19 @@ exports[`mg-input-select Should render with args { items: [Array] }: 3`] = `
           Select a value
         </option>
         <optgroup label="blu">
-          <option value="string:u">
+          <option value="u">
             blu
           </option>
-          <option value="string:i">
+          <option value="i">
             bli
           </option>
         </optgroup>
         <optgroup label="blo">
-          <option value="string:o">
+          <option value="o">
             blo
           </option>
         </optgroup>
-        <option value="string:a">
+        <option value="a">
           bla
         </option>
       </select>
@@ -1550,10 +1550,10 @@ exports[`mg-input-select Should trigger events for { items: [Array], selectedOpt
         <option value="">
           Select a value
         </option>
-        <option value="boolean:true">
+        <option value="true">
           batman
         </option>
-        <option value="boolean:false">
+        <option value="false">
           robin
         </option>
       </select>
@@ -1592,10 +1592,10 @@ exports[`mg-input-select Should trigger events for { items: [Array], selectedOpt
         <option value="">
           Select a value
         </option>
-        <option value="undefined:">
+        <option value="undefined">
           blu
         </option>
-        <option value="number:42">
+        <option value="42">
           bli
         </option>
       </select>
@@ -1634,16 +1634,16 @@ exports[`mg-input-select Should trigger events for { items: [Array], selectedOpt
         <option value="">
           Select a value
         </option>
-        <option value="number:1">
+        <option value="1">
           batman
         </option>
-        <option value="number:2">
+        <option value="2">
           robin
         </option>
-        <option value="number:3">
+        <option value="3">
           joker
         </option>
-        <option value="number:4">
+        <option value="4">
           bane
         </option>
       </select>
@@ -1682,10 +1682,10 @@ exports[`mg-input-select Should trigger events for { items: [Array], selectedOpt
         <option value="">
           Select a value
         </option>
-        <option value="object:{&quot;name&quot;:&quot;Batman&quot;}">
+        <option value="{&quot;name&quot;:&quot;Batman&quot;}">
           batman
         </option>
-        <option value="object:{&quot;name&quot;:&quot;Robin&quot;}">
+        <option value="{&quot;name&quot;:&quot;Robin&quot;}">
           robin
         </option>
       </select>
@@ -1724,16 +1724,16 @@ exports[`mg-input-select Should trigger events for { items: [Array], selectedOpt
         <option value="">
           Select a value
         </option>
-        <option value="string:u">
+        <option value="u">
           batman
         </option>
-        <option value="string:i">
+        <option value="i">
           robin
         </option>
-        <option value="string:o">
+        <option value="o">
           joker
         </option>
-        <option value="string:a">
+        <option value="a">
           bane
         </option>
       </select>
@@ -1772,16 +1772,16 @@ exports[`mg-input-select Should trigger events for { items: [Array], selectedOpt
         <option value="">
           Select a value
         </option>
-        <option value="object:{&quot;name&quot;:&quot;Batman&quot;,&quot;group&quot;:&quot;Heroes&quot;}">
+        <option value="{&quot;name&quot;:&quot;Batman&quot;,&quot;group&quot;:&quot;Heroes&quot;}">
           Batman
         </option>
-        <option value="object:{&quot;name&quot;:&quot;Robin&quot;,&quot;group&quot;:&quot;Heroes&quot;}">
+        <option value="{&quot;name&quot;:&quot;Robin&quot;,&quot;group&quot;:&quot;Heroes&quot;}">
           Robin
         </option>
-        <option value="object:{&quot;name&quot;:&quot;Joker&quot;,&quot;group&quot;:&quot;Super Vilains&quot;}">
+        <option value="{&quot;name&quot;:&quot;Joker&quot;,&quot;group&quot;:&quot;Super Vilains&quot;}">
           Joker
         </option>
-        <option value="object:{&quot;name&quot;:&quot;Bane&quot;,&quot;group&quot;:&quot;Super Vilains&quot;}">
+        <option value="{&quot;name&quot;:&quot;Bane&quot;,&quot;group&quot;:&quot;Super Vilains&quot;}">
           Bane
         </option>
       </select>

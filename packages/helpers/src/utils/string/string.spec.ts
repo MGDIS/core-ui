@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { allItemsAreString, cleanString, isValidString, toDomValue, toString } from './string';
+import { allItemsAreString, cleanString, isValidString, toString } from './string';
 
 describe('string', () => {
   describe('allItemsAreString', () => {
@@ -24,19 +24,6 @@ describe('string', () => {
   describe('toString', () => {
     test.each([undefined, null, 1, 'string', '', [undefined], [{ value: null }], {}, ['string'], { hello: 'batman' }])('Should return stringified value, original %s', value => {
       expect(toString(value)).toEqual(typeof value === 'object' || (Array.isArray(value) && typeof value !== 'string') ? JSON.stringify(value) : `${value}`);
-    });
-  });
-
-  describe('toDomValue', () => {
-    test.each([
-      { value: undefined, expected: 'undefined:' },
-      { value: null, expected: 'null:' },
-      { value: 1, expected: 'number:1' },
-      { value: '1', expected: 'string:1' },
-      { value: true, expected: 'boolean:true' },
-      { value: { hello: 'batman' }, expected: `object:${JSON.stringify({ hello: 'batman' })}` },
-    ])('Should return DOM-safe value for %s', ({ value, expected }) => {
-      expect(toDomValue(value)).toEqual(expected);
     });
   });
 

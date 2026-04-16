@@ -1,5 +1,5 @@
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
-import { ClassList, allItemsAreString, isValidString, toDomValue, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
 import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
@@ -422,9 +422,9 @@ export class MgInputSelect {
     // String items keep native DOM values.
     if (allItemsAreString(this.items)) return item.title === this.input.value;
 
-    // Object items use DOM-encoded values.
+    // Object items use stringified values.
     // Also support raw string values for unknown inputs that are temporarily added as disabled options.
-    return toDomValue(item.value) === this.input.value || (typeof item.value === 'string' && item.value === this.input.value);
+    return toString(item.value) === this.input.value || (typeof item.value === 'string' && item.value === this.input.value);
   };
 
   /**
@@ -505,9 +505,9 @@ export class MgInputSelect {
    * @returns render option
    */
   private renderOption = (option: SelectOption): HTMLElement => {
-    const domValue = allItemsAreString(this.items) ? option.title : toDomValue(option.value);
+    const serializedValue = allItemsAreString(this.items) ? option.title : toString(option.value);
     return (
-      <option key={domValue} value={domValue} selected={JSON.stringify(this.value) === JSON.stringify(option.value)} disabled={option.disabled}>
+      <option key={serializedValue} value={serializedValue} selected={JSON.stringify(this.value) === JSON.stringify(option.value)} disabled={option.disabled}>
         {option.title}
       </option>
     );

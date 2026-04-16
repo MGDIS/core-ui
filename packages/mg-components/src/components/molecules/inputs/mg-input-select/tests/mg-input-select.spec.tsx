@@ -6,7 +6,7 @@ import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
-import { toDomValue, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/dist/tests';
 
 const getPage = args => {
@@ -247,7 +247,7 @@ describe('mg-input-select', () => {
     expect(page.root).toMatchSnapshot(); //Snapshot on focus
 
     input.value =
-      selectedOption !== '' ? (typeof items[selectedOption] === 'object' ? toDomValue((items[selectedOption] as SelectOption).value) : (items[selectedOption] as string)) : '';
+      selectedOption !== '' ? (typeof items[selectedOption] === 'object' ? toString((items[selectedOption] as SelectOption).value) : (items[selectedOption] as string)) : '';
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
 
     await page.waitForChanges();
@@ -282,7 +282,7 @@ describe('mg-input-select', () => {
 
     jest.spyOn(page.rootInstance.valueChange, 'emit');
 
-    input.value = toDomValue(items[1].value);
+    input.value = toString(items[1].value);
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
 
     await page.waitForChanges();
