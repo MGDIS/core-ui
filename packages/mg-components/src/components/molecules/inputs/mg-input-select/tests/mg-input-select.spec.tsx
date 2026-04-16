@@ -6,7 +6,7 @@ import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 import { tooltipPositions } from '../../mg-input/mg-input.conf';
-import { toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { toDomValue, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { setUpRequestAnimationFrameMock } from '@mgdis/core-ui-helpers/dist/tests';
 
 const getPage = args => {
@@ -246,7 +246,8 @@ describe('mg-input-select', () => {
 
     expect(page.root).toMatchSnapshot(); //Snapshot on focus
 
-    input.value = items[selectedOption]?.title || items[selectedOption] || selectedOption;
+    input.value =
+      selectedOption !== '' ? (typeof items[selectedOption] === 'object' ? toDomValue((items[selectedOption] as SelectOption).value) : (items[selectedOption] as string)) : '';
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
 
     await page.waitForChanges();
@@ -260,6 +261,34 @@ describe('mg-input-select', () => {
     await page.waitForChanges();
 
     expect(inputValidSpy).toHaveBeenCalledTimes(1);
+  });
+
+  test('Should allow selecting options with same title but different values', async () => {
+    const items: SelectOption[] = [
+      { title: 'Same', value: 'a' },
+      { title: 'Same', value: 'b' },
+    ];
+
+    const page = await getPage({ label: 'label', items, identifier: 'identifier' });
+    const element = page.doc.querySelector('mg-input-select');
+    const input = element.shadowRoot.querySelector('select');
+
+    input.checkValidity = jest.fn(() => true);
+    Object.defineProperty(input, 'validity', {
+      get: jest.fn(() => ({
+        valueMissing: false,
+      })),
+    });
+
+    jest.spyOn(page.rootInstance.valueChange, 'emit');
+
+    input.value = toDomValue(items[1].value);
+    input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+
+    await page.waitForChanges();
+    jest.runAllTimers();
+
+    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith('b');
   });
 
   describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {
