@@ -77,12 +77,7 @@ If you are using component events, the value is accessed through `$event.detail`
 To bind a non string value in a web component we have to use the Vue.js [`.prop`](https://v2.vuejs.org/v2/api/#v-bind) modifier:
 
 ```html
-<mg-input-text
-  :readonly.prop="readOnly"
-  :value="user.firstname" // Not mandatory when the value is a string
-  :label="$t('firstname')"
-  identifier="firstname"
-></mg-input-text>
+<mg-input-text :readonly.prop="readOnly" :value="user.firstname" :label="$t('firstname')" identifier="firstname"></mg-input-text>
 ```
 
 #### `v-model` with Vue2

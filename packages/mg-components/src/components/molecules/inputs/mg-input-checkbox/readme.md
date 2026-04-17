@@ -38,10 +38,10 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 
 ## Events
 
-| Event          | Description                         | Type                           |
-| -------------- | ----------------------------------- | ------------------------------ |
-| `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>`         |
-| `value-change` | Emitted event when value change     | `CustomEvent<CheckboxValue[]>` |
+| Event          | Description                         | Type                            |
+| -------------- | ----------------------------------- | ------------------------------- |
+| `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>`          |
+| `value-change` | Emitted event when value change     | `CustomEvent<ICheckboxValue[]>` |
 
 
 ## Methods
