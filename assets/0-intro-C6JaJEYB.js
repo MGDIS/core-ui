@@ -1,0 +1,31 @@
+import{u as s,j as e,M as i,i as a}from"./blocks-BeQmooG5.js";import"./preload-helper-PPVm8Dsz.js";import"./_commonjsHelpers-CqkleIqs.js";import"./iframe-zBwNu0FS.js";const r=`# @mgdis/mg-components
+
+## Introduction
+
+**MG Components** is a reusable component library designed to help MGDIS developers build user interfaces more efficiently. It provides a collection of modular, framework-agnostic UI components that are easy to use, accessible, and customizable. The library is built following the **Atomic Design** methodology, which organizes components into small, reusable building blocks.
+
+Components in MG Components are developed using [StencilJS](https://stenciljs.com/), a compiler for creating fast, standards-based Web Components. This ensures compatibility with all modern browsers and seamless integration with any framework (e.g., AngularJS, Vue, etc) or even without a framework. The library also leverages [StorybookJS](https://storybook.js.org/) for component documentation and testing.
+
+## Key Features
+
+- **Reusable Components**: Modular and framework-agnostic, designed for flexibility and scalability.
+- **Accessibility**: Built with WAI-ARIA standards to ensure inclusive user experiences.
+- **Customizable**: Easily adaptable to your design system using CSS variables.
+- **Cross-Framework Compatibility**: Works with AngularJS, Vue, or no framework at all.
+
+## Atomic Design
+
+MG Components follows the **Atomic Design** methodology, which divides UI components into hierarchical levels:
+
+- **Atoms**: Basic building blocks (e.g., buttons, icons).
+- **Molecules**: Groups of atoms working together (e.g., input fields, menus).
+
+<!-- Not for now
+- **Organisms**: Complex structures composed of molecules and atoms (e.g., navigation bars, tables).
+- **Templates**: Page-level layouts defining structure and content hierarchy.
+- **Pages**: Final implementations of templates with real content.
+  -->
+
+Learn more about Atomic Design in this [introduction to Atomic Design](https://openclassrooms.com/fr/courses/5249021-initiez-vous-a-la-methode-atomic-design/5630171-decouvrez-l-atomic-design).
+`;function t(n){return e.jsxs(e.Fragment,{children:[e.jsx(i,{title:"Intro"}),`
+`,e.jsx(a,{children:r})]})}function d(n={}){const{wrapper:o}={...s(),...n.components};return o?e.jsx(o,{...n,children:e.jsx(t,{...n})}):t()}export{d as default};
