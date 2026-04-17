@@ -412,11 +412,19 @@ export class MgInputSelect {
   };
 
   /**
-   * Method to compare item.title with input.value
+   * Method to compare item with input.value
    * @param item - item to compare with
    * @returns truthy if input.value is an item
    */
-  private isInputValue = (item: SelectOption): boolean => item.title === this.input?.value;
+  private isInputValue = (item: SelectOption): boolean => {
+    if (this.input === undefined) return false;
+
+    // String items keep native DOM values.
+    if (allItemsAreString(this.items)) return item.title === this.input.value;
+
+    // Object items use stringified values.
+    return toString(item.value) === this.input.value;
+  };
 
   /**
    * Handle blur event
@@ -495,11 +503,14 @@ export class MgInputSelect {
    * @param option - to render
    * @returns render option
    */
-  private renderOption = (option: SelectOption): HTMLElement => (
-    <option key={option.title} value={option.title} selected={JSON.stringify(this.value) === JSON.stringify(option.value)} disabled={option.disabled}>
-      {option.title}
-    </option>
-  );
+  private renderOption = (option: SelectOption): HTMLElement => {
+    const serializedValue = allItemsAreString(this.items) ? option.title : toString(option.value);
+    return (
+      <option key={serializedValue} value={serializedValue} selected={JSON.stringify(this.value) === JSON.stringify(option.value)} disabled={option.disabled}>
+        {option.title}
+      </option>
+    );
+  };
 
   /**
    * Render
