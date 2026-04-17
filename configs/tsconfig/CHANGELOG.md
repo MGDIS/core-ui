@@ -1,5 +1,11 @@
 # tsconfig
 
+## 1.0.11
+
+### Patch Changes
+
+- c143cee: update dependencies
+
 ## 1.0.10
 
 ### Patch Changes

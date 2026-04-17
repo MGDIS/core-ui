@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.14
+
+### Patch Changes
+
+- c143cee: update dependencies
+
 ## 4.1.13
 
 ### Patch Changes

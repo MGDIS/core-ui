@@ -1,5 +1,12 @@
 # @mgdis/core-ui-helpers
 
+## 1.1.2
+
+### Patch Changes
+
+- c143cee: update dependencies
+- b6ec26f: upgrade dependencies
+
 ## 1.1.1
 
 ### Patch Changes

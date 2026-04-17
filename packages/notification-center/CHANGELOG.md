@@ -1,5 +1,13 @@
 # @mgdis/notification-center
 
+## 1.2.20
+
+### Patch Changes
+
+- c143cee: update dependencies
+- Updated dependencies [c143cee]
+  - @mgdis/sanitize-html@1.1.1
+
 ## 1.2.19
 
 ### Patch Changes

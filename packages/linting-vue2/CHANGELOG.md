@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.1.17
+
+### Patch Changes
+
+- c143cee: update dependencies
+- Updated dependencies [c143cee]
+  - @mgdis/eslint-plugin-vue@4.1.14
+
 ## 4.1.16
 
 ### Patch Changes

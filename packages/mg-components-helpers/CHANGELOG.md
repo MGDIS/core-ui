@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.2.11
+
+### Patch Changes
+
+- c143cee: update dependencies
+- Updated dependencies [c143cee]
+- Updated dependencies [b6ec26f]
+  - @mgdis/core-ui-helpers@1.1.2
+
 ## 4.2.10
 
 ### Patch Changes

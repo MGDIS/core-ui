@@ -1,5 +1,11 @@
 # @mgdis/styles
 
+## 2.17.1
+
+### Patch Changes
+
+- c143cee: update dependencies
+
 ## 2.17.0
 
 ### Minor Changes

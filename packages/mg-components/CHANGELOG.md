@@ -1,5 +1,19 @@
 # @mgdis/mg-components
 
+## 6.22.1
+
+### Patch Changes
+
+- b16b2be: [#610](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/work_items/610) mg-input-select: options with identical titles but different values can be selected reliably.
+- c143cee: update dependencies
+- b6ec26f: upgrade dependencies
+- Updated dependencies [c143cee]
+- Updated dependencies [b6ec26f]
+  - @mgdis/sanitize-html@1.1.1
+  - @mgdis/core-ui-helpers@1.1.2
+  - @mgdis/styles@2.17.1
+  - @mgdis/img@2.6.1
+
 ## 6.22.0
 
 ### Minor Changes

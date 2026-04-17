@@ -1,5 +1,11 @@
 # @mgdis/release-bot
 
+## 1.0.4
+
+### Patch Changes
+
+- c143cee: update dependencies
+
 ## 1.0.3
 
 ### Patch Changes

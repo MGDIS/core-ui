@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 2.6.1
+
+### Patch Changes
+
+- c143cee: update dependencies
+
 ## 2.6.0
 
 ### Minor Changes
