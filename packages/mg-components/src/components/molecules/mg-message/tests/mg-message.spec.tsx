@@ -66,6 +66,11 @@ describe('mg-message', () => {
       expect(classbarLeft).toBeNull();
       expect(classFill).not.toBeNull();
     });
+
+    test('Should render with fullWidth', async () => {
+      const { root } = await getPage({ fullWidth: true }, getDefaultContent());
+      expect(root).toMatchSnapshot();
+    });
   });
 
   describe('Errors', () => {

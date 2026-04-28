@@ -18,6 +18,7 @@ export class MgMessage {
    ************/
 
   private readonly classBase = 'mg-c-message';
+  private readonly classFullWidth = 'mg-c-message--full-width';
 
   /**************
    * Decorators *
@@ -53,6 +54,19 @@ export class MgMessage {
     } else {
       if (newValue !== undefined) this.classCollection.add(`${this.classBase}--${newValue}`);
       if (oldValue !== undefined) this.classCollection.delete(`${this.classBase}--${oldValue}`);
+    }
+  }
+
+  /**
+   * Define if message fits its parent element
+   */
+  @Prop() fullWidth = false;
+  @Watch('fullWidth')
+  watchFullWidth(newValue: MgMessage['fullWidth']): void {
+    if (newValue) {
+      this.classCollection.add(this.classFullWidth);
+    } else {
+      this.classCollection.delete(this.classFullWidth);
     }
   }
 
@@ -96,6 +110,7 @@ export class MgMessage {
     // Validate
     this.watchVariant(this.variant);
     this.watchVariantStyle(this.variantStyle);
+    this.watchFullWidth(this.fullWidth);
     // Check if component has actions slot
     this.hasActions = this.element.querySelector('[slot="actions"]') !== null;
   }
