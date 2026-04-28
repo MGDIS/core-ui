@@ -37,6 +37,12 @@ describe('mg-alert', () => {
       ]);
       expect(root).toMatchSnapshot();
     });
+
+    test('Should render with fullWidth and forward it to inner mg-message', async () => {
+      const { root } = await getPage({ fullWidth: true }, getDefaultContent());
+      expect(root).toMatchSnapshot();
+      expect(root.shadowRoot.querySelector('mg-message').hasAttribute('fullwidth')).toBe(true);
+    });
   });
 
   test('Should hide alert on close button', async () => {

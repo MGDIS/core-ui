@@ -74,6 +74,11 @@ export class MgAlert {
   }
 
   /**
+   * Define if alert fits its parent element
+   */
+  @Prop() fullWidth = false;
+
+  /**
    * Watch hidden prop
    */
   // eslint-disable-next-line @stencil-community/no-unused-watch
@@ -207,6 +212,7 @@ export class MgAlert {
         role={['info', 'success'].includes(this.variant) ? 'status' : 'alert'}
         variant={this.variant}
         variantStyle={this.variantStyle}
+        fullWidth={this.fullWidth}
       >
         <slot></slot>
         {this.hasActions ? (
