@@ -123,7 +123,6 @@ export class MgMessage {
     return (
       <div class={this.classCollection.join()}>
         <mg-card shadow>
-          {this.variantStyle === 'bar-left' && <span class="mg-c-message__bar"></span>}
           <span class="mg-c-message__icon">
             <mg-icon icon={this.getIcon()}></mg-icon>
           </span>
