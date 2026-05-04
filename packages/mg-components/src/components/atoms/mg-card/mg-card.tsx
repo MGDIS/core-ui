@@ -33,7 +33,7 @@ export class MgCard {
     if (!radiusSizes.includes(newValue)) {
       if ((newValue as string) === '') {
         // Reactive frameworks (e.g. Vue) may pass "" instead of undefined when the prop is reset.
-        this.radiusSize = radiusSizes[0];
+        this.radiusSize = 'medium';
         return;
       }
       throw new Error(`<mg-card> prop "radiusSize" must be one of: ${radiusSizes.join(', ')}. Passed value: ${toString(newValue)}.`);

@@ -48,9 +48,9 @@ describe('mg-card', () => {
   });
 
   test('Should reset radiusSize to default when receiving "" (Vue reactivity reset)', async () => {
-    const page = await getPage({ radiusSize: 'large' }, 'reset radius');
+    const page = await getPage({ radiusSize: 'small' }, 'reset radius');
     page.root.radiusSize = '' as never;
     await page.waitForChanges();
-    expect(page.root.radiusSize).toBe(radiusSizes[0]);
+    expect(page.root.radiusSize).toBe('medium');
   });
 });
