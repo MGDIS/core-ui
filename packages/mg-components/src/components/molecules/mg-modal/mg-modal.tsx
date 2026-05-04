@@ -45,6 +45,9 @@ export class MgModal {
   @Prop() identifier: string = createID('mg-modal');
   @Watch('identifier')
   watchIdentifier(newValue: MgModal['identifier']): void {
+    // throw on invalid identifier (vs console.error elsewhere): this id
+    // backs ARIA wiring critical to the dialog's a11y. See CORE-3405 /
+    // commit 7f180e585.
     if (!isValideID(newValue)) {
       throw new Error(`<mg-modal> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }

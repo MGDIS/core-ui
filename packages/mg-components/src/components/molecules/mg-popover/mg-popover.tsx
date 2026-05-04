@@ -39,6 +39,9 @@ export class MgPopover {
   @Prop() identifier: string = createID('mg-popover');
   @Watch('identifier')
   validateIdentifier(newValue: MgPopover['identifier']): void {
+    // throw on invalid identifier (vs console.error elsewhere): this id
+    // backs aria-controls on the trigger; an invalid id breaks the AT
+    // wiring silently. See CORE-3405 / commit 7f180e585.
     if (!isValideID(newValue)) {
       throw new Error(`<mg-popover> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }
