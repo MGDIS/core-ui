@@ -36,12 +36,15 @@ export class MgIcon {
   /**
    * Define icon size
    */
-  @Prop() size: IconSizeType = 'medium';
+  @Prop({ mutable: true }) size: IconSizeType = 'medium';
   @Watch('size')
   validateSize(newValue: MgIcon['size'], oldValue?: MgIcon['size']): void {
-    // When removing size attribute, it is set to null
-    if (newValue === null) {
-      newValue = 'medium';
+    // Reactive frameworks reset the prop differently:
+    //   - removing the attribute sets it to null
+    //   - Vue reactivity may set it to ""
+    if (newValue === null || (newValue as string) === '') {
+      this.size = 'medium';
+      return;
     }
     if (!sizes.includes(newValue)) {
       throw new Error(`<mg-icon> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${toString(newValue)}.`);
