@@ -131,7 +131,7 @@ export class MgTooltip {
     // Remove event listener
     this.windows.forEach((localWindow: Window) => {
       localWindow.removeEventListener('click', this.handleClickOutside, false);
-      localWindow.removeEventListener('keyboard', this.handlePressEscape, false);
+      localWindow.removeEventListener('keydown', this.handlePressEscape, false);
     });
   };
 
