@@ -3,12 +3,16 @@ import { test } from '../../../../utils/playwright.fixture';
 
 /**
  * Regression test for #611 — mg-divider line was rasterised away on Firefox at
- * certain zoom levels. The fix draws the line with `border-top` (clamped to >=
- * 1 device pixel) instead of `height` + `background-color`.
+ * certain zoom + screen-size combinations. The fix draws the line with
+ * `border-top` (clamped to >= 1 device pixel) instead of `height` +
+ * `background-color` (which a browser is free to rasterise to 0 when the
+ * device-pixel mapping falls below 1).
  *
- * This test forces a sub-pixel declared thickness so the original bug would
- * make the line vanish on Firefox. With the fix in place the border stays
- * visible.
+ * Reproducing real browser zoom from Playwright is non-deterministic (CSS
+ * `zoom` does not reproduce the sub-pixel rasterisation path), so we force a
+ * sub-pixel declared thickness instead. Empirically verified: with the OLD
+ * approach this test produces an all-white screenshot on Firefox, with the
+ * fix in place the line is visible.
  */
 test.describe('mg-divider, firefox', () => {
   test('Should remain visible at sub-pixel thickness', async ({ page }) => {
@@ -18,7 +22,6 @@ test.describe('mg-divider, firefox', () => {
         mg-divider {
           --mg-c-divider-thickness: 0.3px;
           --mg-c-divider-color-background: rgb(0, 0, 0);
-          --mg-c-divider-spacing-vertical: 1rem;
         }
         .e2e-screenshot { display: block; }
       `,
