@@ -7,8 +7,8 @@
 .mg-c-divider {
   width: var(--mg-b-size-120);
   height: 0;
-  border-top: var(--mg-c-divider-thickness) solid var(--mg-c-divider-color-background);
   margin: var(--mg-c-divider-spacing-vertical) auto;
+  border-block-start: var(--mg-c-divider-thickness) solid var(--mg-c-divider-color-background);
 
   &.mg-c-divider--full-width {
     width: 100%;
