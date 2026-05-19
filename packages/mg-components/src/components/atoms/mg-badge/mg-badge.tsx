@@ -49,7 +49,7 @@ export class MgBadge {
   @Watch('variant')
   validateVariant(newValue: MgBadge['variant'], oldValue?: MgBadge['variant']): void {
     if (!variants.includes(newValue)) {
-      if ((newValue as string) === '') {
+      if (String(newValue) === '') {
         // Reactive frameworks (e.g. Vue) may pass "" instead of undefined when the prop is reset.
         this.variant = 'info';
         return;

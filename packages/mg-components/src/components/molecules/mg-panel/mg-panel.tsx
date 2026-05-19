@@ -92,7 +92,7 @@ export class MgPanel {
   @Prop({ mutable: true }) titlePosition: TitlePositionType = 'left';
   @Watch('titlePosition')
   validateTitlePosition(newValue: MgPanel['titlePosition']) {
-    if ((newValue as string) === '') {
+    if (String(newValue) === '') {
       // Reactive frameworks (e.g. Vue) may pass "" instead of undefined when the prop is reset.
       this.titlePosition = 'left';
       return;
@@ -115,7 +115,7 @@ export class MgPanel {
   @Prop({ mutable: true }) expandToggleDisplay: ExpandToggleDisplayType = 'text';
   @Watch('expandToggleDisplay')
   validateExpandToggleDisplay(newValue: MgPanel['expandToggleDisplay']) {
-    if ((newValue as string) === '') {
+    if (String(newValue) === '') {
       // Reactive frameworks (e.g. Vue) may pass "" instead of undefined when the prop is reset.
       this.expandToggleDisplay = 'text';
       return;

@@ -31,7 +31,7 @@ export class MgCard {
   @Watch('radiusSize')
   watchRadiusSize(newValue: MgCard['radiusSize'], oldValue?: MgCard['radiusSize']): void {
     if (!radiusSizes.includes(newValue)) {
-      if ((newValue as string) === '') {
+      if (String(newValue) === '') {
         // Reactive frameworks (e.g. Vue) may pass "" instead of undefined when the prop is reset.
         this.radiusSize = 'medium';
         return;

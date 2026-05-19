@@ -42,7 +42,7 @@ export class MgIcon {
     // Reactive frameworks reset the prop differently:
     //   - removing the attribute sets it to null
     //   - Vue reactivity may set it to ""
-    if (newValue === null || (newValue as string) === '') {
+    if (newValue === null || String(newValue) === '') {
       this.size = 'medium';
       return;
     }
