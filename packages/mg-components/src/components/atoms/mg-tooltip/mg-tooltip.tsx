@@ -48,9 +48,6 @@ export class MgTooltip {
   @Prop() identifier: string = createID('mg-tooltip');
   @Watch('identifier')
   watchIdentifier(newValue: MgTooltip['identifier']): void {
-    // throw on invalid identifier (vs console.error elsewhere): this id
-    // backs aria-describedby on the tooltipped element; an invalid id
-    // breaks the AT wiring silently.
     if (!isValideID(newValue)) {
       throw new Error(`<mg-tooltip> prop "identifier" value is invalid. Passed value: ${toString(newValue)}.`);
     }
