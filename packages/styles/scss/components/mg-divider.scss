@@ -6,9 +6,9 @@
 
 .mg-c-divider {
   width: var(--mg-b-size-120);
-  height: var(--mg-c-divider-thickness);
+  height: 0;
   margin: var(--mg-c-divider-spacing-vertical) auto;
-  background-color: var(--mg-c-divider-color-background);
+  border-block-start: var(--mg-c-divider-thickness) solid var(--mg-c-divider-color-background);
 
   &.mg-c-divider--full-width {
     width: 100%;
