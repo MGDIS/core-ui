@@ -4,11 +4,17 @@ import { devices, defineConfig } from '@playwright/test';
 export default defineConfig({
   ...playwrightBaseConfig,
   /**
-   * Configure projects for major browsers.
-   * `chromium` runs every e2e file except the ones explicitly scoped to other
-   * engines via the `*.<engine>.e2e.ts` suffix. `webkit` runs only the webkit
-   * suffix files so engine-specific regressions are caught by the right
-   * rendering engine.
+   * Configure projects for major browsers
+   *
+   * - `chromium` runs every e2e test file except those scoped to another engine
+   *   via the `*.<engine>.e2e.ts` suffix.
+   * - `firefox` runs only the `.firefox.e2e.ts` files, on the real Firefox
+   *   engine, to cover engine-specific behaviour (e.g. sub-pixel rasterisation).
+   * - `webkit` runs only the `.webkit.e2e.ts` files, on the real WebKit engine,
+   *   to cover Safari-specific behaviour.
+   *
+   * To regenerate baselines locally:
+   *     npx playwright test --project=<firefox|webkit> --update-snapshots
    */
   projects: [
     {
@@ -16,7 +22,14 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
       },
-      testIgnore: '**/*.webkit.e2e.ts',
+      testIgnore: '**/*.{firefox,webkit}.e2e.ts',
+    },
+    {
+      name: 'firefox',
+      use: {
+        ...devices['Desktop Firefox'],
+      },
+      testMatch: '**/*.firefox.e2e.ts',
     },
     {
       name: 'webkit',
