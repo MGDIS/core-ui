@@ -15,7 +15,8 @@
 
 .mg-c-modal {
   // Cap against the dynamic viewport so the dialog stays within the visible
-  // area when the mobile browser chrome (Safari toolbar) is shown.
+  // area (Safari mobile chrome) and avoids the ~8px overflow caused by the
+  // UA `max-height: calc(100% - 6px - 2em)` rule combined with our padding.
   max-height: 100dvh;
   box-sizing: border-box;
   border: none;
@@ -36,7 +37,11 @@
     display: flex;
     width: calc(75 * var(--mg-b-size-8)); // 600px
     max-width: 100%;
-    max-height: 100%;
+
+    // Use `dvh` instead of `100%` here: percentage on a flex child whose
+    // parent dialog uses `height: fit-content` collapses to 0 on WebKit
+    // (chicken-and-egg).
+    max-height: 100dvh;
   }
 
   &__dialog {

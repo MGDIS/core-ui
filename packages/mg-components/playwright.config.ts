@@ -4,8 +4,11 @@ import { devices, defineConfig } from '@playwright/test';
 export default defineConfig({
   ...playwrightBaseConfig,
   /**
-   * Configure projects for major browsers
-   * For now we only test on Chromium
+   * Configure projects for major browsers.
+   * `chromium` runs every e2e file except the ones explicitly scoped to other
+   * engines via the `*.<engine>.e2e.ts` suffix. `webkit` runs only the webkit
+   * suffix files so engine-specific regressions are caught by the right
+   * rendering engine.
    */
   projects: [
     {
@@ -13,6 +16,14 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
       },
+      testIgnore: '**/*.webkit.e2e.ts',
+    },
+    {
+      name: 'webkit',
+      use: {
+        ...devices['Desktop Safari'],
+      },
+      testMatch: '**/*.webkit.e2e.ts',
     },
   ],
   /* Run your local dev server before starting the tests */
