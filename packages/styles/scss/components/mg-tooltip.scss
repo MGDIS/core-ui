@@ -7,3 +7,17 @@
 :host {
   display: inline-block;
 }
+
+/* When a slotted mg-button has the full-width attribute, mg-tooltip marks
+   itself as full-width so the host takes its parent's width and the button
+   stretches as intended. */
+:host(.mg-c-tooltip--full-width) {
+  display: block;
+}
+
+/* Wrapper inserted by mg-tooltip around a disabled mg-button (light DOM) —
+   must propagate width so a full-width button still stretches when disabled. */
+::slotted(div.mg-c-tooltip__mg-button-wrapper) {
+  display: block;
+  width: 100%;
+}
