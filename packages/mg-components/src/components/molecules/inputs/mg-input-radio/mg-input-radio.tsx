@@ -1,5 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { RadioOption } from './mg-input-radio.conf';
 import { type EventType, classReadonly, type TooltipPosition, classDisabled, classFieldset } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
@@ -375,6 +376,7 @@ export class MgInputRadio {
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
     this.messages = initLocales(this.element).messages;
+    normalizeBooleanAttributes(this);
     // Validate
     this.validateItems(this.items);
     this.watchInputVerticalList(this.inputVerticalList);

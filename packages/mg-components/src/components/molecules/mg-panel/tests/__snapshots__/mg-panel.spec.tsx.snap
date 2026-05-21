@@ -713,7 +713,7 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="panel title">
                   </div>
                   <slot name="append-input"></slot>
-                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                  <mg-input-title identifier="identifier-edition-input" slot="label">
                     <!---->
                     <label class="mg-c-input-title" for="identifier-edition-input">
                       Edit section title.
@@ -792,7 +792,7 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="joker">
                   </div>
                   <slot name="append-input"></slot>
-                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                  <mg-input-title identifier="identifier-edition-input" slot="label">
                     <!---->
                     <label class="mg-c-input-title" for="identifier-edition-input">
                       Edit section title.
@@ -871,7 +871,7 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="joker">
                   </div>
                   <slot name="append-input"></slot>
-                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                  <mg-input-title identifier="identifier-edition-input" slot="label">
                     <!---->
                     <label class="mg-c-input-title" for="identifier-edition-input">
                       Edit section title.
@@ -994,7 +994,7 @@ exports[`mg-panel navigation Should NOT update panel title, case no enter in inp
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
                   <slot name="append-input"></slot>
-                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                  <mg-input-title identifier="identifier-edition-input" slot="label">
                     <!---->
                     <label class="mg-c-input-title" for="identifier-edition-input">
                       Edit section title.
@@ -1365,7 +1365,7 @@ exports[`mg-panel navigation Should toggle edit panel title 2`] = `
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
                   <slot name="append-input"></slot>
-                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                  <mg-input-title identifier="identifier-edition-input" slot="label">
                     <!---->
                     <label class="mg-c-input-title" for="identifier-edition-input">
                       Edit section title.
@@ -1566,7 +1566,7 @@ exports[`mg-panel navigation should update panel title, case first-of-type 2`] =
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
                   <slot name="append-input"></slot>
-                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                  <mg-input-title identifier="identifier-edition-input" slot="label">
                     <!---->
                     <label class="mg-c-input-title" for="identifier-edition-input">
                       Edit section title.
@@ -1733,7 +1733,7 @@ exports[`mg-panel navigation should update panel title, case last-of-type 2`] = 
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
                   <slot name="append-input"></slot>
-                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                  <mg-input-title identifier="identifier-edition-input" slot="label">
                     <!---->
                     <label class="mg-c-input-title" for="identifier-edition-input">
                       Edit section title.

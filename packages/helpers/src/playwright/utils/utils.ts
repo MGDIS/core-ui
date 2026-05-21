@@ -1,24 +1,29 @@
 import { isObject, isValidString } from '../../utils';
 
 /**
- * Render attributes from props objects
+ * Render attributes from props objects.
+ *
+ * Booleans follow the HTML spec for boolean attributes: `true` emits an empty-value attribute
+ * (presence implies `true`), `false` omits the attribute entirely. This matches the behaviour
+ * of the `normalizeBooleanAttributes` Stencil helper.
  * @param args - argument to render as string. ex: `{status: 'visible'}`
  * @returns formated inline attributed. ex: 'status="visible"'
  * @example
  * ```ts
  * import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
  *
- * const attributes = renderAttributes({ status: 'visible', color: 'red' });
- * console.log(attributes); // Output: 'status="visible" color="red"'
+ * const attributes = renderAttributes({ status: 'visible', color: 'red', disabled: true, readonly: false });
+ * console.log(attributes); // Output: 'status="visible" color="red" disabled=""'
  * ```
  */
 export const renderAttributes = (args: Record<string, unknown>): string =>
   (isObject<Record<string, never>>(args) &&
     Object.keys(args)
-      .filter(key => ![null, undefined].includes(args[key]) && !['object', 'function'].includes(typeof args[key]))
+      .filter(key => ![null, undefined].includes(args[key]) && !['object', 'function'].includes(typeof args[key]) && args[key] !== false)
       .map(key => {
         const attribute: string = key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-        const value: string = ['number', 'boolean'].includes(typeof args[key]) || isValidString(args[key]) ? String(args[key]).replace(/"/g, "'") : '';
+        if (args[key] === true) return `${attribute}=""`;
+        const value: string = typeof args[key] === 'number' || isValidString(args[key]) ? String(args[key]).replace(/"/g, "'") : '';
         return `${attribute}="${value}"`;
       })
       .join(' ')) ||

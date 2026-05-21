@@ -1,5 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import { MgIcon } from '../../../atoms/mg-icon/mg-icon';
@@ -345,6 +346,7 @@ export class MgInputPassword {
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
     this.messages = initLocales(this.element).messages;
+    normalizeBooleanAttributes(this);
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
     this.watchMgWidth(this.mgWidth);

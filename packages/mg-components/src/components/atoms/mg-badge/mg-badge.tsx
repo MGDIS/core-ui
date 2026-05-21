@@ -1,6 +1,7 @@
-import { Component, h, Prop, State, Watch } from '@stencil/core';
+import { Component, Element, h, Prop, State, Watch } from '@stencil/core';
 import { variants, BadgeVariantType } from './mg-badge.conf';
 import { ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 
 @Component({
   tag: 'mg-badge',
@@ -18,6 +19,11 @@ export class MgBadge {
   /**************
    * Decorators *
    **************/
+
+  /**
+   * Get component DOM element
+   */
+  @Element() element: HTMLMgBadgeElement;
 
   /**
    * Badge value
@@ -77,6 +83,7 @@ export class MgBadge {
    * Check if props are well configured on init
    */
   componentWillLoad(): void {
+    normalizeBooleanAttributes(this);
     this.validateValue(this.value);
     this.validateLabel(this.label);
     this.validateVariant(this.variant);

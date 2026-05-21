@@ -1,5 +1,6 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
-import { allItemsAreString, ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { helpTextTypes, type OptionType, type TextType, textTypes } from './mg-input-text.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled, classDisplayCharacterLeft } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
@@ -487,6 +488,7 @@ export class MgInputText {
     this.messages = initLocales(this.element).messages;
     this.characterLeftId = `${this.identifier}-character-left`;
     this.datalistId = `${this.identifier}-datalist`;
+    normalizeBooleanAttributes(this);
     // Validate
     this.validateIcon(this.icon);
     this.validateDatalistoptions(this.datalistoptions);

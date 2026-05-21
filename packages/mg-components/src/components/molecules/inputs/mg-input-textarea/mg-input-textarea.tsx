@@ -1,5 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled, classDisplayCharacterLeft } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
@@ -390,6 +391,7 @@ export class MgInputTextarea {
     // Get locales
     this.messages = initLocales(this.element).messages;
     this.characterLeftId = `${this.identifier}-character-left`;
+    normalizeBooleanAttributes(this);
     // Validate
     this.validatecharacterLeftHide(this.characterLeftHide);
     this.validatePattern(this.pattern);

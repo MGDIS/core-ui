@@ -113,6 +113,25 @@ describe('mg-input-text', () => {
     });
   });
 
+  describe.each(['readonly', 'disabled', 'required'])('%s attribute parsing (HTML spec)', attribute => {
+    test.each([
+      [`<mg-input-text identifier="identifier" label="label" value="blu" ${attribute}></mg-input-text>`, true],
+      [`<mg-input-text identifier="identifier" label="label" value="blu" ${attribute}=""></mg-input-text>`, true],
+      [`<mg-input-text identifier="identifier" label="label" value="blu" ${attribute}="true"></mg-input-text>`, true],
+      [`<mg-input-text identifier="identifier" label="label" value="blu" ${attribute}="false"></mg-input-text>`, true],
+      ['<mg-input-text identifier="identifier" label="label" value="blu"></mg-input-text>', false],
+    ])(`Should parse %s as ${attribute}=%s`, async (html, expected) => {
+      const page = await newSpecPage({
+        components: [MgInputText, MgInput, MgInputTitle],
+        html,
+      });
+      jest.runAllTimers();
+      setUpRequestAnimationFrameMock(jest.runOnlyPendingTimers);
+      const element = page.doc.querySelector('mg-input-text');
+      expect(element[attribute]).toBe(expected);
+    });
+  });
+
   test.each(['', ' ', undefined])('Should not render with invalid identifier property: %s', async identifier => {
     expect.assertions(1);
     try {

@@ -1,5 +1,6 @@
 import { Component, Element, h, Method, Prop, State, Watch } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { classReadonly, HTMLMgInputsElement, isMgInputFile, labelHeading } from '../inputs/mg-input/mg-input.conf';
 
 @Component({
@@ -179,6 +180,7 @@ export class MgFieldset {
    * Check if component props are well configured on init
    */
   componentWillLoad(): void {
+    normalizeBooleanAttributes(this);
     this.watchReadonly(this.readonly);
     this.watchLegendBorderDisplay(this.legendBorderDisplay);
     this.setMgInputs();

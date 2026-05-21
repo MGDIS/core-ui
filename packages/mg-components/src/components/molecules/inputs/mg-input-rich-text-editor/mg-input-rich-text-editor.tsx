@@ -1,5 +1,6 @@
 import { Component, Element, h, Prop, Watch, State, Event, EventEmitter, Method } from '@stencil/core';
 import { ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import { Sanitizer, type SanitizerOptions } from '@mgdis/sanitize-html';
@@ -468,6 +469,7 @@ export class MgInputRichTextEditor {
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
     this.messages = initLocales(this.element as unknown as HTMLElement).messages;
+    normalizeBooleanAttributes(this);
     // Validate
     this.validatePattern(this.pattern);
     this.validatePattern(this.patternErrorMessage);

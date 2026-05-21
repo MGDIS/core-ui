@@ -1,5 +1,6 @@
 import { Component, Event, EventEmitter, h, Prop, Watch, Element } from '@stencil/core';
 import { isValidString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 
 /**
  * @slot summary - Summary content
@@ -81,6 +82,7 @@ export class MgDetails {
    * Check if component props are well configured on init
    */
   componentWillLoad(): void {
+    normalizeBooleanAttributes(this);
     this.validateTitles(this.toggleClosed);
     this.validateTitles(this.toggleOpened);
 

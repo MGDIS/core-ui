@@ -1,5 +1,6 @@
 import { Component, Element, h, Prop, State, EventEmitter, Watch, Event } from '@stencil/core';
-import { createID, ClassList, isValidString, toString, isValideID } from '@mgdis/core-ui-helpers/dist/utils';
+import { ClassList, createID, isValidString, isValideID, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { initLocales } from '../../../locales';
 import { type ExpandToggleDisplayType, type TitlePositionType, expandToggleDisplays, titlePositions } from './mg-panel.conf';
 
@@ -225,6 +226,7 @@ export class MgPanel {
   componentWillLoad(): void {
     // Get locales
     this.messages = initLocales(this.element).messages;
+    normalizeBooleanAttributes(this);
     // Validate
     this.watchIdentifier(this.identifier);
     this.validateTitlePattern(this.titlePattern);

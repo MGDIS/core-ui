@@ -1,5 +1,6 @@
-import { Component, h, Prop, State, Watch } from '@stencil/core';
-import { isValideID, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { Component, Element, h, Prop, State, Watch } from '@stencil/core';
+import { isValidString, isValideID, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 
 /**
  * @internal
@@ -10,6 +11,11 @@ import { isValideID, isValidString, toString } from '@mgdis/core-ui-helpers/dist
   scoped: true,
 })
 export class MgInputTitle {
+  /**
+   * Get component DOM element
+   */
+  @Element() element: HTMLMgInputTitleElement;
+
   /**
    * Label input id
    */
@@ -55,6 +61,7 @@ export class MgInputTitle {
    * Init tag name
    */
   componentWillLoad(): void {
+    normalizeBooleanAttributes(this);
     this.validateIdentifier(this.identifier);
     this.validateIsLegend(this.isLegend);
   }

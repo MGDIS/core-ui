@@ -1,5 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { ClassList, cleanString, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import {
   ICheckboxItem,
   CheckboxType,
@@ -651,6 +652,7 @@ export class MgInputCheckbox implements Omit<IMgInputCheckboxListProps, 'id' | '
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
     this.messages = initLocales(this.element).messages;
+    normalizeBooleanAttributes(this);
 
     // Validate
     // `validateType` must be done before `validateValue` because we need to set mode['auto'|'custom'] from type

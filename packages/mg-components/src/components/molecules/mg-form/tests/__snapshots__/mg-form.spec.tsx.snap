@@ -48,7 +48,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div id="mg-input-checkbox-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -113,7 +113,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div id="mg-input-select-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -160,7 +160,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div id="mg-input-date-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -195,7 +195,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div id="mg-input-numeric-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -241,7 +241,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div id="mg-input-password-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -300,7 +300,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div id="mg-input-radio-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -350,7 +350,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div id="mg-input-select-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -391,7 +391,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div id="mg-input-rich-text-editor-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -429,7 +429,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div id="mg-input-text-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -465,7 +465,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div id="mg-input-textarea-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -511,7 +511,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div id="mg-input-file-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -546,7 +546,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -583,7 +583,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div id="fieldset-error" slot="error">
           this is a custom error
         </div>
-        <mg-input-title identifier="fieldset" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="fieldset" slot="label">
           <!---->
           <legend aria-describedby="fieldset-error" class="mg-c-input-title" id="fieldset-title">
             legend
@@ -630,7 +630,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
               </label>
             </div>
           </div>
-          <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+          <mg-input-title identifier="mg-input-radio" slot="label">
             <!---->
             <legend class="mg-c-input-title" id="mg-input-radio-title">
               mg-input-radio label
@@ -657,7 +657,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
-          <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+          <mg-input-title identifier="mg-input-text" slot="label">
             <!---->
             <label class="mg-c-input-title" for="mg-input-text">
               mg-input-text label
@@ -693,7 +693,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
         <b class="mg-c-input__readonly-value">
           oui
         </b>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <span class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -715,7 +715,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="true" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-select">
             mg-input-select label
@@ -737,7 +737,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="true" required="true" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-date">
             mg-input-date label
@@ -759,7 +759,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="true" required="true" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-numeric">
             mg-input-numeric label
@@ -781,7 +781,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="true" required="true" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-password">
             mg-input-password label
@@ -803,7 +803,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="true" required="true" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <span class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -825,7 +825,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="true" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-select">
             mg-input-select label
@@ -848,7 +848,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
           </div>
         </template>
         <div class="mg-c-input__readonly-value"></div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="true" required="true" slot="label">
+        <mg-input-title identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -870,7 +870,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="true" required="true" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-text">
             mg-input-text label
@@ -892,7 +892,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="true" required="true" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-textarea">
             mg-input-textarea label
@@ -927,7 +927,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -957,7 +957,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
         <b class="mg-c-input__readonly-value">
           non
         </b>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-toggle">
             mg-input-toggle label
@@ -988,7 +988,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
         <span class="mg-c-input__input-group">
           <slot></slot>
         </span>
-        <mg-input-title identifier="fieldset" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="fieldset" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="fieldset-title">
             legend
@@ -1009,7 +1009,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
               </div>
             </div>
           </template>
-          <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="true" required="false" slot="label">
+          <mg-input-title identifier="mg-input-radio" slot="label">
             <!---->
             <span class="mg-c-input-title" id="mg-input-radio-title">
               mg-input-radio label
@@ -1031,7 +1031,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
               </div>
             </div>
           </template>
-          <mg-input-title identifier="mg-input-text" is-legend="false" readonly="true" required="false" slot="label">
+          <mg-input-title identifier="mg-input-text" slot="label">
             <!---->
             <span class="mg-c-input-title" htmlfor="mg-input-text">
               mg-input-text label
@@ -1089,7 +1089,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -1148,7 +1148,7 @@ exports[`mg-form Should render with args {
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -1189,7 +1189,7 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -1218,7 +1218,7 @@ exports[`mg-form Should render with args {
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -1258,7 +1258,7 @@ exports[`mg-form Should render with args {
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -1311,7 +1311,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -1355,7 +1355,7 @@ exports[`mg-form Should render with args {
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -1390,7 +1390,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -1422,7 +1422,7 @@ exports[`mg-form Should render with args {
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -1452,7 +1452,7 @@ exports[`mg-form Should render with args {
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -1492,7 +1492,7 @@ exports[`mg-form Should render with args {
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -1527,7 +1527,7 @@ exports[`mg-form Should render with args {
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -1590,7 +1590,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -1649,7 +1649,7 @@ exports[`mg-form Should render with args {
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -1690,7 +1690,7 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -1714,7 +1714,7 @@ exports[`mg-form Should render with args {
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -1749,7 +1749,7 @@ exports[`mg-form Should render with args {
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -1797,7 +1797,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -1836,7 +1836,7 @@ exports[`mg-form Should render with args {
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -1866,7 +1866,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -1893,7 +1893,7 @@ exports[`mg-form Should render with args {
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -1918,7 +1918,7 @@ exports[`mg-form Should render with args {
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -1953,7 +1953,7 @@ exports[`mg-form Should render with args {
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -1983,7 +1983,7 @@ exports[`mg-form Should render with args {
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -2046,7 +2046,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -2105,7 +2105,7 @@ exports[`mg-form Should render with args {
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -2141,7 +2141,7 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -2165,7 +2165,7 @@ exports[`mg-form Should render with args {
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -2200,7 +2200,7 @@ exports[`mg-form Should render with args {
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -2248,7 +2248,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -2287,7 +2287,7 @@ exports[`mg-form Should render with args {
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -2317,7 +2317,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -2344,7 +2344,7 @@ exports[`mg-form Should render with args {
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -2369,7 +2369,7 @@ exports[`mg-form Should render with args {
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -2404,7 +2404,7 @@ exports[`mg-form Should render with args {
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -2434,7 +2434,7 @@ exports[`mg-form Should render with args {
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -2497,7 +2497,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -2559,7 +2559,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -2613,7 +2613,7 @@ exports[`mg-form Should render with args {
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -2649,7 +2649,7 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -2673,7 +2673,7 @@ exports[`mg-form Should render with args {
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -2708,7 +2708,7 @@ exports[`mg-form Should render with args {
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -2756,7 +2756,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -2795,7 +2795,7 @@ exports[`mg-form Should render with args {
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -2825,7 +2825,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -2852,7 +2852,7 @@ exports[`mg-form Should render with args {
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -2877,7 +2877,7 @@ exports[`mg-form Should render with args {
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -2912,7 +2912,7 @@ exports[`mg-form Should render with args {
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -2942,7 +2942,7 @@ exports[`mg-form Should render with args {
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -2998,7 +2998,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -3057,7 +3057,7 @@ exports[`mg-form Should render with args {
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -3098,7 +3098,7 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -3127,7 +3127,7 @@ exports[`mg-form Should render with args {
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -3167,7 +3167,7 @@ exports[`mg-form Should render with args {
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -3220,7 +3220,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -3264,7 +3264,7 @@ exports[`mg-form Should render with args {
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -3299,7 +3299,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -3331,7 +3331,7 @@ exports[`mg-form Should render with args {
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -3361,7 +3361,7 @@ exports[`mg-form Should render with args {
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -3401,7 +3401,7 @@ exports[`mg-form Should render with args {
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -3436,7 +3436,7 @@ exports[`mg-form Should render with args {
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -3492,7 +3492,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -3551,7 +3551,7 @@ exports[`mg-form Should render with args {
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -3592,7 +3592,7 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -3616,7 +3616,7 @@ exports[`mg-form Should render with args {
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -3651,7 +3651,7 @@ exports[`mg-form Should render with args {
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -3699,7 +3699,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -3738,7 +3738,7 @@ exports[`mg-form Should render with args {
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -3768,7 +3768,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -3795,7 +3795,7 @@ exports[`mg-form Should render with args {
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -3820,7 +3820,7 @@ exports[`mg-form Should render with args {
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -3855,7 +3855,7 @@ exports[`mg-form Should render with args {
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -3885,7 +3885,7 @@ exports[`mg-form Should render with args {
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -3941,7 +3941,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -4000,7 +4000,7 @@ exports[`mg-form Should render with args {
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -4036,7 +4036,7 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -4060,7 +4060,7 @@ exports[`mg-form Should render with args {
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -4095,7 +4095,7 @@ exports[`mg-form Should render with args {
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -4143,7 +4143,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -4182,7 +4182,7 @@ exports[`mg-form Should render with args {
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -4212,7 +4212,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -4239,7 +4239,7 @@ exports[`mg-form Should render with args {
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -4264,7 +4264,7 @@ exports[`mg-form Should render with args {
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -4299,7 +4299,7 @@ exports[`mg-form Should render with args {
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -4329,7 +4329,7 @@ exports[`mg-form Should render with args {
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -4385,7 +4385,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -4440,7 +4440,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -4494,7 +4494,7 @@ exports[`mg-form Should render with args {
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -4530,7 +4530,7 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -4554,7 +4554,7 @@ exports[`mg-form Should render with args {
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -4589,7 +4589,7 @@ exports[`mg-form Should render with args {
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -4637,7 +4637,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -4676,7 +4676,7 @@ exports[`mg-form Should render with args {
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -4706,7 +4706,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -4733,7 +4733,7 @@ exports[`mg-form Should render with args {
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -4758,7 +4758,7 @@ exports[`mg-form Should render with args {
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -4793,7 +4793,7 @@ exports[`mg-form Should render with args {
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -4823,7 +4823,7 @@ exports[`mg-form Should render with args {
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -4882,7 +4882,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -4941,7 +4941,7 @@ exports[`mg-form Should render with args {
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -4982,7 +4982,7 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -5011,7 +5011,7 @@ exports[`mg-form Should render with args {
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -5051,7 +5051,7 @@ exports[`mg-form Should render with args {
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -5104,7 +5104,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -5148,7 +5148,7 @@ exports[`mg-form Should render with args {
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -5183,7 +5183,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -5215,7 +5215,7 @@ exports[`mg-form Should render with args {
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -5245,7 +5245,7 @@ exports[`mg-form Should render with args {
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -5285,7 +5285,7 @@ exports[`mg-form Should render with args {
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -5320,7 +5320,7 @@ exports[`mg-form Should render with args {
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -5383,7 +5383,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -5442,7 +5442,7 @@ exports[`mg-form Should render with args {
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -5483,7 +5483,7 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -5507,7 +5507,7 @@ exports[`mg-form Should render with args {
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -5542,7 +5542,7 @@ exports[`mg-form Should render with args {
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -5590,7 +5590,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -5629,7 +5629,7 @@ exports[`mg-form Should render with args {
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -5659,7 +5659,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -5686,7 +5686,7 @@ exports[`mg-form Should render with args {
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -5711,7 +5711,7 @@ exports[`mg-form Should render with args {
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -5746,7 +5746,7 @@ exports[`mg-form Should render with args {
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -5776,7 +5776,7 @@ exports[`mg-form Should render with args {
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -5839,7 +5839,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -5898,7 +5898,7 @@ exports[`mg-form Should render with args {
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -5934,7 +5934,7 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -5958,7 +5958,7 @@ exports[`mg-form Should render with args {
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -5993,7 +5993,7 @@ exports[`mg-form Should render with args {
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -6041,7 +6041,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -6080,7 +6080,7 @@ exports[`mg-form Should render with args {
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -6110,7 +6110,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -6137,7 +6137,7 @@ exports[`mg-form Should render with args {
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -6162,7 +6162,7 @@ exports[`mg-form Should render with args {
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -6197,7 +6197,7 @@ exports[`mg-form Should render with args {
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -6227,7 +6227,7 @@ exports[`mg-form Should render with args {
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -6286,7 +6286,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -6341,7 +6341,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -6395,7 +6395,7 @@ exports[`mg-form Should render with args {
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -6431,7 +6431,7 @@ exports[`mg-form Should render with args {
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -6455,7 +6455,7 @@ exports[`mg-form Should render with args {
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -6490,7 +6490,7 @@ exports[`mg-form Should render with args {
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -6538,7 +6538,7 @@ exports[`mg-form Should render with args {
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -6577,7 +6577,7 @@ exports[`mg-form Should render with args {
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -6607,7 +6607,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -6634,7 +6634,7 @@ exports[`mg-form Should render with args {
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -6659,7 +6659,7 @@ exports[`mg-form Should render with args {
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -6694,7 +6694,7 @@ exports[`mg-form Should render with args {
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -6724,7 +6724,7 @@ exports[`mg-form Should render with args {
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -6777,7 +6777,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -6831,7 +6831,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -6867,7 +6867,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -6891,7 +6891,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -6926,7 +6926,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -6974,7 +6974,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -7013,7 +7013,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -7043,7 +7043,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -7070,7 +7070,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -7095,7 +7095,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -7130,7 +7130,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -7160,7 +7160,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -7202,7 +7202,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         <b class="mg-c-input__readonly-value">
           oui
         </b>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <span class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -7224,7 +7224,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-select">
             mg-input-select label
@@ -7246,7 +7246,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-date">
             mg-input-date label
@@ -7268,7 +7268,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-numeric">
             mg-input-numeric label
@@ -7290,7 +7290,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-password">
             mg-input-password label
@@ -7312,7 +7312,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <span class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -7334,7 +7334,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-select">
             mg-input-select label
@@ -7357,7 +7357,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
           </div>
         </template>
         <div class="mg-c-input__readonly-value"></div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -7379,7 +7379,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-text">
             mg-input-text label
@@ -7401,7 +7401,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-textarea">
             mg-input-textarea label
@@ -7436,7 +7436,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -7461,7 +7461,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         <b class="mg-c-input__readonly-value">
           non
         </b>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-toggle">
             mg-input-toggle label
@@ -7513,7 +7513,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -7567,7 +7567,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -7603,7 +7603,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -7627,7 +7627,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" disabled="" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -7662,7 +7662,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -7710,7 +7710,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -7749,7 +7749,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -7779,7 +7779,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -7806,7 +7806,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -7831,7 +7831,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -7866,7 +7866,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -7896,7 +7896,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -7949,7 +7949,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -8003,7 +8003,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -8039,7 +8039,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -8063,7 +8063,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -8098,7 +8098,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -8146,7 +8146,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -8185,7 +8185,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -8215,7 +8215,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -8242,7 +8242,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -8267,7 +8267,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -8302,7 +8302,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -8332,7 +8332,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -8373,7 +8373,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
         <b class="mg-c-input__readonly-value">
           oui
         </b>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <span class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -8395,7 +8395,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-select">
             mg-input-select label
@@ -8417,7 +8417,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-date">
             mg-input-date label
@@ -8439,7 +8439,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-numeric">
             mg-input-numeric label
@@ -8461,7 +8461,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-password">
             mg-input-password label
@@ -8483,7 +8483,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <span class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -8505,7 +8505,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-select">
             mg-input-select label
@@ -8528,7 +8528,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
           </div>
         </template>
         <div class="mg-c-input__readonly-value"></div>
-        <mg-input-title identifier="mg-input-rich-text-editor" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -8550,7 +8550,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-text">
             mg-input-text label
@@ -8572,7 +8572,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-textarea">
             mg-input-textarea label
@@ -8607,7 +8607,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -8632,7 +8632,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
         <b class="mg-c-input__readonly-value">
           non
         </b>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-toggle">
             mg-input-toggle label
@@ -8685,7 +8685,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -8739,7 +8739,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -8775,7 +8775,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -8799,7 +8799,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -8834,7 +8834,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -8882,7 +8882,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -8921,7 +8921,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -8951,7 +8951,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -8978,7 +8978,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -9003,7 +9003,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -9038,7 +9038,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -9068,7 +9068,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -9121,7 +9121,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -9175,7 +9175,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -9211,7 +9211,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -9235,7 +9235,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -9270,7 +9270,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -9318,7 +9318,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -9357,7 +9357,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -9387,7 +9387,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -9414,7 +9414,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -9439,7 +9439,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -9474,7 +9474,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -9504,7 +9504,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -9557,7 +9557,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -9611,7 +9611,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -9647,7 +9647,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -9671,7 +9671,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -9706,7 +9706,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -9754,7 +9754,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -9793,7 +9793,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -9823,7 +9823,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -9850,7 +9850,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -9875,7 +9875,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -9910,7 +9910,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -9940,7 +9940,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -9993,7 +9993,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -10047,7 +10047,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -10083,7 +10083,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -10107,7 +10107,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -10142,7 +10142,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -10190,7 +10190,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -10229,7 +10229,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -10259,7 +10259,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -10286,7 +10286,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -10311,7 +10311,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -10346,7 +10346,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -10376,7 +10376,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -10429,7 +10429,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -10483,7 +10483,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -10519,7 +10519,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -10543,7 +10543,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -10578,7 +10578,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -10626,7 +10626,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -10665,7 +10665,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -10695,7 +10695,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -10722,7 +10722,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -10747,7 +10747,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -10782,7 +10782,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -10812,7 +10812,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -10865,7 +10865,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -10919,7 +10919,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </ul>
           </div>
         </mg-popover>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -10955,7 +10955,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
           </span>
           (ex: 12/24/2025)
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -10979,7 +10979,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
         </template>
         <input aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" type="text">
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -11014,7 +11014,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -11062,7 +11062,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -11101,7 +11101,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             blo
           </option>
         </select>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -11131,7 +11131,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </div>
           </div>
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -11158,7 +11158,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -11183,7 +11183,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -11218,7 +11218,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -11248,7 +11248,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -11310,7 +11310,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div id="mg-input-checkbox-error" slot="error">
           Ce champ est obligatoire.
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -11375,7 +11375,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div id="mg-input-select-error" slot="error">
           Ce champ est obligatoire.
         </div>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -11422,7 +11422,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div id="mg-input-date-error" slot="error">
           Ce champ est obligatoire.
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -11457,7 +11457,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div id="mg-input-numeric-error" slot="error">
           Ce champ est obligatoire.
         </div>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -11503,7 +11503,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div id="mg-input-password-error" slot="error">
           Ce champ est obligatoire.
         </div>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -11562,7 +11562,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div id="mg-input-radio-error" slot="error">
           Ce champ est obligatoire.
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -11612,7 +11612,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div id="mg-input-select-error" slot="error">
           Ce champ est obligatoire.
         </div>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -11653,7 +11653,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div id="mg-input-rich-text-editor-error" slot="error">
           Ce champ est obligatoire.
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -11691,7 +11691,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div id="mg-input-text-error" slot="error">
           Ce champ est obligatoire.
         </div>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -11727,7 +11727,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div id="mg-input-textarea-error" slot="error">
           Ce champ est obligatoire.
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -11773,7 +11773,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div id="mg-input-file-error" slot="error">
           Ce champ est obligatoire.
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -11808,7 +11808,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label
@@ -11870,7 +11870,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div id="mg-input-checkbox-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
             mg-input-checkbox label
@@ -11935,7 +11935,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div id="mg-input-select-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -11982,7 +11982,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div id="mg-input-date-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
             mg-input-date label
@@ -12017,7 +12017,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div id="mg-input-numeric-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
             mg-input-numeric label
@@ -12063,7 +12063,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div id="mg-input-password-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
             mg-input-password label
@@ -12122,7 +12122,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div id="mg-input-radio-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -12172,7 +12172,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div id="mg-input-select-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
             mg-input-select label
@@ -12213,7 +12213,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div id="mg-input-rich-text-editor-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
             mg-input-rich-text-editor label
@@ -12251,7 +12251,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div id="mg-input-text-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -12287,7 +12287,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div id="mg-input-textarea-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
             mg-input-textarea label
@@ -12333,7 +12333,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div id="mg-input-file-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -12368,7 +12368,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
             <slot name="item-2"></slot>
           </span>
         </button>
-        <mg-input-title identifier="mg-input-toggle" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-toggle" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-toggle">
             mg-input-toggle label

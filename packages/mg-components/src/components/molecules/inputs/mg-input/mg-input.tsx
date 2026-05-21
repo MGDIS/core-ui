@@ -1,5 +1,6 @@
 import { Component, h, Prop, Element, Watch, Host, State } from '@stencil/core';
-import { isValideID, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { isValidString, isValideID, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, classDisabled, classVerticalList, labelHeadings, labelHeading } from './mg-input.conf';
 
 /**
@@ -313,15 +314,13 @@ export class MgInput {
 
     // create title element
     labelSlotElement = document.createElement('mg-input-title');
-    [
-      ['slot', this.slotLabel],
-      ['identifier', this.identifier],
-      ['readonly', this.isReadonly.toString()],
-      ['required', ((this.required && !this.isDisabled) || false).toString()],
-      ['is-legend', this.isFieldset.toString()],
-    ].forEach(([attr, val]) => {
-      labelSlotElement.setAttribute(attr, val);
-    });
+    labelSlotElement.setAttribute('slot', this.slotLabel);
+    labelSlotElement.setAttribute('identifier', this.identifier);
+    // Set boolean props via property assignment to honour HTML attribute-presence semantics: an
+    // attribute set to "false" would now be normalized to `true` by mg-input-title's helper.
+    labelSlotElement.readonly = this.isReadonly;
+    labelSlotElement.required = (this.required && !this.isDisabled) || false;
+    labelSlotElement.isLegend = this.isFieldset;
 
     // create label element
     if (labelHeadings.includes(this.labelHeading)) {
@@ -377,6 +376,7 @@ export class MgInput {
    * Check if component props are well configured on init
    */
   componentWillLoad(): void {
+    normalizeBooleanAttributes(this);
     this.watchIdentifier(this.identifier);
     this.watchLabel();
     this.watchClass();

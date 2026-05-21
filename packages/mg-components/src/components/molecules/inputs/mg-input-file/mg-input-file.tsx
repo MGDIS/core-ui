@@ -1,5 +1,6 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
-import { allItemsAreString, ClassList, isObject, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { ClassList, allItemsAreString, isObject, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { localeByte } from '@mgdis/core-ui-helpers/dist/locale';
 import { type TooltipPosition, type EventType, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
@@ -432,6 +433,7 @@ export class MgInputFile {
     const locales = initLocales(this.element);
     this.locale = locales.locale;
     this.messages = locales.messages;
+    normalizeBooleanAttributes(this);
     // Validate
     this.watchValue(this.value);
     this.watchDisabled(this.disabled);

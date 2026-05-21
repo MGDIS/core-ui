@@ -1,5 +1,6 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
-import { ClassList, isValidString, dateRegExp, dateToString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { ClassList, dateRegExp, dateToString, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { localeDate, localeDatePattern } from '@mgdis/core-ui-helpers/dist/locale';
 import { type InputDateError, DEFAULT_MAX_DATE } from './mg-input-date.conf';
 import { type EventType, classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
@@ -448,6 +449,8 @@ export class MgInputDate {
     // as a native input use the OS locale to define the date pattern
     // we need to get this locale to define the displayed pattern
     this.systemLocale = Intl.DateTimeFormat().resolvedOptions().locale;
+
+    normalizeBooleanAttributes(this);
 
     // Validate
     this.validateValue(this.value);
