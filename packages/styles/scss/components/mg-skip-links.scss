@@ -29,7 +29,7 @@
     color: var(--mg-b-color-dark);
 
     &:hover {
-      background: hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 10%);
+      background: color-mix(in srgb, var(--mg-b-color-dark), transparent 90%);
     }
   }
 }

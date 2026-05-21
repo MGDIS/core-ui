@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
-import { ClassList } from '@mgdis/core-ui-helpers/dist/utils';
+import { ClassList, toString } from '@mgdis/core-ui-helpers/dist/utils';
 import { radiusSizes, RadiusSizeType } from './mg-card.conf';
 
 /**
@@ -27,13 +27,20 @@ export class MgCard {
   /**
    * Define the border radius size
    */
-  @Prop() radiusSize: RadiusSizeType = 'medium';
+  @Prop({ mutable: true }) radiusSize: RadiusSizeType = 'medium';
   @Watch('radiusSize')
   watchRadiusSize(newValue: MgCard['radiusSize'], oldValue?: MgCard['radiusSize']): void {
-    if (oldValue !== undefined && radiusSizes.includes(oldValue)) {
-      this.classCollection.delete(`mg-c-card--radius-${oldValue}`);
-    }
-    if (radiusSizes.includes(newValue)) {
+    if (!radiusSizes.includes(newValue)) {
+      if (String(newValue) === '') {
+        // Reactive frameworks (e.g. Vue) may pass "" instead of undefined when the prop is reset.
+        this.radiusSize = 'medium';
+        return;
+      }
+      throw new Error(`<mg-card> prop "radiusSize" must be one of: ${radiusSizes.join(', ')}. Passed value: ${toString(newValue)}.`);
+    } else {
+      if (oldValue !== undefined) {
+        this.classCollection.delete(`mg-c-card--radius-${oldValue}`);
+      }
       this.classCollection.add(`mg-c-card--radius-${newValue}`);
     }
   }

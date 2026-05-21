@@ -59,13 +59,20 @@ describe('mg-badge', () => {
       }
     });
 
-    test.each(['', 'Batman'])('Should throw error, case invalid variant prop', async variant => {
+    test.each([' ', 'Batman'])('Should throw error, case invalid variant prop', async variant => {
       expect.assertions(1);
       try {
         await getPage({ variant, value: 1, label: 'Batman' });
       } catch (err) {
         expect(err.message).toEqual(`<mg-badge> prop "variant" must be one of: ${variants.join(', ')}. Passed value: ${variant}.`);
       }
+    });
+
+    test('Should reset variant to default when receiving "" (Vue reactivity reset)', async () => {
+      const page = await getPage({ variant: 'success', value: 1, label: 'Batman' });
+      page.root.variant = '' as never;
+      await page.waitForChanges();
+      expect(page.root.variant).toBe('info');
     });
 
     test.each(['', 'Batman', 'BATMAN', 'batman', 'Batman+', 'Batman!'])('Should throw error, case invalid value prop %s', async value => {

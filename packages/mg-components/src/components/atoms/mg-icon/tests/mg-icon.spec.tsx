@@ -92,7 +92,7 @@ describe('mg-icon', () => {
 
   describe('errors', () => {
     const iconError = ['', 'blu', undefined].map(icon => ({ props: { icon }, error: `<mg-icon> prop "icon" must be one of: ${iconList.join(', ')}. Passed value: ${icon}.` }));
-    const sizeError = ['', 'blu'].map(size => ({
+    const sizeError = ['blu'].map(size => ({
       props: { icon: 'check-circle', size },
       error: `<mg-icon> prop "size" must be one of: ${sizes.join(', ')}. Passed value: ${size}.`,
     }));
@@ -109,6 +109,13 @@ describe('mg-icon', () => {
       } catch (err) {
         expect(err.message).toEqual(error);
       }
+    });
+
+    test.each([null, ''])('Should reset size to default when receiving %s (attribute removal / Vue reactivity reset)', async size => {
+      const page = await getPage({ icon: 'check-circle', size: 'large' });
+      page.root.size = size as never;
+      await page.waitForChanges();
+      expect(page.root.size).toBe('medium');
     });
   });
 });

@@ -89,9 +89,14 @@ export class MgPanel {
   /**
    * Define title position
    */
-  @Prop() titlePosition: TitlePositionType = 'left';
+  @Prop({ mutable: true }) titlePosition: TitlePositionType = 'left';
   @Watch('titlePosition')
   validateTitlePosition(newValue: MgPanel['titlePosition']) {
+    if (String(newValue) === '') {
+      // Reactive frameworks (e.g. Vue) may pass "" instead of undefined when the prop is reset.
+      this.titlePosition = 'left';
+      return;
+    }
     if (!titlePositions.includes(newValue)) throw new Error(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}. Passed value: ${toString(newValue)}.`);
   }
 
@@ -107,9 +112,14 @@ export class MgPanel {
   /**
    * Define expand toggle button display
    */
-  @Prop() expandToggleDisplay: ExpandToggleDisplayType = 'text';
+  @Prop({ mutable: true }) expandToggleDisplay: ExpandToggleDisplayType = 'text';
   @Watch('expandToggleDisplay')
   validateExpandToggleDisplay(newValue: MgPanel['expandToggleDisplay']) {
+    if (String(newValue) === '') {
+      // Reactive frameworks (e.g. Vue) may pass "" instead of undefined when the prop is reset.
+      this.expandToggleDisplay = 'text';
+      return;
+    }
     if (!expandToggleDisplays.includes(newValue))
       throw new Error(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}. Passed value: ${toString(newValue)}.`);
     if (newValue === 'icon' && this.titleEditable) this.titleEditable = false;

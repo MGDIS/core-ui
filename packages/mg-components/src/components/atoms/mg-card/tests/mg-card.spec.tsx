@@ -37,4 +37,20 @@ describe('mg-card', () => {
     expect(card.classList.contains('mg-c-card--radius-xsmall')).toBe(false);
     expect(card.classList.contains('mg-c-card--radius-small')).toBe(true);
   });
+
+  test.each([' ', 'batman'])('Should throw error with invalid radiusSize: %s', async radiusSize => {
+    expect.assertions(1);
+    try {
+      await getPage({ radiusSize }, 'invalid radius');
+    } catch (err) {
+      expect(err.message).toEqual(`<mg-card> prop "radiusSize" must be one of: ${radiusSizes.join(', ')}. Passed value: ${radiusSize}.`);
+    }
+  });
+
+  test('Should reset radiusSize to default when receiving "" (Vue reactivity reset)', async () => {
+    const page = await getPage({ radiusSize: 'small' }, 'reset radius');
+    page.root.radiusSize = '' as never;
+    await page.waitForChanges();
+    expect(page.root.radiusSize).toBe('medium');
+  });
 });
