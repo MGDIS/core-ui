@@ -1,18 +1,19 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import {
-  allItemsAreString,
   ClassList,
-  getObjectValueFromKey,
-  isValidString,
-  nextTick,
+  Cursor,
   Page,
   Paginate,
-  Cursor,
-  type CursorType,
-  toString,
-  isObject,
+  allItemsAreString,
   formatID,
+  getObjectValueFromKey,
+  isObject,
+  isValidString,
+  nextTick,
+  toString,
+  type CursorType,
 } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { type ActionType, type RequestMappingType, type ResponseMappingType } from './mg-input-combobox.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import type { Option } from '../../../../types';
@@ -950,6 +951,7 @@ export class MgInputCombobox {
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
     this.messages = initLocales(this.element).messages;
+    normalizeBooleanAttributes(this);
     // Validate
     this.watchIdentifier(this.identifier);
     this.watchItems(this.items);

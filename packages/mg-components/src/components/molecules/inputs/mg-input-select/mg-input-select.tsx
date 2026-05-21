@@ -1,5 +1,6 @@
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
 import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
@@ -472,6 +473,7 @@ export class MgInputSelect {
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
     this.messages = initLocales(this.element).messages;
+    normalizeBooleanAttributes(this);
     // Validate
     this.validateItems(this.items);
     this.validateValue(this.value);

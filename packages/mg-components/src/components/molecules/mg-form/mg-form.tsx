@@ -1,5 +1,6 @@
 import { Component, Element, Event, EventEmitter, h, Method, Prop, State, Watch } from '@stencil/core';
-import { createID, ClassList, toString, isValideID } from '@mgdis/core-ui-helpers/dist/utils';
+import { ClassList, createID, isValideID, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { initLocales } from '../../../locales';
 import { HTMLMgInputsElement, isMgInputFile } from '../inputs/mg-input/mg-input.conf';
 import { AriaRoleType, requiredMessageStatus, RequiredMessageStatusType, roles } from './mg-form.conf';
@@ -294,6 +295,7 @@ export class MgForm {
   componentWillLoad(): void {
     // Get locales
     this.messages = initLocales(this.element).messages;
+    normalizeBooleanAttributes(this);
 
     this.watchIdentifier(this.identifier);
     this.validateAriaRole(this.ariaRole);

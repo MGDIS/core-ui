@@ -1,6 +1,7 @@
 import { Component, Element, h, Prop, State, Watch, Host, EventEmitter, Event } from '@stencil/core';
 import { variants, VariantType, ButtonType, SizeType, sizes } from './mg-button.conf';
 import { ClassList, isValidString, nextTick, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { Keys } from '../../../utils/events.utils';
 
 /**
@@ -226,6 +227,7 @@ export class MgButton {
    * Check if props are well configured on init
    */
   componentWillLoad(): void {
+    normalizeBooleanAttributes(this);
     this.validateVariant(this.variant);
     this.validateFullWidth(this.fullWidth);
     this.validateSize(this.size);

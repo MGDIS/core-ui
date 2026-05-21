@@ -1,5 +1,6 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { ClassList, createID, isValideID, isValidString, nextTick, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { ClassList, createID, isValidString, isValideID, nextTick, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { initLocales } from '../../../../locales';
 import { directions } from '../mg-menu/mg-menu.conf';
 import { type MgMenuStatusType, Status, targets, type TargetType } from './mg-menu-item.conf';
@@ -372,6 +373,7 @@ export class MgMenuItem {
    * Validate props
    */
   componentWillLoad(): void {
+    normalizeBooleanAttributes(this);
     // has children items that is NOT [slot='image' | 'information' | 'label' | 'metadata'] element
     // we store only matching elements
     this.hasChildren = Array.from(this.element.children).some(child => !['image', 'information', 'label', 'metadata'].includes(child.getAttribute('slot')));

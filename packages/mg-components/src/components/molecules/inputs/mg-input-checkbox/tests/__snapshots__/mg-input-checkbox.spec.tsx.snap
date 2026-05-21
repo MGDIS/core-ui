@@ -34,7 +34,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -133,7 +133,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -205,7 +205,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -342,7 +342,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -447,7 +447,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -486,7 +486,7 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -558,7 +558,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -695,7 +695,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -767,7 +767,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="2">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -816,7 +816,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -888,7 +888,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="11">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -919,7 +919,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -991,7 +991,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="111">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -1014,7 +1014,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -1086,7 +1086,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -1223,7 +1223,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -1295,7 +1295,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -1432,7 +1432,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -1504,7 +1504,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -1701,7 +1701,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -1773,7 +1773,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -1965,7 +1965,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -2037,7 +2037,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="item">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -2133,7 +2133,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -2205,7 +2205,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="item">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -2361,7 +2361,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -2433,7 +2433,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="item">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -2584,7 +2584,7 @@ exports[`mg-input-checkbox multi search Should load-more items when button is cl
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -2656,7 +2656,7 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -2807,7 +2807,7 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
           2 selected values
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -2879,7 +2879,7 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -3030,7 +3030,7 @@ exports[`mg-input-checkbox multi search Should not update disabled values on mas
           19 selected values
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -3102,7 +3102,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -3239,7 +3239,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -3311,7 +3311,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -3448,7 +3448,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -3520,7 +3520,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -3717,7 +3717,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -3789,7 +3789,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -3926,7 +3926,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -3998,7 +3998,7 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -4135,7 +4135,7 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -4207,7 +4207,7 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="2">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -4256,7 +4256,7 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -4328,7 +4328,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -4485,7 +4485,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -4557,7 +4557,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 1`] = 
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -4694,7 +4694,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 1`] = 
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -4766,7 +4766,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 2`] = 
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="2">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -4815,7 +4815,7 @@ exports[`mg-input-checkbox multi search Should select all filtered values 2`] = 
           4 selected values
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -4887,7 +4887,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -5024,7 +5024,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -5096,7 +5096,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -5233,7 +5233,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -5305,7 +5305,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -5442,7 +5442,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
           21 selected values
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -5514,7 +5514,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -5651,7 +5651,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -5705,7 +5705,7 @@ exports[`mg-input-checkbox navigation Should NOT manage keyboard "tab" navigatio
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -5759,7 +5759,7 @@ exports[`mg-input-checkbox navigation Should NOT manage keyboard "tab" navigatio
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -5813,7 +5813,7 @@ exports[`mg-input-checkbox navigation Should render error when uncheck from labe
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -5878,7 +5878,7 @@ exports[`mg-input-checkbox navigation Should render error when uncheck from labe
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -5943,7 +5943,7 @@ exports[`mg-input-checkbox navigation Should render error when uncheck from labe
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -5999,7 +5999,7 @@ exports[`mg-input-checkbox prop: disabled Should update inputs with props update
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -6050,7 +6050,7 @@ exports[`mg-input-checkbox prop: disabled Should update inputs with props update
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -6101,7 +6101,7 @@ exports[`mg-input-checkbox prop: disabled Should update inputs with props update
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -6152,7 +6152,7 @@ exports[`mg-input-checkbox prop: readonly Should update inputs with props update
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -6180,7 +6180,7 @@ exports[`mg-input-checkbox prop: readonly Should update inputs with props update
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -6231,7 +6231,7 @@ exports[`mg-input-checkbox prop: readonly Should update inputs with props update
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -6282,7 +6282,7 @@ exports[`mg-input-checkbox prop: required Should update inputs with props update
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -6333,7 +6333,7 @@ exports[`mg-input-checkbox prop: required Should update inputs with props update
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -6389,7 +6389,7 @@ exports[`mg-input-checkbox prop: required Should update inputs with props update
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -6446,7 +6446,7 @@ exports[`mg-input-checkbox render by type checkbox Should display error message 
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -6514,7 +6514,7 @@ exports[`mg-input-checkbox render by type checkbox Should display error message 
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -6576,7 +6576,7 @@ exports[`mg-input-checkbox render by type checkbox Should display override error
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -6644,7 +6644,7 @@ exports[`mg-input-checkbox render by type checkbox Should display override error
       <div id="identifier-error" slot="error">
         Override error
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -6712,7 +6712,7 @@ exports[`mg-input-checkbox render by type checkbox Should display override error
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -6774,7 +6774,7 @@ exports[`mg-input-checkbox render by type checkbox Should display override error
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -6842,7 +6842,7 @@ exports[`mg-input-checkbox render by type checkbox Should display override error
       <div id="identifier-error" slot="error">
         Override error
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -6910,7 +6910,7 @@ exports[`mg-input-checkbox render by type checkbox Should display override error
       <div id="identifier-error" slot="error">
         Override error
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -6972,7 +6972,7 @@ exports[`mg-input-checkbox render by type checkbox Should display override error
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -7034,7 +7034,7 @@ exports[`mg-input-checkbox render by type checkbox Should display override error
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -7102,7 +7102,7 @@ exports[`mg-input-checkbox render by type checkbox Should display override error
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -7164,7 +7164,7 @@ exports[`mg-input-checkbox render by type checkbox Should display override error
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -7226,7 +7226,7 @@ exports[`mg-input-checkbox render by type checkbox Should display override error
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -7294,7 +7294,7 @@ exports[`mg-input-checkbox render by type checkbox Should display override error
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -7392,7 +7392,7 @@ exports[`mg-input-checkbox render by type checkbox Should enable "displaySearchI
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -7455,7 +7455,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component error
       <div id="identifier-error" slot="error">
         Ce champ est obligatoire.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -7523,7 +7523,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component error
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -7600,7 +7600,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Saisissez une valeur" title="Saisissez une valeur" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Saisissez une valeur
@@ -7822,7 +7822,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
           11 valeurs sélectionnées
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -7874,7 +7874,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
           </b>
         </li>
       </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -7911,7 +7911,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -7948,7 +7948,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -7985,7 +7985,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
       <b class="mg-c-input__readonly-value">
         batman, robin, joker, bane
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -8048,7 +8048,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
       <div id="identifier-help-text" slot="help-text">
         Hello joker
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -8082,7 +8082,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -8140,7 +8140,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8200,7 +8200,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8259,7 +8259,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8310,7 +8310,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args { val
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8361,7 +8361,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args { val
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8418,7 +8418,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args { val
       <div id="identifier-help-text" slot="help-text">
         Hello joker
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -8469,7 +8469,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args { val
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8520,7 +8520,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args { val
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8571,7 +8571,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args { val
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8599,7 +8599,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args { val
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -8627,7 +8627,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args { val
       <b class="mg-c-input__readonly-value">
         batman, robin, joker, bane
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -8678,7 +8678,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args { val
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8726,7 +8726,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with custom loc
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8765,7 +8765,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with custom loc
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8804,7 +8804,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with custom loc
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8855,7 +8855,7 @@ exports[`mg-input-checkbox render by type checkbox Should trigger events, case v
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8917,7 +8917,7 @@ exports[`mg-input-checkbox render by type checkbox Should trigger events, case v
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -8973,7 +8973,7 @@ exports[`mg-input-checkbox render by type checkbox Should trigger events, case v
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -9029,7 +9029,7 @@ exports[`mg-input-checkbox render by type checkbox Should trigger events, case v
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -9091,7 +9091,7 @@ exports[`mg-input-checkbox render by type checkbox display error with displayErr
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -9159,7 +9159,7 @@ exports[`mg-input-checkbox render by type checkbox display error with displayErr
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -9227,7 +9227,7 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -9292,7 +9292,7 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -9355,7 +9355,7 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -9386,7 +9386,7 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
         </div>
       </template>
       <b class="mg-c-input__readonly-value"></b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -9479,7 +9479,7 @@ exports[`mg-input-checkbox render by type multi Should display error message on 
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -9583,7 +9583,7 @@ exports[`mg-input-checkbox render by type multi Should display error message on 
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -9681,7 +9681,7 @@ exports[`mg-input-checkbox render by type multi Should display override error wi
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -9785,7 +9785,7 @@ exports[`mg-input-checkbox render by type multi Should display override error wi
       <div id="identifier-error" slot="error">
         Override error
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -9889,7 +9889,7 @@ exports[`mg-input-checkbox render by type multi Should display override error wi
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -9987,7 +9987,7 @@ exports[`mg-input-checkbox render by type multi Should display override error wi
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -10091,7 +10091,7 @@ exports[`mg-input-checkbox render by type multi Should display override error wi
       <div id="identifier-error" slot="error">
         Override error
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -10195,7 +10195,7 @@ exports[`mg-input-checkbox render by type multi Should display override error wi
       <div id="identifier-error" slot="error">
         Override error
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -10293,7 +10293,7 @@ exports[`mg-input-checkbox render by type multi Should display override error wi
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -10391,7 +10391,7 @@ exports[`mg-input-checkbox render by type multi Should display override error wi
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -10495,7 +10495,7 @@ exports[`mg-input-checkbox render by type multi Should display override error wi
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -10593,7 +10593,7 @@ exports[`mg-input-checkbox render by type multi Should display override error wi
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -10691,7 +10691,7 @@ exports[`mg-input-checkbox render by type multi Should display override error wi
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -10795,7 +10795,7 @@ exports[`mg-input-checkbox render by type multi Should display override error wi
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -10872,7 +10872,7 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -11009,7 +11009,7 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -11108,7 +11108,7 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
       <div id="identifier-error" slot="error">
         Ce champ est obligatoire.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -11212,7 +11212,7 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -11289,7 +11289,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Saisissez une valeur" title="Saisissez une valeur" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Saisissez une valeur
@@ -11511,7 +11511,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
           11 valeurs sélectionnées
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -11603,7 +11603,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -11697,7 +11697,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           </li>
         </ul>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -11795,7 +11795,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
       <div id="identifier-help-text" slot="help-text">
         Hello joker
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -11895,7 +11895,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
       <div id="identifier-help-text" slot="help-text">
         Hello joker
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -11928,7 +11928,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -11961,7 +11961,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -12013,7 +12013,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           </b>
         </li>
       </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -12050,7 +12050,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -12087,7 +12087,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -12124,7 +12124,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
       <b class="mg-c-input__readonly-value">
         batman, robin, joker, bane
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -12223,7 +12223,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
       <div id="identifier-help-text" slot="help-text">
         Hello joker
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -12257,7 +12257,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -12351,7 +12351,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -12446,7 +12446,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -12543,7 +12543,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           </li>
         </ul>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -12639,7 +12639,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -12734,7 +12734,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -12821,7 +12821,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -12908,7 +12908,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -13001,7 +13001,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
       <div id="identifier-help-text" slot="help-text">
         Hello joker
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -13088,7 +13088,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -13175,7 +13175,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -13262,7 +13262,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -13290,7 +13290,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -13318,7 +13318,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
       <b class="mg-c-input__readonly-value">
         batman, robin, joker, bane
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -13405,7 +13405,7 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -13489,7 +13489,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -13564,7 +13564,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -13639,7 +13639,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -13726,7 +13726,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -13824,7 +13824,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -13916,7 +13916,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -14008,7 +14008,7 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
           1 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -14106,7 +14106,7 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -14210,7 +14210,7 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -14314,7 +14314,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -14415,7 +14415,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -14514,7 +14514,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -14545,7 +14545,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
         </div>
       </template>
       <b class="mg-c-input__readonly-value"></b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -14602,7 +14602,7 @@ exports[`mg-input-checkbox render by type undefined Should display error message
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -14670,7 +14670,7 @@ exports[`mg-input-checkbox render by type undefined Should display error message
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -14732,7 +14732,7 @@ exports[`mg-input-checkbox render by type undefined Should display override erro
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -14800,7 +14800,7 @@ exports[`mg-input-checkbox render by type undefined Should display override erro
       <div id="identifier-error" slot="error">
         Override error
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -14868,7 +14868,7 @@ exports[`mg-input-checkbox render by type undefined Should display override erro
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -14930,7 +14930,7 @@ exports[`mg-input-checkbox render by type undefined Should display override erro
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -14998,7 +14998,7 @@ exports[`mg-input-checkbox render by type undefined Should display override erro
       <div id="identifier-error" slot="error">
         Override error
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -15066,7 +15066,7 @@ exports[`mg-input-checkbox render by type undefined Should display override erro
       <div id="identifier-error" slot="error">
         Override error
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -15128,7 +15128,7 @@ exports[`mg-input-checkbox render by type undefined Should display override erro
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -15190,7 +15190,7 @@ exports[`mg-input-checkbox render by type undefined Should display override erro
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -15258,7 +15258,7 @@ exports[`mg-input-checkbox render by type undefined Should display override erro
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -15320,7 +15320,7 @@ exports[`mg-input-checkbox render by type undefined Should display override erro
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -15382,7 +15382,7 @@ exports[`mg-input-checkbox render by type undefined Should display override erro
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -15450,7 +15450,7 @@ exports[`mg-input-checkbox render by type undefined Should display override erro
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -15527,7 +15527,7 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Enter a value
@@ -15664,7 +15664,7 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
           0 selected value
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -15727,7 +15727,7 @@ exports[`mg-input-checkbox render by type undefined Should render component erro
       <div id="identifier-error" slot="error">
         Ce champ est obligatoire.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -15795,7 +15795,7 @@ exports[`mg-input-checkbox render by type undefined Should render component erro
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -15872,7 +15872,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                       <input aria-describedby="identifier-input-search-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-input-search" maxlength="400" name="q" placeholder="Saisissez une valeur" title="Saisissez une valeur" type="search" value="">
                     </div>
                     <slot name="append-input"></slot>
-                    <mg-input-title identifier="identifier-input-search" is-legend="false" readonly="false" required="false" slot="label">
+                    <mg-input-title identifier="identifier-input-search" slot="label">
                       <!---->
                       <label class="mg-c-input-title" for="identifier-input-search">
                         Saisissez une valeur
@@ -16094,7 +16094,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
           11 valeurs sélectionnées
         </b>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -16146,7 +16146,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
           </b>
         </li>
       </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -16183,7 +16183,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -16220,7 +16220,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -16257,7 +16257,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
       <b class="mg-c-input__readonly-value">
         batman, robin, joker, bane
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -16320,7 +16320,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
       <div id="identifier-help-text" slot="help-text">
         Hello joker
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -16354,7 +16354,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -16412,7 +16412,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -16472,7 +16472,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -16531,7 +16531,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -16582,7 +16582,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args { va
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -16633,7 +16633,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args { va
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -16690,7 +16690,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args { va
       <div id="identifier-help-text" slot="help-text">
         Hello joker
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -16741,7 +16741,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args { va
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -16792,7 +16792,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args { va
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -16843,7 +16843,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args { va
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -16871,7 +16871,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args { va
       <b class="mg-c-input__readonly-value">
         batman
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -16899,7 +16899,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args { va
       <b class="mg-c-input__readonly-value">
         batman, robin, joker, bane
       </b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -16950,7 +16950,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args { va
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -16998,7 +16998,7 @@ exports[`mg-input-checkbox render by type undefined Should render with custom lo
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17037,7 +17037,7 @@ exports[`mg-input-checkbox render by type undefined Should render with custom lo
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17076,7 +17076,7 @@ exports[`mg-input-checkbox render by type undefined Should render with custom lo
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17127,7 +17127,7 @@ exports[`mg-input-checkbox render by type undefined Should trigger events, case 
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17189,7 +17189,7 @@ exports[`mg-input-checkbox render by type undefined Should trigger events, case 
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17245,7 +17245,7 @@ exports[`mg-input-checkbox render by type undefined Should trigger events, case 
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17301,7 +17301,7 @@ exports[`mg-input-checkbox render by type undefined Should trigger events, case 
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17363,7 +17363,7 @@ exports[`mg-input-checkbox render by type undefined display error with displayEr
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           label
@@ -17431,7 +17431,7 @@ exports[`mg-input-checkbox render by type undefined display error with displayEr
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17499,7 +17499,7 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17564,7 +17564,7 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17627,7 +17627,7 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17658,7 +17658,7 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
         </div>
       </template>
       <b class="mg-c-input__readonly-value"></b>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           label
@@ -17703,7 +17703,7 @@ exports[`mg-input-checkbox reset method Should reset displayed error, lock false
       <div id="identifier-error" slot="error">
         Message d'erreur de test
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17742,7 +17742,7 @@ exports[`mg-input-checkbox reset method Should reset displayed error, lock false
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17787,7 +17787,7 @@ exports[`mg-input-checkbox reset method Should reset displayed error, lock true 
       <div id="identifier-error" slot="error">
         Message d'erreur de test
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label
@@ -17826,7 +17826,7 @@ exports[`mg-input-checkbox reset method Should reset displayed error, lock true 
           </label>
         </div>
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           label

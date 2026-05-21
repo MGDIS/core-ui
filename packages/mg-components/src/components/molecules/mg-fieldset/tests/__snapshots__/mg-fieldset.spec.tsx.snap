@@ -17,7 +17,7 @@ exports[`mg-fieldset render Should render with args { disabled: true }: 1`] = `
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           legend
@@ -64,7 +64,7 @@ exports[`mg-fieldset render Should render with args { disabled: true }: 1`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -91,7 +91,7 @@ exports[`mg-fieldset render Should render with args { disabled: true }: 1`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -120,7 +120,7 @@ exports[`mg-fieldset render Should render with args { errorMessage: 'This is an 
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           legend
@@ -167,7 +167,7 @@ exports[`mg-fieldset render Should render with args { errorMessage: 'This is an 
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -194,7 +194,7 @@ exports[`mg-fieldset render Should render with args { errorMessage: 'This is an 
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -229,7 +229,7 @@ exports[`mg-fieldset render Should render with args { helpText: 'Hello joker' }:
       <div id="identifier-help-text" slot="help-text">
         Hello joker
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
           legend
@@ -276,7 +276,7 @@ exports[`mg-fieldset render Should render with args { helpText: 'Hello joker' }:
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -303,7 +303,7 @@ exports[`mg-fieldset render Should render with args { helpText: 'Hello joker' }:
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -332,7 +332,7 @@ exports[`mg-fieldset render Should render with args { legendHeading: 'h1' }: 1`]
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           <h1 class="mg-c-input-title__text">
@@ -381,7 +381,7 @@ exports[`mg-fieldset render Should render with args { legendHeading: 'h1' }: 1`]
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -408,7 +408,7 @@ exports[`mg-fieldset render Should render with args { legendHeading: 'h1' }: 1`]
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -437,7 +437,7 @@ exports[`mg-fieldset render Should render with args { legendHeading: 'h1', legen
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           <h1 class="mg-c-input-title__text">
@@ -486,7 +486,7 @@ exports[`mg-fieldset render Should render with args { legendHeading: 'h1', legen
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -513,7 +513,7 @@ exports[`mg-fieldset render Should render with args { legendHeading: 'h1', legen
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -542,7 +542,7 @@ exports[`mg-fieldset render Should render with args { legendHide: true }: 1`] = 
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           legend
@@ -589,7 +589,7 @@ exports[`mg-fieldset render Should render with args { legendHide: true }: 1`] = 
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -616,7 +616,7 @@ exports[`mg-fieldset render Should render with args { legendHide: true }: 1`] = 
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -645,7 +645,7 @@ exports[`mg-fieldset render Should render with args { legendOnTop: true }: 1`] =
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           legend
@@ -692,7 +692,7 @@ exports[`mg-fieldset render Should render with args { legendOnTop: true }: 1`] =
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -719,7 +719,7 @@ exports[`mg-fieldset render Should render with args { legendOnTop: true }: 1`] =
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -748,7 +748,7 @@ exports[`mg-fieldset render Should render with args { readonly: true }: 1`] = `
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           legend
@@ -769,7 +769,7 @@ exports[`mg-fieldset render Should render with args { readonly: true }: 1`] = `
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <span class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -791,7 +791,7 @@ exports[`mg-fieldset render Should render with args { readonly: true }: 1`] = `
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-text">
             mg-input-text label
@@ -823,7 +823,7 @@ exports[`mg-fieldset render Should render with args { tooltip: 'My Tooltip Messa
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           legend
@@ -870,7 +870,7 @@ exports[`mg-fieldset render Should render with args { tooltip: 'My Tooltip Messa
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -897,7 +897,7 @@ exports[`mg-fieldset render Should render with args { tooltip: 'My Tooltip Messa
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -926,7 +926,7 @@ exports[`mg-fieldset render Should render with args {}: 1`] = `
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           legend
@@ -973,7 +973,7 @@ exports[`mg-fieldset render Should render with args {}: 1`] = `
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -1000,7 +1000,7 @@ exports[`mg-fieldset render Should render with args {}: 1`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -1029,7 +1029,7 @@ exports[`mg-fieldset render Should update input file visibility when readonly at
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           legend
@@ -1050,7 +1050,7 @@ exports[`mg-fieldset render Should update input file visibility when readonly at
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <span class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -1072,7 +1072,7 @@ exports[`mg-fieldset render Should update input file visibility when readonly at
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-text">
             mg-input-text label
@@ -1100,7 +1100,7 @@ exports[`mg-fieldset render Should update input file visibility when readonly at
             Browse…
           </mg-button>
         </div>
-        <mg-input-title identifier="mg-input-file" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
             mg-input-file label
@@ -1129,7 +1129,7 @@ exports[`mg-fieldset validity Should display components errors (readonly: false)
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           legend
@@ -1182,7 +1182,7 @@ exports[`mg-fieldset validity Should display components errors (readonly: false)
         <div id="mg-input-radio-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -1220,7 +1220,7 @@ exports[`mg-fieldset validity Should display components errors (readonly: false)
         <div id="mg-input-text-error" slot="error">
           This field is required.
         </div>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="true" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -1254,7 +1254,7 @@ exports[`mg-fieldset validity Should display components errors (readonly: true) 
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           legend
@@ -1275,7 +1275,7 @@ exports[`mg-fieldset validity Should display components errors (readonly: true) 
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="true" required="true" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <span class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -1297,7 +1297,7 @@ exports[`mg-fieldset validity Should display components errors (readonly: true) 
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="true" required="true" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-text">
             mg-input-text label
@@ -1332,7 +1332,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: false) 1`] =
       <div id="identifier-error" slot="error">
         this is a custom error
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-error" class="mg-c-input-title" id="identifier-title">
           legend
@@ -1379,7 +1379,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: false) 1`] =
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -1406,7 +1406,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: false) 1`] =
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -1435,7 +1435,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: false) 2`] =
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           legend
@@ -1482,7 +1482,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: false) 2`] =
             </label>
           </div>
         </div>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -1509,7 +1509,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: false) 2`] =
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
             mg-input-text label
@@ -1541,7 +1541,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: true) 1`] = 
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           legend
@@ -1565,7 +1565,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: true) 1`] = 
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <span class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -1587,7 +1587,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: true) 1`] = 
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-text">
             mg-input-text label
@@ -1616,7 +1616,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: true) 2`] = 
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
           legend
@@ -1637,7 +1637,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: true) 2`] = 
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <span class="mg-c-input-title" id="mg-input-radio-title">
             mg-input-radio label
@@ -1659,7 +1659,7 @@ exports[`mg-fieldset validity Should set custom validity (readonly: true) 2`] = 
             </div>
           </div>
         </template>
-        <mg-input-title identifier="mg-input-text" is-legend="false" readonly="true" required="false" slot="label">
+        <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-text">
             mg-input-text label

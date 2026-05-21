@@ -1,5 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { ClassList, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { localeCurrency, localeNumber, localePercent, localeUnit } from '@mgdis/core-ui-helpers/dist/locale';
 import { types, type InputNumericError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
 import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
@@ -596,6 +597,7 @@ export class MgInputNumeric {
     const locales = initLocales(this.element);
     this.locale = locales.locale;
     this.messages = locales.messages;
+    normalizeBooleanAttributes(this);
     // Validate component config
     this.watchFormat(this.format);
     this.validateType(this.type);

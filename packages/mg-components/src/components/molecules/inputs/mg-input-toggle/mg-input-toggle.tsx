@@ -1,5 +1,6 @@
 import { Component, Event, h, Prop, EventEmitter, State, Watch, Element, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString, toString } from '@mgdis/core-ui-helpers/dist/utils';
+import { normalizeBooleanAttributes } from '@mgdis/core-ui-helpers/dist/stencil';
 import { Option as ToggleOption } from '../../../../types';
 import { classDisabled, classReadonly, type TooltipPosition } from '../mg-input/mg-input.conf';
 
@@ -348,6 +349,7 @@ export class MgInputToggle {
    * Check if component props are well configured on init
    */
   componentWillLoad(): void {
+    normalizeBooleanAttributes(this);
     this.watchItems(this.items);
     this.validateSlots();
     this.watchValue(this.value);
