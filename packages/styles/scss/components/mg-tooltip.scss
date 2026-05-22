@@ -8,9 +8,9 @@
   display: inline-block;
 }
 
-/* When a slotted mg-button has the full-width attribute, mg-tooltip marks
-   itself as full-width so the host takes its parent's width and the button
-   stretches as intended. */
+/* mg-tooltip flags itself with `mg-c-tooltip--full-width` (in componentDidLoad)
+   when it slots a full-width mg-button — `:host(:has(...))` can't be used here
+   because `:host()` can't inspect light-DOM slotted children. */
 :host(.mg-c-tooltip--full-width) {
   display: block;
 }

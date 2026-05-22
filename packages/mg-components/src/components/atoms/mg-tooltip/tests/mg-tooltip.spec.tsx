@@ -153,6 +153,16 @@ describe('mg-tooltip', () => {
     });
   });
 
+  test.each([
+    { element: <mg-button full-width>mg-button</mg-button>, expected: true },
+    { element: <mg-button>mg-button</mg-button>, expected: false },
+    { element: <span>not a button</span>, expected: false },
+  ])('Should toggle "mg-c-tooltip--full-width" class when slotted content is a full-width mg-button', async ({ element, expected }) => {
+    const page = await getPage({ identifier: 'identifier', message: 'tip' }, element);
+    const mgTooltip = page.doc.querySelector('mg-tooltip');
+    expect(mgTooltip.classList.contains('mg-c-tooltip--full-width')).toBe(expected);
+  });
+
   test.each([<span>span</span>, <button aria-describedby="blu">button</button>, <mg-icon icon="check-circle"></mg-icon>, <mg-button>mg-button</mg-button>])(
     'should manage cross mouse and keyboard navigation',
     async element => {
