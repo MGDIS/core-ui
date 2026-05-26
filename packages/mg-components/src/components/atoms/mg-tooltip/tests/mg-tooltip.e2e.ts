@@ -244,7 +244,7 @@ test.describe('mg-tooltip', () => {
       { name: 'disabled', extraButtonAttrs: 'disabled' },
     ].forEach(({ name, extraButtonAttrs }) => {
       test(`Should stretch a ${name} full-width mg-button to its container`, async ({ page }) => {
-        await page.setViewportSize({ width: 500, height: 80 });
+        await page.setViewportSize({ width: 500, height: 120 });
         await page.setContent(`<div style="width: 400px;">${createHTML({ message: 'tip' }, `<mg-button full-width ${extraButtonAttrs}>full-width</mg-button>`)}</div>`);
 
         const mgButton = page.locator('mg-button');
@@ -252,6 +252,14 @@ test.describe('mg-tooltip', () => {
 
         const buttonBox = await mgButton.boundingBox();
         expect(buttonBox?.width).toBe(400);
+
+        // Hover the tooltip area so the tooltip is visible in the screenshot
+        // baseline. Targeting `mg-tooltip` instead of `mg-button` so the disabled
+        // case (where the wrapper handles pointer events) is covered too.
+        await page.locator('mg-tooltip').hover();
+        const tooltip = page.locator('mg-tooltip-content');
+        await tooltip.waitFor();
+        expect(await tooltip.getAttribute('data-show')).toEqual('');
 
         await expect(page.locator('body')).toHaveScreenshot();
       });
