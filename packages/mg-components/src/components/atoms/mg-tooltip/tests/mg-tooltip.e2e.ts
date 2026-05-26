@@ -245,7 +245,7 @@ test.describe('mg-tooltip', () => {
     ].forEach(({ name, extraButtonAttrs }) => {
       test(`Should stretch a ${name} full-width mg-button to its container`, async ({ page }) => {
         await page.setViewportSize({ width: 500, height: 120 });
-        await page.setContent(`<div style="width: 400px;">${createHTML({ message: 'tip' }, `<mg-button full-width ${extraButtonAttrs}>full-width</mg-button>`)}</div>`);
+        await page.setContent(`<div style="width: 400px;">${createHTML({ message: 'blu' }, `<mg-button full-width ${extraButtonAttrs}>full-width</mg-button>`)}</div>`);
 
         const mgButton = page.locator('mg-button');
         await mgButton.waitFor();
