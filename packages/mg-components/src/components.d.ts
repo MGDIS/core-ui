@@ -98,6 +98,11 @@ export namespace Components {
          */
         "delay"?: number;
         /**
+          * Define if alert fits its parent element
+          * @default false
+         */
+        "fullWidth": boolean;
+        /**
           * Define variant
           * @default 'info'
          */
@@ -1821,6 +1826,11 @@ export namespace Components {
     }
     interface MgMessage {
         /**
+          * Define if message fits its parent element
+          * @default false
+         */
+        "fullWidth": boolean;
+        /**
           * Define variant
           * @default 'info'
          */
@@ -2831,6 +2841,11 @@ declare namespace LocalJSX {
           * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds
          */
         "delay"?: number;
+        /**
+          * Define if alert fits its parent element
+          * @default false
+         */
+        "fullWidth"?: boolean;
         /**
           * Emmited event when alert is closed
          */
@@ -4453,6 +4468,11 @@ declare namespace LocalJSX {
     }
     interface MgMessage {
         /**
+          * Define if message fits its parent element
+          * @default false
+         */
+        "fullWidth"?: boolean;
+        /**
           * Define variant
           * @default 'info'
          */
@@ -4790,6 +4810,7 @@ declare namespace LocalJSX {
         "delay": number;
         "variant": VariantType;
         "variantStyle": VariantStyleType;
+        "fullWidth": boolean;
     }
     interface MgBadgeAttributes {
         "value": string;
@@ -5144,6 +5165,7 @@ declare namespace LocalJSX {
     interface MgMessageAttributes {
         "variant": VariantType;
         "variantStyle": VariantStyleType;
+        "fullWidth": boolean;
     }
     interface MgModalAttributes {
         "identifier": string;

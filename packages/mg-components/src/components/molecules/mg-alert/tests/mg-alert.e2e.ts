@@ -38,6 +38,14 @@ test.describe('mg-alert', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
+  test('Should render with fullWidth', async ({ page }) => {
+    const html = createHTML({ fullWidth: true }, `<p>Full width content</p>`);
+    await page.setContent(html);
+    await page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
+
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
+
   test('Should hide alert on close button click', async ({ page }) => {
     const html = createHTML({}, `<p>Blu</p>`);
     await page.setContent(html);

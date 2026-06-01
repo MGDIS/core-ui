@@ -19,7 +19,7 @@
   $icon-size: functions.get-icon-size('medium');
 
   display: inline-block;
-  min-height: var(--mg-b-size-min-height);
+  min-block-size: var(--mg-b-size-min-height);
 
   @each $semantic, $color in variables.$semantics {
     $variant: list.nth($semantic, 1);
@@ -47,8 +47,8 @@
 
   &__icon {
     position: absolute;
-    top: calc((var(--mg-b-size-min-height) - #{$icon-size}) / 2);
-    left: calc(var(--mg-b-size-4) + var(--mg-b-size-8)); // vertical bar + spacing
+    inset-block-start: calc((var(--mg-b-size-min-height) - #{$icon-size}) / 2);
+    inset-inline-start: calc(var(--mg-b-size-4) + var(--mg-b-size-8)); // vertical bar + spacing
     line-height: 1;
   }
 
@@ -66,27 +66,32 @@
 
   &__content-separator {
     display: inline-block;
-    width: var(--mg-b-size-40);
-    height: 0;
+    block-size: 0;
+    inline-size: var(--mg-b-size-40);
   }
 
   &__content-actions-slot {
     padding: var(--mg-b-size-8) 0;
-    text-align: right;
+    text-align: end;
   }
 
   &__bar {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: var(--mg-b-size-4);
-    height: 100%;
+    block-size: 100%;
+    inline-size: var(--mg-b-size-4);
+    inset-block-start: 0;
+    inset-inline-start: 0;
   }
 
   @include reset-mg-card-slotted-variables.reset-slot-card-variables;
 
   &,
   mg-message {
-    max-width: 100%;
+    max-inline-size: 100%;
+  }
+
+  &.mg-c-message--full-width {
+    display: block;
+    inline-size: 100%;
   }
 }

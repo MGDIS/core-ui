@@ -5,10 +5,11 @@
 
 ## Properties
 
-| Property       | Attribute       | Description          | Type                                           | Default      |
-| -------------- | --------------- | -------------------- | ---------------------------------------------- | ------------ |
-| `variant`      | `variant`       | Define variant       | `"danger" \| "info" \| "success" \| "warning"` | `'info'`     |
-| `variantStyle` | `variant-style` | Define variant style | `"background" \| "bar-left"`                   | `'bar-left'` |
+| Property       | Attribute       | Description                               | Type                                           | Default      |
+| -------------- | --------------- | ----------------------------------------- | ---------------------------------------------- | ------------ |
+| `fullWidth`    | `full-width`    | Define if message fits its parent element | `boolean`                                      | `false`      |
+| `variant`      | `variant`       | Define variant                            | `"danger" \| "info" \| "success" \| "warning"` | `'info'`     |
+| `variantStyle` | `variant-style` | Define variant style                      | `"background" \| "bar-left"`                   | `'bar-left'` |
 
 
 ## Slots
