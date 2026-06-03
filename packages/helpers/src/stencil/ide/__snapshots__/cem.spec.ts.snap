@@ -1,0 +1,258 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`cemGenerator > Should generate Custom Elements Manifest v2 1`] = `
+{
+  "modules": [
+    {
+      "declarations": [
+        {
+          "attributes": [
+            {
+              "default": undefined,
+              "description": "docs",
+              "fieldName": "prop",
+              "name": "prop",
+              "type": {
+                "text": "string",
+              },
+            },
+            {
+              "default": undefined,
+              "description": "docs",
+              "fieldName": "multionetype",
+              "name": "multionetype",
+              "type": {
+                "text": "(string | number)[]",
+              },
+            },
+            {
+              "default": undefined,
+              "description": "docs",
+              "fieldName": "number",
+              "name": "number",
+              "type": {
+                "text": "number",
+              },
+            },
+            {
+              "default": undefined,
+              "description": "docs",
+              "fieldName": "boolean",
+              "name": "boolean",
+              "type": {
+                "text": "boolean",
+              },
+            },
+            {
+              "default": undefined,
+              "description": "docs",
+              "fieldName": "objecttype",
+              "name": "objecttype",
+              "type": {
+                "text": "{ type: string, value: "blu" | "bli" }",
+              },
+            },
+            {
+              "default": undefined,
+              "description": "docs",
+              "fieldName": "multitype",
+              "name": "multitype",
+              "type": {
+                "text": ""blu" | "bli"",
+              },
+            },
+            {
+              "default": undefined,
+              "description": "docs",
+              "fieldName": "multitypewithstring",
+              "name": "multitypewithstring",
+              "type": {
+                "text": "number | string",
+              },
+            },
+            {
+              "default": undefined,
+              "description": "docs",
+              "fieldName": "arraytypes",
+              "name": "arraytypes",
+              "type": {
+                "text": "number[] | string[]",
+              },
+            },
+          ],
+          "cssParts": [],
+          "cssProperties": [
+            {
+              "description": "Custom property documentation",
+              "name": "--custom-property",
+            },
+          ],
+          "customElement": true,
+          "description": "",
+          "events": [
+            {
+              "description": "docs",
+              "name": "event",
+              "type": {
+                "text": "CustomEvent<boolean>",
+              },
+            },
+          ],
+          "kind": "class",
+          "members": [
+            {
+              "attribute": "prop",
+              "default": undefined,
+              "description": "docs",
+              "kind": "field",
+              "name": "prop",
+              "type": {
+                "text": "string",
+              },
+            },
+            {
+              "default": undefined,
+              "description": "docs",
+              "kind": "field",
+              "name": "attr",
+              "type": {
+                "text": "string",
+              },
+            },
+            {
+              "attribute": "multionetype",
+              "default": undefined,
+              "description": "docs",
+              "kind": "field",
+              "name": "multionetype",
+              "type": {
+                "text": "(string | number)[]",
+              },
+            },
+            {
+              "attribute": "number",
+              "default": undefined,
+              "description": "docs",
+              "kind": "field",
+              "name": "number",
+              "type": {
+                "text": "number",
+              },
+            },
+            {
+              "attribute": "boolean",
+              "default": undefined,
+              "description": "docs",
+              "kind": "field",
+              "name": "boolean",
+              "type": {
+                "text": "boolean",
+              },
+            },
+            {
+              "attribute": "objecttype",
+              "default": undefined,
+              "description": "docs",
+              "kind": "field",
+              "name": "objecttype",
+              "type": {
+                "text": "{ type: string, value: "blu" | "bli" }",
+              },
+            },
+            {
+              "attribute": "multitype",
+              "default": undefined,
+              "description": "docs",
+              "kind": "field",
+              "name": "multitype",
+              "type": {
+                "text": ""blu" | "bli"",
+              },
+            },
+            {
+              "attribute": "multitypewithstring",
+              "default": undefined,
+              "description": "docs",
+              "kind": "field",
+              "name": "multitypewithstring",
+              "type": {
+                "text": "number | string",
+              },
+            },
+            {
+              "attribute": "arraytypes",
+              "default": undefined,
+              "description": "docs",
+              "kind": "field",
+              "name": "arraytypes",
+              "type": {
+                "text": "number[] | string[]",
+              },
+            },
+            {
+              "description": "docs",
+              "kind": "method",
+              "name": "method",
+            },
+          ],
+          "name": "MyComp",
+          "slots": [
+            {
+              "description": "",
+              "name": "",
+            },
+            {
+              "description": "",
+              "name": "title",
+            },
+          ],
+          "tagName": "my-comp",
+        },
+      ],
+      "exports": [
+        {
+          "declaration": {
+            "module": "src/components/atoms/my-comp/my-comp.tsx",
+            "name": "MyComp",
+          },
+          "kind": "custom-element-definition",
+          "name": "my-comp",
+        },
+      ],
+      "kind": "javascript-module",
+      "path": "src/components/atoms/my-comp/my-comp.tsx",
+    },
+    {
+      "declarations": [
+        {
+          "attributes": [],
+          "cssParts": [],
+          "cssProperties": [],
+          "customElement": true,
+          "description": "overview",
+          "events": [],
+          "kind": "class",
+          "members": [],
+          "name": "MySecondComp",
+          "slots": [],
+          "tagName": "my-second-comp",
+        },
+      ],
+      "exports": [
+        {
+          "declaration": {
+            "module": "",
+            "name": "MySecondComp",
+          },
+          "kind": "custom-element-definition",
+          "name": "my-second-comp",
+        },
+      ],
+      "kind": "javascript-module",
+      "path": "",
+    },
+  ],
+  "readme": "",
+  "schemaVersion": "2.0.0",
+}
+`;
