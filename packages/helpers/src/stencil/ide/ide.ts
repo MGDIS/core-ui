@@ -94,15 +94,15 @@ export const webTypesGenerator = (name: string, version: string, jsonDocs: JsonD
             properties: component.props
               .filter(prop => prop.attr === undefined)
               .map(prop => ({
-              'name': prop.name,
-              'description': getAttributeDescription(prop),
-              'doc-url': docUrl,
-              'value': {
-                type: prop.type,
-                default: prop.default,
-                required: prop.required,
-              },
-            })),
+                'name': prop.name,
+                'description': getAttributeDescription(prop),
+                'doc-url': docUrl,
+                'value': {
+                  type: prop.type,
+                  default: prop.default,
+                  required: prop.required,
+                },
+              })),
             events: component.events.map(event => ({
               name: event.event,
               description: event.docs,
