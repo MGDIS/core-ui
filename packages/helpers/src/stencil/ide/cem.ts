@@ -17,28 +17,18 @@ const componentToModule = (component: JsonDocsComponent) => {
       name: prop.attr,
       description: prop.docs,
       type: { text: prop.type },
-      default: prop.default,
+      ...(prop.default !== undefined && { default: prop.default }),
       fieldName: prop.name,
     }));
 
-  const fieldMembers = component.props.map(prop => {
-    const member: {
-      kind: 'field';
-      name: string;
-      description?: string;
-      type: { text: string };
-      default?: string;
-      attribute?: string;
-    } = {
-      kind: 'field',
-      name: prop.name,
-      description: prop.docs,
-      type: { text: prop.type },
-      default: prop.default,
-    };
-    if (prop.attr !== undefined) member.attribute = prop.attr;
-    return member;
-  });
+  const fieldMembers = component.props.map(prop => ({
+    kind: 'field' as const,
+    name: prop.name,
+    description: prop.docs,
+    type: { text: prop.type },
+    ...(prop.default !== undefined && { default: prop.default }),
+    ...(prop.attr !== undefined && { attribute: prop.attr }),
+  }));
 
   const methodMembers = component.methods.map(method => ({
     kind: 'method' as const,
@@ -71,7 +61,7 @@ const componentToModule = (component: JsonDocsComponent) => {
           name: style.name,
           description: style.docs,
         })),
-        cssParts: (component.parts ?? []).map(part => ({
+        cssParts: component.parts.map(part => ({
           name: part.name,
           description: part.docs,
         })),
