@@ -66,10 +66,10 @@ export const config: Config = {
         const vsCodeCssContent = vsCodeCssGenerator(jsonDocs);
         // Write files
         await mkdir(dirname(webTypes), { recursive: true });
-        await mkdir(dirname(contributes.html.customData), { recursive: true });
+        await mkdir(dirname(contributes.html.customData[0]), { recursive: true });
         await writeFile(webTypes, JSON.stringify(webTypesContent, null, 2), 'utf8');
-        await writeFile(contributes.html.customData, JSON.stringify(vsCodeContent, null, 2), 'utf8');
-        await writeFile(contributes.css.customData, JSON.stringify(vsCodeCssContent, null, 2), 'utf8');
+        await writeFile(contributes.html.customData[0], JSON.stringify(vsCodeContent, null, 2), 'utf8');
+        await writeFile(contributes.css.customData[0], JSON.stringify(vsCodeCssContent, null, 2), 'utf8');
         // CEM v2
         const cemContent = cemGenerator(jsonDocs);
         await mkdir(dirname(customElements), { recursive: true });

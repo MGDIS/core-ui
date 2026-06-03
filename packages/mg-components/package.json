@@ -14,10 +14,14 @@
   "web-types": "ide/intellij/web-types.json",
   "contributes": {
     "html": {
-      "customData": "ide/vscode/html-custom-data.json"
+      "customData": [
+        "ide/vscode/html-custom-data.json"
+      ]
     },
     "css": {
-      "customData": "ide/vscode/css-custom-data.json"
+      "customData": [
+        "ide/vscode/css-custom-data.json"
+      ]
     }
   },
   "files": [
