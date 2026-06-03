@@ -20,47 +20,27 @@ const getSourcesUrl = (sourcesBaseUrl: string, filePath: string | undefined): st
  * @returns Component element description
  */
 const getElementDescription = (component: JsonDocsComponent): string => {
-  // Init description
   let description = component.overview ? `${component.overview}\n\n` : '';
-  // Attributes
-  const attributes = component.props.filter(({ attr }) => attr !== undefined);
-  if (attributes.length) {
-    description += `Attributes:\n`;
-    description += attributes.map(({ attr, docs }) => `- \`${attr}\`: ${docs}\n`).join('');
-    description += '\n';
-  }
-  // Properties
-  const properties = component.props.filter(({ attr }) => attr === undefined);
-  if (properties.length) {
-    description += `Properties:\n`;
-    description += properties.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
-    description += '\n';
-  }
-  // Methods
   if (component.methods.length) {
     description += `Methods:\n`;
     description += component.methods.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
     description += '\n';
   }
-  // Events
   if (component.events.length) {
     description += `Events:\n`;
     description += component.events.map(({ event, docs }) => `- \`${event}\`: ${docs}\n`).join('');
     description += '\n';
   }
-  // Listeners
   if (component.listeners.length) {
     description += `Listeners:\n`;
     description += component.listeners.map(({ event }) => `- \`${event}\`\n`).join('');
     description += '\n';
   }
-  // Slots
   if (component.slots.length) {
     description += `Slots:\n`;
     description += component.slots.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
     description += '\n';
   }
-  // Return
   return description;
 };
 
@@ -111,7 +91,9 @@ export const webTypesGenerator = (name: string, version: string, jsonDocs: JsonD
               },
             })),
           'js': {
-            properties: component.props.map(prop => ({
+            properties: component.props
+              .filter(prop => prop.attr === undefined)
+              .map(prop => ({
               'name': prop.name,
               'description': getAttributeDescription(prop),
               'doc-url': docUrl,
