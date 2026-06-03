@@ -64,7 +64,6 @@
     display: flex;
     box-sizing: border-box;
     flex-wrap: wrap;
-    min-block-size: var(--mg-b-size-min-height);
     padding-block: 0;
     padding-inline: calc(var(--mg-b-size-8) + #{$icon-size} + var(--mg-b-size-8)) var(--mg-b-size-8); // spacing + icon + spacing
     place-content: stretch flex-end;
