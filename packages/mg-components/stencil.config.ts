@@ -1,11 +1,11 @@
-import { webTypesGenerator, vsCodeGenerator, vsCodeCssGenerator } from '@mgdis/core-ui-helpers/dist/stencil';
+import { webTypesGenerator, vsCodeGenerator, vsCodeCssGenerator, cemGenerator } from '@mgdis/core-ui-helpers/dist/stencil';
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { Config } from '@stencil/core';
 import jestConfig from '@core-ui/jest-config/base';
 import packageJson from './package.json';
 const { coverageReporters, coverageThreshold } = jestConfig;
-const { name, version, 'web-types': webTypes, contributes } = packageJson;
+const { name, version, 'web-types': webTypes, customElements, contributes } = packageJson;
 
 export const config: Config = {
   namespace: 'mg-components',
@@ -70,6 +70,10 @@ export const config: Config = {
         await writeFile(webTypes, JSON.stringify(webTypesContent, null, 2), 'utf8');
         await writeFile(contributes.html.customData, JSON.stringify(vsCodeContent, null, 2), 'utf8');
         await writeFile(contributes.css.customData, JSON.stringify(vsCodeCssContent, null, 2), 'utf8');
+        // CEM v2
+        const cemContent = cemGenerator(jsonDocs);
+        await mkdir(dirname(customElements), { recursive: true });
+        await writeFile(customElements, JSON.stringify(cemContent, null, 2), 'utf8');
       },
     },
   ],
