@@ -17,30 +17,27 @@ const getSourcesUrl = (sourcesBaseUrl: string, filePath: string | undefined): st
 /**
  * Get Component element description.
  *
- * `includeAttrsAndProps` controls whether the description lists attributes and
- * properties textually. WebStorm renders them from the structured `attributes`
- * and `js.properties` arrays already, so duplicating them in the description
- * is noise. VS Code's HTML custom data has no structured view at the tag
- * level — the description is the only quick-doc surface — so they must stay.
+ * Neither WebStorm nor VS Code render the structured `attributes` /
+ * `js.properties` arrays in the tag-level quick-doc — they only show this
+ * markdown description. So the attribute and property listings have to live
+ * here, even though they're redundant with the structured arrays used by the
+ * inline autocomplete.
  * @param component - Component
- * @param includeAttrsAndProps - whether to list attributes and properties
  * @returns Component element description
  */
-const getElementDescription = (component: JsonDocsComponent, includeAttrsAndProps = false): string => {
+const getElementDescription = (component: JsonDocsComponent): string => {
   let description = component.overview ? `${component.overview}\n\n` : '';
-  if (includeAttrsAndProps) {
-    const attributes = component.props.filter(({ attr }) => attr !== undefined);
-    if (attributes.length) {
-      description += `Attributes:\n`;
-      description += attributes.map(({ attr, docs }) => `- \`${attr}\`: ${docs}\n`).join('');
-      description += '\n';
-    }
-    const properties = component.props.filter(({ attr }) => attr === undefined);
-    if (properties.length) {
-      description += `Properties:\n`;
-      description += properties.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
-      description += '\n';
-    }
+  const attributes = component.props.filter(({ attr }) => attr !== undefined);
+  if (attributes.length) {
+    description += `Attributes:\n`;
+    description += attributes.map(({ attr, docs }) => `- \`${attr}\`: ${docs}\n`).join('');
+    description += '\n';
+  }
+  const properties = component.props.filter(({ attr }) => attr === undefined);
+  if (properties.length) {
+    description += `Properties:\n`;
+    description += properties.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
+    description += '\n';
   }
   if (component.methods.length) {
     description += `Methods:\n`;
@@ -183,7 +180,7 @@ export const vsCodeGenerator = (jsonDocs: JsonDocs, storybookBaseUrl: string, so
     const references = getReferences(storybookBaseUrl, sourceBaseUrl, component.filePath);
     return {
       name: component.tag,
-      description: getElementDescription(component, true),
+      description: getElementDescription(component),
       attributes: component.props
         .filter(prop => prop.attr !== undefined)
         .map(prop => ({
