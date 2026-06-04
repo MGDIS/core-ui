@@ -468,7 +468,7 @@ export class MgInputRichTextEditor {
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
-    this.messages = initLocales(this.element as unknown as HTMLElement).messages;
+    this.messages = initLocales(this.element).messages;
     normalizeBooleanAttributes(this);
     // Validate
     this.validatePattern(this.pattern);

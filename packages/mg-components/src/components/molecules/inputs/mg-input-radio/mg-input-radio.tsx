@@ -74,7 +74,7 @@ export class MgInputRadio {
       throw new Error(`<mg-input-radio> prop "items" require at least 2 items. Passed value: ${toString(newValue)}.`);
     }
     // String array
-    else if (allItemsAreString(newValue as string[])) {
+    else if (allItemsAreString(newValue)) {
       this.options = newValue.map(item => ({ title: item, value: item, disabled: this.disabled }));
     }
     // Object array
