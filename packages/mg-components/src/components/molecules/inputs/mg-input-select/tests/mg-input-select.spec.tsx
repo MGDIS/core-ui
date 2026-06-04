@@ -246,7 +246,8 @@ describe('mg-input-select', () => {
 
     expect(page.root).toMatchSnapshot(); //Snapshot on focus
 
-    input.value = items[selectedOption]?.title || items[selectedOption] || selectedOption;
+    // The select value is the option render index, which uniquely identifies an option (the placeholder uses an empty value)
+    input.value = selectedOption === '' ? '' : `${selectedOption}`;
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
 
     await page.waitForChanges();
@@ -460,7 +461,8 @@ describe('mg-input-select', () => {
     expect(page.rootInstance.hasDisplayedError).toEqual(true);
     expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
 
-    input.value = 'batman';
+    // select the first option ("batman") by its render index
+    input.value = '0';
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
 
     await page.waitForChanges();
@@ -654,6 +656,109 @@ describe('mg-input-select', () => {
       expect(requestAnimationFrameSpy).not.toHaveBeenCalled();
       // Verify value remains unchanged
       expect(element.value).toEqual(initialValue);
+    });
+  });
+
+  describe('options are differentiated by their value', () => {
+    test('Should emit the value of the selected option when two options share the same title in different groups', async () => {
+      const items = [
+        { title: 'Paris', value: 'paris-idf', group: 'Île-de-France' },
+        { title: 'Paris', value: 'paris-texas', group: 'Texas' },
+      ];
+      const page = await getPage({ label: 'label', identifier: 'identifier', items });
+      const element = page.doc.querySelector('mg-input-select');
+      const input = element.shadowRoot.querySelector('select');
+
+      input.checkValidity = jest.fn(() => true);
+      Object.defineProperty(input, 'validity', { get: jest.fn(() => ({ valueMissing: false })) });
+      jest.spyOn(page.rootInstance.valueChange, 'emit');
+
+      // Select the second "Paris" option (Texas) using its rendered value attribute
+      const parisOptions = Array.from(input.querySelectorAll('option')).filter(option => option.textContent === 'Paris');
+      input.value = parisOptions[1].getAttribute('value');
+      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+
+      await page.waitForChanges();
+      jest.runAllTimers();
+
+      expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith('paris-texas');
+    });
+
+    test('Should emit the matching value for every option of a large grouped list with repeated titles', async () => {
+      // Many options across several groups, with titles repeated across groups (unique within each group).
+      // Options are listed contiguously per group, so their render order matches this array order.
+      const items = [
+        { title: 'Alpha', value: 'a-alpha', group: 'A' },
+        { title: 'Beta', value: 'a-beta', group: 'A' },
+        { title: 'Gamma', value: 'a-gamma', group: 'A' },
+        { title: 'Alpha', value: 'b-alpha', group: 'B' },
+        { title: 'Beta', value: 'b-beta', group: 'B' },
+        { title: 'Delta', value: 'b-delta', group: 'B' },
+        { title: 'Alpha', value: 'c-alpha', group: 'C' },
+        { title: 'Gamma', value: 'c-gamma', group: 'C' },
+        { title: 'Beta', value: 'd-beta', group: 'D' },
+        { title: 'Delta', value: 'd-delta', group: 'D' },
+        { title: 'Epsilon', value: 'd-epsilon', group: 'D' },
+      ];
+      const page = await getPage({ label: 'label', identifier: 'identifier', items });
+      const element = page.doc.querySelector('mg-input-select');
+      const input = element.shadowRoot.querySelector('select');
+
+      input.checkValidity = jest.fn(() => true);
+      Object.defineProperty(input, 'validity', { get: jest.fn(() => ({ valueMissing: false })) });
+      const emitSpy = jest.spyOn(page.rootInstance.valueChange, 'emit');
+
+      // Every rendered option except the placeholder, in render order
+      const options = Array.from(input.querySelectorAll('option')).filter(option => option.getAttribute('value') !== '');
+      expect(options).toHaveLength(items.length);
+
+      // Selecting each option must emit its own value, even when several options share the same title
+      for (let index = 0; index < items.length; index++) {
+        const option = options[index];
+        expect(option.textContent).toBe(items[index].title);
+
+        input.value = option.getAttribute('value');
+        input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+        await page.waitForChanges();
+        jest.runAllTimers();
+
+        expect(emitSpy).toHaveBeenLastCalledWith(items[index].value);
+      }
+    });
+
+    test('Should throw error with options sharing the same title outside of a group', async () => {
+      expect.assertions(1);
+      const items = [
+        { title: 'Paris', value: 'a' },
+        { title: 'Paris', value: 'b' },
+      ];
+      try {
+        await getPage({ label: 'label', identifier: 'identifier', items });
+      } catch (err) {
+        expect(err.message).toEqual('<mg-input-select> prop "items" must not contain options with the same "title" outside of a group. Duplicated title: "Paris".');
+      }
+    });
+
+    test('Should throw error with options sharing the same title within the same group', async () => {
+      expect.assertions(1);
+      const items = [
+        { title: 'Paris', value: 'a', group: 'France' },
+        { title: 'Paris', value: 'b', group: 'France' },
+      ];
+      try {
+        await getPage({ label: 'label', identifier: 'identifier', items });
+      } catch (err) {
+        expect(err.message).toEqual('<mg-input-select> prop "items" must not contain options with the same "title" within the group "France". Duplicated title: "Paris".');
+      }
+    });
+
+    test('Should throw error with duplicate string items outside of a group', async () => {
+      expect.assertions(1);
+      try {
+        await getPage({ label: 'label', identifier: 'identifier', items: ['blu', 'blu'] });
+      } catch (err) {
+        expect(err.message).toEqual('<mg-input-select> prop "items" must not contain options with the same "title" outside of a group. Duplicated title: "blu".');
+      }
     });
   });
 });

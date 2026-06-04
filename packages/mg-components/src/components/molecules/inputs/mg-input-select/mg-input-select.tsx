@@ -28,6 +28,26 @@ const isOptGroup = (optgroup: unknown): optgroup is OptGroup =>
   typeof optgroup === 'object' && typeof (optgroup as OptGroup).group === 'string' && allItemsAreOptions((optgroup as OptGroup).options);
 
 /**
+ * Ensure options can be unambiguously differentiated by their title
+ * Two options can share the same title only when they belong to different groups
+ * @param items - select options to validate
+ */
+const validateUniqueTitles = (items: Pick<SelectOption, 'title' | 'group'>[]): void => {
+  const titlesByGroup = new Map<SelectOption['group'], Set<string>>();
+  items.forEach(({ title, group }) => {
+    if (!titlesByGroup.has(group)) {
+      titlesByGroup.set(group, new Set());
+    }
+    const titles = titlesByGroup.get(group);
+    if (titles.has(title)) {
+      const groupContext = group === undefined ? 'outside of a group' : `within the group "${group}"`;
+      throw new Error(`<mg-input-select> prop "items" must not contain options with the same "title" ${groupContext}. Duplicated title: "${title}".`);
+    }
+    titles.add(title);
+  });
+};
+
+/**
  * Group options
  * @param acc - reduce accumulator
  * @param item - item to add
@@ -108,6 +128,7 @@ export class MgInputSelect {
     }
     // String array
     else if (allItemsAreString(newValue)) {
+      validateUniqueTitles(newValue.map(item => ({ title: item })));
       if (typeof this.value === 'string') {
         this.valueExist = newValue.includes(this.value);
       }
@@ -115,6 +136,7 @@ export class MgInputSelect {
     }
     // Object array
     else if (allItemsAreOptions(newValue)) {
+      validateUniqueTitles(newValue);
       this.valueExist = newValue.map(item => item.value).includes(this.value);
       // Grouped object options
       if (newValue.some(item => Boolean(item.group))) {
@@ -393,15 +415,36 @@ export class MgInputSelect {
   }
 
   /**
+   * Get the rendered options as a flat list, in render order
+   * The select value is the position of an option in this list, so it uniquely identifies an option even when several share the same title
+   * @returns flat select options
+   */
+  private getOptions = (): SelectOption[] => this.options.flatMap(option => (isOptGroup(option) ? option.options : [option]));
+
+  /**
+   * Get the option matching the current select value
+   * @returns matching option or undefined
+   */
+  private getSelectedOption = (): SelectOption | undefined => {
+    if (this.input?.value === undefined || this.input.value === '') {
+      return undefined;
+    }
+    const options = this.getOptions();
+    // The select value is normally the render index of the selected option
+    const optionByIndex = options[Number(this.input.value)];
+    // Fallback for an unknown value injected programmatically (stored as a disabled option keyed by its own value)
+    return optionByIndex ?? options.find(option => option.value === this.input.value);
+  };
+
+  /**
    * Handle input event
    */
   private handleInput = (): void => {
+    const selectedOption = this.getSelectedOption();
     if (this.input.value === '') {
       this.value = null;
-    } else if (allItemsAreString(this.items) && this.items.includes(this.input.value)) {
-      this.value = this.input.value;
-    } else if (allItemsAreOptions(this.items) && typeof this.input.value === 'string' && this.items.some(this.isInputValue)) {
-      this.value = this.items.find(this.isInputValue).value;
+    } else if (selectedOption !== undefined) {
+      this.value = selectedOption.value;
     } else {
       // Add the unknown input.value to the options array as a disabled option before setting it as the new value
       this.options.push({ title: this.input.value, value: this.input.value, disabled: true });
@@ -411,13 +454,6 @@ export class MgInputSelect {
       this.setErrorMessage();
     }
   };
-
-  /**
-   * Method to compare item.title with input.value
-   * @param item - item to compare with
-   * @returns truthy if input.value is an item
-   */
-  private isInputValue = (item: SelectOption): boolean => item.title === this.input?.value;
 
   /**
    * Handle blur event
@@ -434,7 +470,7 @@ export class MgInputSelect {
    * Input value is disabled
    * @returns truthy if input value is disabled
    */
-  private isDisabledValue = (): boolean => allItemsAreOptions(this.options) && this.options.find(this.isInputValue)?.disabled === true;
+  private isDisabledValue = (): boolean => this.getSelectedOption()?.disabled === true;
 
   /**
    * Check if input is valid
@@ -495,10 +531,11 @@ export class MgInputSelect {
   /**
    * Render option
    * @param option - to render
+   * @param index - option position in the flat list of rendered options, used as the option value
    * @returns render option
    */
-  private renderOption = (option: SelectOption): HTMLElement => (
-    <option key={option.title} value={option.title} selected={JSON.stringify(this.value) === JSON.stringify(option.value)} disabled={option.disabled}>
+  private renderOption = (option: SelectOption, index: number): HTMLElement => (
+    <option key={index} value={`${index}`} selected={JSON.stringify(this.value) === JSON.stringify(option.value)} disabled={option.disabled}>
       {option.title}
     </option>
   );
@@ -509,6 +546,8 @@ export class MgInputSelect {
    */
   render(): HTMLElement {
     const readonlyValue = this.getReadonlyValue();
+    // Running index shared across groups, so each option gets a unique value matching its position in getOptions()
+    let optionIndex = 0;
     return (
       <mg-input
         label={this.label}
@@ -547,10 +586,10 @@ export class MgInputSelect {
             {this.options.map(option =>
               isOptGroup(option) ? (
                 <optgroup label={option.group} key={option.group}>
-                  {option.options.map(this.renderOption)}
+                  {option.options.map(groupedOption => this.renderOption(groupedOption, optionIndex++))}
                 </optgroup>
               ) : (
-                isOption(option) && this.renderOption(option)
+                isOption(option) && this.renderOption(option, optionIndex++)
               ),
             )}
           </select>
