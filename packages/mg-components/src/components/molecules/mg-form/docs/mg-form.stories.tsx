@@ -25,19 +25,12 @@ const args = {
  */
 const Template = (args: MgFormType): HTMLElement => {
   let form: HTMLMgFormElement;
-  let submit: HTMLMgButtonElement;
-  const onFormValid = e => {
-    if (form === undefined || submit === undefined) return;
-    submit.disabled = !e.detail;
-  };
   const onSubmit = () => {
     window.alert('Your form has been submitted');
   };
   return (
     <mg-form
       {...filterArgs(args)}
-      // eslint-disable-next-line react/jsx-no-bind
-      onForm-valid={onFormValid}
       // eslint-disable-next-line react/jsx-no-bind
       onForm-submit={onSubmit}
       ref={e => {
@@ -73,15 +66,7 @@ const Template = (args: MgFormType): HTMLElement => {
         <span slot="item-1">non</span>
         <span slot="item-2">oui</span>
       </mg-input-toggle>
-      <mg-button
-        slot="actions"
-        id="can-submit"
-        ref={e => {
-          submit = e;
-        }}
-      >
-        Submit
-      </mg-button>
+      <mg-button slot="actions">Submit</mg-button>
       <mg-button
         slot="actions"
         variant="secondary"
