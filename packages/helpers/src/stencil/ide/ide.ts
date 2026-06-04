@@ -56,7 +56,12 @@ const getElementDescription = (component: JsonDocsComponent): string => {
   }
   if (component.slots.length) {
     description += `Slots:\n`;
-    description += component.slots.map(({ name, docs }) => `- ${name ? `\`${name}\`` : 'default'}: ${docs}\n`).join('');
+    description += component.slots
+      .map(({ name, docs }) => {
+        const label = name ? `\`${name}\`` : 'default';
+        return `- ${label}: ${docs}\n`;
+      })
+      .join('');
     description += '\n';
   }
   return description;
