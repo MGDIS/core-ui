@@ -516,8 +516,8 @@ importers:
   packages/linting-angularjs:
     dependencies:
       '@babel/eslint-parser':
-        specifier: 7.28.6
-        version: 7.28.6(@babel/core@7.29.0)(eslint@8.57.1)
+        specifier: 7.29.7
+        version: 7.29.7(@babel/core@7.29.0)(eslint@8.57.1)
       '@html-eslint/eslint-plugin':
         specifier: 0.45.0
         version: 0.45.0(eslint@8.57.1)
@@ -591,8 +591,8 @@ importers:
   packages/linting-vue2:
     dependencies:
       '@babel/eslint-parser':
-        specifier: 7.28.6
-        version: 7.28.6(@babel/core@7.29.0)(eslint@8.57.1)
+        specifier: 7.29.7
+        version: 7.29.7(@babel/core@7.29.0)(eslint@8.57.1)
       '@mgdis/eslint-plugin-vue':
         specifier: workspace:*
         version: link:../eslint-plugin-vue
@@ -1005,8 +1005,8 @@ packages:
     resolution: {integrity: sha512-CGOfOJqWjg2qW/Mb6zNsDm+u5vFQ8DxXfbM09z69p5Z6+mE1ikP2jUXw+j42Pf1XTYED2Rni5f95npYeuwMDQA==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/eslint-parser@7.28.6':
-    resolution: {integrity: sha512-QGmsKi2PBO/MHSQk+AAgA9R6OHQr+VqnniFE0eMWZcVcfBZoA2dKn2hUsl3Csg/Plt9opRUWdY7//VXsrIlEiA==}
+  '@babel/eslint-parser@7.29.7':
+    resolution: {integrity: sha512-zxt+UJTOMKvUt3yOg+D58MLuz334pHp93qifMFcjIIO+9hN6t+ufw2gi7vDPMpxvfnHRR+3VVXvIjineCcgyXw==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': ^7.11.0
@@ -8790,7 +8790,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/eslint-parser@7.28.6(@babel/core@7.29.0)(eslint@8.57.1)':
+  '@babel/eslint-parser@7.29.7(@babel/core@7.29.0)(eslint@8.57.1)':
     dependencies:
       '@babel/core': 7.29.0
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
@@ -11223,7 +11223,7 @@ snapshots:
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.5
-      semver: 7.7.4
+      semver: 7.8.1
       ts-api-utils: 1.4.3(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
@@ -13957,7 +13957,7 @@ snapshots:
 
   is-bun-module@2.0.0:
     dependencies:
-      semver: 7.7.4
+      semver: 7.8.1
 
   is-callable@1.2.7: {}
 
@@ -15885,7 +15885,7 @@ snapshots:
     dependencies:
       color: 4.2.3
       detect-libc: 2.1.2
-      semver: 7.7.4
+      semver: 7.8.1
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.34.2
       '@img/sharp-darwin-x64': 0.34.2
