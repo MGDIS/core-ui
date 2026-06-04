@@ -9,10 +9,7 @@ export default defineConfig({
       fileName: format => `notification-center.${format}.js`,
     },
     outDir: 'dist',
-    sourcemap: {
-      exports: 'named',
-      sourcemap: true,
-    },
+    sourcemap: true,
   },
   plugins: [dts()],
 });
