@@ -1,7 +1,7 @@
 @use 'mixins/reset-mg-card-slotted-variables';
 
 /*!
- * @prop --mg-c-card-overflow: Defines the overflow property for the card. Unset by default, fallback on `--mg-c-card-overflow-default`.
+ * @prop --mg-c-card-overflow: Defines the overflow property for the card. Unset by default, fallback on `--mg-c-card-overflow-default`. Left unset to preserve nested cards (e.g. `mg-panel > mg-card`); set it on the card to scroll or clip overflowing content (e.g. `auto`).
  * @prop --mg-c-card-overflow-default: Defines the default overflow property for the card. Unset by default.
  * @prop --mg-c-card-min-width: Defines the min-width property for the card. Unset by default.
  * @prop --mg-c-card-max-width: Defines the max-width property for the card. Unset by default.
