@@ -1414,7 +1414,7 @@
             </script>
 
             <div slot="actions" class="mg-l-group-elements mg-l-group-elements--align-right">
-              <mg-button id="can-submit">Can Submit</mg-button>
+              <mg-button>Submit</mg-button>
               <mg-button id="display-error" variant="secondary" type="button">Chek errors</mg-button>
               <mg-button id="toggle-readonly" variant="secondary" type="button">Toggle Inputs Readonly</mg-button>
               <mg-button id="toggle-readonly-form" variant="secondary" type="button">Set Form Readonly</mg-button>
@@ -1430,10 +1430,6 @@
             });
             mgForm.addEventListener('form-submit', e => {
               console.log('form-submit', e.detail);
-            });
-            const mgFormButton = document.querySelector('#can-submit');
-            mgForm.addEventListener('form-valid', function (e) {
-              mgFormButton.disabled = !e.detail;
             });
             const mgFormButtonErrors = document.querySelector('#display-error');
             mgFormButtonErrors.addEventListener('click', () => {

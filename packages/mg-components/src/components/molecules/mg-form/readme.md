@@ -54,9 +54,9 @@ If you are creating a form that combines `mg-components` inputs with inputs from
 
 ## 👍 Good practices
 
-### Enabling _submit_ button
+### _Submit_ button
 
-You can disable the _submit button_ until all required fields are filled. To do this, use the "valid/invalid" options.
+Keep the _submit button_ enabled. The form is validated on submission: invalid fields are revealed when the user submits, or on demand with the `displayError()` method. Avoid disabling the _submit button_ while the form is invalid — it gives no feedback on what to fix and is harder to reach for keyboard users.
 
 ## 💥 Troubleshooting
 
@@ -81,7 +81,7 @@ When you use JS property binding instead of an HTML attribute, the component pro
 
 **Code example does not reflect all the code.**
 
-Here we have a `form-valid` event listener on the `mg-form` to determine if the "submit" button should be enabled or not. The "Display errors" button uses the `mg-form` `displayError()` method.
+Here the _submit button_ stays enabled; submitting the form triggers validation and the `form-submit` event. The "Display errors" button uses the `mg-form` `displayError()` method to reveal validation errors on demand.
 
 <!-- Auto Generated Below -->
 
