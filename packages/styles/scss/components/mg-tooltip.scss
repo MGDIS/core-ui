@@ -7,3 +7,17 @@
 :host {
   display: inline-block;
 }
+
+/* mg-tooltip flags itself with `mg-c-tooltip--full-width` (in componentDidLoad)
+   when it slots a full-width mg-button — `:host(:has(...))` can't be used here
+   because `:host()` can't inspect light-DOM slotted children. */
+:host(.mg-c-tooltip--full-width) {
+  display: block;
+
+  /* Wrapper inserted by mg-tooltip around a disabled mg-button (light DOM) —
+     must propagate width so a full-width button still stretches when disabled. */
+  &::slotted(div.mg-c-tooltip__mg-button-wrapper) {
+    display: block;
+    width: 100%;
+  }
+}

@@ -236,6 +236,36 @@ test.describe('mg-tooltip', () => {
     await expect(page.locator('body')).toHaveScreenshot();
   });
 
+  test.describe('full-width mg-button slot', () => {
+    // mg-tooltip is `display: inline-block` by default; a slotted mg-button[full-width]
+    // would shrink to the tooltip's intrinsic width without these styles.
+    [
+      { name: 'enabled', extraButtonAttrs: '' },
+      { name: 'disabled', extraButtonAttrs: 'disabled' },
+    ].forEach(({ name, extraButtonAttrs }) => {
+      test(`Should stretch a ${name} full-width mg-button to its container`, async ({ page }) => {
+        await page.setViewportSize({ width: 500, height: 120 });
+        await page.setContent(`<div style="width: 400px;">${createHTML({ message: 'blu' }, `<mg-button full-width ${extraButtonAttrs}>full-width</mg-button>`)}</div>`);
+
+        const mgButton = page.locator('mg-button');
+        await mgButton.waitFor();
+
+        const buttonBox = await mgButton.boundingBox();
+        expect(buttonBox?.width).toBe(400);
+
+        // Hover the tooltip area so the tooltip is visible in the screenshot
+        // baseline. Targeting `mg-tooltip` instead of `mg-button` so the disabled
+        // case (where the wrapper handles pointer events) is covered too.
+        await page.locator('mg-tooltip').hover();
+        const tooltip = page.locator('mg-tooltip-content');
+        await tooltip.waitFor();
+        expect(await tooltip.getAttribute('data-show')).toEqual('');
+
+        await expect(page.locator('body')).toHaveScreenshot();
+      });
+    });
+  });
+
   test('Should display content with the specified style', async ({ page }) => {
     const tooltipHtml = createHTML(
       {

@@ -397,6 +397,12 @@ export class MgTooltip {
       this.setMgButtonWrapper(slotElement);
     }
 
+    // Propagate the full-width intent from a slotted mg-button to the tooltip host so it
+    // takes the parent's width — the host is `display: inline-block` otherwise.
+    if (this.element.querySelector('mg-button[full-width]') !== null) {
+      this.element.classList.add('mg-c-tooltip--full-width');
+    }
+
     // Add tabindex to slotted element if we can't find any interactive element
     if (!this.disabled && [undefined, null].includes(interactiveElement)) {
       this.hasCustomTabIndex = true;
