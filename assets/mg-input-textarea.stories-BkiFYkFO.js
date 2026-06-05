@@ -1,0 +1,25 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";import{c as t,l as n}from"./iframe-BLvxl_L5.js";import{n as r,t as i}from"./stencil-core-C67Xr0gu.js";var a,o,s,c;e((()=>{i(),n(),a={component:`mg-input-textarea`,title:`Molecules/Inputs/mg-input-textarea`,parameters:{actions:{handles:[`value-change`,`input-valid`]}}},o=e=>r(`mg-input-textarea`,t(e,{maxlength:4e3,mgWidth:`full`,rows:3,tooltipPosition:`input`,resizable:`none`})),s={render:o,args:{value:``,identifier:`identifier`,name:`input-name`,label:`Label`,labelOnTop:!1,labelHide:!1,placeholder:`placeholder`,maxlength:4e3,required:!1,readonly:!1,disabled:!1,mgWidth:void 0,pattern:void 0,patternErrorMessage:void 0,rows:3,tooltip:`This is a tooltip`,tooltipPosition:void 0,characterLeftHide:!1,helpText:`Help text with html <b>bold</b>, <em>italic</em>.`,resizable:void 0}},s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`{
+  render: Template,
+  args: {
+    value: '',
+    identifier: 'identifier',
+    name: 'input-name',
+    label: 'Label',
+    labelOnTop: false,
+    labelHide: false,
+    placeholder: 'placeholder',
+    maxlength: 4000,
+    required: false,
+    readonly: false,
+    disabled: false,
+    mgWidth: undefined,
+    pattern: undefined,
+    patternErrorMessage: undefined,
+    rows: 3,
+    tooltip: 'This is a tooltip',
+    tooltipPosition: undefined,
+    characterLeftHide: false,
+    helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
+    resizable: undefined
+  }
+}`,...s.parameters?.docs?.source}}},c=[`MgInputTextarea`]}))();export{s as MgInputTextarea,c as __namedExportsOrder,a as default};
