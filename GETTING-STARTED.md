@@ -86,3 +86,36 @@ pnpm release
 ```
 
 **`BE CAREFUL`. The above command will bump versions, create changelogs, make a commit, and push changes.**
+
+### Troubleshooting the release pipeline
+
+`pnpm release` pushes a tag, which triggers the `release` stage in CI. Two kinds of jobs there rely on tokens stored as **CI/CD variables** (GitLab → _Settings → CI/CD → Variables_; they may be inherited from a parent group). When a release fails on auth, this is where to look.
+
+#### The npm publish jobs fail (`*:npmjs`)
+
+These publish the packages with `NPM_TOKEN`. Read the job log:
+
+- `E401` / `ENEEDAUTH` → the token is expired or missing.
+- `E403 ... Two-factor authentication or granular access token with bypass 2fa enabled is required` → the token type does not bypass the `@mgdis` org's 2FA.
+
+Fix:
+
+1. On npmjs.com (with a `@mgdis` account that has publish rights) → _Access Tokens → Generate New Token_, then **either**:
+   - a **Granular Access Token** — _Read and write_ on the `@mgdis` packages, **with "Bypass 2FA" enabled**, or
+   - a **Classic → Automation** token (bypasses 2FA by design).
+   - Do **not** use a Classic _"Publish"_ token: it requires an OTP and fails in CI with the `E403` above.
+2. Edit the `NPM_TOKEN` CI/CD variable with the new value (keep it _Masked_).
+3. Retry the failed `*:npmjs` jobs on the release tag's pipeline.
+
+#### The merge-request job fails (`chromatic:mr`)
+
+It opens the next-release MR via `scripts/open-merge-request.sh` using `PERSONAL_ACCESS_TOKEN`. The script fails loudly with the HTTP status, e.g. `Failed to create merge request (HTTP 401)`.
+
+- `HTTP 401` → the PAT value is expired/invalid, **or** the variable is flagged **Protected** while the release tag is not a protected ref (so the value reaches the job empty).
+
+Fix:
+
+1. Generate a GitLab PAT with the **`api`** scope (required to create the branch and the MR), with a far-off expiry.
+2. Edit the `PERSONAL_ACCESS_TOKEN` CI/CD variable with the new value.
+3. If `PERSONAL_ACCESS_TOKEN` is flagged **Protected**, make sure the release tags match a pattern under _Settings → Repository → Protected tags_ — otherwise uncheck _Protected_ on the variable.
+4. Retry the `chromatic:mr` job.
