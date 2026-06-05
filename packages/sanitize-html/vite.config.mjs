@@ -9,10 +9,7 @@ export default defineConfig({
       fileName: format => `sanitize-html.${format}.js`,
     },
     outDir: 'dist',
-    sourcemap: {
-      exports: 'named',
-      sourcemap: true,
-    },
+    sourcemap: true,
   },
   plugins: [dts()],
 });
