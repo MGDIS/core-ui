@@ -10,13 +10,18 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/mg-components/mg-components.esm.js",
+  "customElements": "dist/custom-elements.json",
   "web-types": "ide/intellij/web-types.json",
   "contributes": {
     "html": {
-      "customData": "ide/vscode/html-custom-data.json"
+      "customData": [
+        "ide/vscode/html-custom-data.json"
+      ]
     },
     "css": {
-      "customData": "ide/vscode/css-custom-data.json"
+      "customData": [
+        "ide/vscode/css-custom-data.json"
+      ]
     }
   },
   "files": [

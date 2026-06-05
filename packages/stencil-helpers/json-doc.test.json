@@ -97,7 +97,8 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "default": "false"
         },
         {
           "name": "objecttype",
@@ -125,6 +126,11 @@
           "docsTags": [],
           "values": [
             {
+              "value": "blu",
+              "type": "string"
+            },
+            {
+              "value": "bli",
               "type": "string"
             }
           ],
@@ -224,7 +230,12 @@
           "docs": ""
         }
       ],
-      "parts": [],
+      "parts": [
+        {
+          "name": "icon",
+          "docs": "docs"
+        }
+      ],
       "dependents": ["my-internal-comp"],
       "dependencies": ["my-second-comp"],
       "dependencyGraph": {}

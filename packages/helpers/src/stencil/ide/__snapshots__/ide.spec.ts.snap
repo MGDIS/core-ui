@@ -38,30 +38,6 @@ Type: \`string\`",
         {
           "description": "docs
 
-Type: \`string\`",
-          "name": "attr",
-          "references": [
-            {
-              "name": "Storybook",
-              "url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
-            },
-            {
-              "name": "Sources",
-              "url": "http://sources.test/src/components/atoms/my-comp/my-comp.tsx",
-            },
-          ],
-          "values": [
-            {
-              "name": "blu",
-            },
-            {
-              "name": "bli",
-            },
-          ],
-        },
-        {
-          "description": "docs
-
 Type: \`(string | number)[]\`",
           "name": "multionetype",
           "references": [
@@ -142,7 +118,14 @@ Type: \`"blu" | "bli"\`",
               "url": "http://sources.test/src/components/atoms/my-comp/my-comp.tsx",
             },
           ],
-          "values": undefined,
+          "values": [
+            {
+              "name": "blu",
+            },
+            {
+              "name": "bli",
+            },
+          ],
         },
         {
           "description": "docs
@@ -202,7 +185,7 @@ Listeners:
 - \`keydown\`
 
 Slots:
-- \`\`: 
+- default: 
 - \`title\`: 
 
 ",
@@ -292,7 +275,7 @@ Type: \`boolean\`",
               "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
               "name": "boolean",
               "value": {
-                "default": undefined,
+                "default": "false",
                 "required": true,
                 "type": "boolean",
               },
@@ -377,7 +360,7 @@ Listeners:
 - \`keydown\`
 
 Slots:
-- \`\`: 
+- default: 
 - \`title\`: 
 
 ",
@@ -395,107 +378,11 @@ Slots:
 
 Type: \`string\`",
                 "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
-                "name": "prop",
-                "value": {
-                  "default": undefined,
-                  "required": true,
-                  "type": "string",
-                },
-              },
-              {
-                "description": "docs
-
-Type: \`string\`",
-                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
                 "name": "attr",
                 "value": {
                   "default": undefined,
                   "required": true,
                   "type": "string",
-                },
-              },
-              {
-                "description": "docs
-
-Type: \`(string | number)[]\`",
-                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
-                "name": "multionetype",
-                "value": {
-                  "default": undefined,
-                  "required": true,
-                  "type": "(string | number)[]",
-                },
-              },
-              {
-                "description": "docs
-
-Type: \`number\`",
-                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
-                "name": "number",
-                "value": {
-                  "default": undefined,
-                  "required": true,
-                  "type": "number",
-                },
-              },
-              {
-                "description": "docs
-
-Type: \`boolean\`",
-                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
-                "name": "boolean",
-                "value": {
-                  "default": undefined,
-                  "required": true,
-                  "type": "boolean",
-                },
-              },
-              {
-                "description": "docs
-
-Type: \`{ type: string, value: "blu" | "bli" }\`",
-                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
-                "name": "objecttype",
-                "value": {
-                  "default": undefined,
-                  "required": true,
-                  "type": "{ type: string, value: "blu" | "bli" }",
-                },
-              },
-              {
-                "description": "docs
-
-Type: \`"blu" | "bli"\`",
-                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
-                "name": "multitype",
-                "value": {
-                  "default": undefined,
-                  "required": true,
-                  "type": ""blu" | "bli"",
-                },
-              },
-              {
-                "description": "docs
-
-Type: \`number | string\`",
-                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
-                "name": "multitypewithstring",
-                "value": {
-                  "default": undefined,
-                  "required": true,
-                  "type": "number | string",
-                },
-              },
-              {
-                "description": "docs
-
-Type: \`number[] | string[]\`",
-                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
-                "name": "arraytypes",
-                "value": {
-                  "default": undefined,
-                  "required": true,
-                  "type": "number[] | string[]",
                 },
               },
             ],

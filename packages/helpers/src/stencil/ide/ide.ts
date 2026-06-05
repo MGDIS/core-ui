@@ -15,52 +15,55 @@ const getSourcesUrl = (sourcesBaseUrl: string, filePath: string | undefined): st
 };
 
 /**
- * Get Component element description
+ * Get Component element description.
+ *
+ * Neither WebStorm nor VS Code render the structured `attributes` /
+ * `js.properties` arrays in the tag-level quick-doc — they only show this
+ * markdown description. So the attribute and property listings have to live
+ * here, even though they're redundant with the structured arrays used by the
+ * inline autocomplete.
  * @param component - Component
  * @returns Component element description
  */
 const getElementDescription = (component: JsonDocsComponent): string => {
-  // Init description
   let description = component.overview ? `${component.overview}\n\n` : '';
-  // Attributes
   const attributes = component.props.filter(({ attr }) => attr !== undefined);
   if (attributes.length) {
     description += `Attributes:\n`;
     description += attributes.map(({ attr, docs }) => `- \`${attr}\`: ${docs}\n`).join('');
     description += '\n';
   }
-  // Properties
   const properties = component.props.filter(({ attr }) => attr === undefined);
   if (properties.length) {
     description += `Properties:\n`;
     description += properties.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
     description += '\n';
   }
-  // Methods
   if (component.methods.length) {
     description += `Methods:\n`;
     description += component.methods.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
     description += '\n';
   }
-  // Events
   if (component.events.length) {
     description += `Events:\n`;
     description += component.events.map(({ event, docs }) => `- \`${event}\`: ${docs}\n`).join('');
     description += '\n';
   }
-  // Listeners
   if (component.listeners.length) {
     description += `Listeners:\n`;
     description += component.listeners.map(({ event }) => `- \`${event}\`\n`).join('');
     description += '\n';
   }
-  // Slots
   if (component.slots.length) {
     description += `Slots:\n`;
-    description += component.slots.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
+    description += component.slots
+      .map(({ name, docs }) => {
+        const label = name ? `\`${name}\`` : 'default';
+        return `- ${label}: ${docs}\n`;
+      })
+      .join('');
     description += '\n';
   }
-  // Return
   return description;
 };
 
@@ -111,16 +114,18 @@ export const webTypesGenerator = (name: string, version: string, jsonDocs: JsonD
               },
             })),
           'js': {
-            properties: component.props.map(prop => ({
-              'name': prop.name,
-              'description': getAttributeDescription(prop),
-              'doc-url': docUrl,
-              'value': {
-                type: prop.type,
-                default: prop.default,
-                required: prop.required,
-              },
-            })),
+            properties: component.props
+              .filter(prop => prop.attr === undefined)
+              .map(prop => ({
+                'name': prop.name,
+                'description': getAttributeDescription(prop),
+                'doc-url': docUrl,
+                'value': {
+                  type: prop.type,
+                  default: prop.default,
+                  required: prop.required,
+                },
+              })),
             events: component.events.map(event => ({
               name: event.event,
               description: event.docs,
@@ -181,12 +186,14 @@ export const vsCodeGenerator = (jsonDocs: JsonDocs, storybookBaseUrl: string, so
     return {
       name: component.tag,
       description: getElementDescription(component),
-      attributes: component.props.map(prop => ({
-        name: prop.attr ?? prop.name,
-        description: getAttributeDescription(prop),
-        values: getValues(prop),
-        references,
-      })),
+      attributes: component.props
+        .filter(prop => prop.attr !== undefined)
+        .map(prop => ({
+          name: prop.attr,
+          description: getAttributeDescription(prop),
+          values: getValues(prop),
+          references,
+        })),
       references,
     };
   }),
