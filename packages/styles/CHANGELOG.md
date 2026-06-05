@@ -1,5 +1,22 @@
 # @mgdis/styles
 
+## 2.18.0
+
+### Minor Changes
+
+- 63e129a: [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs) Add `full-width` prop to expand the component to its parent inline size
+  [**`<mg-alert>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-alert--docs) Add `full-width` prop to expand the component to its parent inline size
+
+### Patch Changes
+
+- a9a9524: mg-skip-links: simplify hover background using `color-mix` instead of decomposed HSL channels.
+- 29b0a37: [#609](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/work_items/609) mg-card: clarify the `--mg-c-card-overflow` documentation. The property is intentionally left `unset` by default to preserve nested cards (e.g. `mg-panel > mg-card`); consumers can set it on the card (e.g. `auto`) to scroll or clip overflowing content. Documentation only, no behaviour change.
+- 974429c: [#611](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/work_items/611) mg-divider: fix line disappearing on Firefox at certain zoom levels by drawing the rule with `border-block-start` instead of `height` + `background-color`, which is more resilient to sub-pixel rasterisation.
+- 00605b4: `<mg-modal>`: fix dialog collapse on WebKit/Safari (`mg-card` shrunk to header height because `max-height: 100%` chained against a `fit-content` dialog parent) and prevent the silent ~8px overflow on all browsers caused by the `<dialog>` UA `max-height: calc(100% - 6px - 2em)` combined with content-box. Switches to `100dvh` viewport units and `box-sizing: border-box`. Closes [#602](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/602).
+- 9396140: [#601](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/work_items/601) mg-tooltip: stretch a slotted `mg-button[full-width]` to the tooltip's container width. mg-tooltip now detects a slotted full-width mg-button in `componentDidLoad` and adds a `mg-c-tooltip--full-width` class so the host adopts `display: block`. The wrapper inserted around a disabled mg-button (`.mg-c-tooltip__mg-button-wrapper`) is also `display: block; width: 100%` so the button still stretches in the disabled case.
+- a9a9524: mg-input: fix input title margins by using the `--mg-b-size-8` token instead of the non-existent `--mg-b-font-size-8`.
+- 4874e6a: Migrate the deprecated Sass `if(condition, then, else)` calls to the modern `if(sass(condition): then; else: else)` syntax. This removes the `DEPRECATION WARNING [if-function]` emitted at build time and cascading to every component that consumes the styles via `@use`. Pure syntactic change — the generated CSS is byte-identical.
+
 ## 2.17.1
 
 ### Patch Changes

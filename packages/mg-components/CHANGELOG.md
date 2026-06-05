@@ -1,5 +1,42 @@
 # @mgdis/mg-components
 
+## 6.23.0
+
+### Minor Changes
+
+- 0577746: [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs) Add `glitters` and `glitters-outline` icons
+- 63e129a: [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs) Add `full-width` prop to expand the component to its parent inline size
+  [**`<mg-alert>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-alert--docs) Add `full-width` prop to expand the component to its parent inline size
+- 22710a5: mg-input-select: options are now differentiated by their `value` instead of their `title`. Selecting an option whose `title` is shared with another option (only allowed across different `optgroup`s) now emits the correct `value`. As a consequence, `items` can no longer contain two options with the same `title` outside of a group or within the same group — such configurations now throw an explicit error.
+
+### Patch Changes
+
+- a9a9524: mg-tooltip, mg-modal, mg-popover: throw an error when the `identifier` prop value is invalid, to prevent silent breakage of ARIA wiring.
+- a9a9524: mg-card, mg-badge, mg-icon, mg-panel: handle empty-string prop reset from reactive frameworks (e.g. Vue) by falling back to the default value instead of throwing.
+- 753dd96: [#598](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/work_items/598) mg-components: align all boolean `@Prop()`s with the HTML spec for boolean attributes — the attribute's presence now implies `true` regardless of its value (`readonly`, `readonly=""`, `readonly="true"`, `readonly="false"`). Adds `normalizeBooleanAttributes` to `@mgdis/core-ui-helpers/dist/stencil`. Aligns `renderAttributes` (in `@mgdis/core-ui-helpers/dist/playwright`) with the same semantics: `true` → `attr=""`, `false` → attribute omitted.
+- a4e94bd: [#561](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/work_items/561) WebStorm autocompletion / quick-doc no longer confuses attributes and properties. `custom-elements.json` (CEM v2) is now published next to the existing `web-types.json` and VS Code custom data.
+- 3f3ad34: [#615](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/work_items/615) mg-form: the Storybook story and the component documentation no longer show or recommend disabling the submit button while the form is invalid. The submit button stays enabled and validation happens on submission (or on demand via `displayError()`), in line with the UX/UI guideline. No component behaviour change.
+- 9396140: [#601](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/work_items/601) mg-tooltip: stretch a slotted `mg-button[full-width]` to the tooltip's container width. mg-tooltip now detects a slotted full-width mg-button in `componentDidLoad` and adds a `mg-c-tooltip--full-width` class so the host adopts `display: block`. The wrapper inserted around a disabled mg-button (`.mg-c-tooltip__mg-button-wrapper`) is also `display: block; width: 100%` so the button still stretches in the disabled case.
+- 35ebba5: [#610](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/work_items/610) mg-input-select: revert changes allowing duplicate titles
+- e61e4c8: Update dependencies
+- a9a9524: mg-tooltip: fix Escape key handling by listening to `keydown` instead of the non-existent `keyboard` event when removing the listener on disconnect.
+- Updated dependencies [a9a9524]
+- Updated dependencies [753dd96]
+- Updated dependencies [0577746]
+- Updated dependencies [a4e94bd]
+- Updated dependencies [63e129a]
+- Updated dependencies [29b0a37]
+- Updated dependencies [974429c]
+- Updated dependencies [00605b4]
+- Updated dependencies [9396140]
+- Updated dependencies [a9a9524]
+- Updated dependencies [4874e6a]
+- Updated dependencies [e61e4c8]
+  - @mgdis/styles@2.18.0
+  - @mgdis/core-ui-helpers@1.2.0
+  - @mgdis/img@2.7.0
+  - @mgdis/sanitize-html@1.1.2
+
 ## 6.22.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 2.7.0
+
+### Minor Changes
+
+- 0577746: [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs) Add `glitters` and `glitters-outline` icons
+
 ## 2.6.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.15
+
+### Patch Changes
+
+- e61e4c8: Update dependencies
+
 ## 4.1.14
 
 ### Patch Changes

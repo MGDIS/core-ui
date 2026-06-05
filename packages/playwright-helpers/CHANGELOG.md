@@ -1,5 +1,15 @@
 # @mgdis/playwright-helpers
 
+## 1.1.16
+
+### Patch Changes
+
+- e61e4c8: Update dependencies
+- Updated dependencies [753dd96]
+- Updated dependencies [a4e94bd]
+- Updated dependencies [e61e4c8]
+  - @mgdis/core-ui-helpers@1.2.0
+
 ## 1.1.15
 
 ### Patch Changes

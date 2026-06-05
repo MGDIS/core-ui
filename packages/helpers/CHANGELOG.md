@@ -1,5 +1,16 @@
 # @mgdis/core-ui-helpers
 
+## 1.2.0
+
+### Minor Changes
+
+- 753dd96: [#598](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/work_items/598) mg-components: align all boolean `@Prop()`s with the HTML spec for boolean attributes — the attribute's presence now implies `true` regardless of its value (`readonly`, `readonly=""`, `readonly="true"`, `readonly="false"`). Adds `normalizeBooleanAttributes` to `@mgdis/core-ui-helpers/dist/stencil`. Aligns `renderAttributes` (in `@mgdis/core-ui-helpers/dist/playwright`) with the same semantics: `true` → `attr=""`, `false` → attribute omitted.
+
+### Patch Changes
+
+- a4e94bd: [#561](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/work_items/561) fix `webTypesGenerator` and `vsCodeGenerator` to distinguish attributes from properties (WebStorm / VS Code no longer mix them), and add a new `cemGenerator` producing a standard Custom Elements Manifest v2.
+- e61e4c8: Update dependencies
+
 ## 1.1.2
 
 ### Patch Changes
