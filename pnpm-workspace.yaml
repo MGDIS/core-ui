@@ -10,3 +10,29 @@ packages:
   # exclude packages that are inside tests directories
   - '!**/tests/**'
 save-prefix: ''
+# Supply-chain guard enabled by pnpm v11: a package must have existed for at
+# least this many minutes before it can be installed (protects against freshly
+# compromised package versions). 1440 minutes = 24h, the pnpm default.
+minimumReleaseAge: 1440
+# Our own freshly-published internal packages must not be held back by the delay.
+minimumReleaseAgeExclude:
+  - '@mgdis/*'
+# pnpm v11 no longer runs dependency build scripts unless they are explicitly
+# approved. These are the native build tools the monorepo needs to compile,
+# already built under pnpm 10.
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  core-js: true
+  deasync: true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+# vue-template-compiler resolves vue via a bare require('vue') at load time and
+# declares no vue dependency, so under pnpm v11's hoisting it picked up the
+# hoisted vue@3 and crashed the Vue 2 helpers tests with a version mismatch.
+# It is a Vue 2 only tool: pin a local vue@2 so the require resolves correctly.
+packageExtensions:
+  vue-template-compiler:
+    dependencies:
+      vue: '2.7.16'
