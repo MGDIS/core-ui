@@ -112,4 +112,11 @@
 :host {
   display: block;
   container-type: inline-size;
+
+  // The host establishes an inline-size container query context (used by the
+  // horizontal direction). Size containment makes the host contribute no intrinsic
+  // inline size, so in a shrink-to-fit parent (flex item, inline-block, float) it
+  // would otherwise collapse to 0 and the whole message disappears. Filling the
+  // parent inline size keeps the layout robust regardless of the consumer context.
+  inline-size: 100%;
 }
