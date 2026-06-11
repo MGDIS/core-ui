@@ -103,8 +103,16 @@ export class MgPopover {
    * Check if clicked outside of component
    * @param event - mouse event
    */
-  private clickOutside = (event: MouseEvent & { target: HTMLElement }): void => {
-    if (!this.disabled && event.target.closest('mg-popover') !== this.element && event.target.closest(`[data-mg-popover-guard="${this.identifier}"]`) === null) {
+  private clickOutside = (event: MouseEvent): void => {
+    // `click` is a composed event, so `composedPath()` lists every node it travels
+    // through, including across shadow boundaries. Relying on it instead of
+    // `event.target` keeps the popover open when it (or its guarded trigger) is
+    // nested inside another component's shadow DOM: there `event.target` is
+    // retargeted to the outer shadow host and `closest()` cannot reach the popover
+    // nor the `data-mg-popover-guard` element.
+    const path = event.composedPath();
+    const isInside = path.includes(this.element) || path.some(node => (node as HTMLElement).dataset?.mgPopoverGuard === this.identifier);
+    if (!this.disabled && !isInside) {
       this.display = false;
     }
   };
