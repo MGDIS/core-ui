@@ -53,4 +53,34 @@ test.describe('mg-illustrated-message', () => {
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
+  // The component sets `container-type: inline-size` on its host to drive the
+  // horizontal layout via a container query. Size containment makes the host
+  // contribute no intrinsic inline size, so in a shrink-to-fit parent (flex item,
+  // inline-block, float) it used to collapse to 0 and the whole message — including
+  // the illustration — disappeared, forcing consumers to set an explicit width.
+  test('renders without collapsing in a shrink-to-fit parent (horizontal)', async ({ page }) => {
+    await page.setContent(`
+      <div style="display: flex; inline-size: 60rem">
+        <mg-illustrated-message direction="horizontal">
+          <img
+            slot="illustration"
+            alt=""
+            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 184 184'><rect width='184' height='184' fill='%23bed830'/></svg>"
+          />
+          <h2 slot="title">Lorem Ipsum</h2>
+          <div slot="details">The standard Lorem Ipsum passage, used since the 1500s</div>
+        </mg-illustrated-message>
+      </div>`);
+
+    // Wait for the Stencil component to hydrate before measuring layout.
+    await page.waitForSelector('mg-illustrated-message.hydrated');
+
+    const illustration = page.locator('[slot="illustration"]');
+    const box = await illustration.boundingBox();
+
+    // Without the fix the host collapses to 0, so the illustration box is 0×0.
+    expect(box?.width ?? 0).toBeGreaterThan(0);
+    expect(box?.height ?? 0).toBeGreaterThan(0);
+  });
 });
