@@ -28,14 +28,18 @@
         color: var(--mg-b-color-#{$variant});
       }
 
-      &.mg-c-message--bar-left .mg-c-message__bar {
-        background-color: var(--mg-b-color-#{$variant});
+      &.mg-c-message--bar-left .mg-c-message__content {
+        border-inline-start: var(--mg-b-size-4) solid var(--mg-b-color-#{$variant});
       }
 
       &.mg-c-message--background {
         --mg-c-card-color-background: var(--mg-b-color-#{$color}-#{variables.$palette-index-light}, color-mix(in srgb, var(--mg-b-color-#{$variant}), white 80%));
       }
     }
+  }
+
+  &.mg-c-message--background {
+    --mg-c-card-border-radius: var(--mg-b-size-8);
   }
 
   ::slotted(*) {
@@ -48,14 +52,20 @@
   &__icon {
     position: absolute;
     inset-block-start: calc((var(--mg-b-size-min-height) - #{$icon-size}) / 2);
-    inset-inline-start: calc(var(--mg-b-size-4) + var(--mg-b-size-8)); // vertical bar + spacing
+    inset-inline-start: var(--mg-b-size-8);
     line-height: 1;
+  }
+
+  &.mg-c-message--bar-left .mg-c-message__icon {
+    inset-inline-start: calc(var(--mg-b-size-4) + var(--mg-b-size-8)); // shifted by the colored bar width
   }
 
   &__content {
     display: flex;
+    box-sizing: border-box;
     flex-wrap: wrap;
-    padding: 0 var(--mg-b-size-8) 0 calc(var(--mg-b-size-4) + var(--mg-b-size-8) + #{$icon-size} + var(--mg-b-size-8)); // vertical bar + spacing + icon + spacing;
+    padding-block: 0;
+    padding-inline: calc(var(--mg-b-size-8) + #{$icon-size} + var(--mg-b-size-8)) var(--mg-b-size-8); // spacing + icon + spacing
     place-content: stretch flex-end;
   }
 
@@ -73,14 +83,6 @@
   &__content-actions-slot {
     padding: var(--mg-b-size-8) 0;
     text-align: end;
-  }
-
-  &__bar {
-    position: absolute;
-    block-size: 100%;
-    inline-size: var(--mg-b-size-4);
-    inset-block-start: 0;
-    inset-inline-start: 0;
   }
 
   @include reset-mg-card-slotted-variables.reset-slot-card-variables;
