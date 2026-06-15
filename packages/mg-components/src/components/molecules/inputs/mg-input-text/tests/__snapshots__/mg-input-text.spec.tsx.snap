@@ -57,9 +57,9 @@ exports[`mg-input-text Should display override error with setError component's p
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -98,9 +98,9 @@ exports[`mg-input-text Should display override error with setError component's p
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -174,9 +174,9 @@ exports[`mg-input-text Should display override error with setError component's p
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -215,9 +215,9 @@ exports[`mg-input-text Should display override error with setError component's p
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -326,9 +326,9 @@ exports[`mg-input-text Should display override error with setError component's p
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -437,9 +437,9 @@ exports[`mg-input-text Should display override error with setError component's p
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -478,9 +478,9 @@ exports[`mg-input-text Should not throw an error when patternErrorMessage is not
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format: name@example.com
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -514,9 +514,9 @@ exports[`mg-input-text Should not throw an error when patternErrorMessage is not
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format: first@example.com, second@example.com
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -550,9 +550,9 @@ exports[`mg-input-text Should not throw an error when patternErrorMessage is not
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format: https://example.com
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -673,9 +673,9 @@ exports[`mg-input-text Should render with args {
         <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -997,9 +997,9 @@ exports[`mg-input-text Should render with args { required: true, value: 'blu', h
         <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1252,11 +1252,11 @@ exports[`mg-input-text Should render with interactive helpText 1`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         <a href="#">
           My help text
         </a>
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1290,11 +1290,11 @@ exports[`mg-input-text Should render with interactive helpText 2`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         <a href="#">
           My help text
         </a>
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1328,11 +1328,11 @@ exports[`mg-input-text Should render with interactive helpText 3`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         <a href="#">
           My help text
         </a>
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1372,9 +1372,9 @@ exports[`mg-input-text Should trigger events, case title: Bla 1`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1414,9 +1414,9 @@ exports[`mg-input-text Should trigger events, case title: Bli 1`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1456,9 +1456,9 @@ exports[`mg-input-text Should trigger events, case title: Blo 1`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1492,9 +1492,9 @@ exports[`mg-input-text Should trigger events, case title: Blu 1`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1618,9 +1618,9 @@ exports[`mg-input-text display error message with locale: fr 1`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Ce champ est obligatoire.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1659,9 +1659,9 @@ exports[`mg-input-text display error message with locale: xx 1`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1735,9 +1735,9 @@ exports[`mg-input-text display error with displayError component's public method
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2059,9 +2059,9 @@ exports[`mg-input-text reset method Should reset displayed error, lock false 1`]
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Message d'erreur de test
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2125,9 +2125,9 @@ exports[`mg-input-text reset method Should reset displayed error, lock true 1`] 
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Message d'erreur de test
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2191,9 +2191,9 @@ exports[`mg-input-text types with helptext Should display patternMismatch mesage
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format: name@example.com
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2230,12 +2230,12 @@ exports[`mg-input-text types with helptext Should display patternMismatch mesage
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format: name@example.com
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         The value is incorrect, the expected format is name@example.com
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2269,9 +2269,9 @@ exports[`mg-input-text types with helptext Should render with type: email 1`] = 
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format: name@example.com
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2308,12 +2308,12 @@ exports[`mg-input-text types with helptext Should render with type: email 2`] = 
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format: name@example.com
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         The value is incorrect, the expected format is name@example.com
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2347,9 +2347,9 @@ exports[`mg-input-text types with helptext Should render with type: emails 1`] =
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format: first@example.com, second@example.com
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2386,12 +2386,12 @@ exports[`mg-input-text types with helptext Should render with type: emails 2`] =
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format: first@example.com, second@example.com
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         The value is incorrect, the expected format is first@example.com, second@example.com
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2425,9 +2425,9 @@ exports[`mg-input-text types with helptext Should render with type: url 1`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format: https://example.com
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2464,12 +2464,12 @@ exports[`mg-input-text types with helptext Should render with type: url 2`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format: https://example.com
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         The value is incorrect, the expected format is https://example.com
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2503,9 +2503,9 @@ exports[`mg-input-text validity, case next state is disabled validity ({ validit
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2569,9 +2569,9 @@ exports[`mg-input-text validity, case next state is readonly validity ({ validit
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">

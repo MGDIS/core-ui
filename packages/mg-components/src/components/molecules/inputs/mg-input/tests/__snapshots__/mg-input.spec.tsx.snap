@@ -20,9 +20,9 @@ exports[`mg-input render Should render with args {
     </div>
   </template>
   <input aria-describedby="identifier-help-text" id="identifier" type="file">
-  <div id="identifier-help-text" slot="help-text">
+  <p id="identifier-help-text" slot="help-text">
     Hello joker
-  </div>
+  </p>
   <mg-input-title identifier="identifier" slot="label">
     <!---->
     <label class="mg-c-input-title" for="identifier">
@@ -210,9 +210,9 @@ exports[`mg-input render Should render with args { class: 'mg-c-input--disabled'
     </div>
   </template>
   <input aria-describedby="identifier-error" id="identifier" type="file">
-  <div id="identifier-error" slot="error">
+  <p id="identifier-error" slot="error">
     This is an error
-  </div>
+  </p>
   <mg-input-title identifier="identifier" slot="label">
     <!---->
     <label class="mg-c-input-title" for="identifier">
@@ -426,9 +426,9 @@ exports[`mg-input render Should render with args { errorMessage: 'This is an err
     </div>
   </template>
   <input aria-describedby="identifier-error" id="identifier" type="file">
-  <div id="identifier-error" slot="error">
+  <p id="identifier-error" slot="error">
     This is an error
-  </div>
+  </p>
   <mg-input-title identifier="identifier" slot="label">
     <!---->
     <label class="mg-c-input-title" for="identifier">
@@ -454,9 +454,9 @@ exports[`mg-input render Should render with args { helpText: 'Hello joker' }: 1`
     </div>
   </template>
   <input aria-describedby="identifier-help-text" id="identifier" type="file">
-  <div id="identifier-help-text" slot="help-text">
+  <p id="identifier-help-text" slot="help-text">
     Hello joker
-  </div>
+  </p>
   <mg-input-title identifier="identifier" slot="label">
     <!---->
     <label class="mg-c-input-title" for="identifier">
@@ -625,9 +625,9 @@ exports[`mg-input render Should update "error" slot 1`] = `
     </div>
   </template>
   <input aria-describedby="identifier-error" id="identifier" type="file">
-  <div id="identifier-error" slot="error">
+  <p id="identifier-error" slot="error">
     This is an error
-  </div>
+  </p>
   <mg-input-title identifier="identifier" slot="label">
     <!---->
     <label class="mg-c-input-title" for="identifier">
@@ -676,9 +676,9 @@ exports[`mg-input render Should update "error" slot 3`] = `
   </template>
   <mg-input-radio identifier="mg-input-radio" label="mg-input-radio label"></mg-input-radio>
   <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>
-  <div id="identifier-error" slot="error">
+  <p id="identifier-error" slot="error">
     This is an error
-  </div>
+  </p>
   <mg-input-title identifier="identifier" slot="label">
     <!---->
     <legend aria-describedby="identifier-error" class="mg-c-input-title" id="identifier-title">
@@ -733,9 +733,9 @@ exports[`mg-input render Should update "help-text" slot 1`] = `
       label
     </label>
   </mg-input-title>
-  <div id="identifier-help-text" slot="help-text">
+  <p id="identifier-help-text" slot="help-text">
     Hello joker
-  </div>
+  </p>
 </mg-input>
 `;
 
@@ -784,9 +784,9 @@ exports[`mg-input render Should update "help-text" slot 3`] = `
       label
     </legend>
   </mg-input-title>
-  <div id="identifier-help-text" slot="help-text">
+  <p id="identifier-help-text" slot="help-text">
     Hello joker
-  </div>
+  </p>
 </mg-input>
 `;
 

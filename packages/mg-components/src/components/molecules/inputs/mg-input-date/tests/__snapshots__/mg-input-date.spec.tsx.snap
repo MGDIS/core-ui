@@ -21,7 +21,7 @@ exports[`mg-input-date Should display a badInput message on a required field wit
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -30,8 +30,8 @@ exports[`mg-input-date Should display a badInput message on a required field wit
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         The date is inexistent or incorrect, the expected format is
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -40,7 +40,7 @@ exports[`mg-input-date Should display a badInput message on a required field wit
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -75,7 +75,7 @@ exports[`mg-input-date Should display error with invalid value, case value="31-1
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -84,7 +84,7 @@ exports[`mg-input-date Should display error with invalid value, case value="31-1
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -117,7 +117,7 @@ exports[`mg-input-date Should display error with invalid value, case value="31-1
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="31-12-2022">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -126,8 +126,8 @@ exports[`mg-input-date Should display error with invalid value, case value="31-1
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         The date is inexistent or incorrect, the expected format is
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -136,7 +136,7 @@ exports[`mg-input-date Should display error with invalid value, case value="31-1
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -166,7 +166,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2020
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -175,7 +175,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2020
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -208,7 +208,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2020
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2020">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -217,8 +217,8 @@ exports[`mg-input-date Should display error with invalid value, case value="2020
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         The date is inexistent or incorrect, the expected format is
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -227,7 +227,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2020
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -257,7 +257,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2021
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -266,7 +266,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2021
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -299,7 +299,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2021
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2021">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -308,8 +308,8 @@ exports[`mg-input-date Should display error with invalid value, case value="2021
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         The date is inexistent or incorrect, the expected format is
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -318,7 +318,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2021
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -348,7 +348,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2022
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -357,7 +357,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2022
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -390,7 +390,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2022
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2022-02-24T08:01:44.460Z">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -399,8 +399,8 @@ exports[`mg-input-date Should display error with invalid value, case value="2022
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         The date is inexistent or incorrect, the expected format is
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -409,7 +409,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2022
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -439,7 +439,7 @@ exports[`mg-input-date Should display override error with setError component's p
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -448,7 +448,7 @@ exports[`mg-input-date Should display override error with setError component's p
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -486,7 +486,7 @@ exports[`mg-input-date Should display override error with setError component's p
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -495,10 +495,10 @@ exports[`mg-input-date Should display override error with setError component's p
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -536,7 +536,7 @@ exports[`mg-input-date Should display override error with setError component's p
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -545,10 +545,10 @@ exports[`mg-input-date Should display override error with setError component's p
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -583,7 +583,7 @@ exports[`mg-input-date Should display override error with setError component's p
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -592,7 +592,7 @@ exports[`mg-input-date Should display override error with setError component's p
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -630,7 +630,7 @@ exports[`mg-input-date Should display override error with setError component's p
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -639,10 +639,10 @@ exports[`mg-input-date Should display override error with setError component's p
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -680,7 +680,7 @@ exports[`mg-input-date Should display override error with setError component's p
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -689,10 +689,10 @@ exports[`mg-input-date Should display override error with setError component's p
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -727,7 +727,7 @@ exports[`mg-input-date Should display override error with setError component's p
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -736,7 +736,7 @@ exports[`mg-input-date Should display override error with setError component's p
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -771,7 +771,7 @@ exports[`mg-input-date Should display override error with setError component's p
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -780,7 +780,7 @@ exports[`mg-input-date Should display override error with setError component's p
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -818,7 +818,7 @@ exports[`mg-input-date Should display override error with setError component's p
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -827,10 +827,10 @@ exports[`mg-input-date Should display override error with setError component's p
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -865,7 +865,7 @@ exports[`mg-input-date Should display override error with setError component's p
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -874,7 +874,7 @@ exports[`mg-input-date Should display override error with setError component's p
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -909,7 +909,7 @@ exports[`mg-input-date Should display override error with setError component's p
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -918,7 +918,7 @@ exports[`mg-input-date Should display override error with setError component's p
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -956,7 +956,7 @@ exports[`mg-input-date Should display override error with setError component's p
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -965,10 +965,10 @@ exports[`mg-input-date Should display override error with setError component's p
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1003,7 +1003,7 @@ exports[`mg-input-date Should override Backspace keyboard event 1`] = `
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2021-10-14">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1012,7 +1012,7 @@ exports[`mg-input-date Should override Backspace keyboard event 1`] = `
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1042,7 +1042,7 @@ exports[`mg-input-date Should override Delete keyboard event 1`] = `
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2021-10-14">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1051,7 +1051,7 @@ exports[`mg-input-date Should override Delete keyboard event 1`] = `
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1084,7 +1084,7 @@ exports[`mg-input-date Should override keyboard event even if display error 1`] 
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="20212-10-14">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1093,8 +1093,8 @@ exports[`mg-input-date Should override keyboard event even if display error 1`] 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         The date is inexistent or incorrect, the expected format is
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1103,7 +1103,7 @@ exports[`mg-input-date Should override keyboard event even if display error 1`] 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1133,7 +1133,7 @@ exports[`mg-input-date Should override keyboard event even if display error 2`] 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1142,7 +1142,7 @@ exports[`mg-input-date Should override keyboard event even if display error 2`] 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1174,7 +1174,7 @@ exports[`mg-input-date Should render with args {
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text use pattern
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1190,7 +1190,7 @@ exports[`mg-input-date Should render with args {
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1261,9 +1261,9 @@ exports[`mg-input-date Should render with args {
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" max="9999-12-31" name="identifier" required="" type="date" value="2022-06-02">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1333,7 +1333,7 @@ exports[`mg-input-date Should render with args {
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1342,7 +1342,7 @@ exports[`mg-input-date Should render with args {
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1372,7 +1372,7 @@ exports[`mg-input-date Should render with args { labelHide: true }: 1`] = `
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1381,7 +1381,7 @@ exports[`mg-input-date Should render with args { labelHide: true }: 1`] = `
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1411,7 +1411,7 @@ exports[`mg-input-date Should render with args { labelOnTop: true }: 1`] = `
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1420,7 +1420,7 @@ exports[`mg-input-date Should render with args { labelOnTop: true }: 1`] = `
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1615,9 +1615,9 @@ exports[`mg-input-date Should render with args { required: true, value: '2022-06
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date" value="2022-06-02">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1655,7 +1655,7 @@ exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message' }
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1664,7 +1664,7 @@ exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message' }
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1697,7 +1697,7 @@ exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message', 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1706,7 +1706,7 @@ exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message', 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1739,7 +1739,7 @@ exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message', 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1748,7 +1748,7 @@ exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message', 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1778,7 +1778,7 @@ exports[`mg-input-date Should render with args {}: 1`] = `
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1787,7 +1787,7 @@ exports[`mg-input-date Should render with args {}: 1`] = `
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1817,9 +1817,9 @@ exports[`mg-input-date Should trigger events 1`] = `
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1852,7 +1852,7 @@ exports[`mg-input-date display error message with locale: fr 1`] = `
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Format attendu&nbsp;:
         <span aria-hidden="true">
           mm/jj/aaaa
@@ -1861,10 +1861,10 @@ exports[`mg-input-date display error message with locale: fr 1`] = `
           m m / j j / a a a a
         </span>
         (ex&nbsp;: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         Ce champ est obligatoire.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1902,7 +1902,7 @@ exports[`mg-input-date display error message with locale: xx 1`] = `
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1911,10 +1911,10 @@ exports[`mg-input-date display error message with locale: xx 1`] = `
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1949,7 +1949,7 @@ exports[`mg-input-date display error with displayError component's public method
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -1958,7 +1958,7 @@ exports[`mg-input-date display error with displayError component's public method
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1996,7 +1996,7 @@ exports[`mg-input-date display error with displayError component's public method
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2005,10 +2005,10 @@ exports[`mg-input-date display error with displayError component's public method
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2046,7 +2046,7 @@ exports[`mg-input-date reset method Should reset displayed error, lock false 1`]
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2055,10 +2055,10 @@ exports[`mg-input-date reset method Should reset displayed error, lock false 1`]
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         Message d'erreur de test
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2088,7 +2088,7 @@ exports[`mg-input-date reset method Should reset displayed error, lock false 2`]
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2097,7 +2097,7 @@ exports[`mg-input-date reset method Should reset displayed error, lock false 2`]
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2130,7 +2130,7 @@ exports[`mg-input-date reset method Should reset displayed error, lock true 1`] 
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2139,10 +2139,10 @@ exports[`mg-input-date reset method Should reset displayed error, lock true 1`] 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         Message d'erreur de test
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2172,7 +2172,7 @@ exports[`mg-input-date reset method Should reset displayed error, lock true 2`] 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2181,7 +2181,7 @@ exports[`mg-input-date reset method Should reset displayed error, lock true 2`] 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2214,7 +2214,7 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2223,10 +2223,10 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2256,7 +2256,7 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2265,7 +2265,7 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2298,7 +2298,7 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2307,10 +2307,10 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2365,7 +2365,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-01-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2374,7 +2374,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2404,7 +2404,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-01-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2413,7 +2413,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2443,7 +2443,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="2024-02-01" name="identifier" type="date" value="2024-01-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2452,7 +2452,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2482,7 +2482,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="2024-03-01" name="identifier" type="date" value="2024-01-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2491,7 +2491,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2521,7 +2521,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-01-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2530,7 +2530,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2560,7 +2560,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-01-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2569,7 +2569,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2602,7 +2602,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" min="2024-02-01" name="identifier" type="date" value="2024-01-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2611,10 +2611,10 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         The date must be after or equal to 2/1/2024
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2644,7 +2644,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" min="2024-01-01" name="identifier" type="date" value="2024-01-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2653,7 +2653,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2683,7 +2683,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-03-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2692,7 +2692,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2722,7 +2722,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-03-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2731,7 +2731,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2764,7 +2764,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="2024-02-01" name="identifier" type="date" value="2024-03-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2773,10 +2773,10 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         The date must be before or equal to 2/1/2024
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2806,7 +2806,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="2024-03-01" name="identifier" type="date" value="2024-03-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2815,7 +2815,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2845,7 +2845,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-03-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2854,7 +2854,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2884,7 +2884,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-03-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2893,7 +2893,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2923,7 +2923,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" min="2024-02-01" name="identifier" type="date" value="2024-03-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2932,7 +2932,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2962,7 +2962,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </div>
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" min="2024-01-01" name="identifier" type="date" value="2024-03-01">
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
           mm/dd/yyyy
@@ -2971,7 +2971,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
           m m / d d / y y y y
         </span>
         (ex: 12/24/2025)
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
