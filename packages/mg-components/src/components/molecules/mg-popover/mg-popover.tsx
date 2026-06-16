@@ -111,7 +111,7 @@ export class MgPopover {
     // retargeted to the outer shadow host and `closest()` cannot reach the popover
     // nor the `data-mg-popover-guard` element.
     const path = event.composedPath();
-    const isInside = path.includes(this.element) || path.some(node => (node as HTMLElement).dataset?.mgPopoverGuard === this.identifier);
+    const isInside = path.includes(this.element) || path.some(node => node instanceof HTMLElement && node.dataset.mgPopoverGuard === this.identifier);
     if (!this.disabled && !isInside) {
       this.display = false;
     }
