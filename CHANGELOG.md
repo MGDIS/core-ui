@@ -1,5 +1,22 @@
 # Changelog
 
+## Release (2026-06-17-15-30_Nasty-Navy-Blue-Newt)
+
+### Packages released
+
+- [helpers changelog](packages/helpers/CHANGELOG.md)
+- [img changelog](packages/img/CHANGELOG.md)
+- [linting-angularjs changelog](packages/linting-angularjs/CHANGELOG.md)
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [linting-vue2 changelog](packages/linting-vue2/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+- [sanitize-html changelog](packages/sanitize-html/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2026-06-05-12-28_Lonely-Laser-Lemon-Lobster)
 
 ### Packages released

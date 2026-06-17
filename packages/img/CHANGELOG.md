@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 2.7.1
+
+### Patch Changes
+
+- b79dd93: Update dependencies
+
 ## 2.7.0
 
 ### Minor Changes

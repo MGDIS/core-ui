@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.0.22
+
+### Patch Changes
+
+- b79dd93: Update dependencies
+
 ## 1.0.21
 
 ### Patch Changes

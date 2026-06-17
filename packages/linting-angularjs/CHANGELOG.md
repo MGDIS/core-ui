@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.2
+
+### Patch Changes
+
+- b79dd93: Update dependencies
+
 ## 5.0.1
 
 ### Patch Changes

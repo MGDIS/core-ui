@@ -1,5 +1,11 @@
 # @mgdis/linting-stencil
 
+## 1.3.12
+
+### Patch Changes
+
+- b79dd93: Update dependencies
+
 ## 1.3.11
 
 ### Patch Changes

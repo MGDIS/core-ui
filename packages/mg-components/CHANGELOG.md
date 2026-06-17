@@ -1,5 +1,29 @@
 # @mgdis/mg-components
 
+## 6.24.0
+
+### Minor Changes
+
+- 88bb0fd: [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs) Differentiate `background` variant style: remove drop shadow, increase border radius to 8px, and remove the left offset reserved for the colored bar
+
+### Patch Changes
+
+- b79dd93: Update dependencies
+- 6af49d5: [**`<mg-illustrated-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-illustrated-message--docs) `direction="horizontal"` no longer renders an invisible illustration. Two issues are fixed:
+
+  - The host establishes an `inline-size` container query context, and its size containment removed its intrinsic inline size — so in a shrink-to-fit parent (flex item, inline-block, float) the whole message collapsed to 0 unless the consumer forced a width. The host now fills its parent inline size.
+  - On Firefox, an `<img>` illustration collapsed to 0 inside the horizontal container query (its `fit-content` column resolved to 0 for a replaced child with no intrinsic size; inline `<svg>` was unaffected). Images are now anchored by their block-size with the inline-size following the intrinsic ratio.
+
+- 2552417: [**`<mg-input-combobox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-input-combobox--docs) Fix a 404 when clicking "show more" on an API search (`fetchurl`) whose next-page link is relative: the link is now resolved against the request URL instead of the document location.
+- 3739313: [**`<mg-popover>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-popover--docs) no longer closes when clicking inside it while it is nested in another component's shadow DOM. The outside-click detection now uses `composedPath()` instead of `event.target`, which is retargeted to the outer shadow host at the `window` level. This notably fixes [**`<mg-input-combobox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-combobox--docs) consumed inside a wrapper component, where clicking "Show more" closed the suggestions list instead of appending the next page.
+- Updated dependencies [b79dd93]
+- Updated dependencies [88bb0fd]
+- Updated dependencies [6af49d5]
+  - @mgdis/styles@2.19.0
+  - @mgdis/core-ui-helpers@1.2.1
+  - @mgdis/sanitize-html@1.1.3
+  - @mgdis/img@2.7.1
+
 ## 6.23.0
 
 ### Minor Changes
