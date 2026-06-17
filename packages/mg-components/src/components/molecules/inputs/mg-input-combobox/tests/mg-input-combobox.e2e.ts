@@ -654,4 +654,56 @@ test.describe('mg-input-combobox', () => {
       });
     });
   });
+
+  // When mg-input-combobox is consumed inside another shadow-DOM component,
+  // clicking "Show more" used to close the popover: the window-level click is
+  // retargeted to the outer shadow host, so mg-popover must rely on
+  // composedPath() to detect the in-popover click.
+  test.describe('Show more inside a shadow-DOM host', () => {
+    const mountNested = async page => {
+      await page.evaluate(() => {
+        class HostWrapper extends HTMLElement {
+          connectedCallback() {
+            const root = this.attachShadow({ mode: 'open' });
+            const combobox = document.createElement('mg-input-combobox') as HTMLMgInputComboboxElement;
+            combobox.setAttribute('label', 'label');
+            combobox.setAttribute('items-label', 'Dc Comics');
+            combobox.setAttribute('identifier', 'identifier');
+            combobox.items = new Array(25).fill('').map((_, key) => (key + 1).toString());
+            root.appendChild(combobox);
+          }
+        }
+        customElements.define('host-wrapper', HostWrapper);
+        (document.querySelector('.e2e-screenshot') ?? document.body).innerHTML = '<host-wrapper></host-wrapper>';
+      });
+      await page.locator('host-wrapper mg-input-combobox.hydrated').waitFor();
+    };
+
+    test('keeps popover open when clicking "Show more"', async ({ page }) => {
+      await mountNested(page);
+
+      await page.locator('host-wrapper mg-input-combobox input').click();
+      await page.locator('li').first().waitFor();
+      await expect(page.locator('li')).toHaveCount(10);
+
+      await page.getByText('Show more').click();
+
+      // popover stays open and the next page is appended
+      await expect(page.locator('mg-popover-content')).toBeVisible();
+      await expect(page.locator('li')).toHaveCount(20);
+    });
+
+    test('keeps popover open when reaching "Show more" with the keyboard', async ({ page }) => {
+      await mountNested(page);
+
+      await page.locator('host-wrapper mg-input-combobox input').focus();
+      // open, walk to the last loaded option, then one more to trigger load-more
+      for (let index = 0; index < 11; index++) {
+        await page.keyboard.press(Keys.ARROWDOWN);
+      }
+
+      await expect(page.locator('mg-popover-content')).toBeVisible();
+      await expect(page.locator('li')).toHaveCount(20);
+    });
+  });
 });

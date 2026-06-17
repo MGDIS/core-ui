@@ -928,11 +928,12 @@ export class MgInputCombobox {
       );
       const total = Number(getObjectValueFromKey<Response, number>(json, this.fetchmappings.response.total, 0));
       let next = getObjectValueFromKey<Response, string>(json, this.fetchmappings.response.next);
-      if (URL.canParse(updateUrl) && Boolean(next) && !URL.canParse(next)) {
-        const previousUrl = new URL(updateUrl);
-        if (previousUrl.pathname.endsWith(next.split('?')[0])) {
-          next = new URL(next, previousUrl).toString();
-        }
+      if (Boolean(next) && !URL.canParse(next)) {
+        // `next` is a relative link returned by the API: resolve it against the request URL (RFC 3986).
+        // The request URL is first made absolute against the document base so a root-relative `fetchurl`
+        // resolves the next page on the API path, not against the document location (which would 404).
+        const requestUrl = new URL(updateUrl, this.element.ownerDocument.baseURI);
+        next = new URL(next, requestUrl).toString();
       }
       return { items, total, next, top: items.length };
     } catch (error) {

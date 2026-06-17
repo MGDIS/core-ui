@@ -67,7 +67,7 @@ const fetchmappings = {
 };
 const fetchurl = `http://url.fr?filter=${RequestMapping.filter}`;
 
-const getPage = async (args, fetchOverrides?) => {
+const getPage = async (args, fetchOverrides?, url?) => {
   // define fetch mock if needeed
   if (args.fetchurl) {
     initFetchSpy(fetchOverrides);
@@ -76,6 +76,7 @@ const getPage = async (args, fetchOverrides?) => {
   const page = await newSpecPage({
     components: [MgInputCombobox, MgButton, MgIcon, MgInput, MgInputTitle, MgPopover, MgPopoverContent],
     template: () => <mg-input-combobox {...args}></mg-input-combobox>,
+    ...(url !== undefined ? { url } : {}),
   });
 
   const combobox = page.doc.querySelector('mg-input-combobox');
@@ -1111,6 +1112,33 @@ describe('mg-input-combobox', () => {
         expect(spyLoadingWrapper).toHaveBeenCalledWith(expect.objectContaining({ name: 'load-more' }));
         expect(getOptions().length).toEqual(isError ? 15 : 30);
       }
+    });
+
+    test('Should resolve a relative next-page link against the request URL, not the document base (PLAID-148142)', async () => {
+      // Field configured with a root-relative (scheme-less) fetchurl, as the
+      // data-schemas OData search field does. Page 1 succeeds because the
+      // browser resolves the root-relative path against the origin; the API
+      // then returns a resource-relative `next` link (no leading slash).
+      const relativeFetchurl = `/dataserver/test/data/communes?filter=${RequestMapping.filter}`;
+      const page = await getPage(
+        { ...baseProps, items: undefined, fetchurl: relativeFetchurl, fetchmappings },
+        { results: initArray(15).map(item => ({ title: item, value: item })), total: 25, next: 'communes?$format=json&$top=10&$skip=10' },
+        'https://apphost.fr/aides/demande/edit',
+      );
+      const element = page.doc.querySelector('mg-input-combobox');
+      const button = element.shadowRoot.querySelector('mg-button:last-of-type');
+
+      // display options (fetch page 1)
+      button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+
+      // click "show more" (fetch next page)
+      element.shadowRoot.querySelector('.mg-c-input__load-more').dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+
+      // The next-page request must target the API path, not be resolved against
+      // the document base (which would 404: …/aides/demande/communes?…).
+      expect((global.fetch as jest.Mock).mock.calls.at(-1)[0]).toBe('https://apphost.fr/dataserver/test/data/communes?$format=json&$top=10&$skip=10');
     });
 
     test('Should emit error when fetch API throw an error', async () => {
