@@ -158,6 +158,62 @@ describe('mg-input', () => {
     });
   });
 
+  describe('error/help-text semantic tag (RGAA 8.9 / 8.2)', () => {
+    const settle = async page => {
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
+    };
+
+    test.each([
+      { content: 'Plain error message', expectedTag: 'P' },
+      { content: 'Error with <b>bold</b> and <a href="#">link</a>', expectedTag: 'P' },
+      { content: '<p>Error wrapped in a block</p>', expectedTag: 'DIV' },
+      { content: '<ul><li>item</li></ul>', expectedTag: 'DIV' },
+    ])('Should render "error" slot as $expectedTag (phrasing -> <p>, block -> <div>): $content', async ({ content, expectedTag }) => {
+      const page = await getPage();
+      const element = page.doc.querySelector('mg-input');
+
+      element.errorMessage = content;
+      await settle(page);
+
+      const slot = element.querySelector('[slot="error"]');
+      expect(slot.tagName).toBe(expectedTag);
+      expect(slot.querySelectorAll('p p')).toHaveLength(0);
+    });
+
+    test.each([
+      { content: 'Plain help text', expectedTag: 'P' },
+      { content: 'Help with <em>emphasis</em>', expectedTag: 'P' },
+      { content: '<p>Help wrapped in a block</p>', expectedTag: 'DIV' },
+    ])('Should render "help-text" slot as $expectedTag (phrasing -> <p>, block -> <div>): $content', async ({ content, expectedTag }) => {
+      const page = await getPage();
+      const element = page.doc.querySelector('mg-input');
+
+      element.helpText = content;
+      await settle(page);
+
+      const slot = element.querySelector('[slot="help-text"]');
+      expect(slot.tagName).toBe(expectedTag);
+      expect(slot.querySelectorAll('p p')).toHaveLength(0);
+    });
+
+    test('Should swap the tag when the content type changes, keeping the markup valid', async () => {
+      const page = await getPage();
+      const element = page.doc.querySelector('mg-input');
+
+      element.helpText = 'Plain text';
+      await settle(page);
+      expect(element.querySelector('[slot="help-text"]').tagName).toBe('P');
+
+      element.helpText = '<p>Now a block</p>';
+      await settle(page);
+      const slot = element.querySelector('[slot="help-text"]');
+      expect(slot.tagName).toBe('DIV');
+      expect(slot.querySelectorAll('p p')).toHaveLength(0);
+    });
+  });
+
   describe('errors', () => {
     test.each(['', ' ', undefined])('Should not render with invalid "identifier" property: %s', async identifier => {
       expect.assertions(1);
