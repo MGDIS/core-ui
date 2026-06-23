@@ -51,9 +51,9 @@ exports[`mg-input-numeric Should display override error with setError component'
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -89,9 +89,9 @@ exports[`mg-input-numeric Should display override error with setError component'
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -159,9 +159,9 @@ exports[`mg-input-numeric Should display override error with setError component'
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -197,9 +197,9 @@ exports[`mg-input-numeric Should display override error with setError component'
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -299,9 +299,9 @@ exports[`mg-input-numeric Should display override error with setError component'
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -401,9 +401,9 @@ exports[`mg-input-numeric Should display override error with setError component'
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -547,9 +547,9 @@ exports[`mg-input-numeric display error message with locale: fr 1`] = `
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Ce champ est obligatoire.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -585,9 +585,9 @@ exports[`mg-input-numeric display error message with locale: xx 1`] = `
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -623,9 +623,9 @@ exports[`mg-input-numeric reset method Should reset displayed error, lock false 
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Message d'erreur de test
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -683,9 +683,9 @@ exports[`mg-input-numeric reset method Should reset displayed error, lock true 1
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Message d'erreur de test
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1145,9 +1145,9 @@ exports[`mg-input-numeric type decimal Should render with args {
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" name="identifier" required="" type="text" value="1,234,567,890.00">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1510,9 +1510,9 @@ exports[`mg-input-numeric type decimal Should render with args { required: true,
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text" value="1,234,567,890.00">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1764,9 +1764,9 @@ exports[`mg-input-numeric type decimal Should trigger events 1`] = `
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1883,9 +1883,9 @@ exports[`mg-input-numeric type decimal display error with displayError component
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2074,9 +2074,9 @@ exports[`mg-input-numeric type decimal validity, case next state is disabled val
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2134,9 +2134,9 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2594,9 +2594,9 @@ exports[`mg-input-numeric type integer Should render with args {
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2959,9 +2959,9 @@ exports[`mg-input-numeric type integer Should render with args { required: true,
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -3213,9 +3213,9 @@ exports[`mg-input-numeric type integer Should trigger events 1`] = `
       </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -3332,9 +3332,9 @@ exports[`mg-input-numeric type integer display error with displayError component
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -3523,9 +3523,9 @@ exports[`mg-input-numeric type integer validity, case next state is disabled val
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -3583,9 +3583,9 @@ exports[`mg-input-numeric type integer validity, case next state is readonly val
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -3803,9 +3803,9 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="2" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         The value must be greater than or equal to 2
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -3917,9 +3917,9 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
       </template>
       <input aria-describedby="identifier-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="2" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         The value must be less than or equal to 2
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">

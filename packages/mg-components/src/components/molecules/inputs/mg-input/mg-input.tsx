@@ -22,6 +22,12 @@ export class MgInput {
   private readonly slotLabel = 'label';
   private readonly slotError = 'error';
   private readonly slotHelpText = 'help-text';
+  // Block-level elements that cannot be nested inside a <p>.
+  // helpText/errorMessage are injected via innerHTML and may contain HTML: when block content
+  // is detected we fall back to <div> to keep the markup valid (RGAA 8.2), otherwise we use a
+  // semantic <p> for the (textual) message (RGAA 8.9).
+  private readonly blockLevelContentRegExp =
+    /<(address|article|aside|blockquote|details|dialog|div|dl|fieldset|figure|figcaption|footer|form|h[1-6]|header|hr|main|nav|ol|p|pre|section|table|ul)[\s/>]/i;
 
   // slots elements
   private errorMessageSlotElement: HTMLElement;
@@ -341,15 +347,43 @@ export class MgInput {
   }
 
   /**
+   * Get the semantic tag name for a slotted message.
+   * Phrasing (textual/inline) content uses <p> (RGAA 8.9); block-level content falls back to
+   * <div> to avoid invalid nesting such as <p><p>…</p></p> (RGAA 8.2).
+   * @param content - the HTML content that will be injected in the slot
+   * @returns the tag name to use
+   */
+  private getSlotMessageTagName(content: string): 'p' | 'div' {
+    return this.blockLevelContentRegExp.test(content) ? 'div' : 'p';
+  }
+
+  /**
+   * Get the existing slotted element or (re)create it with the expected tag.
+   * The element is recreated when its current tag no longer matches the expected one
+   * (e.g. the content switched from text to block HTML), keeping the slot id and position.
+   * @param slot - the slot name
+   * @param tagName - the expected tag name
+   * @returns the slotted element
+   */
+  private getSlotMessageElement(slot: string, tagName: 'p' | 'div'): HTMLElement {
+    let slotElement = this.element.querySelector<HTMLElement>(`[slot=${slot}]`);
+    if (slotElement !== null && slotElement.tagName.toLowerCase() !== tagName) {
+      slotElement.remove();
+      slotElement = null;
+    }
+    if (slotElement === null) {
+      slotElement = document.createElement(tagName);
+      slotElement.setAttribute('slot', slot);
+      this.element.appendChild(slotElement);
+    }
+    return slotElement;
+  }
+
+  /**
    * Render error message
    */
   private renderErrorMessage(): void {
-    this.errorMessageSlotElement = this.element.querySelector(`[slot=${this.slotError}]`);
-    if (this.errorMessageSlotElement === null) {
-      this.errorMessageSlotElement = document.createElement('div');
-      this.errorMessageSlotElement.setAttribute('slot', this.slotError);
-      this.element.appendChild(this.errorMessageSlotElement);
-    }
+    this.errorMessageSlotElement = this.getSlotMessageElement(this.slotError, this.getSlotMessageTagName(this.errorMessage));
     this.errorMessageSlotElement.setAttribute('id', this.helpTextErrorId);
     this.errorMessageSlotElement.innerHTML = this.errorMessage;
   }
@@ -358,12 +392,7 @@ export class MgInput {
    * Render help text message
    */
   private renderHelpText(): void {
-    this.helptextMessageSlotElement = this.element.querySelector(`[slot=${this.slotHelpText}]`);
-    if (this.helptextMessageSlotElement === null) {
-      this.helptextMessageSlotElement = document.createElement('div');
-      this.helptextMessageSlotElement.setAttribute('slot', this.slotHelpText);
-      this.element.appendChild(this.helptextMessageSlotElement);
-    }
+    this.helptextMessageSlotElement = this.getSlotMessageElement(this.slotHelpText, this.getSlotMessageTagName(this.helpText));
     this.helptextMessageSlotElement.setAttribute('id', this.helpTextId);
     this.helptextMessageSlotElement.innerHTML = this.helpText;
   }

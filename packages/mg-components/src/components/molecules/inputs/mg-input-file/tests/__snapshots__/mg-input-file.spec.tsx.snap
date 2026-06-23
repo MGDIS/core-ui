@@ -58,12 +58,12 @@ exports[`mg-input-file Should display error when maxSize is exceeded 1`] = `
           </mg-button>
         </div>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Maximum size: 5 bytes
-      </div>
-      <div id="identifier-error" slot="error">
+      </p>
+      <p id="identifier-error" slot="error">
         The file size exceeds the maximum allowed size of 5 bytes
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -156,9 +156,9 @@ exports[`mg-input-file Should render with args { accept: '.pdf' }: 1`] = `
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Accepted extensions: .pdf
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -200,9 +200,9 @@ exports[`mg-input-file Should render with args { accept: '.pdf', maxSize: 5000 }
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Maximum size: 4.88 kB. Accepted extensions: .pdf
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -320,9 +320,9 @@ exports[`mg-input-file Should render with args { maxSize: 5000 }: 1`] = `
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Maximum size: 4.88 kB
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -487,9 +487,9 @@ exports[`mg-input-file Should render with args { required: true, value: [Array],
           </mg-button>
         </div>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -853,11 +853,11 @@ exports[`mg-input-file Should render with interactive helpText 1`] = `
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         <a href="#">
           My help text
         </a>
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -899,11 +899,11 @@ exports[`mg-input-file Should render with interactive helpText 2`] = `
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         <a href="#">
           My help text
         </a>
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -945,11 +945,11 @@ exports[`mg-input-file Should render with interactive helpText 3`] = `
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         <a href="#">
           My help text
         </a>
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -991,9 +991,9 @@ exports[`mg-input-file Should update in case next state is validity ({ validity:
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1212,9 +1212,9 @@ exports[`mg-input-file methods displayError display error message with locale: f
           Parcourir…
         </mg-button>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Ce champ est obligatoire.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1261,9 +1261,9 @@ exports[`mg-input-file methods displayError display error message with locale: x
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1353,9 +1353,9 @@ exports[`mg-input-file methods displayError display error with displayError comp
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1402,9 +1402,9 @@ exports[`mg-input-file methods reset Should reset displayed error, lock false 1`
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Message d'erreur de test
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1484,9 +1484,9 @@ exports[`mg-input-file methods reset Should reset displayed error, lock true 1`]
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Message d'erreur de test
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1609,9 +1609,9 @@ exports[`mg-input-file methods setError Should display override error with setEr
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1658,9 +1658,9 @@ exports[`mg-input-file methods setError Should display override error with setEr
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1750,9 +1750,9 @@ exports[`mg-input-file methods setError Should display override error with setEr
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1799,9 +1799,9 @@ exports[`mg-input-file methods setError Should display override error with setEr
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1934,9 +1934,9 @@ exports[`mg-input-file methods setError Should display override error with setEr
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -2069,9 +2069,9 @@ exports[`mg-input-file methods setError Should display override error with setEr
           Browse…
         </mg-button>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">

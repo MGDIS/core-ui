@@ -226,9 +226,9 @@ exports[`mg-fieldset render Should render with args { helpText: 'Hello joker' }:
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         Hello joker
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-help-text" class="mg-c-input-title" id="identifier-title">
@@ -1179,9 +1179,9 @@ exports[`mg-fieldset validity Should display components errors (readonly: false)
             </label>
           </div>
         </div>
-        <div id="mg-input-radio-error" slot="error">
+        <p id="mg-input-radio-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -1217,9 +1217,9 @@ exports[`mg-fieldset validity Should display components errors (readonly: false)
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <div id="mg-input-text-error" slot="error">
+        <p id="mg-input-text-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
@@ -1329,9 +1329,9 @@ exports[`mg-fieldset validity Should set custom validity (readonly: false) 1`] =
       <span class="mg-c-input__input-group">
         <slot></slot>
       </span>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         this is a custom error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <legend aria-describedby="identifier-error" class="mg-c-input-title" id="identifier-title">
@@ -1547,9 +1547,9 @@ exports[`mg-fieldset validity Should set custom validity (readonly: true) 1`] = 
           legend
         </span>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         this is a custom error
-      </div>
+      </p>
     </mg-input>
   </template>
   <mg-input-radio>

@@ -53,9 +53,9 @@ exports[`mg-input-textarea Should display override error with setError component
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -92,9 +92,9 @@ exports[`mg-input-textarea Should display override error with setError component
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -164,9 +164,9 @@ exports[`mg-input-textarea Should display override error with setError component
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -203,9 +203,9 @@ exports[`mg-input-textarea Should display override error with setError component
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Override error
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -308,9 +308,9 @@ exports[`mg-input-textarea Should display override error with setError component
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -413,9 +413,9 @@ exports[`mg-input-textarea Should display override error with setError component
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -525,9 +525,9 @@ exports[`mg-input-textarea Should render with args {
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" maxlength="4000" name="identifier" required="" rows="3" value="blu"></textarea>
         <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -791,9 +791,9 @@ exports[`mg-input-textarea Should render with args { required: true, value: 'blu
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3" value="blu"></textarea>
         <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1035,11 +1035,11 @@ exports[`mg-input-textarea Should render with interactive helpText 1`] = `
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         <a href="#">
           My help text
         </a>
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1071,11 +1071,11 @@ exports[`mg-input-textarea Should render with interactive helpText 2`] = `
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         <a href="#">
           My help text
         </a>
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1107,11 +1107,11 @@ exports[`mg-input-textarea Should render with interactive helpText 3`] = `
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         <a href="#">
           My help text
         </a>
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1143,9 +1143,9 @@ exports[`mg-input-textarea Should trigger events 1`] = `
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-help-text" slot="help-text">
+      <p id="identifier-help-text" slot="help-text">
         My help text
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1289,9 +1289,9 @@ exports[`mg-input-textarea display error message with locale: fr 1`] = `
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Ce champ est obligatoire.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1328,9 +1328,9 @@ exports[`mg-input-textarea display error message with locale: xx 1`] = `
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1400,9 +1400,9 @@ exports[`mg-input-textarea display error with displayError component's public me
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1439,9 +1439,9 @@ exports[`mg-input-textarea reset method Should reset displayed error, lock false
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Message d'erreur de test
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1501,9 +1501,9 @@ exports[`mg-input-textarea reset method Should reset displayed error, lock true 
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         Message d'erreur de test
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1563,9 +1563,9 @@ exports[`mg-input-textarea validity, case next state is disabled validity ({ val
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">
@@ -1625,9 +1625,9 @@ exports[`mg-input-textarea validity, case next state is readonly validity ({ val
       <div class="mg-c-input__input-group-container"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <div id="identifier-error" slot="error">
+      <p id="identifier-error" slot="error">
         This field is required.
-      </div>
+      </p>
       <mg-input-title identifier="identifier" slot="label">
         <!---->
         <label class="mg-c-input-title" for="identifier">

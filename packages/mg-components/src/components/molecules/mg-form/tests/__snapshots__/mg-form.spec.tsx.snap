@@ -45,9 +45,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </label>
           </div>
         </div>
-        <div id="mg-input-checkbox-error" slot="error">
+        <p id="mg-input-checkbox-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -110,9 +110,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </ul>
           </div>
         </mg-popover>
-        <div id="mg-input-select-error" slot="error">
+        <p id="mg-input-select-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
@@ -147,7 +147,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -156,10 +156,10 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
-        <div id="mg-input-date-error" slot="error">
+        </p>
+        <p id="mg-input-date-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -192,9 +192,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         </template>
         <input aria-describedby="mg-input-numeric-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
         <slot name="append-input"></slot>
-        <div id="mg-input-numeric-error" slot="error">
+        <p id="mg-input-numeric-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
@@ -238,9 +238,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <div id="mg-input-password-error" slot="error">
+        <p id="mg-input-password-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
@@ -297,9 +297,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </label>
           </div>
         </div>
-        <div id="mg-input-radio-error" slot="error">
+        <p id="mg-input-radio-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -347,9 +347,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             blo
           </option>
         </select>
-        <div id="mg-input-select-error" slot="error">
+        <p id="mg-input-select-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
@@ -388,9 +388,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </div>
           </div>
         </div>
-        <div id="mg-input-rich-text-editor-error" slot="error">
+        <p id="mg-input-rich-text-editor-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
@@ -426,9 +426,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <div id="mg-input-text-error" slot="error">
+        <p id="mg-input-text-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
@@ -462,9 +462,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <div id="mg-input-textarea-error" slot="error">
+        <p id="mg-input-textarea-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
@@ -508,9 +508,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             Browse…
           </mg-button>
         </div>
-        <div id="mg-input-file-error" slot="error">
+        <p id="mg-input-file-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
@@ -580,9 +580,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <span class="mg-c-input__input-group">
           <slot></slot>
         </span>
-        <div id="fieldset-error" slot="error">
+        <p id="fieldset-error" slot="error">
           this is a custom error
-        </div>
+        </p>
         <mg-input-title identifier="fieldset" slot="label">
           <!---->
           <legend aria-describedby="fieldset-error" class="mg-c-input-title" id="fieldset-title">
@@ -1179,7 +1179,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -1188,7 +1188,7 @@ exports[`mg-form Should render with args {
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -1680,7 +1680,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -1689,7 +1689,7 @@ exports[`mg-form Should render with args {
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -2131,7 +2131,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -2140,7 +2140,7 @@ exports[`mg-form Should render with args {
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -2639,7 +2639,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -2648,7 +2648,7 @@ exports[`mg-form Should render with args {
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -3088,7 +3088,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -3097,7 +3097,7 @@ exports[`mg-form Should render with args {
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -3582,7 +3582,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -3591,7 +3591,7 @@ exports[`mg-form Should render with args {
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -4026,7 +4026,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -4035,7 +4035,7 @@ exports[`mg-form Should render with args {
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -4520,7 +4520,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -4529,7 +4529,7 @@ exports[`mg-form Should render with args {
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -4972,7 +4972,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -4981,7 +4981,7 @@ exports[`mg-form Should render with args {
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -5473,7 +5473,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -5482,7 +5482,7 @@ exports[`mg-form Should render with args {
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -5924,7 +5924,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -5933,7 +5933,7 @@ exports[`mg-form Should render with args {
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -6421,7 +6421,7 @@ exports[`mg-form Should render with args {
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -6430,7 +6430,7 @@ exports[`mg-form Should render with args {
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -6857,7 +6857,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -6866,7 +6866,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -7593,7 +7593,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" disabled="" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -7602,7 +7602,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -8029,7 +8029,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -8038,7 +8038,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -8765,7 +8765,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -8774,7 +8774,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -9201,7 +9201,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -9210,7 +9210,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -9637,7 +9637,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -9646,7 +9646,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -10073,7 +10073,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -10082,7 +10082,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -10509,7 +10509,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -10518,7 +10518,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -10945,7 +10945,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -10954,7 +10954,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -11307,9 +11307,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </label>
           </div>
         </div>
-        <div id="mg-input-checkbox-error" slot="error">
+        <p id="mg-input-checkbox-error" slot="error">
           Ce champ est obligatoire.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -11372,9 +11372,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </ul>
           </div>
         </mg-popover>
-        <div id="mg-input-select-error" slot="error">
+        <p id="mg-input-select-error" slot="error">
           Ce champ est obligatoire.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
@@ -11409,7 +11409,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Format attendu&nbsp;:
           <span aria-hidden="true">
             mm/jj/aaaa
@@ -11418,10 +11418,10 @@ exports[`mg-form display error message with locale: fr 1`] = `
             m m / j j / a a a a
           </span>
           (ex&nbsp;: 12/24/2025)
-        </div>
-        <div id="mg-input-date-error" slot="error">
+        </p>
+        <p id="mg-input-date-error" slot="error">
           Ce champ est obligatoire.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -11454,9 +11454,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
         </template>
         <input aria-describedby="mg-input-numeric-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
         <slot name="append-input"></slot>
-        <div id="mg-input-numeric-error" slot="error">
+        <p id="mg-input-numeric-error" slot="error">
           Ce champ est obligatoire.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
@@ -11500,9 +11500,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <div id="mg-input-password-error" slot="error">
+        <p id="mg-input-password-error" slot="error">
           Ce champ est obligatoire.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
@@ -11559,9 +11559,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </label>
           </div>
         </div>
-        <div id="mg-input-radio-error" slot="error">
+        <p id="mg-input-radio-error" slot="error">
           Ce champ est obligatoire.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -11609,9 +11609,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
             blo
           </option>
         </select>
-        <div id="mg-input-select-error" slot="error">
+        <p id="mg-input-select-error" slot="error">
           Ce champ est obligatoire.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
@@ -11650,9 +11650,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </div>
           </div>
         </div>
-        <div id="mg-input-rich-text-editor-error" slot="error">
+        <p id="mg-input-rich-text-editor-error" slot="error">
           Ce champ est obligatoire.
-        </div>
+        </p>
         <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
@@ -11688,9 +11688,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <div id="mg-input-text-error" slot="error">
+        <p id="mg-input-text-error" slot="error">
           Ce champ est obligatoire.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
@@ -11724,9 +11724,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <div id="mg-input-textarea-error" slot="error">
+        <p id="mg-input-textarea-error" slot="error">
           Ce champ est obligatoire.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
@@ -11770,9 +11770,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
             Parcourir…
           </mg-button>
         </div>
-        <div id="mg-input-file-error" slot="error">
+        <p id="mg-input-file-error" slot="error">
           Ce champ est obligatoire.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
@@ -11867,9 +11867,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </label>
           </div>
         </div>
-        <div id="mg-input-checkbox-error" slot="error">
+        <p id="mg-input-checkbox-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-checkbox" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -11932,9 +11932,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </ul>
           </div>
         </mg-popover>
-        <div id="mg-input-select-error" slot="error">
+        <p id="mg-input-select-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
@@ -11969,7 +11969,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
           </div>
         </template>
         <input aria-describedby="mg-input-date-help-text mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
-        <div id="mg-input-date-help-text" slot="help-text">
+        <p id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
             mm/dd/yyyy
@@ -11978,10 +11978,10 @@ exports[`mg-form display error message with locale: xx 1`] = `
             m m / d d / y y y y
           </span>
           (ex: 12/24/2025)
-        </div>
-        <div id="mg-input-date-error" slot="error">
+        </p>
+        <p id="mg-input-date-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-date" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-date">
@@ -12014,9 +12014,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
         </template>
         <input aria-describedby="mg-input-numeric-error" aria-invalid="true" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
         <slot name="append-input"></slot>
-        <div id="mg-input-numeric-error" slot="error">
+        <p id="mg-input-numeric-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-numeric" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-numeric">
@@ -12060,9 +12060,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
             <mg-icon class="mg-c-input__input-icon" icon="eye"></mg-icon>
           </mg-button>
         </span>
-        <div id="mg-input-password-error" slot="error">
+        <p id="mg-input-password-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-password" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-password">
@@ -12119,9 +12119,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </label>
           </div>
         </div>
-        <div id="mg-input-radio-error" slot="error">
+        <p id="mg-input-radio-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-radio" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -12169,9 +12169,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
             blo
           </option>
         </select>
-        <div id="mg-input-select-error" slot="error">
+        <p id="mg-input-select-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-select" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-select">
@@ -12210,9 +12210,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </div>
           </div>
         </div>
-        <div id="mg-input-rich-text-editor-error" slot="error">
+        <p id="mg-input-rich-text-editor-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title id="mg-input-rich-text-editor-title" identifier="mg-input-rich-text-editor" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-rich-text-editor">
@@ -12248,9 +12248,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
-        <div id="mg-input-text-error" slot="error">
+        <p id="mg-input-text-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-text" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-text">
@@ -12284,9 +12284,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div class="mg-c-input__input-group-container"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
-        <div id="mg-input-textarea-error" slot="error">
+        <p id="mg-input-textarea-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-textarea" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-textarea">
@@ -12330,9 +12330,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
             Browse…
           </mg-button>
         </div>
-        <div id="mg-input-file-error" slot="error">
+        <p id="mg-input-file-error" slot="error">
           This field is required.
-        </div>
+        </p>
         <mg-input-title identifier="mg-input-file" slot="label">
           <!---->
           <label class="mg-c-input-title" for="mg-input-file">
