@@ -123,7 +123,9 @@ const downloadOptimizeAndWriteIcon = async (
 
     pathColorElements.forEach(pathColorElement => {
       pathColorElement.classList.add(dynamicColorClass);
-      pathColorElement.setAttribute('style', 'fill: var(--mg-b-color-app)');
+      // Keep the original brand colour as the fallback so the illustration still
+      // renders it when no theme provides --mg-b-color-app, instead of disappearing.
+      pathColorElement.setAttribute('fill', `var(--mg-b-color-app, ${pathColorElement.getAttribute('fill')})`);
     });
   }
 

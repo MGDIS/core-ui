@@ -1,7 +1,16 @@
+import { readFileSync } from 'fs';
+import { join } from 'path';
 import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { renderAttributes } from '@mgdis/core-ui-helpers/dist/playwright';
 import { directions, sizes } from '../mg-illustrated-message.conf';
+
+// A real shipped illustration whose brand-coloured paths carry
+// fill="var(--mg-b-color-app, <brand colour>)". Loaded as an <img>, the
+// standalone SVG document has no --mg-b-color-app, so it exercises the brand
+// fallback that replaced the bug where the illustration rendered as fill:none.
+const illustrationSvg = readFileSync(join(__dirname, '../../../../../../img/src/illustrations/no-data.svg'), 'utf-8');
+const illustrationDataUri = `data:image/svg+xml;base64,${Buffer.from(illustrationSvg).toString('base64')}`;
 
 const createHTML = (args, title = '<h2 slot="title">Lorem Ipsum</h2>') => `
   <style>
@@ -82,5 +91,17 @@ test.describe('mg-illustrated-message', () => {
     // Without the fix the host collapses to 0, so the illustration box is 0×0.
     expect(box?.width ?? 0).toBeGreaterThan(0);
     expect(box?.height ?? 0).toBeGreaterThan(0);
+  });
+
+  test('renders the dynamic-color illustration loaded as an <img> in the slot', async ({ page }) => {
+    await page.setContent(`
+      <style>.e2e-screenshot { display: block; max-width: 300px; }</style>
+      <mg-illustrated-message>
+        <img slot="illustration" alt="" style="inline-size: 184px" src="${illustrationDataUri}" />
+        <h2 slot="title">Lorem Ipsum</h2>
+      </mg-illustrated-message>`);
+    await page.waitForSelector('mg-illustrated-message.hydrated', { state: 'attached' });
+
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });
